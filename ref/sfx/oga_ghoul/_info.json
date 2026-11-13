@@ -1,0 +1,30 @@
+{
+ "title": "Hungry ghoul",
+ "author": "Darsycho",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/hungry-ghoul",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0",
+ "note": "Feel free to use for whatever, credit is appreciated!",
+ "urls": [
+  "https://opengameart.org/sites/default/files/hungry-ghoul_0.ogg"
+ ],
+ "pack": "oga_ghoul",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "hungry-ghoul_0.ogg",
+   "bytes": 355731,
+   "sha256": "efe8b72a072b38927a4faea0a5f200d1b4534a9430bae9ec4bccf317a7efad6c"
+  }
+ ],
+ "files": [
+  {
+   "file": "hungry_ghoul_0.ogg",
+   "orig": "hungry-ghoul_0.ogg",
+   "bytes": 355731,
+   "sha256": "efe8b72a072b38927a4faea0a5f200d1b4534a9430bae9ec4bccf317a7efad6c"
+  }
+ ]
+}

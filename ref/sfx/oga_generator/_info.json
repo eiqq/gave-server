@@ -1,0 +1,31 @@
+{
+ "title": "Generator (loop)",
+ "author": "YCbCr",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/generator-loop",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+ "note": "",
+ "desc": "Low frequency motor sound, could also be used for fans or other machinery. 5.436 seconds long.",
+ "urls": [
+  "https://opengameart.org/sites/default/files/loop_generator_1.mp3"
+ ],
+ "pack": "oga_generator",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "loop_generator_1.mp3",
+   "bytes": 60664,
+   "sha256": "c5989e33550cefb84e7e224c531662d02530e0484caa814a7fa7e7bed39f2062"
+  }
+ ],
+ "files": [
+  {
+   "file": "loop_generator_1.mp3",
+   "orig": "loop_generator_1.mp3",
+   "bytes": 60664,
+   "sha256": "c5989e33550cefb84e7e224c531662d02530e0484caa814a7fa7e7bed39f2062"
+  }
+ ]
+}

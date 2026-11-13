@@ -1,0 +1,392 @@
+[
+[
+"wait",
+2
+],
+[
+"cmd",
+"gamemode adventure {USER}"
+],
+[
+"cmd",
+"gave 시작"
+],
+[
+"until",
+"state=PREP",
+15
+],
+[
+"cmd",
+"gave 시험 판끝막기 {USER} on"
+],
+[
+"cmd",
+"gave 시험 총 {USER} RIFLE"
+],
+[
+"until",
+"state=WAVE",
+40
+],
+[
+"cmd",
+"gave 시험 감독빨리 x 0.1"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 10.5 0 0"
+],
+[
+"wait",
+0.5
+],
+[
+"cmd",
+"gave 시험 원정 x 상태"
+],
+[
+"cmd",
+"gave 소환 G193 1 20 {USER}"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 몹목록 x G193"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 0 -50"
+],
+[
+"wait",
+0.4
+],
+[
+"shot",
+"g193_up"
+],
+[
+"wait",
+8
+],
+[
+"cmd",
+"gave 시험 몹목록 x G193"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g193_0"
+],
+[
+"wait",
+8
+],
+[
+"cmd",
+"gave 시험 몹목록 x G193"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g193_1"
+],
+[
+"wait",
+8
+],
+[
+"cmd",
+"gave 시험 몹목록 x G193"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g193_2"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G193 20"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 20"
+],
+[
+"wait",
+1.2
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} EXPLOSION 3 G193"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 몹목록 x G193"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x G193"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"wait",
+0.5
+],
+[
+"cmd",
+"gave 소환 G196 1 10 {USER}"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 몹목록 x G196"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 0 -50"
+],
+[
+"wait",
+0.4
+],
+[
+"shot",
+"g196_up"
+],
+[
+"wait",
+10
+],
+[
+"cmd",
+"gave 시험 몹목록 x G196"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g196_0"
+],
+[
+"wait",
+12
+],
+[
+"cmd",
+"gave 시험 몹목록 x G196"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g196_1"
+],
+[
+"wait",
+10
+],
+[
+"cmd",
+"gave 시험 몹목록 x G196"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g196_2"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G196 20"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 20"
+],
+[
+"wait",
+1.2
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} EXPLOSION 3 G196"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 몹목록 x G196"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x G196"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"wait",
+0.5
+],
+[
+"cmd",
+"gave 소환 G200 1 10 {USER}"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 몹목록 x G200"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 0 -50"
+],
+[
+"wait",
+0.4
+],
+[
+"shot",
+"g200_up"
+],
+[
+"wait",
+6
+],
+[
+"cmd",
+"gave 시험 몹목록 x G200"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g200_0"
+],
+[
+"wait",
+6
+],
+[
+"cmd",
+"gave 시험 몹목록 x G200"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g200_1"
+],
+[
+"wait",
+6
+],
+[
+"cmd",
+"gave 시험 몹목록 x G200"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g200_2"
+],
+[
+"cmd",
+"gave 시험 몹목록 x G200"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G200 20"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 20"
+],
+[
+"wait",
+1.2
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} EXPLOSION 3 G200"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 몹목록 x G200"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x G200"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"wait",
+0.5
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 상태"
+]
+]

@@ -1,0 +1,90 @@
+{
+ "title": "Zomby sfx pack",
+ "author": "saturn91",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/zomby-sfx-pack",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0",
+ "note": "free to use with out any credits, if you want to you can mention saturn91.dev as the creator of these assets",
+ "urls": [
+  "https://opengameart.org/sites/default/files/01_zombey.mp3",
+  "https://opengameart.org/sites/default/files/02_zombey.mp3",
+  "https://opengameart.org/sites/default/files/03_zombey.mp3",
+  "https://opengameart.org/sites/default/files/04_zombey_0.mp3",
+  "https://opengameart.org/sites/default/files/06_zombey.mp3",
+  "https://opengameart.org/sites/default/files/07_zombey.mp3"
+ ],
+ "pack": "oga_zomby",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "01_zombey.mp3",
+   "bytes": 21811,
+   "sha256": "dd6e9291f2bf3f916a2b85f4a80afe8787a3df66205bd88cb5daeb76f96456d7"
+  },
+  {
+   "file": "02_zombey.mp3",
+   "bytes": 21126,
+   "sha256": "5c2b6ebc41bc8a57c16e4d7475f7b3fd196e44a9d787371ed001fa3d1df2df85"
+  },
+  {
+   "file": "03_zombey.mp3",
+   "bytes": 22827,
+   "sha256": "30b05b9f16efc2faaecb22552a821aae522ed0b0d5639173e199e56ed40dacca"
+  },
+  {
+   "file": "04_zombey_0.mp3",
+   "bytes": 21795,
+   "sha256": "4ac5cd1d52c8a8129c10df28b466003afb583a9a23424c033102bc4e630b2995"
+  },
+  {
+   "file": "06_zombey.mp3",
+   "bytes": 39242,
+   "sha256": "38d663ff313830139b848e0dcd2b346ddc7309a44ec51f100565973aa253c852"
+  },
+  {
+   "file": "07_zombey.mp3",
+   "bytes": 30879,
+   "sha256": "b47a60596c8adc5f4b0d7665ee154e349916a21739a811de1801e255e8100ae7"
+  }
+ ],
+ "files": [
+  {
+   "file": "01_zombey.mp3",
+   "orig": "01_zombey.mp3",
+   "bytes": 21811,
+   "sha256": "dd6e9291f2bf3f916a2b85f4a80afe8787a3df66205bd88cb5daeb76f96456d7"
+  },
+  {
+   "file": "02_zombey.mp3",
+   "orig": "02_zombey.mp3",
+   "bytes": 21126,
+   "sha256": "5c2b6ebc41bc8a57c16e4d7475f7b3fd196e44a9d787371ed001fa3d1df2df85"
+  },
+  {
+   "file": "03_zombey.mp3",
+   "orig": "03_zombey.mp3",
+   "bytes": 22827,
+   "sha256": "30b05b9f16efc2faaecb22552a821aae522ed0b0d5639173e199e56ed40dacca"
+  },
+  {
+   "file": "04_zombey_0.mp3",
+   "orig": "04_zombey_0.mp3",
+   "bytes": 21795,
+   "sha256": "4ac5cd1d52c8a8129c10df28b466003afb583a9a23424c033102bc4e630b2995"
+  },
+  {
+   "file": "06_zombey.mp3",
+   "orig": "06_zombey.mp3",
+   "bytes": 39242,
+   "sha256": "38d663ff313830139b848e0dcd2b346ddc7309a44ec51f100565973aa253c852"
+  },
+  {
+   "file": "07_zombey.mp3",
+   "orig": "07_zombey.mp3",
+   "bytes": 30879,
+   "sha256": "b47a60596c8adc5f4b0d7665ee154e349916a21739a811de1801e255e8100ae7"
+  }
+ ]
+}

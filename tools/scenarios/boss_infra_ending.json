@@ -1,0 +1,166 @@
+[
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gamemode adventure {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 빈보스 on"
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  25
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 {USER} on"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 35"
+ ],
+ [
+  "until",
+  "boss=B5",
+  30
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "shot",
+  "b5_intro"
+ ],
+ [
+  "wait",
+  7
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} B5 400"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 화남"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "shot",
+  "b5_enrage"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 {USER} 죽이기"
+ ],
+ [
+  "wait",
+  1.2
+ ],
+ [
+  "shot",
+  "end_freeze"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 상태"
+ ],
+ [
+  "wait",
+  3.2
+ ],
+ [
+  "shot",
+  "end_wave"
+ ],
+ [
+  "wait",
+  2.2
+ ],
+ [
+  "shot",
+  "end_card"
+ ],
+ [
+  "cmd",
+  "gave 시험 음악 x 보기"
+ ],
+ [
+  "until",
+  "state=BREAK",
+  40
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "shot",
+  "end_break"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 증강목록 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 기록 x"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 상태"
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "wait",
+  30
+ ],
+ [
+  "shot",
+  "end_break_mid"
+ ],
+ [
+  "until",
+  "wave=36",
+  45
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "shot",
+  "w36"
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 상태"
+ ]
+]

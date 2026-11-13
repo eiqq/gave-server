@@ -1,0 +1,252 @@
+[
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gamemode adventure {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=PREP",
+  15
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 흐름벽 {USER} -5 -6 5 4 3"
+ ],
+ [
+  "wait",
+  0.6
+ ],
+ [
+  "cmd",
+  "gave 시험 흐름 {USER} 0.5 -18"
+ ],
+ [
+  "cmd",
+  "gave 시험 흐름 {USER} 0.5 -7"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 {USER} G01 3 0.5 -20 1.5"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER}"
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER}"
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER}"
+ ],
+ [
+  "shot",
+  "flow_side"
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER}"
+ ],
+ [
+  "shot",
+  "flow_round"
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER}"
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 흐름벽 {USER} 지움"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER} 100"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  15
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 {USER} G01 1 -4 -10"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 {USER} G02 1 -4 -11"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "cmd",
+  "gave 시험 예산 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹나이 {USER} 850"
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "cmd",
+  "gave 시험 몹보기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹나이 {USER} 400 G01"
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "cmd",
+  "gave 시험 예산 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER} G01"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER} 20"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "cmd",
+  "gave 시험 예산 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹보기 {USER}"
+ ],
+ [
+  "shot",
+  "gaze"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER} 100"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹시간 {USER} on"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹고리 {USER} G01 150 45"
+ ],
+ [
+  "wait",
+  5
+ ],
+ [
+  "cmd",
+  "gave 시험 몹시간 {USER}"
+ ],
+ [
+  "shot",
+  "stress_far"
+ ],
+ [
+  "wait",
+  5
+ ],
+ [
+  "cmd",
+  "gave 시험 몹시간 {USER}"
+ ],
+ [
+  "wait",
+  5
+ ],
+ [
+  "cmd",
+  "gave 시험 몹시간 {USER}"
+ ],
+ [
+  "shot",
+  "stress_near"
+ ],
+ [
+  "wait",
+  5
+ ],
+ [
+  "cmd",
+  "gave 시험 몹시간 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 예산 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ]
+]

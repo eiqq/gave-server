@@ -1,0 +1,31 @@
+{
+ "title": "Crash Collision",
+ "author": "qubodup",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/crash-collision",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+ "note": "",
+ "desc": "Stapler + Lock + Click = Collision for racing games? (Own recordings used only)",
+ "urls": [
+  "https://opengameart.org/sites/default/files/qubodup-crash.ogg"
+ ],
+ "pack": "oga_crash",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "qubodup-crash.ogg",
+   "bytes": 23929,
+   "sha256": "e468ee00a6c94313cf4efcf347b5f4e51e98e629608be277a8f58feb5e2267ff"
+  }
+ ],
+ "files": [
+  {
+   "file": "qubodup_crash.ogg",
+   "orig": "qubodup-crash.ogg",
+   "bytes": 23929,
+   "sha256": "e468ee00a6c94313cf4efcf347b5f4e51e98e629608be277a8f58feb5e2267ff"
+  }
+ ]
+}

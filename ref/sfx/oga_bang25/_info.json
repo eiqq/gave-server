@@ -1,0 +1,174 @@
+{
+ "title": "25 CC0 bang / firework SFX",
+ "author": "rubberduck",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/25-cc0-bang-firework-sfx",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0",
+ "note": "",
+ "urls": [
+  "https://opengameart.org/sites/default/files/25-CC0-bang-sfx.zip"
+ ],
+ "pack": "oga_bang25",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "25-CC0-bang-sfx.zip",
+   "bytes": 1390498,
+   "sha256": "c0c9ecc11e2dc0d190f0cced755569858234b8528286bc83becb6314c663407f"
+  }
+ ],
+ "files": [
+  {
+   "file": "bang_01.ogg",
+   "orig": "bang_01.ogg",
+   "bytes": 37156,
+   "sha256": "5f4c32527a74b73c1ba9f5914bb7881f96068f29435be241c4de7c9020e3e638"
+  },
+  {
+   "file": "bang_02.ogg",
+   "orig": "bang_02.ogg",
+   "bytes": 36302,
+   "sha256": "0f0c960888e6ebcb1bc68fa77fa0e52a26b8693b7a420a95ed0d669c486bc4f5"
+  },
+  {
+   "file": "bang_03.ogg",
+   "orig": "bang_03.ogg",
+   "bytes": 25714,
+   "sha256": "b823f53557ca9702f57b3f9e997fc92d5b87da99d464309d14199aabf2d620c4"
+  },
+  {
+   "file": "bang_04.ogg",
+   "orig": "bang_04.ogg",
+   "bytes": 43454,
+   "sha256": "fb3b76187c36e185a331d2250268132dbf2eb490a6c0414d69e3570c72b4f2e6"
+  },
+  {
+   "file": "bang_05.ogg",
+   "orig": "bang_05.ogg",
+   "bytes": 45926,
+   "sha256": "6881ae4a9ca936916322162cbc13dfcf180a35b99e9b84048988161234bfa83c"
+  },
+  {
+   "file": "bang_06.ogg",
+   "orig": "bang_06.ogg",
+   "bytes": 22734,
+   "sha256": "1209d7d44cd333abe089bb0ed8ac684381abfde8e4baad20bd5a0005168fd9ea"
+  },
+  {
+   "file": "bang_07.ogg",
+   "orig": "bang_07.ogg",
+   "bytes": 26825,
+   "sha256": "a16c416e8715aa937d9009c7337a35a21d85bb087ba866e9eed89c1c7862b4f3"
+  },
+  {
+   "file": "bang_08.ogg",
+   "orig": "bang_08.ogg",
+   "bytes": 19546,
+   "sha256": "aaaba1cdaeb9e5e61abf3ebdff09c967b5d451c42b45259e3b00f62575baafea"
+  },
+  {
+   "file": "bang_09.ogg",
+   "orig": "bang_09.ogg",
+   "bytes": 19195,
+   "sha256": "ca0c121adbcbf3d0af366d03ace49a4e018e7157c7f35348c63918fa34afbc46"
+  },
+  {
+   "file": "bang_10.ogg",
+   "orig": "bang_10.ogg",
+   "bytes": 37353,
+   "sha256": "c012d643e9cac159729a1026f6a8f70a6f84be7bdddc18fc8051243f814a17ec"
+  },
+  {
+   "file": "cannon_01.ogg",
+   "orig": "cannon_01.ogg",
+   "bytes": 54484,
+   "sha256": "e87ca0ee6b53da1f21cd9086cb75f456495871618fdfed63388bd2208a872596"
+  },
+  {
+   "file": "cannon_02.ogg",
+   "orig": "cannon_02.ogg",
+   "bytes": 69097,
+   "sha256": "716392af61b29dabe637c2616091207f390d25357aae3d4c625df5dfea7e961d"
+  },
+  {
+   "file": "cannon_03.ogg",
+   "orig": "cannon_03.ogg",
+   "bytes": 38818,
+   "sha256": "c3690a013befc16be1432e6fe62422db71c7b606980ddfe62429e864c5caf1d2"
+  },
+  {
+   "file": "cannon_04.ogg",
+   "orig": "cannon_04.ogg",
+   "bytes": 39071,
+   "sha256": "58714ef1d8c73a52cd9358c783de4b961ee96259de112c6493a1028bc60410e8"
+  },
+  {
+   "file": "cannon_05.ogg",
+   "orig": "cannon_05.ogg",
+   "bytes": 40160,
+   "sha256": "d0ab7de664533fa115a65dcc877c443fe02e8e6cc96e8051c34fe9ec66474c7b"
+  },
+  {
+   "file": "fw_01.ogg",
+   "orig": "fw_01.ogg",
+   "bytes": 49313,
+   "sha256": "1c8a6053433cd682a65665780ead9dfadc14c9442337e6d54469100bcb743694"
+  },
+  {
+   "file": "fw_02.ogg",
+   "orig": "fw_02.ogg",
+   "bytes": 55648,
+   "sha256": "3f0e772c7608937de3e0d39167e1c7037c047f1891bbcf7f7ab6af21fe87177c"
+  },
+  {
+   "file": "fw_03.ogg",
+   "orig": "fw_03.ogg",
+   "bytes": 51269,
+   "sha256": "2f2c7e9d44d61a5ddcdf7982383229e9b3fa6e0d37651c07030ab7d21baca49c"
+  },
+  {
+   "file": "fw_04.ogg",
+   "orig": "fw_04.ogg",
+   "bytes": 74460,
+   "sha256": "48c5f564ebba962c3f54cd6bc6d4d958c47e9a795aabe8a91643afaa9fdf4c11"
+  },
+  {
+   "file": "fw_05.ogg",
+   "orig": "fw_05.ogg",
+   "bytes": 32455,
+   "sha256": "d513015c404049f5332ea4c3b0d19a764e7c26639949c7d18894635b691f4787"
+  },
+  {
+   "file": "fw_06.ogg",
+   "orig": "fw_06.ogg",
+   "bytes": 39089,
+   "sha256": "3957eaa6bb83b63ee73de9a5d3a17df201dfddedf705eb29cd25a9548a8f02c2"
+  },
+  {
+   "file": "fw_loop.ogg",
+   "orig": "fw_loop.ogg",
+   "bytes": 600425,
+   "sha256": "f584e533bbbf236efe49506ab1caaad9269375ce260ee773bbd8f1448c05ea34"
+  },
+  {
+   "file": "shot_01.ogg",
+   "orig": "shot_01.ogg",
+   "bytes": 21380,
+   "sha256": "a846eefebbb08b6f6d31a7728318b8de349ea2971cea148d7afdb41d797fdcfc"
+  },
+  {
+   "file": "shot_02.ogg",
+   "orig": "shot_02.ogg",
+   "bytes": 19919,
+   "sha256": "4b9b62ff7f430d9d257a07efc54be8192c2e01668fe5e2461f217b2f8fe33a77"
+  },
+  {
+   "file": "shot_03.ogg",
+   "orig": "shot_03.ogg",
+   "bytes": 17081,
+   "sha256": "f3cfbf0af36a717ff9c8f58640f181db7b73266e8263591014d453c4e77c6418"
+  }
+ ]
+}

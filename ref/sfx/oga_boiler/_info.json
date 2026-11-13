@@ -1,0 +1,31 @@
+{
+ "title": "Steam boiler sound loop",
+ "author": "bart",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/steam-boiler-sound-loop",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+ "note": "",
+ "desc": "For Tempest in the Aether. Attribution appreciated. :) Note: This was built completely with a synthesizer -- specifically Image-Line's Ogun, which does some nice metal type sounds.",
+ "urls": [
+  "https://opengameart.org/sites/default/files/generator_loop.wav"
+ ],
+ "pack": "oga_boiler",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "generator_loop.wav",
+   "bytes": 3908118,
+   "sha256": "64b174cf8ef71e7f71aa03cf29864ab489f7be1f624456cab916043da38911bd"
+  }
+ ],
+ "files": [
+  {
+   "file": "generator_loop.wav",
+   "orig": "generator_loop.wav",
+   "bytes": 3908118,
+   "sha256": "64b174cf8ef71e7f71aa03cf29864ab489f7be1f624456cab916043da38911bd"
+  }
+ ]
+}

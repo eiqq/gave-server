@@ -1,0 +1,30 @@
+{
+ "title": "Earthquake and Open sesame",
+ "author": "mieki256",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/earthquake-and-open-sesame",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0",
+ "note": "",
+ "urls": [
+  "https://opengameart.org/sites/default/files/shake.flac"
+ ],
+ "pack": "oga_quake",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "shake.flac",
+   "bytes": 485127,
+   "sha256": "344a5703ac9ee0b7cf28e007f522d6ec24426447c4ff3cae8e57dec48eda1ba9"
+  }
+ ],
+ "files": [
+  {
+   "file": "shake.flac",
+   "orig": "shake.flac",
+   "bytes": 485127,
+   "sha256": "344a5703ac9ee0b7cf28e007f522d6ec24426447c4ff3cae8e57dec48eda1ba9"
+  }
+ ]
+}

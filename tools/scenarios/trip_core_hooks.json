@@ -1,0 +1,292 @@
+[
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gamemode adventure {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 균형 x ALIVE_PER_WAVE 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 균형 x ALIVE_BASE 0"
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=PREP",
+  15
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 {USER} on"
+ ],
+ [
+  "cmd",
+  "gave 시험 돈 {USER} 1000"
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 5.5 180 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 상점열기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 사기 {USER} 14"
+ ],
+ [
+  "cmd",
+  "gave 시험 기본판매 {USER} autoammo 상태"
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "shot",
+  "shop_autoammo"
+ ],
+ [
+  "cmd",
+  "gave 시험 사기 {USER} 14"
+ ],
+ [
+  "cmd",
+  "gave 시험 기본판매 {USER} autoammo 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 사기 {USER} 14"
+ ],
+ [
+  "cmd",
+  "gave 시험 기본판매 {USER} autoammo 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 상점닫기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 탄창 {USER} 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 예비 {USER} 0"
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "cmd",
+  "gave 시험 기본판매 {USER} autoammo 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 총상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 검은화면 x 100 ld_s0_human"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "shot",
+  "travel_black_hud"
+ ],
+ [
+  "wait",
+  5
+ ],
+ [
+  "cmd",
+  "gave 시험 이동 x 160"
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "cmd",
+  "gave 시험 상점열기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "wait",
+  10
+ ],
+ [
+  "cmd",
+  "gave 시험 상점열기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 상점닫기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 트럭 x 부품 p_winch"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  30
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 12.5 180 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 쓰러뜨리기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "wait",
+  5
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 일으키기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "cmd",
+  "gave 시험 결과 {USER} G38"
+ ],
+ [
+  "cmd",
+  "tp {USER} 6.5 64 9.5 150 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 죽이기 {USER}"
+ ],
+ [
+  "wait",
+  4
+ ],
+ [
+  "shot",
+  "dead_view_high"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "shot",
+  "dead_view_high2"
+ ],
+ [
+  "cmd",
+  "gave 시험 그냥꺼내기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 2"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 6.5 180 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 쉬기 x"
+ ],
+ [
+  "wait",
+  3.5
+ ],
+ [
+  "cmd",
+  "gave 시험 길투표 {USER} 2"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "cmd",
+  "gave 시험 원정 {USER} 허드"
+ ],
+ [
+  "shot",
+  "vote_panel"
+ ],
+ [
+  "cmd",
+  "gave 시험 길 x 닫기"
+ ],
+ [
+  "wait",
+  0.6
+ ],
+ [
+  "cmd",
+  "gave 시험 원정 {USER} 허드"
+ ],
+ [
+  "shot",
+  "vote_pick"
+ ],
+ [
+  "cmd",
+  "gave 중지"
+ ],
+ [
+  "wait",
+  1
+ ]
+]

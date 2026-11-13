@@ -1,0 +1,288 @@
+[
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gamemode adventure {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=PREP",
+  15
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 {USER} on"
+ ],
+ [
+  "cmd",
+  "gave 시험 총 {USER} RIFLE"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  40
+ ],
+ [
+  "cmd",
+  "gave 시험 감독빨리 x 0.1"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER} 100"
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 24.5 0 0"
+ ],
+ [
+  "wait",
+  0.4
+ ],
+ [
+  "cmd",
+  "gave 소환 G45 1 5 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 {USER} on"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G45"
+ ],
+ [
+  "wait",
+  0.6
+ ],
+ [
+  "shot",
+  "g45_look"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G45"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G45 50"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 50"
+ ],
+ [
+  "wait",
+  1.2
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER} G45"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G45"
+ ],
+ [
+  "shot",
+  "g45_cut"
+ ],
+ [
+  "wait",
+  1.6
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER} G45"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 {USER} off"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 {USER}"
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 24.5 0 0"
+ ],
+ [
+  "cmd",
+  "gave 소환 G45 1 22 {USER}"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G45"
+ ],
+ [
+  "wait",
+  0.3
+ ],
+ [
+  "shot",
+  "g45_cruise"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G45"
+ ],
+ [
+  "wait",
+  1.6
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G45"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G45"
+ ],
+ [
+  "wait",
+  0.2
+ ],
+ [
+  "shot",
+  "g45_dive1"
+ ],
+ [
+  "wait",
+  0.6
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G45"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G45"
+ ],
+ [
+  "wait",
+  0.2
+ ],
+ [
+  "shot",
+  "g45_dive2"
+ ],
+ [
+  "wait",
+  0.6
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G45"
+ ],
+ [
+  "shot",
+  "g45_sweep1"
+ ],
+ [
+  "wait",
+  0.6
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G45"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "shot",
+  "g45_sweep2"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G45"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "shot",
+  "g45_hook1"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "shot",
+  "g45_hook2"
+ ],
+ [
+  "wait",
+  3.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER} G45"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G45"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "shot",
+  "g45_trapped"
+ ],
+ [
+  "wait",
+  2.0
+ ],
+ [
+  "shot",
+  "g45_trapped2"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 {USER}"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ]
+]

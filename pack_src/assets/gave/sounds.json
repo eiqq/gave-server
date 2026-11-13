@@ -1,0 +1,2380 @@
+{
+ "director.horde": {
+  "sounds": [
+   {
+    "name": "gave:director/horde_0",
+    "volume": 1.0,
+    "pitch": 0.82,
+    "attenuation_distance": 56
+   },
+   {
+    "name": "gave:director/horde_1",
+    "volume": 1.0,
+    "pitch": 0.78,
+    "attenuation_distance": 56
+   },
+   {
+    "name": "gave:director/horde_2",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 56
+   },
+   {
+    "name": "gave:director/horde_3",
+    "volume": 1.0,
+    "pitch": 0.75,
+    "attenuation_distance": 56
+   },
+   {
+    "name": "gave:director/horde_4",
+    "volume": 1.0,
+    "pitch": 0.85,
+    "attenuation_distance": 56
+   },
+   {
+    "name": "gave:director/horde_5",
+    "volume": 1.0,
+    "pitch": 0.72,
+    "attenuation_distance": 56
+   },
+   {
+    "name": "gave:director/horde_6",
+    "volume": 1.0,
+    "pitch": 0.7,
+    "attenuation_distance": 56
+   },
+   {
+    "name": "gave:director/horde_7",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 56
+   },
+   {
+    "name": "gave:director/horde_8",
+    "volume": 1.0,
+    "pitch": 0.75,
+    "attenuation_distance": 56
+   },
+   {
+    "name": "gave:director/horde_9",
+    "volume": 1.0,
+    "pitch": 0.7,
+    "attenuation_distance": 56
+   },
+   {
+    "name": "gave:director/horde_10",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 56
+   },
+   {
+    "name": "gave:director/horde_11",
+    "volume": 1.0,
+    "pitch": 0.75,
+    "attenuation_distance": 56
+   },
+   {
+    "name": "gave:director/horde_12",
+    "volume": 1.0,
+    "pitch": 0.85,
+    "attenuation_distance": 56
+   },
+   {
+    "name": "gave:director/horde_13",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 56
+   },
+   {
+    "name": "gave:director/horde_14",
+    "volume": 1.0,
+    "pitch": 0.75,
+    "attenuation_distance": 56
+   },
+   {
+    "name": "gave:director/horde_15",
+    "volume": 1.0,
+    "pitch": 0.7,
+    "attenuation_distance": 56
+   },
+   {
+    "name": "gave:director/horde_16",
+    "volume": 1.0,
+    "pitch": 0.78,
+    "attenuation_distance": 56
+   },
+   {
+    "name": "gave:director/horde_17",
+    "volume": 1.0,
+    "pitch": 0.82,
+    "attenuation_distance": 56
+   },
+   {
+    "name": "gave:director/horde_18",
+    "volume": 1.0,
+    "pitch": 0.74,
+    "attenuation_distance": 56
+   },
+   {
+    "name": "gave:director/horde_19",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 56
+   },
+   {
+    "name": "gave:director/horde_20",
+    "volume": 1.0,
+    "pitch": 0.76,
+    "attenuation_distance": 56
+   },
+   {
+    "name": "gave:director/horde_21",
+    "volume": 1.0,
+    "pitch": 0.84,
+    "attenuation_distance": 56
+   },
+   {
+    "name": "gave:director/horde_22",
+    "volume": 1.0,
+    "pitch": 0.78,
+    "attenuation_distance": 56
+   },
+   {
+    "name": "gave:director/horde_23",
+    "volume": 1.0,
+    "pitch": 0.72,
+    "attenuation_distance": 56
+   }
+  ],
+  "subtitle": "subtitles.gave.director.horde"
+ },
+ "director.chorus": {
+  "sounds": [
+   {
+    "name": "gave:director/chorus_0",
+    "volume": 1.0,
+    "pitch": 1.12,
+    "attenuation_distance": 64
+   },
+   {
+    "name": "gave:director/chorus_1",
+    "volume": 1.0,
+    "pitch": 1.2,
+    "attenuation_distance": 64
+   },
+   {
+    "name": "gave:director/chorus_2",
+    "volume": 1.0,
+    "pitch": 1.15,
+    "attenuation_distance": 64
+   },
+   {
+    "name": "gave:director/chorus_3",
+    "volume": 1.0,
+    "pitch": 1.1,
+    "attenuation_distance": 64
+   },
+   {
+    "name": "gave:director/chorus_4",
+    "volume": 1.0,
+    "pitch": 1.25,
+    "attenuation_distance": 64
+   },
+   {
+    "name": "gave:director/chorus_5",
+    "volume": 1.0,
+    "pitch": 1.2,
+    "attenuation_distance": 64
+   },
+   {
+    "name": "gave:director/chorus_6",
+    "volume": 1.0,
+    "pitch": 1.15,
+    "attenuation_distance": 64
+   },
+   {
+    "name": "gave:director/chorus_7",
+    "volume": 1.0,
+    "pitch": 1.2,
+    "attenuation_distance": 64
+   },
+   {
+    "name": "gave:director/chorus_8",
+    "volume": 1.0,
+    "pitch": 1.18,
+    "attenuation_distance": 64
+   },
+   {
+    "name": "gave:director/chorus_9",
+    "volume": 1.0,
+    "pitch": 1.12,
+    "attenuation_distance": 64
+   },
+   {
+    "name": "gave:director/chorus_10",
+    "volume": 1.0,
+    "pitch": 1.1,
+    "attenuation_distance": 64
+   },
+   {
+    "name": "gave:director/chorus_11",
+    "volume": 1.0,
+    "pitch": 1.22,
+    "attenuation_distance": 64
+   }
+  ],
+  "subtitle": "subtitles.gave.director.chorus"
+ },
+ "director.heart": {
+  "sounds": [
+   {
+    "name": "gave:director/heart_0",
+    "volume": 1.0,
+    "pitch": 0.85,
+    "attenuation_distance": 12
+   },
+   {
+    "name": "gave:director/heart_1",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 12
+   },
+   {
+    "name": "gave:director/heart_2",
+    "volume": 1.0,
+    "pitch": 0.85,
+    "attenuation_distance": 12
+   },
+   {
+    "name": "gave:director/heart_3",
+    "volume": 1.0,
+    "pitch": 0.85,
+    "attenuation_distance": 12
+   }
+  ],
+  "subtitle": "subtitles.gave.director.heart"
+ },
+ "director.gate": {
+  "sounds": [
+   {
+    "name": "gave:director/gate_0",
+    "volume": 1.0,
+    "pitch": 0.9,
+    "attenuation_distance": 140
+   },
+   {
+    "name": "gave:director/gate_1",
+    "volume": 1.0,
+    "pitch": 0.85,
+    "attenuation_distance": 140
+   },
+   {
+    "name": "gave:director/gate_2",
+    "volume": 1.0,
+    "pitch": 0.9,
+    "attenuation_distance": 140
+   },
+   {
+    "name": "gave:director/gate_3",
+    "volume": 1.0,
+    "pitch": 0.85,
+    "attenuation_distance": 140
+   }
+  ],
+  "subtitle": "subtitles.gave.director.gate"
+ },
+ "director.alert": {
+  "sounds": [
+   {
+    "name": "gave:director/alert_0",
+    "volume": 1.0,
+    "pitch": 0.62,
+    "attenuation_distance": 16
+   },
+   {
+    "name": "gave:director/alert_1",
+    "volume": 1.0,
+    "pitch": 0.55,
+    "attenuation_distance": 16
+   }
+  ],
+  "subtitle": "subtitles.gave.director.alert"
+ },
+ "director.flood": {
+  "sounds": [
+   {
+    "name": "gave:director/flood_0",
+    "volume": 1.0,
+    "pitch": 0.6,
+    "attenuation_distance": 40
+   },
+   {
+    "name": "gave:director/flood_1",
+    "volume": 1.0,
+    "pitch": 0.55,
+    "attenuation_distance": 40
+   },
+   {
+    "name": "gave:director/flood_2",
+    "volume": 1.0,
+    "pitch": 0.7,
+    "attenuation_distance": 40
+   },
+   {
+    "name": "gave:director/flood_3",
+    "volume": 1.0,
+    "pitch": 0.5,
+    "attenuation_distance": 40
+   }
+  ],
+  "subtitle": "subtitles.gave.director.flood"
+ },
+ "director.eye": {
+  "sounds": [
+   {
+    "name": "gave:director/eye_0",
+    "volume": 1.0,
+    "pitch": 0.55,
+    "attenuation_distance": 30
+   },
+   {
+    "name": "gave:director/eye_1",
+    "volume": 1.0,
+    "pitch": 0.6,
+    "attenuation_distance": 30
+   },
+   {
+    "name": "gave:director/eye_2",
+    "volume": 1.0,
+    "pitch": 0.5,
+    "attenuation_distance": 30
+   }
+  ],
+  "subtitle": "subtitles.gave.director.eye"
+ },
+ "director.murmur": {
+  "sounds": [
+   {
+    "name": "gave:director/murmur_0",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 130
+   },
+   {
+    "name": "gave:director/murmur_1",
+    "volume": 1.0,
+    "pitch": 0.78,
+    "attenuation_distance": 130
+   },
+   {
+    "name": "gave:director/murmur_2",
+    "volume": 1.0,
+    "pitch": 0.82,
+    "attenuation_distance": 130
+   },
+   {
+    "name": "gave:director/murmur_3",
+    "volume": 1.0,
+    "pitch": 0.76,
+    "attenuation_distance": 130
+   },
+   {
+    "name": "gave:director/murmur_4",
+    "volume": 1.0,
+    "pitch": 0.75,
+    "attenuation_distance": 130
+   },
+   {
+    "name": "gave:director/murmur_5",
+    "volume": 1.0,
+    "pitch": 0.72,
+    "attenuation_distance": 130
+   },
+   {
+    "name": "gave:director/murmur_6",
+    "volume": 1.0,
+    "pitch": 0.78,
+    "attenuation_distance": 130
+   },
+   {
+    "name": "gave:director/murmur_7",
+    "volume": 1.0,
+    "pitch": 0.74,
+    "attenuation_distance": 130
+   },
+   {
+    "name": "gave:director/murmur_8",
+    "volume": 1.0,
+    "pitch": 0.76,
+    "attenuation_distance": 130
+   },
+   {
+    "name": "gave:director/murmur_9",
+    "volume": 1.0,
+    "pitch": 0.73,
+    "attenuation_distance": 130
+   },
+   {
+    "name": "gave:director/murmur_10",
+    "volume": 1.0,
+    "pitch": 0.77,
+    "attenuation_distance": 130
+   },
+   {
+    "name": "gave:director/murmur_11",
+    "volume": 1.0,
+    "pitch": 0.75,
+    "attenuation_distance": 130
+   }
+  ],
+  "subtitle": "subtitles.gave.director.murmur"
+ },
+ "sfx.roar_far": {
+  "sounds": [
+   {
+    "name": "gave:sfx/roar_far_0",
+    "volume": 1.0,
+    "pitch": 0.7,
+    "attenuation_distance": 160
+   },
+   {
+    "name": "gave:sfx/roar_far_1",
+    "volume": 1.0,
+    "pitch": 0.65,
+    "attenuation_distance": 160
+   },
+   {
+    "name": "gave:sfx/roar_far_2",
+    "volume": 1.0,
+    "pitch": 0.7,
+    "attenuation_distance": 160
+   },
+   {
+    "name": "gave:sfx/roar_far_3",
+    "volume": 1.0,
+    "pitch": 0.62,
+    "attenuation_distance": 160
+   },
+   {
+    "name": "gave:sfx/roar_far_4",
+    "volume": 1.0,
+    "pitch": 0.6,
+    "attenuation_distance": 160
+   },
+   {
+    "name": "gave:sfx/roar_far_5",
+    "volume": 1.0,
+    "pitch": 0.55,
+    "attenuation_distance": 160
+   }
+  ],
+  "subtitle": "subtitles.gave.sfx.roar_far"
+ },
+ "sfx.horde_cry": {
+  "sounds": [
+   {
+    "name": "gave:sfx/horde_cry_0",
+    "volume": 1.0,
+    "pitch": 0.7,
+    "attenuation_distance": 128
+   },
+   {
+    "name": "gave:sfx/horde_cry_1",
+    "volume": 1.0,
+    "pitch": 0.66,
+    "attenuation_distance": 128
+   },
+   {
+    "name": "gave:sfx/horde_cry_2",
+    "volume": 1.0,
+    "pitch": 0.62,
+    "attenuation_distance": 128
+   },
+   {
+    "name": "gave:sfx/horde_cry_3",
+    "volume": 1.0,
+    "pitch": 0.6,
+    "attenuation_distance": 128
+   }
+  ],
+  "subtitle": "subtitles.gave.sfx.horde_cry"
+ },
+ "sfx.quake": {
+  "sounds": [
+   {
+    "name": "gave:sfx/quake_0",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 128
+   },
+   {
+    "name": "gave:sfx/quake_1",
+    "volume": 1.0,
+    "pitch": 0.9,
+    "attenuation_distance": 128
+   },
+   {
+    "name": "gave:sfx/quake_2",
+    "volume": 1.0,
+    "pitch": 0.6,
+    "attenuation_distance": 128
+   },
+   {
+    "name": "gave:sfx/quake_3",
+    "volume": 1.0,
+    "pitch": 0.55,
+    "attenuation_distance": 128
+   }
+  ],
+  "subtitle": "subtitles.gave.sfx.quake"
+ },
+ "sfx.colossus": {
+  "sounds": [
+   {
+    "name": "gave:sfx/colossus_0",
+    "volume": 1.0,
+    "pitch": 0.5,
+    "attenuation_distance": 160
+   },
+   {
+    "name": "gave:sfx/colossus_1",
+    "volume": 1.0,
+    "pitch": 0.55,
+    "attenuation_distance": 160
+   },
+   {
+    "name": "gave:sfx/colossus_2",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 160
+   },
+   {
+    "name": "gave:sfx/colossus_3",
+    "volume": 1.0,
+    "pitch": 0.42,
+    "attenuation_distance": 160
+   }
+  ],
+  "subtitle": "subtitles.gave.sfx.colossus"
+ },
+ "sfx.stomp": {
+  "sounds": [
+   {
+    "name": "gave:sfx/stomp_0",
+    "volume": 1.0,
+    "pitch": 0.55,
+    "attenuation_distance": 96
+   },
+   {
+    "name": "gave:sfx/stomp_1",
+    "volume": 1.0,
+    "pitch": 0.45,
+    "attenuation_distance": 96
+   },
+   {
+    "name": "gave:sfx/stomp_2",
+    "volume": 1.0,
+    "pitch": 0.5,
+    "attenuation_distance": 96
+   },
+   {
+    "name": "gave:sfx/stomp_3",
+    "volume": 1.0,
+    "pitch": 0.6,
+    "attenuation_distance": 96
+   },
+   {
+    "name": "gave:sfx/stomp_4",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 96
+   }
+  ],
+  "subtitle": "subtitles.gave.sfx.stomp"
+ },
+ "sfx.horn": {
+  "sounds": [
+   {
+    "name": "gave:sfx/horn_0",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 192,
+    "stream": true
+   },
+   {
+    "name": "gave:sfx/horn_1",
+    "volume": 1.0,
+    "pitch": 0.85,
+    "attenuation_distance": 192
+   },
+   {
+    "name": "gave:sfx/horn_2",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 192
+   }
+  ],
+  "subtitle": "subtitles.gave.sfx.horn"
+ },
+ "sfx.thunder": {
+  "sounds": [
+   {
+    "name": "gave:sfx/thunder_0",
+    "volume": 1.0,
+    "pitch": 0.9,
+    "attenuation_distance": 64,
+    "stream": true
+   },
+   {
+    "name": "gave:sfx/thunder_1",
+    "volume": 1.0,
+    "pitch": 0.45,
+    "attenuation_distance": 64
+   }
+  ],
+  "subtitle": "subtitles.gave.sfx.thunder"
+ },
+ "sfx.wind": {
+  "sounds": [
+   {
+    "name": "gave:sfx/wind_0",
+    "volume": 1.0,
+    "pitch": 0.9,
+    "attenuation_distance": 32
+   },
+   {
+    "name": "gave:sfx/wind_1",
+    "volume": 1.0,
+    "pitch": 0.85,
+    "attenuation_distance": 32
+   },
+   {
+    "name": "gave:sfx/wind_2",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 32
+   }
+  ],
+  "subtitle": "subtitles.gave.sfx.wind"
+ },
+ "sfx.dread": {
+  "sounds": [
+   {
+    "name": "gave:sfx/dread_0",
+    "volume": 1.0,
+    "pitch": 0.9,
+    "attenuation_distance": 64,
+    "stream": true
+   },
+   {
+    "name": "gave:sfx/dread_1",
+    "volume": 1.0,
+    "pitch": 0.9,
+    "attenuation_distance": 64,
+    "stream": true
+   },
+   {
+    "name": "gave:sfx/dread_2",
+    "volume": 1.0,
+    "pitch": 0.85,
+    "attenuation_distance": 64,
+    "stream": true
+   }
+  ],
+  "subtitle": "subtitles.gave.sfx.dread"
+ },
+ "sfx.boss_roar": {
+  "sounds": [
+   {
+    "name": "gave:sfx/boss_roar_0",
+    "volume": 1.0,
+    "pitch": 0.75,
+    "attenuation_distance": 192
+   },
+   {
+    "name": "gave:sfx/boss_roar_1",
+    "volume": 1.0,
+    "pitch": 0.6,
+    "attenuation_distance": 192
+   },
+   {
+    "name": "gave:sfx/boss_roar_2",
+    "volume": 1.0,
+    "pitch": 0.5,
+    "attenuation_distance": 192
+   },
+   {
+    "name": "gave:sfx/boss_roar_3",
+    "volume": 1.0,
+    "pitch": 0.55,
+    "attenuation_distance": 192
+   }
+  ],
+  "subtitle": "subtitles.gave.sfx.boss_roar"
+ },
+ "sfx.wipe": {
+  "sounds": [
+   {
+    "name": "gave:sfx/wipe_0",
+    "volume": 1.0,
+    "pitch": 0.5,
+    "attenuation_distance": 96
+   },
+   {
+    "name": "gave:sfx/wipe_1",
+    "volume": 1.0,
+    "pitch": 0.55,
+    "attenuation_distance": 96
+   },
+   {
+    "name": "gave:sfx/wipe_2",
+    "volume": 1.0,
+    "pitch": 0.6,
+    "attenuation_distance": 96
+   }
+  ],
+  "subtitle": "subtitles.gave.sfx.wipe"
+ },
+ "sfx.supply": {
+  "sounds": [
+   {
+    "name": "gave:sfx/supply_0",
+    "volume": 1.0,
+    "pitch": 0.7,
+    "attenuation_distance": 48
+   },
+   {
+    "name": "gave:sfx/supply_1",
+    "volume": 1.0,
+    "pitch": 0.65,
+    "attenuation_distance": 48
+   },
+   {
+    "name": "gave:sfx/supply_2",
+    "volume": 1.0,
+    "pitch": 0.6,
+    "attenuation_distance": 48
+   }
+  ],
+  "subtitle": "subtitles.gave.sfx.supply"
+ },
+ "sfx.scream_far": {
+  "sounds": [
+   {
+    "name": "gave:sfx/scream_far_0",
+    "volume": 1.0,
+    "pitch": 0.85,
+    "attenuation_distance": 96
+   },
+   {
+    "name": "gave:sfx/scream_far_1",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 96
+   },
+   {
+    "name": "gave:sfx/scream_far_2",
+    "volume": 1.0,
+    "pitch": 0.88,
+    "attenuation_distance": 96
+   }
+  ],
+  "subtitle": "subtitles.gave.sfx.scream_far"
+ },
+ "sfx.bell": {
+  "sounds": [
+   {
+    "name": "gave:sfx/bell_0",
+    "volume": 1.0,
+    "pitch": 0.42,
+    "attenuation_distance": 128
+   },
+   {
+    "name": "gave:sfx/bell_1",
+    "volume": 1.0,
+    "pitch": 0.5,
+    "attenuation_distance": 128
+   },
+   {
+    "name": "gave:sfx/bell_2",
+    "volume": 1.0,
+    "pitch": 0.5,
+    "attenuation_distance": 128
+   }
+  ],
+  "subtitle": "subtitles.gave.sfx.bell"
+ },
+ "sfx.dawn": {
+  "sounds": [
+   {
+    "name": "gave:sfx/dawn_0",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 96,
+    "stream": true
+   },
+   {
+    "name": "gave:sfx/dawn_1",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 96,
+    "stream": true
+   },
+   {
+    "name": "gave:sfx/dawn_2",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 96,
+    "stream": true
+   },
+   {
+    "name": "gave:sfx/dawn_3",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 96
+   }
+  ],
+  "subtitle": "subtitles.gave.sfx.dawn"
+ },
+ "sfx.choir": {
+  "sounds": [
+   {
+    "name": "gave:sfx/choir_0",
+    "volume": 1.0,
+    "pitch": 0.6,
+    "attenuation_distance": 128
+   },
+   {
+    "name": "gave:sfx/choir_1",
+    "volume": 1.0,
+    "pitch": 0.6,
+    "attenuation_distance": 128
+   },
+   {
+    "name": "gave:sfx/choir_2",
+    "volume": 1.0,
+    "pitch": 0.55,
+    "attenuation_distance": 128
+   }
+  ],
+  "subtitle": "subtitles.gave.sfx.choir"
+ },
+ "sfx.whisper": {
+  "sounds": [
+   {
+    "name": "gave:sfx/whisper_0",
+    "volume": 1.0,
+    "pitch": 0.85,
+    "attenuation_distance": 24
+   },
+   {
+    "name": "gave:sfx/whisper_1",
+    "volume": 1.0,
+    "pitch": 0.9,
+    "attenuation_distance": 24
+   },
+   {
+    "name": "gave:sfx/whisper_2",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 24,
+    "stream": true
+   },
+   {
+    "name": "gave:sfx/whisper_3",
+    "volume": 1.0,
+    "pitch": 0.9,
+    "attenuation_distance": 24
+   }
+  ],
+  "subtitle": "subtitles.gave.sfx.whisper"
+ },
+ "trip.truck_start": {
+  "sounds": [
+   {
+    "name": "gave:trip/truck_start_0",
+    "volume": 1.0,
+    "pitch": 0.75,
+    "attenuation_distance": 32
+   },
+   {
+    "name": "gave:trip/truck_start_1",
+    "volume": 1.0,
+    "pitch": 0.7,
+    "attenuation_distance": 32
+   },
+   {
+    "name": "gave:trip/truck_start_2",
+    "volume": 1.0,
+    "pitch": 0.72,
+    "attenuation_distance": 32
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.truck_start"
+ },
+ "trip.engine": {
+  "sounds": [
+   {
+    "name": "gave:trip/engine_0",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 48
+   },
+   {
+    "name": "gave:trip/engine_1",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 48
+   },
+   {
+    "name": "gave:trip/engine_2",
+    "volume": 1.0,
+    "pitch": 1.25,
+    "attenuation_distance": 48
+   },
+   {
+    "name": "gave:trip/engine_3",
+    "volume": 1.0,
+    "pitch": 1.4,
+    "attenuation_distance": 48
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.engine"
+ },
+ "trip.engine_idle": {
+  "sounds": [
+   {
+    "name": "gave:trip/engine_idle_0",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 24
+   },
+   {
+    "name": "gave:trip/engine_idle_1",
+    "volume": 1.0,
+    "pitch": 0.62,
+    "attenuation_distance": 24
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.engine_idle"
+ },
+ "trip.engine_rev": {
+  "sounds": [
+   {
+    "name": "gave:trip/engine_rev_0",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 64
+   },
+   {
+    "name": "gave:trip/engine_rev_1",
+    "volume": 1.0,
+    "pitch": 0.9,
+    "attenuation_distance": 64
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.engine_rev"
+ },
+ "trip.tires": {
+  "sounds": [
+   {
+    "name": "gave:trip/tires_0",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 40
+   },
+   {
+    "name": "gave:trip/tires_1",
+    "volume": 1.0,
+    "pitch": 0.92,
+    "attenuation_distance": 40
+   },
+   {
+    "name": "gave:trip/tires_2",
+    "volume": 1.0,
+    "pitch": 0.7,
+    "attenuation_distance": 40
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.tires"
+ },
+ "trip.brake": {
+  "sounds": [
+   {
+    "name": "gave:trip/brake_0",
+    "volume": 1.0,
+    "pitch": 1.05,
+    "attenuation_distance": 48
+   },
+   {
+    "name": "gave:trip/brake_1",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 48
+   },
+   {
+    "name": "gave:trip/brake_2",
+    "volume": 1.0,
+    "pitch": 0.75,
+    "attenuation_distance": 48
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.brake"
+ },
+ "trip.horn": {
+  "sounds": [
+   {
+    "name": "gave:trip/horn_0",
+    "volume": 1.0,
+    "pitch": 0.72,
+    "attenuation_distance": 64
+   },
+   {
+    "name": "gave:trip/horn_1",
+    "volume": 1.0,
+    "pitch": 0.78,
+    "attenuation_distance": 64
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.horn"
+ },
+ "trip.truck_horn": {
+  "sounds": [
+   {
+    "name": "gave:trip/truck_horn_0",
+    "volume": 1.0,
+    "pitch": 0.6,
+    "attenuation_distance": 96
+   },
+   {
+    "name": "gave:trip/truck_horn_1",
+    "volume": 1.0,
+    "pitch": 0.64,
+    "attenuation_distance": 96
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.truck_horn"
+ },
+ "trip.horn_broken": {
+  "sounds": [
+   {
+    "name": "gave:trip/horn_broken_0",
+    "volume": 1.0,
+    "pitch": 0.55,
+    "attenuation_distance": 96
+   },
+   {
+    "name": "gave:trip/horn_broken_1",
+    "volume": 1.0,
+    "pitch": 0.5,
+    "attenuation_distance": 96
+   },
+   {
+    "name": "gave:trip/horn_broken_2",
+    "volume": 1.0,
+    "pitch": 0.52,
+    "attenuation_distance": 96
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.horn_broken"
+ },
+ "trip.truck_hit": {
+  "sounds": [
+   {
+    "name": "gave:trip/truck_hit_0",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 40
+   },
+   {
+    "name": "gave:trip/truck_hit_1",
+    "volume": 1.0,
+    "pitch": 0.75,
+    "attenuation_distance": 40
+   },
+   {
+    "name": "gave:trip/truck_hit_2",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 40
+   },
+   {
+    "name": "gave:trip/truck_hit_3",
+    "volume": 1.0,
+    "pitch": 0.85,
+    "attenuation_distance": 40
+   },
+   {
+    "name": "gave:trip/truck_hit_4",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 40
+   },
+   {
+    "name": "gave:trip/truck_hit_5",
+    "volume": 1.0,
+    "pitch": 0.7,
+    "attenuation_distance": 40
+   },
+   {
+    "name": "gave:trip/truck_hit_6",
+    "volume": 1.0,
+    "pitch": 0.7,
+    "attenuation_distance": 40
+   },
+   {
+    "name": "gave:trip/truck_hit_7",
+    "volume": 1.0,
+    "pitch": 0.75,
+    "attenuation_distance": 40
+   },
+   {
+    "name": "gave:trip/truck_hit_8",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 40
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.truck_hit"
+ },
+ "trip.thud": {
+  "sounds": [
+   {
+    "name": "gave:trip/thud_0",
+    "volume": 1.0,
+    "pitch": 0.6,
+    "attenuation_distance": 32
+   },
+   {
+    "name": "gave:trip/thud_1",
+    "volume": 1.0,
+    "pitch": 0.6,
+    "attenuation_distance": 32
+   },
+   {
+    "name": "gave:trip/thud_2",
+    "volume": 1.0,
+    "pitch": 0.6,
+    "attenuation_distance": 32
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.thud"
+ },
+ "trip.truck_boom": {
+  "sounds": [
+   {
+    "name": "gave:trip/truck_boom_0",
+    "volume": 1.0,
+    "pitch": 0.7,
+    "attenuation_distance": 128
+   },
+   {
+    "name": "gave:trip/truck_boom_1",
+    "volume": 1.0,
+    "pitch": 0.65,
+    "attenuation_distance": 128
+   },
+   {
+    "name": "gave:trip/truck_boom_2",
+    "volume": 1.0,
+    "pitch": 0.9,
+    "attenuation_distance": 128
+   },
+   {
+    "name": "gave:trip/truck_boom_3",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 128
+   },
+   {
+    "name": "gave:trip/truck_boom_4",
+    "volume": 1.0,
+    "pitch": 0.6,
+    "attenuation_distance": 128
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.truck_boom"
+ },
+ "trip.truck_debris": {
+  "sounds": [
+   {
+    "name": "gave:trip/truck_debris_0",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 48
+   },
+   {
+    "name": "gave:trip/truck_debris_1",
+    "volume": 1.0,
+    "pitch": 0.75,
+    "attenuation_distance": 48
+   },
+   {
+    "name": "gave:trip/truck_debris_2",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 48
+   },
+   {
+    "name": "gave:trip/truck_debris_3",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 48
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.truck_debris"
+ },
+ "trip.truck_repair": {
+  "sounds": [
+   {
+    "name": "gave:trip/truck_repair_0",
+    "volume": 1.0,
+    "pitch": 0.9,
+    "attenuation_distance": 24
+   },
+   {
+    "name": "gave:trip/truck_repair_1",
+    "volume": 1.0,
+    "pitch": 0.85,
+    "attenuation_distance": 24
+   },
+   {
+    "name": "gave:trip/truck_repair_2",
+    "volume": 1.0,
+    "pitch": 0.9,
+    "attenuation_distance": 24
+   },
+   {
+    "name": "gave:trip/truck_repair_3",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 24
+   },
+   {
+    "name": "gave:trip/truck_repair_4",
+    "volume": 1.0,
+    "pitch": 0.85,
+    "attenuation_distance": 24
+   },
+   {
+    "name": "gave:trip/truck_repair_5",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 24
+   },
+   {
+    "name": "gave:trip/truck_repair_6",
+    "volume": 1.0,
+    "pitch": 0.9,
+    "attenuation_distance": 24
+   },
+   {
+    "name": "gave:trip/truck_repair_7",
+    "volume": 1.0,
+    "pitch": 0.85,
+    "attenuation_distance": 24
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.truck_repair"
+ },
+ "trip.vote_open": {
+  "sounds": [
+   {
+    "name": "gave:trip/vote_open_0",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 48
+   },
+   {
+    "name": "gave:trip/vote_open_1",
+    "volume": 1.0,
+    "pitch": 0.7,
+    "attenuation_distance": 48
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.vote_open"
+ },
+ "trip.vote_tick": {
+  "sounds": [
+   {
+    "name": "gave:trip/vote_tick_0",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 48
+   },
+   {
+    "name": "gave:trip/vote_tick_1",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 48
+   },
+   {
+    "name": "gave:trip/vote_tick_2",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 48
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.vote_tick"
+ },
+ "trip.vote_done": {
+  "sounds": [
+   {
+    "name": "gave:trip/vote_done_0",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 48
+   },
+   {
+    "name": "gave:trip/vote_done_1",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 48
+   },
+   {
+    "name": "gave:trip/vote_done_2",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 48
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.vote_done"
+ },
+ "trip.revived": {
+  "sounds": [
+   {
+    "name": "gave:trip/revived_0",
+    "volume": 1.0,
+    "pitch": 0.85,
+    "attenuation_distance": 32
+   },
+   {
+    "name": "gave:trip/revived_1",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 32
+   },
+   {
+    "name": "gave:trip/revived_2",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 32
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.revived"
+ },
+ "trip.call": {
+  "sounds": [
+   {
+    "name": "gave:trip/call_0",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 24
+   },
+   {
+    "name": "gave:trip/call_1",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 24
+   },
+   {
+    "name": "gave:trip/call_2",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 24
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.call"
+ },
+ "trip.generator": {
+  "sounds": [
+   {
+    "name": "gave:trip/generator_0",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 40
+   },
+   {
+    "name": "gave:trip/generator_1",
+    "volume": 1.0,
+    "pitch": 0.9,
+    "attenuation_distance": 40
+   },
+   {
+    "name": "gave:trip/generator_2",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 40
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.generator"
+ },
+ "trip.flicker": {
+  "sounds": [
+   {
+    "name": "gave:trip/flicker_0",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 32
+   },
+   {
+    "name": "gave:trip/flicker_1",
+    "volume": 1.0,
+    "pitch": 0.7,
+    "attenuation_distance": 32
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.flicker"
+ },
+ "trip.lamp_on": {
+  "sounds": [
+   {
+    "name": "gave:trip/lamp_on_0",
+    "volume": 1.0,
+    "pitch": 0.9,
+    "attenuation_distance": 48
+   },
+   {
+    "name": "gave:trip/lamp_on_1",
+    "volume": 1.0,
+    "pitch": 0.7,
+    "attenuation_distance": 48
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.lamp_on"
+ },
+ "trip.lamp_off": {
+  "sounds": [
+   {
+    "name": "gave:trip/lamp_off_0",
+    "volume": 1.0,
+    "pitch": 0.9,
+    "attenuation_distance": 48
+   },
+   {
+    "name": "gave:trip/lamp_off_1",
+    "volume": 1.0,
+    "pitch": 0.6,
+    "attenuation_distance": 48
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.lamp_off"
+ },
+ "trip.goal": {
+  "sounds": [
+   {
+    "name": "gave:trip/goal_0",
+    "volume": 1.0,
+    "pitch": 0.9,
+    "attenuation_distance": 64
+   },
+   {
+    "name": "gave:trip/goal_1",
+    "volume": 1.0,
+    "pitch": 0.9,
+    "attenuation_distance": 64
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.goal"
+ },
+ "trip.pick": {
+  "sounds": [
+   {
+    "name": "gave:trip/pick_0",
+    "volume": 1.0,
+    "pitch": 0.9,
+    "attenuation_distance": 24
+   },
+   {
+    "name": "gave:trip/pick_1",
+    "volume": 1.0,
+    "pitch": 0.9,
+    "attenuation_distance": 24
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.pick"
+ },
+ "trip.egg": {
+  "sounds": [
+   {
+    "name": "gave:trip/egg_0",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 32
+   },
+   {
+    "name": "gave:trip/egg_1",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 32
+   },
+   {
+    "name": "gave:trip/egg_2",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 32
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.egg"
+ },
+ "trip.rise": {
+  "sounds": [
+   {
+    "name": "gave:trip/rise_0",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 64
+   },
+   {
+    "name": "gave:trip/rise_1",
+    "volume": 1.0,
+    "pitch": 0.7,
+    "attenuation_distance": 64
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.rise"
+ },
+ "trip.lamp": {
+  "sounds": [
+   {
+    "name": "gave:trip/lamp_0",
+    "volume": 1.0,
+    "pitch": 0.7,
+    "attenuation_distance": 32
+   },
+   {
+    "name": "gave:trip/lamp_1",
+    "volume": 1.0,
+    "pitch": 0.7,
+    "attenuation_distance": 32
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.lamp"
+ },
+ "trip.bait": {
+  "sounds": [
+   {
+    "name": "gave:trip/bait_0",
+    "volume": 1.0,
+    "pitch": 0.9,
+    "attenuation_distance": 24
+   },
+   {
+    "name": "gave:trip/bait_1",
+    "volume": 1.0,
+    "pitch": 0.9,
+    "attenuation_distance": 24
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.bait"
+ },
+ "trip.pump": {
+  "sounds": [
+   {
+    "name": "gave:trip/pump_0",
+    "volume": 1.0,
+    "pitch": 0.9,
+    "attenuation_distance": 32
+   },
+   {
+    "name": "gave:trip/pump_1",
+    "volume": 1.0,
+    "pitch": 0.85,
+    "attenuation_distance": 32
+   },
+   {
+    "name": "gave:trip/pump_2",
+    "volume": 1.0,
+    "pitch": 0.9,
+    "attenuation_distance": 32
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.pump"
+ },
+ "trip.power_on": {
+  "sounds": [
+   {
+    "name": "gave:trip/power_on_0",
+    "volume": 1.0,
+    "pitch": 0.9,
+    "attenuation_distance": 48
+   },
+   {
+    "name": "gave:trip/power_on_1",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 48
+   },
+   {
+    "name": "gave:trip/power_on_2",
+    "volume": 1.0,
+    "pitch": 0.7,
+    "attenuation_distance": 48
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.power_on"
+ },
+ "trip.power_off": {
+  "sounds": [
+   {
+    "name": "gave:trip/power_off_0",
+    "volume": 1.0,
+    "pitch": 0.85,
+    "attenuation_distance": 48
+   },
+   {
+    "name": "gave:trip/power_off_1",
+    "volume": 1.0,
+    "pitch": 0.9,
+    "attenuation_distance": 48
+   },
+   {
+    "name": "gave:trip/power_off_2",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 48
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.power_off"
+ },
+ "trip.spark": {
+  "sounds": [
+   {
+    "name": "gave:trip/spark_0",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 24
+   },
+   {
+    "name": "gave:trip/spark_1",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 24
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.spark"
+ },
+ "trip.siren": {
+  "sounds": [
+   {
+    "name": "gave:trip/siren_0",
+    "volume": 1.0,
+    "pitch": 0.85,
+    "attenuation_distance": 160
+   },
+   {
+    "name": "gave:trip/siren_1",
+    "volume": 1.0,
+    "pitch": 0.9,
+    "attenuation_distance": 160
+   },
+   {
+    "name": "gave:trip/siren_2",
+    "volume": 1.0,
+    "pitch": 0.9,
+    "attenuation_distance": 160
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.siren"
+ },
+ "trip.siren_far": {
+  "sounds": [
+   {
+    "name": "gave:trip/siren_far_0",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 200,
+    "stream": true
+   },
+   {
+    "name": "gave:trip/siren_far_1",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 200,
+    "stream": true
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.siren_far"
+ },
+ "trip.countdown": {
+  "sounds": [
+   {
+    "name": "gave:trip/countdown_0",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 96
+   },
+   {
+    "name": "gave:trip/countdown_1",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 96
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.countdown"
+ },
+ "trip.rocket_ignite": {
+  "sounds": [
+   {
+    "name": "gave:trip/rocket_ignite_0",
+    "volume": 1.0,
+    "pitch": 0.6,
+    "attenuation_distance": 128
+   },
+   {
+    "name": "gave:trip/rocket_ignite_1",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 128
+   },
+   {
+    "name": "gave:trip/rocket_ignite_2",
+    "volume": 1.0,
+    "pitch": 0.7,
+    "attenuation_distance": 128
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.rocket_ignite"
+ },
+ "trip.rocket_launch": {
+  "sounds": [
+   {
+    "name": "gave:trip/rocket_launch_0",
+    "volume": 1.0,
+    "pitch": 0.55,
+    "attenuation_distance": 256
+   },
+   {
+    "name": "gave:trip/rocket_launch_1",
+    "volume": 1.0,
+    "pitch": 0.7,
+    "attenuation_distance": 256
+   },
+   {
+    "name": "gave:trip/rocket_launch_2",
+    "volume": 1.0,
+    "pitch": 1.5,
+    "attenuation_distance": 256
+   },
+   {
+    "name": "gave:trip/rocket_launch_3",
+    "volume": 1.0,
+    "pitch": 0.55,
+    "attenuation_distance": 256
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.rocket_launch"
+ },
+ "trip.bomb_whistle": {
+  "sounds": [
+   {
+    "name": "gave:trip/bomb_whistle_0",
+    "volume": 1.0,
+    "pitch": 0.75,
+    "attenuation_distance": 96
+   },
+   {
+    "name": "gave:trip/bomb_whistle_1",
+    "volume": 1.0,
+    "pitch": 0.85,
+    "attenuation_distance": 96
+   },
+   {
+    "name": "gave:trip/bomb_whistle_2",
+    "volume": 1.0,
+    "pitch": 1.1,
+    "attenuation_distance": 96
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.bomb_whistle"
+ },
+ "trip.rain": {
+  "sounds": [
+   {
+    "name": "gave:trip/rain_0",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 48,
+    "stream": true
+   },
+   {
+    "name": "gave:trip/rain_1",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 48,
+    "stream": true
+   },
+   {
+    "name": "gave:trip/rain_2",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 48,
+    "stream": true
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.rain"
+ },
+ "trip.thunder": {
+  "sounds": [
+   {
+    "name": "gave:trip/thunder_0",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 256
+   },
+   {
+    "name": "gave:trip/thunder_1",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 256
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.thunder"
+ },
+ "trip.splash": {
+  "sounds": [
+   {
+    "name": "gave:trip/splash_0",
+    "volume": 1.0,
+    "pitch": 0.9,
+    "attenuation_distance": 24
+   },
+   {
+    "name": "gave:trip/splash_1",
+    "volume": 1.0,
+    "pitch": 0.9,
+    "attenuation_distance": 24
+   },
+   {
+    "name": "gave:trip/splash_2",
+    "volume": 1.0,
+    "pitch": 0.85,
+    "attenuation_distance": 24
+   },
+   {
+    "name": "gave:trip/splash_3",
+    "volume": 1.0,
+    "pitch": 0.9,
+    "attenuation_distance": 24
+   },
+   {
+    "name": "gave:trip/splash_4",
+    "volume": 1.0,
+    "pitch": 0.9,
+    "attenuation_distance": 24
+   },
+   {
+    "name": "gave:trip/splash_5",
+    "volume": 1.0,
+    "pitch": 0.85,
+    "attenuation_distance": 24
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.splash"
+ },
+ "trip.bubbles": {
+  "sounds": [
+   {
+    "name": "gave:trip/bubbles_0",
+    "volume": 1.0,
+    "pitch": 0.7,
+    "attenuation_distance": 24
+   },
+   {
+    "name": "gave:trip/bubbles_1",
+    "volume": 1.0,
+    "pitch": 0.7,
+    "attenuation_distance": 24
+   },
+   {
+    "name": "gave:trip/bubbles_2",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 24
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.bubbles"
+ },
+ "trip.water_rise": {
+  "sounds": [
+   {
+    "name": "gave:trip/water_rise_0",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 64
+   },
+   {
+    "name": "gave:trip/water_rise_1",
+    "volume": 1.0,
+    "pitch": 0.7,
+    "attenuation_distance": 64
+   },
+   {
+    "name": "gave:trip/water_rise_2",
+    "volume": 1.0,
+    "pitch": 0.6,
+    "attenuation_distance": 64
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.water_rise"
+ },
+ "trip.pour": {
+  "sounds": [
+   {
+    "name": "gave:trip/pour_0",
+    "volume": 1.0,
+    "pitch": 0.9,
+    "attenuation_distance": 24
+   },
+   {
+    "name": "gave:trip/pour_1",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 24
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.pour"
+ },
+ "trip.embers": {
+  "sounds": [
+   {
+    "name": "gave:trip/embers_0",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 32,
+    "stream": true
+   },
+   {
+    "name": "gave:trip/embers_1",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 32,
+    "stream": true
+   },
+   {
+    "name": "gave:trip/embers_2",
+    "volume": 1.0,
+    "pitch": 0.9,
+    "attenuation_distance": 32
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.embers"
+ },
+ "trip.fire": {
+  "sounds": [
+   {
+    "name": "gave:trip/fire_0",
+    "volume": 1.0,
+    "pitch": 0.7,
+    "attenuation_distance": 64
+   },
+   {
+    "name": "gave:trip/fire_1",
+    "volume": 1.0,
+    "pitch": 0.5,
+    "attenuation_distance": 64
+   },
+   {
+    "name": "gave:trip/fire_2",
+    "volume": 1.0,
+    "pitch": 0.45,
+    "attenuation_distance": 64
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.fire"
+ },
+ "trip.gas_leak": {
+  "sounds": [
+   {
+    "name": "gave:trip/gas_leak_0",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 32
+   },
+   {
+    "name": "gave:trip/gas_leak_1",
+    "volume": 1.0,
+    "pitch": 0.9,
+    "attenuation_distance": 32
+   },
+   {
+    "name": "gave:trip/gas_leak_2",
+    "volume": 1.0,
+    "pitch": 0.95,
+    "attenuation_distance": 32
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.gas_leak"
+ },
+ "trip.pad_machine": {
+  "sounds": [
+   {
+    "name": "gave:trip/pad_machine_0",
+    "volume": 1.0,
+    "pitch": 0.8,
+    "attenuation_distance": 64
+   },
+   {
+    "name": "gave:trip/pad_machine_1",
+    "volume": 1.0,
+    "pitch": 0.7,
+    "attenuation_distance": 64
+   },
+   {
+    "name": "gave:trip/pad_machine_2",
+    "volume": 1.0,
+    "pitch": 0.9,
+    "attenuation_distance": 64
+   },
+   {
+    "name": "gave:trip/pad_machine_3",
+    "volume": 1.0,
+    "pitch": 0.6,
+    "attenuation_distance": 64
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.pad_machine"
+ },
+ "trip.metal_groan": {
+  "sounds": [
+   {
+    "name": "gave:trip/metal_groan_0",
+    "volume": 1.0,
+    "pitch": 0.45,
+    "attenuation_distance": 96
+   },
+   {
+    "name": "gave:trip/metal_groan_1",
+    "volume": 1.0,
+    "pitch": 0.4,
+    "attenuation_distance": 96
+   },
+   {
+    "name": "gave:trip/metal_groan_2",
+    "volume": 1.0,
+    "pitch": 0.4,
+    "attenuation_distance": 96
+   },
+   {
+    "name": "gave:trip/metal_groan_3",
+    "volume": 1.0,
+    "pitch": 0.4,
+    "attenuation_distance": 96
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.metal_groan"
+ },
+ "trip.radio": {
+  "sounds": [
+   {
+    "name": "gave:trip/radio_0",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 24
+   },
+   {
+    "name": "gave:trip/radio_1",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 24
+   }
+  ],
+  "subtitle": "subtitles.gave.trip.radio"
+ },
+ "music.lobby": {
+  "sounds": [
+   {
+    "name": "gave:music/lobby",
+    "stream": true
+   }
+  ]
+ },
+ "music.break_a": {
+  "sounds": [
+   {
+    "name": "gave:music/break_a",
+    "stream": true
+   }
+  ]
+ },
+ "music.break_b": {
+  "sounds": [
+   {
+    "name": "gave:music/break_b",
+    "stream": true
+   }
+  ]
+ },
+ "music.break_end": {
+  "sounds": [
+   {
+    "name": "gave:music/break_end",
+    "stream": true
+   }
+  ]
+ },
+ "music.sting": {
+  "sounds": [
+   {
+    "name": "gave:music/sting",
+    "stream": true
+   }
+  ]
+ },
+ "music.wave_low_1": {
+  "sounds": [
+   {
+    "name": "gave:music/wave_low_1",
+    "stream": true
+   }
+  ]
+ },
+ "music.wave_low_2": {
+  "sounds": [
+   {
+    "name": "gave:music/wave_low_2",
+    "stream": true
+   }
+  ]
+ },
+ "music.wave_low_3": {
+  "sounds": [
+   {
+    "name": "gave:music/wave_low_3",
+    "stream": true
+   }
+  ]
+ },
+ "music.wave_mid_1": {
+  "sounds": [
+   {
+    "name": "gave:music/wave_mid_1",
+    "stream": true
+   }
+  ]
+ },
+ "music.wave_mid_2": {
+  "sounds": [
+   {
+    "name": "gave:music/wave_mid_2",
+    "stream": true
+   }
+  ]
+ },
+ "music.wave_high_1": {
+  "sounds": [
+   {
+    "name": "gave:music/wave_high_1",
+    "stream": true
+   }
+  ]
+ },
+ "music.wave_high_2": {
+  "sounds": [
+   {
+    "name": "gave:music/wave_high_2",
+    "stream": true
+   }
+  ]
+ },
+ "music.boss_1": {
+  "sounds": [
+   {
+    "name": "gave:music/boss_1",
+    "stream": true
+   }
+  ]
+ },
+ "music.boss_2": {
+  "sounds": [
+   {
+    "name": "gave:music/boss_2",
+    "stream": true
+   }
+  ]
+ },
+ "music.boss_sting": {
+  "sounds": [
+   {
+    "name": "gave:music/boss_sting",
+    "stream": true
+   }
+  ]
+ },
+ "music.over": {
+  "sounds": [
+   {
+    "name": "gave:music/over",
+    "stream": true
+   }
+  ]
+ },
+ "music.a1_high_epicrock": {
+  "sounds": [
+   {
+    "name": "gave:music/a1_high_epicrock",
+    "stream": true
+   }
+  ]
+ },
+ "music.a2_low_bigrock": {
+  "sounds": [
+   {
+    "name": "gave:music/a2_low_bigrock",
+    "stream": true
+   }
+  ]
+ },
+ "music.a2_low_monolith": {
+  "sounds": [
+   {
+    "name": "gave:music/a2_low_monolith",
+    "stream": true
+   }
+  ]
+ },
+ "music.a2_high_takethelead": {
+  "sounds": [
+   {
+    "name": "gave:music/a2_high_takethelead",
+    "stream": true
+   }
+  ]
+ },
+ "music.a3_low_fightthem": {
+  "sounds": [
+   {
+    "name": "gave:music/a3_low_fightthem",
+    "stream": true
+   }
+  ]
+ },
+ "music.a3_low_bestial": {
+  "sounds": [
+   {
+    "name": "gave:music/a3_low_bestial",
+    "stream": true
+   }
+  ]
+ },
+ "music.a3_high_hunger": {
+  "sounds": [
+   {
+    "name": "gave:music/a3_high_hunger",
+    "stream": true
+   }
+  ]
+ },
+ "music.a4_low_abelian": {
+  "sounds": [
+   {
+    "name": "gave:music/a4_low_abelian",
+    "stream": true
+   }
+  ]
+ },
+ "music.a4_high_hellfire": {
+  "sounds": [
+   {
+    "name": "gave:music/a4_high_hellfire",
+    "stream": true
+   }
+  ]
+ },
+ "music.a4_high_recon": {
+  "sounds": [
+   {
+    "name": "gave:music/a4_high_recon",
+    "stream": true
+   }
+  ]
+ },
+ "music.boss_3": {
+  "sounds": [
+   {
+    "name": "gave:music/boss_3",
+    "stream": true
+   }
+  ]
+ },
+ "music.boss_4": {
+  "sounds": [
+   {
+    "name": "gave:music/boss_4",
+    "stream": true
+   }
+  ]
+ },
+ "music.boss_final": {
+  "sounds": [
+   {
+    "name": "gave:music/boss_final",
+    "stream": true
+   }
+  ]
+ },
+ "music.boss_pre": {
+  "sounds": [
+   {
+    "name": "gave:music/boss_pre",
+    "stream": true
+   }
+  ]
+ },
+ "music.boss_down": {
+  "sounds": [
+   {
+    "name": "gave:music/boss_down",
+    "stream": true
+   }
+  ]
+ },
+ "music.chase_1": {
+  "sounds": [
+   {
+    "name": "gave:music/chase_1",
+    "stream": true
+   }
+  ]
+ },
+ "music.chase_2": {
+  "sounds": [
+   {
+    "name": "gave:music/chase_2",
+    "stream": true
+   }
+  ]
+ },
+ "music.laststand_1": {
+  "sounds": [
+   {
+    "name": "gave:music/laststand_1",
+    "stream": true
+   }
+  ]
+ },
+ "music.laststand_2": {
+  "sounds": [
+   {
+    "name": "gave:music/laststand_2",
+    "stream": true
+   }
+  ]
+ },
+ "music.credits": {
+  "sounds": [
+   {
+    "name": "gave:music/credits",
+    "stream": true
+   }
+  ]
+ },
+ "music.ending": {
+  "sounds": [
+   {
+    "name": "gave:music/ending",
+    "stream": true
+   }
+  ]
+ }
+}

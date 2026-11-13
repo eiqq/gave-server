@@ -1,0 +1,18 @@
+[
+ ["wait", 2],
+ ["cmd", "data get entity {USER} Pos"],
+ ["shot", "join"],
+ ["cmd", "gave 시작"],
+ ["until", "state=PREP", 15],
+ ["cmd", "gave 시험 돌기 {USER} 0 20"],
+ ["wait", 1],
+ ["cmd", "gave 시험 피 {USER} 5"],
+ ["shot", "blood"],
+ ["wait", 0.15],
+ ["shot", "blood_2"],
+ ["cmd", "gave 시험 연출수 {USER}"],
+ ["cmd", "gave 중지"],
+ ["wait", 1],
+ ["cmd", "data get entity {USER} Pos"],
+ ["cmd", "gave 상태"]
+]

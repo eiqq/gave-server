@@ -1,0 +1,78 @@
+{
+ "title": "Evil Laughs Pack",
+ "author": "Eldritch Grim",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/evil-laughs-pack",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0",
+ "note": "No required, but to those who contributed would most definitly not mind attribution.",
+ "urls": [
+  "https://opengameart.org/sites/default/files/evil_laughs.zip"
+ ],
+ "pack": "oga_laughs",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "evil_laughs.zip",
+   "bytes": 2164886,
+   "sha256": "4c7f37f32a02c8fad0ffc3d151f08e0661276ec2643533af007b7625a4edf13f"
+  }
+ ],
+ "files": [
+  {
+   "file": "laugh_1.mp3",
+   "orig": "Evil Laughs/Laugh 1.mp3",
+   "bytes": 105485,
+   "sha256": "2592434804e7ed0d253b02732a0489fd016a5b86556c073a33b9bb61933afe9a"
+  },
+  {
+   "file": "laugh_2.mp3",
+   "orig": "Evil Laughs/Laugh 2.mp3",
+   "bytes": 68046,
+   "sha256": "2dc6db0888dd62c7a13a8c7d755bc7b5c631d5b53d2c8be34a3b670883e6a9bc"
+  },
+  {
+   "file": "laugh_3.mp3",
+   "orig": "Evil Laughs/Laugh 3.mp3",
+   "bytes": 96834,
+   "sha256": "99d4c8c89d77c58ecb14b99910544d612ae527dcf1dc60999f1fd718abeb5e07"
+  },
+  {
+   "file": "laugh_4.mp3",
+   "orig": "Evil Laughs/Laugh 4.mp3",
+   "bytes": 117572,
+   "sha256": "6141868d51008bcb3f02b4d2a7fc8f7b34e13a54c4e26b84146d215b6720ac0d"
+  },
+  {
+   "file": "laugh_5.mp3",
+   "orig": "Evil Laughs/Laugh 5.mp3",
+   "bytes": 164231,
+   "sha256": "8175c3d7e1d0afedc21af9b9588917de18009db4099eecfcacb1e383bd295a0a"
+  },
+  {
+   "file": "laugh_6.mp3",
+   "orig": "Evil Laughs/Laugh 6.mp3",
+   "bytes": 153880,
+   "sha256": "1f7be25eddaf3830dd2c09afeaf848eed508d08f0d543556c3b32d5f5f299def"
+  },
+  {
+   "file": "laugh_7.mp3",
+   "orig": "Evil Laughs/Laugh 7.mp3",
+   "bytes": 157900,
+   "sha256": "0385480bbbbce36bfeefcc723b2e01d12f795e3e9099b8113e17e9385e0e3b5d"
+  },
+  {
+   "file": "laugh_8.mp3",
+   "orig": "Evil Laughs/Laugh 8.mp3",
+   "bytes": 686086,
+   "sha256": "3711b4d8b4965d1bccd9e4b5cbd830b21d3bd7be45b9441e5df03c44c3f743f8"
+  },
+  {
+   "file": "laugh_9.mp3",
+   "orig": "Evil Laughs/Laugh 9.mp3",
+   "bytes": 832389,
+   "sha256": "cf1fbbef7db7473bf64f55e0403c0a097d7ba1a73210a90a536769088c713bd1"
+  }
+ ]
+}

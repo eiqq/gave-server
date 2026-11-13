@@ -1,0 +1,30 @@
+{
+ "title": "wind whoosh loop",
+ "author": "SketchMan3",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/wind-whoosh-loop",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0",
+ "note": "",
+ "urls": [
+  "https://opengameart.org/sites/default/files/wind%20woosh%20loop.ogg"
+ ],
+ "pack": "oga_wind_loop",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "wind woosh loop.ogg",
+   "bytes": 251584,
+   "sha256": "0cfdbd3f21ed449689a9024264edf267d0037a6495813a7010827672ec191dac"
+  }
+ ],
+ "files": [
+  {
+   "file": "wind_woosh_loop.ogg",
+   "orig": "wind woosh loop.ogg",
+   "bytes": 251584,
+   "sha256": "0cfdbd3f21ed449689a9024264edf267d0037a6495813a7010827672ec191dac"
+  }
+ ]
+}

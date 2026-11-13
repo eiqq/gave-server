@@ -1,0 +1,17 @@
+[
+  ["cmd", "gamemode adventure {USER}"],
+  ["cmd", "gave 시험 판끝막기 x on"],
+  ["cmd", "gave 시작"],
+  ["until", "state=WAVE", 25],
+  ["cmd", "gave 시험 시선 {USER} 0 10"],
+  ["cmd", "gave 시험 쓰러뜨리기 {USER}"],
+  ["wait", 1.0],
+  ["shot", "t1_self"],
+  ["cmd", "gave 시험 사람상태 {USER}"],
+  ["wait", 5.5],
+  ["cmd", "gave 시험 죽이기 {USER}"],
+  ["cmd", "gave 시험 사람상태 {USER}"],
+  ["wait", 6.0],
+  ["cmd", "gave 중지"],
+  ["cmd", "gave 시험 판끝막기 x off"]
+]

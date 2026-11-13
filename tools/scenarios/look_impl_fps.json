@@ -1,0 +1,192 @@
+[
+[
+"cmd",
+"gamemode adventure {USER}"
+],
+[
+"wait",
+2
+],
+[
+"cmd",
+"gave 시험 균형 x FIRST_MIN 0"
+],
+[
+"cmd",
+"gave 시험 균형 x FIRST_SHARE 0"
+],
+[
+"cmd",
+"gave 시작"
+],
+[
+"until",
+"state=PREP",
+15
+],
+[
+"cmd",
+"gave 시험 판끝막기 x on"
+],
+[
+"until",
+"state=WAVE",
+20
+],
+[
+"cmd",
+"gave 시험 균형 x ALIVE_BASE 0"
+],
+[
+"cmd",
+"gave 시험 균형 x ALIVE_PER_WAVE 0"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 래그돌값 x settleSeconds 40"
+],
+[
+"cmd",
+"time set noon"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 4.5 180 2"
+],
+[
+"cmd",
+"gave 시험 몹정지 x on"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G05 10 0.5 -10.5 4"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G06 10 3.0 -10.8 4"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G09 10 5.2 -11.6 4"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G10 10 7.0 -13.0 4"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G12 10 8.1 -14.6 4"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G14 10 8.5 -16.5 4"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G15 10 8.1 -18.4 4"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G16 10 7.0 -20.0 4"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G32 10 5.2 -21.4 4"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G36 10 3.0 -22.2 4"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G41 10 0.5 -22.5 4"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G46 10 -2.0 -22.2 4"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G51 10 -4.2 -21.4 4"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G18 10 -6.0 -20.0 4"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G27 10 -7.1 -18.4 4"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G28 10 -7.5 -16.5 4"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G34 10 -7.1 -14.6 4"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G39 10 -6.0 -13.0 4"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G42 10 -4.2 -11.6 4"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G43 10 -2.0 -10.8 4"
+],
+[
+"wait",
+3
+],
+[
+"shot",
+"fps_200"
+],
+[
+"cmd",
+"gave 시험 예산 x"
+],
+[
+"cmd",
+"gave 시험 몹정지 x off"
+],
+[
+"wait",
+4
+],
+[
+"shot",
+"fps_200_move"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 몹정지 x on"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"gave 중지"
+]
+]

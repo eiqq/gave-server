@@ -1,0 +1,92 @@
+{
+ "model": {
+  "type": "minecraft:composite",
+  "models": [
+   {
+    "type": "minecraft:select",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "cases": [
+     {
+      "when": "common",
+      "model": {
+       "type": "minecraft:model",
+       "model": "gave:item/shop/frame_common"
+      }
+     },
+     {
+      "when": "rare",
+      "model": {
+       "type": "minecraft:model",
+       "model": "gave:item/shop/frame_rare"
+      }
+     },
+     {
+      "when": "epic",
+      "model": {
+       "type": "minecraft:model",
+       "model": "gave:item/shop/frame_epic"
+      }
+     },
+     {
+      "when": "legendary",
+      "model": {
+       "type": "minecraft:model",
+       "model": "gave:item/shop/frame_legendary"
+      }
+     }
+    ],
+    "fallback": {
+     "type": "minecraft:model",
+     "model": "gave:item/shop/frame_none"
+    }
+   },
+   {
+    "type": "minecraft:select",
+    "property": "minecraft:custom_model_data",
+    "index": 1,
+    "cases": [
+     {
+      "when": "pistol",
+      "model": {
+       "type": "minecraft:model",
+       "model": "gave:item/pistol"
+      }
+     },
+     {
+      "when": "smg",
+      "model": {
+       "type": "minecraft:model",
+       "model": "gave:item/smg"
+      }
+     },
+     {
+      "when": "shotgun",
+      "model": {
+       "type": "minecraft:model",
+       "model": "gave:item/shotgun"
+      }
+     },
+     {
+      "when": "rifle",
+      "model": {
+       "type": "minecraft:model",
+       "model": "gave:item/rifle"
+      }
+     },
+     {
+      "when": "sniper",
+      "model": {
+       "type": "minecraft:model",
+       "model": "gave:item/sniper"
+      }
+     }
+    ],
+    "fallback": {
+     "type": "minecraft:model",
+     "model": "gave:item/pistol"
+    }
+   }
+  ]
+ }
+}

@@ -1,0 +1,168 @@
+{
+ "title": "Zombies Sound Pack",
+ "author": "artisticdude",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/zombies-sound-pack",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0",
+ "note": "24 zombie sounds created for the FOSS RPG Summoning Wars",
+ "urls": [
+  "https://opengameart.org/sites/default/files/zombies.zip"
+ ],
+ "pack": "oga_zombies",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "zombies.zip",
+   "bytes": 4667201,
+   "sha256": "8096ceeb4dac35d9eef9bfe0cc6649778d1eebf141b208d394ac338b9e5be314"
+  }
+ ],
+ "files": [
+  {
+   "file": "zombie_1.wav",
+   "orig": "zombies/zombie-1.wav",
+   "bytes": 227056,
+   "sha256": "dad8280256985cadc5745f407c53ebdcf428d55e6369a70847e5b83d60e98c17"
+  },
+  {
+   "file": "zombie_10.wav",
+   "orig": "zombies/zombie-10.wav",
+   "bytes": 182898,
+   "sha256": "be9223a5c65ad1c1444e6e2153918d8c2a2a1dee59efeb36fa5bbb060c2bfed8"
+  },
+  {
+   "file": "zombie_11.wav",
+   "orig": "zombies/zombie-11.wav",
+   "bytes": 133220,
+   "sha256": "edbe930f09f61f034c90b80a6f5b06757fbea2a8f2b9ccdc263ed9246b33a400"
+  },
+  {
+   "file": "zombie_12.wav",
+   "orig": "zombies/zombie-12.wav",
+   "bytes": 210492,
+   "sha256": "2b1984e3485715642a1195393fd35227eadc27b8f7eeb968956e18f4e8cb9400"
+  },
+  {
+   "file": "zombie_13.wav",
+   "orig": "zombies/zombie-13.wav",
+   "bytes": 149782,
+   "sha256": "b8a64c3a557d7ce0b69492717bc1a88706b69c499a2714f02527d822a8462545"
+  },
+  {
+   "file": "zombie_14.wav",
+   "orig": "zombies/zombie-14.wav",
+   "bytes": 177376,
+   "sha256": "b1fffbf93fd9cf353a9dd0d519b6cd6e739bd3fb28853a580e018ac73efdda4b"
+  },
+  {
+   "file": "zombie_15.wav",
+   "orig": "zombies/zombie-15.wav",
+   "bytes": 232570,
+   "sha256": "19d0955dfcca86939dbce76388dad5d3ad4dd8ed70bf7ce457d9a46b555e220b"
+  },
+  {
+   "file": "zombie_16.wav",
+   "orig": "zombies/zombie-16.wav",
+   "bytes": 381606,
+   "sha256": "637f8d26b186005246a279fb19def56c81eebcf144c2346460ac1e4fc0075fc7"
+  },
+  {
+   "file": "zombie_17.wav",
+   "orig": "zombies/zombie-17.wav",
+   "bytes": 420242,
+   "sha256": "c954b6173399ed574c1c1350b8da4a5b465e0454cc810d6e49779fe121fafa34"
+  },
+  {
+   "file": "zombie_18.wav",
+   "orig": "zombies/zombie-18.wav",
+   "bytes": 293286,
+   "sha256": "91c33adaf9efa32d87c364eb2a679833a24ac5586c52f675f3e9cf8cedfde199"
+  },
+  {
+   "file": "zombie_19.wav",
+   "orig": "zombies/zombie-19.wav",
+   "bytes": 260170,
+   "sha256": "79fa7bb077c0b5c46837a63299a1df3269a2310f25b6a3055dd27a4700c74789"
+  },
+  {
+   "file": "zombie_2.wav",
+   "orig": "zombies/zombie-2.wav",
+   "bytes": 188414,
+   "sha256": "b8833b90e2f929cb28ce067e10dacc6e807f47f92393b8f2e6fd17d34f207efe"
+  },
+  {
+   "file": "zombie_20.wav",
+   "orig": "zombies/zombie-20.wav",
+   "bytes": 254650,
+   "sha256": "3a962ea1d8517ad4c2fea8221e6a0e622dcad3ba34bae5a436d4f0971774b56d"
+  },
+  {
+   "file": "zombie_21.wav",
+   "orig": "zombies/zombie-21.wav",
+   "bytes": 287770,
+   "sha256": "d58c26ae8df808238becc3434cf46778fca4582e9fcda138bdc01f720ecbbefc"
+  },
+  {
+   "file": "zombie_22.wav",
+   "orig": "zombies/zombie-22.wav",
+   "bytes": 177376,
+   "sha256": "3224f8e3e9e446e5e424a9f6ce11ee78784ebd7bdc2db535306b337c973e6e02"
+  },
+  {
+   "file": "zombie_23.wav",
+   "orig": "zombies/zombie-23.wav",
+   "bytes": 216012,
+   "sha256": "d467553c380b0c2fb04cd5e5583ec53d0d3620902cf3b90e6aa64438f3e5e84c"
+  },
+  {
+   "file": "zombie_24.wav",
+   "orig": "zombies/zombie-24.wav",
+   "bytes": 89062,
+   "sha256": "3776a39a471c215f26115290837012084fc07f37e20b4808ce76f5dafe98f2fb"
+  },
+  {
+   "file": "zombie_3.wav",
+   "orig": "zombies/zombie-3.wav",
+   "bytes": 155298,
+   "sha256": "8097e5c1da76b30ae5a1dca0b85d70fab0e1386170a03acc77f9492047ac4e84"
+  },
+  {
+   "file": "zombie_4.wav",
+   "orig": "zombies/zombie-4.wav",
+   "bytes": 193940,
+   "sha256": "36b6376649969e11112361afb00e6d161a2433f9db045273d9ed40d6e9b06ab0"
+  },
+  {
+   "file": "zombie_5.wav",
+   "orig": "zombies/zombie-5.wav",
+   "bytes": 133220,
+   "sha256": "6920b559f953d19737f65a9da5b31f7bb3e1421c48552f52d7a57399d507574b"
+  },
+  {
+   "file": "zombie_6.wav",
+   "orig": "zombies/zombie-6.wav",
+   "bytes": 144256,
+   "sha256": "2ad9acaccc9bc29f77f89581767699c3ed8d9630c19a11a8bbf6332ce89686a2"
+  },
+  {
+   "file": "zombie_7.wav",
+   "orig": "zombies/zombie-7.wav",
+   "bytes": 155298,
+   "sha256": "8e63e327c960bfe76d0402f7a54f7629272e6346e5c6b84ac35ad52b9597dec8"
+  },
+  {
+   "file": "zombie_8.wav",
+   "orig": "zombies/zombie-8.wav",
+   "bytes": 221534,
+   "sha256": "98dadef79f3cdbf120277e24e95919dfc2e853a45a7d72273a1d3c2cbc1ea823"
+  },
+  {
+   "file": "zombie_9.wav",
+   "orig": "zombies/zombie-9.wav",
+   "bytes": 232570,
+   "sha256": "938c9a75828cda0ec78482e7a969cebc8f989968dcde15326e8c5a2f437fd468"
+  }
+ ]
+}

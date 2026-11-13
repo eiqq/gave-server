@@ -1,0 +1,31 @@
+{
+ "title": "Sirens and Alarm Noise",
+ "author": "aquinn",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/sirens-and-alarm-noise",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+ "note": "",
+ "desc": "A collection of sirens and alarm noises.",
+ "urls": [
+  "https://opengameart.org/sites/default/files/siren_0.mp3"
+ ],
+ "pack": "oga_sirens",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "siren.mp3",
+   "bytes": 661211,
+   "sha256": "fabe96ad2116d310b38acc143780e1c47c3cb27227deda13f84ce8e3cfb2248b"
+  }
+ ],
+ "files": [
+  {
+   "file": "siren.mp3",
+   "orig": "siren.mp3",
+   "bytes": 661211,
+   "sha256": "fabe96ad2116d310b38acc143780e1c47c3cb27227deda13f84ce8e3cfb2248b"
+  }
+ ]
+}

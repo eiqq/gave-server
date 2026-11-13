@@ -1,0 +1,27 @@
+{
+ "slug": "trafficcraft",
+ "title": "TrafficCraft (MrJulsen) - 발사장 투광등 몫",
+ "url": "https://modrinth.com/mod/trafficcraft",
+ "source": "https://github.com/MisterJulsen/TrafficCraft",
+ "version": "1.21.1-beta-1.2.0+4 (NeoForge 1.21.1)",
+ "license": "GPL-3.0-or-later",
+ "license_evidence": {
+  "modrinth_api": "https://api.modrinth.com/v2/project/trafficcraft 의 license.id = GPL-3.0-or-later (길 담당이 2026-11-12 확인, ref/mods/trafficcraft/_info.json)",
+  "jar_mods_toml": "license = \"GNU General Public License v3.0\"",
+  "authors": "MrJulsen"
+ },
+ "note": "jar 는 eternalmc/ref/mods/trafficcraft 의 것을 읽기만 함. 쌍둥이 가로등 머리(켜짐, 꺼짐)와 표지판 기둥, 그 그림 넷만 꺼냄. anvil.png 는 바닐라 모루 그림과 같은 Mojang 에셋이라 꺼내지 않고 같은 모드의 asphalt.png 로 바꿔 끼움. GPL-3.0 전문은 팩 맨 위 LICENSE-GPL-3.0.txt.",
+ "jar_file": "trafficcraft-neoforge-1.21.1-beta-1.2.0+4.jar",
+ "jar_path_when_extracted": "C:\\Users\\PC\\Desktop\\클로드\\eternalmc\\ref\\mods\\trafficcraft\\trafficcraft-neoforge-1.21.1-beta-1.2.0+4.jar",
+ "sha512": "fa548798c3623820b9df557ee7a58929977c569bdc25b54c30316bac7eba35a39cc1034a681e1d3f6f227ec6e881e9223c89111a29cde97b7890163720967b82",
+ "extracted": [
+  "assets/trafficcraft/models/block/double_street_lamp.json",
+  "assets/trafficcraft/models/block/lit_double_street_lamp.json",
+  "assets/trafficcraft/models/block/traffic_sign_post.json",
+  "assets/trafficcraft/textures/block/sign.png",
+  "assets/trafficcraft/textures/block/asphalt.png",
+  "assets/trafficcraft/textures/block/lamp_light.png",
+  "assets/trafficcraft/textures/block/lamp_light_off.png",
+  "META-INF/neoforge.mods.toml"
+ ]
+}

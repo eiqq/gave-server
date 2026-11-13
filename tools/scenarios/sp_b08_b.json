@@ -1,0 +1,300 @@
+[
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gamemode adventure {USER}"
+ ],
+ [
+  "cmd",
+  "gave 중지"
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=PREP",
+  15
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 {USER} on"
+ ],
+ [
+  "cmd",
+  "gave 시험 총 {USER} RIFLE"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  40
+ ],
+ [
+  "cmd",
+  "gave 시험 감독빨리 x 0.1"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 풀기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER} 100"
+ ],
+ [
+  "cmd",
+  "tp {USER} 20.5 64 -30.5 0 0"
+ ],
+ [
+  "wait",
+  0.4
+ ],
+ [
+  "cmd",
+  "gave 소환 G106 1 12 {USER}"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 0 30"
+ ],
+ [
+  "shot",
+  "g106_come"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G106"
+ ],
+ [
+  "wait",
+  4.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G106"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "shot",
+  "g106_under"
+ ],
+ [
+  "wait",
+  2.5
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G106"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 0 20"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 30"
+ ],
+ [
+  "wait",
+  2.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G106"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "shot",
+  "g106_flip"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G106"
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 0 25"
+ ],
+ [
+  "shot",
+  "g106_belly"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹치기 {USER} BULLET 3 G106"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "shot",
+  "g106_corpse"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 풀기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER} 100"
+ ],
+ [
+  "cmd",
+  "tp {USER} 5.5 64 7.5 0 0"
+ ],
+ [
+  "wait",
+  0.4
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 {USER} G103 1 16.5 21.5"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G103 20 0 0"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "shot",
+  "g103_rise"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G103"
+ ],
+ [
+  "wait",
+  3.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G103"
+ ],
+ [
+  "shot",
+  "g103_raise"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G103"
+ ],
+ [
+  "shot",
+  "g103_splash"
+ ],
+ [
+  "wait",
+  5.5
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G103"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 180 30"
+ ],
+ [
+  "shot",
+  "g103_flood"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G103 40 0 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 40"
+ ],
+ [
+  "wait",
+  2.2
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G103"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹치기 {USER} BULLET 4 G103"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G103 10 0 0"
+ ],
+ [
+  "shot",
+  "g103_corpse"
+ ]
+]

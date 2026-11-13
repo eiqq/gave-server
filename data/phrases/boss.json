@@ -1,0 +1,19 @@
+{
+ "bs_next": "큰 것이 온다",
+ "bs_down": "쓰러뜨렸다",
+ "bs_enrage": "화났다",
+ "bs_come": "온다",
+ "t_end": "아침",
+ "end_sub": "모두 눈을 감았다",
+ "t_again": "또 아침",
+ "hint_bs_jump": "뛰어 넘어라",
+ "hint_bs_weak": "금빛 쪽이 약점",
+ "hint_bs_safe": "초록 고리 안으로",
+ "hint_bs_freeze": "노래가 멈추면 멈춰",
+ "hint_bs_shade": "손가락 그늘로",
+ "hint_bs_tiny": "입속 작은 얼굴",
+ "bs_dummy_sub": "시험용 빈 보스",
+ "bs_dummy_p2": "둘째 단계",
+ "bs_dummy_p3": "마지막 단계",
+ "cause_dummy": "시험 보스에 맞았다"
+}

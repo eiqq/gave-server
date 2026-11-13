@@ -1,0 +1,468 @@
+[
+[
+"wait",
+2
+],
+[
+"cmd",
+"gamemode adventure {USER}"
+],
+[
+"cmd",
+"gave 시작"
+],
+[
+"until",
+"state=PREP",
+15
+],
+[
+"cmd",
+"gave 시험 판끝막기 {USER} on"
+],
+[
+"cmd",
+"gave 시험 총 {USER} RIFLE"
+],
+[
+"until",
+"state=WAVE",
+40
+],
+[
+"cmd",
+"gave 시험 감독빨리 x 0.1"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 10.5 0 0"
+],
+[
+"wait",
+0.4
+],
+[
+"cmd",
+"gave 소환 G77 1 24 {USER}"
+],
+[
+"wait",
+2.5
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 0 -30"
+],
+[
+"wait",
+0.3
+],
+[
+"shot",
+"g77_come"
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G77"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 0 -75"
+],
+[
+"wait",
+0.3
+],
+[
+"shot",
+"g77_aim"
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G77"
+],
+[
+"wait",
+2.0
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G77"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 30 10"
+],
+[
+"wait",
+0.2
+],
+[
+"shot",
+"g77_press"
+],
+[
+"cmd",
+"gave 시험 몹폭발 {USER} 3 40"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G77"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 1 G77"
+],
+[
+"wait",
+1.0
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G77"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G77"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 10.5 0 0"
+],
+[
+"wait",
+0.4
+],
+[
+"cmd",
+"gave 소환 G71 1 34 {USER}"
+],
+[
+"wait",
+3.0
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G71"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 0 -45"
+],
+[
+"wait",
+0.3
+],
+[
+"shot",
+"g71_pass"
+],
+[
+"wait",
+2.0
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G71"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 180 -55"
+],
+[
+"wait",
+0.3
+],
+[
+"shot",
+"g71_over"
+],
+[
+"wait",
+2.5
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G71"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 180 25"
+],
+[
+"wait",
+0.2
+],
+[
+"shot",
+"g71_ground"
+],
+[
+"wait",
+3.0
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G71"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 1 G71"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 래그돌 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 10.5 0 0"
+],
+[
+"wait",
+0.4
+],
+[
+"cmd",
+"gave 소환 G119 1 18 {USER}"
+],
+[
+"wait",
+2.0
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G119"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G119 25"
+],
+[
+"wait",
+0.6
+],
+[
+"shot",
+"g119_kite"
+],
+[
+"wait",
+2.5
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G119"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"wait",
+2.5
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G119"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 0 -60"
+],
+[
+"wait",
+0.2
+],
+[
+"shot",
+"g119_lift"
+],
+[
+"wait",
+3.0
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G119"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 10.5 0 0"
+],
+[
+"wait",
+0.4
+],
+[
+"cmd",
+"gave 소환 G97 1 10 {USER}"
+],
+[
+"wait",
+1.0
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G97 60"
+],
+[
+"wait",
+1.2
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G97"
+],
+[
+"wait",
+0.8
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G97"
+],
+[
+"wait",
+0.6
+],
+[
+"shot",
+"g97_funnel"
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G97"
+],
+[
+"wait",
+0.8
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 180 30"
+],
+[
+"wait",
+4.5
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G97"
+],
+[
+"shot",
+"g97_hail"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G97"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 1 G97"
+],
+[
+"wait",
+0.5
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER}"
+]
+]

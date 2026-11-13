@@ -1,0 +1,155 @@
+[
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gamemode adventure {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=PREP",
+  15
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 소환 G01 1 11 {USER}"
+ ],
+ [
+  "wait",
+  2.7
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 {USER} on"
+ ],
+ [
+  "shot",
+  "g01_stick_a"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} 1"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 {USER} off"
+ ],
+ [
+  "wait",
+  0.25
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 {USER} on"
+ ],
+ [
+  "shot",
+  "g01_stick_b"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} 1"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 {USER} off"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 소환 G02 1 12 {USER}"
+ ],
+ [
+  "wait",
+  2.4
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 {USER} on"
+ ],
+ [
+  "shot",
+  "g02_p1"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} 2"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 {USER} off"
+ ],
+ [
+  "wait",
+  0.35
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 {USER} on"
+ ],
+ [
+  "shot",
+  "g02_p2"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} 2"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 {USER} off"
+ ],
+ [
+  "wait",
+  0.35
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 {USER} on"
+ ],
+ [
+  "shot",
+  "g02_p3"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} 2"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 {USER} off"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "shot",
+  "g02_regroup"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} 2"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ]
+]

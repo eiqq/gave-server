@@ -1,0 +1,31 @@
+{
+ "title": "Car tire squeal skid loop",
+ "author": "qubodup",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/car-tire-squeal-skid-loop",
+ "license": "CC BY 3.0",
+ "license_url": "https://creativecommons.org/licenses/by/3.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC-BY 3.0 (http://creativecommons.org/licenses/by/3.0/)",
+ "note": "",
+ "desc": "I just picked a random piece of this sound (4s to 7s), copied it and moved it by 1.5s to hide possible transitions... no further editing was needed! The perfect tire squeal sound loop! soxi says: Input File : 'tires_squal_loop.wav' Channels : 1 Sample Rate : 96000 Precision : 24-bit Duration : 00:00",
+ "urls": [
+  "https://opengameart.org/sites/default/files/tires_squal_loop.wav"
+ ],
+ "pack": "oga_tire_skid",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "tires_squal_loop.wav",
+   "bytes": 864044,
+   "sha256": "2b341cfa20987388fcca9fd91d8be5056cb6c6c54abc2a97846c2be5e5a4f604"
+  }
+ ],
+ "files": [
+  {
+   "file": "tires_squal_loop.wav",
+   "orig": "tires_squal_loop.wav",
+   "bytes": 864044,
+   "sha256": "2b341cfa20987388fcca9fd91d8be5056cb6c6c54abc2a97846c2be5e5a4f604"
+  }
+ ]
+}

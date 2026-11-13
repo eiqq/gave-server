@@ -1,0 +1,588 @@
+[
+[
+"wait",
+2
+],
+[
+"cmd",
+"gamemode adventure {USER}"
+],
+[
+"cmd",
+"gamemode adventure Bishop"
+],
+[
+"cmd",
+"gave 중지"
+],
+[
+"cmd",
+"gave 시작"
+],
+[
+"until",
+"state=PREP",
+15
+],
+[
+"cmd",
+"gave 시험 판끝막기 {USER} on"
+],
+[
+"cmd",
+"gave 시험 총 {USER} RIFLE"
+],
+[
+"cmd",
+"gave 시험 총 Bishop RIFLE"
+],
+[
+"until",
+"state=WAVE",
+40
+],
+[
+"cmd",
+"gave 시험 감독빨리 x 0.05"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 시험 풀기 {USER}"
+],
+[
+"cmd",
+"gave 시험 풀기 Bishop"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 체력 Bishop 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 24.5 0 0"
+],
+[
+"cmd",
+"tp Bishop -30.5 64 -30.5 180 0"
+],
+[
+"wait",
+0.4
+],
+[
+"cmd",
+"gave 소환 G171 1 16 {USER}"
+],
+[
+"wait",
+3.5
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G171"
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G171"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G171 20"
+],
+[
+"wait",
+0.2
+],
+[
+"shot",
+"g171_circle"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 탄창 {USER} 2"
+],
+[
+"cmd",
+"gave 시험 재장전 {USER}"
+],
+[
+"wait",
+0.5
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G171"
+],
+[
+"wait",
+0.6
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G171"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g171_pounce"
+],
+[
+"wait",
+1.0
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G171"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 8 G171"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 0 30"
+],
+[
+"shot",
+"g171_corpse"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 시험 풀기 {USER}"
+],
+[
+"cmd",
+"gave 시험 풀기 Bishop"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 체력 Bishop 100"
+],
+[
+"cmd",
+"tp {USER} 30.5 64 24.5 0 0"
+],
+[
+"cmd",
+"tp Bishop 33.5 64 26.5 180 0"
+],
+[
+"wait",
+0.4
+],
+[
+"cmd",
+"gave 소환 G168 1 12 {USER}"
+],
+[
+"wait",
+2.5
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G168"
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G168"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G168 20"
+],
+[
+"wait",
+0.2
+],
+[
+"shot",
+"g168_fly"
+],
+[
+"wait",
+3.0
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G168"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 사람상태 Bishop"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 60 10"
+],
+[
+"wait",
+0.2
+],
+[
+"shot",
+"g168_thread"
+],
+[
+"wait",
+2.0
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G168"
+],
+[
+"cmd",
+"tp Bishop 40.5 64 24.5 180 0"
+],
+[
+"wait",
+1.0
+],
+[
+"cmd",
+"gave 시험 사람상태 Bishop"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"wait",
+2.0
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G168"
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G168"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 사람상태 Bishop"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} PELLET 12 G168"
+],
+[
+"wait",
+1.2
+],
+[
+"shot",
+"g168_corpse"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 시험 풀기 {USER}"
+],
+[
+"cmd",
+"gave 시험 풀기 Bishop"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 체력 Bishop 100"
+],
+[
+"cmd",
+"tp {USER} -30.5 64 24.5 0 0"
+],
+[
+"cmd",
+"tp Bishop -60.5 64 -30.5 180 0"
+],
+[
+"wait",
+0.4
+],
+[
+"cmd",
+"gave 소환 G175 1 7 {USER}"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G175"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G175 10"
+],
+[
+"wait",
+0.3
+],
+[
+"shot",
+"g175_kneel"
+],
+[
+"cmd",
+"gave 시험 돕기 {USER}"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G175"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 6"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 총상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G175"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 90 20"
+],
+[
+"shot",
+"g175_ride"
+],
+[
+"wait",
+4.5
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G175"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g175_drag"
+],
+[
+"wait",
+4.0
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G175"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 12 G175"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G175 5"
+],
+[
+"shot",
+"g175_corpse"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 시험 풀기 {USER}"
+],
+[
+"cmd",
+"gave 시험 풀기 Bishop"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 체력 Bishop 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 -30.5 0 0"
+],
+[
+"cmd",
+"tp Bishop -60.5 64 -30.5 180 0"
+],
+[
+"wait",
+0.4
+],
+[
+"cmd",
+"gave 소환 G177 1 7 {USER}"
+],
+[
+"wait",
+0.5
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G177 20"
+],
+[
+"wait",
+0.3
+],
+[
+"shot",
+"g177_near"
+],
+[
+"wait",
+2.5
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G177"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"wait",
+0.8
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G177"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g177_wrap"
+],
+[
+"wait",
+2.2
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G177"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 14 G177"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G177 5"
+],
+[
+"shot",
+"g177_corpse"
+],
+[
+"cmd",
+"gave 중지"
+]
+]

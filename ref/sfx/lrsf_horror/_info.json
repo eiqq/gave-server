@@ -1,0 +1,438 @@
+{
+ "title": "Horror Sound Effects Library",
+ "author": "Little Robot Sound Factory",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/horror-sound-effects-library",
+ "license": "CC BY 3.0",
+ "license_url": "https://creativecommons.org/licenses/by/3.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC-BY 3.0",
+ "note": "Attribute Little Robot Sound Factory, and provide this link where possible: www.littlerobotsoundfactory.com",
+ "urls": [
+  "https://opengameart.org/sites/default/files/Horror%20Sound%20Library.zip"
+ ],
+ "pack": "lrsf_horror",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "horror.zip",
+   "bytes": 70038824,
+   "sha256": "b14cdd3403013696a7dc85ed0f782aa3359a731aacb017c15d7cd9544f98fb31"
+  }
+ ],
+ "files": [
+  {
+   "file": "ambience_hell_00.mp3",
+   "orig": "Horror Sound Library/Mp3/Ambience_Hell_00.mp3",
+   "bytes": 854520,
+   "sha256": "cb4517380d14703a3d775e24ffeca5683b9fd7f02fd626abcac9bdf5ea49295a"
+  },
+  {
+   "file": "ambience_hell_01.mp3",
+   "orig": "Horror Sound Library/Mp3/Ambience_Hell_01.mp3",
+   "bytes": 638853,
+   "sha256": "14747493a79a18636073dbf02e4be9f8839ca618ce0d4f9eef60225b5b66ac52"
+  },
+  {
+   "file": "ambience_hell_02.mp3",
+   "orig": "Horror Sound Library/Mp3/Ambience_Hell_02.mp3",
+   "bytes": 842608,
+   "sha256": "7d4af141acbeaa87acb097f41332bc20b6b0dee089e593fee20e075b1d6889de"
+  },
+  {
+   "file": "ambience_monstersbelly_00.mp3",
+   "orig": "Horror Sound Library/Mp3/Ambience_MonstersBelly_00.mp3",
+   "bytes": 1445754,
+   "sha256": "48691a102830942b4815013f6749b91a8476ccdabfd0ec0360662906e9ebebff"
+  },
+  {
+   "file": "ambience_murderofcrows_00.mp3",
+   "orig": "Horror Sound Library/Mp3/Ambience_MurderofCrows_00.mp3",
+   "bytes": 341844,
+   "sha256": "161224b504711ecd324acfa2fb98b64ab3964692d30c4d66d68dfa64e04b7606"
+  },
+  {
+   "file": "blood_dripping_loop_00.mp3",
+   "orig": "Horror Sound Library/Mp3/Blood_Dripping_Loop_00.mp3",
+   "bytes": 367549,
+   "sha256": "bf2c13f7ddd88dc489b490a7068f195a4bd3fd430461f041cb0f9ebe8c1a934e"
+  },
+  {
+   "file": "blood_dripping_loop_01.mp3",
+   "orig": "Horror Sound Library/Mp3/Blood_Dripping_Loop_01.mp3",
+   "bytes": 188244,
+   "sha256": "256f0b1001c93af09c780ea1bf8284fad39a4137d9d40ba35900b62f2f73f317"
+  },
+  {
+   "file": "blood_dripping_loop_02.mp3",
+   "orig": "Horror Sound Library/Mp3/Blood_Dripping_Loop_02.mp3",
+   "bytes": 313005,
+   "sha256": "03c61bfecbd127877546299914a7d04988229a234b136e7523aeaf1cca7735d6"
+  },
+  {
+   "file": "bloop_drip_blood_drip_00.mp3",
+   "orig": "Horror Sound Library/Mp3/Bloop Drip/Blood_Drip_00.mp3",
+   "bytes": 13168,
+   "sha256": "1492b518613119f1c5aa0dd9a163c3efa39cf1c09fddf8f3aa3ef613f8404db9"
+  },
+  {
+   "file": "bloop_drip_blood_drip_01.mp3",
+   "orig": "Horror Sound Library/Mp3/Bloop Drip/Blood_Drip_01.mp3",
+   "bytes": 16463,
+   "sha256": "4cda941b6d8466bc5e11236172b0efa40580722824a76dd1924c1dcc60187160"
+  },
+  {
+   "file": "bloop_drip_blood_drip_02.mp3",
+   "orig": "Horror Sound Library/Mp3/Bloop Drip/Blood_Drip_02.mp3",
+   "bytes": 6432,
+   "sha256": "aaa0db61ee1db2faaacf56b76857302a4790470a75bd7ac61d0375d1884f307c"
+  },
+  {
+   "file": "bloop_drip_blood_drip_03.mp3",
+   "orig": "Horror Sound Library/Mp3/Bloop Drip/Blood_Drip_03.mp3",
+   "bytes": 7059,
+   "sha256": "63c8260999a370b9eb9248611a400fc6cd7028067b5e6ec163773e75c8d3dff2"
+  },
+  {
+   "file": "bloop_drip_blood_drip_04.mp3",
+   "orig": "Horror Sound Library/Mp3/Bloop Drip/Blood_Drip_04.mp3",
+   "bytes": 12074,
+   "sha256": "47514fe44bcf50c9fb62cc99ed9788ccec6b1d4c72b865d6b7941e8d6128da56"
+  },
+  {
+   "file": "bloop_drip_blood_drip_05.mp3",
+   "orig": "Horror Sound Library/Mp3/Bloop Drip/Blood_Drip_05.mp3",
+   "bytes": 6432,
+   "sha256": "dfdf41fdba8007dc7f98ef76cf908b2e43b5e9b01dd1883454567ea5df17e070"
+  },
+  {
+   "file": "bloop_drip_blood_drip_06.mp3",
+   "orig": "Horror Sound Library/Mp3/Bloop Drip/Blood_Drip_06.mp3",
+   "bytes": 12074,
+   "sha256": "ffbfe1c2f6f289edc80e0d0fa1601cf0b7b701fcf548a97464181412dbe24289"
+  },
+  {
+   "file": "bloop_drip_blood_drip_07.mp3",
+   "orig": "Horror Sound Library/Mp3/Bloop Drip/Blood_Drip_07.mp3",
+   "bytes": 12701,
+   "sha256": "efbd9e133b4ec85eb2f4e35cc1576f3d88c1789f583d5bd29efdca4a71d413ef"
+  },
+  {
+   "file": "bloop_drip_blood_drip_08.mp3",
+   "orig": "Horror Sound Library/Mp3/Bloop Drip/Blood_Drip_08.mp3",
+   "bytes": 8940,
+   "sha256": "a4b7624a011bc7a786a6603160623fbb00e40c0f65e47ecd715ddf35a34b797e"
+  },
+  {
+   "file": "bloop_drip_blood_drip_09.mp3",
+   "orig": "Horror Sound Library/Mp3/Bloop Drip/Blood_Drip_09.mp3",
+   "bytes": 13328,
+   "sha256": "4b025ad7610964b97a050478ae5564639ea254b3881e4edc58dfcbc49e052de9"
+  },
+  {
+   "file": "bonecrack_00.mp3",
+   "orig": "Horror Sound Library/Mp3/Bonecrack_00.mp3",
+   "bytes": 17717,
+   "sha256": "24825f8de5182408fe6c1975d2a2b9adc06aca8c4cf2dd0d97476cd2b6a03c43"
+  },
+  {
+   "file": "bonecrack_01.mp3",
+   "orig": "Horror Sound Library/Mp3/Bonecrack_01.mp3",
+   "bytes": 8940,
+   "sha256": "dff3597cae2ead175493ccfacddab9c2e84d8a69aa5b0fd0ece3e0a63a301f0c"
+  },
+  {
+   "file": "bonecrack_02.mp3",
+   "orig": "Horror Sound Library/Mp3/Bonecrack_02.mp3",
+   "bytes": 12074,
+   "sha256": "71dabb0f68e5b13c8b6c8000db6e4f095bed1c776c11559089996baa4edbba18"
+  },
+  {
+   "file": "bonecrack_03.mp3",
+   "orig": "Horror Sound Library/Mp3/Bonecrack_03.mp3",
+   "bytes": 13328,
+   "sha256": "a52f30561786f7a679ddc80021e98432b322a54d209e8e0e631e7d1c54c55dfe"
+  },
+  {
+   "file": "breath_scared_breath_scared_00.mp3",
+   "orig": "Horror Sound Library/Mp3/Breath Scared/Breath_Scared_00.mp3",
+   "bytes": 48259,
+   "sha256": "94ced2f26be58ed1496c4bd55e3a7a803fe9e4ddf9aeec4413b8d68a52266484"
+  },
+  {
+   "file": "breath_scared_breath_scared_01.mp3",
+   "orig": "Horror Sound Library/Mp3/Breath Scared/Breath_Scared_01.mp3",
+   "bytes": 27743,
+   "sha256": "f6349d358b6507ed71e0caa9007cd43cdfab009034d76ab358dfb925f290d4fc"
+  },
+  {
+   "file": "breath_scared_breath_scared_02.mp3",
+   "orig": "Horror Sound Library/Mp3/Breath Scared/Breath_Scared_02.mp3",
+   "bytes": 39656,
+   "sha256": "b73ee535b4f40fab3cdc461059387bec731362250d9eb8ff7f11c264bc1e299c"
+  },
+  {
+   "file": "breath_scared_breath_scared_03.mp3",
+   "orig": "Horror Sound Library/Mp3/Breath Scared/Breath_Scared_03.mp3",
+   "bytes": 25236,
+   "sha256": "c9ad4985ca7821d0fe58158ecdcecc5573f0d8be57207e8a1f59077348318e5e"
+  },
+  {
+   "file": "breath_scared_breath_scared_04.mp3",
+   "orig": "Horror Sound Library/Mp3/Breath Scared/Breath_Scared_04.mp3",
+   "bytes": 27117,
+   "sha256": "03869dea4e3cc8707a683399036083394fdda7fbb30fb16f4d1ac780ec43de05"
+  },
+  {
+   "file": "breath_scared_breath_scared_05.mp3",
+   "orig": "Horror Sound Library/Mp3/Breath Scared/Breath_Scared_05.mp3",
+   "bytes": 44044,
+   "sha256": "cf35e4598f15df9bafa39286f5430daee887b68c7c28909b9b9c13d0b3df0e74"
+  },
+  {
+   "file": "breath_scared_breath_scared_06.mp3",
+   "orig": "Horror Sound Library/Mp3/Breath Scared/Breath_Scared_06.mp3",
+   "bytes": 43417,
+   "sha256": "b960d2a20f24c5754e9c6e1699450673a6cdfb4819650b5d764191508826188d"
+  },
+  {
+   "file": "breath_scared_breath_scared_07.mp3",
+   "orig": "Horror Sound Library/Mp3/Breath Scared/Breath_Scared_07.mp3",
+   "bytes": 34013,
+   "sha256": "b09c040815e9eed7a5e8e0aa9f39ba4db87bc0839bd9b0e70a746141955035fe"
+  },
+  {
+   "file": "breath_scared_breath_scared_08.mp3",
+   "orig": "Horror Sound Library/Mp3/Breath Scared/Breath_Scared_08.mp3",
+   "bytes": 47174,
+   "sha256": "e6322b8be3c8d581d56031fe02b224bc708f0a523f09e98debc78e071687f941"
+  },
+  {
+   "file": "breath_scared_breath_scared_09.mp3",
+   "orig": "Horror Sound Library/Mp3/Breath Scared/Breath_Scared_09.mp3",
+   "bytes": 27743,
+   "sha256": "b9a35a283d09a2bb7fafecca839725f98e64d60234b5ca0dff6a99d4ca955db2"
+  },
+  {
+   "file": "breath_scared_breath_scared_10.mp3",
+   "orig": "Horror Sound Library/Mp3/Breath Scared/Breath_Scared_10.mp3",
+   "bytes": 39656,
+   "sha256": "d644956167f168a58d685311298735f1c8695294fb2dd5e3bdbad5bd940cce30"
+  },
+  {
+   "file": "breath_scared_breath_scared_11.mp3",
+   "orig": "Horror Sound Library/Mp3/Breath Scared/Breath_Scared_11.mp3",
+   "bytes": 26490,
+   "sha256": "5a150872cdb2cd9377e0803b2dc4a8d31c78368df2bc10a89b14ef9a1a2f9333"
+  },
+  {
+   "file": "breath_scared_breath_scared_12.mp3",
+   "orig": "Horror Sound Library/Mp3/Breath Scared/Breath_Scared_12.mp3",
+   "bytes": 28371,
+   "sha256": "dbb2aeee9feb031db9014d6d93f118b188ffa8ea440d51abff18cd74fa68809f"
+  },
+  {
+   "file": "breath_scared_breath_scared_13.mp3",
+   "orig": "Horror Sound Library/Mp3/Breath Scared/Breath_Scared_13.mp3",
+   "bytes": 46552,
+   "sha256": "a8808fabbb3e4478d7a1995f532eac5b6ecf2c7b92bfd38c76138add7a640b9e"
+  },
+  {
+   "file": "breath_scared_breath_scared_14.mp3",
+   "orig": "Horror Sound Library/Mp3/Breath Scared/Breath_Scared_14.mp3",
+   "bytes": 38402,
+   "sha256": "8a0fe4bd0af1468173e3ac1cda6c6f92706edbb07a61f1481003b8cae6cde551"
+  },
+  {
+   "file": "breath_scared_breath_scared_15.mp3",
+   "orig": "Horror Sound Library/Mp3/Breath Scared/Breath_Scared_15.mp3",
+   "bytes": 34013,
+   "sha256": "760b472f83e54ac0d99f91538c8ea86f3abff9bf10c2f238afbe501dab8ee1f7"
+  },
+  {
+   "file": "breath_scared_breath_scared_16.mp3",
+   "orig": "Horror Sound Library/Mp3/Breath Scared/Breath_Scared_16.mp3",
+   "bytes": 31506,
+   "sha256": "0f4b8260b1e79417b718802fb932da12cc63d33676e41d55d5c48bdd4eb72417"
+  },
+  {
+   "file": "breath_scared_breath_scared_17.mp3",
+   "orig": "Horror Sound Library/Mp3/Breath Scared/Breath_Scared_17.mp3",
+   "bytes": 29625,
+   "sha256": "049c156c3421a10ba499ab27ec430a4932ea1c15868448044120cab2f293ac21"
+  },
+  {
+   "file": "breath_scared_breath_scared_18.mp3",
+   "orig": "Horror Sound Library/Mp3/Breath Scared/Breath_Scared_18.mp3",
+   "bytes": 27117,
+   "sha256": "5425426623b03663b329d903e6041092d2d30c6391a1a9eb5c1b9303bdc7d294"
+  },
+  {
+   "file": "evil_machine_loop_00.mp3",
+   "orig": "Horror Sound Library/Mp3/Evil_Machine_Loop_00.mp3",
+   "bytes": 233384,
+   "sha256": "1a9a225709cc5d66ec9ba1d3cafda5ecb05ca51db78283c4fb3414303e132ba2"
+  },
+  {
+   "file": "gate_open_00.mp3",
+   "orig": "Horror Sound Library/Mp3/Gate_Open_00.mp3",
+   "bytes": 27121,
+   "sha256": "716b5441926b2d351426ce8637cdef1297b9f568d9d262102573b389a6cf14ca"
+  },
+  {
+   "file": "jingle_achievement_00.mp3",
+   "orig": "Horror Sound Library/Mp3/Jingle_Achievement_00.mp3",
+   "bytes": 74768,
+   "sha256": "eba0e5d8a05e6b43fbe0acd9aa8011fc6d7ab36f98dfb8a26d8d6a8e9985706d"
+  },
+  {
+   "file": "jingle_lose_00.mp3",
+   "orig": "Horror Sound Library/Mp3/Jingle_Lose_00.mp3",
+   "bytes": 117400,
+   "sha256": "937884611ab29b72e2c50838813db4a87d5270d3bbb3eae50f97efcb538a83f3"
+  },
+  {
+   "file": "jingle_win_00.mp3",
+   "orig": "Horror Sound Library/Mp3/Jingle_Win_00.mp3",
+   "bytes": 170063,
+   "sha256": "48ad16094b25c3f5f1d411b25c1f6900a026b291f8b731ebf5192361cb7f6894"
+  },
+  {
+   "file": "laugh_evil_00.mp3",
+   "orig": "Horror Sound Library/Mp3/Laugh_Evil_00.mp3",
+   "bytes": 104858,
+   "sha256": "bbe23e5701674a06873a18366649f210e818f11e4e0e9cda5ca686905e609da5"
+  },
+  {
+   "file": "laugh_evil_01.mp3",
+   "orig": "Horror Sound Library/Mp3/Laugh_Evil_01.mp3",
+   "bytes": 90439,
+   "sha256": "07d39cf8c7f59fa13505d648b5d34675078dee2cdda15f7fa8a965f7e44eb88a"
+  },
+  {
+   "file": "laugh_evil_02.mp3",
+   "orig": "Horror Sound Library/Mp3/Laugh_Evil_02.mp3",
+   "bytes": 80408,
+   "sha256": "e8c8175de7760a074d063b403099b50e09923f812066d8d929afee5c0b7fc746"
+  },
+  {
+   "file": "monster_00.mp3",
+   "orig": "Horror Sound Library/Mp3/Monster_00.mp3",
+   "bytes": 76773,
+   "sha256": "ea6555cd32bbbdcf3a19eb6bcdeedadaabedba8014dd11a2cfc8cf4d97f35720"
+  },
+  {
+   "file": "monster_01.mp3",
+   "orig": "Horror Sound Library/Mp3/Monster_01.mp3",
+   "bytes": 37276,
+   "sha256": "0b43c96c2a2892d688ed48a688e24f93de684f677be490e473ce5a5982c06bf7"
+  },
+  {
+   "file": "monster_02.mp3",
+   "orig": "Horror Sound Library/Mp3/Monster_02.mp3",
+   "bytes": 73638,
+   "sha256": "45e53213c5bf36802ff3337c8ca6cce3025354e9bc0ae2aa0f340ac3307c0824"
+  },
+  {
+   "file": "monster_03.mp3",
+   "orig": "Horror Sound Library/Mp3/Monster_03.mp3",
+   "bytes": 78654,
+   "sha256": "3564aec6c6706df0cca874355f87b16584672e8d77a0e4bd66142c6bc13884d7"
+  },
+  {
+   "file": "monster_04.mp3",
+   "orig": "Horror Sound Library/Mp3/Monster_04.mp3",
+   "bytes": 85550,
+   "sha256": "1793d2180a3f243443abf468228273d3900229076ae9b92aa304cc11b66d2fa9"
+  },
+  {
+   "file": "monster_05.mp3",
+   "orig": "Horror Sound Library/Mp3/Monster_05.mp3",
+   "bytes": 136959,
+   "sha256": "fb2e31c5e24b530fe19c2384395c89bd1118851ddd50e2e1eb1a839ff503540f"
+  },
+  {
+   "file": "monster_06.mp3",
+   "orig": "Horror Sound Library/Mp3/Monster_06.mp3",
+   "bytes": 64861,
+   "sha256": "720ffa2df05f5afb26c56c1046feca84d6e0f99c956388d094de3597f8ab5e9d"
+  },
+  {
+   "file": "scream_male_00.mp3",
+   "orig": "Horror Sound Library/Mp3/Scream_Male_00.mp3",
+   "bytes": 55960,
+   "sha256": "4d1339c5818220636a39834fa35fdc4b48f89b84a4aef6a184ca3b6ecbe3039f"
+  },
+  {
+   "file": "scream_male_01.mp3",
+   "orig": "Horror Sound Library/Mp3/Scream_Male_01.mp3",
+   "bytes": 44675,
+   "sha256": "5df25856edd3dd9b74532dbde80e7d5ee0da83d128fed0ad6259fa2c3f75944f"
+  },
+  {
+   "file": "scream_male_02.mp3",
+   "orig": "Horror Sound Library/Mp3/Scream_Male_02.mp3",
+   "bytes": 25240,
+   "sha256": "888fd168c98a0669ab7b6ecd69e53ea9f4b508190df20b0f6f26a5ecb2fee5a8"
+  },
+  {
+   "file": "scream_male_03.mp3",
+   "orig": "Horror Sound Library/Mp3/Scream_Male_03.mp3",
+   "bytes": 37779,
+   "sha256": "04fc925af8bb1043aa8d184fa09d9a91a9df66a8ab153b025f360f82128b2bf4"
+  },
+  {
+   "file": "scream_male_04.mp3",
+   "orig": "Horror Sound Library/Mp3/Scream_Male_04.mp3",
+   "bytes": 37779,
+   "sha256": "7be4741f9a3de810b196d1c02a9e2d4111ab55826886878ad19ff382e5281b87"
+  },
+  {
+   "file": "stab_knife_00.mp3",
+   "orig": "Horror Sound Library/Mp3/Stab_Knife_00.mp3",
+   "bytes": 10185,
+   "sha256": "b91d6bad915ef12575193e2072079013c83969153eb09e6c313e9388241e5ecd"
+  },
+  {
+   "file": "stab_knife_01.mp3",
+   "orig": "Horror Sound Library/Mp3/Stab_Knife_01.mp3",
+   "bytes": 10185,
+   "sha256": "8cea7f5ad12ad8a3fe9bfe5c8a7eebc04c4f7685b3d3e6c14a0e8a6994ca7f8a"
+  },
+  {
+   "file": "stab_knife_02.mp3",
+   "orig": "Horror Sound Library/Mp3/Stab_Knife_02.mp3",
+   "bytes": 12692,
+   "sha256": "f8f3ca8e7128ecfc0b4781c728149d08f05217df9eb548cf93487e9c8ec2c88c"
+  },
+  {
+   "file": "zombie_00.mp3",
+   "orig": "Horror Sound Library/Mp3/Zombie_00.mp3",
+   "bytes": 77304,
+   "sha256": "ca24abbadb867020508dccd05d57d41607680e8eca8c790c89d77f4cc7cf2926"
+  },
+  {
+   "file": "zombie_01.mp3",
+   "orig": "Horror Sound Library/Mp3/Zombie_01.mp3",
+   "bytes": 19626,
+   "sha256": "1480a88b64f79de589d1b7c26ddcd4d184e15cf9c94544ef79017db62fcd0f28"
+  },
+  {
+   "file": "zombie_02.mp3",
+   "orig": "Horror Sound Library/Mp3/Zombie_02.mp3",
+   "bytes": 62258,
+   "sha256": "d82a85cfcbffade0e68be72e828edbf022aae23361fddd62c42ff6b59f145365"
+  },
+  {
+   "file": "zombie_03.mp3",
+   "orig": "Horror Sound Library/Mp3/Zombie_03.mp3",
+   "bytes": 25895,
+   "sha256": "c431bb1958a506132a532bdcd96ef231a821acc30224b051a8ee8b4cde0cc88f"
+  },
+  {
+   "file": "zombie_04.mp3",
+   "orig": "Horror Sound Library/Mp3/Zombie_04.mp3",
+   "bytes": 40315,
+   "sha256": "1fb9f86cfd25a87b5b99f68ce5fead948abc1b877efbb32a7118507cc5a3438d"
+  }
+ ]
+}

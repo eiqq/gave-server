@@ -1,0 +1,295 @@
+[
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gamemode adventure {USER}"
+ ],
+ [
+  "cmd",
+  "gave 중지"
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=PREP",
+  15
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 {USER} on"
+ ],
+ [
+  "cmd",
+  "gave 시험 총 {USER} RIFLE"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 3"
+ ],
+ [
+  "wait",
+  0.6
+ ],
+ [
+  "cmd",
+  "gave 시험 쉬기 {USER}"
+ ],
+ [
+  "wait",
+  0.3
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER} 100"
+ ],
+ [
+  "cmd",
+  "tp {USER} 10.5 64 24.5 180 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 공격 {USER} 다시"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 {USER} G157 8 10.5 4.5 2.0"
+ ],
+ [
+  "wait",
+  2.5
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G157"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G157 6"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 2"
+ ],
+ [
+  "wait",
+  0.2
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G157"
+ ],
+ [
+  "wait",
+  2.5
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER} G157"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 공격 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 {USER} on"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G157 60"
+ ],
+ [
+  "wait",
+  2.5
+ ],
+ [
+  "shot",
+  "g157_rage"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 {USER} off"
+ ],
+ [
+  "wait",
+  3.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER} G157"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 공격 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER} 100"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹치기 {USER} PELLET 14 G157"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "cmd",
+  "gave 웨이브 5"
+ ],
+ [
+  "wait",
+  0.6
+ ],
+ [
+  "cmd",
+  "gave 시험 쉬기 {USER}"
+ ],
+ [
+  "wait",
+  0.3
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER} 100"
+ ],
+ [
+  "cmd",
+  "tp {USER} 10.5 64 -10.5 180 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 공격 {USER} 다시"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 {USER} G159 4 10.5 -32.5 2"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "wait",
+  2.3
+ ],
+ [
+  "cmd",
+  "tp {USER} 10.5 64 -5.5 180 0"
+ ],
+ [
+  "wait",
+  2.3
+ ],
+ [
+  "cmd",
+  "tp {USER} 10.5 64 -0.5 180 0"
+ ],
+ [
+  "wait",
+  2.3
+ ],
+ [
+  "cmd",
+  "tp {USER} 10.5 64 4.5 180 0"
+ ],
+ [
+  "wait",
+  2.3
+ ],
+ [
+  "cmd",
+  "tp {USER} 10.5 64 9.5 180 0"
+ ],
+ [
+  "wait",
+  2.3
+ ],
+ [
+  "cmd",
+  "tp {USER} 10.5 64 14.5 180 0"
+ ],
+ [
+  "wait",
+  2.3
+ ],
+ [
+  "cmd",
+  "tp {USER} 10.5 64 19.5 180 0"
+ ],
+ [
+  "wait",
+  2.3
+ ],
+ [
+  "cmd",
+  "tp {USER} 10.5 64 24.5 180 0"
+ ],
+ [
+  "wait",
+  7.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER} G159"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 {USER} on"
+ ],
+ [
+  "cmd",
+  "tp {USER} 10.5 64 7.5 180 0"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G159"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G159 60"
+ ],
+ [
+  "wait",
+  2.5
+ ],
+ [
+  "shot",
+  "g159_bloom"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 {USER} off"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹치기 {USER} FIRE 40 G159"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ]
+]

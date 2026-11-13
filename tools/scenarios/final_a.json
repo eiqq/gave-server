@@ -1,0 +1,431 @@
+[
+[
+"wait",
+2
+],
+[
+"cmd",
+"gamemode adventure {USER}"
+],
+[
+"cmd",
+"gamemode adventure Bishop"
+],
+[
+"cmd",
+"gave 웨이브 23"
+],
+[
+"until",
+"state=WAVE",
+30
+],
+[
+"cmd",
+"gave 시험 균형 x ALIVE_PER_WAVE 0"
+],
+[
+"cmd",
+"gave 시험 균형 x ALIVE_BASE 0"
+],
+[
+"cmd",
+"gave 시험 판끝막기 x on"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 몹목록 x G44"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"gave 시험 래그돌값 x settleSeconds 2"
+],
+[
+"cmd",
+"tp Bishop 0.5 64 30 0 0"
+],
+[
+"cmd",
+"tp {USER} 1.75 64 -20 0 8"
+],
+[
+"cmd",
+"gave 시험 보급 {USER} 떨굼 6"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G44 1 4.5 -14"
+],
+[
+"wait",
+0.8
+],
+[
+"shot",
+"fall_mid"
+],
+[
+"wait",
+2.4
+],
+[
+"cmd",
+"gave 시험 보급 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹목록 x G44"
+],
+[
+"shot",
+"pair_6"
+],
+[
+"cmd",
+"tp {USER} 2.5 64 -17.5 0 18"
+],
+[
+"wait",
+1.2
+],
+[
+"shot",
+"pair_3"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 -15.2 0 30"
+],
+[
+"wait",
+0.5
+],
+[
+"cmd",
+"gave 시험 보급 {USER} 열기"
+],
+[
+"cmd",
+"gave 시험 보급 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"gave 시험 정화 Bishop"
+],
+[
+"cmd",
+"gave 시험 체력 Bishop 100"
+],
+[
+"cmd",
+"tp Bishop 0.5 64 4 0 0"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 0.6 0 5"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G41 1 0.5 14"
+],
+[
+"wait",
+7
+],
+[
+"cmd",
+"gave 시험 사람상태 Bishop"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x G41"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 1.2 0 8"
+],
+[
+"wait",
+3
+],
+[
+"shot",
+"g41_back_a"
+],
+[
+"wait",
+5
+],
+[
+"shot",
+"g41_back_b"
+],
+[
+"cmd",
+"gave 시험 사람상태 Bishop"
+],
+[
+"cmd",
+"gave 시험 정화 Bishop"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"gave 시험 체력 Bishop 100"
+],
+[
+"cmd",
+"tp Bishop 6.5 64 4 0 0"
+],
+[
+"cmd",
+"tp {USER} 6.5 64 0.2 0 35"
+],
+[
+"wait",
+0.5
+],
+[
+"cmd",
+"gave 시험 쓰러뜨리기 Bishop"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 보기사람 {USER} Bishop"
+],
+[
+"wait",
+0.5
+],
+[
+"shot",
+"ring_1s"
+],
+[
+"cmd",
+"gave 시험 사람상태 Bishop"
+],
+[
+"wait",
+7
+],
+[
+"shot",
+"ring_8s"
+],
+[
+"cmd",
+"gave 시험 사람상태 Bishop"
+],
+[
+"cmd",
+"gave 시험 일으키기 Bishop"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 -9 0 12"
+],
+[
+"cmd",
+"tp Bishop 0.5 64 -1.2 0 0"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 결과 Bishop G38"
+],
+[
+"wait",
+0.5
+],
+[
+"cmd",
+"gave 시험 죽이기 Bishop"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 몹목록 x G38"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 몹목록 x G38"
+],
+[
+"shot",
+"g38_a"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 몹목록 x G38"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 몹목록 x G38"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 몹목록 x G38"
+],
+[
+"shot",
+"g38_b"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 몹목록 x G38"
+],
+[
+"cmd",
+"gave 시험 쉬기 x"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 웨이브 23"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"gave 시험 사람상태 Bishop"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 -9 0 12"
+],
+[
+"cmd",
+"tp Bishop 0.5 64 -4 0 0"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 결과 Bishop G50"
+],
+[
+"wait",
+0.5
+],
+[
+"cmd",
+"gave 시험 죽이기 Bishop"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 사람상태 Bishop"
+],
+[
+"cmd",
+"gave 시험 몹목록 x"
+],
+[
+"shot",
+"g50_a"
+],
+[
+"wait",
+2.5
+],
+[
+"cmd",
+"gave 시험 몹목록 x G50"
+],
+[
+"shot",
+"g50_b"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 -6.5 0 15"
+],
+[
+"wait",
+1
+],
+[
+"shot",
+"g50_near"
+],
+[
+"cmd",
+"gave 시험 몹목록 x G50"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"gave 중지"
+]
+]

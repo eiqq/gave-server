@@ -1,0 +1,168 @@
+[
+[
+"wait",
+2
+],
+[
+"cmd",
+"gamemode adventure {USER}"
+],
+[
+"cmd",
+"gave 시작"
+],
+[
+"until",
+"state=PREP",
+15
+],
+[
+"cmd",
+"gave 시험 판끝막기 {USER} on"
+],
+[
+"cmd",
+"gave 시험 총 {USER} RIFLE"
+],
+[
+"until",
+"state=WAVE",
+40
+],
+[
+"cmd",
+"gave 시험 감독빨리 x 0.1"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 10.5 0 0"
+],
+[
+"wait",
+0.4
+],
+[
+"cmd",
+"gave 소환 G198 1 60 {USER}"
+],
+[
+"wait",
+4
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G198"
+],
+[
+"shot",
+"b20_b_line"
+],
+[
+"wait",
+8
+],
+[
+"shot",
+"b20_b_line2"
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G198"
+],
+[
+"cmd",
+"gave 시험 체력 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x G198"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 소환 G199 1 30 {USER}"
+],
+[
+"wait",
+4
+],
+[
+"shot",
+"b20_b_eye"
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G199"
+],
+[
+"wait",
+6
+],
+[
+"cmd",
+"gave 시험 체력 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x G199"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 소환 G197 1 20 {USER}"
+],
+[
+"wait",
+6
+],
+[
+"shot",
+"b20_b_fog"
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G197"
+],
+[
+"wait",
+8
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹치기 BULLET 60 G197"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"wait",
+1
+]
+]

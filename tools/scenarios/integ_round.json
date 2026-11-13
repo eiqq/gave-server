@@ -1,0 +1,514 @@
+[
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gamemode adventure {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=PREP",
+  15
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 x on"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "shot",
+  "prep"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  20
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "shot",
+  "w1_start"
+ ],
+ [
+  "wait",
+  5
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G01 50"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 50"
+ ],
+ [
+  "wait",
+  2.6
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G01 50"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 50"
+ ],
+ [
+  "wait",
+  2.6
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G01 50"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 50"
+ ],
+ [
+  "wait",
+  2.6
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G01 50"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 50"
+ ],
+ [
+  "wait",
+  2.6
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G01 50"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 50"
+ ],
+ [
+  "wait",
+  2.6
+ ],
+ [
+  "shot",
+  "w1_fire"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G01 50"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 50"
+ ],
+ [
+  "wait",
+  2.6
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G01 50"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 50"
+ ],
+ [
+  "wait",
+  2.6
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G01 50"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 50"
+ ],
+ [
+  "wait",
+  2.6
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G01 50"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 50"
+ ],
+ [
+  "wait",
+  2.6
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G01 50"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 50"
+ ],
+ [
+  "wait",
+  2.6
+ ],
+ [
+  "shot",
+  "w1_kill"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G01 50"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 50"
+ ],
+ [
+  "wait",
+  2.6
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G01 50"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 50"
+ ],
+ [
+  "wait",
+  2.6
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G01 50"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 50"
+ ],
+ [
+  "wait",
+  2.6
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G01 50"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 50"
+ ],
+ [
+  "wait",
+  2.6
+ ],
+ [
+  "cmd",
+  "gave 시험 허드 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "shot",
+  "w1_money"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER} 1"
+ ],
+ [
+  "wait",
+  9
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 쓰러뜨리기 {USER}"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "shot",
+  "downed"
+ ],
+ [
+  "cmd",
+  "gave 시험 허드 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 일으키기 {USER}"
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "shot",
+  "revived"
+ ],
+ [
+  "cmd",
+  "gave 시험 감독빨리 x 10"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} 50"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 50"
+ ],
+ [
+  "wait",
+  2.6
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} 50"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 50"
+ ],
+ [
+  "wait",
+  2.6
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} 50"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 50"
+ ],
+ [
+  "wait",
+  2.6
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "until",
+  "state=BREAK",
+  40
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "shot",
+  "break"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 3.5 180 8"
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "cmd",
+  "gave 시험 상점보기 {USER}"
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "shot",
+  "shop"
+ ],
+ [
+  "cmd",
+  "gave 시험 사기 {USER} bandage"
+ ],
+ [
+  "cmd",
+  "gave 시험 상점상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 상점돈 {USER} 60"
+ ],
+ [
+  "cmd",
+  "gave 시험 사기 {USER} grenade"
+ ],
+ [
+  "cmd",
+  "gave 시험 소모품상태 {USER}"
+ ],
+ [
+  "wait",
+  0.8
+ ],
+ [
+  "shot",
+  "bought"
+ ],
+ [
+  "cmd",
+  "gave 시험 상점닫기 {USER}"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  40
+ ],
+ [
+  "wait",
+  4
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "shot",
+  "w2"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} 40"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 40"
+ ],
+ [
+  "wait",
+  2.5
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 중지"
+ ]
+]

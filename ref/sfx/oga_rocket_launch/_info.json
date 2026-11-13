@@ -1,0 +1,49 @@
+{
+ "title": "Rocket Launch Pack",
+ "author": "dklon",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/rocket-launch-pack",
+ "license": "CC BY 3.0",
+ "license_url": "https://creativecommons.org/licenses/by/3.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC-BY 3.0 (http://creativecommons.org/licenses/by/3.0/)",
+ "note": "",
+ "desc": "Four rocket launch sound f/x for your needs.",
+ "urls": [
+  "https://opengameart.org/sites/default/files/rocket_launches.zip"
+ ],
+ "pack": "oga_rocket_launch",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "rocket_launches.zip",
+   "bytes": 1007869,
+   "sha256": "92b0ea77a5dd143eec949a3020e37b0120187a60b7e728fa6f54ef7fe01b319c"
+  }
+ ],
+ "files": [
+  {
+   "file": "rocket_launch_1.wav",
+   "orig": "rocket_launch_1.wav",
+   "bytes": 278174,
+   "sha256": "55055ea2335506078d503878688fce7fa316a1550374ace014741d6f0d334fa1"
+  },
+  {
+   "file": "rocket_launch_2.wav",
+   "orig": "rocket_launch_2.wav",
+   "bytes": 288024,
+   "sha256": "d0c92ea3664687aea2f1db2fd737a1a81e2b92ff0bc9264cfffde344f5bb73be"
+  },
+  {
+   "file": "rocket_launch_3.wav",
+   "orig": "rocket_launch_3.wav",
+   "bytes": 293038,
+   "sha256": "d7004617e35d5aa4ead19eddeb2a25028db0378bacabc2200527d41382a48a53"
+  },
+  {
+   "file": "rocket_launch_4.wav",
+   "orig": "rocket_launch_4.wav",
+   "bytes": 278898,
+   "sha256": "68ec0b86d26bd02b178523ffd14044f9d5e1dd36fb44c9c1811bca7b1e84c88c"
+  }
+ ]
+}

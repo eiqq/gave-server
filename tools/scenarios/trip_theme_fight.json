@@ -1,0 +1,351 @@
+[
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gamemode adventure {USER}"
+ ],
+ [
+  "cmd",
+  "gamemode adventure Bishop"
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 x on"
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  30
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 x on"
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 -14.5 180 2"
+ ],
+ [
+  "cmd",
+  "tp Bishop 3.5 64 -24.5 0 0"
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "cmd",
+  "gave 소환 G01 3 20 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 소환 G03 2 34 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 소환 G01 3 48 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 막 x 상태"
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "shot",
+  "f_a1_p0"
+ ],
+ [
+  "cmd",
+  "gave 시험 막 x 1 1 20"
+ ],
+ [
+  "wait",
+  2.5
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 -14.5 180 2"
+ ],
+ [
+  "wait",
+  0.7
+ ],
+ [
+  "shot",
+  "f_a1_p1"
+ ],
+ [
+  "cmd",
+  "gave 시험 막 x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 막 x 2 1 20"
+ ],
+ [
+  "wait",
+  8
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 -14.5 180 2"
+ ],
+ [
+  "wait",
+  0.7
+ ],
+ [
+  "shot",
+  "f_a2_p1"
+ ],
+ [
+  "cmd",
+  "gave 시험 막 x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 막 x 3 1 20"
+ ],
+ [
+  "wait",
+  8
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 -14.5 180 2"
+ ],
+ [
+  "wait",
+  0.7
+ ],
+ [
+  "shot",
+  "f_a3_p1"
+ ],
+ [
+  "cmd",
+  "gave 시험 막 x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 막 x 4 1 20"
+ ],
+ [
+  "wait",
+  4.5
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 -14.5 180 2"
+ ],
+ [
+  "wait",
+  0.7
+ ],
+ [
+  "shot",
+  "f_a4_p1"
+ ],
+ [
+  "cmd",
+  "gave 시험 막 x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 막 x 어둡게 1 100"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 -14.5 180 2"
+ ],
+ [
+  "wait",
+  0.7
+ ],
+ [
+  "shot",
+  "f_a4_dim"
+ ],
+ [
+  "cmd",
+  "gave 시험 막 x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 막 x 1 1 10"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 막 x 재기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 카메라 {USER} 0.5 120 0.5 180 90"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "shot",
+  "sweep_0"
+ ],
+ [
+  "cmd",
+  "gave 시험 막 x 가림 11"
+ ],
+ [
+  "wait",
+  1.2
+ ],
+ [
+  "shot",
+  "sweep_1"
+ ],
+ [
+  "cmd",
+  "gave 시험 막 x 상태"
+ ],
+ [
+  "wait",
+  2.5
+ ],
+ [
+  "shot",
+  "sweep_2"
+ ],
+ [
+  "cmd",
+  "gave 시험 막 x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 막 x 라운드 21"
+ ],
+ [
+  "wait",
+  4
+ ],
+ [
+  "shot",
+  "sweep_3"
+ ],
+ [
+  "cmd",
+  "gave 시험 막 x 상태"
+ ],
+ [
+  "wait",
+  6
+ ],
+ [
+  "cmd",
+  "gave 시험 막 x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 막 x 재기 끔"
+ ],
+ [
+  "cmd",
+  "gave 시험 카메라끝 {USER}"
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 -14.5 180 0"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 {USER} 땅 구덩이 3 2 4"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 {USER} 땅 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 막 x 2 0 20"
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gave 시험 막 x 상태"
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 67 -13.5 180 22"
+ ],
+ [
+  "wait",
+  0.8
+ ],
+ [
+  "shot",
+  "t_pit_a2"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 {USER} 땅 되돌림"
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gave 시험 막 x 상태"
+ ],
+ [
+  "shot",
+  "t_pit_back"
+ ],
+ [
+  "cmd",
+  "gave 시험 맵검사 x"
+ ],
+ [
+  "cmd",
+  "gave 중지"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 막 x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 맵검사 x"
+ ]
+]

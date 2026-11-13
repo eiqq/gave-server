@@ -1,0 +1,235 @@
+[
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 {USER} on"
+ ],
+ [
+  "cmd",
+  "gamemode creative {USER}"
+ ],
+ [
+  "cmd",
+  "time set noon"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s run tp @s ~ ~ ~ 0 0"
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0 ^-0.1 ^4 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "shot",
+  "far4"
+ ],
+ [
+  "rec",
+  "flap",
+  30
+ ],
+ [
+  "wait",
+  1.6
+ ],
+ [
+  "recstop"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s run tp @s ~ ~ ~1.6 0 0"
+ ],
+ [
+  "wait",
+  1.2
+ ],
+ [
+  "shot",
+  "near"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s run tp @s ~ ~ ~-1.6 0 0"
+ ],
+ [
+  "cmd",
+  "kill @e[type=item_display,tag=pk]"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-2.7 ^0.9 ^7 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[14959615,14681087,15238143,15287295,15565823,15287295,15565823]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.9 ^0.9 ^7 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[14967295,14688767,15245823,15294975,15573503,15294975,15573503]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.9 ^0.9 ^7 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[14701055,15471103,14979583,15028735,15307263,15028735,15307263]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^2.7 ^0.9 ^7 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15224319,14945791,15502847,15551999,14781951,15551999,14781951]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-2.7 ^-0.9 ^7 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,15483391,14713343]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.9 ^-0.9 ^7 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,15483391,14713343]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.9 ^-0.9 ^7 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,15483391,14713343,15204863,15532543,15204863,15532543,15204863,15075189,15601525,15341429,14819189,15607669,15085429,14825333,15351669,15075189,15601525,15341429,14819189,15607669,15085429,14825333,15351669,15075189,15601525,15341429,14819189,15607669,15085429,14825333,15351669,14812021,15338357,15078261,15604597]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^2.7 ^-0.9 ^7 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15532543,15204863,15204863,15532543,15532543,14878576,15404912,15144816,15671152,15411056,14888816,15677296,15155056]}}}}"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "shot",
+  "palette"
+ ],
+ [
+  "cmd",
+  "kill @e[type=item_display,tag=pk]"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.6 ^0.2 ^4.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,Rotation:[90f,0f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.6 ^0.2 ^4.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,Rotation:[90f,0f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,15483391,14713343,15204863,15532543,15204863,15532543,15204863,15075186,15601522,15341426,14819186,15607666,15085426,14825330,15351666,15075186,15601522,15341426,14819186,15607666,15085426,14825330,15351666,15075186,15601522,15341426,14819186,15607666,15085426,14825330,15351666,14812018,15338354,15078258,15604594]}}}}"
+ ],
+ [
+  "wait",
+  1.2
+ ],
+ [
+  "shot",
+  "side"
+ ],
+ [
+  "cmd",
+  "kill @e[type=item_display,tag=pk]"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.0 ^0 ^3.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g02\",\"minecraft:custom_model_data\":{strings:[\"a\"]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0 ^0 ^3.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g02\",\"minecraft:custom_model_data\":{strings:[\"b\"],colors:[15483391,15204863,14713343,14762495,15041023,15204863,15074630,15600966,15340870,14818630,15607110,15084870]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.0 ^0 ^3.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g02\",\"minecraft:custom_model_data\":{strings:[\"c\"],colors:[15483391,15204863,14713343,15483391,14713343]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0 ^0.2 ^9 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g02\",\"minecraft:custom_model_data\":{strings:[\"lod\"]}}}}"
+ ],
+ [
+  "wait",
+  1.2
+ ],
+ [
+  "shot",
+  "g02"
+ ],
+ [
+  "cmd",
+  "kill @e[type=item_display,tag=pk]"
+ ],
+ [
+  "cmd",
+  "gamemode adventure {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=PREP",
+  15
+ ],
+ [
+  "cmd",
+  "gave 시험 총 {USER} RIFLE"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s run tp @s ~ ~ ~ 0 0"
+ ],
+ [
+  "cmd",
+  "gave 소환 G01 1 12 {USER}"
+ ],
+ [
+  "wait",
+  0.7
+ ],
+ [
+  "shot",
+  "spawn12"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹보기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 {USER}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s run tp @s ~ ~ ~ 0 0"
+ ],
+ [
+  "cmd",
+  "gave 소환 G01 1 4 {USER}"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "shot",
+  "spawn4"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 {USER} on"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹보기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 중지"
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ]
+]

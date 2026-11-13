@@ -1,0 +1,211 @@
+[
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gamemode adventure {USER}"
+ ],
+ [
+  "cmd",
+  "gamemode adventure Bishop"
+ ],
+ [
+  "cmd",
+  "gave 시험 균형 x ALIVE_PER_WAVE 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 균형 x ALIVE_BASE 0"
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  25
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 {USER} on"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "cmd",
+  "tp Bishop 7.5 64 9.5 150 0"
+ ],
+ [
+  "cmd",
+  "tp {USER} 12.5 64 14.5 135 12"
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "cmd",
+  "gave 시험 결과 Bishop G38"
+ ],
+ [
+  "cmd",
+  "gave 시험 죽이기 Bishop"
+ ],
+ [
+  "wait",
+  4
+ ],
+ [
+  "shot",
+  "dead_mob_seen_by_mate"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 Bishop"
+ ],
+ [
+  "cmd",
+  "gave 시험 꺼내기값 x"
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 원정 {USER} 허드"
+ ],
+ [
+  "cmd",
+  "gave 시험 원정 Bishop 허드"
+ ],
+ [
+  "cmd",
+  "gave 시험 살려달라 Bishop"
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "shot",
+  "roster_call"
+ ],
+ [
+  "wait",
+  12
+ ],
+ [
+  "cmd",
+  "gave 시험 쉬기 x 정리"
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 Bishop"
+ ],
+ [
+  "cmd",
+  "gave 시험 꺼내기값 x"
+ ],
+ [
+  "cmd",
+  "gave 시험 돈 {USER} 3000"
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 6.5 180 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 상점열기 {USER}"
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "shot",
+  "shop_revive_row"
+ ],
+ [
+  "cmd",
+  "gave 시험 상점칸 {USER} 36"
+ ],
+ [
+  "cmd",
+  "gave 시험 상점칸 {USER} 16"
+ ],
+ [
+  "cmd",
+  "gave 시험 상점칸 {USER} 14"
+ ],
+ [
+  "cmd",
+  "gave 시험 꺼내기 {USER} Bishop 3"
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "shot",
+  "shop_revive_row_3of4"
+ ],
+ [
+  "cmd",
+  "gave 시험 상점닫기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 꺼내기 Bishop Bishop 1"
+ ],
+ [
+  "cmd",
+  "gave 시험 꺼내기 {USER} Bishop 1"
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 Bishop"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "tp {USER} 6.5 64 9.5 110 5"
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "shot",
+  "revived_at_truck"
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 중지"
+ ],
+ [
+  "wait",
+  1
+ ]
+]

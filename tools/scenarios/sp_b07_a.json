@@ -1,0 +1,488 @@
+[
+[
+"wait",
+2
+],
+[
+"cmd",
+"gamemode adventure {USER}"
+],
+[
+"cmd",
+"gave 중지"
+],
+[
+"cmd",
+"gave 시작"
+],
+[
+"until",
+"state=PREP",
+15
+],
+[
+"cmd",
+"gave 시험 판끝막기 {USER} on"
+],
+[
+"cmd",
+"gave 시험 총 {USER} RIFLE"
+],
+[
+"until",
+"state=WAVE",
+40
+],
+[
+"cmd",
+"gave 시험 감독빨리 x 0.05"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 30.5 0 0"
+],
+[
+"wait",
+0.4
+],
+[
+"cmd",
+"gave 소환 G114 1 12 {USER}"
+],
+[
+"wait",
+1.0
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G114 30 0 -1"
+],
+[
+"wait",
+0.6
+],
+[
+"shot",
+"g114_rise"
+],
+[
+"wait",
+2.6
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G114 20 0 0"
+],
+[
+"wait",
+0.5
+],
+[
+"shot",
+"g114_mound"
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G114"
+],
+[
+"wait",
+4.0
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G114"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g114_ants"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 37.5 0 0"
+],
+[
+"wait",
+2.5
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 42.5 0 0"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 시험 몹폭발 {USER} 4 60"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G114"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 34.5 0 20"
+],
+[
+"wait",
+1.5
+],
+[
+"shot",
+"g114_plug"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 30.5 64 30.5 0 0"
+],
+[
+"wait",
+0.4
+],
+[
+"cmd",
+"gave 소환 G01 3 7 {USER}"
+],
+[
+"wait",
+0.5
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} OTHER 3 G01"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 소환 G120 2 12 {USER}"
+],
+[
+"wait",
+4.0
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G120"
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G120"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G120 20"
+],
+[
+"wait",
+0.5
+],
+[
+"shot",
+"g120_grow"
+],
+[
+"wait",
+2.5
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G120"
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G120"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"wait",
+4.5
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G120"
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G120"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G120 15"
+],
+[
+"wait",
+0.4
+],
+[
+"shot",
+"g120_shroom"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 1 G120"
+],
+[
+"wait",
+2.0
+],
+[
+"shot",
+"g120_corpse"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} -30.5 64 30.5 0 0"
+],
+[
+"wait",
+0.4
+],
+[
+"cmd",
+"gave 소환 G123 1 16 {USER}"
+],
+[
+"wait",
+1.0
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G123 30"
+],
+[
+"wait",
+0.8
+],
+[
+"shot",
+"g123_far"
+],
+[
+"wait",
+4.0
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G123"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g123_hold"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G123 25"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 20"
+],
+[
+"wait",
+1.2
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G123"
+],
+[
+"cmd",
+"gave 시험 몹폭발 {USER} 4 60"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G123"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} EXPLOSION 1 G123"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 -30.5 180 0"
+],
+[
+"wait",
+0.4
+],
+[
+"cmd",
+"gave 소환 G135 2 16 {USER}"
+],
+[
+"wait",
+3.0
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G135"
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G135"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G135 20"
+],
+[
+"wait",
+0.4
+],
+[
+"shot",
+"g135_row"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} PELLET 3 G135"
+],
+[
+"wait",
+0.5
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G135"
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G135"
+],
+[
+"wait",
+5.5
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G135"
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G135"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G135 20"
+],
+[
+"wait",
+0.4
+],
+[
+"shot",
+"g135_rise"
+],
+[
+"wait",
+3.0
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G135"
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G135"
+],
+[
+"shot",
+"g135_strike"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 상태"
+]
+]

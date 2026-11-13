@@ -1,0 +1,624 @@
+{
+ "title": "100 CC0 SFX",
+ "author": "rubberduck",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/100-cc0-sfx",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0",
+ "note": "",
+ "urls": [
+  "https://opengameart.org/sites/default/files/100-CC0-SFX_0.zip"
+ ],
+ "pack": "oga_sfx100",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "100-CC0-SFX_0.zip",
+   "bytes": 2921904,
+   "sha256": "a5c135878c132f1c59cca54e60061c296cd0ac27ad031ca2c41b8cd5cab3c706"
+  }
+ ],
+ "files": [
+  {
+   "file": "bell_01.ogg",
+   "orig": "bell_01.ogg",
+   "bytes": 38999,
+   "sha256": "b29cf8f3885eb2a266a16455227288dd3e004ea0414d2823b1a8677915f862d1"
+  },
+  {
+   "file": "bell_02.ogg",
+   "orig": "bell_02.ogg",
+   "bytes": 18962,
+   "sha256": "ea47ae29d3fe87c82414881084cf5dfa4a0a43c6def7437fcafbc21ffbf3ec72"
+  },
+  {
+   "file": "bell_03.ogg",
+   "orig": "bell_03.ogg",
+   "bytes": 47656,
+   "sha256": "9440896c5ffbc85d045b88953057d12019ddbf052f3694615216d83161a9e2d9"
+  },
+  {
+   "file": "dishes_01.ogg",
+   "orig": "dishes_01.ogg",
+   "bytes": 35324,
+   "sha256": "9c37a0fd53d0e0c6349df181973a4c7deab40fc37c27e291dfc54830faa1e42c"
+  },
+  {
+   "file": "dishes_02.ogg",
+   "orig": "dishes_02.ogg",
+   "bytes": 28322,
+   "sha256": "e78a817166e589e437b4a0e43d1fe382f290e1dafe8893921192bb8423f58346"
+  },
+  {
+   "file": "dishes_03.ogg",
+   "orig": "dishes_03.ogg",
+   "bytes": 33915,
+   "sha256": "f81cb8ecac99890d166f5700d4bd447539c9988f96c481f4dd1cd651f55017e9"
+  },
+  {
+   "file": "dishes_04.ogg",
+   "orig": "dishes_04.ogg",
+   "bytes": 27675,
+   "sha256": "d8513896043521f0cecdc624028de7bb56205390cd2e003a2814b01f4dea53fe"
+  },
+  {
+   "file": "door_01.ogg",
+   "orig": "door_01.ogg",
+   "bytes": 110059,
+   "sha256": "a1a7fd61ccd03dd58151f5429d6447ad80c2f31c3e357c4756609a0c6c945391"
+  },
+  {
+   "file": "door_02.ogg",
+   "orig": "door_02.ogg",
+   "bytes": 93578,
+   "sha256": "89c12f714e596cd14498896f3afc02f14dea5707ded94472d98b4e71a041b9d3"
+  },
+  {
+   "file": "door_close_01.ogg",
+   "orig": "door_close_01.ogg",
+   "bytes": 24225,
+   "sha256": "9c779ae637542e5b9cdfdd62a93e611e116e60205ef68b5b244aaf69fbfaeba8"
+  },
+  {
+   "file": "door_close_02.ogg",
+   "orig": "door_close_02.ogg",
+   "bytes": 38319,
+   "sha256": "3f4ce43f7a676d8907258908c90e88caecffd4526fce43e40df6726bf67ed91b"
+  },
+  {
+   "file": "door_close_03.ogg",
+   "orig": "door_close_03.ogg",
+   "bytes": 20918,
+   "sha256": "36f3e2337d7e606c431049f12704f42b9f2582a5b9149b7f682fcd2ee42fe4b4"
+  },
+  {
+   "file": "door_close_04.ogg",
+   "orig": "door_close_04.ogg",
+   "bytes": 24912,
+   "sha256": "db9247416558f6758aef358342ae5f96eb2be6ad3b9e39a230e7c46174ed733a"
+  },
+  {
+   "file": "door_open.ogg",
+   "orig": "door_open.ogg",
+   "bytes": 18227,
+   "sha256": "62b42cdf0d8b25ef80c0f3bc815aa65977b78b20225481461ea134798172f59d"
+  },
+  {
+   "file": "explosion.ogg",
+   "orig": "explosion.ogg",
+   "bytes": 25549,
+   "sha256": "f31e12359b96b5e4d43edbcd533630b32421e55bc0b08aec4520d2ed45cd1a93"
+  },
+  {
+   "file": "glass_01.ogg",
+   "orig": "glass_01.ogg",
+   "bytes": 18701,
+   "sha256": "1a767c588055d9db08b548fbe32e0fb5ef9d998318fda269973e31f2d459c431"
+  },
+  {
+   "file": "glass_02.ogg",
+   "orig": "glass_02.ogg",
+   "bytes": 17502,
+   "sha256": "f93e91479793e618fabd6a1607e3ce6a382a0ccdba09d82cd5e209980feed4d5"
+  },
+  {
+   "file": "glass_03.ogg",
+   "orig": "glass_03.ogg",
+   "bytes": 20324,
+   "sha256": "b35c3ac4cc7d665bed2a37f54fce4528c7a048daf46c1e4db0a371092bf333e8"
+  },
+  {
+   "file": "glass_04.ogg",
+   "orig": "glass_04.ogg",
+   "bytes": 37277,
+   "sha256": "4bd640a2bd50919f78076b4f204a63dabf76915e74e9e6e8457444a40fee737f"
+  },
+  {
+   "file": "glass_05.ogg",
+   "orig": "glass_05.ogg",
+   "bytes": 39108,
+   "sha256": "6eebcedf7d0a084e9c40c3420591acef9c75a678cd03266e2c51e94707c694d9"
+  },
+  {
+   "file": "gong_01.ogg",
+   "orig": "gong_01.ogg",
+   "bytes": 55320,
+   "sha256": "4780a38e91688b59899b3679cf3534b4b75654b45a177af9d9fb681c447f7f9a"
+  },
+  {
+   "file": "gong_02.ogg",
+   "orig": "gong_02.ogg",
+   "bytes": 46301,
+   "sha256": "eb53bd74d92ed2422568ed5770615b177b0a4d281f55959e6aa263d756412524"
+  },
+  {
+   "file": "hit_01.ogg",
+   "orig": "hit_01.ogg",
+   "bytes": 14762,
+   "sha256": "fee785537678a33d150310e8ae75eeaa439b0e1e9aa55aef19651d12013a067f"
+  },
+  {
+   "file": "hit_02.ogg",
+   "orig": "hit_02.ogg",
+   "bytes": 17176,
+   "sha256": "22f2bfcfb8e211ea19b0af0adc1ae7df7bce137a7a159303840f9b95992d5d61"
+  },
+  {
+   "file": "hit_03.ogg",
+   "orig": "hit_03.ogg",
+   "bytes": 20643,
+   "sha256": "c8948294e7885ada74bcab6efb6c60613b74241cc58eacd18e81aa6bd33449b8"
+  },
+  {
+   "file": "hit_04.ogg",
+   "orig": "hit_04.ogg",
+   "bytes": 22089,
+   "sha256": "8b3001d958d87d386b70288075b4025c751798ab0a4b12de7675da79096c51ea"
+  },
+  {
+   "file": "key_open_01.ogg",
+   "orig": "key_open_01.ogg",
+   "bytes": 22976,
+   "sha256": "47f5317c0e76cb7e5873e24e9a4a6596e06454b7a278c103b3e07ab902001497"
+  },
+  {
+   "file": "key_open_02.ogg",
+   "orig": "key_open_02.ogg",
+   "bytes": 18092,
+   "sha256": "d1bdc1f001837e370902bf332bf3c08eef16bb9356d0c41e8ea1670fca76fa72"
+  },
+  {
+   "file": "machine_01.ogg",
+   "orig": "machine_01.ogg",
+   "bytes": 25914,
+   "sha256": "9b4ee1e0737a99c63b1ada16766f22231484de244a5deb53986e93957634eff6"
+  },
+  {
+   "file": "machine_02.ogg",
+   "orig": "machine_02.ogg",
+   "bytes": 24450,
+   "sha256": "247891c065b1c487571d7edc9759c4c2394649c8a919a4e525346bc9f376603b"
+  },
+  {
+   "file": "machine_03.ogg",
+   "orig": "machine_03.ogg",
+   "bytes": 22359,
+   "sha256": "41534a39fc6187eb696a851ad0cac5495cafc964eb5195050102fe55b02cf377"
+  },
+  {
+   "file": "metal_01.ogg",
+   "orig": "metal_01.ogg",
+   "bytes": 27067,
+   "sha256": "f638423b1c67c9aeb0db9410b968ca1a89de728f3117f1bdd35a4fc7be4130ed"
+  },
+  {
+   "file": "metal_02.ogg",
+   "orig": "metal_02.ogg",
+   "bytes": 15991,
+   "sha256": "545c2d698e72e1a3f0f22407fc0567a1f1041d9dbeff528bef0947284b45fdf2"
+  },
+  {
+   "file": "metal_03.ogg",
+   "orig": "metal_03.ogg",
+   "bytes": 17804,
+   "sha256": "35ec56e5136e7091f36470c3e502e714819c9ff843baff0910b095571459f274"
+  },
+  {
+   "file": "metal_04.ogg",
+   "orig": "metal_04.ogg",
+   "bytes": 33808,
+   "sha256": "e5ac67a63335d849ffbc4a02fa60ceede0747e7854ebc3554c745b2d52f652cd"
+  },
+  {
+   "file": "metal_05.ogg",
+   "orig": "metal_05.ogg",
+   "bytes": 34713,
+   "sha256": "b00d199e024b2d5f336bb3fee7ed2f890770caca739a497cb1bdc517119ea380"
+  },
+  {
+   "file": "metal_06.ogg",
+   "orig": "metal_06.ogg",
+   "bytes": 29683,
+   "sha256": "5409b5a3a21e800b9dbfafe1ab0dfb219a53eca2a0654fa932ff04b4b5d4371b"
+  },
+  {
+   "file": "metal_07.ogg",
+   "orig": "metal_07.ogg",
+   "bytes": 30116,
+   "sha256": "16b6d8272f13ee84b40cb9e0863d412fcbf88e1ce46a5c59691eb53e18ed7d17"
+  },
+  {
+   "file": "metal_08.ogg",
+   "orig": "metal_08.ogg",
+   "bytes": 34506,
+   "sha256": "e563b1e5b137484250d70b800d2dab329dab601532f5aab9eef6db659d128a84"
+  },
+  {
+   "file": "metal_09.ogg",
+   "orig": "metal_09.ogg",
+   "bytes": 29385,
+   "sha256": "0ac29c1f345c41ee6880876ccf4f69c66d1043b11d6c2f20cff49e78ae5d583b"
+  },
+  {
+   "file": "metal_10.ogg",
+   "orig": "metal_10.ogg",
+   "bytes": 31011,
+   "sha256": "b11b6242c609bd61f3286c76ef9e2045f7323fa8d0c771309dd9409a6be59de5"
+  },
+  {
+   "file": "metal_11.ogg",
+   "orig": "metal_11.ogg",
+   "bytes": 18922,
+   "sha256": "8f52c3a878e87ea2abb8f7a9fba90d0ec32034393661ddf87ba2b2b086024195"
+  },
+  {
+   "file": "metal_12.ogg",
+   "orig": "metal_12.ogg",
+   "bytes": 50650,
+   "sha256": "ec09cebdd44a49ab1b744e86b7f881bbfb16a0ebb79e36b9a1ae3bf9a1612366"
+  },
+  {
+   "file": "microwave_door_close.ogg",
+   "orig": "microwave_door_close.ogg",
+   "bytes": 13194,
+   "sha256": "5bd10f6deec1cdf6eff3531370b611454a0c9bba266d9531cbbf7c5fa4970ac0"
+  },
+  {
+   "file": "microwave_door_open.ogg",
+   "orig": "microwave_door_open.ogg",
+   "bytes": 14881,
+   "sha256": "30dab76dc8bbbd770840594ecc826e0e1cc8574ea84c2e3cb2891bf48c54a0b6"
+  },
+  {
+   "file": "noise_01.ogg",
+   "orig": "noise_01.ogg",
+   "bytes": 20473,
+   "sha256": "dd65899a487e2d307f86e7e5602f63b4cc2e2f77e6414b11ca84fca27ffdf10d"
+  },
+  {
+   "file": "noise_02.ogg",
+   "orig": "noise_02.ogg",
+   "bytes": 29861,
+   "sha256": "65c3fc73139f56af481a54082fefb10b671b1881dd5e1ea1ecfdc20b84f7f795"
+  },
+  {
+   "file": "other_01.ogg",
+   "orig": "other_01.ogg",
+   "bytes": 38052,
+   "sha256": "1b44e4787941ce231234b2dc4f04f42ddd6801f2113bd9f20cdae8cdfdaa48a9"
+  },
+  {
+   "file": "other_02.ogg",
+   "orig": "other_02.ogg",
+   "bytes": 19097,
+   "sha256": "2b27f4431ab43b131c6a4edb5249c5052e0aeeeec1a9adf465ffa82354992217"
+  },
+  {
+   "file": "other_03.ogg",
+   "orig": "other_03.ogg",
+   "bytes": 22779,
+   "sha256": "23f9a010799bf9ae34669cb6b3869220dfe935e04922b4a58c1ccf3ded9da2fe"
+  },
+  {
+   "file": "other_04.ogg",
+   "orig": "other_04.ogg",
+   "bytes": 15800,
+   "sha256": "00590fb76ac21cd50bd7ce6f744713d52bbd3f3ed808b205220ad90ea3d8fe73"
+  },
+  {
+   "file": "other_05.ogg",
+   "orig": "other_05.ogg",
+   "bytes": 22177,
+   "sha256": "5b5d4b95fb720ee9e10666067299f5ea83e895995b0f2e694b7d3ebfa4ff1f8f"
+  },
+  {
+   "file": "other_06.ogg",
+   "orig": "other_06.ogg",
+   "bytes": 13086,
+   "sha256": "2468a1635460a2da0ed7b0d91417f787f925b26d900042ce289ebcebad7ec652"
+  },
+  {
+   "file": "other_07.ogg",
+   "orig": "other_07.ogg",
+   "bytes": 23925,
+   "sha256": "223c0bdc95b3c0317633ce3e924b168c5ceed233e2310b523b0f2f22c6ea8022"
+  },
+  {
+   "file": "paper_01.ogg",
+   "orig": "paper_01.ogg",
+   "bytes": 25529,
+   "sha256": "b2b2b55e44761c7a45283bce0196f41f72207180fb08c970d7dcf93b705d280c"
+  },
+  {
+   "file": "paper_02.ogg",
+   "orig": "paper_02.ogg",
+   "bytes": 27205,
+   "sha256": "4d0c68b367bd3fbdf9817e764908e5524b2cad6536eb0911fc74f6ab4f60c50a"
+  },
+  {
+   "file": "paper_03.ogg",
+   "orig": "paper_03.ogg",
+   "bytes": 29838,
+   "sha256": "90147dde68b9e2082404f439165bbcb6f7c2364e88e9373d1cd1f7446a37f7b2"
+  },
+  {
+   "file": "paper_04.ogg",
+   "orig": "paper_04.ogg",
+   "bytes": 32322,
+   "sha256": "afae7236bce275fad555922cc8578882eb0c0b5d822be0a9180c9efdadf4a770"
+  },
+  {
+   "file": "plop_01.ogg",
+   "orig": "plop_01.ogg",
+   "bytes": 14327,
+   "sha256": "bd996051cd5de630329ba4b026d52e9452e34a54c40e87e3fbdede68c88ec185"
+  },
+  {
+   "file": "plop_02.ogg",
+   "orig": "plop_02.ogg",
+   "bytes": 17177,
+   "sha256": "b4cbe7e0c49ad1caf2dc02dc218897bdf9b5bce2e5d11b3b87861dd5269c1749"
+  },
+  {
+   "file": "pot_01.ogg",
+   "orig": "pot_01.ogg",
+   "bytes": 16370,
+   "sha256": "5ceca8a2a860e8c8c0e96f74714b4b4f66a562e76353fdbf62bc94868e797778"
+  },
+  {
+   "file": "pot_02.ogg",
+   "orig": "pot_02.ogg",
+   "bytes": 27874,
+   "sha256": "d91aaf0c5f98e8c5380a8c28085d1f77ecdfba0a7307879abd72faaebefa3e94"
+  },
+  {
+   "file": "shot_01.ogg",
+   "orig": "shot_01.ogg",
+   "bytes": 27125,
+   "sha256": "f293bc079a1859ba3d7e7f200c6d4a555543010eb7f5a33f561b064621819014"
+  },
+  {
+   "file": "shot_02.ogg",
+   "orig": "shot_02.ogg",
+   "bytes": 16520,
+   "sha256": "4ff784ce514c3067542316c0071acd7d7cbce305f32525ea9a4e43cb72df3eaf"
+  },
+  {
+   "file": "slam_01.ogg",
+   "orig": "slam_01.ogg",
+   "bytes": 24469,
+   "sha256": "30aad7b563efd45dbd652247c1c45a809a4f0cac3f7ea13e68893104431c5dca"
+  },
+  {
+   "file": "slam_02.ogg",
+   "orig": "slam_02.ogg",
+   "bytes": 28190,
+   "sha256": "a81f7be947b01821b9170df068f0dd4af63fb8ee695b4043cfaf1a31fcf5c929"
+  },
+  {
+   "file": "slam_03.ogg",
+   "orig": "slam_03.ogg",
+   "bytes": 27735,
+   "sha256": "55ffcee85bae3555425a51b828891b6621fe1cbe792bf41e61f66a39b97345f0"
+  },
+  {
+   "file": "slam_04.ogg",
+   "orig": "slam_04.ogg",
+   "bytes": 16551,
+   "sha256": "2bb8a5ddbe612ca930f449c05c60c0f80af023f497e9aef4af1ba5303fca30fd"
+  },
+  {
+   "file": "slam_05.ogg",
+   "orig": "slam_05.ogg",
+   "bytes": 18245,
+   "sha256": "3b796f84c86ee1c2607841831345804f27f1af2537cd1fbefa37d568208e1a1d"
+  },
+  {
+   "file": "slam_06.ogg",
+   "orig": "slam_06.ogg",
+   "bytes": 23331,
+   "sha256": "46852b9233249ea9c146f8f49780ab0cb585d6d509f56f4ab3ca46fd6f8648ed"
+  },
+  {
+   "file": "slam_07.ogg",
+   "orig": "slam_07.ogg",
+   "bytes": 30270,
+   "sha256": "8e263749ef16492768db136acf87ee533d2472a85dda5f8898316d48b6785a94"
+  },
+  {
+   "file": "splash_01.ogg",
+   "orig": "splash_01.ogg",
+   "bytes": 27767,
+   "sha256": "8d48e8da680fbdfd3c885aa2f69d8e83ad16717bae43d178861d7af08d142849"
+  },
+  {
+   "file": "splash_02.ogg",
+   "orig": "splash_02.ogg",
+   "bytes": 29916,
+   "sha256": "e515b7da00b2a268263824dbea9b7bc0c2e972fbd189fe3c02576d2e29af3aa5"
+  },
+  {
+   "file": "spring_01.ogg",
+   "orig": "spring_01.ogg",
+   "bytes": 51221,
+   "sha256": "d672b3d444685f29dab4229c2d09bb5f59e0f31e92ceac8773e24beddf506155"
+  },
+  {
+   "file": "spring_02.ogg",
+   "orig": "spring_02.ogg",
+   "bytes": 68466,
+   "sha256": "024b00be17500bc7d272089f95e4ce615c1bde6c6680926f61ea44a1e425fe58"
+  },
+  {
+   "file": "spring_03.ogg",
+   "orig": "spring_03.ogg",
+   "bytes": 26826,
+   "sha256": "f05277b7af3301cc9eb4d76ab3751235cd60b42205f0763f06036cd90bdbaadf"
+  },
+  {
+   "file": "spring_04.ogg",
+   "orig": "spring_04.ogg",
+   "bytes": 26848,
+   "sha256": "48f679060be3538232d2d18d45c0b38285fffd07b8e21ebc6896d42aa9b53327"
+  },
+  {
+   "file": "spring_05.ogg",
+   "orig": "spring_05.ogg",
+   "bytes": 26386,
+   "sha256": "9fd8a51395a7d95cb1f945318efc60ecf5f331448e931d8837b8ab661274da9a"
+  },
+  {
+   "file": "spring_06.ogg",
+   "orig": "spring_06.ogg",
+   "bytes": 49467,
+   "sha256": "a881b4d439c591a9b7478ce0929325ac93add608f75e11ec9f1aa5934469ee01"
+  },
+  {
+   "file": "spring_07.ogg",
+   "orig": "spring_07.ogg",
+   "bytes": 30243,
+   "sha256": "a53ae8b8aea0d6a08a04633b5c4cdb4d5dbde4933e42cc81e3408aa6db271ef3"
+  },
+  {
+   "file": "spring_08.ogg",
+   "orig": "spring_08.ogg",
+   "bytes": 39074,
+   "sha256": "55d3a9b9de5921f8c541bd2825c37b29d964ebdef9b5bb56e8629278e8145041"
+  },
+  {
+   "file": "spring_09.ogg",
+   "orig": "spring_09.ogg",
+   "bytes": 30182,
+   "sha256": "495efc81b551f214acb47eaa7d6415e2ecc54287f46b1ab7c1015e8465fc9a5b"
+  },
+  {
+   "file": "switch_01.ogg",
+   "orig": "switch_01.ogg",
+   "bytes": 12076,
+   "sha256": "a24004ad0adbc08571324456963533c496bd27cf4808b40cb90833dc06b95792"
+  },
+  {
+   "file": "switch_02.ogg",
+   "orig": "switch_02.ogg",
+   "bytes": 22050,
+   "sha256": "769dca6ccbea5c33cef602cdaa6ab0350b0dc2b093f02eae36f33e2552036f67"
+  },
+  {
+   "file": "toilet_01.ogg",
+   "orig": "toilet_01.ogg",
+   "bytes": 291328,
+   "sha256": "502393b0cf4ef7be08eee5955d0c451e42f9b192b181fecd1f28ada0329c2257"
+  },
+  {
+   "file": "toilet_02.ogg",
+   "orig": "toilet_02.ogg",
+   "bytes": 168727,
+   "sha256": "9e4a1824ac584bb65ba32406155d37861df7e11b95ef62493246dd2da17f8dbc"
+  },
+  {
+   "file": "tools_01.ogg",
+   "orig": "tools_01.ogg",
+   "bytes": 11411,
+   "sha256": "99cdef7f37b80cdea78681f24fee792a95fad1bb0f2c2b88dc3ae8baf539b0da"
+  },
+  {
+   "file": "tools_02.ogg",
+   "orig": "tools_02.ogg",
+   "bytes": 11987,
+   "sha256": "b8439c5881ea9a6d4f2d373a75d9e95b40b0b8c158a98f6c0fe69f5f3d0932c4"
+  },
+  {
+   "file": "tools_03.ogg",
+   "orig": "tools_03.ogg",
+   "bytes": 13617,
+   "sha256": "dafbd9b2eab999f124fef4e7949cbab1e45660692798c6e5b451ea95f6b9a66d"
+  },
+  {
+   "file": "tools_04.ogg",
+   "orig": "tools_04.ogg",
+   "bytes": 12072,
+   "sha256": "687bc635188854cdf0f82b73c611470992838fbd18ad238c8abdd742906b9a57"
+  },
+  {
+   "file": "tools_05.ogg",
+   "orig": "tools_05.ogg",
+   "bytes": 23180,
+   "sha256": "73d2db751d60c6dad1d4370a99075a9a614d2e1f0bf18279d9de54fd13c6e645"
+  },
+  {
+   "file": "weird_01.ogg",
+   "orig": "weird_01.ogg",
+   "bytes": 13364,
+   "sha256": "30247e4ed2337e087dac92ee59fe39cb5a0f02dd882dd842f7540124f3836f4a"
+  },
+  {
+   "file": "weird_02.ogg",
+   "orig": "weird_02.ogg",
+   "bytes": 39027,
+   "sha256": "4364f075610a6a71fbf2a2f44021b1f1fae8c01bd0e77a3a86ef58eb5211b32a"
+  },
+  {
+   "file": "weird_03.ogg",
+   "orig": "weird_03.ogg",
+   "bytes": 29079,
+   "sha256": "c662c83ae3a61621517f4f300bbf3e992a8343019aa6168c5bda338c8fa341d9"
+  },
+  {
+   "file": "weird_04.ogg",
+   "orig": "weird_04.ogg",
+   "bytes": 45215,
+   "sha256": "b9d68681fbf0a401c28ebe0c959ac778240643a9304349ad514d8df30f60ad95"
+  },
+  {
+   "file": "weird_05.ogg",
+   "orig": "weird_05.ogg",
+   "bytes": 28702,
+   "sha256": "a807134034f960ff929203f2648508c66631410b9a44d6dbee2ae5e41403d0ec"
+  },
+  {
+   "file": "wooded_box_open.ogg",
+   "orig": "wooded_box_open.ogg",
+   "bytes": 20092,
+   "sha256": "f564d93620fa150f6a85f86f26c3dc61ca42b62c887bc833b3af3a564897796f"
+  },
+  {
+   "file": "wooden_01.ogg",
+   "orig": "wooden_01.ogg",
+   "bytes": 9357,
+   "sha256": "e7f7b1243ecd6ff3487eee1540de56f38fac606fe6218bdd49a91efc29ae1b9a"
+  },
+  {
+   "file": "wooden_02.ogg",
+   "orig": "wooden_02.ogg",
+   "bytes": 19447,
+   "sha256": "a6f6edf91a63c5af9059f70df0ac4e3fcee2c57342dc41dd3a166810365392fd"
+  },
+  {
+   "file": "wooden_03.ogg",
+   "orig": "wooden_03.ogg",
+   "bytes": 20716,
+   "sha256": "864c68b8622eaf900f2b9932d2998cc9840dc95b61a148e37550ddb382c92777"
+  }
+ ]
+}

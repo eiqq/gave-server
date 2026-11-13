@@ -1,0 +1,680 @@
+[
+[
+"wait",
+2
+],
+[
+"cmd",
+"gamemode adventure {USER}"
+],
+[
+"cmd",
+"gave 중지"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 원정 x 끔"
+],
+[
+"cmd",
+"gave 시작"
+],
+[
+"until",
+"state=PREP",
+15
+],
+[
+"cmd",
+"gave 시험 판끝막기 x on"
+],
+[
+"until",
+"state=WAVE",
+25
+],
+[
+"until",
+"state=WAVE",
+30
+],
+[
+"cmd",
+"gave 시험 쉬기 x"
+],
+[
+"cmd",
+"gave 시험 몹정지 x off"
+],
+[
+"cmd",
+"gave 시험 풀기 {USER}"
+],
+[
+"cmd",
+"gave 시험 놓기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 웅크리기 {USER} off"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 8.5 0 0"
+],
+[
+"cmd",
+"gave 시험 공격 x 물기 off"
+],
+[
+"cmd",
+"gave 시험 공격 x 방어 0.05"
+],
+[
+"cmd",
+"gave 시험 공격 x 다시"
+],
+[
+"cmd",
+"gave 시험 돈 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G68 1 0.5 13.0"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G68 40"
+],
+[
+"wait",
+1.0
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G68"
+],
+[
+"cmd",
+"gave 시험 돕기 {USER}"
+],
+[
+"wait",
+0.2
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G68"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"wait",
+1.0
+],
+[
+"shot",
+"g68_paid"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 1 G68"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"wait",
+1.5
+],
+[
+"shot",
+"g68_corpse"
+],
+[
+"until",
+"state=WAVE",
+30
+],
+[
+"cmd",
+"gave 시험 쉬기 x"
+],
+[
+"cmd",
+"gave 시험 몹정지 x off"
+],
+[
+"cmd",
+"gave 시험 풀기 {USER}"
+],
+[
+"cmd",
+"gave 시험 놓기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 웅크리기 {USER} off"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 8.5 0 0"
+],
+[
+"cmd",
+"gave 시험 공격 x 물기 off"
+],
+[
+"cmd",
+"gave 시험 공격 x 방어 0.05"
+],
+[
+"cmd",
+"gave 시험 공격 x 다시"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G75 1 0.5 30.5"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G75 40"
+],
+[
+"wait",
+1.0
+],
+[
+"cmd",
+"gave 시험 몹정지 x on"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G75 40 0 1.2"
+],
+[
+"wait",
+0.4
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 40"
+],
+[
+"wait",
+2.4
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G75"
+],
+[
+"cmd",
+"gave 시험 몹목록 x G75"
+],
+[
+"cmd",
+"gave 시험 몹정지 x off"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 래그돌 x"
+],
+[
+"shot",
+"g75_clean"
+],
+[
+"until",
+"state=WAVE",
+30
+],
+[
+"cmd",
+"gave 시험 쉬기 x"
+],
+[
+"cmd",
+"gave 시험 몹정지 x off"
+],
+[
+"cmd",
+"gave 시험 풀기 {USER}"
+],
+[
+"cmd",
+"gave 시험 놓기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 웅크리기 {USER} off"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 8.5 0 0"
+],
+[
+"cmd",
+"gave 시험 공격 x 물기 off"
+],
+[
+"cmd",
+"gave 시험 공격 x 방어 0.05"
+],
+[
+"cmd",
+"gave 시험 공격 x 다시"
+],
+[
+"cmd",
+"gave 시험 돈 {USER} 300"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G78 1 0.5 24.5"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G78 80"
+],
+[
+"wait",
+5.0
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹목록 x G78"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 5 G78"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 시험 몹목록 x G78"
+],
+[
+"cmd",
+"gave 시험 몹정지 x on"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G78 40"
+],
+[
+"wait",
+0.4
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 40"
+],
+[
+"wait",
+2.4
+],
+[
+"cmd",
+"gave 시험 몹목록 x G78"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹정지 x off"
+],
+[
+"until",
+"state=WAVE",
+30
+],
+[
+"cmd",
+"gave 시험 쉬기 x"
+],
+[
+"cmd",
+"gave 시험 몹정지 x off"
+],
+[
+"cmd",
+"gave 시험 풀기 {USER}"
+],
+[
+"cmd",
+"gave 시험 놓기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 웅크리기 {USER} off"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 8.5 0 0"
+],
+[
+"cmd",
+"gave 시험 공격 x 물기 off"
+],
+[
+"cmd",
+"gave 시험 공격 x 방어 0.05"
+],
+[
+"cmd",
+"gave 시험 공격 x 다시"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G67 1 0.5 29.5"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G67 80"
+],
+[
+"wait",
+1.0
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G67"
+],
+[
+"cmd",
+"gave 시험 공격 x 다시"
+],
+[
+"wait",
+3.0
+],
+[
+"cmd",
+"gave 시험 공격 x"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 8.5"
+],
+[
+"wait",
+0.25
+],
+[
+"cmd",
+"tp {USER} 0.5 64 9.3"
+],
+[
+"wait",
+0.25
+],
+[
+"cmd",
+"tp {USER} 0.5 64 8.5"
+],
+[
+"wait",
+0.25
+],
+[
+"cmd",
+"tp {USER} 0.5 64 9.3"
+],
+[
+"wait",
+0.25
+],
+[
+"cmd",
+"tp {USER} 0.5 64 8.5"
+],
+[
+"wait",
+0.25
+],
+[
+"cmd",
+"tp {USER} 0.5 64 9.3"
+],
+[
+"wait",
+0.25
+],
+[
+"cmd",
+"tp {USER} 0.5 64 8.5"
+],
+[
+"wait",
+0.25
+],
+[
+"cmd",
+"tp {USER} 0.5 64 9.3"
+],
+[
+"wait",
+0.25
+],
+[
+"cmd",
+"tp {USER} 0.5 64 8.5"
+],
+[
+"wait",
+0.25
+],
+[
+"cmd",
+"tp {USER} 0.5 64 9.3"
+],
+[
+"wait",
+0.25
+],
+[
+"cmd",
+"tp {USER} 0.5 64 8.5"
+],
+[
+"wait",
+0.25
+],
+[
+"cmd",
+"tp {USER} 0.5 64 9.3"
+],
+[
+"wait",
+0.25
+],
+[
+"cmd",
+"tp {USER} 0.5 64 8.5"
+],
+[
+"wait",
+0.25
+],
+[
+"cmd",
+"tp {USER} 0.5 64 9.3"
+],
+[
+"wait",
+0.25
+],
+[
+"cmd",
+"tp {USER} 0.5 64 8.5"
+],
+[
+"wait",
+0.25
+],
+[
+"cmd",
+"tp {USER} 0.5 64 9.3"
+],
+[
+"wait",
+0.25
+],
+[
+"cmd",
+"tp {USER} 0.5 64 8.5"
+],
+[
+"wait",
+0.25
+],
+[
+"cmd",
+"tp {USER} 0.5 64 9.3"
+],
+[
+"wait",
+0.25
+],
+[
+"cmd",
+"tp {USER} 0.5 64 8.5"
+],
+[
+"wait",
+0.25
+],
+[
+"cmd",
+"tp {USER} 0.5 64 9.3"
+],
+[
+"wait",
+0.25
+],
+[
+"cmd",
+"tp {USER} 0.5 64 8.5"
+],
+[
+"wait",
+0.25
+],
+[
+"cmd",
+"tp {USER} 0.5 64 9.3"
+],
+[
+"wait",
+0.25
+],
+[
+"cmd",
+"tp {USER} 0.5 64 8.5"
+],
+[
+"wait",
+0.25
+],
+[
+"cmd",
+"tp {USER} 0.5 64 9.3"
+],
+[
+"wait",
+0.25
+],
+[
+"cmd",
+"tp {USER} 0.5 64 8.5"
+],
+[
+"wait",
+0.25
+],
+[
+"cmd",
+"tp {USER} 0.5 64 9.3"
+],
+[
+"wait",
+0.25
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G67"
+],
+[
+"cmd",
+"gave 시험 공격 x"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G67 30"
+],
+[
+"wait",
+0.5
+],
+[
+"shot",
+"g67_scan"
+]
+]

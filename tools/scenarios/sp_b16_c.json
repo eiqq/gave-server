@@ -1,0 +1,555 @@
+[
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gamemode adventure {USER}"
+ ],
+ [
+  "cmd",
+  "gave 중지"
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=PREP",
+  15
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 {USER} on"
+ ],
+ [
+  "cmd",
+  "gave 시험 총 {USER} RIFLE"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  45
+ ],
+ [
+  "cmd",
+  "gave 시험 쉬기 {USER}"
+ ],
+ [
+  "wait",
+  0.3
+ ],
+ [
+  "cmd",
+  "gave 시험 그냥꺼내기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 일으키기 {USER}"
+ ],
+ [
+  "wait",
+  0.3
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER} 100"
+ ],
+ [
+  "cmd",
+  "tp {USER} 10.5 64 10.5 180 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 총 {USER} RIFLE"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 {USER} G164 8 10.5 -11 3"
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 180 8"
+ ],
+ [
+  "wait",
+  3.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER} G164"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G164"
+ ],
+ [
+  "cmd",
+  "tp {USER} 10.5 64 25.5 0 12"
+ ],
+ [
+  "wait",
+  1.6
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 공격 {USER}"
+ ],
+ [
+  "shot",
+  "g164_strike"
+ ],
+ [
+  "cmd",
+  "tp {USER} 10.5 64 10.5 180 8"
+ ],
+ [
+  "wait",
+  3.5
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 공격 {USER}"
+ ],
+ [
+  "shot",
+  "g164_push"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G164"
+ ],
+ [
+  "wait",
+  2.5
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 공격 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G164"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹치기 {USER} SNIPER 40 G164"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  45
+ ],
+ [
+  "cmd",
+  "gave 시험 쉬기 {USER}"
+ ],
+ [
+  "wait",
+  0.3
+ ],
+ [
+  "cmd",
+  "gave 시험 그냥꺼내기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 일으키기 {USER}"
+ ],
+ [
+  "wait",
+  0.3
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER} 100"
+ ],
+ [
+  "cmd",
+  "tp {USER} 10.5 64 10.5 180 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 총 {USER} RIFLE"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 {USER} G165 1 10.5 3.5 0"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 180 30"
+ ],
+ [
+  "wait",
+  0.2
+ ],
+ [
+  "shot",
+  "g165_mud"
+ ],
+ [
+  "cmd",
+  "tp {USER} 10.5 64 5 180 50"
+ ],
+ [
+  "wait",
+  0.3
+ ],
+ [
+  "shot",
+  "g165_bulge"
+ ],
+ [
+  "wait",
+  0.7
+ ],
+ [
+  "shot",
+  "g165_crabs"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G165"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER} G165"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 공격 {USER}"
+ ],
+ [
+  "wait",
+  2.6
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER} G165"
+ ],
+ [
+  "cmd",
+  "tp {USER} 10.5 64 15.5 180 25"
+ ],
+ [
+  "wait",
+  2.0
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 공격 {USER}"
+ ],
+ [
+  "shot",
+  "g165_chase"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹치기 {USER} SNIPER 40 G165"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 180 30"
+ ],
+ [
+  "shot",
+  "g165_dry"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  45
+ ],
+ [
+  "cmd",
+  "gave 시험 쉬기 {USER}"
+ ],
+ [
+  "wait",
+  0.3
+ ],
+ [
+  "cmd",
+  "gave 시험 그냥꺼내기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 일으키기 {USER}"
+ ],
+ [
+  "wait",
+  0.3
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER} 100"
+ ],
+ [
+  "cmd",
+  "tp {USER} 10.5 64 10.5 180 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 총 {USER} RIFLE"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 {USER} G166 1 10.5 -1 0"
+ ],
+ [
+  "wait",
+  0.8
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 180 4"
+ ],
+ [
+  "wait",
+  0.2
+ ],
+ [
+  "shot",
+  "g166_far"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G166 30 0 1.6"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 8"
+ ],
+ [
+  "wait",
+  0.15
+ ],
+ [
+  "shot",
+  "g166_hit"
+ ],
+ [
+  "wait",
+  0.3
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G166"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G166 30 0 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 16"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G166"
+ ],
+ [
+  "wait",
+  4.0
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 공격 {USER}"
+ ],
+ [
+  "shot",
+  "g166_press"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G166"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹치기 {USER} EXPLOSION 1 G166"
+ ],
+ [
+  "wait",
+  0.25
+ ],
+ [
+  "shot",
+  "g166_fall"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 공격 {USER}"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  45
+ ],
+ [
+  "cmd",
+  "gave 시험 쉬기 {USER}"
+ ],
+ [
+  "wait",
+  0.3
+ ],
+ [
+  "cmd",
+  "gave 시험 그냥꺼내기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 일으키기 {USER}"
+ ],
+ [
+  "wait",
+  0.3
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER} 100"
+ ],
+ [
+  "cmd",
+  "tp {USER} 10.5 64 10.5 180 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 총 {USER} RIFLE"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 {USER} G172 10 10.5 1 2.5"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 180 25"
+ ],
+ [
+  "wait",
+  0.2
+ ],
+ [
+  "shot",
+  "g172_flow"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹치기 {USER} BULLET 1 G172"
+ ],
+ [
+  "wait",
+  1.3
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER} G172"
+ ],
+ [
+  "shot",
+  "g172_kneel"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G172 20"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 3"
+ ],
+ [
+  "wait",
+  1.4
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER} G172"
+ ],
+ [
+  "shot",
+  "g172_stand"
+ ],
+ [
+  "wait",
+  2.5
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 공격 {USER}"
+ ],
+ [
+  "shot",
+  "g172_near"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹치기 {USER} EXPLOSION 12 G172"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER} G172"
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ]
+]

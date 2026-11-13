@@ -1,0 +1,440 @@
+[
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gamemode adventure {USER}"
+ ],
+ [
+  "cmd",
+  "gave 중지"
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=PREP",
+  15
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 {USER} on"
+ ],
+ [
+  "cmd",
+  "gave 시험 총 {USER} RIFLE"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  40
+ ],
+ [
+  "cmd",
+  "gave 시험 감독빨리 x 0.1"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER} 100"
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 24.5 0 0"
+ ],
+ [
+  "wait",
+  0.4
+ ],
+ [
+  "cmd",
+  "gave 소환 G96 1 11 {USER}"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G96"
+ ],
+ [
+  "wait",
+  0.3
+ ],
+ [
+  "shot",
+  "g96_far"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G96"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G96 60"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 50"
+ ],
+ [
+  "wait",
+  2.8
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G96"
+ ],
+ [
+  "shot",
+  "g96_fed"
+ ],
+ [
+  "wait",
+  3.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G96"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "wait",
+  2.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G96"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "shot",
+  "g96_late"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹치기 {USER} SNIPER 1 G96"
+ ],
+ [
+  "wait",
+  2.5
+ ],
+ [
+  "cmd",
+  "gave 시험 래그돌 {USER}"
+ ],
+ [
+  "shot",
+  "g96_corpse"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER} 100"
+ ],
+ [
+  "cmd",
+  "tp {USER} 30.5 64 24.5 0 0"
+ ],
+ [
+  "wait",
+  0.4
+ ],
+ [
+  "cmd",
+  "gave 소환 G89 1 9 {USER}"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G89 20"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 20"
+ ],
+ [
+  "wait",
+  1.2
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G89"
+ ],
+ [
+  "shot",
+  "g89_shut"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G89"
+ ],
+ [
+  "shot",
+  "g89_open"
+ ],
+ [
+  "wait",
+  1.2
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G89"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "wait",
+  2.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G89"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹치기 {USER} BULLET 1 G89"
+ ],
+ [
+  "wait",
+  2.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER} G89"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER} 100"
+ ],
+ [
+  "cmd",
+  "tp {USER} -30.5 64 24.5 0 0"
+ ],
+ [
+  "wait",
+  0.4
+ ],
+ [
+  "cmd",
+  "gave 소환 G88 1 15 {USER}"
+ ],
+ [
+  "wait",
+  2.5
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G88"
+ ],
+ [
+  "wait",
+  0.3
+ ],
+ [
+  "shot",
+  "g88_set"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G88"
+ ],
+ [
+  "wait",
+  3.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G88"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G88 40 0 1.6"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 40"
+ ],
+ [
+  "wait",
+  2.2
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G88"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "shot",
+  "g88_spines"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹치기 {USER} BULLET 1 G88"
+ ],
+ [
+  "wait",
+  2.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER} 100"
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 -30.5 0 0"
+ ],
+ [
+  "wait",
+  0.4
+ ],
+ [
+  "cmd",
+  "gave 소환 G76 1 7 {USER}"
+ ],
+ [
+  "wait",
+  2.0
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G76"
+ ],
+ [
+  "wait",
+  0.3
+ ],
+ [
+  "shot",
+  "g76_near"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G76"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G76 30 0 1.1"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 25"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G76"
+ ],
+ [
+  "wait",
+  2.2
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G76"
+ ],
+ [
+  "shot",
+  "g76_regrow"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G76 30 0 1.1"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 25"
+ ],
+ [
+  "wait",
+  1.4
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G76"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹폭발 {USER} 6 5"
+ ],
+ [
+  "wait",
+  2.5
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G76"
+ ],
+ [
+  "shot",
+  "g76_burnt"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹치기 {USER} SNIPER 1 G76"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ]
+]

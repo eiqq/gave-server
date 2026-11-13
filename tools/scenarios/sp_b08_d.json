@@ -1,0 +1,380 @@
+[
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gamemode adventure {USER}"
+ ],
+ [
+  "cmd",
+  "gave 중지"
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=PREP",
+  15
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 {USER} on"
+ ],
+ [
+  "cmd",
+  "gave 시험 총 {USER} RIFLE"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  40
+ ],
+ [
+  "cmd",
+  "gave 시험 감독빨리 x 0.1"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 풀기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER} 100"
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 8.5 0 0"
+ ],
+ [
+  "wait",
+  0.4
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 {USER} G66 1 0.5 44.5"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G66 70 0 2.4"
+ ],
+ [
+  "wait",
+  0.3
+ ],
+ [
+  "shot",
+  "g66_walk"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 70"
+ ],
+ [
+  "wait",
+  3.6
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G66"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER} G66"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G66 10 0 0"
+ ],
+ [
+  "wait",
+  0.4
+ ],
+ [
+  "shot",
+  "g66_broken"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹치기 {USER} PELLET 20 G66"
+ ],
+ [
+  "wait",
+  1.8
+ ],
+ [
+  "shot",
+  "g66_corpse"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 풀기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER} 100"
+ ],
+ [
+  "cmd",
+  "tp {USER} 28.5 64 8.5 0 0"
+ ],
+ [
+  "wait",
+  0.4
+ ],
+ [
+  "cmd",
+  "gave 소환 G94 1 9 {USER}"
+ ],
+ [
+  "wait",
+  4.2
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G94"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G94 40 0 0"
+ ],
+ [
+  "wait",
+  0.9
+ ],
+ [
+  "shot",
+  "g94_pour2"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G94"
+ ],
+ [
+  "wait",
+  0.6
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 0 50"
+ ],
+ [
+  "shot",
+  "g94_pool"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "tp {USER} 28.5 64 2.5 0 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 {USER} on"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G94 60 0 -3.5"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 60"
+ ],
+ [
+  "wait",
+  3.3
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G94"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 {USER} off"
+ ],
+ [
+  "wait",
+  2.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G94"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G94 10 0 0"
+ ],
+ [
+  "shot",
+  "g94_fallen2"
+ ],
+ [
+  "wait",
+  2.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G94"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹치기 {USER} BULLET 2 G94"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "shot",
+  "g94_corpse2"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 풀기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER} 100"
+ ],
+ [
+  "cmd",
+  "tp {USER} 5.5 64 5.5 0 0"
+ ],
+ [
+  "wait",
+  0.4
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 {USER} G107 1 0.5 15.5"
+ ],
+ [
+  "wait",
+  0.3
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 0 10"
+ ],
+ [
+  "wait",
+  3.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G107"
+ ],
+ [
+  "shot",
+  "g107_fins2"
+ ],
+ [
+  "wait",
+  4.6
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G107"
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 0 -80"
+ ],
+ [
+  "wait",
+  1.2
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G107"
+ ],
+ [
+  "shot",
+  "g107_up1"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "shot",
+  "g107_up2"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G107"
+ ],
+ [
+  "shot",
+  "g107_up3"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹치기 {USER} SNIPER 1 G107"
+ ],
+ [
+  "wait",
+  0.6
+ ],
+ [
+  "shot",
+  "g107_fall"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 0 20"
+ ],
+ [
+  "shot",
+  "g107_corpse2"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ]
+]

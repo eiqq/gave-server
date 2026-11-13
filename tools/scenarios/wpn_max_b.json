@@ -1,0 +1,504 @@
+[
+ [
+  "cmd",
+  "gamemode adventure {USER}"
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gave 중지"
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=PREP",
+  15
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 x on"
+ ],
+ [
+  "cmd",
+  "gave 시험 균형 x ALIVE_PER_WAVE 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 균형 x ALIVE_BASE 0"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  20
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "cmd",
+  "tp {USER} 6.5 64 -9.5 0 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 모델목록 x"
+ ],
+ [
+  "cmd",
+  "gave 시험 모델상자 x 12 3000"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "cmd",
+  "gave 시험 총모델 {USER} tac_db_short RARE"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 x G01 3 6.5 3.5 2"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 x on"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G01 30"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 12"
+ ],
+ [
+  "wait",
+  0.55
+ ],
+ [
+  "shot",
+  "w_tac_db_short"
+ ],
+ [
+  "cmd",
+  "gave 시험 총정보 {USER}"
+ ],
+ [
+  "wait",
+  0.4
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "cmd",
+  "gave 시험 총모델 {USER} sg_super_shotgun RARE"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 x G01 3 6.5 3.5 2"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 x on"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G01 30"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 12"
+ ],
+ [
+  "wait",
+  0.55
+ ],
+ [
+  "shot",
+  "w_sg_super_shotgun"
+ ],
+ [
+  "cmd",
+  "gave 시험 총정보 {USER}"
+ ],
+ [
+  "wait",
+  0.4
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "cmd",
+  "gave 시험 총모델 {USER} sg_musket RARE"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 x G01 3 6.5 3.5 2"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 x on"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G01 30"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 40"
+ ],
+ [
+  "wait",
+  0.9
+ ],
+ [
+  "shot",
+  "w_sg_musket"
+ ],
+ [
+  "cmd",
+  "gave 시험 총정보 {USER}"
+ ],
+ [
+  "wait",
+  0.4
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "cmd",
+  "gave 시험 총모델 {USER} sg_libertas RARE"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 x G01 3 6.5 3.5 2"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 x on"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G01 30"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 12"
+ ],
+ [
+  "wait",
+  0.55
+ ],
+ [
+  "shot",
+  "w_sg_libertas"
+ ],
+ [
+  "cmd",
+  "gave 시험 총정보 {USER}"
+ ],
+ [
+  "wait",
+  0.4
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "cmd",
+  "gave 시험 총모델 {USER} sg_cr4k_mining_laser RARE"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 x G01 3 6.5 3.5 2"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 x on"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G01 30"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 12"
+ ],
+ [
+  "wait",
+  0.55
+ ],
+ [
+  "shot",
+  "w_sg_cr4k_mining_laser"
+ ],
+ [
+  "cmd",
+  "gave 시험 총정보 {USER}"
+ ],
+ [
+  "wait",
+  0.4
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "cmd",
+  "gave 시험 총모델 {USER} sg_spitfire RARE"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 x G01 3 6.5 3.5 2"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 x on"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G01 30"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 12"
+ ],
+ [
+  "wait",
+  0.55
+ ],
+ [
+  "shot",
+  "w_sg_spitfire"
+ ],
+ [
+  "cmd",
+  "gave 시험 총정보 {USER}"
+ ],
+ [
+  "wait",
+  0.4
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "cmd",
+  "gave 시험 총모델 {USER} tac_grenade_launcher RARE"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 x G01 3 6.5 3.5 2"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 x on"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G01 30"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 12"
+ ],
+ [
+  "wait",
+  0.55
+ ],
+ [
+  "shot",
+  "w_tac_grenade_launcher"
+ ],
+ [
+  "cmd",
+  "gave 시험 총정보 {USER}"
+ ],
+ [
+  "wait",
+  0.4
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "cmd",
+  "gave 시험 총모델 {USER} sg_blooper RARE"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 x G01 3 6.5 3.5 2"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 x on"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G01 30"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 12"
+ ],
+ [
+  "wait",
+  0.55
+ ],
+ [
+  "shot",
+  "w_sg_blooper"
+ ],
+ [
+  "cmd",
+  "gave 시험 총정보 {USER}"
+ ],
+ [
+  "wait",
+  0.4
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "cmd",
+  "gave 시험 총모델 {USER} sg_rocket_rifle RARE"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 x G01 3 6.5 3.5 2"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 x on"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G01 30"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 40"
+ ],
+ [
+  "wait",
+  0.9
+ ],
+ [
+  "shot",
+  "w_sg_rocket_rifle"
+ ],
+ [
+  "cmd",
+  "gave 시험 총정보 {USER}"
+ ],
+ [
+  "wait",
+  0.4
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "cmd",
+  "gave 시험 총모델 {USER} sg_flintlock_pistol RARE"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 x G01 3 6.5 3.5 2"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 x on"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G01 30"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 12"
+ ],
+ [
+  "wait",
+  0.55
+ ],
+ [
+  "shot",
+  "w_sg_flintlock_pistol"
+ ],
+ [
+  "cmd",
+  "gave 시험 총정보 {USER}"
+ ],
+ [
+  "wait",
+  0.4
+ ],
+ [
+  "cmd",
+  "gave 중지"
+ ]
+]

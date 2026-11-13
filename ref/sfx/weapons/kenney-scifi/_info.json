@@ -1,0 +1,26 @@
+{
+ "title": "Sci-Fi Sounds (Kenney)",
+ "url": "https://opengameart.org/content/sci-fi-sounds",
+ "file_url": "https://opengameart.org/sites/default/files/sci-fi_sounds.zip",
+ "author": "Kenney (www.kenney.nl)",
+ "license": "CC0-1.0",
+ "license_note": "OGA License(s): CC0, 묶음 License.txt 'Creative Commons Zero, CC0'. 'Credit Kenney.nl ... not mandatory'",
+ "archive_sha256": "119340f351a5098ad814f78719438c0da355a9ce8a4c8a3af6a8d48aa3d49e04",
+ "archive_size": 5875104,
+ "files": {
+  "License.txt": "a9767b25c3533f69d03af136480efad08efba19a9f0d89616992b34c79fd6186",
+  "thrusterFire_000.ogg": "0fdc474d93f209debf1fc4ea77765a669dcb7676db31b4d8a0a509685bccf374",
+  "thrusterFire_002.ogg": "5f7731c30196d73777d62eec7cb36a28bf63852e70244057b7625b888e71a3a8",
+  "forceField_000.ogg": "c2916f2a062c8ddd1aca2826d134fe90847037db31342726ffb0f9097afe339c",
+  "forceField_001.ogg": "5574e69dd04e5f59322c5ddffde5978f077b09170ae5e29cec0bd9901828cd90",
+  "laserLarge_000.ogg": "a56d95794cd732d6c2d66ce488c14cf557fe526c282897c9a77675c2bd9b77e6",
+  "laserLarge_002.ogg": "e5e0b6ccc4d5720c8174a3e5b7cc6f9be3057352a89cbb2e99a00efc6fe5cc11",
+  "spaceEngine_000.ogg": "c06e84fb6734ddd0ce7242351e0952d560b3b3e47430172e8944f761d7bb1fc8",
+  "explosionCrunch_004.ogg": "9c3a1c73cadf0de5d5a578b31a264f20b1ac7cb6ec9bbd34a203f58402ea5390",
+  "lowFrequency_explosion_000.ogg": "3cb48d86dab63140cfb9aaeea4d4a6846abaca5831d157d8adbec0490da26343",
+  "laserRetro_001.ogg": "a0a99efaa755594982d5dfebf3d9cecaed5249bdf1f0de29cf26ca9ea24c191a",
+  "engineCircular_000.ogg": "8ab85f9fa85e9e692287f98acb36b9ac3ba15313b007c039055e286b736f4e3a"
+ },
+ "date": "2026-11-12",
+ "note": "받은 묶음에서 쓰는 파일만 꺼냄(묶음은 지움). 다시 필요하면 file_url 에서 받고 archive_sha256 으로 맞춰 볼 것"
+}

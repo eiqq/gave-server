@@ -1,0 +1,43 @@
+{
+ "textures": {
+  "fx": "gave:item/fx_marker",
+  "particle": "gave:item/fx_marker"
+ },
+ "elements": [
+  {
+   "from": [
+    0,
+    8,
+    0
+   ],
+   "to": [
+    16,
+    8,
+    16
+   ],
+   "shade": false,
+   "faces": {
+    "up": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#fx",
+     "tintindex": 0
+    },
+    "down": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#fx",
+     "tintindex": 0
+    }
+   }
+  }
+ ]
+}

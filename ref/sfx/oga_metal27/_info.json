@@ -1,0 +1,187 @@
+{
+ "title": "27 Metal Audio Samples (SFX)",
+ "author": "blacklodgegames",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/27-metal-audio-samples-sfx",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+ "note": "",
+ "desc": "Featuring 27 Uncompressed WAV sound files available in a single zip file. I took various pieces of metal and recorded myself bending, wobbling and hitting them to make various noises. Unexpectedly a lot of these would sound perfect for cartoon or cartoon related effects. Previews and other free down",
+ "urls": [
+  "https://opengameart.org/sites/default/files/27-Metal-Audio-Samples-blacklodgegames.com_.zip"
+ ],
+ "pack": "oga_metal27",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "27-Metal-Audio-Samples-blacklodgegames.com_.zip",
+   "bytes": 2840697,
+   "sha256": "479e85403898c2ff2d1e2d6a130b8cfb4ae00fbd8cbcaf440917450f996f5232"
+  }
+ ],
+ "files": [
+  {
+   "file": "dull_metal_collision_01_44k_32bit_stereo.wav",
+   "orig": "27-Metal-Audio-Samples-blacklodgegames.com/dull_metal_collision_01_44k_32bit_stereo.wav",
+   "bytes": 115160,
+   "sha256": "eb4c67932581343c7ed7373ce9f00a0ddb1aec5bd21507df3f3de43eabf067e7"
+  },
+  {
+   "file": "dull_metal_collision_02_44k_32bit_stereo.wav",
+   "orig": "27-Metal-Audio-Samples-blacklodgegames.com/dull_metal_collision_02_44k_32bit_stereo.wav",
+   "bytes": 238440,
+   "sha256": "bf55ea0440a11978d68ecf47024ac6ad0446f9e055f7cb591d972e6ff47dff81"
+  },
+  {
+   "file": "dull_metal_collision_03_44k_32bit_stereo.wav",
+   "orig": "27-Metal-Audio-Samples-blacklodgegames.com/dull_metal_collision_03_44k_32bit_stereo.wav",
+   "bytes": 90168,
+   "sha256": "2b12a8e0829e20b7f0825e1abdefaa5028bcaa2d9a912de039f3d1e8cb0e83f1"
+  },
+  {
+   "file": "dull_metal_collision_04_44k_32bit_stereo.wav",
+   "orig": "27-Metal-Audio-Samples-blacklodgegames.com/dull_metal_collision_04_44k_32bit_stereo.wav",
+   "bytes": 104056,
+   "sha256": "867aa4a78a2d7d52e1ef62fffde58a106d0d08a61fe6e53ec8cafcad7506e61d"
+  },
+  {
+   "file": "dull_metal_collision_05_44k_32bit_stereo.wav",
+   "orig": "27-Metal-Audio-Samples-blacklodgegames.com/dull_metal_collision_05_44k_32bit_stereo.wav",
+   "bytes": 111000,
+   "sha256": "93a2fd2e9de8b5b4e11a9b097621e7963bcfe750ed5bb6e243125bcf1a93364d"
+  },
+  {
+   "file": "dull_metal_collision_06_44k_32bit_stereo.wav",
+   "orig": "27-Metal-Audio-Samples-blacklodgegames.com/dull_metal_collision_06_44k_32bit_stereo.wav",
+   "bytes": 108048,
+   "sha256": "d0d9d11495949aad7ff9dfd96196d45b3c10468c76c2c06942da9ee6d4f5fff4"
+  },
+  {
+   "file": "dull_metal_collision_07_44k_32bit_stereo.wav",
+   "orig": "27-Metal-Audio-Samples-blacklodgegames.com/dull_metal_collision_07_44k_32bit_stereo.wav",
+   "bytes": 310912,
+   "sha256": "c10955859ca45869b02808398c985b720a49c3cf03ef6429ca0a8b4c0dbd5c0c"
+  },
+  {
+   "file": "dull_metal_collision_08_44k_32bit_stereo.wav",
+   "orig": "27-Metal-Audio-Samples-blacklodgegames.com/dull_metal_collision_08_44k_32bit_stereo.wav",
+   "bytes": 288808,
+   "sha256": "6a9646ce4df6f0173e159b8048c41f64ff447f530da34dbdda75e4721a2537bd"
+  },
+  {
+   "file": "dull_metal_collision_09_44k_32bit_stereo.wav",
+   "orig": "27-Metal-Audio-Samples-blacklodgegames.com/dull_metal_collision_09_44k_32bit_stereo.wav",
+   "bytes": 82568,
+   "sha256": "f747ef55ebc8a9ce685797526c895fbab4c7f90e2a03ca031ee5339396e0b91c"
+  },
+  {
+   "file": "dull_metal_collision_10_44k_32bit_stereo.wav",
+   "orig": "27-Metal-Audio-Samples-blacklodgegames.com/dull_metal_collision_10_44k_32bit_stereo.wav",
+   "bytes": 478904,
+   "sha256": "468ef89cd1724880e93d3d204562600fbf69d1cfae8ce5fc97b02cb1648e9787"
+  },
+  {
+   "file": "dull_metal_collision_11_44k_32bit_stereo.wav",
+   "orig": "27-Metal-Audio-Samples-blacklodgegames.com/dull_metal_collision_11_44k_32bit_stereo.wav",
+   "bytes": 410872,
+   "sha256": "df84f9f2caa4b39ac051c82eb374d1762ce28fb4c136e4466a18945d3b012ecf"
+  },
+  {
+   "file": "dull_metal_collision_12_44k_32bit_stereo.wav",
+   "orig": "27-Metal-Audio-Samples-blacklodgegames.com/dull_metal_collision_12_44k_32bit_stereo.wav",
+   "bytes": 351176,
+   "sha256": "9cff30d27ea9eac6288a08bf799c27eb184be891a84c109a458051f2acc5d738"
+  },
+  {
+   "file": "dull_metal_collision_13_44k_32bit_stereo.wav",
+   "orig": "27-Metal-Audio-Samples-blacklodgegames.com/dull_metal_collision_13_44k_32bit_stereo.wav",
+   "bytes": 220672,
+   "sha256": "3b2afbb56a0bc452ee4ca71eac19b8ef75a06268346a8b3fb7a42891a824a811"
+  },
+  {
+   "file": "dull_metal_collision_14_44k_32bit_stereo.wav",
+   "orig": "27-Metal-Audio-Samples-blacklodgegames.com/dull_metal_collision_14_44k_32bit_stereo.wav",
+   "bytes": 351648,
+   "sha256": "d5a021a2919934dbf566e79a245b3411b3198fe41c61075354b4e3eb0d82216f"
+  },
+  {
+   "file": "metal_grit_01_44k_32bit_stereo.wav",
+   "orig": "27-Metal-Audio-Samples-blacklodgegames.com/metal_grit_01_44k_32bit_stereo.wav",
+   "bytes": 399488,
+   "sha256": "6796f591a50587eb26473711b0f6fb562c5358e056f7ed70c9d15e8c42ef9cfc"
+  },
+  {
+   "file": "metal_grit_02_44k_32bit_stereo.wav",
+   "orig": "27-Metal-Audio-Samples-blacklodgegames.com/metal_grit_02_44k_32bit_stereo.wav",
+   "bytes": 657160,
+   "sha256": "1444da4af9dc5038831e59808f22f1d9e6cb7160797a9b5b10412120c0789187"
+  },
+  {
+   "file": "rapid_clangs_01_44k_32bit_stereo.wav",
+   "orig": "27-Metal-Audio-Samples-blacklodgegames.com/rapid_clangs_01_44k_32bit_stereo.wav",
+   "bytes": 546408,
+   "sha256": "ed822a8a1ee7a257852fa27d47809ac08c2cce684e84e159bad309c67987ff35"
+  },
+  {
+   "file": "wobble_01_44k_32bit_stereo.wav",
+   "orig": "27-Metal-Audio-Samples-blacklodgegames.com/wobble_01_44k_32bit_stereo.wav",
+   "bytes": 144768,
+   "sha256": "656fe948af9e122b369be7817d28234d7e44a4f3873bf96dc20dfc175286032d"
+  },
+  {
+   "file": "wobble_02_44k_32bit_stereo.wav",
+   "orig": "27-Metal-Audio-Samples-blacklodgegames.com/wobble_02_44k_32bit_stereo.wav",
+   "bytes": 176960,
+   "sha256": "a912c994c2f7fac759edd4dc8f3e2cb44d7fc0496e5ce1dbe156a65fa493a895"
+  },
+  {
+   "file": "wobble_03_44k_32bit_stereo.wav",
+   "orig": "27-Metal-Audio-Samples-blacklodgegames.com/wobble_03_44k_32bit_stereo.wav",
+   "bytes": 295592,
+   "sha256": "a47d6abea0f98d2269c49d126310483cb4c13cd515ffd33f43325534b4de7d6a"
+  },
+  {
+   "file": "wobble_04_44k_32bit_stereo.wav",
+   "orig": "27-Metal-Audio-Samples-blacklodgegames.com/wobble_04_44k_32bit_stereo.wav",
+   "bytes": 97392,
+   "sha256": "956f05cebf3656bf98d38be290a56cd7d753c94206bebc6478c9c4abe5f8a44d"
+  },
+  {
+   "file": "wobble_05_44k_32bit_stereo.wav",
+   "orig": "27-Metal-Audio-Samples-blacklodgegames.com/wobble_05_44k_32bit_stereo.wav",
+   "bytes": 309528,
+   "sha256": "a816236fd72398368f34e6a12dfb990e6a79790a0f0d3926ab4b7a1c497244b0"
+  },
+  {
+   "file": "wobble_06_44k_32bit_stereo.wav",
+   "orig": "27-Metal-Audio-Samples-blacklodgegames.com/wobble_06_44k_32bit_stereo.wav",
+   "bytes": 110720,
+   "sha256": "b4a77f055d8b060a1b12ed3333cdeadbfeaf4bffe96db3d992e82c5e46dd3c0d"
+  },
+  {
+   "file": "wobble_07_44k_32bit_stereo.wav",
+   "orig": "27-Metal-Audio-Samples-blacklodgegames.com/wobble_07_44k_32bit_stereo.wav",
+   "bytes": 118496,
+   "sha256": "17623d003f0f589b94865bb6181cda91a79f7c3e173901d9fa289e5147121835"
+  },
+  {
+   "file": "wobble_08_44k_32bit_stereo.wav",
+   "orig": "27-Metal-Audio-Samples-blacklodgegames.com/wobble_08_44k_32bit_stereo.wav",
+   "bytes": 380608,
+   "sha256": "98829d6d35fb464ee5ee0731a2bc6cb62405d13cf1e9a5adedfd842ed288c55b"
+  },
+  {
+   "file": "wobble_09_44k_32bit_stereo.wav",
+   "orig": "27-Metal-Audio-Samples-blacklodgegames.com/wobble_09_44k_32bit_stereo.wav",
+   "bytes": 241496,
+   "sha256": "85dafb2b161a896499153991ddb185e299a690bf08ce804bb9beab69dd196bcb"
+  },
+  {
+   "file": "wobble_10_44k_32bit_stereo.wav",
+   "orig": "27-Metal-Audio-Samples-blacklodgegames.com/wobble_10_44k_32bit_stereo.wav",
+   "bytes": 188736,
+   "sha256": "f995d51999adafb4366d6b4398e877f7719c2f5be359bbcca66562a72c016e27"
+  }
+ ]
+}

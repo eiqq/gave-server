@@ -1,0 +1,17 @@
+[
+  ["cmd", "gamemode adventure {USER}"],
+  ["until", ["state=WAVE"], 120],
+  ["wait", 1.3],
+  ["cmd", "gave 시험 옆으로 {USER} Ripley 2.2"],
+  ["wait", 1.2],
+  ["shot", "t2_close"],
+  ["cmd", "gave 시험 옆으로 {USER} Ripley 5"],
+  ["wait", 1.2],
+  ["shot", "t3_far"],
+  ["wait", 4.5],
+  ["tab", true],
+  ["wait", 1.2],
+  ["shot", "t4_tab"],
+  ["tab", false],
+  ["wait", 20]
+]

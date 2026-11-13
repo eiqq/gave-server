@@ -1,0 +1,384 @@
+[
+[
+"cmd",
+"gamemode adventure {USER}"
+],
+[
+"wait",
+2
+],
+[
+"cmd",
+"gave 시험 균형 x FIRST_MIN 0"
+],
+[
+"cmd",
+"gave 시험 균형 x FIRST_SHARE 0"
+],
+[
+"cmd",
+"gave 시작"
+],
+[
+"until",
+"state=PREP",
+15
+],
+[
+"cmd",
+"gave 시험 판끝막기 x on"
+],
+[
+"until",
+"state=WAVE",
+20
+],
+[
+"wait",
+2
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"gave 시험 공격 x 물기 off"
+],
+[
+"cmd",
+"gave 시험 감독 x"
+],
+[
+"cmd",
+"gave 시험 패킷 {USER} on"
+],
+[
+"cmd",
+"execute as {USER} at @s run summon minecraft:marker ~ ~ ~ {Tags:[\"f3\"]}"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 180 2"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 4.5 180 2"
+],
+[
+"cmd",
+"gave 시험 몹고리 x G01 50 70"
+],
+[
+"cmd",
+"gave 시험 몹고리 x G13 20 74"
+],
+[
+"cmd",
+"gave 시험 몹고리 x G10 15 66"
+],
+[
+"cmd",
+"gave 시험 몹고리 x G03 15 78"
+],
+[
+"wait",
+5
+],
+[
+"cmd",
+"gave 시험 패킷 {USER} 다시"
+],
+[
+"wait",
+4
+],
+[
+"cmd",
+"gave 시험 패킷 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 예산 x"
+],
+[
+"shot",
+"perf_100"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 4.5 180 2"
+],
+[
+"cmd",
+"gave 시험 몹고리 x G01 100 70"
+],
+[
+"cmd",
+"gave 시험 몹고리 x G13 40 74"
+],
+[
+"cmd",
+"gave 시험 몹고리 x G10 30 66"
+],
+[
+"cmd",
+"gave 시험 몹고리 x G03 30 78"
+],
+[
+"wait",
+5
+],
+[
+"cmd",
+"gave 시험 패킷 {USER} 다시"
+],
+[
+"wait",
+4
+],
+[
+"cmd",
+"gave 시험 패킷 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 예산 x"
+],
+[
+"shot",
+"perf_200"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 4.5 180 2"
+],
+[
+"cmd",
+"gave 시험 몹고리 x G01 150 70"
+],
+[
+"cmd",
+"gave 시험 몹고리 x G13 60 74"
+],
+[
+"cmd",
+"gave 시험 몹고리 x G10 45 66"
+],
+[
+"cmd",
+"gave 시험 몹고리 x G03 45 78"
+],
+[
+"wait",
+5
+],
+[
+"cmd",
+"gave 시험 패킷 {USER} 다시"
+],
+[
+"wait",
+4
+],
+[
+"cmd",
+"gave 시험 패킷 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 예산 x"
+],
+[
+"shot",
+"perf_300"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 4.5 180 2"
+],
+[
+"cmd",
+"gave 시험 몹고리 x G01 200 70"
+],
+[
+"cmd",
+"gave 시험 몹고리 x G13 80 74"
+],
+[
+"cmd",
+"gave 시험 몹고리 x G10 60 66"
+],
+[
+"cmd",
+"gave 시험 몹고리 x G03 60 78"
+],
+[
+"wait",
+5
+],
+[
+"cmd",
+"gave 시험 패킷 {USER} 다시"
+],
+[
+"wait",
+4
+],
+[
+"cmd",
+"gave 시험 패킷 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 예산 x"
+],
+[
+"shot",
+"perf_400"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 4.5 180 2"
+],
+[
+"cmd",
+"gave 시험 몹고리 x G01 250 70"
+],
+[
+"cmd",
+"gave 시험 몹고리 x G13 100 74"
+],
+[
+"cmd",
+"gave 시험 몹고리 x G10 75 66"
+],
+[
+"cmd",
+"gave 시험 몹고리 x G03 75 78"
+],
+[
+"wait",
+5
+],
+[
+"cmd",
+"gave 시험 패킷 {USER} 다시"
+],
+[
+"wait",
+4
+],
+[
+"cmd",
+"gave 시험 패킷 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 예산 x"
+],
+[
+"shot",
+"perf_500"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"kill @e[type=minecraft:marker,tag=f3]"
+],
+[
+"cmd",
+"gave 시험 패킷 {USER} off"
+],
+[
+"cmd",
+"gave 시험 공격 x 물기 on"
+],
+[
+"cmd",
+"gave 중지"
+]
+]

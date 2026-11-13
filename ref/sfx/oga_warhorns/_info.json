@@ -1,0 +1,30 @@
+{
+ "title": "War Horns",
+ "author": "Eldritch Grim",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/war-horns",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0",
+ "note": "Much appreciated, but not necessary. Just Eldritch Grim is all.",
+ "urls": [
+  "https://opengameart.org/sites/default/files/war_horns.mp3"
+ ],
+ "pack": "oga_warhorns",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "war_horns.mp3",
+   "bytes": 1962362,
+   "sha256": "242d552f3cbd9af18fa3c5e0b003d89f153eadc81f95da942ca21f5b4f778333"
+  }
+ ],
+ "files": [
+  {
+   "file": "war_horns.mp3",
+   "orig": "war_horns.mp3",
+   "bytes": 1962362,
+   "sha256": "242d552f3cbd9af18fa3c5e0b003d89f153eadc81f95da942ca21f5b4f778333"
+  }
+ ]
+}

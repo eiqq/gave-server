@@ -1,0 +1,376 @@
+[
+[
+"wait",
+2
+],
+[
+"cmd",
+"gamemode adventure {USER}"
+],
+[
+"cmd",
+"gave 시작"
+],
+[
+"until",
+"state=PREP",
+15
+],
+[
+"cmd",
+"gave 시험 판끝막기 {USER} on"
+],
+[
+"cmd",
+"gave 시험 총 {USER} RIFLE"
+],
+[
+"until",
+"state=WAVE",
+40
+],
+[
+"cmd",
+"gave 시험 감독빨리 x 0.1"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 10.5 0 0"
+],
+[
+"wait",
+0.4
+],
+[
+"cmd",
+"gave 소환 G91 1 9 {USER}"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 0 -20"
+],
+[
+"wait",
+0.3
+],
+[
+"shot",
+"g91_come"
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G91"
+],
+[
+"wait",
+3.5
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G91"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 0 -70"
+],
+[
+"wait",
+0.3
+],
+[
+"shot",
+"g91_rain"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 1 G91"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 래그돌 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 10.5 0 0"
+],
+[
+"wait",
+0.4
+],
+[
+"cmd",
+"gave 소환 G121 1 7 {USER}"
+],
+[
+"wait",
+2.5
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 0 -55"
+],
+[
+"wait",
+0.3
+],
+[
+"shot",
+"g121_nest"
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G121"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G121"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 0 45"
+],
+[
+"wait",
+0.2
+],
+[
+"shot",
+"g121_warn"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G121"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 0 -50"
+],
+[
+"wait",
+0.2
+],
+[
+"shot",
+"g121_low"
+],
+[
+"cmd",
+"gave 시험 쓰러뜨리기 {USER}"
+],
+[
+"wait",
+2.5
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G121"
+],
+[
+"shot",
+"g121_snatch"
+],
+[
+"wait",
+3.5
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G121"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G121"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 10.5 0 0"
+],
+[
+"wait",
+0.4
+],
+[
+"cmd",
+"gave 소환 G01 5 6 {USER}"
+],
+[
+"cmd",
+"gave 소환 G56 3 7 {USER}"
+],
+[
+"wait",
+0.6
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} PELLET 8"
+],
+[
+"wait",
+1.0
+],
+[
+"cmd",
+"gave 소환 G126 1 5 {USER}"
+],
+[
+"wait",
+2.5
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G126"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 0 10"
+],
+[
+"wait",
+0.2
+],
+[
+"shot",
+"g126_raise"
+],
+[
+"wait",
+3.0
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G126"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g126_puppets"
+],
+[
+"wait",
+3.0
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G126"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 0 -60"
+],
+[
+"wait",
+0.2
+],
+[
+"shot",
+"g126_up"
+],
+[
+"wait",
+3.0
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G126"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 1 G126"
+],
+[
+"wait",
+1.0
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER}"
+]
+]

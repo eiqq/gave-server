@@ -1,0 +1,30 @@
+{
+ "title": "Heartbeat (single sound)",
+ "author": "Independent.nu (올린 사람 qubodup)",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/heartbeat-single-sound",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0",
+ "note": "",
+ "urls": [
+  "https://opengameart.org/sites/default/files/heartbeat.mp3_.flac"
+ ],
+ "pack": "oga_heartbeat1",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "heartbeat.mp3_.flac",
+   "bytes": 68646,
+   "sha256": "7fe0850daa5c92c6a204fbb0a719ee8f8d2979e3416033d796abd6e30f3c118a"
+  }
+ ],
+ "files": [
+  {
+   "file": "heartbeat_mp3.flac",
+   "orig": "heartbeat.mp3_.flac",
+   "bytes": 68646,
+   "sha256": "7fe0850daa5c92c6a204fbb0a719ee8f8d2979e3416033d796abd6e30f3c118a"
+  }
+ ]
+}

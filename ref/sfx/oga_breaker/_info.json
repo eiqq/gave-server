@@ -1,0 +1,37 @@
+{
+ "title": "SFX - Circuit breaker",
+ "author": "CleytonKauffman",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/sfx-circuit-breaker",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+ "note": "",
+ "desc": "SFX: Circuit breaker (ON/OFF) Format: WAV.",
+ "urls": [
+  "https://opengameart.org/sites/default/files/Circuit%20Breaker.zip"
+ ],
+ "pack": "oga_breaker",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "Circuit Breaker.zip",
+   "bytes": 189401,
+   "sha256": "d8b0b2b008ce4d1b5286d76ce15974fed69c41fa4746bdeadcfcb8f7a2053bd6"
+  }
+ ],
+ "files": [
+  {
+   "file": "switch_off.wav",
+   "orig": "switch off.wav",
+   "bytes": 163010,
+   "sha256": "42c6be41a0082d602b0af647bac7c2009b4ff2b6228d6a1ed3c21d76290bd1a8"
+  },
+  {
+   "file": "switch_on.wav",
+   "orig": "switch on.wav",
+   "bytes": 165554,
+   "sha256": "023585f7cc913a746e8aa59dbc6a14e56bf1658d2a3c3f9b8438794c4c9757e8"
+  }
+ ]
+}

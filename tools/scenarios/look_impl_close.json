@@ -1,0 +1,522 @@
+[
+[
+"cmd",
+"gamemode creative {USER}"
+],
+[
+"cmd",
+"time set noon"
+],
+[
+"cmd",
+"gave 시험 몹정지 x on"
+],
+[
+"wait",
+2
+],
+[
+"cmd",
+"kill @e[type=minecraft:item_display,tag=lk]"
+],
+[
+"cmd",
+"kill @e[type=minecraft:item_display,tag=lk]"
+],
+[
+"cmd",
+"summon minecraft:item_display -0.90 64.85 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g05\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 1.90 64.85 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-1.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g05\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"tp {USER} 0.50 64.00 4.50 0.0 8.0"
+],
+[
+"wait",
+1.6
+],
+[
+"shot",
+"k_g05"
+],
+[
+"cmd",
+"kill @e[type=minecraft:item_display,tag=lk]"
+],
+[
+"cmd",
+"summon minecraft:item_display -0.90 64.80 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g06\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 1.90 64.80 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-1.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g06\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"tp {USER} 0.50 64.00 4.50 0.0 8.5"
+],
+[
+"wait",
+1.6
+],
+[
+"shot",
+"k_g06"
+],
+[
+"cmd",
+"kill @e[type=minecraft:item_display,tag=lk]"
+],
+[
+"cmd",
+"summon minecraft:item_display -0.90 66.00 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g09\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 1.90 66.00 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-1.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g09\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"tp {USER} 0.50 64.00 4.50 0.0 -4.0"
+],
+[
+"wait",
+1.6
+],
+[
+"shot",
+"k_g09"
+],
+[
+"cmd",
+"kill @e[type=minecraft:item_display,tag=lk]"
+],
+[
+"cmd",
+"summon minecraft:item_display -0.90 64.85 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g10\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 1.90 64.85 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-1.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g10\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"tp {USER} 0.50 64.00 4.50 0.0 8.0"
+],
+[
+"wait",
+1.6
+],
+[
+"shot",
+"k_g10"
+],
+[
+"cmd",
+"kill @e[type=minecraft:item_display,tag=lk]"
+],
+[
+"cmd",
+"summon minecraft:item_display -0.90 65.00 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g12\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 1.90 65.00 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-1.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g12\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"tp {USER} 0.50 64.00 4.50 0.0 6.4"
+],
+[
+"wait",
+1.6
+],
+[
+"shot",
+"k_g12"
+],
+[
+"cmd",
+"kill @e[type=minecraft:item_display,tag=lk]"
+],
+[
+"cmd",
+"summon minecraft:item_display -0.90 64.80 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.33333f,0.00000f,0.00000f,0.00000f,0.00000f,1.33333f,0.00000f,0.00000f,-0.00000f,0.00000f,1.33333f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g14\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 1.90 64.80 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-1.33333f,0.00000f,0.00000f,1.33333f,0.00000f,0.00000f,1.33333f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g14\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"tp {USER} 0.50 64.00 4.50 0.0 8.5"
+],
+[
+"wait",
+1.6
+],
+[
+"shot",
+"k_g14"
+],
+[
+"cmd",
+"kill @e[type=minecraft:item_display,tag=lk]"
+],
+[
+"cmd",
+"summon minecraft:item_display -0.90 66.00 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g15\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 1.90 66.00 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-1.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g15\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"tp {USER} 0.50 64.00 4.50 0.0 -4.0"
+],
+[
+"wait",
+1.6
+],
+[
+"shot",
+"k_g15"
+],
+[
+"cmd",
+"kill @e[type=minecraft:item_display,tag=lk]"
+],
+[
+"cmd",
+"summon minecraft:item_display -0.90 67.00 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.33333f,0.00000f,0.00000f,0.00000f,0.00000f,1.33333f,0.00000f,0.00000f,-0.00000f,0.00000f,1.33333f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g16\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 1.90 67.00 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-1.33333f,0.00000f,0.00000f,1.33333f,0.00000f,0.00000f,1.33333f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g16\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"tp {USER} 0.50 64.00 4.50 0.0 -14.1"
+],
+[
+"wait",
+1.6
+],
+[
+"shot",
+"k_g16"
+],
+[
+"cmd",
+"kill @e[type=minecraft:item_display,tag=lk]"
+],
+[
+"cmd",
+"summon minecraft:item_display -0.90 65.15 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g32\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 1.90 65.15 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-1.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g32\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"tp {USER} 0.50 64.00 4.50 0.0 4.9"
+],
+[
+"wait",
+1.6
+],
+[
+"shot",
+"k_g32"
+],
+[
+"cmd",
+"kill @e[type=minecraft:item_display,tag=lk]"
+],
+[
+"cmd",
+"summon minecraft:item_display -0.90 68.00 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g36\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 1.90 68.00 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-1.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g36\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"tp {USER} 0.50 64.00 4.50 0.0 -23.4"
+],
+[
+"wait",
+1.6
+],
+[
+"shot",
+"k_g36"
+],
+[
+"cmd",
+"kill @e[type=minecraft:item_display,tag=lk]"
+],
+[
+"cmd",
+"summon minecraft:item_display -0.90 64.95 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g41\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 1.90 64.95 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-1.66667f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g41\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"tp {USER} 0.50 64.00 4.50 0.0 6.9"
+],
+[
+"wait",
+1.6
+],
+[
+"shot",
+"k_g41"
+],
+[
+"cmd",
+"kill @e[type=minecraft:item_display,tag=lk]"
+],
+[
+"cmd",
+"summon minecraft:item_display -0.90 65.90 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.33333f,0.00000f,0.00000f,0.00000f,0.00000f,1.33333f,0.00000f,0.00000f,-0.00000f,0.00000f,1.33333f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g46\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 1.90 65.90 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-1.33333f,0.00000f,0.00000f,1.33333f,0.00000f,0.00000f,1.33333f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g46\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"tp {USER} 0.50 64.00 4.50 0.0 -2.9"
+],
+[
+"wait",
+1.6
+],
+[
+"shot",
+"k_g46"
+],
+[
+"cmd",
+"kill @e[type=minecraft:item_display,tag=lk]"
+],
+[
+"cmd",
+"summon minecraft:item_display -0.90 66.00 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g51\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 1.90 66.00 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-1.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g51\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"tp {USER} 0.50 64.00 4.50 0.0 -4.0"
+],
+[
+"wait",
+1.6
+],
+[
+"shot",
+"k_g51"
+],
+[
+"cmd",
+"kill @e[type=minecraft:item_display,tag=lk]"
+],
+[
+"cmd",
+"summon minecraft:item_display -2.70 66.60 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[2.00000f,0.00000f,0.00000f,0.00000f,0.00000f,2.00000f,0.00000f,0.00000f,0.00000f,0.00000f,2.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g18\",\"minecraft:custom_model_data\":{strings:[\"s5\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 3.70 66.60 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-2.00000f,0.00000f,0.00000f,2.00000f,0.00000f,0.00000f,2.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g18\",\"minecraft:custom_model_data\":{strings:[\"s5\"]}}}}"
+],
+[
+"cmd",
+"tp {USER} 0.50 64.00 -3.00 0.0 -4.3"
+],
+[
+"wait",
+1.6
+],
+[
+"shot",
+"k_g18"
+],
+[
+"cmd",
+"kill @e[type=minecraft:item_display,tag=lk]"
+],
+[
+"cmd",
+"summon minecraft:item_display -2.70 65.80 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g27\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 3.70 65.80 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-1.66667f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g27\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"tp {USER} 0.50 64.00 -3.00 0.0 -0.8"
+],
+[
+"wait",
+1.6
+],
+[
+"shot",
+"k_g27"
+],
+[
+"cmd",
+"kill @e[type=minecraft:item_display,tag=lk]"
+],
+[
+"cmd",
+"summon minecraft:item_display -2.70 67.70 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[4.00000f,0.00000f,0.00000f,0.00000f,0.00000f,4.00000f,0.00000f,0.00000f,0.00000f,0.00000f,4.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g28\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 3.70 67.70 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-4.00000f,0.00000f,0.00000f,4.00000f,0.00000f,0.00000f,4.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g28\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"tp {USER} 0.50 64.00 -3.00 0.0 -9.1"
+],
+[
+"wait",
+1.6
+],
+[
+"shot",
+"k_g28"
+],
+[
+"cmd",
+"kill @e[type=minecraft:item_display,tag=lk]"
+],
+[
+"cmd",
+"summon minecraft:item_display -2.70 65.30 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g34\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 3.70 65.30 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-1.66667f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g34\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"tp {USER} 0.50 64.00 -3.00 0.0 1.4"
+],
+[
+"wait",
+1.6
+],
+[
+"shot",
+"k_g34"
+],
+[
+"cmd",
+"kill @e[type=minecraft:item_display,tag=lk]"
+],
+[
+"cmd",
+"summon minecraft:item_display -2.70 66.60 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[2.22222f,0.00000f,0.00000f,0.00000f,0.00000f,2.22222f,0.00000f,0.00000f,-0.00000f,0.00000f,2.22222f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g39\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 3.70 66.60 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-2.22222f,0.00000f,0.00000f,2.22222f,0.00000f,0.00000f,2.22222f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g39\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"tp {USER} 0.50 64.00 -3.00 0.0 -4.3"
+],
+[
+"wait",
+1.6
+],
+[
+"shot",
+"k_g39"
+],
+[
+"cmd",
+"kill @e[type=minecraft:item_display,tag=lk]"
+],
+[
+"cmd",
+"summon minecraft:item_display -2.70 68.40 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[3.33333f,0.00000f,0.00000f,0.00000f,0.00000f,3.33333f,0.00000f,0.00000f,-0.00000f,0.00000f,3.33333f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g42\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 3.70 68.40 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-3.33333f,0.00000f,0.00000f,3.33333f,0.00000f,0.00000f,3.33333f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g42\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display -2.70 65.40 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g42_sac\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 3.70 65.40 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-1.66667f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g42_sac\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"tp {USER} 0.50 64.00 -6.00 0.0 -9.9"
+],
+[
+"wait",
+1.6
+],
+[
+"shot",
+"k_g42"
+],
+[
+"cmd",
+"kill @e[type=minecraft:item_display,tag=lk]"
+],
+[
+"cmd",
+"summon minecraft:item_display -2.70 65.90 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[2.00000f,0.00000f,0.00000f,0.00000f,0.00000f,2.00000f,0.00000f,0.00000f,0.00000f,0.00000f,2.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g43\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 3.70 65.90 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-2.00000f,0.00000f,0.00000f,2.00000f,0.00000f,0.00000f,2.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g43\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"tp {USER} 0.50 64.00 -3.00 0.0 -1.2"
+],
+[
+"wait",
+1.6
+],
+[
+"shot",
+"k_g43"
+],
+[
+"cmd",
+"kill @e[type=minecraft:item_display,tag=lk]"
+],
+[
+"cmd",
+"gave 시험 몹정지 x off"
+],
+[
+"cmd",
+"gamemode adventure {USER}"
+]
+]

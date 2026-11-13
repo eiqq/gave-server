@@ -1,0 +1,55 @@
+{
+ "title": "Voices of Madness",
+ "author": "eugeneloza",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/voices-of-madness",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+ "note": "",
+ "desc": "Recording of me reading Lorem Ipsum at 2 a.m. as an experiment for Theatre of Sorrows game, a Lovecraftian survival resource management roguelite. In the end we didn't have time to include it in the game, so feel free to use as you wish. 11 separate tracks in WAV 48kHz / 32 bit; alternatively availa",
+ "urls": [
+  "https://opengameart.org/sites/default/files/sounds-of-madness-ogg.zip"
+ ],
+ "pack": "oga_madness",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "sounds-of-madness-ogg.zip",
+   "bytes": 28155065,
+   "sha256": "9b06b7581608da15ec635ab4c83f4d3c110027c3bb8db43f0be3259b23856c27",
+   "zip_members": [
+    "a2-scared.ogg",
+    "a3-menacing.ogg",
+    "a4-scared.ogg",
+    "a5-menacing.ogg",
+    "b1-menacing.ogg",
+    "b2-large.ogg",
+    "b3-excited.ogg",
+    "b4-scared.ogg",
+    "b5-excited.ogg",
+    "b6-excited.ogg"
+   ]
+  }
+ ],
+ "files": [
+  {
+   "file": "a2_scared.ogg",
+   "orig": "a2-scared.ogg",
+   "bytes": 2112107,
+   "sha256": "c783c9e95531f918ac123739592f4271388a5fcd997ad0b051ab998f9ec53de7"
+  },
+  {
+   "file": "a3_menacing.ogg",
+   "orig": "a3-menacing.ogg",
+   "bytes": 2555008,
+   "sha256": "90348597bcf3239cc176871eb150eccfea7587f3dd1fab9b58c286133d7d890f"
+  },
+  {
+   "file": "a4_scared.ogg",
+   "orig": "a4-scared.ogg",
+   "bytes": 2031681,
+   "sha256": "d24ecd73a4a2db9a20f3adac96f02c6f622c4bcd218ff48ec1d3422266b253bc"
+  }
+ ]
+}

@@ -1,0 +1,267 @@
+[
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gave 시험 감독 x"
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=PREP",
+  15
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 {USER}"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  20
+ ],
+ [
+  "cmd",
+  "gave 시험 감독 x"
+ ],
+ [
+  "wait",
+  3.5
+ ],
+ [
+  "shot",
+  "w1_solo"
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "shot",
+  "w1_queue"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "until",
+  "state=BREAK",
+  40
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER} 100"
+ ],
+ [
+  "cmd",
+  "gave 시험 감독 x"
+ ],
+ [
+  "shot",
+  "w1_break"
+ ],
+ [
+  "until",
+  "state=WAVE wave=2",
+  40
+ ],
+ [
+  "cmd",
+  "gave 시험 감독 x"
+ ],
+ [
+  "wait",
+  4
+ ],
+ [
+  "shot",
+  "w2_solo"
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "until",
+  "state=BREAK",
+  40
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER} 100"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 7"
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "cmd",
+  "gave 시험 감독 x"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "shot",
+  "w7_dirs"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 x"
+ ],
+ [
+  "cmd",
+  "gave 시험 카메라 {USER} 0.5 70 30 180 4"
+ ],
+ [
+  "cmd",
+  "gave 시험 사건 x 안개 0"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "shot",
+  "fog0"
+ ],
+ [
+  "cmd",
+  "gave 시험 사건 x 안개 3"
+ ],
+ [
+  "wait",
+  4
+ ],
+ [
+  "cmd",
+  "gave 시험 감독 x"
+ ],
+ [
+  "shot",
+  "fog3"
+ ],
+ [
+  "cmd",
+  "gave 시험 사건 x 안개 5"
+ ],
+ [
+  "wait",
+  4
+ ],
+ [
+  "shot",
+  "fog5"
+ ],
+ [
+  "cmd",
+  "gave 시험 감독 x"
+ ],
+ [
+  "cmd",
+  "gave 중지"
+ ],
+ [
+  "wait",
+  1
+ ]
+]

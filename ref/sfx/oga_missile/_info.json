@@ -1,0 +1,31 @@
+{
+ "title": "Missile sound",
+ "author": "mikeask",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/missile-sound",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+ "note": "",
+ "desc": "A missile sound being launched. It's my first try with music. but, if i helped you, enjoy it!",
+ "urls": [
+  "https://opengameart.org/sites/default/files/missile.wav"
+ ],
+ "pack": "oga_missile",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "missile.wav",
+   "bytes": 475308,
+   "sha256": "7a32c93aa056cdc1abc19b990349d6b72f96ec4790a342f41f4fdbe3b0756d40"
+  }
+ ],
+ "files": [
+  {
+   "file": "missile.wav",
+   "orig": "missile.wav",
+   "bytes": 475308,
+   "sha256": "7a32c93aa056cdc1abc19b990349d6b72f96ec4790a342f41f4fdbe3b0756d40"
+  }
+ ]
+}

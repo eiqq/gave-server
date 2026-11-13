@@ -1,0 +1,459 @@
+[
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gamemode adventure {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  40
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 {USER} on"
+ ],
+ [
+  "cmd",
+  "gave 시험 쉬기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 총 {USER} RIFLE"
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 30.5 180 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 180 5"
+ ],
+ [
+  "cmd",
+  "gave 소환 G40 1 26 {USER}"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G40"
+ ],
+ [
+  "shot",
+  "g1_herd"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G40"
+ ],
+ [
+  "shot",
+  "g2_herd"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G40 30"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 6"
+ ],
+ [
+  "wait",
+  0.6
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G40"
+ ],
+ [
+  "shot",
+  "g3_dismount"
+ ],
+ [
+  "wait",
+  1.2
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G40"
+ ],
+ [
+  "shot",
+  "g4_whirl"
+ ],
+ [
+  "wait",
+  1.2
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G40"
+ ],
+ [
+  "shot",
+  "g5_doll"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G40"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "shot",
+  "g6_doll"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G40 20"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 4"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G40"
+ ],
+ [
+  "shot",
+  "g7_scatter"
+ ],
+ [
+  "wait",
+  0.9
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G40"
+ ],
+ [
+  "shot",
+  "g8_heart"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G40"
+ ],
+ [
+  "shot",
+  "g9_reform"
+ ],
+ [
+  "wait",
+  2.5
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G40"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "shot",
+  "g10_swing"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G40 200"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 200"
+ ],
+ [
+  "wait",
+  5
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G40"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER}"
+ ],
+ [
+  "shot",
+  "g11"
+ ],
+ [
+  "wait",
+  4
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G40"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "shot",
+  "g12"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 {USER}"
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 30.5 180 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 180 -8"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 x G38 1 -6.5 22.5"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 x G39 1 -3.5 21.5"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 x G40 1 0.5 19.5"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 x G41 1 4.5 21.5"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 x G44 1 7.5 23.5"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 x G42 1 -2.5 16.5"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 x G43 1 4.5 14.5"
+ ],
+ [
+  "wait",
+  0.6
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 {USER} on"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER}"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "shot",
+  "h1_all"
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 180 -30"
+ ],
+ [
+  "wait",
+  0.6
+ ],
+ [
+  "shot",
+  "h2_all_up"
+ ],
+ [
+  "cmd",
+  "gave 시험 예산 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 {USER} off"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 {USER}"
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 30.5 180 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 180 10"
+ ],
+ [
+  "cmd",
+  "gave 소환 G43 1 14 {USER}"
+ ],
+ [
+  "wait",
+  5
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G43"
+ ],
+ [
+  "wait",
+  5
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G43"
+ ],
+ [
+  "wait",
+  5
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G43"
+ ],
+ [
+  "wait",
+  5
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G43"
+ ],
+ [
+  "shot",
+  "i3_glow"
+ ],
+ [
+  "wait",
+  5
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G43"
+ ],
+ [
+  "wait",
+  5
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G43"
+ ],
+ [
+  "wait",
+  5
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G43"
+ ],
+ [
+  "wait",
+  5
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G43"
+ ],
+ [
+  "shot",
+  "i7_glow"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER}"
+ ],
+ [
+  "shot",
+  "i8"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 {USER} G43"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "shot",
+  "i9_nocorpse"
+ ],
+ [
+  "wait",
+  1
+ ]
+]

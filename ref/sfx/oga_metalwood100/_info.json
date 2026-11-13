@@ -1,0 +1,625 @@
+{
+ "title": "100 CC0 metal and wood SFX",
+ "author": "rubberduck",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/100-cc0-metal-and-wood-sfx",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+ "note": "",
+ "desc": "This sfx pack contains 100 metal and wood sounds including: metal: metal door opening, hammer sound, keys, lock open and close, hit, sheets, falling, spring, slam, misc and tools wood: breaking, door closing, cracking, falling, wood hammer, hit, misc, slam and squeaking wood Note: the preview does n",
+ "urls": [
+  "https://opengameart.org/sites/default/files/100-CC0-wood-metal-SFX.zip"
+ ],
+ "pack": "oga_metalwood100",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "100-CC0-wood-metal-SFX.zip",
+   "bytes": 1990361,
+   "sha256": "be6eba63b03409ac0c77787a956b1503a7c186403d04aef9725c52644a4b7878"
+  }
+ ],
+ "files": [
+  {
+   "file": "door_open_01.ogg",
+   "orig": "door_open_01.ogg",
+   "bytes": 17265,
+   "sha256": "58455b99af8f62b10559607435de0f72b9c798ebe085f49101df3c3d9ec043c7"
+  },
+  {
+   "file": "hammer_01.ogg",
+   "orig": "hammer_01.ogg",
+   "bytes": 15402,
+   "sha256": "ebbeac7365b2b4f4eaa6829a3c09e0be46e20950f8322eb5c72a616679d6c482"
+  },
+  {
+   "file": "hammer_02.ogg",
+   "orig": "hammer_02.ogg",
+   "bytes": 12076,
+   "sha256": "0e4a3eac2ffd7bd7f3d7dea84df761bd2ef1dbe754199d16f11aa8dd5a668781"
+  },
+  {
+   "file": "hammer_03.ogg",
+   "orig": "hammer_03.ogg",
+   "bytes": 12435,
+   "sha256": "98052d53c8a27747fe08cc0a7e0e7ff75a260bd6bea7b6de49968840dccda090"
+  },
+  {
+   "file": "hammer_04.ogg",
+   "orig": "hammer_04.ogg",
+   "bytes": 12845,
+   "sha256": "7fd6d4ab5a7fe6e0993b99fe91010271548bd319a50237f16120a431040ae169"
+  },
+  {
+   "file": "keys_01.ogg",
+   "orig": "keys_01.ogg",
+   "bytes": 18061,
+   "sha256": "8bc33b2545a8bd9c1b0e2c47665c6bb9ca981ab972415f66a2d468d0b4921a5a"
+  },
+  {
+   "file": "keys_02.ogg",
+   "orig": "keys_02.ogg",
+   "bytes": 21599,
+   "sha256": "ce802cc346ef49a71fcae75ec2a45bbf8c7a1cfe365d3d5b6755b902ce4b9523"
+  },
+  {
+   "file": "keys_03.ogg",
+   "orig": "keys_03.ogg",
+   "bytes": 20971,
+   "sha256": "7feae62edb5f00bff8f798aca958413a058a3ec3c341677235834903291e6fe4"
+  },
+  {
+   "file": "keys_04.ogg",
+   "orig": "keys_04.ogg",
+   "bytes": 17603,
+   "sha256": "22f7c1475af93208149c1219b1fc7fdfd746a5fed1b95a7fe60b130c0c27ee2d"
+  },
+  {
+   "file": "keys_05.ogg",
+   "orig": "keys_05.ogg",
+   "bytes": 26933,
+   "sha256": "d31aef529ad99479417b4968fa239cf4841f0ae7eba23933b19a476c7c3d2f07"
+  },
+  {
+   "file": "keys_06.ogg",
+   "orig": "keys_06.ogg",
+   "bytes": 30051,
+   "sha256": "9f637b55456930eddaa9432ace31009d37c543b64738fa1ab8452d58b1c82123"
+  },
+  {
+   "file": "keys_07.ogg",
+   "orig": "keys_07.ogg",
+   "bytes": 30494,
+   "sha256": "6c759cbd2dd2d1ea7f11a84d1b40f9e9ac62d49faf260100760e2dc9c77c4a28"
+  },
+  {
+   "file": "lock_open_01.ogg",
+   "orig": "lock_open_01.ogg",
+   "bytes": 33021,
+   "sha256": "f37728690c9559d32527b55e25102a1acb7beafdfab7ad12e099285d13d29e01"
+  },
+  {
+   "file": "metal_close_01.ogg",
+   "orig": "metal_close_01.ogg",
+   "bytes": 29099,
+   "sha256": "f504b912782760ff3ec25814db6c27bd2d884a94cda2a94d0ffbec921ab478b6"
+  },
+  {
+   "file": "metal_falling_01.ogg",
+   "orig": "metal_falling_01.ogg",
+   "bytes": 64014,
+   "sha256": "84f68de4298918630f328087486619e4b80892f7655724f9d391af730b37cea0"
+  },
+  {
+   "file": "metal_falling_02.ogg",
+   "orig": "metal_falling_02.ogg",
+   "bytes": 40266,
+   "sha256": "df317939deadccb4c1b4c83f7b18d549cb0b4d46ed996607d703f1a6122fea6f"
+  },
+  {
+   "file": "metal_hit_01.ogg",
+   "orig": "metal_hit_01.ogg",
+   "bytes": 12422,
+   "sha256": "f5fd185fce454947c1d91ce6757e219c4d7c6c139d4aa9d419cd7a79c7f6df3b"
+  },
+  {
+   "file": "metal_hit_02.ogg",
+   "orig": "metal_hit_02.ogg",
+   "bytes": 17378,
+   "sha256": "9074c0828727bd00834cabcaaf5b8cbff2cfad7b45676b95d86c0919e444f8b1"
+  },
+  {
+   "file": "metal_hit_03.ogg",
+   "orig": "metal_hit_03.ogg",
+   "bytes": 17431,
+   "sha256": "9daf6e7e1fc1871acfb063cb25ce050faab559ee6c42fed84bf18a4067f26a4d"
+  },
+  {
+   "file": "metal_hit_04.ogg",
+   "orig": "metal_hit_04.ogg",
+   "bytes": 15532,
+   "sha256": "dfc5ebc2cafcf2670f3937882c5040abe5c8855885c886023592d9a0779dde48"
+  },
+  {
+   "file": "metal_hit_05.ogg",
+   "orig": "metal_hit_05.ogg",
+   "bytes": 13937,
+   "sha256": "04e4d0926afd4bcd7d451884e0a74cea7c9661f56e211aeb8a4ee07bbccf4715"
+  },
+  {
+   "file": "metal_open_01.ogg",
+   "orig": "metal_open_01.ogg",
+   "bytes": 47159,
+   "sha256": "b68844e779fd0d4234bd2511d91db1c72cbf10fa9bc0bbd49f3be6bdb311eb6d"
+  },
+  {
+   "file": "metal_sheet_01.ogg",
+   "orig": "metal_sheet_01.ogg",
+   "bytes": 18428,
+   "sha256": "114002a50404928b5e257d1d188d1da5f197c251868ef37182e9aba15bca7a72"
+  },
+  {
+   "file": "metal_sheet_02.ogg",
+   "orig": "metal_sheet_02.ogg",
+   "bytes": 20927,
+   "sha256": "152604697b4a7e36f7b0644bb4ffc9fbb96831c2387313e9e14c732068420606"
+  },
+  {
+   "file": "metal_sheet_03.ogg",
+   "orig": "metal_sheet_03.ogg",
+   "bytes": 25381,
+   "sha256": "f7938996a1271dcd4e54e0b3fcbbbaa9960ec93dcc745dd4d0dbd7d300b0a9bc"
+  },
+  {
+   "file": "metal_sheet_04.ogg",
+   "orig": "metal_sheet_04.ogg",
+   "bytes": 18350,
+   "sha256": "4c3a2db2940ce846d745fea57407dd8644e60dc15ecc203dee2d02713ebb2fd4"
+  },
+  {
+   "file": "metal_sheet_05.ogg",
+   "orig": "metal_sheet_05.ogg",
+   "bytes": 15069,
+   "sha256": "cea32d672ee3bbc4098cdfc9c5984858071b2a8255ff2abd30e4c900822dfd7f"
+  },
+  {
+   "file": "metal_sheet_06.ogg",
+   "orig": "metal_sheet_06.ogg",
+   "bytes": 26995,
+   "sha256": "d420000a04be527a1cbd6ddf9f9d4a77e7929c8941364b2dc575c1254204a8c2"
+  },
+  {
+   "file": "metal_slam_01.ogg",
+   "orig": "metal_slam_01.ogg",
+   "bytes": 24256,
+   "sha256": "a335ccf202578bd740f930f0648a4dcbbbce3ebb2519335be023532578f56176"
+  },
+  {
+   "file": "metal_spring_01.ogg",
+   "orig": "metal_spring_01.ogg",
+   "bytes": 30914,
+   "sha256": "bc7d84bf0353ef884c62dc0a9ef29e05864d452ac8509a40e125fb9d7507f98f"
+  },
+  {
+   "file": "metal_spring_02.ogg",
+   "orig": "metal_spring_02.ogg",
+   "bytes": 27119,
+   "sha256": "373fb40c3f895e04623633057160a217005b04816a957094ae3c3d66fe21dca0"
+  },
+  {
+   "file": "misc_01.ogg",
+   "orig": "misc_01.ogg",
+   "bytes": 45207,
+   "sha256": "8f3417358d867d09ca4a7eb103d1662e6091255efcfa18e3789fd7afdcad79b7"
+  },
+  {
+   "file": "misc_02.ogg",
+   "orig": "misc_02.ogg",
+   "bytes": 17054,
+   "sha256": "1dd47726713d8d9e5bc862658866e028f758ee3a07649ec887ceab2b371e5eaf"
+  },
+  {
+   "file": "misc_03.ogg",
+   "orig": "misc_03.ogg",
+   "bytes": 29427,
+   "sha256": "072f97bda14a9926ef01a6e7ef244e7fd0b24d2e58fd22b1a7a21776229f1bcf"
+  },
+  {
+   "file": "misc_04.ogg",
+   "orig": "misc_04.ogg",
+   "bytes": 27244,
+   "sha256": "97fad46cfefc55a1693e1fefa7e6529754b8ec2d678bed36a914a2fd8f7cf808"
+  },
+  {
+   "file": "misc_05.ogg",
+   "orig": "misc_05.ogg",
+   "bytes": 31353,
+   "sha256": "42f012188dec2887d97e2969c6f315c85ba8a9b91dd6115d8a00368d3581ad6d"
+  },
+  {
+   "file": "misc_06.ogg",
+   "orig": "misc_06.ogg",
+   "bytes": 31099,
+   "sha256": "9f6d3a779148408b130a3e8bb2b214b61158afa90331e3570e05240dc426c519"
+  },
+  {
+   "file": "misc_07.ogg",
+   "orig": "misc_07.ogg",
+   "bytes": 40617,
+   "sha256": "0441a1c4c5b4530d932c67b3786b94791bab65830b8b84f3a9eff6ad838ccae2"
+  },
+  {
+   "file": "misc_08.ogg",
+   "orig": "misc_08.ogg",
+   "bytes": 19377,
+   "sha256": "eb874c92e07aa2498a521b1ad95b8711729abaef5457fb9cb0586f42f93b346e"
+  },
+  {
+   "file": "misc_09.ogg",
+   "orig": "misc_09.ogg",
+   "bytes": 32253,
+   "sha256": "e3de74b187495c4b519e6dd9e00312208a69281ffffcde01ed6acc0324b605cf"
+  },
+  {
+   "file": "misc_10.ogg",
+   "orig": "misc_10.ogg",
+   "bytes": 22160,
+   "sha256": "aecbdff15fad7a0c9c3cd9210eb8163df6519cb0508ddbdae27a140ff95d279c"
+  },
+  {
+   "file": "misc_11.ogg",
+   "orig": "misc_11.ogg",
+   "bytes": 26124,
+   "sha256": "54e2662594ff34ae369c31908a9d1c67cf81f1a0efe74a60ae8ebdc0ee996544"
+  },
+  {
+   "file": "misc_12.ogg",
+   "orig": "misc_12.ogg",
+   "bytes": 16028,
+   "sha256": "c6121995566e0f4757e022e3387dcee80e408fd5c8becae9b832741c9cfdf4ff"
+  },
+  {
+   "file": "misc_13.ogg",
+   "orig": "misc_13.ogg",
+   "bytes": 15643,
+   "sha256": "4091e23723f5b3e689d5c87a84ba9f177890dbebffbf2adf10dc2a20aa91d465"
+  },
+  {
+   "file": "misc_14.ogg",
+   "orig": "misc_14.ogg",
+   "bytes": 24441,
+   "sha256": "7afafe15f3fa05ae071faf5eeee8eb43f8fbec6dcf51ef908caf59273c88e532"
+  },
+  {
+   "file": "misc_15.ogg",
+   "orig": "misc_15.ogg",
+   "bytes": 23576,
+   "sha256": "31bc6513d98c0c28b36f17f692d62071b46f17cba44766861b6f76949fe1383c"
+  },
+  {
+   "file": "misc_16.ogg",
+   "orig": "misc_16.ogg",
+   "bytes": 17712,
+   "sha256": "db99816cdc8b8a6d6b86b37af7476a3fb04f1d7341c37be1b1c481eb76cbc7b0"
+  },
+  {
+   "file": "misc_17.ogg",
+   "orig": "misc_17.ogg",
+   "bytes": 15176,
+   "sha256": "56aec918804e02916f0dc0f30a3e7c59163e69098832de2b5aa07ff2d6941626"
+  },
+  {
+   "file": "tools_01.ogg",
+   "orig": "tools_01.ogg",
+   "bytes": 23580,
+   "sha256": "a679ab1a1d3fafcddf408e3f39fa55c23f5725ff84d8c9aff6e04511805616cc"
+  },
+  {
+   "file": "tools_02.ogg",
+   "orig": "tools_02.ogg",
+   "bytes": 19976,
+   "sha256": "f38aa1f822bd1d4ba2fbf7df2a8c12ea27dbca537b81cf9032b8729fe7223822"
+  },
+  {
+   "file": "tools_03.ogg",
+   "orig": "tools_03.ogg",
+   "bytes": 22921,
+   "sha256": "2e3e006dc02d0ddd462b7a961e86712922849862379ac4f9524bff876cac92e3"
+  },
+  {
+   "file": "tools_04.ogg",
+   "orig": "tools_04.ogg",
+   "bytes": 37563,
+   "sha256": "38dff738edb9ad33e35dd65dedd1d3c07e5a04c4613631daa99b0a6a7bf2597b"
+  },
+  {
+   "file": "tools_05.ogg",
+   "orig": "tools_05.ogg",
+   "bytes": 22526,
+   "sha256": "32e51e074cfbf11c1bef75ad827ffd07be6215ced153d6a7eda7954703c193ce"
+  },
+  {
+   "file": "tools_06.ogg",
+   "orig": "tools_06.ogg",
+   "bytes": 23192,
+   "sha256": "a8ca49d4c86d295c983312b8859d4620db4fdf198142f3e6defe71db615c1acd"
+  },
+  {
+   "file": "tools_07.ogg",
+   "orig": "tools_07.ogg",
+   "bytes": 18065,
+   "sha256": "bd0b8f1b7438bf1a2e69cfda7e760ba98ca8dbe37195a1fc8e922fadfc291138"
+  },
+  {
+   "file": "tools_08.ogg",
+   "orig": "tools_08.ogg",
+   "bytes": 20105,
+   "sha256": "7b12fb3f6e7eb4207e76809cc8b875bbd9161b1b340a3f13349023ed127e109d"
+  },
+  {
+   "file": "tools_09.ogg",
+   "orig": "tools_09.ogg",
+   "bytes": 25340,
+   "sha256": "81a2a696eff9980f31e4081470d4ce5de40477f52177aa9c0d7f7f18166a2086"
+  },
+  {
+   "file": "tools_10.ogg",
+   "orig": "tools_10.ogg",
+   "bytes": 23892,
+   "sha256": "0ed377175537e140950a7656012d991910135925c8f2df93d6ed60819e51eedd"
+  },
+  {
+   "file": "tools_11.ogg",
+   "orig": "tools_11.ogg",
+   "bytes": 21243,
+   "sha256": "04a8867b10ef3b694891cd3260747e7970de4eb0dea8db32f7935f24f44482a0"
+  },
+  {
+   "file": "tools_12.ogg",
+   "orig": "tools_12.ogg",
+   "bytes": 20291,
+   "sha256": "27b4bc998d47d4e7c0bc91b1f7bd9529b9be6c0ef7fdc1540f5ecb885cc1774c"
+  },
+  {
+   "file": "wood_breaking_01.ogg",
+   "orig": "wood_breaking_01.ogg",
+   "bytes": 28031,
+   "sha256": "83a0e17e536a17897d5915e88c9e70d0be06d0a43bb3a38f44314ada46b06a3e"
+  },
+  {
+   "file": "wood_breaking_02.ogg",
+   "orig": "wood_breaking_02.ogg",
+   "bytes": 24126,
+   "sha256": "042e97ceaa551dd3fcccba0e9bdf1e8145133ac4d2ee0b0cbcd0ee698b7cb229"
+  },
+  {
+   "file": "wood_close_01.ogg",
+   "orig": "wood_close_01.ogg",
+   "bytes": 18325,
+   "sha256": "e4cbbaa6331b42a32cc3a63d643f4849c65c39a45e7c57d568eb1790619af06d"
+  },
+  {
+   "file": "wood_close_02.ogg",
+   "orig": "wood_close_02.ogg",
+   "bytes": 17485,
+   "sha256": "250275ce07101fa11ee8f371972e67e1024737a2d1d6b23a6772c2935b193f39"
+  },
+  {
+   "file": "wood_cracking_01.ogg",
+   "orig": "wood_cracking_01.ogg",
+   "bytes": 11910,
+   "sha256": "ee00fa26ec72a2bd05adc71a4edf6627db2adedc6f0416ef6788c4790c1d2724"
+  },
+  {
+   "file": "wood_cracking_02.ogg",
+   "orig": "wood_cracking_02.ogg",
+   "bytes": 15144,
+   "sha256": "128a798ebb92958c9bee5a71c420c3f61f59c241ecaca75f0bbde780bb086abd"
+  },
+  {
+   "file": "wood_cracking_03.ogg",
+   "orig": "wood_cracking_03.ogg",
+   "bytes": 14747,
+   "sha256": "9d0a3e8ee99fbf4e83472fcc26a48f834a6ac01c60769b9712e93f1e2a7f3116"
+  },
+  {
+   "file": "wood_cracking_04.ogg",
+   "orig": "wood_cracking_04.ogg",
+   "bytes": 13788,
+   "sha256": "9ac6d1ab3bce4a872bbde85fc1dc73f8243c1cfed95b0d135f3632be8b632e38"
+  },
+  {
+   "file": "wood_falling_01.ogg",
+   "orig": "wood_falling_01.ogg",
+   "bytes": 27848,
+   "sha256": "38c5307455f35c3b61e06fbd01cae41f245cd45b12807747bd5830b2ff7448d1"
+  },
+  {
+   "file": "wood_falling_02.ogg",
+   "orig": "wood_falling_02.ogg",
+   "bytes": 23581,
+   "sha256": "b5f8794539fb13d73444d1b955877dbf5e5bf4ad37723dc08e7d3eb1d75273f5"
+  },
+  {
+   "file": "wood_falling_03.ogg",
+   "orig": "wood_falling_03.ogg",
+   "bytes": 22906,
+   "sha256": "e844780ce472459cf1ee90e0cf8f49f05a0e0be5566ada20db42523f67fd0233"
+  },
+  {
+   "file": "wood_falling_04.ogg",
+   "orig": "wood_falling_04.ogg",
+   "bytes": 18374,
+   "sha256": "c0e6c75ce6eac3cd7a05008dff45e65dcd313d7d6706585de06d1948c01f3cf6"
+  },
+  {
+   "file": "wood_falling_05.ogg",
+   "orig": "wood_falling_05.ogg",
+   "bytes": 32966,
+   "sha256": "b3ed00cd0113912a28b65f56488ecf66002ab7f3dba68a675eca81684f9b10d5"
+  },
+  {
+   "file": "wood_falling_06.ogg",
+   "orig": "wood_falling_06.ogg",
+   "bytes": 24754,
+   "sha256": "663880c8e43f0f4fe9f001de8023f93ff874079fa84dde1d68aae0837c07a81f"
+  },
+  {
+   "file": "wood_hammer_01.ogg",
+   "orig": "wood_hammer_01.ogg",
+   "bytes": 14174,
+   "sha256": "7af2b82ed659153da6c3dd69024e15bdb3c3c5b101c4086ee2181c1f846fe28a"
+  },
+  {
+   "file": "wood_hammer_02.ogg",
+   "orig": "wood_hammer_02.ogg",
+   "bytes": 13316,
+   "sha256": "f3e8812f053d35d5ebbaec39c7d7136ccfcf4ad7b420beded1401c9aaca13625"
+  },
+  {
+   "file": "wood_hit_01.ogg",
+   "orig": "wood_hit_01.ogg",
+   "bytes": 13573,
+   "sha256": "cf3211d80094cd363e8e56906ad42a8baf10f31ef9e197f3f63464a957bade3a"
+  },
+  {
+   "file": "wood_hit_02.ogg",
+   "orig": "wood_hit_02.ogg",
+   "bytes": 16082,
+   "sha256": "533144d0633e756d91a7ee6d3a1f00bed81ad85d221232c5e4812e4fd7b14177"
+  },
+  {
+   "file": "wood_hit_03.ogg",
+   "orig": "wood_hit_03.ogg",
+   "bytes": 16580,
+   "sha256": "0f78a5cbe44d2ee45dfc1709f72af87bcbe5e3a8ad369b52535cfe6dbbd626a6"
+  },
+  {
+   "file": "wood_hit_04.ogg",
+   "orig": "wood_hit_04.ogg",
+   "bytes": 16065,
+   "sha256": "c7723f3c577cc6f46b091233fcb735016c6e15d462b371393baa4d265aef52b6"
+  },
+  {
+   "file": "wood_hit_05.ogg",
+   "orig": "wood_hit_05.ogg",
+   "bytes": 9553,
+   "sha256": "a6e1a4cfb65c4fc46248b3db84666275d466c2434c283028c7f0ce70035e75de"
+  },
+  {
+   "file": "wood_hit_06.ogg",
+   "orig": "wood_hit_06.ogg",
+   "bytes": 13185,
+   "sha256": "6224beb74c930ac6b88358ced7c024b23a50d71acfe565e83cc29ffbe383676e"
+  },
+  {
+   "file": "wood_hit_07.ogg",
+   "orig": "wood_hit_07.ogg",
+   "bytes": 14805,
+   "sha256": "80176bf1f0a503df1b802c758af2c62f72b6c93c586b8071615174fd7b5abfca"
+  },
+  {
+   "file": "wood_hit_08.ogg",
+   "orig": "wood_hit_08.ogg",
+   "bytes": 17512,
+   "sha256": "b91720c949e065eabf8980beefe95bc1ede281224d834838c32a6753f2ad93a1"
+  },
+  {
+   "file": "wood_hit_09.ogg",
+   "orig": "wood_hit_09.ogg",
+   "bytes": 12494,
+   "sha256": "7e90e5834792ea302ef767235b92862045b4075021c73bc2e0ee3f352bc5cdc1"
+  },
+  {
+   "file": "wood_misc_01.ogg",
+   "orig": "wood_misc_01.ogg",
+   "bytes": 20566,
+   "sha256": "29db37359c77f06c20e8c92148dfec69d3c50a174122505cf4d2b9726b14162c"
+  },
+  {
+   "file": "wood_misc_02.ogg",
+   "orig": "wood_misc_02.ogg",
+   "bytes": 16143,
+   "sha256": "458f522d941247ee447978307842c67aec08b421878c16d2d357172c7a579e9a"
+  },
+  {
+   "file": "wood_misc_03.ogg",
+   "orig": "wood_misc_03.ogg",
+   "bytes": 19914,
+   "sha256": "4e875c284377b8809e5b7acf7fa04aae1d8d44ada43d2592ca4e8802b8621bfe"
+  },
+  {
+   "file": "wood_misc_04.ogg",
+   "orig": "wood_misc_04.ogg",
+   "bytes": 20676,
+   "sha256": "75e5b460e59250b542eb315adc39899c624042d5b58dd92eef57c5a53d750bc4"
+  },
+  {
+   "file": "wood_misc_05.ogg",
+   "orig": "wood_misc_05.ogg",
+   "bytes": 13593,
+   "sha256": "b6cd88c1de4d423d8ba69e6b5aea2ab348baaacd5b411fd03a145699a3fb4169"
+  },
+  {
+   "file": "wood_misc_06.ogg",
+   "orig": "wood_misc_06.ogg",
+   "bytes": 19364,
+   "sha256": "b0f0ec852dbb8e108817411089c150bd40c93d326719bd2cf1561e87fded3e20"
+  },
+  {
+   "file": "wood_misc_07.ogg",
+   "orig": "wood_misc_07.ogg",
+   "bytes": 20467,
+   "sha256": "0868c3ad57a72cab43e8904a030156efe9169717d886517341f0abc2942d14eb"
+  },
+  {
+   "file": "wood_misc_08.ogg",
+   "orig": "wood_misc_08.ogg",
+   "bytes": 15825,
+   "sha256": "c2e09d4ee40480defa46d11d63fc80a578fe098985470afa8d2bb3ee1840732e"
+  },
+  {
+   "file": "wood_misc_09.ogg",
+   "orig": "wood_misc_09.ogg",
+   "bytes": 31973,
+   "sha256": "bae89cd81dbfae2feb52718bc8811ec773443ffd80cdc7ea8ec055f130cbb035"
+  },
+  {
+   "file": "wood_slam_01.ogg",
+   "orig": "wood_slam_01.ogg",
+   "bytes": 13534,
+   "sha256": "a6c0789f549c57bf2022d2bc131b5d78b66c2ea9483d7bf2f6d2d5f74302137c"
+  },
+  {
+   "file": "wood_slam_02.ogg",
+   "orig": "wood_slam_02.ogg",
+   "bytes": 23991,
+   "sha256": "73606869502682f640ebc0ab330c66801650a58a363f90c93c7882cd1abb587f"
+  },
+  {
+   "file": "wood_slam_03.ogg",
+   "orig": "wood_slam_03.ogg",
+   "bytes": 20188,
+   "sha256": "fe61f296255b041c3bad6bbde0c7cf1325965b252d03833fe35deebaa7a1bd76"
+  },
+  {
+   "file": "wood_slam_04.ogg",
+   "orig": "wood_slam_04.ogg",
+   "bytes": 17868,
+   "sha256": "a1b97f2f3821eb52ab42852fb4538b7bd0a6f080e1608fba0a813105ba85cace"
+  },
+  {
+   "file": "wood_squeak_01.ogg",
+   "orig": "wood_squeak_01.ogg",
+   "bytes": 21785,
+   "sha256": "c6c90e02993b2e044937f344351b417aeff6841aa4cd683f208d85ececf23392"
+  },
+  {
+   "file": "wood_squeak_02.ogg",
+   "orig": "wood_squeak_02.ogg",
+   "bytes": 19159,
+   "sha256": "841793c92034e419afec66538f7cf08f0f36f307aa3a1a5aaf7b664a0a178dee"
+  }
+ ]
+}

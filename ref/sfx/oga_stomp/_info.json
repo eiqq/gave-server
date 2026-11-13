@@ -1,0 +1,30 @@
+{
+ "title": "Mech Stomp / Step Sound",
+ "author": "hc",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/mech-stomp-step-sound",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0",
+ "note": "",
+ "urls": [
+  "https://opengameart.org/sites/default/files/stomp.flac"
+ ],
+ "pack": "oga_stomp",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "stomp.flac",
+   "bytes": 12135,
+   "sha256": "c9114c31ab07a371db12bfb22190d3a8e08424813319b67b6040df1f23fa9bba"
+  }
+ ],
+ "files": [
+  {
+   "file": "stomp.flac",
+   "orig": "stomp.flac",
+   "bytes": 12135,
+   "sha256": "c9114c31ab07a371db12bfb22190d3a8e08424813319b67b6040df1f23fa9bba"
+  }
+ ]
+}

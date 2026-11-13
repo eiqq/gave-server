@@ -1,0 +1,17 @@
+[
+ ["wait", 2],
+ ["cmd", "gamemode adventure {USER}"],
+ ["cmd", "gave 시작"],
+ ["until", "state=PREP", 15],
+ ["cmd", "gave 시험 허드동료 x 4"],
+ ["cmd", "gave 시험 허드방향 x 300 90 270"],
+ ["cmd", "gave 시험 깜빡 {USER} 300"],
+ ["wait", 1],
+ ["shot", "blink_a"],
+ ["wait", 0.4],
+ ["shot", "blink_b"],
+ ["wait", 0.4],
+ ["shot", "blink_c"],
+ ["cmd", "gave 시험 허드 {USER}"],
+ ["cmd", "gave 중지"]
+]

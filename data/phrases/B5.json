@@ -1,0 +1,17 @@
+{
+ "bs_sub_b5": "모두 여기 있다",
+ "bs_b5_p2": "두른다",
+ "bs_b5_p3": "눈을 떴다",
+ "bs_b5_p4": "마지막 얼굴",
+ "cause_b5_arm": "팔에 맞았다",
+ "cause_b5_gaze": "이마의 눈이 봤다",
+ "cause_b5_breath": "숨에 휩쓸렸다",
+ "cause_b5_hug": "모두에게 안겼다",
+ "cause_b5_clap": "손뼉 파도를 못 넘었다",
+ "cause_b5_rain": "떨어진 얼굴에 맞았다",
+ "cause_b5_ring": "고리에 부딪혔다",
+ "cause_b5_fire": "분사에 휩쓸렸다",
+ "hint_b5_lamp": "꺼진 등 밑에 서라",
+ "hint_b5_engine": "초록 고리를 지켜 분사",
+ "hint_b5_cover": "더미 뒤로"
+}

@@ -1,0 +1,31 @@
+{
+ "title": "Bird chirping sounds",
+ "author": "syncopika",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/bird-chirping-sounds",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+ "note": "",
+ "desc": "really tiny clip of bird chirping recorded in my backyard! I think this one blends well with music too. here's an example of its usage: https://soundcloud.com/syncopika/071414forestthemeconcept enjoy!",
+ "urls": [
+  "https://opengameart.org/sites/default/files/birdchirping071414.wav"
+ ],
+ "pack": "oga_birds2",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "birdchirping071414.wav",
+   "bytes": 528004,
+   "sha256": "bc6e28bd823b653b2abf3384d4147718603af6bcd98e26166345df71a61eeb08"
+  }
+ ],
+ "files": [
+  {
+   "file": "birdchirping071414.wav",
+   "orig": "birdchirping071414.wav",
+   "bytes": 528004,
+   "sha256": "bc6e28bd823b653b2abf3384d4147718603af6bcd98e26166345df71a61eeb08"
+  }
+ ]
+}

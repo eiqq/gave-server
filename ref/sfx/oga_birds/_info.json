@@ -1,0 +1,31 @@
+{
+ "title": "Ambient Bird Sounds",
+ "author": "isaiah658",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/ambient-bird-sounds",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+ "note": "",
+ "desc": "I recently discovered that the microphone on my camera is actually pretty good for recording ambient sounds. I still had to heavily clean up the the audio with Audacity. If you need individual bird chirps you could cut up the audio into what parts you want. Enjoy!",
+ "urls": [
+  "https://opengameart.org/sites/default/files/birds-isaiah658_0.ogg"
+ ],
+ "pack": "oga_birds",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "birds-isaiah658.ogg",
+   "bytes": 544669,
+   "sha256": "359e4e3f9da9d75aac64cede511c7e3ef8b461f9d9f8c230f8f80e44c4b3e35f"
+  }
+ ],
+ "files": [
+  {
+   "file": "birds_isaiah658.ogg",
+   "orig": "birds-isaiah658.ogg",
+   "bytes": 544669,
+   "sha256": "359e4e3f9da9d75aac64cede511c7e3ef8b461f9d9f8c230f8f80e44c4b3e35f"
+  }
+ ]
+}

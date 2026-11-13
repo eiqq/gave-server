@@ -1,0 +1,173 @@
+[
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gamemode adventure {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  25
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 {USER} on"
+ ],
+ [
+  "cmd",
+  "gave 시험 원정값 x TRUCK_DMG 0"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 31"
+ ],
+ [
+  "until",
+  "launch=none",
+  20
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 x on"
+ ],
+ [
+  "wait",
+  9
+ ],
+ [
+  "cmd",
+  "gave 시험 발사장 x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 카메라 {USER} 16 69 14 147 -8"
+ ],
+ [
+  "wait",
+  2.5
+ ],
+ [
+  "shot",
+  "a1_pad_base"
+ ],
+ [
+  "cmd",
+  "gave 시험 건조 x 0.3"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "shot",
+  "a2_hull"
+ ],
+ [
+  "cmd",
+  "gave 시험 건조 x 0.6"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "shot",
+  "a3_nose"
+ ],
+ [
+  "cmd",
+  "gave 시험 카메라 {USER} -24 68 18 140 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 건조 x 0.9"
+ ],
+ [
+  "wait",
+  2.0
+ ],
+ [
+  "shot",
+  "a4_lit_lamps"
+ ],
+ [
+  "cmd",
+  "gave 시험 건조 x 0.05"
+ ],
+ [
+  "cmd",
+  "gave 시험 카메라끝 {USER}"
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "cmd",
+  "gave 시험 발사장 {USER} 점 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 0 20"
+ ],
+ [
+  "wait",
+  6
+ ],
+ [
+  "cmd",
+  "gave 시험 발사장 x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 원정 {USER} 허드"
+ ],
+ [
+  "shot",
+  "a5_point_meter"
+ ],
+ [
+  "cmd",
+  "gave 시험 투광등 x 0 끔"
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "cmd",
+  "gave 시험 발사장 x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 x off"
+ ],
+ [
+  "cmd",
+  "gave 시험 건조 x 0.25"
+ ],
+ [
+  "until",
+  "state=BREAK",
+  25
+ ],
+ [
+  "cmd",
+  "gave 시험 발사장 x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 라운드종류 x 상태"
+ ],
+ [
+  "wait",
+  1
+ ]
+]

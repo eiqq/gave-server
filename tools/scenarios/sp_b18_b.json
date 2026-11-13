@@ -1,0 +1,276 @@
+[
+[
+"wait",
+2
+],
+[
+"cmd",
+"gamemode adventure {USER}"
+],
+[
+"cmd",
+"gave 시작"
+],
+[
+"until",
+"state=PREP",
+15
+],
+[
+"cmd",
+"gave 시험 판끝막기 {USER} on"
+],
+[
+"cmd",
+"gave 시험 총 {USER} RIFLE"
+],
+[
+"until",
+"state=WAVE",
+40
+],
+[
+"cmd",
+"gave 시험 감독빨리 x 0.1"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 6.5 0 0"
+],
+[
+"cmd",
+"gave 시험 트럭 x 상태"
+],
+[
+"cmd",
+"gave 소환 G183 1 10 {USER}"
+],
+[
+"wait",
+3
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G183"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 트럭 x 상태"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G183 40"
+],
+[
+"wait",
+2
+],
+[
+"shot",
+"g183_far"
+],
+[
+"wait",
+6
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G183"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g183_wheels"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G183 30 0 2.1"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 20"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G183"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 트럭 x 상태"
+],
+[
+"shot",
+"g183_stripped"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 6.5 0 0"
+],
+[
+"cmd",
+"gave 소환 G194 1 5 {USER}"
+],
+[
+"wait",
+6
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G194"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g194_knock"
+],
+[
+"wait",
+7
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G194"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g194_up"
+],
+[
+"cmd",
+"gave 시험 트럭 x 상태"
+],
+[
+"cmd",
+"gave 시험 상점보기 {USER}"
+],
+[
+"wait",
+4
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G194"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 상점닫기 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 10.5 0 0"
+],
+[
+"cmd",
+"gave 시험 몹놓기 {USER} G195 1 0.5 30.5"
+],
+[
+"cmd",
+"gave 시험 몹놓기 {USER} G01 6 0.5 33.5 2"
+],
+[
+"wait",
+4
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G195"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g195_come"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G195 30 0 3.45"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 20"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G195"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g195_gap"
+],
+[
+"wait",
+8
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G195"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g195_pass"
+]
+]

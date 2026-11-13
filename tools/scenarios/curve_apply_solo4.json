@@ -1,0 +1,1 @@
+[["wait", 1], ["until", "state=WAVE", 150], ["wait", 20], ["shot", "a"], ["wait", 40], ["shot", "b"], ["until", "state=LOBBY", 240], ["wait", 2]]

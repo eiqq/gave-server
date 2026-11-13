@@ -1,0 +1,49 @@
+{
+ "title": "Rain (loopable)",
+ "author": "Ylmir",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/rain-loopable",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+ "note": "",
+ "desc": "Four loopable rain SFX, with a length varying between 25 and 45 seconds. Recorded about two hours ago with a single mono mic at my window, then I processed it a bit, trying to make it sound stereo. It was more an experiment, but it can probably be useful anyway ;) Available in two formats, the sampl",
+ "urls": [
+  "https://opengameart.org/sites/default/files/Rain%20OGG.zip"
+ ],
+ "pack": "oga_rain4",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "Rain OGG.zip",
+   "bytes": 2736596,
+   "sha256": "e68f3e1c77493cf43bec84cebff5043bff6be9ce16d59b24caa988cd460aa75b"
+  }
+ ],
+ "files": [
+  {
+   "file": "1.ogg",
+   "orig": "1.ogg",
+   "bytes": 550049,
+   "sha256": "4f659f68cf5219007d0bb0969a1862491ceee4057fda4c491c6001e8608fa2cb"
+  },
+  {
+   "file": "2.ogg",
+   "orig": "2.ogg",
+   "bytes": 529890,
+   "sha256": "204bbdba67bd69f744bbb07d81155d0ee775960b979abd0a9b662b23dbc124fd"
+  },
+  {
+   "file": "3.ogg",
+   "orig": "3.ogg",
+   "bytes": 913769,
+   "sha256": "73a0f5ef19ed9f64599c0425b1fb52d857acfc42c0fd5eab85c4577ace18f0ed"
+  },
+  {
+   "file": "4.ogg",
+   "orig": "4.ogg",
+   "bytes": 762663,
+   "sha256": "de24aeefd113daf0d12769c61adb1a262606e7df683e3bb52a27c4d0ff356549"
+  }
+ ]
+}

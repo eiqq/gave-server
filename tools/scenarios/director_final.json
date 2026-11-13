@@ -1,0 +1,122 @@
+[
+ [
+  "wait",
+  3
+ ],
+ [
+  "shot",
+  "cage"
+ ],
+ [
+  "cmd",
+  "gave 시험 우리 x"
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=PREP",
+  15
+ ],
+ [
+  "until",
+  "state=WAVE",
+  20
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 죽이기 {USER}"
+ ],
+ [
+  "until",
+  "state=OVER",
+  15
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "cmd",
+  "gave 시험 기록 x"
+ ],
+ [
+  "shot",
+  "over"
+ ],
+ [
+  "until",
+  "state=LOBBY",
+  30
+ ],
+ [
+  "cmd",
+  "gave 시험 사건 x 밤 북"
+ ],
+ [
+  "cmd",
+  "gave 시험 카메라 {USER} 0.5 64 -20 180 -40"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "shot",
+  "night_dot"
+ ],
+ [
+  "cmd",
+  "gave 시험 사건 x 밤 끝"
+ ],
+ [
+  "cmd",
+  "gave 시험 사건 x 눈"
+ ],
+ [
+  "cmd",
+  "gave 시험 카메라 {USER} 4.5 66.5 34.5 180 55"
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "shot",
+  "eye"
+ ],
+ [
+  "cmd",
+  "gave 시험 사건 x 눈뜸"
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "shot",
+  "eye_open"
+ ],
+ [
+  "cmd",
+  "gave 시험 사건 x 끝"
+ ],
+ [
+  "cmd",
+  "gave 시험 카메라끝 {USER}"
+ ],
+ [
+  "wait",
+  1
+ ]
+]

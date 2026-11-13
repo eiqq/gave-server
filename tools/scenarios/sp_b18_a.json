@@ -1,0 +1,280 @@
+[
+[
+"wait",
+2
+],
+[
+"cmd",
+"gamemode adventure {USER}"
+],
+[
+"cmd",
+"gave 시작"
+],
+[
+"until",
+"state=PREP",
+15
+],
+[
+"cmd",
+"gave 시험 판끝막기 {USER} on"
+],
+[
+"cmd",
+"gave 시험 총 {USER} RIFLE"
+],
+[
+"until",
+"state=WAVE",
+40
+],
+[
+"cmd",
+"gave 시험 감독빨리 x 0.1"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 12.5 0 0"
+],
+[
+"cmd",
+"gave 시험 몹놓기 {USER} G161 1 0.5 34.5"
+],
+[
+"wait",
+6
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G161"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g161_walk"
+],
+[
+"wait",
+6
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G161"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g161_throw"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} PELLET 3 G161"
+],
+[
+"wait",
+3
+],
+[
+"shot",
+"g161_corpse"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 8.5 64 12.5 0 0"
+],
+[
+"cmd",
+"gave 시험 몹놓기 {USER} G170 1 8.5 26.5"
+],
+[
+"wait",
+8
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G170"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 0 60"
+],
+[
+"wait",
+0.3
+],
+[
+"shot",
+"g170_coil"
+],
+[
+"wait",
+6
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G170"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 14.5 0 0"
+],
+[
+"cmd",
+"gave 소환 G180 1 14 {USER}"
+],
+[
+"wait",
+5
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G180"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g180_a"
+],
+[
+"wait",
+3
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G180"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g180_b"
+],
+[
+"wait",
+5
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G180"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g180_husk"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 8.5 0 0"
+],
+[
+"cmd",
+"gave 시험 몹놓기 {USER} G182 1 0.5 23.5"
+],
+[
+"wait",
+6
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G182"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g182_sit"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G182 30 0 1.25"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 10"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G182"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g182_open"
+],
+[
+"wait",
+4
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G182"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+]
+]

@@ -1,0 +1,31 @@
+{
+ "title": "Jet Engine Takeoff",
+ "author": "dklon",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/jet-engine-takeoff",
+ "license": "CC BY 3.0",
+ "license_url": "https://creativecommons.org/licenses/by/3.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC-BY 3.0 (http://creativecommons.org/licenses/by/3.0/)",
+ "note": "If you do use this, all I ask is that you credit me as dklon somewhere.",
+ "desc": "Jet engine takeoff sound with a bit of Doppler shift applied. Could also be a rocket.",
+ "urls": [
+  "https://opengameart.org/sites/default/files/engine_takeoff.wav"
+ ],
+ "pack": "oga_jet_takeoff",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "engine_takeoff.wav",
+   "bytes": 316782,
+   "sha256": "c7aa06c63a4fc5a638cab2b9f292a34ca03b3f3a1016d01e3b69cfd65f328e87"
+  }
+ ],
+ "files": [
+  {
+   "file": "engine_takeoff.wav",
+   "orig": "engine_takeoff.wav",
+   "bytes": 316782,
+   "sha256": "c7aa06c63a4fc5a638cab2b9f292a34ca03b3f3a1016d01e3b69cfd65f328e87"
+  }
+ ]
+}

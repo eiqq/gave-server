@@ -1,0 +1,42 @@
+{
+ "title": "Wind",
+ "author": "IgnasD",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/wind",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0",
+ "note": "",
+ "urls": [
+  "https://opengameart.org/sites/default/files/wind.zip"
+ ],
+ "pack": "oga_wind",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "wind.zip",
+   "bytes": 263555,
+   "sha256": "8f6185f6eb836a5c35c492e8dabd276e507ba3e4dca0e7d551d04c689d0c0d63"
+  }
+ ],
+ "files": [
+  {
+   "file": "wind.ogg",
+   "orig": "wind/Wind.ogg",
+   "bytes": 59861,
+   "sha256": "ff4f8a48b824e88ef3a53c5bc726e1da2b9593d84ac1bd6048b4ed6ddd4bad69"
+  },
+  {
+   "file": "wind2.ogg",
+   "orig": "wind/Wind2.ogg",
+   "bytes": 57568,
+   "sha256": "28a3eeea0a0d76f88ec686b8ff658ce1524e13ee835746cc9bca98ed9972d89b"
+  },
+  {
+   "file": "wind3.ogg",
+   "orig": "wind/Wind3.ogg",
+   "bytes": 17776,
+   "sha256": "be886f6ff11bb6ed2cf4f3d99b921b35d4f3a4efa86f74ad085e4758c177e155"
+  }
+ ]
+}

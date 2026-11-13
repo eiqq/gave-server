@@ -1,0 +1,416 @@
+[
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gamemode adventure {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=PREP",
+  15
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 x on"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  20
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} 4000"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 4000"
+ ],
+ [
+  "wait",
+  10
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 일으키기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} 4000"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 4000"
+ ],
+ [
+  "wait",
+  10
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 일으키기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} 4000"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 4000"
+ ],
+ [
+  "wait",
+  10
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 일으키기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} 4000"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 4000"
+ ],
+ [
+  "wait",
+  10
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 일으키기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} 4000"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 4000"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹시간 x"
+ ],
+ [
+  "wait",
+  10
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 일으키기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} 4000"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 4000"
+ ],
+ [
+  "wait",
+  10
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 일으키기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} 4000"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 4000"
+ ],
+ [
+  "wait",
+  10
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 일으키기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} 4000"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 4000"
+ ],
+ [
+  "wait",
+  10
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 일으키기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} 4000"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 4000"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹시간 x"
+ ],
+ [
+  "wait",
+  10
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 일으키기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} 4000"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 4000"
+ ],
+ [
+  "wait",
+  10
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 일으키기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} 4000"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 4000"
+ ],
+ [
+  "wait",
+  10
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 일으키기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} 4000"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 4000"
+ ],
+ [
+  "wait",
+  10
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 일으키기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} 4000"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 4000"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹시간 x"
+ ],
+ [
+  "wait",
+  10
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 일으키기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} 4000"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 4000"
+ ],
+ [
+  "wait",
+  10
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 일으키기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} 4000"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 4000"
+ ],
+ [
+  "wait",
+  10
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 일으키기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} 4000"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 4000"
+ ],
+ [
+  "wait",
+  10
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 일으키기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} 4000"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 4000"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹시간 x"
+ ],
+ [
+  "wait",
+  10
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 일으키기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} 4000"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 4000"
+ ],
+ [
+  "cmd",
+  "gave 시험 감독 x"
+ ],
+ [
+  "cmd",
+  "gave 중지"
+ ]
+]

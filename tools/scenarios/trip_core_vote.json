@@ -1,0 +1,212 @@
+[
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gamemode adventure {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 균형 x ALIVE_PER_WAVE 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 균형 x ALIVE_BASE 0"
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  30
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 {USER} on"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 2"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 6.5 180 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 쉬기 x"
+ ],
+ [
+  "wait",
+  3.5
+ ],
+ [
+  "cmd",
+  "gave 시험 상점상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 길투표 {USER} 2"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "cmd",
+  "gave 시험 원정 {USER} 허드"
+ ],
+ [
+  "shot",
+  "vote_panel"
+ ],
+ [
+  "cmd",
+  "gave 시험 길 x 닫기"
+ ],
+ [
+  "wait",
+  0.6
+ ],
+ [
+  "cmd",
+  "gave 시험 원정 {USER} 허드"
+ ],
+ [
+  "shot",
+  "vote_pick"
+ ],
+ [
+  "cmd",
+  "gave 시험 라운드종류 x r_collect"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  40
+ ],
+ [
+  "until",
+  "round=r_collect",
+  15
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 x on"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "cmd",
+  "gave 시험 원정 {USER} 허드"
+ ],
+ [
+  "shot",
+  "round_band"
+ ],
+ [
+  "cmd",
+  "gave 시험 라운드종류 x r_survive"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 4"
+ ],
+ [
+  "until",
+  "round=r_survive",
+  15
+ ],
+ [
+  "wait",
+  6
+ ],
+ [
+  "cmd",
+  "gave 시험 원정 {USER} 허드"
+ ],
+ [
+  "shot",
+  "goal_survive"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 x off"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  40
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "cmd",
+  "gave 시험 결과 {USER} G38"
+ ],
+ [
+  "cmd",
+  "tp {USER} 6.5 64 9.5 150 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 죽이기 {USER}"
+ ],
+ [
+  "wait",
+  4
+ ],
+ [
+  "shot",
+  "dead_view"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 {USER} off"
+ ],
+ [
+  "until",
+  "state=OVER",
+  10
+ ],
+ [
+  "wait",
+  11
+ ],
+ [
+  "shot",
+  "over_black"
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "wait",
+  4
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ]
+]

@@ -1,0 +1,386 @@
+[
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gamemode adventure {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  25
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 {USER} on"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 19"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "cmd",
+  "gave 시험 쉬기 x"
+ ],
+ [
+  "until",
+  "state=BREAK",
+  10
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "shot",
+  "next"
+ ],
+ [
+  "cmd",
+  "gave 시험 웨이브내용 x 20"
+ ],
+ [
+  "cmd",
+  "tp {USER} 6.5 64 6.5 180 -25"
+ ],
+ [
+  "until",
+  "boss=B2",
+  45
+ ],
+ [
+  "wait",
+  2.5
+ ],
+ [
+  "shot",
+  "intro_a"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 음악 x 보기"
+ ],
+ [
+  "wait",
+  3.0
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 180 -70"
+ ],
+ [
+  "wait",
+  0.4
+ ],
+ [
+  "shot",
+  "intro_up"
+ ],
+ [
+  "wait",
+  3.0
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 상태"
+ ],
+ [
+  "shot",
+  "fight_a"
+ ],
+ [
+  "wait",
+  6.5
+ ],
+ [
+  "cmd",
+  "gave 시험 일으키기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} -180 10"
+ ],
+ [
+  "wait",
+  0.4
+ ],
+ [
+  "shot",
+  "auto_0"
+ ],
+ [
+  "wait",
+  6.5
+ ],
+ [
+  "cmd",
+  "gave 시험 일으키기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} -83 -35"
+ ],
+ [
+  "wait",
+  0.4
+ ],
+ [
+  "shot",
+  "auto_1"
+ ],
+ [
+  "wait",
+  6.5
+ ],
+ [
+  "cmd",
+  "gave 시험 일으키기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 14 10"
+ ],
+ [
+  "wait",
+  0.4
+ ],
+ [
+  "shot",
+  "auto_2"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 체력 0.6"
+ ],
+ [
+  "wait",
+  6.5
+ ],
+ [
+  "cmd",
+  "gave 시험 일으키기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 111 -35"
+ ],
+ [
+  "wait",
+  0.4
+ ],
+ [
+  "shot",
+  "auto_3"
+ ],
+ [
+  "wait",
+  6.5
+ ],
+ [
+  "cmd",
+  "gave 시험 일으키기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} -152 10"
+ ],
+ [
+  "wait",
+  0.4
+ ],
+ [
+  "shot",
+  "auto_4"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 체력 0.28"
+ ],
+ [
+  "wait",
+  6.5
+ ],
+ [
+  "cmd",
+  "gave 시험 일으키기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} -55 -35"
+ ],
+ [
+  "wait",
+  0.4
+ ],
+ [
+  "shot",
+  "auto_5"
+ ],
+ [
+  "wait",
+  6.5
+ ],
+ [
+  "cmd",
+  "gave 시험 일으키기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 42 10"
+ ],
+ [
+  "wait",
+  0.4
+ ],
+ [
+  "shot",
+  "auto_6"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹시간 x"
+ ],
+ [
+  "cmd",
+  "gave 시험 예산 x"
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 일으키기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 {USER} 죽이기"
+ ],
+ [
+  "wait",
+  2.0
+ ],
+ [
+  "shot",
+  "dying"
+ ],
+ [
+  "wait",
+  3.0
+ ],
+ [
+  "shot",
+  "wave"
+ ],
+ [
+  "until",
+  "state=BREAK",
+  40
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "shot",
+  "break"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 증강목록 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 땅 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 래그돌 x"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹시간 x"
+ ]
+]

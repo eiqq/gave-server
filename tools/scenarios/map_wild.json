@@ -1,0 +1,346 @@
+[
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gamemode adventure {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 맵검사 x"
+ ],
+ [
+  "cmd",
+  "gave 시험 맵점 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 맵목록 x 틈"
+ ],
+ [
+  "cmd",
+  "gave 시험 맵목록 x 웅덩이"
+ ],
+ [
+  "cmd",
+  "gave 시험 우리 x"
+ ],
+ [
+  "cmd",
+  "gave 시험 카메라 {USER} 0.5 65.6 2.5 180 3"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "shot",
+  "view_n"
+ ],
+ [
+  "cmd",
+  "gave 시험 카메라 {USER} 0.5 65.6 2.5 270 3"
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "shot",
+  "view_e"
+ ],
+ [
+  "cmd",
+  "gave 시험 카메라 {USER} 0.5 65.6 2.5 0 3"
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "shot",
+  "view_s"
+ ],
+ [
+  "cmd",
+  "gave 시험 카메라 {USER} 0.5 65.6 2.5 90 3"
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "shot",
+  "view_w"
+ ],
+ [
+  "cmd",
+  "gave 시험 카메라 {USER} 0.5 110 0.5 0 90"
+ ],
+ [
+  "wait",
+  4
+ ],
+ [
+  "shot",
+  "top"
+ ],
+ [
+  "cmd",
+  "gave 시험 카메라 {USER} 20 80 30 150 25"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "shot",
+  "oblique"
+ ],
+ [
+  "cmd",
+  "gave 시험 카메라끝 {USER}"
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "cmd",
+  "gave 시험 맵점 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 2.5 180 30"
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "cmd",
+  "gave 시험 상점보기 {USER}"
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "shot",
+  "shop"
+ ],
+ [
+  "cmd",
+  "gave 시험 상점닫기 {USER}"
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 50.5 0 0"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 자리 {USER}"
+ ],
+ [
+  "cmd",
+  "tp {USER} 60.5 64 0.5 270 0"
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "cmd",
+  "gave 시험 자리 {USER}"
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gave 시험 자리 {USER}"
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 2.5 180 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 x on"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 1"
+ ],
+ [
+  "wait",
+  9
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 2.5 180 0"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "shot",
+  "w1_n"
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 2.5 270 0"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "shot",
+  "w1_e"
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 2.5 0 0"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "shot",
+  "w1_s"
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 2.5 90 0"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "shot",
+  "w1_w"
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 8"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "wait",
+  8
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 2.5 180 0"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "shot",
+  "w8_n"
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 2.5 270 0"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "shot",
+  "w8_e"
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 2.5 0 0"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "shot",
+  "w8_s"
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 2.5 90 0"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "shot",
+  "w8_w"
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 카메라 {USER} 0.5 120 0.5 0 90"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "shot",
+  "w8_top"
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 감독 x"
+ ]
+]

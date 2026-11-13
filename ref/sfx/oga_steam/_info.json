@@ -1,0 +1,55 @@
+{
+ "title": "Steam release sounds",
+ "author": "bart",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/steam-release-sounds",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+ "note": "",
+ "desc": "Attribution appreciated :)",
+ "urls": [
+  "https://opengameart.org/sites/default/files/steam_hisses.zip"
+ ],
+ "pack": "oga_steam",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "steam_hisses.zip",
+   "bytes": 622313,
+   "sha256": "7dc5ae6f43ef0e9a47b8333e1e1508463cb64877ab06baa0259c643a9ab4677f"
+  }
+ ],
+ "files": [
+  {
+   "file": "steam_hisses_marker_1.wav",
+   "orig": "steam hisses - Marker #1.wav",
+   "bytes": 325956,
+   "sha256": "1dd3462e1320c9a620c35328fee71d4ca30a5284dd9948b24da0faecb476817c"
+  },
+  {
+   "file": "steam_hisses_marker_2.wav",
+   "orig": "steam hisses - Marker #2.wav",
+   "bytes": 325960,
+   "sha256": "e0f94117729588440da6f56fec934fc637b299266556fd6a27df68a03277ef6a"
+  },
+  {
+   "file": "steam_hisses_marker_3.wav",
+   "orig": "steam hisses - Marker #3.wav",
+   "bytes": 325956,
+   "sha256": "f064442e7f7974f7f526f5d7dafc62015ea2d0ad7b1ca252e2841df4709ebe24"
+  },
+  {
+   "file": "steam_hisses_marker_4.wav",
+   "orig": "steam hisses - Marker #4.wav",
+   "bytes": 325960,
+   "sha256": "f3e7573a11cc6403974eaba2467b19fd10c14bf712f879db84ee597934048398"
+  },
+  {
+   "file": "steam_hisses_marker_5.wav",
+   "orig": "steam hisses - Marker #5.wav",
+   "bytes": 325956,
+   "sha256": "eef1eaa97198ae5abf4f9961116658e60575eb10fd77aa3dae9cad05313f14c5"
+  }
+ ]
+}

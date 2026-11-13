@@ -1,0 +1,15 @@
+{
+ "bs_sub_b4": "눈을 뜨려 한다",
+ "bs_b4_p2": "다가온다",
+ "bs_b4_p3": "넘어온다",
+ "bs_b4_learn_bullet": "총알이 덜 먹힌다",
+ "bs_b4_learn_pellet": "산탄이 덜 먹힌다",
+ "bs_b4_learn_sniper": "저격이 덜 먹힌다",
+ "bs_b4_learn_explosion": "폭발이 덜 먹힌다",
+ "bs_b4_learn_fire": "불이 덜 먹힌다",
+ "notice_b4_full": "눈빛에 굳었다",
+ "cause_b4_gaze": "지평선이 봤다",
+ "cause_b4_stab": "손가락에 찍혔다",
+ "cause_b4_tear": "눈물에 맞았다",
+ "cause_b4_ember": "불씨 땅을 밟았다"
+}

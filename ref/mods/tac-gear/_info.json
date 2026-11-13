@@ -1,0 +1,37 @@
+{
+ "slug": "tac-gear",
+ "title": "TAC GEAR",
+ "url": "https://modrinth.com/mod/tac-gear",
+ "version": "0.7.1",
+ "version_name": "TAC GEAR 0.7.1",
+ "date": "2026-07-07",
+ "game_versions": [
+  "1.20.1"
+ ],
+ "loaders": [
+  "forge"
+ ],
+ "file": "tac_gear-0.7.1.jar",
+ "file_url": "https://cdn.modrinth.com/data/NPQ465cD/versions/6F0Kbj6d/tac_gear-0.7.1.jar",
+ "sha512": "758e43e3e34ed5f7e51e483ee35678bc81bef6616be49665d2502a12557af2d2e2f15e294b2888880a27df979c05c43aa253d6be933d7636e491f361247e49cc",
+ "size": 1115653,
+ "license": "MIT",
+ "license_name": "MIT License",
+ "license_url": null,
+ "source": null,
+ "license_note": "Modrinth MIT, jar mods.toml license=\"MIT\". 소리의 원래 출처는 모드에 적혀 있지 않음",
+ "asset_license": "MIT",
+ "note": "2026-11-10 권리 감사: 모델 block/wooden_crate 는 MIT(Copyright (c) GF2022, 전문 tools/props/licenses/LICENSE-MIT-TAC-GEAR.txt). 소리에는 MIT 표기를 믿지 않는다: grenade_pinpull, grenade_spooneject 의 Vorbis vendor 가 'converted from Audiokinetic Wwise by ww2ogg 0.22'(상용 게임 소리 묶음을 뽑은 흔적), grenade_explode_1 은 출처 기록이 없다. 쓰는 소리 3개 모두 출처 미확인(docs/소품출처.md 권리 감사)",
+ "jar_file": "tac_gear-0.7.1.jar",
+ "jar_path_when_extracted": "C:\\Users\\PC\\Desktop\\클로드\\zombierun\\ref\\mods\\tac-gear\\tac_gear-0.7.1.jar",
+ "extracted": [
+  "META-INF/mods.toml",
+  "assets/tac_gear/models/block/wooden_crate.json",
+  "assets/tac_gear/sounds/grenade_explode_1.ogg",
+  "assets/tac_gear/sounds/grenade_pinpull.ogg",
+  "assets/tac_gear/sounds/grenade_spooneject.ogg",
+  "assets/tac_gear/textures/block/wooden_crate.png"
+ ],
+ "used": true,
+ "jar_deleted": "쓰는 에셋만 extracted/ 에 꺼내고 jar 는 지움(디스크 부족). 다시 필요하면 file_url 에서 받고 sha512 로 맞춰 볼 것"
+}

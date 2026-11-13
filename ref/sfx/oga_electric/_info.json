@@ -1,0 +1,211 @@
+{
+ "title": "Electricity Game Sound Pack",
+ "author": "faxcorp",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/electricity-game-sound-pack",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+ "note": "",
+ "desc": "Collection of sounds for an electricity-themed game. Some sounds would fit universally. Loops and one-shots (if name doesnt contail \"Loop\" doesn't mean its not looping lol) I have this pack in Unreal Engine format already here! Also check out my game that uses these sounds!",
+ "urls": [
+  "https://opengameart.org/sites/default/files/charge.wav",
+  "https://opengameart.org/sites/default/files/chargestart.wav",
+  "https://opengameart.org/sites/default/files/crackleelectricityloop.wav",
+  "https://opengameart.org/sites/default/files/death_1.wav",
+  "https://opengameart.org/sites/default/files/deathboom.wav",
+  "https://opengameart.org/sites/default/files/groundhit.wav",
+  "https://opengameart.org/sites/default/files/hit.wav",
+  "https://opengameart.org/sites/default/files/killconfirmed.wav",
+  "https://opengameart.org/sites/default/files/powerdown.wav",
+  "https://opengameart.org/sites/default/files/powerup.wav",
+  "https://opengameart.org/sites/default/files/recharge.wav",
+  "https://opengameart.org/sites/default/files/shieldhit.wav",
+  "https://opengameart.org/sites/default/files/shieldloop.wav",
+  "https://opengameart.org/sites/default/files/snaploop.wav",
+  "https://opengameart.org/sites/default/files/teleport_1.wav",
+  "https://opengameart.org/sites/default/files/turbo.wav"
+ ],
+ "pack": "oga_electric",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "charge.wav",
+   "bytes": 729164,
+   "sha256": "397e4a4da793558cc541d9fce3da5791cb21dddadf31c02442e67f3a58cbe1c8"
+  },
+  {
+   "file": "chargestart.wav",
+   "bytes": 713406,
+   "sha256": "af02239346e70f3a7d75113e19d0bf5c6605c1b3bc3cc3f38fffab2b1f731210"
+  },
+  {
+   "file": "crackleelectricityloop.wav",
+   "bytes": 88300,
+   "sha256": "c872ff9719f9bdf503e5d87fe9b1b128255fe2f9506e3a380ff022b83e0b7be8"
+  },
+  {
+   "file": "death.wav",
+   "bytes": 307196,
+   "sha256": "2314f32261ccd8d8aae0c96239107b91e5e0e93b2664f598a9495aa8cb02524d"
+  },
+  {
+   "file": "deathboom.wav",
+   "bytes": 1221468,
+   "sha256": "fa7943c117f367b205bf808486d249c22e894f19e5641608a1a25c25d6d7ad39"
+  },
+  {
+   "file": "groundhit.wav",
+   "bytes": 50304,
+   "sha256": "34b04cf82aa1323dbb241567b0b4a1b64669984670f42f155b552860a9554174"
+  },
+  {
+   "file": "hit.wav",
+   "bytes": 389140,
+   "sha256": "03d05a1249c45d795382f840c35563c0f151423afd47c04a4af7a81bad2f32fc"
+  },
+  {
+   "file": "killconfirmed.wav",
+   "bytes": 364960,
+   "sha256": "d445a13e03d500b52c49be508955be2c0c97633d7b3ce8cdad53dff24513164f"
+  },
+  {
+   "file": "powerdown.wav",
+   "bytes": 353196,
+   "sha256": "3db6a8a58a9b71460dda4208c14b347a02086c1567d0e870d1e5370f75611bb5"
+  },
+  {
+   "file": "powerup.wav",
+   "bytes": 372180,
+   "sha256": "83995e33a847656ec6120e111de27293be962437ff79b7d85ca061ba374bfb4c"
+  },
+  {
+   "file": "recharge.wav",
+   "bytes": 1167048,
+   "sha256": "d79959002eae63aa86b506b3e1a3ef87f802d88a34227ae3ed19cf1211556f73"
+  },
+  {
+   "file": "shieldhit.wav",
+   "bytes": 137858,
+   "sha256": "6213e372a3aaafa0a4b33cc04e2f62ca97d20f3d91cf3506464d8cc9dc899625"
+  },
+  {
+   "file": "shieldloop.wav",
+   "bytes": 90224,
+   "sha256": "bb5fdba1fdbbd44a00143af7da8b86bf9581c3f2a8e22445c8601f51539dc801"
+  },
+  {
+   "file": "snaploop.wav",
+   "bytes": 435524,
+   "sha256": "350f26e58c47d2f061b0aa6681c245357258cb3084bcb0c48d34ddc8fca28cde"
+  },
+  {
+   "file": "teleport.wav",
+   "bytes": 138768,
+   "sha256": "93d6e931e26b93827a8980a21f203d8ca9d03ccc6dc19129e3241b900c11de49"
+  },
+  {
+   "file": "turbo.wav",
+   "bytes": 1131448,
+   "sha256": "427067b54b65d2f4c34850e94834cc4e96eb25d44443ee48087110253bfba802"
+  }
+ ],
+ "files": [
+  {
+   "file": "charge.wav",
+   "orig": "charge.wav",
+   "bytes": 729164,
+   "sha256": "397e4a4da793558cc541d9fce3da5791cb21dddadf31c02442e67f3a58cbe1c8"
+  },
+  {
+   "file": "chargestart.wav",
+   "orig": "chargestart.wav",
+   "bytes": 713406,
+   "sha256": "af02239346e70f3a7d75113e19d0bf5c6605c1b3bc3cc3f38fffab2b1f731210"
+  },
+  {
+   "file": "crackleelectricityloop.wav",
+   "orig": "crackleelectricityloop.wav",
+   "bytes": 88300,
+   "sha256": "c872ff9719f9bdf503e5d87fe9b1b128255fe2f9506e3a380ff022b83e0b7be8"
+  },
+  {
+   "file": "death.wav",
+   "orig": "death.wav",
+   "bytes": 307196,
+   "sha256": "2314f32261ccd8d8aae0c96239107b91e5e0e93b2664f598a9495aa8cb02524d"
+  },
+  {
+   "file": "deathboom.wav",
+   "orig": "deathboom.wav",
+   "bytes": 1221468,
+   "sha256": "fa7943c117f367b205bf808486d249c22e894f19e5641608a1a25c25d6d7ad39"
+  },
+  {
+   "file": "groundhit.wav",
+   "orig": "groundhit.wav",
+   "bytes": 50304,
+   "sha256": "34b04cf82aa1323dbb241567b0b4a1b64669984670f42f155b552860a9554174"
+  },
+  {
+   "file": "hit.wav",
+   "orig": "hit.wav",
+   "bytes": 389140,
+   "sha256": "03d05a1249c45d795382f840c35563c0f151423afd47c04a4af7a81bad2f32fc"
+  },
+  {
+   "file": "killconfirmed.wav",
+   "orig": "killconfirmed.wav",
+   "bytes": 364960,
+   "sha256": "d445a13e03d500b52c49be508955be2c0c97633d7b3ce8cdad53dff24513164f"
+  },
+  {
+   "file": "powerdown.wav",
+   "orig": "powerdown.wav",
+   "bytes": 353196,
+   "sha256": "3db6a8a58a9b71460dda4208c14b347a02086c1567d0e870d1e5370f75611bb5"
+  },
+  {
+   "file": "powerup.wav",
+   "orig": "powerup.wav",
+   "bytes": 372180,
+   "sha256": "83995e33a847656ec6120e111de27293be962437ff79b7d85ca061ba374bfb4c"
+  },
+  {
+   "file": "recharge.wav",
+   "orig": "recharge.wav",
+   "bytes": 1167048,
+   "sha256": "d79959002eae63aa86b506b3e1a3ef87f802d88a34227ae3ed19cf1211556f73"
+  },
+  {
+   "file": "shieldhit.wav",
+   "orig": "shieldhit.wav",
+   "bytes": 137858,
+   "sha256": "6213e372a3aaafa0a4b33cc04e2f62ca97d20f3d91cf3506464d8cc9dc899625"
+  },
+  {
+   "file": "shieldloop.wav",
+   "orig": "shieldloop.wav",
+   "bytes": 90224,
+   "sha256": "bb5fdba1fdbbd44a00143af7da8b86bf9581c3f2a8e22445c8601f51539dc801"
+  },
+  {
+   "file": "snaploop.wav",
+   "orig": "snaploop.wav",
+   "bytes": 435524,
+   "sha256": "350f26e58c47d2f061b0aa6681c245357258cb3084bcb0c48d34ddc8fca28cde"
+  },
+  {
+   "file": "teleport.wav",
+   "orig": "teleport.wav",
+   "bytes": 138768,
+   "sha256": "93d6e931e26b93827a8980a21f203d8ca9d03ccc6dc19129e3241b900c11de49"
+  },
+  {
+   "file": "turbo.wav",
+   "orig": "turbo.wav",
+   "bytes": 1131448,
+   "sha256": "427067b54b65d2f4c34850e94834cc4e96eb25d44443ee48087110253bfba802"
+  }
+ ]
+}

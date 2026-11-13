@@ -1,0 +1,512 @@
+[
+[
+"wait",
+2
+],
+[
+"cmd",
+"gamemode adventure {USER}"
+],
+[
+"cmd",
+"gave 시작"
+],
+[
+"until",
+"state=PREP",
+15
+],
+[
+"cmd",
+"gave 시험 판끝막기 {USER} on"
+],
+[
+"cmd",
+"gave 시험 총 {USER} RIFLE"
+],
+[
+"until",
+"state=WAVE",
+40
+],
+[
+"cmd",
+"gave 시험 감독빨리 x 0.1"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 10.5 0 0"
+],
+[
+"wait",
+0.5
+],
+[
+"cmd",
+"gave 소환 G01 6 22 x"
+],
+[
+"cmd",
+"gave 소환 G167 1 14 {USER}"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 몹목록 x G167"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 0 -50"
+],
+[
+"wait",
+0.4
+],
+[
+"shot",
+"g167_up"
+],
+[
+"wait",
+6
+],
+[
+"cmd",
+"gave 시험 몹목록 x G167"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g167_0"
+],
+[
+"wait",
+6
+],
+[
+"cmd",
+"gave 시험 몹목록 x G167"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g167_1"
+],
+[
+"wait",
+5
+],
+[
+"cmd",
+"gave 시험 몹목록 x G167"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g167_2"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G167 20"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 20"
+],
+[
+"wait",
+1.2
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} EXPLOSION 3 G167"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 몹목록 x G167"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x G167"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"wait",
+0.5
+],
+[
+"cmd",
+"gave 소환 G169 1 10 {USER}"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 몹목록 x G169"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 0 -50"
+],
+[
+"wait",
+0.4
+],
+[
+"shot",
+"g169_up"
+],
+[
+"wait",
+5
+],
+[
+"cmd",
+"gave 시험 몹목록 x G169"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g169_0"
+],
+[
+"wait",
+5
+],
+[
+"cmd",
+"gave 시험 몹목록 x G169"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g169_1"
+],
+[
+"wait",
+5
+],
+[
+"cmd",
+"gave 시험 몹목록 x G169"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g169_2"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G169 20"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 20"
+],
+[
+"wait",
+1.2
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} EXPLOSION 3 G169"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 몹목록 x G169"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x G169"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"wait",
+0.5
+],
+[
+"cmd",
+"gave 소환 G184 1 10 {USER}"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 몹목록 x G184"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 0 -50"
+],
+[
+"wait",
+0.4
+],
+[
+"shot",
+"g184_up"
+],
+[
+"wait",
+8
+],
+[
+"cmd",
+"gave 시험 몹목록 x G184"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g184_0"
+],
+[
+"wait",
+8
+],
+[
+"cmd",
+"gave 시험 몹목록 x G184"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g184_1"
+],
+[
+"wait",
+6
+],
+[
+"cmd",
+"gave 시험 몹목록 x G184"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g184_2"
+],
+[
+"cmd",
+"gave 시험 쓰러뜨리기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"wait",
+8
+],
+[
+"cmd",
+"gave 시험 몹목록 x G184"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G184 20"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 20"
+],
+[
+"wait",
+1.2
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} EXPLOSION 3 G184"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 몹목록 x G184"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x G184"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"wait",
+0.5
+],
+[
+"cmd",
+"gave 소환 G192 40 24 {USER}"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 몹목록 x G192"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 0 -50"
+],
+[
+"wait",
+0.4
+],
+[
+"shot",
+"g192_up"
+],
+[
+"wait",
+6
+],
+[
+"cmd",
+"gave 시험 몹목록 x G192"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g192_0"
+],
+[
+"wait",
+5
+],
+[
+"cmd",
+"gave 시험 몹목록 x G192"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g192_1"
+],
+[
+"wait",
+5
+],
+[
+"cmd",
+"gave 시험 몹목록 x G192"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g192_2"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G192 20"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 20"
+],
+[
+"wait",
+1.2
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} EXPLOSION 3 G192"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 몹목록 x G192"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x G192"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"wait",
+0.5
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 상태"
+]
+]

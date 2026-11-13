@@ -1,0 +1,22 @@
+[
+ ["wait", 3],
+ ["cmd", "gamemode adventure {USER}"],
+ ["cmd", "gave 시험 음악 {USER} 기록 on"],
+ ["cmd", "gave 시험 판끝막기 x on"],
+ ["cmd", "gave 웨이브 12"],
+ ["until", "state=WAVE", 20],
+ ["wait", 3],
+ ["cmd", "gave 시험 음악 {USER}"],
+ ["cmd", "gave 시험 쉬기 x"],
+ ["until", "wave=13", 40],
+ ["wait", 3],
+ ["cmd", "gave 시험 음악 {USER}"],
+ ["cmd", "gave 시험 사건 x 안개 3"],
+ ["cmd", "gave 시험 사건 x 범람"],
+ ["wait", 8],
+ ["cmd", "gave 상태"],
+ ["cmd", "gave 시험 음악 {USER}"],
+ ["cmd", "gave 중지"],
+ ["wait", 2],
+ ["cmd", "gave 상태"]
+]

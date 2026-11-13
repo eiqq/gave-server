@@ -1,0 +1,473 @@
+{
+ "tracks": {
+  "lobby": {
+   "ticks": 1999,
+   "xfade": 20,
+   "seconds": 99.99,
+   "from": "Gone Beyond",
+   "start": 0.48,
+   "end": 100.47,
+   "gain_db": -2.7
+  },
+  "break_a": {
+   "ticks": 200,
+   "xfade": 0,
+   "seconds": 10.04,
+   "from": "Childrens Theme",
+   "start": 0.21,
+   "end": 10.25,
+   "gain_db": 3.32
+  },
+  "break_b": {
+   "ticks": 194,
+   "xfade": 0,
+   "seconds": 9.74,
+   "from": "Childrens Theme",
+   "start": 10.25,
+   "end": 19.99,
+   "gain_db": 3.47
+  },
+  "break_end": {
+   "ticks": 100,
+   "xfade": 0,
+   "seconds": 5.0,
+   "from": "Dopplerette",
+   "start": 35.76,
+   "end": 40.76,
+   "gain_db": 1.77
+  },
+  "sting": {
+   "ticks": 52,
+   "xfade": 0,
+   "seconds": 2.6,
+   "from": "Zombie Chase",
+   "start": 9.15,
+   "end": 11.75,
+   "gain_db": -4.91
+  },
+  "wave_low_1": {
+   "ticks": 2803,
+   "xfade": 40,
+   "seconds": 140.17,
+   "from": "Exhilarate",
+   "start": 0.73,
+   "end": 140.9,
+   "gain_db": -9.73
+  },
+  "wave_low_2": {
+   "ticks": 2989,
+   "xfade": 50,
+   "seconds": 149.49,
+   "from": "Neolith",
+   "start": 0.02,
+   "end": 149.51,
+   "gain_db": -0.77
+  },
+  "wave_low_3": {
+   "ticks": 834,
+   "xfade": 20,
+   "seconds": 41.73,
+   "from": "Pump",
+   "start": 0.03,
+   "end": 41.76,
+   "gain_db": -8.0
+  },
+  "wave_mid_1": {
+   "ticks": 2987,
+   "xfade": 50,
+   "seconds": 149.38,
+   "from": "Ready Aim Fire",
+   "start": 0.19,
+   "end": 149.57,
+   "gain_db": -8.62
+  },
+  "wave_mid_2": {
+   "ticks": 2991,
+   "xfade": 50,
+   "seconds": 149.57,
+   "from": "Metalmania",
+   "start": 0.02,
+   "end": 149.59,
+   "gain_db": -9.73
+  },
+  "wave_high_1": {
+   "ticks": 3005,
+   "xfade": 50,
+   "seconds": 150.27,
+   "from": "Summon the Rawk",
+   "start": 0.02,
+   "end": 150.29,
+   "gain_db": -8.79
+  },
+  "wave_high_2": {
+   "ticks": 2970,
+   "xfade": 50,
+   "seconds": 148.52,
+   "from": "Burn The World Waltz ",
+   "start": 1.05,
+   "end": 149.57,
+   "gain_db": -0.47
+  },
+  "boss_1": {
+   "ticks": 2928,
+   "xfade": 50,
+   "seconds": 146.44,
+   "from": "Feral Angel Waltz ",
+   "start": 3.69,
+   "end": 150.13,
+   "gain_db": 5.2
+  },
+  "boss_2": {
+   "ticks": 2991,
+   "xfade": 50,
+   "seconds": 149.57,
+   "from": "Aggressor",
+   "start": 0.42,
+   "end": 149.99,
+   "gain_db": -6.06
+  },
+  "boss_sting": {
+   "ticks": 102,
+   "xfade": 0,
+   "seconds": 5.14,
+   "from": "sfx:oga_horn/theircoming3_0",
+   "start": 0.0,
+   "end": 5.14,
+   "gain_db": -2.33
+  },
+  "over": {
+   "ticks": 440,
+   "xfade": 0,
+   "seconds": 22.0,
+   "from": "Final Count",
+   "start": 179.97,
+   "end": 201.97,
+   "gain_db": -1.37
+  },
+  "a1_high_epicrock": {
+   "ticks": 2273,
+   "xfade": 10,
+   "seconds": 113.66,
+   "from": "oga:JRPG Epic Rock Battle Theme #1",
+   "start": 0.0,
+   "end": 113.66,
+   "gain_db": -9.78
+  },
+  "a2_low_bigrock": {
+   "ticks": 2002,
+   "xfade": 50,
+   "seconds": 100.13,
+   "from": "Big Rock",
+   "start": 0.02,
+   "end": 100.15,
+   "gain_db": -1.84
+  },
+  "a2_low_monolith": {
+   "ticks": 1992,
+   "xfade": 50,
+   "seconds": 99.61,
+   "from": "oga:Heavy Metal Riffs - Monolith",
+   "start": 0.08,
+   "end": 99.69,
+   "gain_db": -9.76
+  },
+  "a2_high_takethelead": {
+   "ticks": 2012,
+   "xfade": 50,
+   "seconds": 100.62,
+   "from": "Take the Lead",
+   "start": 41.15,
+   "end": 141.77,
+   "gain_db": -7.96
+  },
+  "a3_low_fightthem": {
+   "ticks": 1979,
+   "xfade": 50,
+   "seconds": 98.98,
+   "from": "oga:Fight Them Until We Can't",
+   "start": 0.69,
+   "end": 99.67,
+   "gain_db": -8.99
+  },
+  "a3_low_bestial": {
+   "ticks": 2001,
+   "xfade": 50,
+   "seconds": 100.06,
+   "from": "oga:Bestial Paragon Interface",
+   "start": 23.29,
+   "end": 123.35,
+   "gain_db": -9.49
+  },
+  "a3_high_hunger": {
+   "ticks": 1995,
+   "xfade": 50,
+   "seconds": 99.77,
+   "from": "oga:The Reach Of Hunger",
+   "start": 0.36,
+   "end": 100.13,
+   "gain_db": -9.78
+  },
+  "a4_low_abelian": {
+   "ticks": 1988,
+   "xfade": 50,
+   "seconds": 99.41,
+   "from": "oga:Abelian",
+   "start": 0.38,
+   "end": 99.79,
+   "gain_db": -8.24
+  },
+  "a4_high_hellfire": {
+   "ticks": 1992,
+   "xfade": 50,
+   "seconds": 99.64,
+   "from": "oga:Dragged Through Hellfire",
+   "start": 0.45,
+   "end": 100.09,
+   "gain_db": -10.26
+  },
+  "a4_high_recon": {
+   "ticks": 1982,
+   "xfade": 50,
+   "seconds": 99.14,
+   "from": "oga:The Recon Mission",
+   "start": 0.39,
+   "end": 99.53,
+   "gain_db": -8.69
+  },
+  "boss_3": {
+   "ticks": 2605,
+   "xfade": 50,
+   "seconds": 130.28,
+   "from": "oga:ArcLight - Epic Orchestral/Rock Soundtrack",
+   "start": 0.03,
+   "end": 130.31,
+   "gain_db": -5.57
+  },
+  "boss_4": {
+   "ticks": 2604,
+   "xfade": 50,
+   "seconds": 130.23,
+   "from": "oga:Vilified",
+   "start": 0.16,
+   "end": 130.39,
+   "gain_db": -10.34
+  },
+  "boss_final": {
+   "ticks": 2202,
+   "xfade": 50,
+   "seconds": 110.1,
+   "from": "oga:Dragged Through Hellfire",
+   "start": 116.57,
+   "end": 226.67,
+   "gain_db": -8.94
+  },
+  "boss_pre": {
+   "ticks": 391,
+   "xfade": 0,
+   "seconds": 19.56,
+   "from": "Lightless Dawn",
+   "start": 162.25,
+   "end": 181.81,
+   "gain_db": 1.05
+  },
+  "boss_down": {
+   "ticks": 136,
+   "xfade": 0,
+   "seconds": 6.8,
+   "from": "Killers",
+   "start": 294.02,
+   "end": 300.82,
+   "gain_db": 0.38
+  },
+  "chase_1": {
+   "ticks": 2050,
+   "xfade": 50,
+   "seconds": 102.54,
+   "from": "oga:Megasong",
+   "start": 1.39,
+   "end": 103.93,
+   "gain_db": -9.3
+  },
+  "chase_2": {
+   "ticks": 2087,
+   "xfade": 50,
+   "seconds": 104.36,
+   "from": "oga:Black Rock",
+   "start": 0.03,
+   "end": 104.39,
+   "gain_db": -8.68
+  },
+  "laststand_1": {
+   "ticks": 863,
+   "xfade": 30,
+   "seconds": 43.17,
+   "from": "Killers",
+   "start": 1.28,
+   "end": 44.45,
+   "gain_db": -5.54
+  },
+  "laststand_2": {
+   "ticks": 1145,
+   "xfade": 40,
+   "seconds": 57.28,
+   "from": "Killers",
+   "start": 166.15,
+   "end": 223.43,
+   "gain_db": -5.26
+  },
+  "credits": {
+   "ticks": 1526,
+   "xfade": 60,
+   "seconds": 76.33,
+   "from": "Motherlode",
+   "start": 0.02,
+   "end": 76.35,
+   "gain_db": -6.1
+  },
+  "ending": {
+   "ticks": 1200,
+   "xfade": 0,
+   "seconds": 60.0,
+   "from": "Eternal Hope",
+   "start": 221.2,
+   "end": 281.2,
+   "gain_db": 4.33
+  }
+ },
+ "tiers": {
+  "low": [
+   "wave_low_1",
+   "wave_low_2",
+   "wave_low_3"
+  ],
+  "mid": [
+   "wave_mid_1",
+   "wave_mid_2"
+  ],
+  "high": [
+   "wave_high_1",
+   "wave_high_2"
+  ]
+ },
+ "lobby": "lobby",
+ "break": [
+  "break_a",
+  "break_b"
+ ],
+ "break_end": "break_end",
+ "sting": "sting",
+ "over": "over",
+ "boss": [
+  "boss_1",
+  "boss_2"
+ ],
+ "boss_sting": "boss_sting",
+ "acts": {
+  "1": {
+   "low": [
+    "wave_low_1",
+    "wave_low_2",
+    "wave_low_3"
+   ],
+   "high": [
+    "wave_mid_1",
+    "a1_high_epicrock"
+   ],
+   "boss": [
+    "boss_2",
+    "boss_1"
+   ]
+  },
+  "2": {
+   "low": [
+    "a2_low_bigrock",
+    "a2_low_monolith"
+   ],
+   "high": [
+    "a2_high_takethelead",
+    "wave_mid_2"
+   ],
+   "boss": [
+    "boss_1",
+    "boss_2"
+   ]
+  },
+  "3": {
+   "low": [
+    "a3_low_fightthem",
+    "a3_low_bestial"
+   ],
+   "high": [
+    "wave_high_2",
+    "a3_high_hunger"
+   ],
+   "boss": [
+    "boss_3",
+    "boss_4"
+   ]
+  },
+  "4": {
+   "low": [
+    "wave_high_1",
+    "a4_low_abelian"
+   ],
+   "high": [
+    "a4_high_hellfire",
+    "a4_high_recon"
+   ],
+   "boss": [
+    "boss_4",
+    "boss_3"
+   ]
+  }
+ },
+ "cues": {
+  "travel": {
+   "tracks": [
+    "chase_2"
+   ],
+   "loop": true,
+   "until": "wave_start"
+  },
+  "chase": {
+   "tracks": [
+    "chase_1",
+    "chase_2"
+   ],
+   "loop": true,
+   "until": "wave_end"
+  },
+  "laststand": {
+   "tracks": [
+    "laststand_1",
+    "laststand_2"
+   ],
+   "loop": true,
+   "until": "wave_end"
+  },
+  "credits": {
+   "tracks": [
+    "credits"
+   ],
+   "loop": true,
+   "until": "lobby",
+   "over_hush": true
+  },
+  "ending": {
+   "tracks": [
+    "ending"
+   ],
+   "loop": false,
+   "until": "lobby",
+   "over_hush": true
+  }
+ },
+ "cue_alias": {
+  "last_stand": "laststand"
+ },
+ "boss_pre": "boss_pre",
+ "boss_down": "boss_down",
+ "boss_final": [
+  "boss_final"
+ ]
+}

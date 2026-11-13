@@ -1,0 +1,115 @@
+[
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gave 시험 웨이브내용 x 3"
+ ],
+ [
+  "cmd",
+  "gave 시험 웨이브내용 x 6"
+ ],
+ [
+  "cmd",
+  "gave 시험 웨이브내용 x 10"
+ ],
+ [
+  "cmd",
+  "gave 시험 웨이브내용 x 13"
+ ],
+ [
+  "cmd",
+  "gave 시험 웨이브내용 x 15"
+ ],
+ [
+  "cmd",
+  "gave 시험 웨이브내용 x 21"
+ ],
+ [
+  "cmd",
+  "gave 시험 웨이브내용 x 25"
+ ],
+ [
+  "cmd",
+  "gave 시험 웨이브내용 x 31"
+ ],
+ [
+  "cmd",
+  "gave 시험 웨이브내용 x 41"
+ ],
+ [
+  "cmd",
+  "gave 시험 웨이브내용 x 60"
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=PREP",
+  15
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 41"
+ ],
+ [
+  "wait",
+  4
+ ],
+ [
+  "cmd",
+  "gave 시험 감독 x"
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 변이 x split"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "cmd",
+  "gave 시험 사건 x 웅얼 3"
+ ],
+ [
+  "cmd",
+  "gave 시험 쉬기 x"
+ ],
+ [
+  "wait",
+  6
+ ],
+ [
+  "cmd",
+  "gave 시험 감독 x"
+ ],
+ [
+  "shot",
+  "break41"
+ ],
+ [
+  "cmd",
+  "gave 중지"
+ ],
+ [
+  "wait",
+  1
+ ]
+]

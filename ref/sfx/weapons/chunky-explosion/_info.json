@@ -1,0 +1,13 @@
+{
+ "title": "Chunky Explosion",
+ "url": "https://opengameart.org/content/chunky-explosion",
+ "file_url": "https://opengameart.org/sites/default/files/Chunky%20Explosion.mp3",
+ "author": "Joth",
+ "license": "CC0-1.0",
+ "license_note": "OGA License(s): CC0",
+ "files": {
+  "Chunky Explosion.mp3": "4de53bffac187e59d3f5b43096df2f8fcb4160076b65b71a67074947950e025f"
+ },
+ "date": "2026-11-12",
+ "note": "받은 묶음에서 쓰는 파일만 꺼냄(묶음은 지움). 다시 필요하면 file_url 에서 받고 archive_sha256 으로 맞춰 볼 것"
+}

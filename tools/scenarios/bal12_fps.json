@@ -1,0 +1,148 @@
+[
+[
+"cmd",
+"gamemode adventure {USER}"
+],
+[
+"wait",
+2
+],
+[
+"cmd",
+"gave 시험 균형 x FIRST_MIN 0"
+],
+[
+"cmd",
+"gave 시험 균형 x FIRST_SHARE 0"
+],
+[
+"cmd",
+"gave 시작"
+],
+[
+"until",
+"state=PREP",
+15
+],
+[
+"cmd",
+"gave 시험 판끝막기 x on"
+],
+[
+"until",
+"state=WAVE",
+20
+],
+[
+"wait",
+2
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 4.5 180 2"
+],
+[
+"cmd",
+"gave 시험 몹정지 x on"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G01 100 0.5 -25.5 18"
+],
+[
+"wait",
+3
+],
+[
+"cmd",
+"execute as {USER} at @s run summon minecraft:marker ~ ~ ~ {Tags:[\"f3\"]}"
+],
+[
+"wait",
+4
+],
+[
+"shot",
+"fps_100"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G13 50 -20.5 -15.5 14"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G01 50 20.5 -15.5 14"
+],
+[
+"wait",
+4
+],
+[
+"shot",
+"fps_200"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G13 50 -20.5 -15.5 14"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G01 50 20.5 -15.5 14"
+],
+[
+"wait",
+4
+],
+[
+"shot",
+"fps_300"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G13 50 -20.5 -15.5 14"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G01 50 20.5 -15.5 14"
+],
+[
+"wait",
+4
+],
+[
+"shot",
+"fps_400"
+],
+[
+"cmd",
+"gave 시험 몹정지 x off"
+],
+[
+"wait",
+3
+],
+[
+"shot",
+"fps_400_move"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"kill @e[type=minecraft:marker,tag=f3]"
+],
+[
+"cmd",
+"gave 중지"
+]
+]

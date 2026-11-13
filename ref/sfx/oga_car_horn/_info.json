@@ -1,0 +1,31 @@
+{
+ "title": "Car signal",
+ "author": "Yaroslav_Novikov",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/car-signal",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+ "note": "",
+ "desc": "Just car signal beep-sound",
+ "urls": [
+  "https://opengameart.org/sites/default/files/car2.wav"
+ ],
+ "pack": "oga_car_horn",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "car2.wav",
+   "bytes": 259404,
+   "sha256": "51732bfcb33198483ddab8f591641317445b993f56cd473eccd4641b0f8341c9"
+  }
+ ],
+ "files": [
+  {
+   "file": "car2.wav",
+   "orig": "car2.wav",
+   "bytes": 259404,
+   "sha256": "51732bfcb33198483ddab8f591641317445b993f56cd473eccd4641b0f8341c9"
+  }
+ ]
+}

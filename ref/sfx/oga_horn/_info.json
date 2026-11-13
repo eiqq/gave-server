@@ -1,0 +1,42 @@
+{
+ "title": "Their Coming (generic horn sound)",
+ "author": "StumpyStrust",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/their-coming-generic-horn-sound",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0",
+ "note": "Link to Opengameart maybe.",
+ "urls": [
+  "https://opengameart.org/sites/default/files/theircoming3_0.ogg",
+  "https://opengameart.org/sites/default/files/theircoming_0.ogg"
+ ],
+ "pack": "oga_horn",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "theircoming3_0.ogg",
+   "bytes": 119570,
+   "sha256": "4f2e3500b4f06470727012e36709931d3edfc186d78999cee59674a521d06538"
+  },
+  {
+   "file": "theircoming_0.ogg",
+   "bytes": 117400,
+   "sha256": "949975ecdd9bece552aebf3e7823f785f686e56886a6b8dfc7a0f9b9692aa6ec"
+  }
+ ],
+ "files": [
+  {
+   "file": "theircoming3_0.ogg",
+   "orig": "theircoming3_0.ogg",
+   "bytes": 119570,
+   "sha256": "4f2e3500b4f06470727012e36709931d3edfc186d78999cee59674a521d06538"
+  },
+  {
+   "file": "theircoming_0.ogg",
+   "orig": "theircoming_0.ogg",
+   "bytes": 117400,
+   "sha256": "949975ecdd9bece552aebf3e7823f785f686e56886a6b8dfc7a0f9b9692aa6ec"
+  }
+ ]
+}

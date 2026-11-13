@@ -1,0 +1,78 @@
+{
+ "title": "Monster snarls",
+ "author": "Darsycho",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/monster-snarls",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0",
+ "note": "Feel free to use for whatever, credit is appreciated!",
+ "urls": [
+  "https://opengameart.org/sites/default/files/monster-snarls_0.ogg",
+  "https://opengameart.org/sites/default/files/monster-snarls-2_0.ogg",
+  "https://opengameart.org/sites/default/files/monsters-snarls-3_0.ogg",
+  "https://opengameart.org/sites/default/files/monster-snarl-attack.ogg",
+  "https://opengameart.org/sites/default/files/monster-snarl-5.ogg"
+ ],
+ "pack": "oga_snarls",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "monster-snarl-5.ogg",
+   "bytes": 201559,
+   "sha256": "aeaf9ab0f25cb8b035a3257913206afd8ba33d47876106291d38dfac7e5c07aa"
+  },
+  {
+   "file": "monster-snarl-attack.ogg",
+   "bytes": 185872,
+   "sha256": "34bf1ceef265725abf00ab3263bbbb492792e126bb1619addd4a5d3ad123347f"
+  },
+  {
+   "file": "monster-snarls-2_0.ogg",
+   "bytes": 75510,
+   "sha256": "dbc7b5e621892b5dbc27ee25230b57daaddbc83daadfb20131988b7367f967e1"
+  },
+  {
+   "file": "monster-snarls_0.ogg",
+   "bytes": 195986,
+   "sha256": "7401193d0cc5eb193379cf326c8868d6823a284ebc32ffaa298c1a94d2e25994"
+  },
+  {
+   "file": "monsters-snarls-3_0.ogg",
+   "bytes": 203942,
+   "sha256": "5917d2697b8688b2c59e592d448d473ae0eeaed83802541ebd19bc87f97fe8a7"
+  }
+ ],
+ "files": [
+  {
+   "file": "monster_snarl_5.ogg",
+   "orig": "monster-snarl-5.ogg",
+   "bytes": 201559,
+   "sha256": "aeaf9ab0f25cb8b035a3257913206afd8ba33d47876106291d38dfac7e5c07aa"
+  },
+  {
+   "file": "monster_snarl_attack.ogg",
+   "orig": "monster-snarl-attack.ogg",
+   "bytes": 185872,
+   "sha256": "34bf1ceef265725abf00ab3263bbbb492792e126bb1619addd4a5d3ad123347f"
+  },
+  {
+   "file": "monster_snarls_2_0.ogg",
+   "orig": "monster-snarls-2_0.ogg",
+   "bytes": 75510,
+   "sha256": "dbc7b5e621892b5dbc27ee25230b57daaddbc83daadfb20131988b7367f967e1"
+  },
+  {
+   "file": "monster_snarls_0.ogg",
+   "orig": "monster-snarls_0.ogg",
+   "bytes": 195986,
+   "sha256": "7401193d0cc5eb193379cf326c8868d6823a284ebc32ffaa298c1a94d2e25994"
+  },
+  {
+   "file": "monsters_snarls_3_0.ogg",
+   "orig": "monsters-snarls-3_0.ogg",
+   "bytes": 203942,
+   "sha256": "5917d2697b8688b2c59e592d448d473ae0eeaed83802541ebd19bc87f97fe8a7"
+  }
+ ]
+}

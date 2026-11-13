@@ -1,0 +1,456 @@
+[
+[
+"cmd",
+"gamemode adventure {USER}"
+],
+[
+"wait",
+2
+],
+[
+"cmd",
+"gave 중지"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시작"
+],
+[
+"until",
+"state=PREP",
+15
+],
+[
+"cmd",
+"gave 시험 판끝막기 x on"
+],
+[
+"until",
+"state=WAVE",
+20
+],
+[
+"cmd",
+"gave 시험 균형 x ALIVE_PER_WAVE 0"
+],
+[
+"cmd",
+"gave 시험 균형 x ALIVE_BASE 0"
+],
+[
+"cmd",
+"gave 시험 래그돌값 x settleSeconds 60"
+],
+[
+"cmd",
+"gave 시험 래그돌값 x active 0"
+],
+[
+"wait",
+3
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"wait",
+0.5
+],
+[
+"cmd",
+"tp {USER} 0.5 64 -16 0 0"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G15 1 -8.5 -7"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G16 1 -5.5 -7"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G17 1 -2.5 -7"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G18 1 0.5 -7"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G19 1 3.5 -7"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G20 1 6.5 -7"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G21 1 9.5 -7"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G22 1 -8.5 -2"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G23 1 -5.5 -2"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G24 1 -2.5 -2"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G25 1 0.5 -2"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G26 1 3.5 -2"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G27 1 6.5 -2"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G28 1 9.5 -2"
+],
+[
+"wait",
+1.0
+],
+[
+"cmd",
+"gave 시험 몹정지 x on"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 시험 몹정지 x off"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 2 G15"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 2 G16"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 2 G17"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 2 G18"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 2 G19"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 2 G20"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 2 G21"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 2 G22"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 2 G23"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 2 G24"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 2 G25"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 2 G26"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 2 G27"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 2 G28"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} EXPLOSION 30"
+],
+[
+"cmd",
+"gave 시험 몹목록 x"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"wait",
+8
+],
+[
+"cmd",
+"gave 시험 카메라 {USER} 0.5 74 -4.5 0 90"
+],
+[
+"wait",
+1.5
+],
+[
+"shot",
+"c3_top"
+],
+[
+"cmd",
+"gave 시험 카메라 {USER} 0.5 68 -15 0 28"
+],
+[
+"wait",
+1.2
+],
+[
+"shot",
+"c3_side"
+],
+[
+"cmd",
+"gave 시험 래그돌검사 x"
+],
+[
+"cmd",
+"gave 시험 카메라끝 {USER}"
+],
+[
+"cmd",
+"gamemode adventure {USER}"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"wait",
+0.5
+],
+[
+"cmd",
+"tp {USER} 0.5 64 -16 0 0"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G43 1 -8.5 -7"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G44 1 -5.5 -7"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G45 1 -2.5 -7"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G46 1 0.5 -7"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G47 1 3.5 -7"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G48 1 6.5 -7"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G49 1 9.5 -7"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G50 1 -8.5 -2"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G51 1 -5.5 -2"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G52 1 -2.5 -2"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G53 1 0.5 -2"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G54 1 3.5 -2"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G55 1 6.5 -2"
+],
+[
+"wait",
+1.0
+],
+[
+"cmd",
+"gave 시험 몹정지 x on"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 시험 몹정지 x off"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 2 G43"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 2 G44"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 2 G45"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 2 G46"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 2 G47"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 2 G48"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 2 G49"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 2 G50"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 2 G51"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 2 G52"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 2 G53"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 2 G54"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 2 G55"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} EXPLOSION 30"
+],
+[
+"cmd",
+"gave 시험 몹목록 x"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"wait",
+8
+],
+[
+"cmd",
+"gave 시험 카메라 {USER} 0.5 74 -4.5 0 90"
+],
+[
+"wait",
+1.5
+],
+[
+"shot",
+"c4_top"
+],
+[
+"cmd",
+"gave 시험 카메라 {USER} 0.5 68 -15 0 28"
+],
+[
+"wait",
+1.2
+],
+[
+"shot",
+"c4_side"
+],
+[
+"cmd",
+"gave 시험 래그돌검사 x"
+],
+[
+"cmd",
+"gave 시험 카메라끝 {USER}"
+],
+[
+"cmd",
+"gamemode adventure {USER}"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"gave 시험 균형 x ALIVE_BASE 7"
+],
+[
+"cmd",
+"gave 시험 균형 x ALIVE_PER_WAVE 2.8"
+],
+[
+"cmd",
+"gave 중지"
+]
+]

@@ -1,0 +1,30 @@
+{
+ "title": "Crowd Shouting/Speaking Ambience",
+ "author": "StarNinjas",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/crowd-shoutingspeaking-ambience",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0",
+ "note": "Credit is appreciated, thanks! (Just put a link to my OGA profile)",
+ "urls": [
+  "https://opengameart.org/sites/default/files/crowd_shouting_0.ogg"
+ ],
+ "pack": "oga_crowd",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "crowd_shouting_0.ogg",
+   "bytes": 335526,
+   "sha256": "a2c23a64c127c77717cbe4abb21f138bac9d9aa6cb3cc89d62bab5d0d96dd7ca"
+  }
+ ],
+ "files": [
+  {
+   "file": "crowd_shouting_0.ogg",
+   "orig": "crowd_shouting_0.ogg",
+   "bytes": 335526,
+   "sha256": "a2c23a64c127c77717cbe4abb21f138bac9d9aa6cb3cc89d62bab5d0d96dd7ca"
+  }
+ ]
+}

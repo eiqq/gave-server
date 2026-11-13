@@ -1,0 +1,265 @@
+{
+ "title": "40 CC0 water / splash / slime SFX",
+ "author": "rubberduck",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/40-cc0-water-splash-slime-sfx",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+ "note": "",
+ "desc": "I created some water, splash and slime sounds: 3x bubble 6x loop sounds (bubbles, rain, water) 16x slime (partly recorded from real slime) 15x splash The loop sounds are also a bit longer as in the preview.",
+ "urls": [
+  "https://opengameart.org/sites/default/files/water-splash-slime-sfx.zip"
+ ],
+ "pack": "oga_water40",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "water-splash-slime-sfx.zip",
+   "bytes": 2259262,
+   "sha256": "7cd39abb49d4362a37ba18dc0e454c7dc1d08029d4e5b683149046bc237b2eba"
+  }
+ ],
+ "files": [
+  {
+   "file": "bubble_01.ogg",
+   "orig": "bubble_01.ogg",
+   "bytes": 30671,
+   "sha256": "1d03d72347019be889280efc6de5ca5ea439d0b24b235e6db87e5bf7583ecb2b"
+  },
+  {
+   "file": "bubble_02.ogg",
+   "orig": "bubble_02.ogg",
+   "bytes": 16017,
+   "sha256": "7992a1a4637ea727b177b3edbc086ec280167d67a8fad010bb8fb58893b2e2f2"
+  },
+  {
+   "file": "bubble_03.ogg",
+   "orig": "bubble_03.ogg",
+   "bytes": 34871,
+   "sha256": "6189106305ab917f1a260b66a74380ed7d6e5be0fb4f5eba3ac93aeb89d9b7ca"
+  },
+  {
+   "file": "loop_bubbles_02.ogg",
+   "orig": "loop_bubbles_02.ogg",
+   "bytes": 316960,
+   "sha256": "e1b572a7a0ed264313b1ed3e66c3ee9839bcc04fd0bea913ff68158208623166"
+  },
+  {
+   "file": "loop_bubbles_1.ogg",
+   "orig": "loop_bubbles_1.ogg",
+   "bytes": 187538,
+   "sha256": "5ae25a9734a05f60e57a1b1db2fa9afaddf972c1a2927c1e743e720fcdaaccfe"
+  },
+  {
+   "file": "loop_rain.ogg",
+   "orig": "loop_rain.ogg",
+   "bytes": 290435,
+   "sha256": "4e836ff06b7d88b97c17ec08f43c3678201bee1ec414bcb456252f784a7be4a4"
+  },
+  {
+   "file": "loop_water_01.ogg",
+   "orig": "loop_water_01.ogg",
+   "bytes": 176039,
+   "sha256": "11ebdc63e0178f4de48167570e51a60a9ce968451ce60ff49a3c1faceabf1e0b"
+  },
+  {
+   "file": "loop_water_02.ogg",
+   "orig": "loop_water_02.ogg",
+   "bytes": 269372,
+   "sha256": "2a39d9c6d3069e94f15b092f15bcfac7de54ca1bdc7c0b9a02b151bda6f3a29d"
+  },
+  {
+   "file": "loop_water_03.ogg",
+   "orig": "loop_water_03.ogg",
+   "bytes": 172397,
+   "sha256": "39b165ed0b2eda87e8db6176d8c3f4c7eb791e009d83481a2b4d7483c725d818"
+  },
+  {
+   "file": "slime_01.ogg",
+   "orig": "slime_01.ogg",
+   "bytes": 18630,
+   "sha256": "4273c9510b03c3cc6b2d901fbd20de62ff4f537e4077a368355039c3081099a1"
+  },
+  {
+   "file": "slime_02.ogg",
+   "orig": "slime_02.ogg",
+   "bytes": 21187,
+   "sha256": "a4ba1530c081706cb7ce8a08702c3552437561c33b851fe46e97d3232574320c"
+  },
+  {
+   "file": "slime_03.ogg",
+   "orig": "slime_03.ogg",
+   "bytes": 32308,
+   "sha256": "e78e0702ac671ae098537266cb6f9106d2402ed99b6554b1429327ec603c3dae"
+  },
+  {
+   "file": "slime_04.ogg",
+   "orig": "slime_04.ogg",
+   "bytes": 19374,
+   "sha256": "56f914928bf8f81662a1c4f354ef690600abd5172bb1cf259f55cb38ed7e4a1d"
+  },
+  {
+   "file": "slime_05.ogg",
+   "orig": "slime_05.ogg",
+   "bytes": 21790,
+   "sha256": "6127939fac0319d821e13c54c14b6ccb16544f5ac1c5e4057ea6e75fc308f70f"
+  },
+  {
+   "file": "slime_06.ogg",
+   "orig": "slime_06.ogg",
+   "bytes": 24107,
+   "sha256": "4b01dbfa60ed6d134680023fe61911f91a04e0739c991d45338b004c4f230b6d"
+  },
+  {
+   "file": "slime_07.ogg",
+   "orig": "slime_07.ogg",
+   "bytes": 22392,
+   "sha256": "c9b1cfeaed0b9d65a04a67cac302861bd6ee750a054b55f0a6b9ac4ddb0ada36"
+  },
+  {
+   "file": "slime_08.ogg",
+   "orig": "slime_08.ogg",
+   "bytes": 29924,
+   "sha256": "d658b872438737d4bfd0b3b7c1b325f94a4467796266e02ff6f79cf8f3001666"
+  },
+  {
+   "file": "slime_09.ogg",
+   "orig": "slime_09.ogg",
+   "bytes": 32747,
+   "sha256": "a3e04bf955878cc5316e9c480739504ee6fb2f7a3a94aba8ca4efa1c4b74fb3c"
+  },
+  {
+   "file": "slime_10.ogg",
+   "orig": "slime_10.ogg",
+   "bytes": 27324,
+   "sha256": "162ef7a48c3088c117bdd5c07d7eac76b790bd06412d85c1d5907ece86dafec1"
+  },
+  {
+   "file": "slime_11.ogg",
+   "orig": "slime_11.ogg",
+   "bytes": 21546,
+   "sha256": "949f2d48602ac23a2697626b574a5bc782cb2e4f0e03931d0ae57455c73eaabe"
+  },
+  {
+   "file": "slime_12.ogg",
+   "orig": "slime_12.ogg",
+   "bytes": 13644,
+   "sha256": "de5437b5ad2af49f6914679011bb212934986c1e13e9a4c9cf45537490f66f6e"
+  },
+  {
+   "file": "slime_13.ogg",
+   "orig": "slime_13.ogg",
+   "bytes": 28613,
+   "sha256": "d6e64612d1b539971ef9ea0ba8c803841b71a144d5e04491d7019be10087a931"
+  },
+  {
+   "file": "slime_14.ogg",
+   "orig": "slime_14.ogg",
+   "bytes": 20054,
+   "sha256": "37215c6a71c3f97c87c6e687346dd4c1542276c9d22eb1c0488ba1e15ea93b79"
+  },
+  {
+   "file": "slime_15.ogg",
+   "orig": "slime_15.ogg",
+   "bytes": 23204,
+   "sha256": "5e1581251516ed8e0e86f013cac317cfd574ffd5740e82798f5c4561915e8294"
+  },
+  {
+   "file": "slime_16.ogg",
+   "orig": "slime_16.ogg",
+   "bytes": 19115,
+   "sha256": "9f50f3732420288170866ad29afb46bccfc1eae5f7474937f02d4ed6ada69725"
+  },
+  {
+   "file": "splash_01.ogg",
+   "orig": "splash_01.ogg",
+   "bytes": 64822,
+   "sha256": "156f4df0fa1a552d1c4e451284a55000417ea871954dc4b5e0d4302a49e228a8"
+  },
+  {
+   "file": "splash_02.ogg",
+   "orig": "splash_02.ogg",
+   "bytes": 37895,
+   "sha256": "eab0bb4bc01386528ba1e6244c6fd8940ee8d3c91ddb9e9cfea186e8560e04de"
+  },
+  {
+   "file": "splash_03.ogg",
+   "orig": "splash_03.ogg",
+   "bytes": 32013,
+   "sha256": "ae2cff9a47934ece590dda45ff18acf89c5c98cb5497ce71c50b3a315b225a94"
+  },
+  {
+   "file": "splash_04.ogg",
+   "orig": "splash_04.ogg",
+   "bytes": 46571,
+   "sha256": "58dddea3843b89e9504e6f174ea49cd061b1002bb6ae8a94f358409fabb8340a"
+  },
+  {
+   "file": "splash_05.ogg",
+   "orig": "splash_05.ogg",
+   "bytes": 49582,
+   "sha256": "7aeaf4ac236629cf71042f56592ffc50e36f552df12c8442600839ce10156ca3"
+  },
+  {
+   "file": "splash_06.ogg",
+   "orig": "splash_06.ogg",
+   "bytes": 25975,
+   "sha256": "3581e5bee7307cbe6be17715714029259685ba283cb3423938378506b386afb4"
+  },
+  {
+   "file": "splash_07.ogg",
+   "orig": "splash_07.ogg",
+   "bytes": 62804,
+   "sha256": "307e6ea8d4ed122d1f54377437194daf4c2d6103d3a04dd9128c3d7a342d46b8"
+  },
+  {
+   "file": "splash_08.ogg",
+   "orig": "splash_08.ogg",
+   "bytes": 36747,
+   "sha256": "fd4c9c8fbfe4ac7348644918a73b1d004b037bac3ef24a1303549b705624828a"
+  },
+  {
+   "file": "splash_09.ogg",
+   "orig": "splash_09.ogg",
+   "bytes": 14795,
+   "sha256": "123f78e6bef82b5dfb24f0a93f759b309bd12b21d05905ab401756fc588a31dc"
+  },
+  {
+   "file": "splash_10.ogg",
+   "orig": "splash_10.ogg",
+   "bytes": 18959,
+   "sha256": "69ec352dc6c0ea4691435e692063f903c98e5292579ba71297d4fbdb51c33649"
+  },
+  {
+   "file": "splash_11.ogg",
+   "orig": "splash_11.ogg",
+   "bytes": 56216,
+   "sha256": "408bd00463f8aba63b470c424b90672c71e8b8596d2cbc23b0d467752b18199a"
+  },
+  {
+   "file": "splash_12.ogg",
+   "orig": "splash_12.ogg",
+   "bytes": 36732,
+   "sha256": "59d425f60046afd9c4ea15e85037bcc4e4a0172b5d267852ab1b0571d06d5604"
+  },
+  {
+   "file": "splash_13.ogg",
+   "orig": "splash_13.ogg",
+   "bytes": 38631,
+   "sha256": "10bf42f906ea0366c2091405b7d355e74a496b1fe1c4bd40d8965d703c0db2d7"
+  },
+  {
+   "file": "splash_14.ogg",
+   "orig": "splash_14.ogg",
+   "bytes": 27752,
+   "sha256": "018984c8e03488b65d4c2dd6e08a9c2115b395ded80cf7209f893e7e664c5d0e"
+  },
+  {
+   "file": "splash_15.ogg",
+   "orig": "splash_15.ogg",
+   "bytes": 25671,
+   "sha256": "9b0ef483f0d8939199c10ecf26d952fda92637cb7e1f323decb9388a07a79b03"
+  }
+ ]
+}

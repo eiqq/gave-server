@@ -1,0 +1,724 @@
+[
+[
+"cmd",
+"gamemode adventure {USER}"
+],
+[
+"wait",
+2
+],
+[
+"cmd",
+"gave 시작"
+],
+[
+"until",
+"state=PREP",
+15
+],
+[
+"cmd",
+"gave 시험 판끝막기 x on"
+],
+[
+"until",
+"state=WAVE",
+20
+],
+[
+"cmd",
+"gave 시험 총굴리기 {USER} RIFLE LEGENDARY"
+],
+[
+"cmd",
+"gave 시험 바꾸기총 {USER}"
+],
+[
+"cmd",
+"gave 시험 강화 {USER}"
+],
+[
+"cmd",
+"gave 시험 강화 {USER}"
+],
+[
+"cmd",
+"gave 시험 강화 {USER}"
+],
+[
+"cmd",
+"gave 시험 강화 {USER}"
+],
+[
+"cmd",
+"gave 시험 강화 {USER}"
+],
+[
+"cmd",
+"gave 시험 강화 {USER}"
+],
+[
+"cmd",
+"gave 시험 강화 {USER}"
+],
+[
+"cmd",
+"gave 시험 강화 {USER}"
+],
+[
+"cmd",
+"gave 시험 증강주기 {USER} dmg 3"
+],
+[
+"cmd",
+"gave 시험 총정보 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"gave 웨이브 13"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 웨이브내용 x 13"
+],
+[
+"cmd",
+"gave 시험 감독 x"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+10
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+10
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 예산 x"
+],
+[
+"cmd",
+"gave 시험 래그돌 x"
+],
+[
+"cmd",
+"execute if entity @e[type=minecraft:item_display]"
+],
+[
+"shot",
+"w13_20s"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+10
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 0"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 180 8"
+],
+[
+"wait",
+0.6
+],
+[
+"shot",
+"w13_back"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+8
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 예산 x"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹고장 tick"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 0"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 0"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"gave 웨이브 17"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 웨이브내용 x 17"
+],
+[
+"cmd",
+"gave 시험 감독 x"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+10
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+10
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 예산 x"
+],
+[
+"cmd",
+"gave 시험 래그돌 x"
+],
+[
+"cmd",
+"execute if entity @e[type=minecraft:item_display]"
+],
+[
+"shot",
+"w17_20s"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+10
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 0"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 180 8"
+],
+[
+"wait",
+0.6
+],
+[
+"shot",
+"w17_back"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+8
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 예산 x"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹고장 tick"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 0"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 0"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"gave 웨이브 21"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 웨이브내용 x 21"
+],
+[
+"cmd",
+"gave 시험 감독 x"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+10
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+10
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 예산 x"
+],
+[
+"cmd",
+"gave 시험 래그돌 x"
+],
+[
+"cmd",
+"execute if entity @e[type=minecraft:item_display]"
+],
+[
+"shot",
+"w21_20s"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+10
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 0"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 180 8"
+],
+[
+"wait",
+0.6
+],
+[
+"shot",
+"w21_back"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+8
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 예산 x"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹고장 tick"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 0"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 0"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"gave 웨이브 25"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 웨이브내용 x 25"
+],
+[
+"cmd",
+"gave 시험 감독 x"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+10
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+10
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 예산 x"
+],
+[
+"cmd",
+"gave 시험 래그돌 x"
+],
+[
+"cmd",
+"execute if entity @e[type=minecraft:item_display]"
+],
+[
+"shot",
+"w25_20s"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+10
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 0"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 180 8"
+],
+[
+"wait",
+0.6
+],
+[
+"shot",
+"w25_back"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+8
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 예산 x"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹고장 tick"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 0"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 0"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"gave 중지"
+]
+]

@@ -1,0 +1,43 @@
+{
+ "title": "Engine Sound",
+ "author": "kurt",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/engine-sound",
+ "license": "CC BY 3.0",
+ "license_url": "https://creativecommons.org/licenses/by/3.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC-BY 3.0 (http://creativecommons.org/licenses/by/3.0/)",
+ "note": "",
+ "desc": "I had my recorder on while driving, and thought it might be useful for someone. Feel free to edit. :)",
+ "urls": [
+  "https://opengameart.org/sites/default/files/enginehum3.ogg",
+  "https://opengameart.org/sites/default/files/enginehum.ogg"
+ ],
+ "pack": "oga_engine_hum",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "enginehum3.ogg",
+   "bytes": 367605,
+   "sha256": "c5653799313ac3d2509631f335064c693bd5e8a288c72e21fc521a72a8963f94"
+  },
+  {
+   "file": "enginehum.ogg",
+   "bytes": 761540,
+   "sha256": "5708f6ffcae4301a2ee8f2f02517133545a488b81dfa596686a8c4413270909b"
+  }
+ ],
+ "files": [
+  {
+   "file": "enginehum.ogg",
+   "orig": "enginehum.ogg",
+   "bytes": 761540,
+   "sha256": "5708f6ffcae4301a2ee8f2f02517133545a488b81dfa596686a8c4413270909b"
+  },
+  {
+   "file": "enginehum3.ogg",
+   "orig": "enginehum3.ogg",
+   "bytes": 367605,
+   "sha256": "c5653799313ac3d2509631f335064c693bd5e8a288c72e21fc521a72a8963f94"
+  }
+ ]
+}

@@ -1,0 +1,167 @@
+[
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gamemode adventure {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 균형 x ALIVE_PER_WAVE 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 균형 x ALIVE_BASE 0"
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  25
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 {USER} on"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "cmd",
+  "tp {USER} 6.5 64 9.5 150 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 결과 {USER} G38"
+ ],
+ [
+  "cmd",
+  "gave 시험 죽이기 {USER}"
+ ],
+ [
+  "wait",
+  4
+ ],
+ [
+  "shot",
+  "dead_view_slit"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 살려달라 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 원정 {USER} 허드"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "shot",
+  "dead_view_follow"
+ ],
+ [
+  "cmd",
+  "gave 시험 쉬기 x 정리"
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "shot",
+  "dead_view_break"
+ ],
+ [
+  "cmd",
+  "gave 시험 꺼내기값 x"
+ ],
+ [
+  "cmd",
+  "gave 시험 그냥꺼내기 {USER}"
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 트럭 x 부품주기"
+ ],
+ [
+  "cmd",
+  "gave 시험 트럭 x 체력 600"
+ ],
+ [
+  "cmd",
+  "gave 시험 돈 {USER} 500"
+ ],
+ [
+  "cmd",
+  "gave 시험 상점열기 {USER}"
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "shot",
+  "shop_trip_icons"
+ ],
+ [
+  "cmd",
+  "gave 시험 사기 {USER} part"
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "shot",
+  "shop_part_cards"
+ ],
+ [
+  "cmd",
+  "gave 시험 사기 {USER} 13"
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "cmd",
+  "gave 시험 트럭 x 부품"
+ ],
+ [
+  "cmd",
+  "gave 시험 상점상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 상점닫기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 중지"
+ ],
+ [
+  "wait",
+  1
+ ]
+]

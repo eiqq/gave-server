@@ -1,0 +1,17 @@
+{
+ "notice_mut_burst": "변이: 죽으면 터진다",
+ "notice_mut_riders": "변이: 떼에 올라탄다",
+ "notice_mut_split": "변이: 맞으면 쪼개진다",
+ "notice_mut_mutfast": "변이: 빨리 변한다",
+ "notice_mut_elite": "변이: 정예가 는다",
+ "notice_mut_swift": "변이: 더 빨라진다",
+ "notice_mut_thick": "변이: 더 질겨진다",
+ "notice_mut_horde": "변이: 더 많아진다",
+ "murmur_1": "추워",
+ "murmur_2": "집에 갈래",
+ "murmur_3": "배고파",
+ "murmur_4": "여기 어디야",
+ "murmur_5": "같이 가",
+ "murmur_6": "불 꺼 줘",
+ "cause_mut_burst": "터진 게이브에 휩쓸렸다"
+}

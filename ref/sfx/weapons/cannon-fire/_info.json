@@ -1,0 +1,13 @@
+{
+ "title": "Cannon fire",
+ "url": "https://opengameart.org/content/cannon-fire",
+ "file_url": "https://opengameart.org/sites/default/files/cannon_fire_0.ogg",
+ "author": "Thimras",
+ "license": "CC0-1.0",
+ "license_note": "OGA License(s): CC0",
+ "files": {
+  "cannon_fire_0.ogg": "2b21ffa41e5c3be4eecdfbd3490544f5aa8b6d1581787265863e13de1a8e599d"
+ },
+ "date": "2026-11-12",
+ "note": "받은 묶음에서 쓰는 파일만 꺼냄(묶음은 지움). 다시 필요하면 file_url 에서 받고 archive_sha256 으로 맞춰 볼 것"
+}

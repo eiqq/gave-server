@@ -1,0 +1,1690 @@
+[
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 {USER} on"
+ ],
+ [
+  "cmd",
+  "gamemode creative {USER}"
+ ],
+ [
+  "cmd",
+  "time set noon"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s run tp @s ~ ~ ~ 0 0"
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0 ^0.3 ^5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g02\",\"minecraft:custom_model_data\":{strings:[\"lod\"],colors:[15483391,15204863,14713343,14762495,15041023,15204863,15336768,14814528,15603008,15080768,14820672,15347008,15336268,14814028,15602508,15080268]}}}}"
+ ],
+ [
+  "wait",
+  1.2
+ ],
+ [
+  "shot",
+  "lod5"
+ ],
+ [
+  "cmd",
+  "kill @e[type=item_display,tag=pk]"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s run summon minecraft:marker ~ ~ ~ {Tags:[\"f3\"]}"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "shot",
+  "fps0"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^-0.6 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^-0.6 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15599485,15077245,14817149,15343485,15083389,15609725,15349629,14827389,15599485,15077245,14817149,15343485,15083389,15609725,15349629,14827389,15599485,15077245,14817149,15343485,15083389,15609725,15349629,14827389,15663997,15141757,14881661,15407997]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^-0.6 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813051,15339387,15079291,15605627,15345531,14823291,15611771,15089531,14813051,15339387,15079291,15605627,15345531,14823291,15611771,15089531,14813051,15339387,15079291,15605627,15345531,14823291,15611771,15089531,14877563,15403899,15143803,15670139]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^-0.6 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15139704,15666040,15405944,14883704]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^-0.6 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337334,14815094,15603574,15081334,14821238,15347574,15087478,15613814,15337334,14815094,15603574,15081334,14821238,15347574,15087478,15613814,15337334,14815094,15603574,15081334,14821238,15347574,15087478,15613814,15401846,14879606,15668086,15145846]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^-0.6 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14877556,15403892,15143796,15670132]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^-0.6 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813041,15339377,15079281,15605617,15345521,14823281,15611761,15089521,14813041,15339377,15079281,15605617,15345521,14823281,15611761,15089521,14813041,15339377,15079281,15605617,15345521,14823281,15611761,15089521,14877553,15403889,15143793,15670129]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^-0.6 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075199,15601535,15341439,14819199,15607679,15085439,14825343,15351679,15075199,15601535,15341439,14819199,15607679,15085439,14825343,15351679,15075199,15601535,15341439,14819199,15607679,15085439,14825343,15351679,15139711,15666047,15405951,14883711]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^-0.6 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15401852,14879612,15668092,15145852]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^-0.6 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15599482,15077242,14817146,15343482,15083386,15609722,15349626,14827386,15599482,15077242,14817146,15343482,15083386,15609722,15349626,14827386,15599482,15077242,14817146,15343482,15083386,15609722,15349626,14827386,15663994,15141754,14881658,15407994]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^0.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15139704,15666040,15405944,14883704]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^0.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075189,15601525,15341429,14819189,15607669,15085429,14825333,15351669,15075189,15601525,15341429,14819189,15607669,15085429,14825333,15351669,15075189,15601525,15341429,14819189,15607669,15085429,14825333,15351669,15139701,15666037,15405941,14883701]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^0.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337331,14815091,15603571,15081331,14821235,15347571,15087475,15613811,15337331,14815091,15603571,15081331,14821235,15347571,15087475,15613811,15337331,14815091,15603571,15081331,14821235,15347571,15087475,15613811,15401843,14879603,15668083,15145843]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^0.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^0.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813054,15339390,15079294,15605630,15345534,14823294,15611774,15089534,14813054,15339390,15079294,15605630,15345534,14823294,15611774,15089534,14813054,15339390,15079294,15605630,15345534,14823294,15611774,15089534,14877566,15403902,15143806,15670142]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^0.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15401852,14879612,15668092,15145852]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^0.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337337,14815097,15603577,15081337,14821241,15347577,15087481,15613817,15337337,14815097,15603577,15081337,14821241,15347577,15087481,15613817,15337337,14815097,15603577,15081337,14821241,15347577,15087481,15613817,15401849,14879609,15668089,15145849]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^0.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15599479,15077239,14817143,15343479,15083383,15609719,15349623,14827383,15599479,15077239,14817143,15343479,15083383,15609719,15349623,14827383,15599479,15077239,14817143,15343479,15083383,15609719,15349623,14827383,15663991,15141751,14881655,15407991]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^0.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14877556,15403892,15143796,15670132]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^0.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075186,15601522,15341426,14819186,15607666,15085426,14825330,15351666,15075186,15601522,15341426,14819186,15607666,15085426,14825330,15351666,15075186,15601522,15341426,14819186,15607666,15085426,14825330,15351666,15139698,15666034,15405938,14883698]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^1.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^1.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15599485,15077245,14817149,15343485,15083389,15609725,15349629,14827389,15599485,15077245,14817149,15343485,15083389,15609725,15349629,14827389,15599485,15077245,14817149,15343485,15083389,15609725,15349629,14827389,15663997,15141757,14881661,15407997]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^1.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813051,15339387,15079291,15605627,15345531,14823291,15611771,15089531,14813051,15339387,15079291,15605627,15345531,14823291,15611771,15089531,14813051,15339387,15079291,15605627,15345531,14823291,15611771,15089531,14877563,15403899,15143803,15670139]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^1.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15139704,15666040,15405944,14883704]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^1.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337334,14815094,15603574,15081334,14821238,15347574,15087478,15613814,15337334,14815094,15603574,15081334,14821238,15347574,15087478,15613814,15337334,14815094,15603574,15081334,14821238,15347574,15087478,15613814,15401846,14879606,15668086,15145846]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^1.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14877556,15403892,15143796,15670132]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^1.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813041,15339377,15079281,15605617,15345521,14823281,15611761,15089521,14813041,15339377,15079281,15605617,15345521,14823281,15611761,15089521,14813041,15339377,15079281,15605617,15345521,14823281,15611761,15089521,14877553,15403889,15143793,15670129]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^1.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075199,15601535,15341439,14819199,15607679,15085439,14825343,15351679,15075199,15601535,15341439,14819199,15607679,15085439,14825343,15351679,15075199,15601535,15341439,14819199,15607679,15085439,14825343,15351679,15139711,15666047,15405951,14883711]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^1.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15401852,14879612,15668092,15145852]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^1.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15599482,15077242,14817146,15343482,15083386,15609722,15349626,14827386,15599482,15077242,14817146,15343482,15083386,15609722,15349626,14827386,15599482,15077242,14817146,15343482,15083386,15609722,15349626,14827386,15663994,15141754,14881658,15407994]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^2.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15139704,15666040,15405944,14883704]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^2.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075189,15601525,15341429,14819189,15607669,15085429,14825333,15351669,15075189,15601525,15341429,14819189,15607669,15085429,14825333,15351669,15075189,15601525,15341429,14819189,15607669,15085429,14825333,15351669,15139701,15666037,15405941,14883701]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^2.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337331,14815091,15603571,15081331,14821235,15347571,15087475,15613811,15337331,14815091,15603571,15081331,14821235,15347571,15087475,15613811,15337331,14815091,15603571,15081331,14821235,15347571,15087475,15613811,15401843,14879603,15668083,15145843]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^2.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^2.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813054,15339390,15079294,15605630,15345534,14823294,15611774,15089534,14813054,15339390,15079294,15605630,15345534,14823294,15611774,15089534,14813054,15339390,15079294,15605630,15345534,14823294,15611774,15089534,14877566,15403902,15143806,15670142]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^2.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15401852,14879612,15668092,15145852]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^2.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337337,14815097,15603577,15081337,14821241,15347577,15087481,15613817,15337337,14815097,15603577,15081337,14821241,15347577,15087481,15613817,15337337,14815097,15603577,15081337,14821241,15347577,15087481,15613817,15401849,14879609,15668089,15145849]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^2.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15599479,15077239,14817143,15343479,15083383,15609719,15349623,14827383,15599479,15077239,14817143,15343479,15083383,15609719,15349623,14827383,15599479,15077239,14817143,15343479,15083383,15609719,15349623,14827383,15663991,15141751,14881655,15407991]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^2.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14877556,15403892,15143796,15670132]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^2.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075186,15601522,15341426,14819186,15607666,15085426,14825330,15351666,15075186,15601522,15341426,14819186,15607666,15085426,14825330,15351666,15075186,15601522,15341426,14819186,15607666,15085426,14825330,15351666,15139698,15666034,15405938,14883698]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^3.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^3.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15599485,15077245,14817149,15343485,15083389,15609725,15349629,14827389,15599485,15077245,14817149,15343485,15083389,15609725,15349629,14827389,15599485,15077245,14817149,15343485,15083389,15609725,15349629,14827389,15663997,15141757,14881661,15407997]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^3.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813051,15339387,15079291,15605627,15345531,14823291,15611771,15089531,14813051,15339387,15079291,15605627,15345531,14823291,15611771,15089531,14813051,15339387,15079291,15605627,15345531,14823291,15611771,15089531,14877563,15403899,15143803,15670139]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^3.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15139704,15666040,15405944,14883704]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^3.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337334,14815094,15603574,15081334,14821238,15347574,15087478,15613814,15337334,14815094,15603574,15081334,14821238,15347574,15087478,15613814,15337334,14815094,15603574,15081334,14821238,15347574,15087478,15613814,15401846,14879606,15668086,15145846]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^3.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14877556,15403892,15143796,15670132]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^3.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813041,15339377,15079281,15605617,15345521,14823281,15611761,15089521,14813041,15339377,15079281,15605617,15345521,14823281,15611761,15089521,14813041,15339377,15079281,15605617,15345521,14823281,15611761,15089521,14877553,15403889,15143793,15670129]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^3.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075199,15601535,15341439,14819199,15607679,15085439,14825343,15351679,15075199,15601535,15341439,14819199,15607679,15085439,14825343,15351679,15075199,15601535,15341439,14819199,15607679,15085439,14825343,15351679,15139711,15666047,15405951,14883711]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^3.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15401852,14879612,15668092,15145852]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^3.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15599482,15077242,14817146,15343482,15083386,15609722,15349626,14827386,15599482,15077242,14817146,15343482,15083386,15609722,15349626,14827386,15599482,15077242,14817146,15343482,15083386,15609722,15349626,14827386,15663994,15141754,14881658,15407994]}}}}"
+ ],
+ [
+  "wait",
+  4
+ ],
+ [
+  "shot",
+  "fps50"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^-0.6 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15139704,15666040,15405944,14883704]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^-0.6 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075189,15601525,15341429,14819189,15607669,15085429,14825333,15351669,15075189,15601525,15341429,14819189,15607669,15085429,14825333,15351669,15075189,15601525,15341429,14819189,15607669,15085429,14825333,15351669,15139701,15666037,15405941,14883701]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^-0.6 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337331,14815091,15603571,15081331,14821235,15347571,15087475,15613811,15337331,14815091,15603571,15081331,14821235,15347571,15087475,15613811,15337331,14815091,15603571,15081331,14821235,15347571,15087475,15613811,15401843,14879603,15668083,15145843]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^-0.6 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^-0.6 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813054,15339390,15079294,15605630,15345534,14823294,15611774,15089534,14813054,15339390,15079294,15605630,15345534,14823294,15611774,15089534,14813054,15339390,15079294,15605630,15345534,14823294,15611774,15089534,14877566,15403902,15143806,15670142]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^-0.6 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15401852,14879612,15668092,15145852]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^-0.6 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337337,14815097,15603577,15081337,14821241,15347577,15087481,15613817,15337337,14815097,15603577,15081337,14821241,15347577,15087481,15613817,15337337,14815097,15603577,15081337,14821241,15347577,15087481,15613817,15401849,14879609,15668089,15145849]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^-0.6 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15599479,15077239,14817143,15343479,15083383,15609719,15349623,14827383,15599479,15077239,14817143,15343479,15083383,15609719,15349623,14827383,15599479,15077239,14817143,15343479,15083383,15609719,15349623,14827383,15663991,15141751,14881655,15407991]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^-0.6 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14877556,15403892,15143796,15670132]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^-0.6 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075186,15601522,15341426,14819186,15607666,15085426,14825330,15351666,15075186,15601522,15341426,14819186,15607666,15085426,14825330,15351666,15075186,15601522,15341426,14819186,15607666,15085426,14825330,15351666,15139698,15666034,15405938,14883698]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^0.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^0.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15599485,15077245,14817149,15343485,15083389,15609725,15349629,14827389,15599485,15077245,14817149,15343485,15083389,15609725,15349629,14827389,15599485,15077245,14817149,15343485,15083389,15609725,15349629,14827389,15663997,15141757,14881661,15407997]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^0.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813051,15339387,15079291,15605627,15345531,14823291,15611771,15089531,14813051,15339387,15079291,15605627,15345531,14823291,15611771,15089531,14813051,15339387,15079291,15605627,15345531,14823291,15611771,15089531,14877563,15403899,15143803,15670139]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^0.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15139704,15666040,15405944,14883704]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^0.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337334,14815094,15603574,15081334,14821238,15347574,15087478,15613814,15337334,14815094,15603574,15081334,14821238,15347574,15087478,15613814,15337334,14815094,15603574,15081334,14821238,15347574,15087478,15613814,15401846,14879606,15668086,15145846]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^0.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14877556,15403892,15143796,15670132]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^0.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813041,15339377,15079281,15605617,15345521,14823281,15611761,15089521,14813041,15339377,15079281,15605617,15345521,14823281,15611761,15089521,14813041,15339377,15079281,15605617,15345521,14823281,15611761,15089521,14877553,15403889,15143793,15670129]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^0.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075199,15601535,15341439,14819199,15607679,15085439,14825343,15351679,15075199,15601535,15341439,14819199,15607679,15085439,14825343,15351679,15075199,15601535,15341439,14819199,15607679,15085439,14825343,15351679,15139711,15666047,15405951,14883711]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^0.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15401852,14879612,15668092,15145852]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^0.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15599482,15077242,14817146,15343482,15083386,15609722,15349626,14827386,15599482,15077242,14817146,15343482,15083386,15609722,15349626,14827386,15599482,15077242,14817146,15343482,15083386,15609722,15349626,14827386,15663994,15141754,14881658,15407994]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^1.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15139704,15666040,15405944,14883704]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^1.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075189,15601525,15341429,14819189,15607669,15085429,14825333,15351669,15075189,15601525,15341429,14819189,15607669,15085429,14825333,15351669,15075189,15601525,15341429,14819189,15607669,15085429,14825333,15351669,15139701,15666037,15405941,14883701]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^1.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337331,14815091,15603571,15081331,14821235,15347571,15087475,15613811,15337331,14815091,15603571,15081331,14821235,15347571,15087475,15613811,15337331,14815091,15603571,15081331,14821235,15347571,15087475,15613811,15401843,14879603,15668083,15145843]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^1.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^1.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813054,15339390,15079294,15605630,15345534,14823294,15611774,15089534,14813054,15339390,15079294,15605630,15345534,14823294,15611774,15089534,14813054,15339390,15079294,15605630,15345534,14823294,15611774,15089534,14877566,15403902,15143806,15670142]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^1.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15401852,14879612,15668092,15145852]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^1.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337337,14815097,15603577,15081337,14821241,15347577,15087481,15613817,15337337,14815097,15603577,15081337,14821241,15347577,15087481,15613817,15337337,14815097,15603577,15081337,14821241,15347577,15087481,15613817,15401849,14879609,15668089,15145849]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^1.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15599479,15077239,14817143,15343479,15083383,15609719,15349623,14827383,15599479,15077239,14817143,15343479,15083383,15609719,15349623,14827383,15599479,15077239,14817143,15343479,15083383,15609719,15349623,14827383,15663991,15141751,14881655,15407991]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^1.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14877556,15403892,15143796,15670132]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^1.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075186,15601522,15341426,14819186,15607666,15085426,14825330,15351666,15075186,15601522,15341426,14819186,15607666,15085426,14825330,15351666,15075186,15601522,15341426,14819186,15607666,15085426,14825330,15351666,15139698,15666034,15405938,14883698]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^2.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^2.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15599485,15077245,14817149,15343485,15083389,15609725,15349629,14827389,15599485,15077245,14817149,15343485,15083389,15609725,15349629,14827389,15599485,15077245,14817149,15343485,15083389,15609725,15349629,14827389,15663997,15141757,14881661,15407997]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^2.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813051,15339387,15079291,15605627,15345531,14823291,15611771,15089531,14813051,15339387,15079291,15605627,15345531,14823291,15611771,15089531,14813051,15339387,15079291,15605627,15345531,14823291,15611771,15089531,14877563,15403899,15143803,15670139]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^2.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15139704,15666040,15405944,14883704]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^2.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337334,14815094,15603574,15081334,14821238,15347574,15087478,15613814,15337334,14815094,15603574,15081334,14821238,15347574,15087478,15613814,15337334,14815094,15603574,15081334,14821238,15347574,15087478,15613814,15401846,14879606,15668086,15145846]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^2.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14877556,15403892,15143796,15670132]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^2.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813041,15339377,15079281,15605617,15345521,14823281,15611761,15089521,14813041,15339377,15079281,15605617,15345521,14823281,15611761,15089521,14813041,15339377,15079281,15605617,15345521,14823281,15611761,15089521,14877553,15403889,15143793,15670129]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^2.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075199,15601535,15341439,14819199,15607679,15085439,14825343,15351679,15075199,15601535,15341439,14819199,15607679,15085439,14825343,15351679,15075199,15601535,15341439,14819199,15607679,15085439,14825343,15351679,15139711,15666047,15405951,14883711]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^2.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15401852,14879612,15668092,15145852]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^2.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15599482,15077242,14817146,15343482,15083386,15609722,15349626,14827386,15599482,15077242,14817146,15343482,15083386,15609722,15349626,14827386,15599482,15077242,14817146,15343482,15083386,15609722,15349626,14827386,15663994,15141754,14881658,15407994]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^3.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15139704,15666040,15405944,14883704]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^3.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075189,15601525,15341429,14819189,15607669,15085429,14825333,15351669,15075189,15601525,15341429,14819189,15607669,15085429,14825333,15351669,15075189,15601525,15341429,14819189,15607669,15085429,14825333,15351669,15139701,15666037,15405941,14883701]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^3.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337331,14815091,15603571,15081331,14821235,15347571,15087475,15613811,15337331,14815091,15603571,15081331,14821235,15347571,15087475,15613811,15337331,14815091,15603571,15081331,14821235,15347571,15087475,15613811,15401843,14879603,15668083,15145843]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^3.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^3.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813054,15339390,15079294,15605630,15345534,14823294,15611774,15089534,14813054,15339390,15079294,15605630,15345534,14823294,15611774,15089534,14813054,15339390,15079294,15605630,15345534,14823294,15611774,15089534,14877566,15403902,15143806,15670142]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^3.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15401852,14879612,15668092,15145852]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^3.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337337,14815097,15603577,15081337,14821241,15347577,15087481,15613817,15337337,14815097,15603577,15081337,14821241,15347577,15087481,15613817,15337337,14815097,15603577,15081337,14821241,15347577,15087481,15613817,15401849,14879609,15668089,15145849]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^3.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15599479,15077239,14817143,15343479,15083383,15609719,15349623,14827383,15599479,15077239,14817143,15343479,15083383,15609719,15349623,14827383,15599479,15077239,14817143,15343479,15083383,15609719,15349623,14827383,15663991,15141751,14881655,15407991]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^3.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14877556,15403892,15143796,15670132]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^3.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075186,15601522,15341426,14819186,15607666,15085426,14825330,15351666,15075186,15601522,15341426,14819186,15607666,15085426,14825330,15351666,15075186,15601522,15341426,14819186,15607666,15085426,14825330,15351666,15139698,15666034,15405938,14883698]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^-0.6 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^-0.6 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15599485,15077245,14817149,15343485,15083389,15609725,15349629,14827389,15599485,15077245,14817149,15343485,15083389,15609725,15349629,14827389,15599485,15077245,14817149,15343485,15083389,15609725,15349629,14827389,15663997,15141757,14881661,15407997]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^-0.6 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813051,15339387,15079291,15605627,15345531,14823291,15611771,15089531,14813051,15339387,15079291,15605627,15345531,14823291,15611771,15089531,14813051,15339387,15079291,15605627,15345531,14823291,15611771,15089531,14877563,15403899,15143803,15670139]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^-0.6 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15139704,15666040,15405944,14883704]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^-0.6 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337334,14815094,15603574,15081334,14821238,15347574,15087478,15613814,15337334,14815094,15603574,15081334,14821238,15347574,15087478,15613814,15337334,14815094,15603574,15081334,14821238,15347574,15087478,15613814,15401846,14879606,15668086,15145846]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^-0.6 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14877556,15403892,15143796,15670132]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^-0.6 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813041,15339377,15079281,15605617,15345521,14823281,15611761,15089521,14813041,15339377,15079281,15605617,15345521,14823281,15611761,15089521,14813041,15339377,15079281,15605617,15345521,14823281,15611761,15089521,14877553,15403889,15143793,15670129]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^-0.6 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075199,15601535,15341439,14819199,15607679,15085439,14825343,15351679,15075199,15601535,15341439,14819199,15607679,15085439,14825343,15351679,15075199,15601535,15341439,14819199,15607679,15085439,14825343,15351679,15139711,15666047,15405951,14883711]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^-0.6 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15401852,14879612,15668092,15145852]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^-0.6 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15599482,15077242,14817146,15343482,15083386,15609722,15349626,14827386,15599482,15077242,14817146,15343482,15083386,15609722,15349626,14827386,15599482,15077242,14817146,15343482,15083386,15609722,15349626,14827386,15663994,15141754,14881658,15407994]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^0.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15139704,15666040,15405944,14883704]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^0.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075189,15601525,15341429,14819189,15607669,15085429,14825333,15351669,15075189,15601525,15341429,14819189,15607669,15085429,14825333,15351669,15075189,15601525,15341429,14819189,15607669,15085429,14825333,15351669,15139701,15666037,15405941,14883701]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^0.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337331,14815091,15603571,15081331,14821235,15347571,15087475,15613811,15337331,14815091,15603571,15081331,14821235,15347571,15087475,15613811,15337331,14815091,15603571,15081331,14821235,15347571,15087475,15613811,15401843,14879603,15668083,15145843]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^0.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^0.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813054,15339390,15079294,15605630,15345534,14823294,15611774,15089534,14813054,15339390,15079294,15605630,15345534,14823294,15611774,15089534,14813054,15339390,15079294,15605630,15345534,14823294,15611774,15089534,14877566,15403902,15143806,15670142]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^0.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15401852,14879612,15668092,15145852]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^0.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337337,14815097,15603577,15081337,14821241,15347577,15087481,15613817,15337337,14815097,15603577,15081337,14821241,15347577,15087481,15613817,15337337,14815097,15603577,15081337,14821241,15347577,15087481,15613817,15401849,14879609,15668089,15145849]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^0.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15599479,15077239,14817143,15343479,15083383,15609719,15349623,14827383,15599479,15077239,14817143,15343479,15083383,15609719,15349623,14827383,15599479,15077239,14817143,15343479,15083383,15609719,15349623,14827383,15663991,15141751,14881655,15407991]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^0.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14877556,15403892,15143796,15670132]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^0.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075186,15601522,15341426,14819186,15607666,15085426,14825330,15351666,15075186,15601522,15341426,14819186,15607666,15085426,14825330,15351666,15075186,15601522,15341426,14819186,15607666,15085426,14825330,15351666,15139698,15666034,15405938,14883698]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^1.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^1.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15599485,15077245,14817149,15343485,15083389,15609725,15349629,14827389,15599485,15077245,14817149,15343485,15083389,15609725,15349629,14827389,15599485,15077245,14817149,15343485,15083389,15609725,15349629,14827389,15663997,15141757,14881661,15407997]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^1.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813051,15339387,15079291,15605627,15345531,14823291,15611771,15089531,14813051,15339387,15079291,15605627,15345531,14823291,15611771,15089531,14813051,15339387,15079291,15605627,15345531,14823291,15611771,15089531,14877563,15403899,15143803,15670139]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^1.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15139704,15666040,15405944,14883704]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^1.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337334,14815094,15603574,15081334,14821238,15347574,15087478,15613814,15337334,14815094,15603574,15081334,14821238,15347574,15087478,15613814,15337334,14815094,15603574,15081334,14821238,15347574,15087478,15613814,15401846,14879606,15668086,15145846]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^1.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14877556,15403892,15143796,15670132]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^1.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813041,15339377,15079281,15605617,15345521,14823281,15611761,15089521,14813041,15339377,15079281,15605617,15345521,14823281,15611761,15089521,14813041,15339377,15079281,15605617,15345521,14823281,15611761,15089521,14877553,15403889,15143793,15670129]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^1.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075199,15601535,15341439,14819199,15607679,15085439,14825343,15351679,15075199,15601535,15341439,14819199,15607679,15085439,14825343,15351679,15075199,15601535,15341439,14819199,15607679,15085439,14825343,15351679,15139711,15666047,15405951,14883711]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^1.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15401852,14879612,15668092,15145852]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^1.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15599482,15077242,14817146,15343482,15083386,15609722,15349626,14827386,15599482,15077242,14817146,15343482,15083386,15609722,15349626,14827386,15599482,15077242,14817146,15343482,15083386,15609722,15349626,14827386,15663994,15141754,14881658,15407994]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^2.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15139704,15666040,15405944,14883704]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^2.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075189,15601525,15341429,14819189,15607669,15085429,14825333,15351669,15075189,15601525,15341429,14819189,15607669,15085429,14825333,15351669,15075189,15601525,15341429,14819189,15607669,15085429,14825333,15351669,15139701,15666037,15405941,14883701]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^2.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337331,14815091,15603571,15081331,14821235,15347571,15087475,15613811,15337331,14815091,15603571,15081331,14821235,15347571,15087475,15613811,15337331,14815091,15603571,15081331,14821235,15347571,15087475,15613811,15401843,14879603,15668083,15145843]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^2.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^2.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813054,15339390,15079294,15605630,15345534,14823294,15611774,15089534,14813054,15339390,15079294,15605630,15345534,14823294,15611774,15089534,14813054,15339390,15079294,15605630,15345534,14823294,15611774,15089534,14877566,15403902,15143806,15670142]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^2.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15401852,14879612,15668092,15145852]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^2.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337337,14815097,15603577,15081337,14821241,15347577,15087481,15613817,15337337,14815097,15603577,15081337,14821241,15347577,15087481,15613817,15337337,14815097,15603577,15081337,14821241,15347577,15087481,15613817,15401849,14879609,15668089,15145849]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^2.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15599479,15077239,14817143,15343479,15083383,15609719,15349623,14827383,15599479,15077239,14817143,15343479,15083383,15609719,15349623,14827383,15599479,15077239,14817143,15343479,15083383,15609719,15349623,14827383,15663991,15141751,14881655,15407991]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^2.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14877556,15403892,15143796,15670132]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^2.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075186,15601522,15341426,14819186,15607666,15085426,14825330,15351666,15075186,15601522,15341426,14819186,15607666,15085426,14825330,15351666,15075186,15601522,15341426,14819186,15607666,15085426,14825330,15351666,15139698,15666034,15405938,14883698]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^3.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^3.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15599485,15077245,14817149,15343485,15083389,15609725,15349629,14827389,15599485,15077245,14817149,15343485,15083389,15609725,15349629,14827389,15599485,15077245,14817149,15343485,15083389,15609725,15349629,14827389,15663997,15141757,14881661,15407997]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^3.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813051,15339387,15079291,15605627,15345531,14823291,15611771,15089531,14813051,15339387,15079291,15605627,15345531,14823291,15611771,15089531,14813051,15339387,15079291,15605627,15345531,14823291,15611771,15089531,14877563,15403899,15143803,15670139]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^3.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15139704,15666040,15405944,14883704]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^3.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337334,14815094,15603574,15081334,14821238,15347574,15087478,15613814,15337334,14815094,15603574,15081334,14821238,15347574,15087478,15613814,15337334,14815094,15603574,15081334,14821238,15347574,15087478,15613814,15401846,14879606,15668086,15145846]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^3.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14877556,15403892,15143796,15670132]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^3.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813041,15339377,15079281,15605617,15345521,14823281,15611761,15089521,14813041,15339377,15079281,15605617,15345521,14823281,15611761,15089521,14813041,15339377,15079281,15605617,15345521,14823281,15611761,15089521,14877553,15403889,15143793,15670129]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^3.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075199,15601535,15341439,14819199,15607679,15085439,14825343,15351679,15075199,15601535,15341439,14819199,15607679,15085439,14825343,15351679,15075199,15601535,15341439,14819199,15607679,15085439,14825343,15351679,15139711,15666047,15405951,14883711]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^3.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15401852,14879612,15668092,15145852]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^3.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15599482,15077242,14817146,15343482,15083386,15609722,15349626,14827386,15599482,15077242,14817146,15343482,15083386,15609722,15349626,14827386,15599482,15077242,14817146,15343482,15083386,15609722,15349626,14827386,15663994,15141754,14881658,15407994]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^-0.6 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15139704,15666040,15405944,14883704]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^-0.6 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075189,15601525,15341429,14819189,15607669,15085429,14825333,15351669,15075189,15601525,15341429,14819189,15607669,15085429,14825333,15351669,15075189,15601525,15341429,14819189,15607669,15085429,14825333,15351669,15139701,15666037,15405941,14883701]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^-0.6 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337331,14815091,15603571,15081331,14821235,15347571,15087475,15613811,15337331,14815091,15603571,15081331,14821235,15347571,15087475,15613811,15337331,14815091,15603571,15081331,14821235,15347571,15087475,15613811,15401843,14879603,15668083,15145843]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^-0.6 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^-0.6 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813054,15339390,15079294,15605630,15345534,14823294,15611774,15089534,14813054,15339390,15079294,15605630,15345534,14823294,15611774,15089534,14813054,15339390,15079294,15605630,15345534,14823294,15611774,15089534,14877566,15403902,15143806,15670142]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^-0.6 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15401852,14879612,15668092,15145852]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^-0.6 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337337,14815097,15603577,15081337,14821241,15347577,15087481,15613817,15337337,14815097,15603577,15081337,14821241,15347577,15087481,15613817,15337337,14815097,15603577,15081337,14821241,15347577,15087481,15613817,15401849,14879609,15668089,15145849]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^-0.6 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15599479,15077239,14817143,15343479,15083383,15609719,15349623,14827383,15599479,15077239,14817143,15343479,15083383,15609719,15349623,14827383,15599479,15077239,14817143,15343479,15083383,15609719,15349623,14827383,15663991,15141751,14881655,15407991]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^-0.6 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14877556,15403892,15143796,15670132]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^-0.6 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075186,15601522,15341426,14819186,15607666,15085426,14825330,15351666,15075186,15601522,15341426,14819186,15607666,15085426,14825330,15351666,15075186,15601522,15341426,14819186,15607666,15085426,14825330,15351666,15139698,15666034,15405938,14883698]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^0.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^0.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15599485,15077245,14817149,15343485,15083389,15609725,15349629,14827389,15599485,15077245,14817149,15343485,15083389,15609725,15349629,14827389,15599485,15077245,14817149,15343485,15083389,15609725,15349629,14827389,15663997,15141757,14881661,15407997]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^0.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813051,15339387,15079291,15605627,15345531,14823291,15611771,15089531,14813051,15339387,15079291,15605627,15345531,14823291,15611771,15089531,14813051,15339387,15079291,15605627,15345531,14823291,15611771,15089531,14877563,15403899,15143803,15670139]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^0.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15139704,15666040,15405944,14883704]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^0.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337334,14815094,15603574,15081334,14821238,15347574,15087478,15613814,15337334,14815094,15603574,15081334,14821238,15347574,15087478,15613814,15337334,14815094,15603574,15081334,14821238,15347574,15087478,15613814,15401846,14879606,15668086,15145846]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^0.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14877556,15403892,15143796,15670132]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^0.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813041,15339377,15079281,15605617,15345521,14823281,15611761,15089521,14813041,15339377,15079281,15605617,15345521,14823281,15611761,15089521,14813041,15339377,15079281,15605617,15345521,14823281,15611761,15089521,14877553,15403889,15143793,15670129]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^0.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075199,15601535,15341439,14819199,15607679,15085439,14825343,15351679,15075199,15601535,15341439,14819199,15607679,15085439,14825343,15351679,15075199,15601535,15341439,14819199,15607679,15085439,14825343,15351679,15139711,15666047,15405951,14883711]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^0.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15401852,14879612,15668092,15145852]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^0.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15599482,15077242,14817146,15343482,15083386,15609722,15349626,14827386,15599482,15077242,14817146,15343482,15083386,15609722,15349626,14827386,15599482,15077242,14817146,15343482,15083386,15609722,15349626,14827386,15663994,15141754,14881658,15407994]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^1.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15139704,15666040,15405944,14883704]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^1.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075189,15601525,15341429,14819189,15607669,15085429,14825333,15351669,15075189,15601525,15341429,14819189,15607669,15085429,14825333,15351669,15075189,15601525,15341429,14819189,15607669,15085429,14825333,15351669,15139701,15666037,15405941,14883701]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^1.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337331,14815091,15603571,15081331,14821235,15347571,15087475,15613811,15337331,14815091,15603571,15081331,14821235,15347571,15087475,15613811,15337331,14815091,15603571,15081331,14821235,15347571,15087475,15613811,15401843,14879603,15668083,15145843]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^1.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^1.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813054,15339390,15079294,15605630,15345534,14823294,15611774,15089534,14813054,15339390,15079294,15605630,15345534,14823294,15611774,15089534,14813054,15339390,15079294,15605630,15345534,14823294,15611774,15089534,14877566,15403902,15143806,15670142]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^1.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15401852,14879612,15668092,15145852]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^1.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337337,14815097,15603577,15081337,14821241,15347577,15087481,15613817,15337337,14815097,15603577,15081337,14821241,15347577,15087481,15613817,15337337,14815097,15603577,15081337,14821241,15347577,15087481,15613817,15401849,14879609,15668089,15145849]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^1.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15599479,15077239,14817143,15343479,15083383,15609719,15349623,14827383,15599479,15077239,14817143,15343479,15083383,15609719,15349623,14827383,15599479,15077239,14817143,15343479,15083383,15609719,15349623,14827383,15663991,15141751,14881655,15407991]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^1.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14877556,15403892,15143796,15670132]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^1.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075186,15601522,15341426,14819186,15607666,15085426,14825330,15351666,15075186,15601522,15341426,14819186,15607666,15085426,14825330,15351666,15075186,15601522,15341426,14819186,15607666,15085426,14825330,15351666,15139698,15666034,15405938,14883698]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^2.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^2.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15599485,15077245,14817149,15343485,15083389,15609725,15349629,14827389,15599485,15077245,14817149,15343485,15083389,15609725,15349629,14827389,15599485,15077245,14817149,15343485,15083389,15609725,15349629,14827389,15663997,15141757,14881661,15407997]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^2.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813051,15339387,15079291,15605627,15345531,14823291,15611771,15089531,14813051,15339387,15079291,15605627,15345531,14823291,15611771,15089531,14813051,15339387,15079291,15605627,15345531,14823291,15611771,15089531,14877563,15403899,15143803,15670139]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^2.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15139704,15666040,15405944,14883704]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^2.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337334,14815094,15603574,15081334,14821238,15347574,15087478,15613814,15337334,14815094,15603574,15081334,14821238,15347574,15087478,15613814,15337334,14815094,15603574,15081334,14821238,15347574,15087478,15613814,15401846,14879606,15668086,15145846]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^2.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14877556,15403892,15143796,15670132]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^2.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813041,15339377,15079281,15605617,15345521,14823281,15611761,15089521,14813041,15339377,15079281,15605617,15345521,14823281,15611761,15089521,14813041,15339377,15079281,15605617,15345521,14823281,15611761,15089521,14877553,15403889,15143793,15670129]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^2.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075199,15601535,15341439,14819199,15607679,15085439,14825343,15351679,15075199,15601535,15341439,14819199,15607679,15085439,14825343,15351679,15075199,15601535,15341439,14819199,15607679,15085439,14825343,15351679,15139711,15666047,15405951,14883711]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^2.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15401852,14879612,15668092,15145852]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^2.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15599482,15077242,14817146,15343482,15083386,15609722,15349626,14827386,15599482,15077242,14817146,15343482,15083386,15609722,15349626,14827386,15599482,15077242,14817146,15343482,15083386,15609722,15349626,14827386,15663994,15141754,14881658,15407994]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^3.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15075192,15601528,15341432,14819192,15607672,15085432,14825336,15351672,15139704,15666040,15405944,14883704]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^3.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075189,15601525,15341429,14819189,15607669,15085429,14825333,15351669,15075189,15601525,15341429,14819189,15607669,15085429,14825333,15351669,15075189,15601525,15341429,14819189,15607669,15085429,14825333,15351669,15139701,15666037,15405941,14883701]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^3.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337331,14815091,15603571,15081331,14821235,15347571,15087475,15613811,15337331,14815091,15603571,15081331,14821235,15347571,15087475,15613811,15337331,14815091,15603571,15081331,14821235,15347571,15087475,15613811,15401843,14879603,15668083,15145843]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^3.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^3.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813054,15339390,15079294,15605630,15345534,14823294,15611774,15089534,14813054,15339390,15079294,15605630,15345534,14823294,15611774,15089534,14813054,15339390,15079294,15605630,15345534,14823294,15611774,15089534,14877566,15403902,15143806,15670142]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^3.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15337340,14815100,15603580,15081340,14821244,15347580,15087484,15613820,15401852,14879612,15668092,15145852]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^3.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15337337,14815097,15603577,15081337,14821241,15347577,15087481,15613817,15337337,14815097,15603577,15081337,14821241,15347577,15087481,15613817,15337337,14815097,15603577,15081337,14821241,15347577,15087481,15613817,15401849,14879609,15668089,15145849]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^3.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15599479,15077239,14817143,15343479,15083383,15609719,15349623,14827383,15599479,15077239,14817143,15343479,15083383,15609719,15349623,14827383,15599479,15077239,14817143,15343479,15083383,15609719,15349623,14827383,15663991,15141751,14881655,15407991]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^3.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14813044,15339380,15079284,15605620,15345524,14823284,15611764,15089524,14877556,15403892,15143796,15670132]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^3.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"charge\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15204863,15532543,15532543,15075186,15601522,15341426,14819186,15607666,15085426,14825330,15351666,15075186,15601522,15341426,14819186,15607666,15085426,14825330,15351666,15075186,15601522,15341426,14819186,15607666,15085426,14825330,15351666,15139698,15666034,15405938,14883698]}}}}"
+ ],
+ [
+  "wait",
+  4
+ ],
+ [
+  "shot",
+  "fps200"
+ ],
+ [
+  "cmd",
+  "kill @e[type=item_display,tag=pk]"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^-0.6 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^-0.6 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^-0.6 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^-0.6 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^-0.6 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^-0.6 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^-0.6 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^-0.6 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^-0.6 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^-0.6 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^0.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^0.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^0.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^0.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^0.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^0.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^0.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^0.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^0.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^0.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^1.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^1.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^1.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^1.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^1.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^1.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^1.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^1.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^1.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^1.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^2.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^2.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^2.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^2.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^2.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^2.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^2.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^2.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^2.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^2.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^3.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^3.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^3.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^3.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^3.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^3.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^3.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^3.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^3.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^3.4 ^6.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^-0.6 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^-0.6 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^-0.6 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^-0.6 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^-0.6 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^-0.6 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^-0.6 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^-0.6 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^-0.6 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^-0.6 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^0.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^0.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^0.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^0.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^0.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^0.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^0.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^0.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^0.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^0.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^1.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^1.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^1.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^1.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^1.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^1.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^1.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^1.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^1.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^1.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^2.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^2.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^2.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^2.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^2.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^2.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^2.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^2.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^2.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^2.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^3.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^3.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^3.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^3.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^3.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^3.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^3.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^3.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^3.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^3.4 ^8.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^-0.6 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^-0.6 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^-0.6 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^-0.6 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^-0.6 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^-0.6 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^-0.6 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^-0.6 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^-0.6 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^-0.6 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^0.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^0.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^0.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^0.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^0.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^0.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^0.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^0.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^0.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^0.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^1.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^1.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^1.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^1.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^1.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^1.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^1.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^1.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^1.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^1.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^2.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^2.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^2.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^2.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^2.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^2.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^2.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^2.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^2.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^2.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^3.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^3.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^3.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^3.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^3.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^3.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^3.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^3.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^3.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^3.4 ^11.0 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^-0.6 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^-0.6 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^-0.6 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^-0.6 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^-0.6 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^-0.6 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^-0.6 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^-0.6 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^-0.6 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^-0.6 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^0.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^0.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^0.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^0.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^0.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^0.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^0.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^0.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^0.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^0.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^1.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^1.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^1.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^1.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^1.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^1.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^1.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^1.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^1.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^1.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^2.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^2.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^2.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^2.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^2.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^2.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^2.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^2.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^2.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^2.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-5.4 ^3.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-4.2 ^3.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-3.0 ^3.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-1.8 ^3.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.6 ^3.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.6 ^3.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^1.8 ^3.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^3.0 ^3.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^4.2 ^3.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^5.4 ^3.4 ^13.5 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},item:{id:\"minecraft:paper\",count:1}}"
+ ],
+ [
+  "wait",
+  4
+ ],
+ [
+  "shot",
+  "fps200_paper"
+ ],
+ [
+  "cmd",
+  "kill @e[type=item_display,tag=pk]"
+ ],
+ [
+  "cmd",
+  "kill @e[type=marker,tag=f3]"
+ ]
+]

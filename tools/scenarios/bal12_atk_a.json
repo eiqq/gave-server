@@ -1,0 +1,788 @@
+[
+[
+"cmd",
+"gamemode adventure {USER}"
+],
+[
+"wait",
+2
+],
+[
+"cmd",
+"gave 시험 균형 x FIRST_MIN 0"
+],
+[
+"cmd",
+"gave 시험 균형 x FIRST_SHARE 0"
+],
+[
+"cmd",
+"gave 시작"
+],
+[
+"until",
+"state=PREP",
+15
+],
+[
+"cmd",
+"gave 시험 판끝막기 x on"
+],
+[
+"until",
+"state=WAVE",
+20
+],
+[
+"wait",
+2
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"gave 시험 공격 x 물기 off"
+],
+[
+"cmd",
+"gave 시험 감독 x"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"gave 시험 풀기 {USER}"
+],
+[
+"cmd",
+"gave 시험 놓기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 공격 x 방어 0.001"
+],
+[
+"cmd",
+"gave 시험 공격 x 다시"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G01 4 0.5 22.5 2"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G02 2 -16.6 10.1 2"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G03 4 -10.1 -10.1 2"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G04 2 11.1 -10.1 2"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G05 4 17.6 10.1 2"
+],
+[
+"wait",
+6.666666666666667
+],
+[
+"cmd",
+"gave 시험 풀기 {USER}"
+],
+[
+"cmd",
+"gave 시험 놓기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 4.5"
+],
+[
+"wait",
+6.666666666666667
+],
+[
+"cmd",
+"gave 시험 풀기 {USER}"
+],
+[
+"cmd",
+"gave 시험 놓기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 4.5"
+],
+[
+"wait",
+6.666666666666667
+],
+[
+"cmd",
+"gave 시험 풀기 {USER}"
+],
+[
+"cmd",
+"gave 시험 놓기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 4.5"
+],
+[
+"cmd",
+"gave 시험 공격 x"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹목록 x"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"gave 시험 풀기 {USER}"
+],
+[
+"cmd",
+"gave 시험 놓기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 공격 x 방어 0.001"
+],
+[
+"cmd",
+"gave 시험 공격 x 다시"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G06 4 0.5 22.5 2"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G09 4 -16.6 10.1 2"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G10 4 -10.1 -10.1 2"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G11 2 11.1 -10.1 2"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G12 4 17.6 10.1 2"
+],
+[
+"wait",
+6.666666666666667
+],
+[
+"cmd",
+"gave 시험 풀기 {USER}"
+],
+[
+"cmd",
+"gave 시험 놓기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 4.5"
+],
+[
+"wait",
+6.666666666666667
+],
+[
+"cmd",
+"gave 시험 풀기 {USER}"
+],
+[
+"cmd",
+"gave 시험 놓기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 4.5"
+],
+[
+"wait",
+6.666666666666667
+],
+[
+"cmd",
+"gave 시험 풀기 {USER}"
+],
+[
+"cmd",
+"gave 시험 놓기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 4.5"
+],
+[
+"cmd",
+"gave 시험 공격 x"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹목록 x"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"gave 시험 풀기 {USER}"
+],
+[
+"cmd",
+"gave 시험 놓기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 공격 x 방어 0.001"
+],
+[
+"cmd",
+"gave 시험 공격 x 다시"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G13 4 0.5 22.5 2"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G14 4 -16.6 10.1 2"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G15 4 -10.1 -10.1 2"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G16 4 11.1 -10.1 2"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G18 4 17.6 10.1 2"
+],
+[
+"wait",
+6.666666666666667
+],
+[
+"cmd",
+"gave 시험 풀기 {USER}"
+],
+[
+"cmd",
+"gave 시험 놓기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 4.5"
+],
+[
+"wait",
+6.666666666666667
+],
+[
+"cmd",
+"gave 시험 풀기 {USER}"
+],
+[
+"cmd",
+"gave 시험 놓기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 4.5"
+],
+[
+"wait",
+6.666666666666667
+],
+[
+"cmd",
+"gave 시험 풀기 {USER}"
+],
+[
+"cmd",
+"gave 시험 놓기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 4.5"
+],
+[
+"cmd",
+"gave 시험 공격 x"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹목록 x"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"gave 시험 풀기 {USER}"
+],
+[
+"cmd",
+"gave 시험 놓기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 공격 x 방어 0.001"
+],
+[
+"cmd",
+"gave 시험 공격 x 다시"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G19 4 0.5 22.5 2"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G20 4 -16.6 10.1 2"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G22 4 -10.1 -10.1 2"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G23 4 11.1 -10.1 2"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G24 4 17.6 10.1 2"
+],
+[
+"wait",
+6.666666666666667
+],
+[
+"cmd",
+"gave 시험 풀기 {USER}"
+],
+[
+"cmd",
+"gave 시험 놓기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 4.5"
+],
+[
+"wait",
+6.666666666666667
+],
+[
+"cmd",
+"gave 시험 풀기 {USER}"
+],
+[
+"cmd",
+"gave 시험 놓기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 4.5"
+],
+[
+"wait",
+6.666666666666667
+],
+[
+"cmd",
+"gave 시험 풀기 {USER}"
+],
+[
+"cmd",
+"gave 시험 놓기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 4.5"
+],
+[
+"cmd",
+"gave 시험 공격 x"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹목록 x"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"gave 시험 풀기 {USER}"
+],
+[
+"cmd",
+"gave 시험 놓기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 공격 x 방어 0.001"
+],
+[
+"cmd",
+"gave 시험 공격 x 다시"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G25 4 0.5 22.5 2"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G27 4 -16.6 10.1 2"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G28 4 -10.1 -10.1 2"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G29 2 11.1 -10.1 2"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G30 4 17.6 10.1 2"
+],
+[
+"wait",
+6.666666666666667
+],
+[
+"cmd",
+"gave 시험 풀기 {USER}"
+],
+[
+"cmd",
+"gave 시험 놓기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 4.5"
+],
+[
+"wait",
+6.666666666666667
+],
+[
+"cmd",
+"gave 시험 풀기 {USER}"
+],
+[
+"cmd",
+"gave 시험 놓기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 4.5"
+],
+[
+"wait",
+6.666666666666667
+],
+[
+"cmd",
+"gave 시험 풀기 {USER}"
+],
+[
+"cmd",
+"gave 시험 놓기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 4.5"
+],
+[
+"cmd",
+"gave 시험 공격 x"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹목록 x"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"gave 시험 풀기 {USER}"
+],
+[
+"cmd",
+"gave 시험 놓기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 공격 x 방어 0.001"
+],
+[
+"cmd",
+"gave 시험 공격 x 다시"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G31 4 0.5 22.5 2"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G32 4 -16.6 10.1 2"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G33 4 -10.1 -10.1 2"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G34 4 11.1 -10.1 2"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G36 4 17.6 10.1 2"
+],
+[
+"wait",
+6.666666666666667
+],
+[
+"cmd",
+"gave 시험 풀기 {USER}"
+],
+[
+"cmd",
+"gave 시험 놓기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 4.5"
+],
+[
+"wait",
+6.666666666666667
+],
+[
+"cmd",
+"gave 시험 풀기 {USER}"
+],
+[
+"cmd",
+"gave 시험 놓기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 4.5"
+],
+[
+"wait",
+6.666666666666667
+],
+[
+"cmd",
+"gave 시험 풀기 {USER}"
+],
+[
+"cmd",
+"gave 시험 놓기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 4.5"
+],
+[
+"cmd",
+"gave 시험 공격 x"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹목록 x"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"gave 시험 공격 x 물기 on"
+],
+[
+"cmd",
+"gave 중지"
+]
+]

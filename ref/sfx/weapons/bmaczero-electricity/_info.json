@@ -1,0 +1,14 @@
+{
+ "title": "Electricity Sound Effects",
+ "url": "https://opengameart.org/content/electricity-sound-effects-0",
+ "file_url": "https://opengameart.org/sites/default/files/spark.wav, https://opengameart.org/sites/default/files/continuousspark.wav",
+ "author": "BMacZero (Brian MacIntosh)",
+ "license": "CC0-1.0",
+ "license_note": "OGA License(s): CC0. 'Recorded from a small Tesla generator. Optionally credit Brian MacIntosh'",
+ "files": {
+  "spark.wav": "9a3d987bdf7f405570aa015f6da42596ce84c5073c18c0561be7cd3ae401bc97",
+  "continuousspark.wav": "4ec24045b4fb6a88b958d00f16cc39b8aa992cd6e6a5edb4ecb0f34b36ddb18b"
+ },
+ "date": "2026-11-12",
+ "note": "받은 묶음에서 쓰는 파일만 꺼냄(묶음은 지움). 다시 필요하면 file_url 에서 받고 archive_sha256 으로 맞춰 볼 것"
+}

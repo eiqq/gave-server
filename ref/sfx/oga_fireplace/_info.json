@@ -1,0 +1,31 @@
+{
+ "title": "Fireplace Sound loop",
+ "author": "PagDev",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/fireplace-sound-loop",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+ "note": "",
+ "desc": "Wood-Burning on Fireplace Sound Effect loop",
+ "urls": [
+  "https://opengameart.org/sites/default/files/fire.wav"
+ ],
+ "pack": "oga_fireplace",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "fire.wav",
+   "bytes": 10324410,
+   "sha256": "85ca0cc60d0c037fff8b185e31ad1fcdbda6ce45eee17c3ee1318d1b8f59e330"
+  }
+ ],
+ "files": [
+  {
+   "file": "fire.wav",
+   "orig": "fire.wav",
+   "bytes": 10324410,
+   "sha256": "85ca0cc60d0c037fff8b185e31ad1fcdbda6ce45eee17c3ee1318d1b8f59e330"
+  }
+ ]
+}

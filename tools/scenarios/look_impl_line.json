@@ -1,0 +1,454 @@
+[
+[
+"cmd",
+"gamemode creative {USER}"
+],
+[
+"cmd",
+"time set noon"
+],
+[
+"cmd",
+"gave 시험 몹정지 x on"
+],
+[
+"wait",
+2
+],
+[
+"cmd",
+"kill @e[type=minecraft:item_display,tag=lk]"
+],
+[
+"cmd",
+"summon minecraft:item_display -21.60 64.85 4.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g05\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display -18.00 64.80 4.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g06\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display -14.40 66.00 4.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g09\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display -10.80 64.85 4.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g10\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display -7.20 65.00 4.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g12\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display -3.60 64.80 4.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.33333f,0.00000f,0.00000f,0.00000f,0.00000f,1.33333f,0.00000f,0.00000f,-0.00000f,0.00000f,1.33333f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g14\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 0.00 66.00 4.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g15\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 3.60 67.00 4.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.33333f,0.00000f,0.00000f,0.00000f,0.00000f,1.33333f,0.00000f,0.00000f,-0.00000f,0.00000f,1.33333f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g16\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 7.20 65.15 4.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g32\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 10.80 68.00 4.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g36\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 14.40 64.95 4.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g41\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 18.00 65.90 4.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.33333f,0.00000f,0.00000f,0.00000f,0.00000f,1.33333f,0.00000f,0.00000f,-0.00000f,0.00000f,1.33333f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g46\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 21.60 66.00 4.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g51\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display -27.00 66.60 14.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[2.00000f,0.00000f,0.00000f,0.00000f,0.00000f,2.00000f,0.00000f,0.00000f,0.00000f,0.00000f,2.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g18\",\"minecraft:custom_model_data\":{strings:[\"s5\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display -18.00 65.80 14.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g27\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display -9.00 67.70 14.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[4.00000f,0.00000f,0.00000f,0.00000f,0.00000f,4.00000f,0.00000f,0.00000f,0.00000f,0.00000f,4.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g28\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 0.00 65.30 14.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g34\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 9.00 66.60 14.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[2.22222f,0.00000f,0.00000f,0.00000f,0.00000f,2.22222f,0.00000f,0.00000f,-0.00000f,0.00000f,2.22222f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g39\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 18.00 68.40 14.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[3.33333f,0.00000f,0.00000f,0.00000f,0.00000f,3.33333f,0.00000f,0.00000f,-0.00000f,0.00000f,3.33333f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g42\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 18.00 65.40 14.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g42_sac\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 27.00 65.90 14.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[2.00000f,0.00000f,0.00000f,0.00000f,0.00000f,2.00000f,0.00000f,0.00000f,0.00000f,0.00000f,2.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g43\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"tp {USER} 0.50 64.00 -20.00 0.0 -2.0"
+],
+[
+"wait",
+3
+],
+[
+"shot",
+"a_far"
+],
+[
+"cmd",
+"tp {USER} 0.50 64.00 -6.00 0.0 -6.0"
+],
+[
+"wait",
+1.5
+],
+[
+"shot",
+"a_mid"
+],
+[
+"cmd",
+"tp {USER} -9.00 64.00 0.50 0.0 0.0"
+],
+[
+"wait",
+1.5
+],
+[
+"shot",
+"a_close_l"
+],
+[
+"cmd",
+"tp {USER} 9.50 64.00 0.50 0.0 0.0"
+],
+[
+"wait",
+1.5
+],
+[
+"shot",
+"a_close_r"
+],
+[
+"cmd",
+"kill @e[type=minecraft:item_display,tag=lk]"
+],
+[
+"cmd",
+"summon minecraft:item_display -21.60 64.85 4.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-1.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g05\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display -18.00 64.80 4.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-1.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g06\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display -14.40 66.00 4.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-1.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g09\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display -10.80 64.85 4.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-1.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g10\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display -7.20 65.00 4.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-1.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g12\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display -3.60 64.80 4.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-1.33333f,0.00000f,0.00000f,1.33333f,0.00000f,0.00000f,1.33333f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g14\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 0.00 66.00 4.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-1.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g15\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 3.60 67.00 4.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-1.33333f,0.00000f,0.00000f,1.33333f,0.00000f,0.00000f,1.33333f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g16\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 7.20 65.15 4.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-1.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g32\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 10.80 68.00 4.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-1.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g36\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 14.40 64.95 4.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-1.66667f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g41\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 18.00 65.90 4.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-1.33333f,0.00000f,0.00000f,1.33333f,0.00000f,0.00000f,1.33333f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g46\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 21.60 66.00 4.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-1.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g51\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display -27.00 66.60 14.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-2.00000f,0.00000f,0.00000f,2.00000f,0.00000f,0.00000f,2.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g18\",\"minecraft:custom_model_data\":{strings:[\"s5\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display -18.00 65.80 14.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-1.66667f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g27\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display -9.00 67.70 14.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-4.00000f,0.00000f,0.00000f,4.00000f,0.00000f,0.00000f,4.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g28\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 0.00 65.30 14.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-1.66667f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g34\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 9.00 66.60 14.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-2.22222f,0.00000f,0.00000f,2.22222f,0.00000f,0.00000f,2.22222f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g39\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 18.00 68.40 14.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-3.33333f,0.00000f,0.00000f,3.33333f,0.00000f,0.00000f,3.33333f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g42\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 18.00 65.40 14.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-1.66667f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g42_sac\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 27.00 65.90 14.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[0.00000f,0.00000f,-2.00000f,0.00000f,0.00000f,2.00000f,0.00000f,0.00000f,2.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g43\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"tp {USER} 0.50 64.00 -20.00 0.0 -2.0"
+],
+[
+"wait",
+2.5
+],
+[
+"shot",
+"b_side_far"
+],
+[
+"cmd",
+"tp {USER} 0.50 64.00 -6.00 0.0 -6.0"
+],
+[
+"wait",
+1.5
+],
+[
+"shot",
+"b_side_mid"
+],
+[
+"cmd",
+"kill @e[type=minecraft:item_display,tag=lk]"
+],
+[
+"cmd",
+"summon minecraft:item_display -21.60 64.85 4.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g05\",\"minecraft:custom_model_data\":{strings:[\"full\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display -18.00 64.80 4.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g06\",\"minecraft:custom_model_data\":{strings:[\"puff\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display -14.40 66.00 4.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g09\",\"minecraft:custom_model_data\":{strings:[\"halt\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display -10.80 64.85 4.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g10\",\"minecraft:custom_model_data\":{strings:[\"half_l\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display -7.20 65.00 4.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g12\",\"minecraft:custom_model_data\":{strings:[\"s5\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display -3.60 64.80 4.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.33333f,0.00000f,0.00000f,0.00000f,0.00000f,1.33333f,0.00000f,0.00000f,-0.00000f,0.00000f,1.33333f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g14\",\"minecraft:custom_model_data\":{strings:[\"gnaw\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15598352,15076112,14816016,15342352,15336768,14814528,15603008,15080768,14820672,15347008,14877456,15403792,15143696,15670032]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 0.00 66.00 4.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g15\",\"minecraft:custom_model_data\":{strings:[\"fast\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 3.60 67.00 4.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.33333f,0.00000f,0.00000f,0.00000f,0.00000f,1.33333f,0.00000f,0.00000f,-0.00000f,0.00000f,1.33333f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g16\",\"minecraft:custom_model_data\":{strings:[\"fold\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 7.20 65.15 4.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g32\",\"minecraft:custom_model_data\":{strings:[\"swoop\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 10.80 68.00 4.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g36\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 14.40 64.95 4.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g41\",\"minecraft:custom_model_data\":{strings:[\"snap\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 18.00 65.90 4.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.33333f,0.00000f,0.00000f,0.00000f,0.00000f,1.33333f,0.00000f,0.00000f,-0.00000f,0.00000f,1.33333f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g46\",\"minecraft:custom_model_data\":{strings:[\"lunge\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 21.60 66.00 4.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g51\",\"minecraft:custom_model_data\":{strings:[\"snap\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display -27.00 66.60 14.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[2.00000f,0.00000f,0.00000f,0.00000f,0.00000f,2.00000f,0.00000f,0.00000f,0.00000f,0.00000f,2.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g18\",\"minecraft:custom_model_data\":{strings:[\"s0\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display -18.00 65.80 14.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g27\",\"minecraft:custom_model_data\":{strings:[\"f5\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display -9.00 67.70 14.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[4.00000f,0.00000f,0.00000f,0.00000f,0.00000f,4.00000f,0.00000f,0.00000f,0.00000f,0.00000f,4.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g28\",\"minecraft:custom_model_data\":{strings:[\"fold\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 0.00 65.30 14.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g34\",\"minecraft:custom_model_data\":{strings:[\"gape\"],colors:[15204863,15204863,15204863,15204863,15204863,15204863,15532543,15532543,14828352,15106880,15156032,15434560,15598400,14828352,15106880,15156032,15434560,15354688,15633216,15682368,14912320,15076160,15354688,15633216,15682368,14912320,15094592,15373120,15422272,15700800,14816064,15094592,15373120,15422272,15700800,15620928,14850880,14900032,15178560,15342400,15620928,14850880,14900032,15178560,15598400,15076160,14816064,15342400,15598400,15076160,14816064,15342400,15598400,15076160,14816064,15342400,15598400,15076160,14816064,15342400]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 9.00 66.60 14.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[2.22222f,0.00000f,0.00000f,0.00000f,0.00000f,2.22222f,0.00000f,0.00000f,-0.00000f,0.00000f,2.22222f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g39\",\"minecraft:custom_model_data\":{strings:[\"reel\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 18.00 68.40 14.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[3.33333f,0.00000f,0.00000f,0.00000f,0.00000f,3.33333f,0.00000f,0.00000f,-0.00000f,0.00000f,3.33333f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g42\",\"minecraft:custom_model_data\":{strings:[\"spread\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 18.00 65.40 14.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g42_sac\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 27.00 65.90 14.50 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[2.00000f,0.00000f,0.00000f,0.00000f,0.00000f,2.00000f,0.00000f,0.00000f,0.00000f,0.00000f,2.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g43\",\"minecraft:custom_model_data\":{strings:[\"dark\"]}}}}"
+],
+[
+"cmd",
+"tp {USER} 0.50 64.00 -20.00 0.0 -2.0"
+],
+[
+"wait",
+2.5
+],
+[
+"shot",
+"c_states_far"
+],
+[
+"cmd",
+"tp {USER} 0.50 64.00 -6.00 0.0 -6.0"
+],
+[
+"wait",
+1.5
+],
+[
+"shot",
+"c_states_mid"
+],
+[
+"cmd",
+"kill @e[type=minecraft:item_display,tag=lk]"
+],
+[
+"cmd",
+"summon minecraft:item_display -10.00 78.00 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.33333f,0.00000f,0.00000f,0.00000f,0.00000f,1.33333f,0.00000f,0.00000f,-0.00000f,0.00000f,1.33333f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g16\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 0.50 79.00 16.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[4.00000f,-0.00000f,-0.00000f,0.00000f,0.00000f,0.00000f,4.00000f,0.00000f,-0.00000f,-4.00000f,0.00000f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g28\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 10.00 77.00 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[2.22222f,-0.00000f,-0.00000f,0.00000f,0.00000f,1.04327f,1.96211f,0.00000f,-0.00000f,-1.96211f,1.04327f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g39\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 18.00 73.00 16.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[3.33333f,-0.00000f,-0.00000f,0.00000f,0.00000f,2.69672f,1.95928f,0.00000f,-0.00000f,-1.95928f,2.69672f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g42\",\"minecraft:custom_model_data\":{strings:[\"solid\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 18.00 70.00 16.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g42_sac\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display -20.00 75.00 16.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[2.00000f,-0.00000f,-0.00000f,0.00000f,0.00000f,1.73205f,1.00000f,0.00000f,-0.00000f,-1.00000f,1.73205f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g43\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"tp {USER} 0.50 64.00 -12.00 0.0 -28.0"
+],
+[
+"wait",
+2.5
+],
+[
+"shot",
+"d_sky_mid"
+],
+[
+"cmd",
+"tp {USER} 0.50 64.00 -28.00 0.0 -14.0"
+],
+[
+"wait",
+1.5
+],
+[
+"shot",
+"d_sky_far"
+],
+[
+"cmd",
+"tp {USER} 0.50 64.00 12.00 0.0 -80.0"
+],
+[
+"wait",
+1.5
+],
+[
+"shot",
+"d_sky_under"
+],
+[
+"cmd",
+"kill @e[type=minecraft:item_display,tag=lk]"
+],
+[
+"cmd",
+"gave 시험 몹정지 x off"
+],
+[
+"cmd",
+"gamemode adventure {USER}"
+]
+]

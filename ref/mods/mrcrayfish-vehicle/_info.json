@@ -1,0 +1,23 @@
+{
+ "slug": "mrcrayfish-vehicle",
+ "title": "MrCrayfish's Vehicle Mod",
+ "url": "https://www.curseforge.com/minecraft/mc-mods/vehicle-mod",
+ "source": "https://github.com/MrCrayfish/MrCrayfishVehicleMod",
+ "branch": "1.16.X-dev",
+ "pushed_at": "2023-05-20T10:24:20Z",
+ "license": "GPL-3.0",
+ "license_evidence": {
+  "mods_toml": "src/main/resources/META-INF/mods.toml: license=\"GNU General Public License 3.0\"",
+  "license_file_first_line": "MOD-LICENSE.txt: GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007",
+  "github_api_spdx": "NOASSERTION (라이선스 파일이 여럿이라 Other 로 잡힘: 원정.md 4.2절)",
+  "checked": "2026-11-12 trip_special_a, curl 로 낱개 파일만"
+ },
+ "used": [
+  "assets/vehicle/models/vehicle/trailer_body.json -> gave:item/trip/trailer (tools/trip/special_a.py)"
+ ],
+ "files": {
+  "assets/vehicle/models/vehicle/trailer_body.json": "f944d1a4729dfb91571c566c16cf5ccb4758ab410fc20bbb0f438307333c0e5a",
+  "META-INF/mods.toml": "57386ff55b74dbba89010114f4835dd79e68c976bfbda31b487124c4ee483666",
+  "MOD-LICENSE.txt": "605e9047a563c5c8396ffb18232aa4304ec56586aee537c45064c6fb425e44ad"
+ }
+}

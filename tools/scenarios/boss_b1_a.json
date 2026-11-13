@@ -1,0 +1,317 @@
+[
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gamemode adventure {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  25
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 {USER} on"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER} 100000"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 균형 BOSS_UNITS 0.03"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 균형 REFILL 0"
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 14.5 0 -8"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "cmd",
+  "gave 웨이브 10"
+ ],
+ [
+  "until",
+  "boss=B1",
+  30
+ ],
+ [
+  "wait",
+  1.4
+ ],
+ [
+  "shot",
+  "intro_a"
+ ],
+ [
+  "wait",
+  1.2
+ ],
+ [
+  "shot",
+  "intro_b"
+ ],
+ [
+  "wait",
+  1.2
+ ],
+ [
+  "shot",
+  "intro_c"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 상태"
+ ],
+ [
+  "wait",
+  2.4
+ ],
+ [
+  "shot",
+  "frame"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 상태"
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 26.5 0 -12"
+ ],
+ [
+  "wait",
+  0.6
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER} 100"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 공격 slam {USER}"
+ ],
+ [
+  "wait",
+  1.1
+ ],
+ [
+  "shot",
+  "slam_tell"
+ ],
+ [
+  "wait",
+  0.9
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 상태"
+ ],
+ [
+  "shot",
+  "slam_down"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} B1 60 0 5.4"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 40"
+ ],
+ [
+  "wait",
+  1.3
+ ],
+ [
+  "shot",
+  "slam_weak"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 땅 상태"
+ ],
+ [
+  "wait",
+  2.6
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER} 100"
+ ],
+ [
+  "cmd",
+  "gave 시험 자리 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 공격 ring"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "shot",
+  "ring_pit"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 상태"
+ ],
+ [
+  "wait",
+  4.0
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER} 100"
+ ],
+ [
+  "cmd",
+  "gave 시험 자리 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 땅 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 공격 ring"
+ ],
+ [
+  "wait",
+  1.4
+ ],
+ [
+  "shot",
+  "ring_flat"
+ ],
+ [
+  "wait",
+  1.2
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 체력 0.55"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "shot",
+  "p2"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 상태"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 {USER} 죽이기"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "shot",
+  "dying_a"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "shot",
+  "dying_b"
+ ],
+ [
+  "wait",
+  2.0
+ ],
+ [
+  "shot",
+  "corpse"
+ ],
+ [
+  "until",
+  "state=BREAK",
+  40
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "shot",
+  "break"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 증강목록 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 땅 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 래그돌 x"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹시간 x"
+ ],
+ [
+  "cmd",
+  "gave 시험 기록 x"
+ ]
+]

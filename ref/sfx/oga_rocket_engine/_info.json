@@ -1,0 +1,31 @@
+{
+ "title": "Rocket Engine",
+ "author": "theMinesAreShakin",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/rocket-engine",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+ "note": "",
+ "desc": "Sound effect for rocket engine or spaceship. Low rumble.",
+ "urls": [
+  "https://opengameart.org/sites/default/files/rocket_engine.001.wav"
+ ],
+ "pack": "oga_rocket_engine",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "rocket_engine.001.wav",
+   "bytes": 1169268,
+   "sha256": "dc82ef86d6af2278d6592d20372737c32620f1c1957290c79f6643af5381f277"
+  }
+ ],
+ "files": [
+  {
+   "file": "rocket_engine_001.wav",
+   "orig": "rocket_engine.001.wav",
+   "bytes": 1169268,
+   "sha256": "dc82ef86d6af2278d6592d20372737c32620f1c1957290c79f6643af5381f277"
+  }
+ ]
+}

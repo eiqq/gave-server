@@ -1,0 +1,224 @@
+[
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gamemode adventure {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 원정 x 부품"
+ ],
+ [
+  "cmd",
+  "gave 시험 트럭 x 상태"
+ ],
+ [
+  "cmd",
+  "tp {USER} 7.5 64 8.5 130 8"
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "shot",
+  "lobby_truck"
+ ],
+ [
+  "cmd",
+  "gave 시험 균형 x ALIVE_PER_WAVE 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 균형 x ALIVE_BASE 0"
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  25
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 {USER} on"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "cmd",
+  "gave 시험 원정 x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 5.2 180 0"
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "cmd",
+  "gave 시험 상점보기 {USER}"
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "shot",
+  "shop_from_truck"
+ ],
+ [
+  "cmd",
+  "gave 시험 상점닫기 {USER}"
+ ],
+ [
+  "cmd",
+  "tp {USER} 8.5 64 -7.5 50 10"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 {USER} G14 3 0.5 -14.5 2"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 {USER} G01 12 -16.5 0.5 4"
+ ],
+ [
+  "cmd",
+  "gave 시험 트럭 x 노림 12"
+ ],
+ [
+  "wait",
+  9
+ ],
+ [
+  "shot",
+  "truck_bitten_a"
+ ],
+ [
+  "cmd",
+  "gave 시험 트럭 x 상태"
+ ],
+ [
+  "wait",
+  12
+ ],
+ [
+  "cmd",
+  "gave 시험 트럭 x 체력"
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "shot",
+  "truck_bitten_b"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 x G14"
+ ],
+ [
+  "cmd",
+  "gave 시험 돈 {USER} 2000"
+ ],
+ [
+  "cmd",
+  "gave 시험 사기 {USER} repair"
+ ],
+ [
+  "cmd",
+  "gave 시험 사기 {USER} repair"
+ ],
+ [
+  "cmd",
+  "gave 시험 트럭 x 체력"
+ ],
+ [
+  "cmd",
+  "gave 시험 사기 {USER} auto_ammo"
+ ],
+ [
+  "cmd",
+  "gave 시험 값표 x"
+ ],
+ [
+  "cmd",
+  "gave 시험 트럭 x 체력 220"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "shot",
+  "truck_low_fire"
+ ],
+ [
+  "cmd",
+  "tp {USER} 26.5 64 14.5 118 6"
+ ],
+ [
+  "cmd",
+  "gave 시험 트럭 x 터뜨리기"
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "shot",
+  "truck_boom"
+ ],
+ [
+  "until",
+  "state=OVER",
+  10
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "shot",
+  "truck_wreck"
+ ],
+ [
+  "cmd",
+  "gave 시험 트럭 x 상태"
+ ],
+ [
+  "cmd",
+  "gave 중지"
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "cmd",
+  "gave 시험 트럭 x 상태"
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ]
+]

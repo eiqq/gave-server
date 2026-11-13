@@ -1,0 +1,13 @@
+# 만든 것, 서버 폴더, 기록
+/build/
+/runtime/
+/runtime-*/
+/live/
+/logs/
+__pycache__/
+*.pyc
+
+# 내려받은 원본(모드에서 꺼낸 파일, 효과음, 음악, 스킨)은 올리지 않는다. 출처 기록 _info.json 만 남긴다
+/ref/**
+!/ref/**/
+!/ref/**/_info.json

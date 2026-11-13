@@ -1,0 +1,684 @@
+[
+[
+"cmd",
+"gamemode adventure {USER}"
+],
+[
+"wait",
+2
+],
+[
+"cmd",
+"gave 시험 카메라 {USER} 30 110 30 0 90"
+],
+[
+"wait",
+4
+],
+[
+"shot",
+"top"
+],
+[
+"cmd",
+"gave 시험 카메라끝 {USER}"
+],
+[
+"cmd",
+"gamemode adventure {USER}"
+],
+[
+"cmd",
+"gave 시작"
+],
+[
+"until",
+"state=PREP",
+15
+],
+[
+"cmd",
+"gave 시험 판끝막기 x on"
+],
+[
+"until",
+"state=WAVE",
+20
+],
+[
+"cmd",
+"gave 시험 감독 x"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+10
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+10
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"shot",
+"w1_20"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+10
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+10
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 상점상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 예산 x"
+],
+[
+"cmd",
+"gave 시험 감독 x"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"gave 웨이브 5"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 총굴리기 {USER} RIFLE COMMON"
+],
+[
+"cmd",
+"gave 시험 강화 {USER}"
+],
+[
+"cmd",
+"gave 시험 감독 x"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+10
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+10
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+10
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+10
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 상점상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 예산 x"
+],
+[
+"cmd",
+"gave 시험 감독 x"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"gave 웨이브 10"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 총굴리기 {USER} RIFLE RARE"
+],
+[
+"cmd",
+"gave 시험 강화 {USER}"
+],
+[
+"cmd",
+"gave 시험 강화 {USER}"
+],
+[
+"cmd",
+"gave 시험 강화 {USER}"
+],
+[
+"cmd",
+"gave 시험 강화 {USER}"
+],
+[
+"cmd",
+"gave 시험 증강주기 {USER} dmg"
+],
+[
+"cmd",
+"gave 시험 감독 x"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+10
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+10
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+10
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 0"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 0"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 180 4"
+],
+[
+"wait",
+0.6
+],
+[
+"shot",
+"w10_dir_n"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 270 4"
+],
+[
+"wait",
+0.6
+],
+[
+"shot",
+"w10_dir_e"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 0 4"
+],
+[
+"wait",
+0.6
+],
+[
+"shot",
+"w10_dir_s"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 90 4"
+],
+[
+"wait",
+0.6
+],
+[
+"shot",
+"w10_dir_w"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+10
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+10
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 상점상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 예산 x"
+],
+[
+"cmd",
+"gave 시험 감독 x"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 0"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 0"
+],
+[
+"cmd",
+"gave 시험 판끝막기 x off"
+],
+[
+"cmd",
+"gave 시험 쓰러뜨리기 {USER}"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"wait",
+3
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 180 20"
+],
+[
+"wait",
+1
+],
+[
+"shot",
+"end_4s"
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 카메라 {USER} 0.5 84 26 180 52"
+],
+[
+"wait",
+3
+],
+[
+"shot",
+"end_8s"
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"wait",
+4
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 기록 x"
+],
+[
+"cmd",
+"gave 시험 카메라끝 {USER}"
+],
+[
+"cmd",
+"gave 중지"
+]
+]

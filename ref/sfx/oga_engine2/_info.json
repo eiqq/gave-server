@@ -1,0 +1,43 @@
+{
+ "title": "Engine sounds(2)",
+ "author": "pauliuw",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/engine-sounds2",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+ "note": "",
+ "desc": "2 engine sounds",
+ "urls": [
+  "https://opengameart.org/sites/default/files/engine_sound.mp3",
+  "https://opengameart.org/sites/default/files/engine_sound_1.mp3"
+ ],
+ "pack": "oga_engine2",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "engine_sound.mp3",
+   "bytes": 828585,
+   "sha256": "6ac9e73a6e4d0ec2a7d70f1f2c833622f60c60f517488600b070708b2b4c2396"
+  },
+  {
+   "file": "engine_sound_1.mp3",
+   "bytes": 828587,
+   "sha256": "44d3023e98918de97436712c42383a7c8430fd49b54c50eb80a53a05ad054044"
+  }
+ ],
+ "files": [
+  {
+   "file": "engine_sound.mp3",
+   "orig": "engine_sound.mp3",
+   "bytes": 828585,
+   "sha256": "6ac9e73a6e4d0ec2a7d70f1f2c833622f60c60f517488600b070708b2b4c2396"
+  },
+  {
+   "file": "engine_sound_1.mp3",
+   "orig": "engine_sound_1.mp3",
+   "bytes": 828587,
+   "sha256": "44d3023e98918de97436712c42383a7c8430fd49b54c50eb80a53a05ad054044"
+  }
+ ]
+}

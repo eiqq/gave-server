@@ -1,0 +1,267 @@
+[
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gamemode adventure {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  40
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 {USER} on"
+ ],
+ [
+  "cmd",
+  "gave 시험 쉬기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 총 {USER} RIFLE"
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 30.5 180 0"
+ ],
+ [
+  "cmd",
+  "gave 소환 G42 1 3 {USER}"
+ ],
+ [
+  "wait",
+  0.4
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 {USER} on"
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 180 -25"
+ ],
+ [
+  "wait",
+  0.6
+ ],
+ [
+  "shot",
+  "d1_ghost"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 {USER} off"
+ ],
+ [
+  "wait",
+  3.0
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 180 -80"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G42"
+ ],
+ [
+  "wait",
+  0.4
+ ],
+ [
+  "shot",
+  "d2"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G42"
+ ],
+ [
+  "shot",
+  "d3"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G42"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER}"
+ ],
+ [
+  "shot",
+  "d4"
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 180 -89"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 300"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G42"
+ ],
+ [
+  "shot",
+  "d5"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G42"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "shot",
+  "d6"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G42"
+ ],
+ [
+  "shot",
+  "d7"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G42"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER}"
+ ],
+ [
+  "shot",
+  "d8"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G42"
+ ],
+ [
+  "shot",
+  "d9"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G42"
+ ],
+ [
+  "shot",
+  "d10"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G42"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER}"
+ ],
+ [
+  "shot",
+  "d11"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G42"
+ ],
+ [
+  "shot",
+  "d12"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G42"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "shot",
+  "d13"
+ ],
+ [
+  "wait",
+  2.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G42"
+ ],
+ [
+  "cmd",
+  "gave 시험 예산 {USER}"
+ ],
+ [
+  "shot",
+  "d14"
+ ],
+ [
+  "wait",
+  1
+ ]
+]

@@ -1,0 +1,31 @@
+{
+ "title": "Muffled Distant Explosion",
+ "author": "NenadSimic",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/muffled-distant-explosion",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+ "note": "",
+ "desc": "A low pitched log drum hit with delayed reverberation, for that natural reflection of sound heard after a loud bang in the distance.",
+ "urls": [
+  "https://opengameart.org/sites/default/files/NenadSimic%20-%20Muffled%20Distant%20Explosion.wav"
+ ],
+ "pack": "oga_distant_boom",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "NenadSimic - Muffled Distant Explosion.wav",
+   "bytes": 907518,
+   "sha256": "13a0bf75af94ec6d332bc71cba489b573466e05c4b17288158b3d683b41de39f"
+  }
+ ],
+ "files": [
+  {
+   "file": "nenadsimic_muffled_distant_explosion.wav",
+   "orig": "NenadSimic - Muffled Distant Explosion.wav",
+   "bytes": 907518,
+   "sha256": "13a0bf75af94ec6d332bc71cba489b573466e05c4b17288158b3d683b41de39f"
+  }
+ ]
+}

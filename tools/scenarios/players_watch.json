@@ -1,0 +1,10 @@
+[
+  ["until", ["state=WAVE", "alive=1"], 100],
+  ["wait", 2.3],
+  ["shot", "b1_reviving"],
+  ["until", ["state=BREAK"], 40],
+  ["until", ["state=BREAK", "mobs=1"], 15],
+  ["wait", 3.0],
+  ["shot", "b2_head"],
+  ["wait", 15]
+]

@@ -1,0 +1,31 @@
+{
+ "title": "Car engine Start Up 02",
+ "author": "looneybits",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/car-engine-start-up-02",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+ "note": "",
+ "desc": "Car engine start up 02 Sound effect meant to be used in your motor games. Site | YouTube | itch.io | Twitter If that was useful for you, please consider a donation",
+ "urls": [
+  "https://opengameart.org/sites/default/files/engine_start_up_01.wav"
+ ],
+ "pack": "oga_car_start2",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "engine_start_up_01.wav",
+   "bytes": 634438,
+   "sha256": "026311134479a4bb21f7f9a4a64c2b47791373c6e3613d36045387eee0fa0b23"
+  }
+ ],
+ "files": [
+  {
+   "file": "engine_start_up_01.wav",
+   "orig": "engine_start_up_01.wav",
+   "bytes": 634438,
+   "sha256": "026311134479a4bb21f7f9a4a64c2b47791373c6e3613d36045387eee0fa0b23"
+  }
+ ]
+}

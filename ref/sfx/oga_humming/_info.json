@@ -1,0 +1,31 @@
+{
+ "title": "Ghostly Humming",
+ "author": "Nocturnal_Vanguard",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/ghostly-humming",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+ "note": "",
+ "desc": "Hi I'm AuraVoice, a full-time voice over artist. I will post here some SFX I've recorded in past projects that I hope someone would find useful for their project. If you're interested in checking out some more of my work or would like to use my services, please check me out at https://www.fiverr.com",
+ "urls": [
+  "https://opengameart.org/sites/default/files/ghostly_humming.ogg"
+ ],
+ "pack": "oga_humming",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "ghostly_humming.ogg",
+   "bytes": 1388243,
+   "sha256": "270954cff9f076c81e0a16fac391cfcd1cedf6786fcb05cfa813a955ae539678"
+  }
+ ],
+ "files": [
+  {
+   "file": "ghostly_humming.ogg",
+   "orig": "ghostly_humming.ogg",
+   "bytes": 1388243,
+   "sha256": "270954cff9f076c81e0a16fac391cfcd1cedf6786fcb05cfa813a955ae539678"
+  }
+ ]
+}

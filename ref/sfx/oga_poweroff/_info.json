@@ -1,0 +1,31 @@
+{
+ "title": "Machine shutting down",
+ "author": "Cough-E",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/machine-shutting-down",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+ "note": "",
+ "desc": "Created via editing the vaccum sound found here . Now it sounds more like a machine and less like a vaccum",
+ "urls": [
+  "https://opengameart.org/sites/default/files/MachinePowerOff.ogg"
+ ],
+ "pack": "oga_poweroff",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "MachinePowerOff.ogg",
+   "bytes": 127692,
+   "sha256": "95850bb053f906ab086c49f57f81bc861a2d9dc478fd7b5056a3997ce7359c3d"
+  }
+ ],
+ "files": [
+  {
+   "file": "machinepoweroff.ogg",
+   "orig": "MachinePowerOff.ogg",
+   "bytes": 127692,
+   "sha256": "95850bb053f906ab086c49f57f81bc861a2d9dc478fd7b5056a3997ce7359c3d"
+  }
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "model": {
+  "type": "minecraft:model",
+  "model": "gave:item/shop/cleanse"
+ },
+ "hand_animation_on_swap": false
+}

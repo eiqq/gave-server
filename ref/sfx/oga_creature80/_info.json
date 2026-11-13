@@ -1,0 +1,504 @@
+{
+ "title": "80 CC0 creature SFX",
+ "author": "rubberduck",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/80-cc0-creature-sfx",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0",
+ "note": "",
+ "urls": [
+  "https://opengameart.org/sites/default/files/80-CC0-creature-SFX_0.zip"
+ ],
+ "pack": "oga_creature80",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "creature80.zip",
+   "bytes": 1885648,
+   "sha256": "5d4002eea42f278e76543bb36e8ddd2cb978588a13271984191d8228f5d26768"
+  }
+ ],
+ "files": [
+  {
+   "file": "alien_01.ogg",
+   "orig": "alien_01.ogg",
+   "bytes": 43847,
+   "sha256": "a725a4aef74d75bf8ddc9bc90abd49d1ba8380c62d80ee1318cf97c48c7a4124"
+  },
+  {
+   "file": "alien_02.ogg",
+   "orig": "alien_02.ogg",
+   "bytes": 38506,
+   "sha256": "a28c192579824352a0177d71d9f2fe32560d17b00fbc16297488bddd07ddcdc9"
+  },
+  {
+   "file": "alien_03.ogg",
+   "orig": "alien_03.ogg",
+   "bytes": 53349,
+   "sha256": "8e417706c6ca3f7eb99d9500d17bf74ef977d16c540dfa9d695db4721cc30003"
+  },
+  {
+   "file": "alien_04.ogg",
+   "orig": "alien_04.ogg",
+   "bytes": 34957,
+   "sha256": "0a46b3c9f1028ea251bc0aa82bb9bdaa2e6208ed48d5a4e83811be282bbe32c7"
+  },
+  {
+   "file": "alien_05.ogg",
+   "orig": "alien_05.ogg",
+   "bytes": 25080,
+   "sha256": "7f6414bd745b244af6f24f7bd2d58b0d7cd1c670ea389e122a750bc588ce7134"
+  },
+  {
+   "file": "alien_06.ogg",
+   "orig": "alien_06.ogg",
+   "bytes": 25462,
+   "sha256": "795a25119b46ec1b0ce8e059cb75ac48386fb6db581deb9d0bfd06dc27e6e6c9"
+  },
+  {
+   "file": "barking_01.ogg",
+   "orig": "barking_01.ogg",
+   "bytes": 17341,
+   "sha256": "f9b32cc139f0b8e7ae1f3b2409c08f374faa3d3a0935beb85b13e822d84bbb3d"
+  },
+  {
+   "file": "barking_02.ogg",
+   "orig": "barking_02.ogg",
+   "bytes": 16651,
+   "sha256": "d0222abeebea1616996b58af320c5b08d48fd68e13d9ba85104fd64d9f8e22ba"
+  },
+  {
+   "file": "breath.ogg",
+   "orig": "breath.ogg",
+   "bytes": 28273,
+   "sha256": "d6ecfd092c261059701fe81581957ce6e67c1737978449bbd98ec6d4f30abb7f"
+  },
+  {
+   "file": "bug_01.ogg",
+   "orig": "bug_01.ogg",
+   "bytes": 26999,
+   "sha256": "a7afae8bd3b448184e92bbb6162702e86322e5df58045715176c450ba4bbea3a"
+  },
+  {
+   "file": "bug_02.ogg",
+   "orig": "bug_02.ogg",
+   "bytes": 29638,
+   "sha256": "7993707dcb082c4f9f297bec44f8aa276988d848f4cf10ea6046c1c45daee518"
+  },
+  {
+   "file": "bug_03.ogg",
+   "orig": "bug_03.ogg",
+   "bytes": 22423,
+   "sha256": "947dad474b93a2786455b1772184f79f4881cf8bf212353638a42f662c808b7b"
+  },
+  {
+   "file": "bug_04.ogg",
+   "orig": "bug_04.ogg",
+   "bytes": 20036,
+   "sha256": "478418f0d70667109145ca10d82e918c5eeb95c594be40186681179a883d64be"
+  },
+  {
+   "file": "burble_01.ogg",
+   "orig": "burble_01.ogg",
+   "bytes": 48655,
+   "sha256": "f4c27a1839ef9e82d29e1bb175c0ebf73c65b6839b2914108d0c219fc1f42445"
+  },
+  {
+   "file": "burble_02.ogg",
+   "orig": "burble_02.ogg",
+   "bytes": 43100,
+   "sha256": "7cc51b6cf28a5d0ac13f34e54cb18ebb8d2b66aa144281d321d0af826f56a85b"
+  },
+  {
+   "file": "burp_01.ogg",
+   "orig": "burp_01.ogg",
+   "bytes": 25902,
+   "sha256": "cbd6aa84cc088209e42014c563cda13ebcdd051df4e83768a9ae48554a32a163"
+  },
+  {
+   "file": "burp_02.ogg",
+   "orig": "burp_02.ogg",
+   "bytes": 36360,
+   "sha256": "6742601fee1432cee9ab78ec2f07ed5686c9584759887239dfed6cda028ea4e5"
+  },
+  {
+   "file": "cough_01.ogg",
+   "orig": "cough_01.ogg",
+   "bytes": 21788,
+   "sha256": "ab4335a796373e46114e56ea9b8f2d5e3592d7f6e76c22c8b29b3aa985e8831c"
+  },
+  {
+   "file": "cough_02.ogg",
+   "orig": "cough_02.ogg",
+   "bytes": 17739,
+   "sha256": "df56e706c69183587dbf6750bf4d5df528051456cd4a838bb1171d5dbb29fcc9"
+  },
+  {
+   "file": "cough_03.ogg",
+   "orig": "cough_03.ogg",
+   "bytes": 36293,
+   "sha256": "1c307cd83cbda1f6860ed496e41ac27f105be801f168a22e6e359d3f9e563bb5"
+  },
+  {
+   "file": "cute_01.ogg",
+   "orig": "cute_01.ogg",
+   "bytes": 19125,
+   "sha256": "de478d6aaa052a06ff88351c684a5cd5fbef013248985fbb5ff0cdcddd9904ad"
+  },
+  {
+   "file": "cute_02.ogg",
+   "orig": "cute_02.ogg",
+   "bytes": 21644,
+   "sha256": "9b3303940f1c789b9f24e87f6f70076224d9f1398caacc7df4c0e7c4a9e60888"
+  },
+  {
+   "file": "cute_03.ogg",
+   "orig": "cute_03.ogg",
+   "bytes": 27354,
+   "sha256": "de5b8609ffcdb6f22865c8dc696dc01bdbc54e78ca54af45cb22116a0641b6c2"
+  },
+  {
+   "file": "cute_04.ogg",
+   "orig": "cute_04.ogg",
+   "bytes": 23303,
+   "sha256": "e9b717dffd587107f78d82e475da83513bd65dbaac2023a2f3691c34097fcc48"
+  },
+  {
+   "file": "cute_05.ogg",
+   "orig": "cute_05.ogg",
+   "bytes": 22176,
+   "sha256": "41d1b63ad4f006c09dbc65a686c022633825b01aa20e400b6dce0c6a22970c7c"
+  },
+  {
+   "file": "cute_06.ogg",
+   "orig": "cute_06.ogg",
+   "bytes": 20336,
+   "sha256": "51810bea0b961af26d3fd81b4bcc9248636e2a8e8ea9e2bc6a3d83b39eacdf71"
+  },
+  {
+   "file": "cute_07.ogg",
+   "orig": "cute_07.ogg",
+   "bytes": 15466,
+   "sha256": "b72456b5ee7f39154f7aea86ada23f281a24fe3a4d4d91704a7b7f5464b77a27"
+  },
+  {
+   "file": "cute_08.ogg",
+   "orig": "cute_08.ogg",
+   "bytes": 18709,
+   "sha256": "1776b641f37d0de4d51cf067c4a4b2c170ae582fc75a83c7abd42f13acdb1ce3"
+  },
+  {
+   "file": "cute_09.ogg",
+   "orig": "cute_09.ogg",
+   "bytes": 26244,
+   "sha256": "2432bc342b5688c390df41fbeb87be6af7fb686d67400d3310dfd1e2922bdbda"
+  },
+  {
+   "file": "cute_10.ogg",
+   "orig": "cute_10.ogg",
+   "bytes": 21713,
+   "sha256": "85a53fc0b5cf400749d6bdf664f2c4e35d7b5c8621fb139640d6a723d5a76924"
+  },
+  {
+   "file": "eat_01.ogg",
+   "orig": "eat_01.ogg",
+   "bytes": 32639,
+   "sha256": "f17305072d3d0ca5556f72db8701866329d33561ca5df086e501f2a52e2022df"
+  },
+  {
+   "file": "eat_02.ogg",
+   "orig": "eat_02.ogg",
+   "bytes": 21480,
+   "sha256": "60226fe5e4bf5ced6457f43ef89114a91d8790634a9aebb3c5754768fe04d6ee"
+  },
+  {
+   "file": "eat_03.ogg",
+   "orig": "eat_03.ogg",
+   "bytes": 12484,
+   "sha256": "3e7425cdf2cba7fe9c42e8306dc303a2c4f9a4f02358ee19329b734bf06591dd"
+  },
+  {
+   "file": "eat_04.ogg",
+   "orig": "eat_04.ogg",
+   "bytes": 24596,
+   "sha256": "1408d3cac16d7e8c99ce8702a76aa3c3fe18284d5326e88fc9b2c25331926ab8"
+  },
+  {
+   "file": "grunt_01.ogg",
+   "orig": "grunt_01.ogg",
+   "bytes": 24912,
+   "sha256": "73ee84f2bb3e1b371a72dd66a09f150c98c9000bcb735c3bdd7f607e59385206"
+  },
+  {
+   "file": "grunt_02.ogg",
+   "orig": "grunt_02.ogg",
+   "bytes": 23322,
+   "sha256": "76d78154f2f22b3f373bd3ec4ff0edabb459322f72adabfa285b738f37987cbb"
+  },
+  {
+   "file": "grunt_03.ogg",
+   "orig": "grunt_03.ogg",
+   "bytes": 26099,
+   "sha256": "f2a23b32fcf9cbdabf059339d346ce7eead018fda778067827e71b96936989f1"
+  },
+  {
+   "file": "grunt_04.ogg",
+   "orig": "grunt_04.ogg",
+   "bytes": 25479,
+   "sha256": "4fbc2b361ce055a3b94d43489108582313dd999e5761d4e69d59c9c7abcec295"
+  },
+  {
+   "file": "grunt_05.ogg",
+   "orig": "grunt_05.ogg",
+   "bytes": 24809,
+   "sha256": "164059a171a8a7d8f1a2fcfdb195a9d50da3ab67bed0b52f4c2c3409fe5df049"
+  },
+  {
+   "file": "howl.ogg",
+   "orig": "howl.ogg",
+   "bytes": 25641,
+   "sha256": "e63e29a219dfbe64724525600f36db7aab6017145650ffbc92763f87181c7825"
+  },
+  {
+   "file": "hurt_01.ogg",
+   "orig": "hurt_01.ogg",
+   "bytes": 24174,
+   "sha256": "619f9f2b4bc6cb013b4a62d0ef515a11e4be3a73c9d78c7c12ec5669b166d2cd"
+  },
+  {
+   "file": "hurt_02.ogg",
+   "orig": "hurt_02.ogg",
+   "bytes": 21608,
+   "sha256": "b90ca3a0f5f48e1141ec6326f08ebf9f597efb6b2ca4ceeccc285b203c1ccbe1"
+  },
+  {
+   "file": "hurt_03.ogg",
+   "orig": "hurt_03.ogg",
+   "bytes": 24204,
+   "sha256": "53e0ff510ef43f583befea63af23af1d82ddb993b981f7c3c0e7eb5f0f9d21ab"
+  },
+  {
+   "file": "hurt_04.ogg",
+   "orig": "hurt_04.ogg",
+   "bytes": 14308,
+   "sha256": "65a6524d46bbf2acccb09b551fe7e3616dbd19f62266b5ea7e6313df29031df1"
+  },
+  {
+   "file": "hurt_05.ogg",
+   "orig": "hurt_05.ogg",
+   "bytes": 19383,
+   "sha256": "4dc63fc62e8604a87baa1f5a74b75d848ccb68ce6e0e34d603dd3cbefc8519ed"
+  },
+  {
+   "file": "misc_01.ogg",
+   "orig": "misc_01.ogg",
+   "bytes": 31780,
+   "sha256": "95d9a327bfa843416fe2f315a139d380c3558493fa8030b35a56d2b0ad612602"
+  },
+  {
+   "file": "misc_02.ogg",
+   "orig": "misc_02.ogg",
+   "bytes": 20457,
+   "sha256": "bd424eeee4112dd7221eef93ec83fe632c4c5990e8e3a39bb68441354e4e7764"
+  },
+  {
+   "file": "misc_03.ogg",
+   "orig": "misc_03.ogg",
+   "bytes": 15025,
+   "sha256": "b0b861b01fe160205ed14ebcc6d258fe416bfaede45a2fb2320d242cb09c3f70"
+  },
+  {
+   "file": "misc_04.ogg",
+   "orig": "misc_04.ogg",
+   "bytes": 21866,
+   "sha256": "9aac0a8a8e887b0d1ea7d18875037fb4a9742d3c00ce5445b1b43cd32b8884cc"
+  },
+  {
+   "file": "misc_05.ogg",
+   "orig": "misc_05.ogg",
+   "bytes": 23752,
+   "sha256": "13c5b520cb42a33157553ebad237a41c196e6cbe442758089937514bbe9f0d0d"
+  },
+  {
+   "file": "misc_06.ogg",
+   "orig": "misc_06.ogg",
+   "bytes": 25696,
+   "sha256": "d98d583a470ec46818e83b4da5a12a552679e09d551990b7699fcbd91d755a02"
+  },
+  {
+   "file": "misc_07.ogg",
+   "orig": "misc_07.ogg",
+   "bytes": 23984,
+   "sha256": "9f7f55d1fa7bea62261fd63d02e0eb4bf4b584a7a4147dee569049fa2a1b3f98"
+  },
+  {
+   "file": "misc_08.ogg",
+   "orig": "misc_08.ogg",
+   "bytes": 25174,
+   "sha256": "1d9b267f80f51d90b996ea38caf423451e6add588c78844791080601a7833236"
+  },
+  {
+   "file": "misc_09.ogg",
+   "orig": "misc_09.ogg",
+   "bytes": 20481,
+   "sha256": "4a4c30321fd1132100da595c01769c4750410fcd4dee1e42e75a34a8484c35e9"
+  },
+  {
+   "file": "monster_01.ogg",
+   "orig": "monster_01.ogg",
+   "bytes": 50215,
+   "sha256": "e8bb5c9d3d25172666c60ed302d354144b67e66170bdf039ec88f4b6b0cd879f"
+  },
+  {
+   "file": "monster_02.ogg",
+   "orig": "monster_02.ogg",
+   "bytes": 29602,
+   "sha256": "2f590aec7086b2327a141ec71d5e8b8e83524a30e6b9baf3be2784f4adb153b3"
+  },
+  {
+   "file": "monster_03.ogg",
+   "orig": "monster_03.ogg",
+   "bytes": 17484,
+   "sha256": "1208729886f3f66e7d8018e8880dff073275fd37b30e1016dd5b164161482df1"
+  },
+  {
+   "file": "monster_04.ogg",
+   "orig": "monster_04.ogg",
+   "bytes": 24985,
+   "sha256": "04b556b93bf3f99255ac362ebe7f905f750a8bcbb653f78ef7191adb91e71f49"
+  },
+  {
+   "file": "monster_05.ogg",
+   "orig": "monster_05.ogg",
+   "bytes": 24208,
+   "sha256": "e7e67dd4b5ae627dbdefcb25ee1a0fab2a5f6d0c9879eae87974a422fd83e583"
+  },
+  {
+   "file": "monster_06.ogg",
+   "orig": "monster_06.ogg",
+   "bytes": 31838,
+   "sha256": "6b8df01eb7821fb0fcf66b4683a8eb997ca728fded26b6937734b84ff05852f9"
+  },
+  {
+   "file": "monster_07.ogg",
+   "orig": "monster_07.ogg",
+   "bytes": 21987,
+   "sha256": "5f7d40c4899f2e2e146fe8a0207597d4daf4d304a644ad2e8629057bc49a87e9"
+  },
+  {
+   "file": "nose.ogg",
+   "orig": "nose.ogg",
+   "bytes": 17972,
+   "sha256": "c54f2937d705bda30a9618531d62752356ba9e1cae258687131e1582b36e53ce"
+  },
+  {
+   "file": "ooh.ogg",
+   "orig": "ooh.ogg",
+   "bytes": 16551,
+   "sha256": "6e2323960b6eaa931a75e4f75e3f13926cf3b67d4c21767cae88f2b2f7c83613"
+  },
+  {
+   "file": "roar_01.ogg",
+   "orig": "roar_01.ogg",
+   "bytes": 15863,
+   "sha256": "e9d44326860a1c3aba917684faccfd967a4fefa284d7df773e05ae890ec242e0"
+  },
+  {
+   "file": "roar_02.ogg",
+   "orig": "roar_02.ogg",
+   "bytes": 28522,
+   "sha256": "ceb532ee0fe775d6f86a821099b75f1790ab8022b963cb837c8c1fa4fffee5c2"
+  },
+  {
+   "file": "roar_03.ogg",
+   "orig": "roar_03.ogg",
+   "bytes": 24977,
+   "sha256": "983396c808eb658ed3bd223ffaf9ea7f756dba7bc45ecc3fde117083026a4556"
+  },
+  {
+   "file": "scream_01.ogg",
+   "orig": "scream_01.ogg",
+   "bytes": 38406,
+   "sha256": "54da7bba4c4272b0b77dc3fe26a91d0a26d9280797fecb8197d716b47745eb85"
+  },
+  {
+   "file": "scream_02.ogg",
+   "orig": "scream_02.ogg",
+   "bytes": 37049,
+   "sha256": "73aedfbcc7e5b3004507d5a79e95ae53954026036bf8d6f65aa0a4ca298dd372"
+  },
+  {
+   "file": "snore.ogg",
+   "orig": "snore.ogg",
+   "bytes": 24740,
+   "sha256": "9edd6540801b7a044c30d89bab70dab20647b2f7a6db3ddb269c6203de8b4fb3"
+  },
+  {
+   "file": "spit_01.ogg",
+   "orig": "spit_01.ogg",
+   "bytes": 28176,
+   "sha256": "11185484afda924711008f5e565d0baa5ebb271457c028b7e19b9ed487f8c6bd"
+  },
+  {
+   "file": "spit_02.ogg",
+   "orig": "spit_02.ogg",
+   "bytes": 35872,
+   "sha256": "aa65f01311e914d2861f1992a4e59f431c03edcf020e09961e422728562a2657"
+  },
+  {
+   "file": "spit_03.ogg",
+   "orig": "spit_03.ogg",
+   "bytes": 18610,
+   "sha256": "dcc68b992278e58fc51776b23b4cf04a28f7d660c58fd5514b35cb3f0936277c"
+  },
+  {
+   "file": "troll_01.ogg",
+   "orig": "troll_01.ogg",
+   "bytes": 25943,
+   "sha256": "d61a6ea6ab0263406de93002ee7378abac7b33486eafc04a91eeb625938e0df1"
+  },
+  {
+   "file": "troll_02.ogg",
+   "orig": "troll_02.ogg",
+   "bytes": 33825,
+   "sha256": "d63ae3a57294b8370eb6370cc4c75f544f4a8571d893ea3a48a4564d82e078cb"
+  },
+  {
+   "file": "troll_03.ogg",
+   "orig": "troll_03.ogg",
+   "bytes": 20952,
+   "sha256": "993b97ae0ca7755b6254f02242e6da4fe9895fc06ab2e092771927caab689660"
+  },
+  {
+   "file": "weird_01.ogg",
+   "orig": "weird_01.ogg",
+   "bytes": 20568,
+   "sha256": "f4a67e07911836cb90479e01c5a32e31627038e3227ecec7c6e029b3aa2d81ad"
+  },
+  {
+   "file": "weird_02.ogg",
+   "orig": "weird_02.ogg",
+   "bytes": 16721,
+   "sha256": "1d1bc049e70edaeaa31c2d87a65a05daf3f47ac317908368c245814cb649934e"
+  },
+  {
+   "file": "weird_03.ogg",
+   "orig": "weird_03.ogg",
+   "bytes": 15579,
+   "sha256": "6db7b94df0f11eec671971f0f1ee6815400e29f99cfc42f64480f445d23e9436"
+  },
+  {
+   "file": "weird_04.ogg",
+   "orig": "weird_04.ogg",
+   "bytes": 11164,
+   "sha256": "b8365f01b7905da42997959241a6c74aa319e08ed5d210a8008b34c6985f6a0a"
+  },
+  {
+   "file": "weird_05.ogg",
+   "orig": "weird_05.ogg",
+   "bytes": 19512,
+   "sha256": "475f387457f9fc336c60097418dac8b1a4d4ac7c89b0eabad50086238f248e58"
+  }
+ ]
+}

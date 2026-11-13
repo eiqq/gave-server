@@ -1,0 +1,280 @@
+[
+ [
+  "cmd",
+  "gamemode adventure {USER}"
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gave 중지"
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=PREP",
+  15
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 x on"
+ ],
+ [
+  "cmd",
+  "gave 시험 균형 x ALIVE_PER_WAVE 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 균형 x ALIVE_BASE 0"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  20
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "cmd",
+  "tp {USER} 6.5 64 -9.5 0 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER} 100"
+ ],
+ [
+  "cmd",
+  "gave 시험 총굴리기 {USER} FREEZE COMMON"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 x G01 2 6.5 -0.5 1"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G01 80"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 80"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "cmd",
+  "gave 시험 무기상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 x"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "cmd",
+  "gave 시험 무기상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 x"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "cmd",
+  "gave 시험 무기상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 x"
+ ],
+ [
+  "shot",
+  "r_freeze_slow"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER} 100"
+ ],
+ [
+  "cmd",
+  "gave 시험 총굴리기 {USER} FLAME RARE"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 x G01 3 6.5 -1.5 1"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G01 40"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 8"
+ ],
+ [
+  "wait",
+  0.6
+ ],
+ [
+  "cmd",
+  "gave 시험 무기상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 x"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER} 100"
+ ],
+ [
+  "cmd",
+  "tp {USER} 6.5 64 -9.5 0 -4"
+ ],
+ [
+  "cmd",
+  "gave 시험 총굴리기 {USER} LAUNCHER COMMON"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 x G01 4 6.5 8.5 2"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 x on"
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 0 -4"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 200"
+ ],
+ [
+  "wait",
+  1.4
+ ],
+ [
+  "shot",
+  "s_launcher_a"
+ ],
+ [
+  "wait",
+  0.4
+ ],
+ [
+  "shot",
+  "s_launcher_b"
+ ],
+ [
+  "cmd",
+  "gave 시험 무기상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "cmd",
+  "gave 시험 총굴리기 {USER} ROCKET COMMON"
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 0 6"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 200"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "shot",
+  "t_rocket_a"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "shot",
+  "t_rocket_b"
+ ],
+ [
+  "cmd",
+  "gave 시험 무기상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 총굴리기 {USER} RAILGUN COMMON"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 200"
+ ],
+ [
+  "wait",
+  1.2
+ ],
+ [
+  "shot",
+  "u_rail_a"
+ ],
+ [
+  "wait",
+  0.6
+ ],
+ [
+  "shot",
+  "u_rail_b"
+ ],
+ [
+  "cmd",
+  "gave 시험 무기상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 연출수 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 x off"
+ ],
+ [
+  "cmd",
+  "gave 중지"
+ ]
+]

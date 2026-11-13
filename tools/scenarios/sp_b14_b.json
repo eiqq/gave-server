@@ -1,0 +1,440 @@
+[
+[
+"wait",
+2
+],
+[
+"cmd",
+"gamemode adventure {USER}"
+],
+[
+"cmd",
+"gave 중지"
+],
+[
+"cmd",
+"gave 시작"
+],
+[
+"until",
+"state=PREP",
+15
+],
+[
+"cmd",
+"gave 시험 판끝막기 {USER} on"
+],
+[
+"cmd",
+"gave 시험 총 {USER} RIFLE"
+],
+[
+"until",
+"state=WAVE",
+40
+],
+[
+"cmd",
+"gave 웨이브 34"
+],
+[
+"cmd",
+"gave 시험 감독빨리 x 0.1"
+],
+[
+"wait",
+0.5
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 체력 Bishop 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 24.5 0 0"
+],
+[
+"cmd",
+"tp Bishop 0.5 64 -30.5 0 0"
+],
+[
+"wait",
+0.5
+],
+[
+"cmd",
+"gave 소환 G139 1 10 {USER}"
+],
+[
+"wait",
+1.8
+],
+[
+"shot",
+"g139_show"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G139 70"
+],
+[
+"wait",
+3.6
+],
+[
+"cmd",
+"tp Bishop 0.5 64 30.5 180 0"
+],
+[
+"wait",
+0.4
+],
+[
+"cmd",
+"gave 시험 옆으로 {USER} Bishop 2"
+],
+[
+"wait",
+0.4
+],
+[
+"cmd",
+"gave 시험 돕기 {USER}"
+],
+[
+"wait",
+0.8
+],
+[
+"shot",
+"g139_ring"
+],
+[
+"cmd",
+"gave 시험 사람상태 Bishop"
+],
+[
+"wait",
+12.6
+],
+[
+"cmd",
+"gave 시험 사람상태 Bishop"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G139 50"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 50"
+],
+[
+"wait",
+2.8
+],
+[
+"cmd",
+"gave 시험 몹목록 x G139"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"tp Bishop 0.5 64 -30.5 0 0"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 24.5 0 0"
+],
+[
+"cmd",
+"gave 소환 G140 1 14 {USER}"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G01 3 0.5 37.5 1.2"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G57 2 0.5 38.5 1.2"
+],
+[
+"wait",
+4.0
+],
+[
+"cmd",
+"gave 시험 몹목록 x"
+],
+[
+"shot",
+"g140_brew"
+],
+[
+"wait",
+4.0
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"shot",
+"g140_inside"
+],
+[
+"wait",
+8.5
+],
+[
+"cmd",
+"gave 시험 몹목록 x"
+],
+[
+"shot",
+"g140_elite"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 1 G140"
+],
+[
+"wait",
+1.0
+],
+[
+"cmd",
+"gave 시험 몹목록 x"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 24.5 0 0"
+],
+[
+"cmd",
+"gave 시험 총 {USER} MINIGUN"
+],
+[
+"cmd",
+"gave 소환 G144 1 18 {USER}"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 0 -60"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 160"
+],
+[
+"cmd",
+"gave 시험 폭발 {USER} 6"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 폭발 {USER} 6"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 폭발 {USER} 6"
+],
+[
+"wait",
+3
+],
+[
+"cmd",
+"gave 시험 몹목록 x G144"
+],
+[
+"wait",
+2
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 0 0"
+],
+[
+"shot",
+"g144_lean"
+],
+[
+"wait",
+2.5
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 총 {USER} RIFLE"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G144 30"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 20"
+],
+[
+"wait",
+1.3
+],
+[
+"cmd",
+"gave 시험 몹목록 x G144"
+],
+[
+"shot",
+"g144_limp"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G144 30 0.9 -1.4"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 24"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 몹목록 x G144"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"gave 시험 총 {USER} RIFLE"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 24.5 0 0"
+],
+[
+"cmd",
+"gave 소환 G150 1 9 {USER}"
+],
+[
+"wait",
+1.0
+],
+[
+"shot",
+"g150_walk"
+],
+[
+"wait",
+3.0
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G150 60"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 60"
+],
+[
+"wait",
+2.0
+],
+[
+"shot",
+"g150_flip"
+],
+[
+"cmd",
+"gave 시험 몹목록 x G150"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x G150"
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"wait",
+10
+],
+[
+"cmd",
+"gave 시험 몹목록 x G150"
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"wait",
+10
+],
+[
+"cmd",
+"gave 시험 몹목록 x G150"
+],
+[
+"cmd",
+"gave 상태"
+]
+]

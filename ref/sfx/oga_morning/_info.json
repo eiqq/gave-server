@@ -1,0 +1,31 @@
+{
+ "title": "AMB Morning Sounds (Perfect Loop)",
+ "author": "Kresiek The Furry",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/amb-morning-sounds-perfect-loop",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+ "note": "",
+ "desc": "Recorded on Saturday, March 26 at 10:28 AM [Central Daylight Time]",
+ "urls": [
+  "https://opengameart.org/sites/default/files/amb_morning_0.ogg"
+ ],
+ "pack": "oga_morning",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "amb_morning.ogg",
+   "bytes": 3229148,
+   "sha256": "f49f9470038fcbd75742ca88a9914de0e7fe515340cfddaf3a7614e42678b4a7"
+  }
+ ],
+ "files": [
+  {
+   "file": "amb_morning.ogg",
+   "orig": "amb_morning.ogg",
+   "bytes": 3229148,
+   "sha256": "f49f9470038fcbd75742ca88a9914de0e7fe515340cfddaf3a7614e42678b4a7"
+  }
+ ]
+}

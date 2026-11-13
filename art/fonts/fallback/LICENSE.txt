@@ -1,0 +1,10 @@
+art/fonts/fallback/u<code>.png
+Galmuri11 has no CJK ideographs. These single-glyph images (white ink, 11 px, monochrome) were rendered by tools/hud_fallback.py
+from Source Han Sans K Medium and are drawn by tools/make_hud.py in place of that one character inside HUD phrases.
+
+Source Han Sans
+(c) 2014-2025 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'.
+Source is a trademark of Adobe in the United States and/or other countries.
+Licensed under the SIL Open Font License, Version 1.1 (https://openfontlicense.org).
+
+Glyphs used: U+6545

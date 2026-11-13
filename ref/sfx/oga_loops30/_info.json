@@ -1,0 +1,205 @@
+{
+ "title": "30 CC0 SFX loops",
+ "author": "rubberduck",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/30-cc0-sfx-loops",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+ "note": "",
+ "desc": "I created 30 different SFX loops including: 3x alarm 3x ambient 11x machine 3x noise 2x water pump 1x rain 1x rolling sound 1x hand saw 1x boiling water 1x flowing water 3x weird Note: most loops are much longer than in the preview - up to 8 seconds",
+ "urls": [
+  "https://opengameart.org/sites/default/files/sfx_loops.zip"
+ ],
+ "pack": "oga_loops30",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "sfx_loops.zip",
+   "bytes": 3526706,
+   "sha256": "9c013474c7e56192a0d1b2840535a1e1d8b93166948d4a9f7136bb6c3d5421cd"
+  }
+ ],
+ "files": [
+  {
+   "file": "alarm_01.ogg",
+   "orig": "alarm_01.ogg",
+   "bytes": 115981,
+   "sha256": "c610a2e85119e9637680a2a48cc0d74e330c52cf7dee9a88362fbb53df11598f"
+  },
+  {
+   "file": "alarm_02.ogg",
+   "orig": "alarm_02.ogg",
+   "bytes": 22650,
+   "sha256": "26f1a445657e35c2639a0fecb2535c19a890cf3d70f65606d5729429efa95c1f"
+  },
+  {
+   "file": "alarm_03.ogg",
+   "orig": "alarm_03.ogg",
+   "bytes": 67749,
+   "sha256": "eb34cc19e782d6cefa033878e06819743a16d8d8b8e05b1cd19555d820c8017b"
+  },
+  {
+   "file": "ambient_01.ogg",
+   "orig": "ambient_01.ogg",
+   "bytes": 258149,
+   "sha256": "4dca0e4890c0f7658b3e67c624416cdb8379f195ee68915cc076a0ed329b6c8f"
+  },
+  {
+   "file": "ambient_02.ogg",
+   "orig": "ambient_02.ogg",
+   "bytes": 165771,
+   "sha256": "a04dc87827cc9b02d072ee1ebb8511a466564e643a30ec01d9ac977ac129f4af"
+  },
+  {
+   "file": "ambient_03.ogg",
+   "orig": "ambient_03.ogg",
+   "bytes": 344716,
+   "sha256": "f92568d52d3462454379fe8584155e816d3d44dc797ca055c97c6ee12f3abe8a"
+  },
+  {
+   "file": "machine_01.ogg",
+   "orig": "machine_01.ogg",
+   "bytes": 56095,
+   "sha256": "06bef91dcdb0a7e034f29196d36ba4d5a55e51038df4b299178d457fb978e6fb"
+  },
+  {
+   "file": "machine_02.ogg",
+   "orig": "machine_02.ogg",
+   "bytes": 28176,
+   "sha256": "8cade134b4dc17b2037933f74a85c4e1fe25b56465dd472fece68ecb2509a78d"
+  },
+  {
+   "file": "machine_03.ogg",
+   "orig": "machine_03.ogg",
+   "bytes": 31880,
+   "sha256": "761022102cd41c7dded743f1ee144024fd4e0591dbb6cf994cf41e8d35782843"
+  },
+  {
+   "file": "machine_04.ogg",
+   "orig": "machine_04.ogg",
+   "bytes": 28418,
+   "sha256": "8fe4917b24ea85ee54273fcef2c024057214db7b8468eface5ea8a602f292bb9"
+  },
+  {
+   "file": "machine_05.ogg",
+   "orig": "machine_05.ogg",
+   "bytes": 52518,
+   "sha256": "a894d8986bd38e9b708deeee3f659f0f75018c74de3646fb6bdecda09ca11295"
+  },
+  {
+   "file": "machine_06.ogg",
+   "orig": "machine_06.ogg",
+   "bytes": 141035,
+   "sha256": "ed60a902c2bb889d9a34c85651a6967e0a27d09c100b58ffacc9406f76ab92f2"
+  },
+  {
+   "file": "machine_07.ogg",
+   "orig": "machine_07.ogg",
+   "bytes": 53482,
+   "sha256": "b06cc36d9be4398e99a203b085a75ba779ecadbf981ab65d3ea5ec45d77842c3"
+  },
+  {
+   "file": "machine_08.ogg",
+   "orig": "machine_08.ogg",
+   "bytes": 165814,
+   "sha256": "b663b3bf386f36317deb3a4ba03aa2b154cf4e594b772ee9e59021958299e429"
+  },
+  {
+   "file": "machine_09.ogg",
+   "orig": "machine_09.ogg",
+   "bytes": 106129,
+   "sha256": "d19a9b0c9683ba862df54ee5a8bfe1abf4db48c084c47a4d96b18112624c249f"
+  },
+  {
+   "file": "machine_10.ogg",
+   "orig": "machine_10.ogg",
+   "bytes": 67988,
+   "sha256": "a9aa0a0de4665619274d3d6020100cf97d9948fcc033ec49f59bae52a8fef802"
+  },
+  {
+   "file": "machine_11.ogg",
+   "orig": "machine_11.ogg",
+   "bytes": 283898,
+   "sha256": "ca9c20c27e8d5c47911e02992662b8ad44afd54fecee20bb523e25fdb2b8080a"
+  },
+  {
+   "file": "noise_01.ogg",
+   "orig": "noise_01.ogg",
+   "bytes": 274225,
+   "sha256": "1daaaaa63889d840e810ccb10bd32d0288e1b071a89878da97daf0ec97ffeccf"
+  },
+  {
+   "file": "noise_02.ogg",
+   "orig": "noise_02.ogg",
+   "bytes": 146990,
+   "sha256": "b1cb867f85c2735023943686e8d4976f1c29c094c5951cf1f6ce91ce70cac5ba"
+  },
+  {
+   "file": "noise_03.ogg",
+   "orig": "noise_03.ogg",
+   "bytes": 110117,
+   "sha256": "b8c173748a2e07634c549127fbad757d85c83ee4430a58c981c99a8b84518d6d"
+  },
+  {
+   "file": "pump_01.ogg",
+   "orig": "pump_01.ogg",
+   "bytes": 119419,
+   "sha256": "e2bd71e64889b7471154538b5401692e81dde4df398b72db9ed1dd7496583913"
+  },
+  {
+   "file": "pump_02.ogg",
+   "orig": "pump_02.ogg",
+   "bytes": 81808,
+   "sha256": "4942a848792a20f10e69a82b68bb4fadbab4d4c1e65c3df2055fb9a780f6009e"
+  },
+  {
+   "file": "rain.ogg",
+   "orig": "rain.ogg",
+   "bytes": 189015,
+   "sha256": "8d153f3f6ee266484f679d7149c80a1afcf4dcfeb9f2c1b6206ed780a12273fb"
+  },
+  {
+   "file": "rolling.ogg",
+   "orig": "rolling.ogg",
+   "bytes": 51513,
+   "sha256": "24b5fd290b2008de9b087687ae41db833068a86ef7c0f1b230ce8bf0859b7291"
+  },
+  {
+   "file": "saw.ogg",
+   "orig": "saw.ogg",
+   "bytes": 95942,
+   "sha256": "395788a09e2916c25caa1e45a06e955ff4429d811a3d63d3bed2a7b3764bf261"
+  },
+  {
+   "file": "water_boiling.ogg",
+   "orig": "water_boiling.ogg",
+   "bytes": 208960,
+   "sha256": "e75fb982ec50cca628ba18845e81211e12ed4cdc5080609d55ee2d60873320af"
+  },
+  {
+   "file": "water_flowing.ogg",
+   "orig": "water_flowing.ogg",
+   "bytes": 74344,
+   "sha256": "1a431f77d61661becdc87a5b1832d47f83a12a5c0b001077e41a202e739797a7"
+  },
+  {
+   "file": "weird_01.ogg",
+   "orig": "weird_01.ogg",
+   "bytes": 63734,
+   "sha256": "b2032cce5242b2c451c9404701fa62ec56c25ec707dea115343666be75914c99"
+  },
+  {
+   "file": "weird_02.ogg",
+   "orig": "weird_02.ogg",
+   "bytes": 126267,
+   "sha256": "d9c741e3ef3a5bfe1418d6e59916c4a02af72b52874db72497255fe4905bcddb"
+  },
+  {
+   "file": "weird_03.ogg",
+   "orig": "weird_03.ogg",
+   "bytes": 197132,
+   "sha256": "c03c74bc98dff8c93618b686896ff11f3d7f7feead0bf98bba023bcfa9d47e17"
+  }
+ ]
+}

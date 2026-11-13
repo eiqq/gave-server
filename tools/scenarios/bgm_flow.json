@@ -1,0 +1,190 @@
+[
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 음악 {USER} 기록 on"
+ ],
+ [
+  "cmd",
+  "gave 시험 음악 {USER}"
+ ],
+ [
+  "wait",
+  4
+ ],
+ [
+  "cmd",
+  "gave 시험 음악 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=PREP",
+  15
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 음악 {USER}"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  20
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 음악 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 쉬기 x"
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gave 시험 음악 {USER}"
+ ],
+ [
+  "wait",
+  11
+ ],
+ [
+  "cmd",
+  "gave 시험 음악 {USER}"
+ ],
+ [
+  "wait",
+  8
+ ],
+ [
+  "cmd",
+  "gave 시험 음악 {USER}"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  10
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gave 시험 음악 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 사건 x 조용"
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gave 시험 음악 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 사건 x 조용 끝"
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gave 시험 음악 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 음악 {USER} 긴장 0.9"
+ ],
+ [
+  "wait",
+  12
+ ],
+ [
+  "cmd",
+  "gave 시험 음악 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 음악 {USER} 곡 wave_high_2"
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gave 시험 음악 {USER} 긴장 자동"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 30"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 음악 {USER}"
+ ],
+ [
+  "shot",
+  "wave30"
+ ],
+ [
+  "cmd",
+  "gave 시험 쓰러뜨리기 {USER}"
+ ],
+ [
+  "until",
+  "state=OVER",
+  10
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 음악 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 중지"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 음악 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ]
+]

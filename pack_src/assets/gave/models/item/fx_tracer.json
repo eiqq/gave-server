@@ -1,0 +1,80 @@
+{
+ "textures": {
+  "fx": "gave:item/fx_marker",
+  "particle": "gave:item/fx_marker"
+ },
+ "elements": [
+  {
+   "from": [
+    4,
+    8,
+    8
+   ],
+   "to": [
+    12,
+    8,
+    24
+   ],
+   "shade": false,
+   "faces": {
+    "up": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#fx",
+     "tintindex": 0
+    },
+    "down": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#fx",
+     "tintindex": 0
+    }
+   }
+  },
+  {
+   "from": [
+    8,
+    4,
+    8
+   ],
+   "to": [
+    8,
+    12,
+    24
+   ],
+   "shade": false,
+   "faces": {
+    "east": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#fx",
+     "tintindex": 0,
+     "rotation": 90
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#fx",
+     "tintindex": 0,
+     "rotation": 90
+    }
+   }
+  }
+ ]
+}

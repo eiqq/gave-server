@@ -1,0 +1,696 @@
+[
+[
+"wait",
+2
+],
+[
+"cmd",
+"gamemode adventure {USER}"
+],
+[
+"cmd",
+"gave 시작"
+],
+[
+"until",
+"state=PREP",
+15
+],
+[
+"cmd",
+"gave 시험 판끝막기 {USER} on"
+],
+[
+"cmd",
+"gave 시험 총 {USER} RIFLE"
+],
+[
+"until",
+"state=WAVE",
+40
+],
+[
+"cmd",
+"gave 시험 쉬기 {USER}"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 20 0 0"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 소환 G03 1 10 {USER}"
+],
+[
+"wait",
+1.0
+],
+[
+"shot",
+"a01_g03_juggle"
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G03"
+],
+[
+"wait",
+0.8
+],
+[
+"shot",
+"a02_g03_fast"
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G03"
+],
+[
+"wait",
+0.6
+],
+[
+"shot",
+"a03_g03_throw"
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G03"
+],
+[
+"wait",
+0.5
+],
+[
+"shot",
+"a04_g03_fly"
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G03"
+],
+[
+"wait",
+1.0
+],
+[
+"shot",
+"a05_g03_stuck"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G03"
+],
+[
+"wait",
+2.2
+],
+[
+"shot",
+"a06_g03_return"
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G03"
+],
+[
+"wait",
+1.5
+],
+[
+"shot",
+"a07_g03_home"
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G03"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 소환 G03 1 4 {USER}"
+],
+[
+"wait",
+0.4
+],
+[
+"cmd",
+"gave 시험 몹정지 {USER} on"
+],
+[
+"shot",
+"a08_g03_close"
+],
+[
+"wait",
+0.3
+],
+[
+"shot",
+"a09_g03_close2"
+],
+[
+"cmd",
+"gave 시험 몹정지 {USER} off"
+],
+[
+"until",
+"state=WAVE",
+40
+],
+[
+"cmd",
+"gave 시험 쉬기 {USER}"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 20 0 0"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 소환 G08 1 5 {USER}"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 시험 몹정지 {USER} on"
+],
+[
+"shot",
+"b01_g08_close"
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G08"
+],
+[
+"cmd",
+"gave 시험 몹정지 {USER} off"
+],
+[
+"wait",
+1.5
+],
+[
+"shot",
+"b02_g08_flee"
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G08"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G08 50"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 45"
+],
+[
+"wait",
+2.4
+],
+[
+"shot",
+"b03_g08_shot"
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G08"
+],
+[
+"cmd",
+"gave 시험 아군기록 {USER}"
+],
+[
+"cmd",
+"gave 시험 사건 {USER} 금빛"
+],
+[
+"wait",
+0.6
+],
+[
+"shot",
+"b04_g08_event"
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G08"
+],
+[
+"until",
+"state=WAVE",
+40
+],
+[
+"cmd",
+"gave 시험 쉬기 {USER}"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 20 0 0"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 소환 G09 1 13 {USER}"
+],
+[
+"wait",
+0.5
+],
+[
+"shot",
+"c01_g09_come"
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G09"
+],
+[
+"wait",
+0.5
+],
+[
+"shot",
+"c02_g09_halt"
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G09"
+],
+[
+"wait",
+0.9
+],
+[
+"shot",
+"c03_g09_grow"
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G09"
+],
+[
+"wait",
+0.6
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G09"
+],
+[
+"wait",
+0.4
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G09"
+],
+[
+"cmd",
+"tp {USER} ~ ~ ~ 180 0"
+],
+[
+"wait",
+0.2
+],
+[
+"shot",
+"c04_g09_behind"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 20 0 0"
+],
+[
+"cmd",
+"gave 시험 흐름벽 {USER} -3 18 4 18 3"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 소환 G09 1 12 {USER}"
+],
+[
+"wait",
+3.2
+],
+[
+"shot",
+"c05_g09_dazed"
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G09"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 흐름벽 {USER} 지움"
+],
+[
+"until",
+"state=WAVE",
+40
+],
+[
+"cmd",
+"gave 시험 쉬기 {USER}"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 20 0 0"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 소환 G10 1 7 {USER}"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 시험 몹정지 {USER} on"
+],
+[
+"shot",
+"d01_g10_whole"
+],
+[
+"cmd",
+"gave 시험 몹정지 {USER} off"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G10 8"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 2"
+],
+[
+"wait",
+0.5
+],
+[
+"shot",
+"d02_g10_split"
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G10"
+],
+[
+"wait",
+1.2
+],
+[
+"shot",
+"d03_g10_flank"
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G10"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G10 8"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 2"
+],
+[
+"wait",
+0.4
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G10 8"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 2"
+],
+[
+"wait",
+0.5
+],
+[
+"shot",
+"d04_g10_chunks"
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G10"
+],
+[
+"wait",
+3.5
+],
+[
+"shot",
+"d05_g10_join"
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G10"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 시험 총 {USER} SNIPER"
+],
+[
+"wait",
+0.5
+],
+[
+"cmd",
+"gave 소환 G10 1 8 {USER}"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G10 20"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 3"
+],
+[
+"wait",
+0.8
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G10"
+],
+[
+"cmd",
+"gave 시험 총 {USER} RIFLE"
+],
+[
+"until",
+"state=WAVE",
+40
+],
+[
+"cmd",
+"gave 시험 쉬기 {USER}"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 20 0 0"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 소환 G04 1 16 {USER}"
+],
+[
+"wait",
+3.0
+],
+[
+"shot",
+"e01_g04_burst"
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G04"
+],
+[
+"wait",
+2.0
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G04"
+],
+[
+"wait",
+1.5
+],
+[
+"shot",
+"e02_g04_gather"
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G04"
+],
+[
+"wait",
+1.5
+],
+[
+"shot",
+"e03_g04_reform"
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G04"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 소환 G05 1 12 {USER}"
+],
+[
+"wait",
+2.0
+],
+[
+"shot",
+"e04_g05_swell"
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G05"
+],
+[
+"wait",
+1.4
+],
+[
+"shot",
+"e05_g05_burst"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER}"
+]
+]

@@ -1,0 +1,30 @@
+{
+ "title": "rumble fx",
+ "author": "cinameng",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/rumble-fx",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0",
+ "note": "",
+ "urls": [
+  "https://opengameart.org/sites/default/files/rumble.wav"
+ ],
+ "pack": "oga_rumble",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "rumble.wav",
+   "bytes": 5051498,
+   "sha256": "c20cd36c670fe8291bc38271f47135599c00f8d88bc25af48abf2c5e58774e4a"
+  }
+ ],
+ "files": [
+  {
+   "file": "rumble.wav",
+   "orig": "rumble.wav",
+   "bytes": 5051498,
+   "sha256": "c20cd36c670fe8291bc38271f47135599c00f8d88bc25af48abf2c5e58774e4a"
+  }
+ ]
+}

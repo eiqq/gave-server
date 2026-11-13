@@ -1,0 +1,53 @@
+{
+ "slug": "stellaris",
+ "title": "Stellaris",
+ "url": "https://modrinth.com/mod/stellaris",
+ "source": "https://github.com/st0x0ef/stellaris-2.0",
+ "commit": "30994c98ea90d63a56c3885767400917480cde47",
+ "pushed_at": "2026-11-08T20:48:04Z",
+ "license": "MIT(저장소 LICENSE) / CC-BY-NC-SA-4.0(Modrinth 칸): 엇갈려 두 조건을 모두 지킨다",
+ "license_evidence": {
+  "github_api_spdx": "MIT",
+  "license_file": "https://github.com/st0x0ef/stellaris-2.0/blob/30994c98ea90d63a56c3885767400917480cde47/LICENSE",
+  "license_first_line": "MIT License",
+  "copyright_line": "Copyright (c) 2026 st0x0ef",
+  "modrinth_license_id": "CC-BY-NC-SA-4.0",
+  "modrinth_source_url": "https://github.com/st0x0ef/stellaris-2.0",
+  "asset_exception_found": false,
+  "checked": "tools/trip/fetch_stellaris.py 가 받을 때마다 다시 확인(Modrinth 본문에 에셋 예외 문구 없음, 저장소에 README 없음)"
+ },
+ "files": {
+  "LICENSE": "820175c503f4ae021939e4ca045237f2aa2a39e083f30ca2e45877c8246c3d55",
+  "common/src/main/java/org/exodusstudio/stellaris/client/renderers/rockets/models/BigRocketModel.java": "4b3ebda16d314ba920f80d12202cb0677ed3f7a55ee91208432254e05921d679",
+  "common/src/main/java/org/exodusstudio/stellaris/client/renderers/rockets/models/RocketModel.java": "31d3232d96cede23b7bb94b0d5fb1419f572a6badcd58db633791d4c6e2eeede",
+  "common/src/main/java/org/exodusstudio/stellaris/client/renderers/launchpad/RocketLaunchPadModel.java": "c9b21164187b8e952926b86fec826a3e5e6e45ee469aecb3291a5d9965f442d5",
+  "common/src/main/resources/assets/stellaris/textures/entity/rocket/big/default.png": "c9bfd4c0d2d4537c6186c9df4b8699c9bdcb3494a1370e0814294397e6b921ff",
+  "common/src/main/resources/assets/stellaris/textures/block/rocket_launch_pad.png": "49ece0c3f36915b9dd932e97346189d8b6c4e60d965aa6d869a3f0926fc92011",
+  "common/src/main/resources/assets/stellaris/models/block/fuel_refinery.json": "beff508b60c470a61dd45b06e9ed93f7852e7c4456622e8ff14fae325ae73319",
+  "common/src/main/resources/assets/stellaris/models/block/fuel_refinery_on.json": "1a7c568c3ea060b989c93937a84328d1f603e38173c067e8fa356ccc8784b9a7",
+  "common/src/main/resources/assets/stellaris/models/block/coal_generator.json": "f98ac1daf892b4d355f97de31066d03af08db921c6ccc800dff81d16e0064ccd",
+  "common/src/main/resources/assets/stellaris/models/block/coal_generator_on.json": "daf7705c1ab108948a7479a8b5b82099ae8e730b4688ca373c31468371394723",
+  "common/src/main/resources/assets/stellaris/models/block/engineering_station.json": "1a17b628dd03453bd2b07810141e79d03553489737a97ab07d14dfd1fedc3be6",
+  "common/src/main/resources/assets/stellaris/textures/block/machines/fuel_refinery_bottom.png": "c108f34c8c81292a4bf2fb76bbb1efe3c939bccf0e2ae642f18e91e9bbe9fe91",
+  "common/src/main/resources/assets/stellaris/textures/block/machines/fuel_refinery_front.png": "e1a885d63e04af9d768a54b0ea2251620071ec0d28e5da66e1629e91e8f746da",
+  "common/src/main/resources/assets/stellaris/textures/block/machines/fuel_refinery_front_on.png": "f2e40f3e5c8a94b8b8134152effa5494f226effeebeef81828ee69f8b28dfafd",
+  "common/src/main/resources/assets/stellaris/textures/block/machines/fuel_refinery_side.png": "31c0b7fabace84277f9920d884eb828bf5169bf33047baa1fa4da57107d1b695",
+  "common/src/main/resources/assets/stellaris/textures/block/machines/fuel_refinery_top.png": "5257b56cfc2eac886591071a057d206a2e7315f4c19f7c3b372130291f2c4f88",
+  "common/src/main/resources/assets/stellaris/textures/block/machines/coal_generator/coal_generator_bottom.png": "c108f34c8c81292a4bf2fb76bbb1efe3c939bccf0e2ae642f18e91e9bbe9fe91",
+  "common/src/main/resources/assets/stellaris/textures/block/machines/coal_generator/coal_generator_front.png": "803a6f73acfbaf7d6cf9053a68fd04030bfb1a52410bd90a9c479282058a9e29",
+  "common/src/main/resources/assets/stellaris/textures/block/machines/coal_generator/coal_generator_front_on.png": "cdd0f34c9a96a6a0a33d8eb63e871bacc42b4f1dbe9da2a9806f82f76d4f8ee2",
+  "common/src/main/resources/assets/stellaris/textures/block/machines/coal_generator/coal_generator_front_on.png.mcmeta": "857ac96276ce5a1ce64c38c10d208967e99afce4328dab9ffee9526f18fe5ee6",
+  "common/src/main/resources/assets/stellaris/textures/block/machines/coal_generator/coal_generator_side.png": "e0fa5545fd742cb70865b9b7bb8a65ffed7f45186541db41f663da0335d6edac",
+  "common/src/main/resources/assets/stellaris/textures/block/machines/coal_generator/coal_generator_top.png": "e0cf9e794e34b75c45475956201426eb077976851a5f40844105d0f6bdb83dda",
+  "common/src/main/resources/assets/stellaris/textures/block/machines/engineering_station.png": "ca8ff7248e3738f120c16006ee682792bd490a99526bd141339b412099355b13"
+ },
+ "missing": [],
+ "used": [
+  "common/src/main/java/org/exodusstudio/stellaris/client/renderers/rockets/models/BigRocketModel.java",
+  "common/src/main/resources/assets/stellaris/textures/entity/rocket/big/default.png",
+  "common/src/main/java/org/exodusstudio/stellaris/client/renderers/launchpad/RocketLaunchPadModel.java",
+  "common/src/main/resources/assets/stellaris/textures/block/rocket_launch_pad.png",
+  "기계 블록 모델 셋과 텍스처"
+ ],
+ "note": "저장소 압축과 jar 를 받지 않고 쓸 파일만 낱개로 받음(지울 jar, zip 없음). 자바 모델 소스는 tools/trip/launch.py 가 글로 읽어(ModelPart 정의) 26.3 아이템 모델 요소로 옮긴다. 소리는 받지 않음(Modrinth 칸 CC BY-NC-SA 라 소리 허용 목록 밖, 발사 소리는 이미 받은 trip.rocket_* 를 씀)."
+}

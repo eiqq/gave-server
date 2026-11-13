@@ -1,0 +1,126 @@
+{
+ "model": {
+  "type": "minecraft:composite",
+  "models": [
+   {
+    "type": "minecraft:model",
+    "model": "gave:item/shop/frame_roll"
+   },
+   {
+    "type": "minecraft:select",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "cases": [
+     {
+      "when": "revolver",
+      "model": {
+       "type": "minecraft:model",
+       "model": "gave:item/revolver",
+       "tints": [
+        {
+         "type": "minecraft:constant",
+         "value": 16777215
+        }
+       ]
+      }
+     },
+     {
+      "when": "smg",
+      "model": {
+       "type": "minecraft:model",
+       "model": "gave:item/smg",
+       "tints": [
+        {
+         "type": "minecraft:constant",
+         "value": 16777215
+        }
+       ]
+      }
+     },
+     {
+      "when": "rifle",
+      "model": {
+       "type": "minecraft:model",
+       "model": "gave:item/rifle",
+       "tints": [
+        {
+         "type": "minecraft:constant",
+         "value": 16777215
+        }
+       ]
+      }
+     },
+     {
+      "when": "lmg",
+      "model": {
+       "type": "minecraft:model",
+       "model": "gave:item/lmg",
+       "tints": [
+        {
+         "type": "minecraft:constant",
+         "value": 16777215
+        }
+       ]
+      }
+     },
+     {
+      "when": "shotgun",
+      "model": {
+       "type": "minecraft:model",
+       "model": "gave:item/shotgun",
+       "tints": [
+        {
+         "type": "minecraft:constant",
+         "value": 16777215
+        }
+       ]
+      }
+     },
+     {
+      "when": "sniper",
+      "model": {
+       "type": "minecraft:model",
+       "model": "gave:item/sniper",
+       "tints": [
+        {
+         "type": "minecraft:constant",
+         "value": 16777215
+        }
+       ]
+      }
+     },
+     {
+      "when": "flamethrower",
+      "model": {
+       "type": "minecraft:model",
+       "model": "gave:item/flamethrower",
+       "tints": [
+        {
+         "type": "minecraft:constant",
+         "value": 16777215
+        }
+       ]
+      }
+     },
+     {
+      "when": "rocket",
+      "model": {
+       "type": "minecraft:model",
+       "model": "gave:item/rocket",
+       "tints": [
+        {
+         "type": "minecraft:constant",
+         "value": 16777215
+        }
+       ]
+      }
+     }
+    ],
+    "fallback": {
+     "type": "minecraft:model",
+     "model": "gave:item/weapon_crate"
+    }
+   }
+  ]
+ }
+}

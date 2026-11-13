@@ -1,0 +1,31 @@
+{
+ "title": "Storm & Siren",
+ "author": "TinyWorlds",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/storm-siren",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+ "note": "",
+ "desc": "This sound was recorded during the time of the floodings in June 2013 in Germany. The siren goes 4 times (flood alarm), but the last time the storm is too loud too hear it. This sound can be used to create an unconfortable, gloomy atmosphere. It loops.",
+ "urls": [
+  "https://opengameart.org/sites/default/files/storm_3_siren.ogg"
+ ],
+ "pack": "oga_storm_siren",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "storm_3_siren.ogg",
+   "bytes": 1089954,
+   "sha256": "3658a27bde10028531371ffbc2d57810fad0cecbff4b2d496714cd4aa7176d99"
+  }
+ ],
+ "files": [
+  {
+   "file": "storm_3_siren.ogg",
+   "orig": "storm_3_siren.ogg",
+   "bytes": 1089954,
+   "sha256": "3658a27bde10028531371ffbc2d57810fad0cecbff4b2d496714cd4aa7176d99"
+  }
+ ]
+}

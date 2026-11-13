@@ -1,0 +1,268 @@
+[
+ [
+  "cmd",
+  "gamemode adventure {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 x on"
+ ],
+ [
+  "cmd",
+  "gave 시험 원정값 x TRUCK_DMG 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 특수 x tide 시작"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 12"
+ ],
+ [
+  "until",
+  "sp=tide",
+  20
+ ],
+ [
+  "cmd",
+  "gave 시험 특수b x 건너뛰기 42"
+ ],
+ [
+  "wait",
+  3.0
+ ],
+ [
+  "cmd",
+  "gave 시험 특수b {USER} 물"
+ ],
+ [
+  "wait",
+  2.0
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 0 20"
+ ],
+ [
+  "wait",
+  0.6
+ ],
+ [
+  "shot",
+  "a_tide"
+ ],
+ [
+  "cmd",
+  "gave 시험 특수b x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 특수b {USER} 손잡이"
+ ],
+ [
+  "wait",
+  4.6
+ ],
+ [
+  "cmd",
+  "gave 시험 특수b x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 쉬기 x"
+ ],
+ [
+  "until",
+  "state=BREAK",
+  8
+ ],
+ [
+  "cmd",
+  "gave 시험 특수 x callnames 시작"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 22"
+ ],
+ [
+  "until",
+  "sp=callnames",
+  15
+ ],
+ [
+  "wait",
+  2.0
+ ],
+ [
+  "cmd",
+  "gave 시험 특수b {USER} 가짜"
+ ],
+ [
+  "wait",
+  1.2
+ ],
+ [
+  "shot",
+  "b_callnames"
+ ],
+ [
+  "cmd",
+  "gave 시험 특수b x 잡기"
+ ],
+ [
+  "cmd",
+  "gave 시험 특수b x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 쉬기 x"
+ ],
+ [
+  "until",
+  "state=BREAK",
+  8
+ ],
+ [
+  "cmd",
+  "gave 시험 특수 x sinking 시작"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 24"
+ ],
+ [
+  "until",
+  "sp=sinking",
+  15
+ ],
+ [
+  "cmd",
+  "tp {USER} 7.5 64 8.5 135 15"
+ ],
+ [
+  "wait",
+  5.0
+ ],
+ [
+  "shot",
+  "c_sinking"
+ ],
+ [
+  "cmd",
+  "gave 시험 특수b x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 특수b {USER} 멀리"
+ ],
+ [
+  "cmd",
+  "gave 시험 특수b x 잡기"
+ ],
+ [
+  "cmd",
+  "gave 시험 특수b x 잡기"
+ ],
+ [
+  "cmd",
+  "gave 시험 특수b x 잡기"
+ ],
+ [
+  "cmd",
+  "gave 시험 특수b x 잡기"
+ ],
+ [
+  "until",
+  "state=BREAK",
+  10
+ ],
+ [
+  "cmd",
+  "gave 시험 라운드종류 x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 특수 x eyeson 시작"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 25"
+ ],
+ [
+  "until",
+  "sp=eyeson",
+  15
+ ],
+ [
+  "wait",
+  6.0
+ ],
+ [
+  "cmd",
+  "gave 시험 특수b x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 쉬기 x"
+ ],
+ [
+  "until",
+  "state=BREAK",
+  8
+ ],
+ [
+  "cmd",
+  "gave 시험 특수 x facestorm 시작"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 26"
+ ],
+ [
+  "until",
+  "sp=facestorm",
+  15
+ ],
+ [
+  "cmd",
+  "gave 시험 특수b {USER} 얼굴 2"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "shot",
+  "d_facestorm"
+ ],
+ [
+  "cmd",
+  "gave 시험 특수b {USER} 떼기"
+ ],
+ [
+  "cmd",
+  "gave 시험 특수b {USER} 떼기"
+ ],
+ [
+  "cmd",
+  "gave 시험 특수b {USER} 떼기"
+ ],
+ [
+  "cmd",
+  "gave 시험 특수b x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 쉬기 x"
+ ],
+ [
+  "until",
+  "state=BREAK",
+  8
+ ],
+ [
+  "cmd",
+  "gave 시험 라운드종류 x 기록"
+ ]
+]

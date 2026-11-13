@@ -1,0 +1,272 @@
+[
+ [
+  "cmd",
+  "gamemode adventure {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 x on"
+ ],
+ [
+  "cmd",
+  "gave 시험 원정값 x TRUCK_DMG 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 특수 x litpad 시작"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 32"
+ ],
+ [
+  "until",
+  "sp=litpad",
+  25
+ ],
+ [
+  "cmd",
+  "gave 시험 특수b {USER} 등보기 0"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "shot",
+  "a_litpad_on"
+ ],
+ [
+  "cmd",
+  "gave 시험 특수b x 끄기 0"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "shot",
+  "b_litpad_off"
+ ],
+ [
+  "cmd",
+  "gave 시험 특수b {USER} 발전기 0"
+ ],
+ [
+  "wait",
+  6.0
+ ],
+ [
+  "cmd",
+  "gave 시험 특수b x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 쉬기 x"
+ ],
+ [
+  "until",
+  "state=BREAK",
+  8
+ ],
+ [
+  "cmd",
+  "gave 시험 특수 x fuelfire 시작"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 33"
+ ],
+ [
+  "until",
+  "sp=fuelfire",
+  15
+ ],
+ [
+  "cmd",
+  "gave 시험 특수b x 건너뛰기 60"
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 4.5 180 12"
+ ],
+ [
+  "wait",
+  2.5
+ ],
+ [
+  "shot",
+  "c_fuelfire"
+ ],
+ [
+  "cmd",
+  "gave 시험 특수b {USER} 밸브 0"
+ ],
+ [
+  "wait",
+  6.5
+ ],
+ [
+  "cmd",
+  "gave 시험 특수b x 상태"
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 118 0.5 0 90"
+ ],
+ [
+  "wait",
+  0.25
+ ],
+ [
+  "shot",
+  "c2_fuelfire_top"
+ ],
+ [
+  "cmd",
+  "gave 시험 특수b x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 쉬기 x"
+ ],
+ [
+  "until",
+  "state=BREAK",
+  8
+ ],
+ [
+  "cmd",
+  "gave 시험 특수 x skyfall 시작"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 34"
+ ],
+ [
+  "until",
+  "sp=skyfall",
+  15
+ ],
+ [
+  "cmd",
+  "gave 시험 특수b x 높이 14"
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 8.5 0 -55"
+ ],
+ [
+  "wait",
+  2.5
+ ],
+ [
+  "shot",
+  "d_skyfall"
+ ],
+ [
+  "cmd",
+  "gave 시험 특수b {USER} 쏘기"
+ ],
+ [
+  "cmd",
+  "gave 시험 특수b x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 쉬기 x"
+ ],
+ [
+  "until",
+  "state=BREAK",
+  8
+ ],
+ [
+  "cmd",
+  "gave 시험 특수 x ram 시작"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 27"
+ ],
+ [
+  "until",
+  "sp=ram",
+  15
+ ],
+ [
+  "cmd",
+  "gave 시험 특수시험 x 사건 wall"
+ ],
+ [
+  "wait",
+  3.0
+ ],
+ [
+  "shot",
+  "e_ram"
+ ],
+ [
+  "wait",
+  4.0
+ ],
+ [
+  "cmd",
+  "gave 시험 특수시험 x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 쉬기 x"
+ ],
+ [
+  "until",
+  "state=BREAK",
+  8
+ ],
+ [
+  "cmd",
+  "gave 시험 특수 x lastrun 시작"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 28"
+ ],
+ [
+  "until",
+  "sp=lastrun",
+  15
+ ],
+ [
+  "cmd",
+  "gave 시험 특수시험 x 거리 0.7"
+ ],
+ [
+  "wait",
+  2.0
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 180 -5"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "shot",
+  "f_lastrun"
+ ],
+ [
+  "cmd",
+  "gave 시험 특수시험 x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 쉬기 x"
+ ],
+ [
+  "until",
+  "state=BREAK",
+  8
+ ]
+]

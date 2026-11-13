@@ -1,0 +1,402 @@
+[
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gamemode adventure {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=PREP",
+  15
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 {USER} on"
+ ],
+ [
+  "cmd",
+  "gave 시험 덱 x 모의 10"
+ ],
+ [
+  "until",
+  "state=WAVE wave=1",
+  20
+ ],
+ [
+  "cmd",
+  "gave 시험 감독빨리 x 20"
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gave 시험 덱 x 계획"
+ ],
+ [
+  "wait",
+  4
+ ],
+ [
+  "shot",
+  "w1_start"
+ ],
+ [
+  "cmd",
+  "gave 시험 덱 x 계획"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 덱 x 계획"
+ ],
+ [
+  "until",
+  "state=BREAK",
+  25
+ ],
+ [
+  "cmd",
+  "gave 시험 덱 x 뽑기 2"
+ ],
+ [
+  "cmd",
+  "gave 시험 감독빨리 x 1"
+ ],
+ [
+  "until",
+  "state=WAVE wave=2",
+  45
+ ],
+ [
+  "cmd",
+  "gave 시험 덱 x 계획"
+ ],
+ [
+  "cmd",
+  "gave 시험 덱 x"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 3"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 덱 x 계획"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 4"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 덱 x 계획"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 5"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 덱 x 계획"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 6"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 덱 x 계획"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 7"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 덱 x 계획"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 8"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 덱 x 계획"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 9"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 덱 x 계획"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 10"
+ ],
+ [
+  "wait",
+  12
+ ],
+ [
+  "cmd",
+  "gave 시험 덱 x 계획"
+ ],
+ [
+  "shot",
+  "boss_w10"
+ ],
+ [
+  "cmd",
+  "gave 시험 덱 x"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 11"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 덱 x 계획"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 12"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 덱 x 계획"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 13"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 덱 x 계획"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 14"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 덱 x 계획"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 15"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 덱 x 계획"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 16"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 덱 x 계획"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 17"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 덱 x 계획"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 18"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 덱 x 계획"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 19"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 덱 x 계획"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 20"
+ ],
+ [
+  "wait",
+  12
+ ],
+ [
+  "cmd",
+  "gave 시험 덱 x 계획"
+ ],
+ [
+  "shot",
+  "boss_w20"
+ ],
+ [
+  "cmd",
+  "gave 시험 덱 x"
+ ],
+ [
+  "cmd",
+  "gave 시험 덱 x 1"
+ ],
+ [
+  "cmd",
+  "gave 시험 덱 x 2"
+ ],
+ [
+  "cmd",
+  "gave 시험 덱 x"
+ ]
+]

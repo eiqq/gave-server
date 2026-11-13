@@ -1,0 +1,31 @@
+{
+ "title": "Radio Noise 1",
+ "author": "Kresiek The Furry",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/radio-noise-1",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+ "note": "",
+ "desc": "This is real noise from a radio captured on a Uniden SDS100.",
+ "urls": [
+  "https://opengameart.org/sites/default/files/radio_noise_loop.wav"
+ ],
+ "pack": "oga_radio_noise",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "radio_noise_loop.wav",
+   "bytes": 1767554,
+   "sha256": "ba55b08a25969933d8878653df7809c503335ea32d38cd92a8f5c13ee686cb01"
+  }
+ ],
+ "files": [
+  {
+   "file": "radio_noise_loop.wav",
+   "orig": "radio_noise_loop.wav",
+   "bytes": 1767554,
+   "sha256": "ba55b08a25969933d8878653df7809c503335ea32d38cd92a8f5c13ee686cb01"
+  }
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "model": {
+  "type": "minecraft:model",
+  "model": "gave:item/shop/molotov"
+ },
+ "hand_animation_on_swap": false
+}

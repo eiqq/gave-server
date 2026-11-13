@@ -1,0 +1,462 @@
+{
+ "title": "Sci-Fi Sounds (1.0)",
+ "author": "Kenney (www.kenney.nl)",
+ "site": "kenney.nl",
+ "page": "https://kenney.nl/assets/sci-fi-sounds",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "kenney.nl 묶음 페이지 License 칸: Creative Commons CC0, 묶음 안 License.txt: 'License: (Creative Commons Zero, CC0)'",
+ "note": "Support us by crediting Kenney or www.kenney.nl (this is not mandatory)",
+ "urls": [
+  "https://kenney.nl/download-link/6173736574732f7363692d66692d736f756e6473 (서명된 내려받기 주소를 돌려줌, 가입 없음)"
+ ],
+ "pack": "kenney_scifi",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "pack.zip",
+   "bytes": 5875104,
+   "sha256": "119340f351a5098ad814f78719438c0da355a9ce8a4c8a3af6a8d48aa3d49e04"
+  }
+ ],
+ "files": [
+  {
+   "file": "computernoise_000.ogg",
+   "orig": "Audio/computerNoise_000.ogg",
+   "bytes": 119024,
+   "sha256": "1527944e16eb14b48ee03fe3e7ce6aae94262833a4e1f83928d451a7414fe4e1"
+  },
+  {
+   "file": "computernoise_001.ogg",
+   "orig": "Audio/computerNoise_001.ogg",
+   "bytes": 120178,
+   "sha256": "29b4842f6d8c0ba2b0cb00bfaff3b852b492bb43197a82e697917aacbe106757"
+  },
+  {
+   "file": "computernoise_002.ogg",
+   "orig": "Audio/computerNoise_002.ogg",
+   "bytes": 130861,
+   "sha256": "6ae9bb261c6536d1699972da0cdbf6e0762cf7e9b925adb64a06ff375255cb71"
+  },
+  {
+   "file": "computernoise_003.ogg",
+   "orig": "Audio/computerNoise_003.ogg",
+   "bytes": 123515,
+   "sha256": "5b1b73bbe6e6ad1b1d39422f640f1bbee3376e8e18916f9305b04b9d143f5cf3"
+  },
+  {
+   "file": "doorclose_000.ogg",
+   "orig": "Audio/doorClose_000.ogg",
+   "bytes": 20369,
+   "sha256": "c9134651ebbd7c016f90393aee495ff8120bd343bb7569b689a7506987ebd6c2"
+  },
+  {
+   "file": "doorclose_001.ogg",
+   "orig": "Audio/doorClose_001.ogg",
+   "bytes": 21561,
+   "sha256": "2153e83ff9880c78f9539aa5dcce80fc9e3b39c6fa0f8dec9325ec6d7ea2c9d5"
+  },
+  {
+   "file": "doorclose_002.ogg",
+   "orig": "Audio/doorClose_002.ogg",
+   "bytes": 20530,
+   "sha256": "01c7d15e90ae1b218812597d04c20e3df872367ebf22cd99d66dddd5fdb542a4"
+  },
+  {
+   "file": "dooropen_000.ogg",
+   "orig": "Audio/doorOpen_000.ogg",
+   "bytes": 19616,
+   "sha256": "5b7e07eccd4413ad9ef3720c2d14f9cc699f4c50111e9b2f48bd60e6f1a164c3"
+  },
+  {
+   "file": "dooropen_001.ogg",
+   "orig": "Audio/doorOpen_001.ogg",
+   "bytes": 21442,
+   "sha256": "8c204ca94eb722d3af95f29221f4551938ca3c217fda32c14dabe2cf6a9c782b"
+  },
+  {
+   "file": "dooropen_002.ogg",
+   "orig": "Audio/doorOpen_002.ogg",
+   "bytes": 19864,
+   "sha256": "84473b70b0b2f69bd325fffee5790f030ff6597d178efddc7e4c201933a6c6c1"
+  },
+  {
+   "file": "enginecircular_000.ogg",
+   "orig": "Audio/engineCircular_000.ogg",
+   "bytes": 177470,
+   "sha256": "8ab85f9fa85e9e692287f98acb36b9ac3ba15313b007c039055e286b736f4e3a"
+  },
+  {
+   "file": "enginecircular_001.ogg",
+   "orig": "Audio/engineCircular_001.ogg",
+   "bytes": 199100,
+   "sha256": "e1df3a942842a24f7c4056db3177e8008edd73d4f3985fd95f55362bc85058bc"
+  },
+  {
+   "file": "enginecircular_002.ogg",
+   "orig": "Audio/engineCircular_002.ogg",
+   "bytes": 188542,
+   "sha256": "5f364bd42269e111df1d421fa2b45f0b2f0cc99a873ceae2d55b34898ad0d779"
+  },
+  {
+   "file": "enginecircular_003.ogg",
+   "orig": "Audio/engineCircular_003.ogg",
+   "bytes": 184193,
+   "sha256": "f592ec53043887cf5aeec60d545372da3b4459fba3f634265ee9d5251a4edf4e"
+  },
+  {
+   "file": "enginecircular_004.ogg",
+   "orig": "Audio/engineCircular_004.ogg",
+   "bytes": 180870,
+   "sha256": "ce286b2d637b0d71c230f0f12bc95c1d2a8cf0419aa13e66fcdde1f9096acae7"
+  },
+  {
+   "file": "explosioncrunch_000.ogg",
+   "orig": "Audio/explosionCrunch_000.ogg",
+   "bytes": 28274,
+   "sha256": "4b597d658d0ae101f0a030fbeea5fc3a4292ab85f017470a8254a8e7959cbd69"
+  },
+  {
+   "file": "explosioncrunch_001.ogg",
+   "orig": "Audio/explosionCrunch_001.ogg",
+   "bytes": 47916,
+   "sha256": "fdd04d6f0032d4d57c134ad37f3587d2d00e58c9572715275bd8cf4f43593576"
+  },
+  {
+   "file": "explosioncrunch_002.ogg",
+   "orig": "Audio/explosionCrunch_002.ogg",
+   "bytes": 47907,
+   "sha256": "be2b8ddc62e4a24c91e2e77793de98549ce216faf2f323a917e7d6f34321ff97"
+  },
+  {
+   "file": "explosioncrunch_003.ogg",
+   "orig": "Audio/explosionCrunch_003.ogg",
+   "bytes": 54824,
+   "sha256": "8c7197bb3a1c504690319c3abe0e62a5423ee246dd70caab57963d0b7aa8144f"
+  },
+  {
+   "file": "explosioncrunch_004.ogg",
+   "orig": "Audio/explosionCrunch_004.ogg",
+   "bytes": 79250,
+   "sha256": "9c3a1c73cadf0de5d5a578b31a264f20b1ac7cb6ec9bbd34a203f58402ea5390"
+  },
+  {
+   "file": "forcefield_000.ogg",
+   "orig": "Audio/forceField_000.ogg",
+   "bytes": 25672,
+   "sha256": "c2916f2a062c8ddd1aca2826d134fe90847037db31342726ffb0f9097afe339c"
+  },
+  {
+   "file": "forcefield_001.ogg",
+   "orig": "Audio/forceField_001.ogg",
+   "bytes": 28947,
+   "sha256": "5574e69dd04e5f59322c5ddffde5978f077b09170ae5e29cec0bd9901828cd90"
+  },
+  {
+   "file": "forcefield_002.ogg",
+   "orig": "Audio/forceField_002.ogg",
+   "bytes": 27647,
+   "sha256": "051b0eafc479695af4ca3607d41fd4be41bae7c21f4f9508d004722b09f1bd63"
+  },
+  {
+   "file": "forcefield_003.ogg",
+   "orig": "Audio/forceField_003.ogg",
+   "bytes": 23938,
+   "sha256": "15e3fe971ffd3415e5ab641d3a4d043fb31f6712b0956315b524ba29c3889cda"
+  },
+  {
+   "file": "forcefield_004.ogg",
+   "orig": "Audio/forceField_004.ogg",
+   "bytes": 26885,
+   "sha256": "05609bb296cbc287ae95ac8924c89809d69c89d7bb357cc6a117ec1b1ef65e09"
+  },
+  {
+   "file": "impactmetal_000.ogg",
+   "orig": "Audio/impactMetal_000.ogg",
+   "bytes": 15491,
+   "sha256": "956c6612a256aa1a67a2327fffe2454f6b1d82e4c1c2be28fd66916335d5b1d6"
+  },
+  {
+   "file": "impactmetal_001.ogg",
+   "orig": "Audio/impactMetal_001.ogg",
+   "bytes": 15305,
+   "sha256": "4a2b76f20052819c6ace57cc5ba55ec58deffcf74e3ed30694d619c582cc8e8e"
+  },
+  {
+   "file": "impactmetal_002.ogg",
+   "orig": "Audio/impactMetal_002.ogg",
+   "bytes": 12708,
+   "sha256": "0c1bb4db8a4d48b2b8c2e65a175d9056b845f1063837599995d81be1c5957d2c"
+  },
+  {
+   "file": "impactmetal_003.ogg",
+   "orig": "Audio/impactMetal_003.ogg",
+   "bytes": 17303,
+   "sha256": "ef29c3943ee701616f65e3d596c13eb3ff6b11ca5b3ac01e7bc923366a5c6f76"
+  },
+  {
+   "file": "impactmetal_004.ogg",
+   "orig": "Audio/impactMetal_004.ogg",
+   "bytes": 11290,
+   "sha256": "0032710d1fc88c217946cd54492f275eb4363bb8025a4bc1b7ce08df7b3c60de"
+  },
+  {
+   "file": "laserlarge_000.ogg",
+   "orig": "Audio/laserLarge_000.ogg",
+   "bytes": 25566,
+   "sha256": "a56d95794cd732d6c2d66ce488c14cf557fe526c282897c9a77675c2bd9b77e6"
+  },
+  {
+   "file": "laserlarge_001.ogg",
+   "orig": "Audio/laserLarge_001.ogg",
+   "bytes": 26220,
+   "sha256": "e678aca631495b7dfef4ac625f0349875ccac81a60f538d530e072241af3e4bd"
+  },
+  {
+   "file": "laserlarge_002.ogg",
+   "orig": "Audio/laserLarge_002.ogg",
+   "bytes": 27440,
+   "sha256": "e5e0b6ccc4d5720c8174a3e5b7cc6f9be3057352a89cbb2e99a00efc6fe5cc11"
+  },
+  {
+   "file": "laserlarge_003.ogg",
+   "orig": "Audio/laserLarge_003.ogg",
+   "bytes": 26104,
+   "sha256": "3c7b3c9d856ee31fa1b92d29322f6ee472446627381595baeaba2af35c07135f"
+  },
+  {
+   "file": "laserlarge_004.ogg",
+   "orig": "Audio/laserLarge_004.ogg",
+   "bytes": 26283,
+   "sha256": "86c749483b40e1bba9bfea6a04e884d479e5481e52efb6f113341141de516b3b"
+  },
+  {
+   "file": "laserretro_000.ogg",
+   "orig": "Audio/laserRetro_000.ogg",
+   "bytes": 12588,
+   "sha256": "2a203a007d24cc7e607eb8bec1d86bedba7f551911217ce2c4c1f31393aed32c"
+  },
+  {
+   "file": "laserretro_001.ogg",
+   "orig": "Audio/laserRetro_001.ogg",
+   "bytes": 12732,
+   "sha256": "a0a99efaa755594982d5dfebf3d9cecaed5249bdf1f0de29cf26ca9ea24c191a"
+  },
+  {
+   "file": "laserretro_002.ogg",
+   "orig": "Audio/laserRetro_002.ogg",
+   "bytes": 13130,
+   "sha256": "df6112dc4eba5444bc28a1c8b80f6ce942bb2696beb466ac8e736b2ebf3e15b9"
+  },
+  {
+   "file": "laserretro_003.ogg",
+   "orig": "Audio/laserRetro_003.ogg",
+   "bytes": 14271,
+   "sha256": "4442b847419f5f203ef8ba16f19957124884da176c843d68d48a22e9cd022796"
+  },
+  {
+   "file": "laserretro_004.ogg",
+   "orig": "Audio/laserRetro_004.ogg",
+   "bytes": 12701,
+   "sha256": "e42c226741e73fa6f3a501835dcca8c6d51105ee039f5d0ee29e0a3e5450a635"
+  },
+  {
+   "file": "lasersmall_000.ogg",
+   "orig": "Audio/laserSmall_000.ogg",
+   "bytes": 7286,
+   "sha256": "72b589eadd41781257ac859e4f4d030222e623390e4a1a83f6d05329a6e026f1"
+  },
+  {
+   "file": "lasersmall_001.ogg",
+   "orig": "Audio/laserSmall_001.ogg",
+   "bytes": 7448,
+   "sha256": "ab87913aba9790a0c5fa173d086267ba521ad522fcad2252271db49988313cf5"
+  },
+  {
+   "file": "lasersmall_002.ogg",
+   "orig": "Audio/laserSmall_002.ogg",
+   "bytes": 8973,
+   "sha256": "e70139466c3e801358c9041ee17db7ff82c0e9a9cdf44647ad0ea6b9f8458f63"
+  },
+  {
+   "file": "lasersmall_003.ogg",
+   "orig": "Audio/laserSmall_003.ogg",
+   "bytes": 8179,
+   "sha256": "cfa4391ca280933f567ce81c646b16f7cb2a090866eae674159a20f07641833c"
+  },
+  {
+   "file": "lasersmall_004.ogg",
+   "orig": "Audio/laserSmall_004.ogg",
+   "bytes": 8632,
+   "sha256": "a464e34436f3c2a09f0e3a03dc0658a9036148062bbf293722007df4cfd8ff08"
+  },
+  {
+   "file": "lowfrequency_explosion_000.ogg",
+   "orig": "Audio/lowFrequency_explosion_000.ogg",
+   "bytes": 14317,
+   "sha256": "3cb48d86dab63140cfb9aaeea4d4a6846abaca5831d157d8adbec0490da26343"
+  },
+  {
+   "file": "lowfrequency_explosion_001.ogg",
+   "orig": "Audio/lowFrequency_explosion_001.ogg",
+   "bytes": 9408,
+   "sha256": "cdda50600a4928f2f1b8371224d53c171ac799c1cf2c30b11999508985250b3b"
+  },
+  {
+   "file": "slime_000.ogg",
+   "orig": "Audio/slime_000.ogg",
+   "bytes": 20870,
+   "sha256": "480ee82b690136ea9db6966a3c3033356b8274752795c4e37afd6b6defcfacff"
+  },
+  {
+   "file": "slime_001.ogg",
+   "orig": "Audio/slime_001.ogg",
+   "bytes": 159177,
+   "sha256": "822ca475d71e18ef6bba707dbe6bff2bd493d3457b2552f7473d23022c1257ca"
+  },
+  {
+   "file": "spaceenginelarge_000.ogg",
+   "orig": "Audio/spaceEngineLarge_000.ogg",
+   "bytes": 189900,
+   "sha256": "885aeda16116b715be5e8fd03d0d77959761015e1ca5823fd3b53d4fd965107f"
+  },
+  {
+   "file": "spaceenginelarge_001.ogg",
+   "orig": "Audio/spaceEngineLarge_001.ogg",
+   "bytes": 212818,
+   "sha256": "fcf4aec5587aa29cdb82fd24801ebd37accd57d61eb67683de8c48cb73ba899e"
+  },
+  {
+   "file": "spaceenginelarge_002.ogg",
+   "orig": "Audio/spaceEngineLarge_002.ogg",
+   "bytes": 214424,
+   "sha256": "dc1a5c00a93d24bd5fd1d3cfca70483054e7c025b40d255980309544428084de"
+  },
+  {
+   "file": "spaceenginelarge_003.ogg",
+   "orig": "Audio/spaceEngineLarge_003.ogg",
+   "bytes": 214580,
+   "sha256": "c1e6542f9ad0839083072d9b2d4d77208b9ceb60e5f3fd9873047de7f0c57a83"
+  },
+  {
+   "file": "spaceenginelarge_004.ogg",
+   "orig": "Audio/spaceEngineLarge_004.ogg",
+   "bytes": 210809,
+   "sha256": "1021ea050c664d021e4e847d92148fa6781bcf1fe573d94e91b6b18aea1c16ee"
+  },
+  {
+   "file": "spaceenginelow_000.ogg",
+   "orig": "Audio/spaceEngineLow_000.ogg",
+   "bytes": 99760,
+   "sha256": "d7deee8d7217ce63aab802ad7365a59cacfd243392dc1bd03b0a9d454aa494df"
+  },
+  {
+   "file": "spaceenginelow_001.ogg",
+   "orig": "Audio/spaceEngineLow_001.ogg",
+   "bytes": 99120,
+   "sha256": "307dfd8fbfe7e6f2d59dec4de445cf02bd4fff86005803096b8c95e333836a70"
+  },
+  {
+   "file": "spaceenginelow_002.ogg",
+   "orig": "Audio/spaceEngineLow_002.ogg",
+   "bytes": 72688,
+   "sha256": "3b1adf8645a40c35fcad25eee224c82c9836dc443102a9af5586eb22cbedabcc"
+  },
+  {
+   "file": "spaceenginelow_003.ogg",
+   "orig": "Audio/spaceEngineLow_003.ogg",
+   "bytes": 85760,
+   "sha256": "e8f7ce4dbc20b5aeead35b94f1c8927b0baa416edaa5b39f1699703031111488"
+  },
+  {
+   "file": "spaceenginelow_004.ogg",
+   "orig": "Audio/spaceEngineLow_004.ogg",
+   "bytes": 100444,
+   "sha256": "c489079d9e8d577ceae4b1ea71fbe282ea1bce8b873dfa9166f9c962f7df81d3"
+  },
+  {
+   "file": "spaceenginesmall_000.ogg",
+   "orig": "Audio/spaceEngineSmall_000.ogg",
+   "bytes": 116880,
+   "sha256": "2bec8ff75d81f0c37a6b78bd63beea6c70375e49ee30b0bbe7f38d654d576831"
+  },
+  {
+   "file": "spaceenginesmall_001.ogg",
+   "orig": "Audio/spaceEngineSmall_001.ogg",
+   "bytes": 133181,
+   "sha256": "a87d5d8b2233f7bd803df78927b52c27be251e8d1354c6cc9ea00ce26215e3da"
+  },
+  {
+   "file": "spaceenginesmall_002.ogg",
+   "orig": "Audio/spaceEngineSmall_002.ogg",
+   "bytes": 120467,
+   "sha256": "3d7da67ca2d24ca2abd1e257556d74ff28cf152402968c2035d6f1ea92517f25"
+  },
+  {
+   "file": "spaceenginesmall_003.ogg",
+   "orig": "Audio/spaceEngineSmall_003.ogg",
+   "bytes": 129935,
+   "sha256": "78f6c1f0a46e3693f56ed6922bd23e5af9a4093aac9b653c1ce9ee7b33081c29"
+  },
+  {
+   "file": "spaceenginesmall_004.ogg",
+   "orig": "Audio/spaceEngineSmall_004.ogg",
+   "bytes": 130520,
+   "sha256": "009ef3beadec605ab0e60cd64c73b6ca42590058e8491e72b4bc813ba0e3ab57"
+  },
+  {
+   "file": "spaceengine_000.ogg",
+   "orig": "Audio/spaceEngine_000.ogg",
+   "bytes": 109059,
+   "sha256": "c06e84fb6734ddd0ce7242351e0952d560b3b3e47430172e8944f761d7bb1fc8"
+  },
+  {
+   "file": "spaceengine_001.ogg",
+   "orig": "Audio/spaceEngine_001.ogg",
+   "bytes": 121385,
+   "sha256": "ee53af299758b664c086d9ca99efecb41168596ea9fb1c5c24ac4389f94aea6b"
+  },
+  {
+   "file": "spaceengine_002.ogg",
+   "orig": "Audio/spaceEngine_002.ogg",
+   "bytes": 111072,
+   "sha256": "5a1b1cc6d335944dd9ef94578b6bad939195d3020f61780c19425d2f6b3583db"
+  },
+  {
+   "file": "spaceengine_003.ogg",
+   "orig": "Audio/spaceEngine_003.ogg",
+   "bytes": 67503,
+   "sha256": "e100065a0c2ddc2c4aa301fe5b002e251fb31a07bad674a51183964a6b6a0e6a"
+  },
+  {
+   "file": "thrusterfire_000.ogg",
+   "orig": "Audio/thrusterFire_000.ogg",
+   "bytes": 201216,
+   "sha256": "0fdc474d93f209debf1fc4ea77765a669dcb7676db31b4d8a0a509685bccf374"
+  },
+  {
+   "file": "thrusterfire_001.ogg",
+   "orig": "Audio/thrusterFire_001.ogg",
+   "bytes": 204218,
+   "sha256": "924636edc923fe4aab5829b69dc5dc1c5d659dec5739865434dabee752a3bb79"
+  },
+  {
+   "file": "thrusterfire_002.ogg",
+   "orig": "Audio/thrusterFire_002.ogg",
+   "bytes": 205657,
+   "sha256": "5f7731c30196d73777d62eec7cb36a28bf63852e70244057b7625b888e71a3a8"
+  },
+  {
+   "file": "thrusterfire_003.ogg",
+   "orig": "Audio/thrusterFire_003.ogg",
+   "bytes": 196273,
+   "sha256": "04f558ca5abf30788e49ed4370289dfd7e38c7f054d2ea35c2a013210374f1e5"
+  },
+  {
+   "file": "thrusterfire_004.ogg",
+   "orig": "Audio/thrusterFire_004.ogg",
+   "bytes": 209339,
+   "sha256": "5297afd01c3e91a13d08ec1f673d89997bd17012fa8645a20c94fba240f0f1b2"
+  }
+ ]
+}

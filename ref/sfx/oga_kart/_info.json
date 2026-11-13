@@ -1,0 +1,31 @@
+{
+ "title": "SuperTuxKart sound effects",
+ "author": "Scribe",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/supertuxkart-sound-effects",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+ "note": "",
+ "desc": "after reading this: http://opengameart.org/forumtopic/sfx-eg-skid-countdown-boost-crash-for-... I decided I would give some of the sounds a go :) hopefully some of them are useful either for SuperTuxKart or for someone else (they are free to use as you wish) As usual, I am open to improvements and c",
+ "urls": [
+  "https://opengameart.org/sites/default/files/sfx%20kart%20game_0.mp3"
+ ],
+ "pack": "oga_kart",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "sfx kart game.mp3",
+   "bytes": 1968923,
+   "sha256": "a545e0fbaecfdb60d46e7b95b881713c276e715522522101c96da652fc185725"
+  }
+ ],
+ "files": [
+  {
+   "file": "sfx_kart_game.mp3",
+   "orig": "sfx kart game.mp3",
+   "bytes": 1968923,
+   "sha256": "a545e0fbaecfdb60d46e7b95b881713c276e715522522101c96da652fc185725"
+  }
+ ]
+}

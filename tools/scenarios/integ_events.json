@@ -1,0 +1,164 @@
+[
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gamemode adventure {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=PREP",
+  15
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 x on"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  20
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 x on"
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 12.5 0 -5"
+ ],
+ [
+  "wait",
+  3.2
+ ],
+ [
+  "cmd",
+  "gave 시험 방향 x 북 동"
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "cmd",
+  "gave 시험 알림줄 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 허드 {USER}"
+ ],
+ [
+  "shot",
+  "dir"
+ ],
+ [
+  "wait",
+  4.5
+ ],
+ [
+  "cmd",
+  "gave 시험 사건 x 안개 3"
+ ],
+ [
+  "wait",
+  1.2
+ ],
+ [
+  "cmd",
+  "gave 시험 알림줄 {USER}"
+ ],
+ [
+  "shot",
+  "fog"
+ ],
+ [
+  "wait",
+  5.5
+ ],
+ [
+  "cmd",
+  "gave 시험 변이 x burst"
+ ],
+ [
+  "wait",
+  1.2
+ ],
+ [
+  "cmd",
+  "gave 시험 알림줄 {USER}"
+ ],
+ [
+  "shot",
+  "mut"
+ ],
+ [
+  "wait",
+  5.5
+ ],
+ [
+  "cmd",
+  "gave 시험 사건 x 이마 G01"
+ ],
+ [
+  "wait",
+  1.2
+ ],
+ [
+  "cmd",
+  "gave 시험 알림줄 {USER}"
+ ],
+ [
+  "shot",
+  "forehead"
+ ],
+ [
+  "wait",
+  5.5
+ ],
+ [
+  "cmd",
+  "gave 시험 사건 x 끝"
+ ],
+ [
+  "cmd",
+  "gave 시험 사건 x 웅얼 4"
+ ],
+ [
+  "cmd",
+  "gave 시험 쉬기 x"
+ ],
+ [
+  "wait",
+  3
+ ],
+ [
+  "cmd",
+  "gave 시험 알림줄 {USER}"
+ ],
+ [
+  "shot",
+  "murmur"
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gave 시험 알림줄 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 중지"
+ ]
+]

@@ -1,0 +1,670 @@
+{
+ "note": "길: 스테이지 종류, 풀, 막별 무게, 규칙, 보스 길목, 카드, 사건. 설계 docs/모듈/원정.md 3절",
+ "types": {
+  "fight": {
+   "name": "전투",
+   "risk": 1,
+   "reward": [
+    "money"
+   ],
+   "first": "pool:plain",
+   "second": "pool:plain",
+   "note": "보통 라운드 둘. 가장 흔한 길"
+  },
+  "elite": {
+   "name": "정예",
+   "risk": 2,
+   "reward": [
+    "aug"
+   ],
+   "first": "pool:plain",
+   "second": "pool:elite",
+   "note": "둘째 라운드가 정예 계열(r_elite, r_hunt, r_box, u_elite_pair). 끝나면 모두 증강 제안"
+  },
+  "cache": {
+   "name": "보급",
+   "risk": 1,
+   "reward": [
+    "box",
+    "ammo"
+   ],
+   "first": "pool:easy",
+   "second": "pool:loot",
+   "note": "쉬운 라운드 + 줍기, 사냥, 보급 낙하. 도착하면 모두 탄약 가득"
+  },
+  "rest": {
+   "name": "정비",
+   "risk": 1,
+   "reward": [
+    "repair",
+    "revive"
+   ],
+   "first": "pool:truck",
+   "second": "pool:plain",
+   "note": "도착하면 트럭 +30%, 그 스테이지 동안 상점 20% 싸고 부활 값 절반. 대신 첫 라운드는 트럭 지키기 계열"
+  },
+  "event": {
+   "name": "사건",
+   "risk": 2,
+   "reward": [
+    "unknown"
+   ],
+   "first": "event",
+   "second": "pool:plain",
+   "note": "도착 연출 5초 뒤 사건 하나(EVENTS). 선택 없이 진행"
+  },
+  "rush": {
+   "name": "험로",
+   "risk": 3,
+   "reward": [
+    "part",
+    "money"
+   ],
+   "first": "special",
+   "second": "pool:hard",
+   "note": "첫 라운드가 특수 라운드. 끝나면 트럭 부품 제안과 큰돈(1.5U)"
+  },
+  "trap": {
+   "name": "함정",
+   "risk": 3,
+   "reward": [
+    "aug",
+    "aug"
+   ],
+   "first": "pool:hard",
+   "second": "special_or_hard",
+   "note": "불리한 조건 둘, 트럭 노림 몫 두 배. 3막부터는 표지판에 드러나서도 나온다(영웅 증강 확정). 1, 2막에서는 미지에서만"
+  },
+  "unknown": {
+   "name": "미지",
+   "risk": 0,
+   "reward": [
+    "unknown"
+   ],
+   "first": "reveal",
+   "second": "reveal",
+   "note": "표지판에 물음표만. 도착하면 드러남: 보급 35, 사건 25, 함정 30, 정비 10(3막은 함정 40, 보급 25)"
+  },
+  "gate": {
+   "name": "보스 길목",
+   "risk": 3,
+   "reward": [
+    "boss"
+   ],
+   "first": "gate",
+   "second": "boss",
+   "note": "스테이지 5, 10, 15. 갈래 셋은 종류가 아니라 준비 셋(GATES)"
+  }
+ },
+ "pools": {
+  "plain": [
+   "r_plain",
+   "r_flood",
+   "r_few",
+   "r_charge",
+   "r_ranged",
+   "r_sky",
+   "r_ground",
+   "r_support",
+   "r_duo",
+   "r_new",
+   "r_return",
+   "r_lean",
+   "r_two",
+   "r_spin",
+   "r_back",
+   "r_far",
+   "r_clear",
+   "r_road",
+   "r_pulses",
+   "r_ramp",
+   "r_finale",
+   "r_fog",
+   "r_rain",
+   "r_wind",
+   "r_crack",
+   "r_split",
+   "r_pop",
+   "r_riders",
+   "r_giant",
+   "r_mono",
+   "u_grab",
+   "u_latent",
+   "u_under",
+   "u_chain",
+   "u_echo",
+   "u_faces",
+   "u_learn",
+   "u_ashfall",
+   "u_stare"
+  ],
+  "easy": [
+   "r_flood",
+   "r_mono",
+   "r_glass",
+   "r_gold",
+   "r_timed",
+   "r_bounty3",
+   "r_hunt_gold"
+  ],
+  "loot": [
+   "r_collect",
+   "r_ammo",
+   "r_hold",
+   "r_box",
+   "r_hunt",
+   "r_cargo",
+   "u_bound",
+   "u_nest",
+   "special:airdrop",
+   "special:gallery"
+  ],
+  "elite": [
+   "r_elite",
+   "r_hunt",
+   "r_box",
+   "r_thick",
+   "u_elite_pair",
+   "u_blessing",
+   "u_names",
+   "u_armed"
+  ],
+  "truck": [
+   "r_objective",
+   "r_truck",
+   "r_flicker",
+   "r_start",
+   "u_two_truck",
+   "u_mire",
+   "u_hands"
+  ],
+  "hard": [
+   "r_trap",
+   "r_near",
+   "r_burst",
+   "r_slow",
+   "r_fog5",
+   "r_dark",
+   "r_storm",
+   "r_silent",
+   "r_survive",
+   "r_trickle",
+   "r_hold2",
+   "r_thin",
+   "r_fast",
+   "u_tide",
+   "u_lightning",
+   "u_blackwater",
+   "u_bait",
+   "u_ember",
+   "u_no_shop",
+   "u_heavy",
+   "u_all",
+   "u_decoy",
+   "u_curse2",
+   "u_carrion",
+   "u_close",
+   "u_hush",
+   "u_revenge"
+  ]
+ },
+ "weights": {
+  "1": {
+   "fight": 34,
+   "elite": 14,
+   "cache": 16,
+   "rest": 12,
+   "event": 10,
+   "rush": 8,
+   "unknown": 6,
+   "trap": 0
+  },
+  "2": {
+   "fight": 28,
+   "elite": 16,
+   "cache": 13,
+   "rest": 12,
+   "event": 10,
+   "rush": 11,
+   "unknown": 10,
+   "trap": 0
+  },
+  "3": {
+   "fight": 22,
+   "elite": 16,
+   "cache": 10,
+   "rest": 10,
+   "event": 10,
+   "rush": 12,
+   "unknown": 10,
+   "trap": 10
+  }
+ },
+ "rules": {
+  "stages": 15,
+  "votes": 14,
+  "roundsPerStage": 2,
+  "bossRounds": [
+   10,
+   20,
+   30,
+   35
+  ],
+  "launchFrom": 31,
+  "forks": [
+   "갈림길 하나의 세 갈래는 종류가 서로 다르다",
+   "세 갈래 가운데 하나는 위험 1(전투, 보급, 정비), 하나는 위험 2 이상이다",
+   "같은 종류가 고른 길로 세 번 이어지지 않는다(전투 빼고)",
+   "트럭 체력이 40% 아래거나 죽은 사람이 판에 든 사람의 20% 이상이면 다음 갈림길에 정비가 꼭 하나 든다(판을 만들 때가 아니라 그 갈림길을 열 때 한 칸을 바꿈)",
+   "막마다 험로(특수 라운드)가 적어도 한 번은 갈래에 나온다. 아무도 안 골라도 1막 4~8 사이에 추격전이 한 번, 2막과 3막에 그 막 특수 라운드가 한 번씩 강제로 낀다(그 스테이지 첫 라운드를 바꿈)",
+   "스테이지 4, 9, 14 뒤의 갈림길(라운드 8, 18, 28 뒤)은 보스 길목: 준비 셋(GATES) 가운데 하나",
+   "판을 시작할 때 씨앗 하나로 갈림길 14개를 모두 굴린다(기록에 씨앗과 고른 길). 사람들은 이번 갈림길과 다음 갈림길(흐리게)을 본다"
+  ],
+  "vote": {
+   "open": 40,
+   "close": 60,
+   "tie": "무작위(표지판이 번갈아 깜빡이다 멈춤)",
+   "none": "가운데(2번)",
+   "method": "표지판을 보고 좌클릭(재미.md 2.2절 Vote), 설정으로 숫자키 1 2 3"
+  }
+ },
+ "gates": [
+  {
+   "key": "gate_rest",
+   "name": "숨 고르기",
+   "icon": "rest",
+   "first": "pool:truck",
+   "gain": "트럭 +30%, 상점 20% 할인, 부활 값 절반",
+   "risk": 1
+  },
+  {
+   "key": "gate_arm",
+   "name": "무장",
+   "icon": "cache",
+   "first": "pool:loot",
+   "gain": "모두 무기 상자 한 번 공짜 + 탄약 가득",
+   "risk": 2
+  },
+  {
+   "key": "gate_run",
+   "name": "질주",
+   "icon": "rush",
+   "first": "special:chase(3막은 lastrun 고정)",
+   "gain": "끝까지 달리면 보스 체력 -8%, 트럭 부품 제안",
+   "risk": 3
+  }
+ ],
+ "cards": [
+  {
+   "key": "a1_road",
+   "act": 1,
+   "type": "fight",
+   "name": "국도",
+   "props": "road_poles",
+   "line": "전봇대가 줄지어 선 곧은 길"
+  },
+  {
+   "key": "a1_jam",
+   "act": 1,
+   "type": "fight",
+   "name": "멈춘 차들",
+   "props": "car_jam",
+   "line": "버려진 차 여덟 대가 길을 메웠다"
+  },
+  {
+   "key": "a1_nest",
+   "act": 1,
+   "type": "elite",
+   "name": "얼굴 둥지",
+   "props": "mounds",
+   "line": "흙더미마다 실눈이 박혀 있다"
+  },
+  {
+   "key": "a1_cache",
+   "act": 1,
+   "type": "cache",
+   "name": "뒤집힌 짐차",
+   "props": "spilled_cargo",
+   "line": "상자가 길에 쏟아져 있다"
+  },
+  {
+   "key": "a1_rest",
+   "act": 1,
+   "type": "rest",
+   "name": "길가 쉼터",
+   "props": "tire_stack",
+   "line": "타이어 더미와 드럼통"
+  },
+  {
+   "key": "a1_signal",
+   "act": 1,
+   "type": "event",
+   "name": "라디오 신호",
+   "props": "antenna",
+   "line": "지직거리는 소리가 난다"
+  },
+  {
+   "key": "a1_gas",
+   "act": 1,
+   "type": "rush",
+   "name": "말라붙은 주유소",
+   "props": "drums",
+   "line": "기름통만 남았다",
+   "special": "refuel"
+  },
+  {
+   "key": "a1_bridge",
+   "act": 1,
+   "type": "rush",
+   "name": "마른 강 다리",
+   "props": "rail_posts",
+   "line": "길이 좁아진다",
+   "special": "bridge"
+  },
+  {
+   "key": "a1_dust",
+   "act": 1,
+   "type": "rush",
+   "name": "먼지 기둥",
+   "props": "tumbleweeds",
+   "line": "하늘이 누렇다",
+   "special": "sandstorm"
+  },
+  {
+   "key": "a1_fork",
+   "act": 1,
+   "type": "unknown",
+   "name": "표지판 없는 길",
+   "props": "blank_signs",
+   "line": "표지판이 지워져 있다"
+  },
+  {
+   "key": "a2_marsh",
+   "act": 2,
+   "type": "fight",
+   "name": "갈대 벌",
+   "props": "reeds",
+   "line": "갈대 사이로 물이 번들거린다"
+  },
+  {
+   "key": "a2_ford",
+   "act": 2,
+   "type": "fight",
+   "name": "여울",
+   "props": "marker_poles",
+   "line": "길이 물에 잠겼다 나왔다 한다"
+  },
+  {
+   "key": "a2_pylons",
+   "act": 2,
+   "type": "elite",
+   "name": "쓰러진 송전탑",
+   "props": "pylon_parts",
+   "line": "쇠 뼈대가 물에 누워 있다"
+  },
+  {
+   "key": "a2_bus",
+   "act": 2,
+   "type": "cache",
+   "name": "가라앉은 버스",
+   "props": "sunk_bus",
+   "line": "지붕만 물 위에 있다"
+  },
+  {
+   "key": "a2_levee",
+   "act": 2,
+   "type": "rest",
+   "name": "둑 위",
+   "props": "sandbags",
+   "line": "젖지 않은 땅이 조금 있다"
+  },
+  {
+   "key": "a2_voices",
+   "act": 2,
+   "type": "event",
+   "name": "부르는 소리",
+   "props": "lanterns",
+   "line": "안개 속에서 누가 부른다"
+  },
+  {
+   "key": "a2_flood",
+   "act": 2,
+   "type": "rush",
+   "name": "물 찬 길",
+   "props": "marker_poles",
+   "line": "물이 불어난다",
+   "special": "tide"
+  },
+  {
+   "key": "a2_mud",
+   "act": 2,
+   "type": "rush",
+   "name": "진창",
+   "props": "ruts",
+   "line": "바퀴가 헛돈다",
+   "special": "breakdown"
+  },
+  {
+   "key": "a2_storm",
+   "act": 2,
+   "type": "rush",
+   "name": "번개 벌판",
+   "props": "dead_trees",
+   "line": "번쩍일 때만 보인다",
+   "special": "blackout"
+  },
+  {
+   "key": "a2_mist",
+   "act": 2,
+   "type": "unknown",
+   "name": "물안개",
+   "props": "none",
+   "line": "아무것도 안 보인다"
+  },
+  {
+   "key": "a3_ash",
+   "act": 3,
+   "type": "fight",
+   "name": "재 벌판",
+   "props": "ash_drifts",
+   "line": "재가 발목까지 쌓였다"
+  },
+  {
+   "key": "a3_bones",
+   "act": 3,
+   "type": "fight",
+   "name": "말뚝 숲",
+   "props": "stakes",
+   "line": "그을린 말뚝이 줄지어 서 있다"
+  },
+  {
+   "key": "a3_pit",
+   "act": 3,
+   "type": "elite",
+   "name": "꺼진 땅",
+   "props": "crater_rim",
+   "line": "한가운데가 검게 꺼졌다"
+  },
+  {
+   "key": "a3_convoy",
+   "act": 3,
+   "type": "cache",
+   "name": "불탄 호송대",
+   "props": "burnt_trucks",
+   "line": "우리와 같은 트럭이 여럿 타 있다"
+  },
+  {
+   "key": "a3_camp",
+   "act": 3,
+   "type": "rest",
+   "name": "불 꺼진 야영지",
+   "props": "camp",
+   "line": "누가 있다 갔다"
+  },
+  {
+   "key": "a3_names",
+   "act": 3,
+   "type": "event",
+   "name": "이름 적힌 말뚝",
+   "props": "name_stakes",
+   "line": "말뚝마다 이름이 적혀 있다"
+  },
+  {
+   "key": "a3_embers",
+   "act": 3,
+   "type": "rush",
+   "name": "불씨 길",
+   "props": "ember_cracks",
+   "line": "땅이 아직 뜨겁다",
+   "special": "ram"
+  },
+  {
+   "key": "a3_wave",
+   "act": 3,
+   "type": "trap",
+   "name": "손 흔드는 사람들",
+   "props": "mannequins",
+   "line": "저 멀리 사람들이 손을 흔든다",
+   "special": "callnames"
+  },
+  {
+   "key": "a3_sink",
+   "act": 3,
+   "type": "trap",
+   "name": "무른 땅",
+   "props": "ash_drifts",
+   "line": "바퀴가 꺼진다",
+   "special": "sinking"
+  },
+  {
+   "key": "a3_glass",
+   "act": 3,
+   "type": "unknown",
+   "name": "거울 벌",
+   "props": "glass_patches",
+   "line": "땅이 얼굴을 비춘다"
+  }
+ ],
+ "events": [
+  {
+   "key": "ev_radio",
+   "acts": [
+    1,
+    3
+   ],
+   "line": "누가 듣고 있나",
+   "play": "라디오에서 지직거림 뒤 웃음소리. 그 라운드 내내 감독의 쏠림 쪽이 알림 없이 온다(화살촉 없음)",
+   "gain": "끝나면 모두 증강 제안"
+  },
+  {
+   "key": "ev_hitch",
+   "acts": [
+    1,
+    2
+   ],
+   "line": "태워 달라고 한다",
+   "play": "길가에 손 든 사람 하나(마네킹). 60% 는 진짜 짐(모두 0.5U), 40% 는 사람 탈 게이브 계열이 트럭 곁에서 터져 나옴",
+   "gain": "돈 또는 정예 하나"
+  },
+  {
+   "key": "ev_convoy",
+   "acts": [
+    1,
+    3
+   ],
+   "line": "먼저 간 사람들",
+   "play": "불탄 트럭 한 대. 뒤져서(짐칸 돕기 채널 5초, 한 사람) 부품 하나. 뒤지는 동안 숨죽이기 특수 라운드",
+   "gain": "트럭 부품"
+  },
+  {
+   "key": "ev_storm",
+   "acts": [
+    1,
+    3
+   ],
+   "line": "날씨가 바뀐다",
+   "play": "그 스테이지 두 라운드의 날씨가 다시 굴려진다(비, 번개, 맞바람, 재 가운데). 처치 보상 x1.3",
+   "gain": "돈"
+  },
+  {
+   "key": "ev_toll",
+   "acts": [
+    1,
+    3
+   ],
+   "line": "길을 막았다",
+   "play": "큰 정예 하나가 길 한가운데 앉아 있다. 팀이 2U x 사람 수의 절반을 모금하면 비켜 준다(쉬는 시간 15초). 안 내면 그 라운드 정예 셋",
+   "gain": "없음(피하기)"
+  },
+  {
+   "key": "ev_stowaway",
+   "acts": [
+    2,
+    3
+   ],
+   "line": "짐칸에 뭔가 있다",
+   "play": "트럭 짐칸에서 붙는 종이 쏟아져 원 안 사람들에게 붙는다(잠복 넷). 서로 짜내야 한다",
+   "gain": "끝나면 비옷 하나씩"
+  },
+  {
+   "key": "ev_fuel",
+   "acts": [
+    1,
+    3
+   ],
+   "line": "기름이 샌다",
+   "play": "트럭이 라운드 내내 초당 조금씩 깎인다. 돕기 채널(트럭 밑, 8초)로 막는다",
+   "gain": "막으면 트럭 +5%"
+  },
+  {
+   "key": "ev_gift",
+   "acts": [
+    1,
+    3
+   ],
+   "line": "길에 상자가 있다",
+   "play": "보급 상자 셋, 하나만 진짜. 재미 장치의 가짜 알아보기 그대로",
+   "gain": "무기 상자 공짜"
+  },
+  {
+   "key": "ev_names",
+   "acts": [
+    3,
+    3
+   ],
+   "line": "아는 이름이다",
+   "play": "말뚝에 이 판에서 죽은 적 있는 사람 이름이 적혀 있다(없으면 접속자 가운데 무작위). 그 이름의 게이브가 한 마리씩 선다",
+   "gain": "잡을 때마다 그 사람 부활 값 -30%"
+  },
+  {
+   "key": "ev_quiet",
+   "acts": [
+    1,
+    3
+   ],
+   "line": "너무 조용하다",
+   "play": "첫 라운드가 40초 동안 아무것도 안 나온다(상점은 열림). 그 뒤 두 라운드 몫이 한꺼번에",
+   "gain": "처치 보상 x1.5"
+  },
+  {
+   "key": "ev_mirror",
+   "acts": [
+    2,
+    3
+   ],
+   "line": "우리가 또 있다",
+   "play": "안개 속에 트럭 등불이 하나 더 보인다. 다가가면 가짜 트럭(꾸러미 계열 큰 것). 무시하면 그 라운드 끝에 덮쳐 온다",
+   "gain": "잡으면 트럭 부품"
+  },
+  {
+   "key": "ev_dawn",
+   "acts": [
+    2,
+    3
+   ],
+   "line": "벌써 아침인가",
+   "play": "하늘이 밝아진다(가짜 아침, 테마 시계를 1막 값으로). 20초 뒤 한꺼번에 어두워지며 그 라운드가 '더 어두운 밤'",
+   "gain": "없음"
+  }
+ ]
+}

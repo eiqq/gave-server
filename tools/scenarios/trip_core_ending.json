@@ -1,0 +1,120 @@
+[
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gamemode adventure {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 빈보스 on"
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  25
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 {USER} on"
+ ],
+ [
+  "cmd",
+  "gave 웨이브 35"
+ ],
+ [
+  "until",
+  "boss=B5",
+  30
+ ],
+ [
+  "wait",
+  8
+ ],
+ [
+  "cmd",
+  "gave 시험 트럭 x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 {USER} 죽이기"
+ ],
+ [
+  "wait",
+  6.6
+ ],
+ [
+  "shot",
+  "ending_line1"
+ ],
+ [
+  "wait",
+  3.7
+ ],
+ [
+  "shot",
+  "ending_line2"
+ ],
+ [
+  "wait",
+  3.7
+ ],
+ [
+  "shot",
+  "ending_line3"
+ ],
+ [
+  "wait",
+  3.7
+ ],
+ [
+  "shot",
+  "ending_line4"
+ ],
+ [
+  "wait",
+  3.7
+ ],
+ [
+  "shot",
+  "ending_line5"
+ ],
+ [
+  "wait",
+  4.5
+ ],
+ [
+  "shot",
+  "ending_numbers"
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 상태"
+ ],
+ [
+  "wait",
+  6
+ ],
+ [
+  "shot",
+  "ending_after"
+ ],
+ [
+  "cmd",
+  "gave 중지"
+ ],
+ [
+  "wait",
+  1
+ ]
+]

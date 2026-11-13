@@ -1,0 +1,352 @@
+[
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gamemode adventure {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 빈보스 on"
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  25
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 {USER} on"
+ ],
+ [
+  "cmd",
+  "tp {USER} 6.5 64 6.5 180 -30"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 소환 B2"
+ ],
+ [
+  "cmd",
+  "tp {USER} 6.5 64 46.5 180 -35"
+ ],
+ [
+  "wait",
+  2.0
+ ],
+ [
+  "shot",
+  "intro_a"
+ ],
+ [
+  "wait",
+  2.6
+ ],
+ [
+  "shot",
+  "intro_b"
+ ],
+ [
+  "wait",
+  1.6
+ ],
+ [
+  "shot",
+  "intro_c"
+ ],
+ [
+  "wait",
+  1.4
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 상태"
+ ],
+ [
+  "shot",
+  "frame_far"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x G01"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x G02"
+ ],
+ [
+  "cmd",
+  "tp {USER} 6.5 64 6.5 180 -80"
+ ],
+ [
+  "wait",
+  0.8
+ ],
+ [
+  "shot",
+  "below"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "tp {USER} 6.5 64 6.5 180 35"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 공격 pole {USER}"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "shot",
+  "pole_tell"
+ ],
+ [
+  "wait",
+  0.9
+ ],
+ [
+  "shot",
+  "pole_hit"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 상태"
+ ],
+ [
+  "cmd",
+  "tp {USER} 6.5 64 13.5 180 -5"
+ ],
+ [
+  "wait",
+  0.4
+ ],
+ [
+  "shot",
+  "pole_stuck"
+ ],
+ [
+  "wait",
+  3.5
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER}"
+ ],
+ [
+  "cmd",
+  "tp {USER} 6.5 64 6.5 180 35"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 공격 pole {USER}"
+ ],
+ [
+  "wait",
+  1.2
+ ],
+ [
+  "cmd",
+  "tp {USER} 6.5 64 11.5 180 8"
+ ],
+ [
+  "wait",
+  0.6
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 30"
+ ],
+ [
+  "wait",
+  0.8
+ ],
+ [
+  "shot",
+  "pole_shoot"
+ ],
+ [
+  "wait",
+  0.9
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x G01"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER}"
+ ],
+ [
+  "cmd",
+  "tp {USER} 6.5 64 6.5 180 -75"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 공격 rain"
+ ],
+ [
+  "wait",
+  2.4
+ ],
+ [
+  "shot",
+  "rain_mouth"
+ ],
+ [
+  "cmd",
+  "tp {USER} 6.5 64 6.5 180 40"
+ ],
+ [
+  "wait",
+  1.2
+ ],
+ [
+  "shot",
+  "rain_ground"
+ ],
+ [
+  "wait",
+  1.8
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 x G01"
+ ],
+ [
+  "cmd",
+  "tp {USER} 7.8 64 -1.4 180 -90"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 60"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "shot",
+  "mouth_shot"
+ ],
+ [
+  "wait",
+  1.7
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹시간 x"
+ ],
+ [
+  "cmd",
+  "gave 시험 예산 x"
+ ],
+ [
+  "cmd",
+  "tp {USER} 6.5 64 46.5 180 -20"
+ ],
+ [
+  "wait",
+  0.6
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 {USER} 죽이기"
+ ],
+ [
+  "wait",
+  1.1
+ ],
+ [
+  "shot",
+  "dying_a"
+ ],
+ [
+  "wait",
+  0.9
+ ],
+ [
+  "shot",
+  "dying_b"
+ ],
+ [
+  "wait",
+  3.0
+ ],
+ [
+  "shot",
+  "corpse"
+ ],
+ [
+  "until",
+  "state=BREAK",
+  40
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "shot",
+  "break"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 땅 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 래그돌 x"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ]
+]

@@ -1,0 +1,31 @@
+{
+ "title": "Slide whistle down",
+ "author": "diligentcircle",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/slide-whistle-down",
+ "license": "CC BY 3.0",
+ "license_url": "https://creativecommons.org/licenses/by/3.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC-BY 3.0 (http://creativecommons.org/licenses/by/3.0/)",
+ "note": "",
+ "desc": "An orchestral slide whistle sliding one note down. This sample is at normal speed. Source: http://freesound.org/people/joedeshon/sounds/79671/",
+ "urls": [
+  "https://opengameart.org/sites/default/files/79671__joedeshon__slide-whistle-down-01.wav"
+ ],
+ "pack": "oga_slide_whistle",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "79671__joedeshon__slide-whistle-down-01.wav",
+   "bytes": 208636,
+   "sha256": "3e857b2bf1640d51e1cfe2b5a7967c6087da6f589aead349453e4c7e72ab107d"
+  }
+ ],
+ "files": [
+  {
+   "file": "79671_joedeshon_slide_whistle_down_01.wav",
+   "orig": "79671__joedeshon__slide-whistle-down-01.wav",
+   "bytes": 208636,
+   "sha256": "3e857b2bf1640d51e1cfe2b5a7967c6087da6f589aead349453e4c7e72ab107d"
+  }
+ ]
+}

@@ -1,0 +1,536 @@
+[
+[
+"wait",
+2
+],
+[
+"cmd",
+"gamemode adventure {USER}"
+],
+[
+"cmd",
+"gave 시작"
+],
+[
+"until",
+"state=PREP",
+15
+],
+[
+"cmd",
+"time set 6000"
+],
+[
+"cmd",
+"gave 시험 판끝막기 {USER} on"
+],
+[
+"cmd",
+"gave 시험 총 {USER} PISTOL"
+],
+[
+"until",
+"state=WAVE",
+40
+],
+[
+"cmd",
+"gave 시험 쉬기 {USER}"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 24 180 0"
+],
+[
+"wait",
+0.5
+],
+[
+"wait",
+3.0
+],
+[
+"cmd",
+"gave 소환 G08 1 3 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹정지 {USER} on"
+],
+[
+"wait",
+1.0
+],
+[
+"shot",
+"a01_g08_front"
+],
+[
+"wait",
+1.5
+],
+[
+"shot",
+"a02_g08_notice"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G08 20"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 28"
+],
+[
+"wait",
+2.2
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G08"
+],
+[
+"shot",
+"a03_g08_got_notice"
+],
+[
+"cmd",
+"gave 시험 증강목록 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹정지 {USER} off"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"tp {USER} 0.5 64 24 180 0"
+],
+[
+"cmd",
+"gave 소환 G03 1 9 {USER}"
+],
+[
+"wait",
+5.0
+],
+[
+"cmd",
+"gave 시험 몹정지 {USER} on"
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G03"
+],
+[
+"cmd",
+"execute positioned 0.5 65 15.5 as @e[type=minecraft:item_display,distance=..5,sort=nearest,limit=1] at @s run tp {USER} ~ 64 ~-1.8 0 17"
+],
+[
+"wait",
+0.7
+],
+[
+"shot",
+"b01_g03_holes"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 24 180 0"
+],
+[
+"wait",
+0.2
+],
+[
+"cmd",
+"gave 시험 몹정지 {USER} off"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 소환 G03 1 9 {USER}"
+],
+[
+"rec",
+"b_g03_fall",
+20
+],
+[
+"wait",
+2.8
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 180 -8"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 58"
+],
+[
+"wait",
+1.2
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G03"
+],
+[
+"wait",
+0.7
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G03"
+],
+[
+"wait",
+0.7
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G03"
+],
+[
+"shot",
+"b02_g03_fall"
+],
+[
+"wait",
+0.7
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G03"
+],
+[
+"wait",
+1.0
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G03"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G03"
+],
+[
+"wait",
+2.0
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G03"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"recstop"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 웨이브 3"
+],
+[
+"wait",
+0.15
+],
+[
+"cmd",
+"gave 시험 쉬기 {USER}"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 24 180 0"
+],
+[
+"wait",
+0.4
+],
+[
+"cmd",
+"gave 시험 총 {USER} RIFLE"
+],
+[
+"wait",
+0.6
+],
+[
+"cmd",
+"gave 소환 G05 1 2.5 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹정지 {USER} on"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G05 14"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 9"
+],
+[
+"wait",
+0.6
+],
+[
+"shot",
+"c01_g05_juice_cover"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹정지 {USER} off"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 12 0 0"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 소환 G06 1 11 {USER}"
+],
+[
+"rec",
+"c_g06",
+20
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G06 400"
+],
+[
+"wait",
+3.2
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"wait",
+0.3
+],
+[
+"shot",
+"c02_g06_drip"
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G06"
+],
+[
+"cmd",
+"execute positioned 0.5 65 26 as @e[type=minecraft:item_display,distance=..5,sort=nearest,limit=1] at @s run tp {USER} ~ 64 ~-5 0 0"
+],
+[
+"wait",
+0.2
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G06"
+],
+[
+"shot",
+"c03_g06_hop"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G06"
+],
+[
+"wait",
+0.5
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G06"
+],
+[
+"cmd",
+"execute positioned 0.5 65 29.5 as @e[type=minecraft:item_display,distance=..5,sort=nearest,limit=1] at @s run tp {USER} ~ 64 ~-5 0 0"
+],
+[
+"wait",
+0.2
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G06"
+],
+[
+"wait",
+0.5
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G06"
+],
+[
+"wait",
+0.8
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G06"
+],
+[
+"wait",
+1.0
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G06"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"wait",
+1.0
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G06"
+],
+[
+"recstop"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 시험 예산 {USER}"
+]
+]

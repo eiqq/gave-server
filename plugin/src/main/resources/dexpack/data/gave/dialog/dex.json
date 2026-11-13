@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:notice",
+  "title": {"text": "게이브 도감", "color": "gold"},
+  "external_title": {"text": "게이브 도감"},
+  "can_close_with_escape": true,
+  "pause": false,
+  "after_action": "none",
+  "action": {
+    "label": {"text": "열기"},
+    "width": 150,
+    "action": {"type": "minecraft:custom", "id": "gave:dex/open"}
+  }
+}

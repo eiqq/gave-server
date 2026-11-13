@@ -1,0 +1,30 @@
+{
+ "title": "Zombie moans",
+ "author": "Darsycho",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/zombie-moans",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0",
+ "note": "Feel free to use for whatever, credit is appreciated!",
+ "urls": [
+  "https://opengameart.org/sites/default/files/darsycho__zombie-moans_0.ogg"
+ ],
+ "pack": "oga_moans",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "darsycho__zombie-moans_0.ogg",
+   "bytes": 181933,
+   "sha256": "49b0bd7a7908f2b3ea61ae93ccf584ab650705d62e8ed6d4c8c9f5b98ad37b05"
+  }
+ ],
+ "files": [
+  {
+   "file": "darsycho_zombie_moans_0.ogg",
+   "orig": "darsycho__zombie-moans_0.ogg",
+   "bytes": 181933,
+   "sha256": "49b0bd7a7908f2b3ea61ae93ccf584ab650705d62e8ed6d4c8c9f5b98ad37b05"
+  }
+ ]
+}

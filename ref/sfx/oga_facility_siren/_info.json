@@ -1,0 +1,31 @@
+{
+ "title": "Facility Alert Siren",
+ "author": "FiveBrosStopMosYT",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/facility-alert-siren",
+ "license": "CC BY 4.0",
+ "license_url": "https://creativecommons.org/licenses/by/4.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC-BY 4.0, CC-BY 3.0, OGA-BY 3.0 (https://creativecommons.org/licenses/by/4.0/, http://creativecommons.org/licenses/by/3.0/, http://opengameart.org/content/oga-by-30-faq)",
+ "note": "",
+ "desc": "A wailing siren made in Audacity. Originally posted on Freesound.com . Enjoy!",
+ "urls": [
+  "https://opengameart.org/sites/default/files/facility_breach_siren.wav"
+ ],
+ "pack": "oga_facility_siren",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "facility_breach_siren.wav",
+   "bytes": 428374,
+   "sha256": "e5d3fda7f201e2a760f39610ca7c54fb9a1fd10f88b5ad8b0cf47f0d0be256c9"
+  }
+ ],
+ "files": [
+  {
+   "file": "facility_breach_siren.wav",
+   "orig": "facility_breach_siren.wav",
+   "bytes": 428374,
+   "sha256": "e5d3fda7f201e2a760f39610ca7c54fb9a1fd10f88b5ad8b0cf47f0d0be256c9"
+  }
+ ]
+}

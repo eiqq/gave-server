@@ -1,0 +1,183 @@
+[
+ [
+  "cmd",
+  "gamemode adventure {USER}"
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gave 중지"
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=PREP",
+  15
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 x on"
+ ],
+ [
+  "cmd",
+  "gave 시험 균형 x ALIVE_PER_WAVE 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 균형 x ALIVE_BASE 0"
+ ],
+ [
+  "cmd",
+  "tp {USER} 6.5 64 -9.5 0 0"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "cmd",
+  "gave 시험 효과시험 {USER} 1 200"
+ ],
+ [
+  "wait",
+  0.7
+ ],
+ [
+  "cmd",
+  "gave 시험 연출수 {USER}"
+ ],
+ [
+  "shot",
+  "fx_v1_flame"
+ ],
+ [
+  "wait",
+  1.2
+ ],
+ [
+  "cmd",
+  "gave 시험 효과시험 {USER} 2 200"
+ ],
+ [
+  "wait",
+  0.7
+ ],
+ [
+  "cmd",
+  "gave 시험 연출수 {USER}"
+ ],
+ [
+  "shot",
+  "fx_v2_frost"
+ ],
+ [
+  "wait",
+  1.2
+ ],
+ [
+  "cmd",
+  "gave 시험 효과시험 {USER} 0 200"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "shot",
+  "fx_v0_bolt"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "cmd",
+  "gave 시험 효과시험 {USER} 3 200"
+ ],
+ [
+  "wait",
+  0.2
+ ],
+ [
+  "shot",
+  "fx_v3_beam"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "cmd",
+  "gave 시험 총굴리기 {USER} FLAME COMMON"
+ ],
+ [
+  "wait",
+  0.8
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 200"
+ ],
+ [
+  "wait",
+  0.6
+ ],
+ [
+  "cmd",
+  "gave 시험 연출수 {USER}"
+ ],
+ [
+  "shot",
+  "fx_flame_fire"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "cmd",
+  "gave 시험 총굴리기 {USER} FREEZE COMMON"
+ ],
+ [
+  "wait",
+  0.8
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 200"
+ ],
+ [
+  "wait",
+  0.6
+ ],
+ [
+  "cmd",
+  "gave 시험 연출수 {USER}"
+ ],
+ [
+  "shot",
+  "fx_freeze_fire"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "cmd",
+  "gave 시험 무기상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 중지"
+ ]
+]

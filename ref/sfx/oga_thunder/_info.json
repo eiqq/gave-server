@@ -1,0 +1,30 @@
+{
+ "title": "Rain + Long Thunder",
+ "author": "WuxiaScrub",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/rain-long-thunder",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0",
+ "note": "No need to credit; use as desired.",
+ "urls": [
+  "https://opengameart.org/sites/default/files/rain-thunder.ogg"
+ ],
+ "pack": "oga_thunder",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "rain-thunder.ogg",
+   "bytes": 875624,
+   "sha256": "9499fd1aefa3b5d8ba3764ea46d15c00ab449be7e19c029290a1f52228f1434c"
+  }
+ ],
+ "files": [
+  {
+   "file": "rain_thunder.ogg",
+   "orig": "rain-thunder.ogg",
+   "bytes": 875624,
+   "sha256": "9499fd1aefa3b5d8ba3764ea46d15c00ab449be7e19c029290a1f52228f1434c"
+  }
+ ]
+}

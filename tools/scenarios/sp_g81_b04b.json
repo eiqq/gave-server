@@ -1,0 +1,535 @@
+[
+[
+"wait",
+3
+],
+[
+"cmd",
+"gamemode adventure {USER}"
+],
+[
+"cmd",
+"gave 중지"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 원정 x 끔"
+],
+[
+"cmd",
+"gave 시작"
+],
+[
+"until",
+"state=WAVE",
+40
+],
+[
+"cmd",
+"gave 시험 판끝막기 {USER} on"
+],
+[
+"cmd",
+"gave 시험 감독빨리 x 0.05"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 시험 총 {USER} RIFLE"
+],
+[
+"cmd",
+"gave 시험 공격 {USER} 물기 off"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 24.5 0 0"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 0 10"
+],
+[
+"cmd",
+"gave 시험 공격 {USER} 다시"
+],
+[
+"cmd",
+"gave 시험 공격 {USER} 방어 0.1"
+],
+[
+"wait",
+0.5
+],
+[
+"cmd",
+"gave 소환 G86 4 7 {USER}"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G86"
+],
+[
+"shot",
+"g86_land"
+],
+[
+"wait",
+3.5
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G86"
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G86"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 0 60"
+],
+[
+"wait",
+0.4
+],
+[
+"shot",
+"g86_cling"
+],
+[
+"cmd",
+"gave 시험 공격 {USER}"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 4 G86"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 24.5 0 0"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 0 10"
+],
+[
+"cmd",
+"gave 시험 공격 {USER} 다시"
+],
+[
+"cmd",
+"gave 시험 공격 {USER} 방어 0.1"
+],
+[
+"wait",
+0.5
+],
+[
+"cmd",
+"tp {USER} 21.5 64 21.5 90 0"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 소환 G86 2 4 {USER}"
+],
+[
+"wait",
+1.0
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G86"
+],
+[
+"shot",
+"g86_water"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G86"
+],
+[
+"cmd",
+"gave 시험 공격 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 2 G86"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 24.5 0 0"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 0 10"
+],
+[
+"cmd",
+"gave 시험 공격 {USER} 다시"
+],
+[
+"cmd",
+"gave 시험 공격 {USER} 방어 0.1"
+],
+[
+"wait",
+0.5
+],
+[
+"cmd",
+"gave 소환 G95 3 8 {USER}"
+],
+[
+"wait",
+1.0
+],
+[
+"shot",
+"g95_slide"
+],
+[
+"wait",
+2.0
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G95"
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G95"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 0 75"
+],
+[
+"wait",
+0.4
+],
+[
+"shot",
+"g95_stick"
+],
+[
+"wait",
+2.0
+],
+[
+"cmd",
+"gave 시험 공격 {USER}"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G95 40"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 30"
+],
+[
+"wait",
+1.6
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G95"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 24.5 0 0"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 0 10"
+],
+[
+"cmd",
+"gave 시험 공격 {USER} 다시"
+],
+[
+"cmd",
+"gave 시험 공격 {USER} 방어 0.1"
+],
+[
+"wait",
+0.5
+],
+[
+"cmd",
+"gave 소환 G108 3 6 {USER}"
+],
+[
+"wait",
+1.0
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G108"
+],
+[
+"shot",
+"g108_sleep"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 180 -10"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 30"
+],
+[
+"wait",
+1.6
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G108"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 0 15"
+],
+[
+"wait",
+0.4
+],
+[
+"shot",
+"g108_up"
+],
+[
+"wait",
+2.0
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G108"
+],
+[
+"cmd",
+"gave 시험 공격 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} BULLET 3 G108"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 24.5 0 0"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 0 10"
+],
+[
+"cmd",
+"gave 시험 공격 {USER} 다시"
+],
+[
+"cmd",
+"gave 시험 공격 {USER} 방어 0.1"
+],
+[
+"wait",
+0.5
+],
+[
+"cmd",
+"gave 소환 G81 1 13 {USER}"
+],
+[
+"wait",
+1.0
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G81"
+],
+[
+"shot",
+"g81_glare"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 180 0"
+],
+[
+"wait",
+2.6
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G81"
+],
+[
+"cmd",
+"gave 시험 공격 {USER}"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G81 220"
+],
+[
+"wait",
+7.0
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G81"
+],
+[
+"shot",
+"g81_blink"
+],
+[
+"wait",
+1.0
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G81"
+],
+[
+"cmd",
+"gave 시험 몹치기 {USER} SNIPER 1 G81"
+],
+[
+"wait",
+1.0
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G81"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 24.5 0 0"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 0 10"
+],
+[
+"cmd",
+"gave 시험 공격 {USER} 다시"
+],
+[
+"cmd",
+"gave 시험 공격 {USER} 방어 0.1"
+],
+[
+"wait",
+0.5
+]
+]

@@ -1,0 +1,780 @@
+[
+[
+"cmd",
+"gamemode adventure {USER}"
+],
+[
+"cmd",
+"gave 중지"
+],
+[
+"cmd",
+"gave 시험 균형 x ALIVE_BASE 7"
+],
+[
+"cmd",
+"gave 시험 균형 x ALIVE_PER_WAVE 2.8"
+],
+[
+"cmd",
+"gave 시험 래그돌값 x settleSeconds 12"
+],
+[
+"cmd",
+"gave 시험 래그돌값 x active 10"
+],
+[
+"wait",
+2
+],
+[
+"cmd",
+"gave 시작"
+],
+[
+"until",
+"state=PREP",
+15
+],
+[
+"cmd",
+"gave 시험 판끝막기 x on"
+],
+[
+"until",
+"state=WAVE",
+20
+],
+[
+"cmd",
+"gave 시험 총굴리기 {USER} RIFLE LEGENDARY"
+],
+[
+"cmd",
+"gave 시험 강화 {USER}"
+],
+[
+"cmd",
+"gave 시험 강화 {USER}"
+],
+[
+"cmd",
+"gave 시험 강화 {USER}"
+],
+[
+"cmd",
+"gave 시험 강화 {USER}"
+],
+[
+"cmd",
+"gave 시험 강화 {USER}"
+],
+[
+"cmd",
+"gave 시험 강화 {USER}"
+],
+[
+"cmd",
+"gave 시험 강화 {USER}"
+],
+[
+"cmd",
+"gave 시험 강화 {USER}"
+],
+[
+"cmd",
+"gave 웨이브 20"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 사건 x 안개 5"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+6
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 감독 x"
+],
+[
+"shot",
+"ev_fog5"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 사건 x 끝"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 사건 x 범람"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+6
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 감독 x"
+],
+[
+"shot",
+"ev_flood"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 사건 x 끝"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 사건 x 밤"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+6
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 감독 x"
+],
+[
+"shot",
+"ev_night"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 사건 x 끝"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 사건 x 조용"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+6
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 감독 x"
+],
+[
+"shot",
+"ev_silent"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 사건 x 끝"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 사건 x 이마"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+6
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 감독 x"
+],
+[
+"shot",
+"ev_brow"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 사건 x 끝"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 사건 x 오염 3"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+6
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 감독 x"
+],
+[
+"shot",
+"ev_contam"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 사건 x 끝"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 사건 x 웅얼"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+6
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 감독 x"
+],
+[
+"shot",
+"ev_murmur"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 사건 x 끝"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 사건 x 구경"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+6
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 감독 x"
+],
+[
+"shot",
+"ev_watch"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 사건 x 끝"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 사건 x 눈"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+6
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 감독 x"
+],
+[
+"shot",
+"ev_eye"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 사건 x 끝"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 사건 x 눈뜸"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+6
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 감독 x"
+],
+[
+"shot",
+"ev_eyeopen"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 사건 x 끝"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 사건 x 탐조등"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+6
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 감독 x"
+],
+[
+"shot",
+"ev_search"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 사건 x 끝"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 사건 x 금빛"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+6
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 감독 x"
+],
+[
+"shot",
+"ev_gold"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 사건 x 끝"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"gave 웨이브 41"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 변이 x 목록"
+],
+[
+"cmd",
+"gave 시험 변이 x burst"
+],
+[
+"cmd",
+"gave 시험 변이 x riders"
+],
+[
+"cmd",
+"gave 시험 변이 x split"
+],
+[
+"cmd",
+"gave 시험 변이 x mutfast"
+],
+[
+"cmd",
+"gave 시험 변이 x elite"
+],
+[
+"cmd",
+"gave 시험 변이 x swift"
+],
+[
+"cmd",
+"gave 시험 변이 x thick"
+],
+[
+"cmd",
+"gave 시험 변이 x horde"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} 4000"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 4000"
+],
+[
+"wait",
+12
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 예산 x"
+],
+[
+"shot",
+"mut_all"
+],
+[
+"cmd",
+"gave 시험 몹목록 x"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"wait",
+12
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"gave 중지"
+]
+]

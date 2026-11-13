@@ -1,0 +1,136 @@
+[
+[
+"cmd",
+"gamemode adventure {USER}"
+],
+[
+"wait",
+2
+],
+[
+"cmd",
+"gave 시작"
+],
+[
+"until",
+"state=PREP",
+15
+],
+[
+"cmd",
+"gave 시험 판끝막기 x on"
+],
+[
+"until",
+"state=WAVE",
+20
+],
+[
+"cmd",
+"gave 웨이브 8"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 감독 x"
+],
+[
+"wait",
+14
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"shot",
+"w8_14s"
+],
+[
+"wait",
+8
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 카메라 {USER} 0.5 80 16 180 50"
+],
+[
+"wait",
+1.5
+],
+[
+"shot",
+"w8_above"
+],
+[
+"cmd",
+"gave 시험 판끝막기 x off"
+],
+[
+"cmd",
+"gave 시험 쓰러뜨리기 {USER}"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"wait",
+2
+],
+[
+"shot",
+"end_3s"
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"wait",
+4
+],
+[
+"shot",
+"end_7s"
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"wait",
+4
+],
+[
+"cmd",
+"gave 상태"
+],
+[
+"cmd",
+"gave 시험 몹시간 x"
+],
+[
+"cmd",
+"gave 시험 기록 x"
+],
+[
+"cmd",
+"gave 시험 카메라끝 {USER}"
+],
+[
+"cmd",
+"gave 중지"
+]
+]

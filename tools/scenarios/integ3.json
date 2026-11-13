@@ -1,0 +1,124 @@
+[
+[
+"wait",
+2
+],
+[
+"cmd",
+"gamemode adventure {USER}"
+],
+[
+"cmd",
+"gave 시작"
+],
+[
+"until",
+"state=PREP",
+15
+],
+[
+"cmd",
+"gave 시험 판끝막기 x on"
+],
+[
+"until",
+"state=WAVE",
+20
+],
+[
+"wait",
+2.5
+],
+[
+"shot",
+"w1_num"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 -10 0 12"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 보급 {USER} 떨굼 4"
+],
+[
+"wait",
+4
+],
+[
+"cmd",
+"gave 시험 보급 {USER}"
+],
+[
+"shot",
+"crate_look"
+],
+[
+"cmd",
+"gave 시험 보급 {USER} 치움"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 -14 0 0"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 쓰러뜨리기 {USER}"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gamemode spectator {USER}"
+],
+[
+"cmd",
+"tp {USER} 0.5 67.2 -17.5 0 45"
+],
+[
+"wait",
+1.5
+],
+[
+"shot",
+"ring_world_full"
+],
+[
+"wait",
+5
+],
+[
+"shot",
+"ring_world_half"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gamemode adventure {USER}"
+],
+[
+"cmd",
+"gave 시험 일으키기 {USER}"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 중지"
+]
+]

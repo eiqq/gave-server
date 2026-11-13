@@ -1,0 +1,133 @@
+[
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gamemode adventure {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  25
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 {USER} on"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  40
+ ],
+ [
+  "cmd",
+  "gave 시험 쉬기 x"
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 -40.5 0 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER} 100000"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 {USER} G12 2 40.1 69.2 2"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 {USER} G29 2 13.9 78.8 2"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 {USER} G15 2 -13.9 78.8 2"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 {USER} G38 2 -40.1 69.2 2"
+ ],
+ [
+  "wait",
+  17
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER} G12"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER} G29"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER} G15"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER} G38"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  40
+ ],
+ [
+  "cmd",
+  "gave 시험 쉬기 x"
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 -40.5 0 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER} 100000"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 {USER} G39 2 40.1 69.2 2"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 {USER} G42 2 13.9 78.8 2"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 {USER} G01 2 -13.9 78.8 2"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 {USER} G14 2 -40.1 69.2 2"
+ ],
+ [
+  "wait",
+  17
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER} G39"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER} G42"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER} G01"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER} G14"
+ ],
+ [
+  "cmd",
+  "gave 중지"
+ ]
+]

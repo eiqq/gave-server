@@ -1,0 +1,484 @@
+[
+[
+"wait",
+2
+],
+[
+"cmd",
+"gamemode adventure {USER}"
+],
+[
+"cmd",
+"gave 시작"
+],
+[
+"until",
+"state=PREP",
+15
+],
+[
+"cmd",
+"time set 6000"
+],
+[
+"cmd",
+"gave 시험 판끝막기 {USER} on"
+],
+[
+"cmd",
+"gave 시험 총 {USER} RIFLE"
+],
+[
+"until",
+"state=WAVE",
+40
+],
+[
+"cmd",
+"gave 시험 쉬기 {USER}"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 24 180 0"
+],
+[
+"wait",
+0.5
+],
+[
+"cmd",
+"gave 소환 G05 1 2.5 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹정지 {USER} on"
+],
+[
+"wait",
+0.8
+],
+[
+"shot",
+"a01_g05_near"
+],
+[
+"cmd",
+"gave 소환 G01 2 2.5 {USER}"
+],
+[
+"wait",
+0.2
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G05 14"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 9"
+],
+[
+"wait",
+0.7
+],
+[
+"shot",
+"a02_g05_juice"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER} G01"
+],
+[
+"cmd",
+"gave 시험 몹정지 {USER} off"
+],
+[
+"wait",
+1.0
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G05"
+],
+[
+"wait",
+0.4
+],
+[
+"shot",
+"a03_g05_shards"
+],
+[
+"wait",
+1.8
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G05"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 24 180 0"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 소환 G05 1 11 {USER}"
+],
+[
+"rec",
+"a_g05",
+20
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G05 60"
+],
+[
+"wait",
+2.2
+],
+[
+"shot",
+"a04_g05_swell"
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G05"
+],
+[
+"wait",
+0.9
+],
+[
+"shot",
+"a05_g05_burst"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"tp {USER} 16.5 64 24 90 0"
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G05"
+],
+[
+"wait",
+3.3
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G05"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G05"
+],
+[
+"wait",
+0.4
+],
+[
+"shot",
+"a06_g05_puddle_far"
+],
+[
+"cmd",
+"execute positioned 0.5 64 21.5 as @e[type=minecraft:item_display,distance=..4.5,sort=nearest,limit=1] at @s run tp {USER} ~ 64 ~"
+],
+[
+"wait",
+1.0
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 시선 {USER} 0 70"
+],
+[
+"wait",
+0.4
+],
+[
+"shot",
+"a07_g05_in_puddle"
+],
+[
+"wait",
+1.4
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"recstop"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 웨이브 3"
+],
+[
+"wait",
+0.15
+],
+[
+"cmd",
+"gave 시험 쉬기 {USER}"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 24 180 0"
+],
+[
+"wait",
+0.4
+],
+[
+"cmd",
+"gave 소환 G06 1 2.5 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹정지 {USER} on"
+],
+[
+"wait",
+0.8
+],
+[
+"shot",
+"b01_g06_near"
+],
+[
+"cmd",
+"tp {USER} 3.6 64 21.5 90 0"
+],
+[
+"wait",
+0.2
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G06"
+],
+[
+"wait",
+0.6
+],
+[
+"shot",
+"b02_g06_side"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 24 180 0"
+],
+[
+"cmd",
+"gave 시험 몹정지 {USER} off"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 소환 G06 1 11 {USER}"
+],
+[
+"rec",
+"b_g06",
+20
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G06 300"
+],
+[
+"wait",
+2.4
+],
+[
+"shot",
+"b03_g06_t24"
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G06"
+],
+[
+"wait",
+0.9
+],
+[
+"shot",
+"b04_g06_t33"
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G06"
+],
+[
+"wait",
+0.9
+],
+[
+"shot",
+"b05_g06_t42"
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G06"
+],
+[
+"wait",
+0.9
+],
+[
+"shot",
+"b06_g06_t51"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"wait",
+0.8
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G06"
+],
+[
+"cmd",
+"execute as {USER} at @s rotated ~ 0 run tp @s ^ ^ ^7"
+],
+[
+"wait",
+0.3
+],
+[
+"shot",
+"b07_g06_hop"
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G06"
+],
+[
+"wait",
+0.5
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G06"
+],
+[
+"wait",
+1.0
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G06"
+],
+[
+"wait",
+1.5
+],
+[
+"cmd",
+"gave 시험 몹하나 {USER} G06"
+],
+[
+"cmd",
+"gave 시험 사람상태 {USER}"
+],
+[
+"recstop"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G06 30"
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 12"
+],
+[
+"wait",
+1.0
+],
+[
+"cmd",
+"gave 시험 몹목록 {USER} G06"
+],
+[
+"shot",
+"b08_g06_dead"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 {USER}"
+],
+[
+"cmd",
+"gave 시험 예산 {USER}"
+]
+]

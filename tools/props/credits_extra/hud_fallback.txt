@@ -1,0 +1,3 @@
+[HUD 대체 글자] Galmuri11 에 없는 한자(故, U+6545) 한 글자 그림(assets/gave/textures/font/hud/ 의 글귀 opening_1 안)
+  Source Han Sans K Medium(Adobe, SIL Open Font License 1.1, https://openfontlicense.org)으로 11 화소 단색으로 그린 글자 그림이다.
+  글꼴 파일은 팩에 넣지 않는다. 글꼴 (c) 2014-2025 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'.

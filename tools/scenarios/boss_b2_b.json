@@ -1,0 +1,456 @@
+[
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gamemode adventure {USER}"
+ ],
+ [
+  "cmd",
+  "gamemode adventure Bishop"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 빈보스 on"
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  25
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 x on"
+ ],
+ [
+  "cmd",
+  "tp {USER} 6.5 64 6.5 -90 -20"
+ ],
+ [
+  "cmd",
+  "tp Bishop 20.5 64 6.5 90 0"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 소환 B2"
+ ],
+ [
+  "wait",
+  8.0
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 체력 0.6"
+ ],
+ [
+  "wait",
+  1.2
+ ],
+ [
+  "shot",
+  "p2_alert"
+ ],
+ [
+  "wait",
+  2.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x G01"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x G02"
+ ],
+ [
+  "cmd",
+  "tp Bishop 20.5 64 6.5 90 0"
+ ],
+ [
+  "cmd",
+  "tp {USER} 6.5 64 6.5 -90 -12"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 공격 lift Bishop"
+ ],
+ [
+  "wait",
+  1.4
+ ],
+ [
+  "shot",
+  "lift_tell"
+ ],
+ [
+  "wait",
+  1.6
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 Bishop"
+ ],
+ [
+  "shot",
+  "lift_grab"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 부위 hook 0"
+ ],
+ [
+  "wait",
+  0.3
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 Bishop"
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} -90 -30"
+ ],
+ [
+  "wait",
+  0.3
+ ],
+ [
+  "shot",
+  "lift_up"
+ ],
+ [
+  "wait",
+  3.0
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 Bishop"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x G01"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 Bishop"
+ ],
+ [
+  "cmd",
+  "tp Bishop 20.5 64 6.5 90 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 공격 lift Bishop"
+ ],
+ [
+  "wait",
+  9.6
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 Bishop"
+ ],
+ [
+  "cmd",
+  "tp {USER} 6.5 64 6.5 -134 -55"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "shot",
+  "swallowed"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 부위 mouth 0"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 Bishop"
+ ],
+ [
+  "wait",
+  2.5
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 체력 0.28"
+ ],
+ [
+  "wait",
+  1.2
+ ],
+ [
+  "shot",
+  "p3_alert"
+ ],
+ [
+  "wait",
+  2.2
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x G01"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x G02"
+ ],
+ [
+  "cmd",
+  "tp {USER} 5.0 64 6.5 -90 -15"
+ ],
+ [
+  "cmd",
+  "tp Bishop 22.0 64 6.5 90 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 Bishop"
+ ],
+ [
+  "wait",
+  0.4
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 공격 press"
+ ],
+ [
+  "wait",
+  2.6
+ ],
+ [
+  "shot",
+  "press_tell"
+ ],
+ [
+  "wait",
+  2.1
+ ],
+ [
+  "shot",
+  "press_down"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 Bishop"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 상태"
+ ],
+ [
+  "wait",
+  5.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x G01"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 Bishop"
+ ],
+ [
+  "cmd",
+  "tp {USER} 5.0 64 6.5 -90 -15"
+ ],
+ [
+  "cmd",
+  "tp Bishop 22.0 64 6.5 90 0"
+ ],
+ [
+  "wait",
+  0.3
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 공격 press"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "cmd",
+  "tp {USER} 13.5 64 6.5 0 -50"
+ ],
+ [
+  "wait",
+  3.6
+ ],
+ [
+  "shot",
+  "press_hit"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 Bishop"
+ ],
+ [
+  "wait",
+  5.2
+ ],
+ [
+  "cmd",
+  "tp {USER} 13.5 64 24.5 180 25"
+ ],
+ [
+  "wait",
+  0.6
+ ],
+ [
+  "shot",
+  "pond"
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 땅 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 Bishop"
+ ],
+ [
+  "cmd",
+  "tp {USER} 13.5 64 10.5 -60 10"
+ ],
+ [
+  "cmd",
+  "tp Bishop 22.0 64 6.5 90 0"
+ ],
+ [
+  "wait",
+  0.4
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 공격 bolt Bishop"
+ ],
+ [
+  "wait",
+  0.9
+ ],
+ [
+  "shot",
+  "bolt_tell"
+ ],
+ [
+  "wait",
+  0.8
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 Bishop"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹시간 x"
+ ],
+ [
+  "cmd",
+  "gave 시험 예산 x"
+ ],
+ [
+  "cmd",
+  "tp {USER} 13.5 64 44.5 180 -15"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 {USER} 죽이기"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "shot",
+  "dying"
+ ],
+ [
+  "wait",
+  3.5
+ ],
+ [
+  "shot",
+  "corpse"
+ ],
+ [
+  "until",
+  "state=BREAK",
+  40
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "cmd",
+  "gave 시험 보스 x 땅 상태"
+ ],
+ [
+  "cmd",
+  "gave 시험 래그돌 x"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ]
+]

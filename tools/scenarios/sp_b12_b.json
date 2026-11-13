@@ -1,0 +1,492 @@
+[
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gamemode adventure {USER}"
+ ],
+ [
+  "cmd",
+  "gave 중지"
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=PREP",
+  15
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 {USER} on"
+ ],
+ [
+  "cmd",
+  "gave 시험 총 {USER} RIFLE"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  40
+ ],
+ [
+  "cmd",
+  "gave 시험 감독빨리 x 0.1"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 풀기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER} 100"
+ ],
+ [
+  "cmd",
+  "tp {USER} -30.5 64 18.5 180 0"
+ ],
+ [
+  "wait",
+  0.3
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 {USER} G149 1 -30.5 -12"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G149 20 0 -2"
+ ],
+ [
+  "wait",
+  0.4
+ ],
+ [
+  "shot",
+  "g149_unseen"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G149"
+ ],
+ [
+  "wait",
+  6.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G149"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "wait",
+  5.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G149"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G149 60 0 -1"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 60"
+ ],
+ [
+  "wait",
+  0.4
+ ],
+ [
+  "shot",
+  "g149_flash"
+ ],
+ [
+  "wait",
+  0.4
+ ],
+ [
+  "shot",
+  "g149_seen"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G149"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "wait",
+  3.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G149"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "wait",
+  2.5
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G149"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "shot",
+  "g149_bite"
+ ],
+ [
+  "wait",
+  2.5
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹치기 {USER} EXPLOSION 1 G149"
+ ],
+ [
+  "wait",
+  2.5
+ ],
+ [
+  "shot",
+  "g149_corpse"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 풀기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER} 100"
+ ],
+ [
+  "cmd",
+  "tp {USER} 33.5 64 10.5 180 0"
+ ],
+ [
+  "wait",
+  0.3
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 {USER} G155 1 33.5 0.5"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G155"
+ ],
+ [
+  "cmd",
+  "tp {USER} 33.5 64 14.5 180 15"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "shot",
+  "g155_bound"
+ ],
+ [
+  "cmd",
+  "tp {USER} 33.5 64 10.5 180 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 154.5 4.8"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 30"
+ ],
+ [
+  "wait",
+  1.8
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G155"
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 178.2 5.4"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 30"
+ ],
+ [
+  "wait",
+  1.8
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G155"
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 202.4 4.8"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 30"
+ ],
+ [
+  "wait",
+  1.8
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G155"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER} G155"
+ ],
+ [
+  "wait",
+  3.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G155"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G155 20"
+ ],
+ [
+  "wait",
+  0.3
+ ],
+ [
+  "shot",
+  "g155_crawl"
+ ],
+ [
+  "wait",
+  3.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G155"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER} G155"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹치기 {USER} EXPLOSION 1 G155"
+ ],
+ [
+  "wait",
+  2.5
+ ],
+ [
+  "shot",
+  "g155_corpse"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 풀기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER} 100"
+ ],
+ [
+  "cmd",
+  "tp {USER} 7.5 64 16.5 150 5"
+ ],
+ [
+  "wait",
+  0.3
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 {USER} G146 1 0.5 30"
+ ],
+ [
+  "wait",
+  0.6
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G146"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹놓기 {USER} G01 5 0.5 46 2"
+ ],
+ [
+  "wait",
+  4.5
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G146 10"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "shot",
+  "g146_inner"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G146"
+ ],
+ [
+  "wait",
+  3.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER} G01"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G146"
+ ],
+ [
+  "cmd",
+  "tp {USER} 0.5 64 4.6 0 10"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "wait",
+  0.3
+ ],
+ [
+  "shot",
+  "g146_outer"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER} 100"
+ ],
+ [
+  "cmd",
+  "tp {USER} 5.5 64 9.5 90 0"
+ ],
+ [
+  "wait",
+  0.3
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G146 40"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 40"
+ ],
+ [
+  "wait",
+  2.2
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G146"
+ ],
+ [
+  "shot",
+  "g146_eye"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹치기 {USER} EXPLOSION 3 G146"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G146"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹치기 {USER} EXPLOSION 2 G146"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER} G146"
+ ]
+]

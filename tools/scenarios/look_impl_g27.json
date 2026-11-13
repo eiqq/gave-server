@@ -1,0 +1,90 @@
+[
+[
+"cmd",
+"gamemode creative {USER}"
+],
+[
+"cmd",
+"time set noon"
+],
+[
+"cmd",
+"gave 시험 몹정지 x on"
+],
+[
+"wait",
+2
+],
+[
+"cmd",
+"kill @e[type=minecraft:item_display,tag=lk]"
+],
+[
+"cmd",
+"summon minecraft:item_display -9.00 65.80 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g27\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display -3.00 65.80 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g27\",\"minecraft:custom_model_data\":{strings:[\"f3\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 3.00 65.80 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g27\",\"minecraft:custom_model_data\":{strings:[\"f4\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 9.00 65.80 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g27\",\"minecraft:custom_model_data\":{strings:[\"f5\"]}}}}"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 -6 0 -8"
+],
+[
+"wait",
+2
+],
+[
+"shot",
+"g27_states"
+],
+[
+"cmd",
+"kill @e[type=minecraft:item_display,tag=lk]"
+],
+[
+"cmd",
+"summon minecraft:item_display -9.00 65.80 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g27\",\"minecraft:custom_model_data\":{strings:[\"f4\"]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display -3.00 65.80 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g27\",\"minecraft:custom_model_data\":{strings:[\"f4\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15074180,15600516,15340420,14818180,14812548,15338884,15078788,15605124,15345028,14822788,15401860,14879620,15668100,15145860]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 3.00 65.80 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g27\",\"minecraft:custom_model_data\":{strings:[\"f4\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15598473,15076233,14816137,15342473,15336841,14814601,15603081,15080841,14820745,15347081,14877577,15403913,15143817,15670153]}}}}"
+],
+[
+"cmd",
+"summon minecraft:item_display 9.00 65.80 10.00 {Tags:[\"lk\"],brightness:{sky:10,block:10},view_range:3.0f,transformation:[1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.66667f,0.00000f,0.00000f,0.00000f,0.00000f,1.00000f],item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g27\",\"minecraft:custom_model_data\":{strings:[\"f4\"],colors:[15483391,15204863,14713343,14762495,15041023,14762495,15041023,15204863,15532543,15074190,15600526,15340430,14818190,14812558,15338894,15078798,15605134,15345038,14822798,15401870,14879630,15668110,15145870]}}}}"
+],
+[
+"wait",
+2
+],
+[
+"shot",
+"g27_poses"
+],
+[
+"cmd",
+"kill @e[type=minecraft:item_display,tag=lk]"
+],
+[
+"cmd",
+"gave 시험 몹정지 x off"
+],
+[
+"cmd",
+"gamemode adventure {USER}"
+]
+]

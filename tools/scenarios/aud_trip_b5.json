@@ -1,0 +1,23 @@
+[
+ ["wait", 2],
+ ["cmd", "gamemode adventure {USER}"],
+ ["cmd", "gave 시험 음악 {USER} 기록 on"],
+ ["cmd", "gave 시험 보스 x 빈보스 on"],
+ ["cmd", "gave 시험 판끝막기 x on"],
+ ["cmd", "gave 시작"],
+ ["until", "state=WAVE", 25],
+ ["cmd", "gave 웨이브 35"],
+ ["until", "boss=B5", 40],
+ ["wait", 3],
+ ["cmd", "gave 시험 음악 {USER}"],
+ ["wait", 9],
+ ["cmd", "gave 시험 음악 {USER}"],
+ ["cmd", "gave 시험 보스 x 죽이기"],
+ ["wait", 2],
+ ["cmd", "gave 시험 음악 {USER}"],
+ ["wait", 5],
+ ["cmd", "gave 시험 음악 {USER}"],
+ ["cmd", "gave 중지"],
+ ["wait", 2],
+ ["cmd", "gave 상태"]
+]

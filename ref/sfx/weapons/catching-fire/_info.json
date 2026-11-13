@@ -1,0 +1,13 @@
+{
+ "title": "Catching fire",
+ "url": "https://opengameart.org/content/catching-fire",
+ "file_url": "https://opengameart.org/sites/default/files/flame_0.ogg",
+ "author": "themightyglider",
+ "license": "CC0-1.0",
+ "license_note": "OGA License(s): CC0. 본문: freesound.org/people/qubodup/sounds/159725 를 고친 것",
+ "files": {
+  "flame_0.ogg": "c1eaafba3746374c68c30dc8b7ec895dac0e1e66064522f03340dc9b2da4a2cd"
+ },
+ "date": "2026-11-12",
+ "note": "받은 묶음에서 쓰는 파일만 꺼냄(묶음은 지움). 다시 필요하면 file_url 에서 받고 archive_sha256 으로 맞춰 볼 것"
+}

@@ -1,0 +1,467 @@
+[
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gamemode adventure {USER}"
+ ],
+ [
+  "cmd",
+  "gamemode adventure Bishop"
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=PREP",
+  15
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 {USER} on"
+ ],
+ [
+  "cmd",
+  "gave 시험 감독빨리 x 0.1"
+ ],
+ [
+  "cmd",
+  "tp {USER} 6.5 72 -21.5 180 0"
+ ],
+ [
+  "cmd",
+  "tp Bishop -30.5 72 20.5 0 0"
+ ],
+ [
+  "wait",
+  2.0
+ ],
+ [
+  "cmd",
+  "gave 소환 G24 1 5 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 {USER} on"
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 180 22"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "shot",
+  "g24_crawl_frozen"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 {USER} off"
+ ],
+ [
+  "wait",
+  1.2
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 {USER} on"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G24"
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 180 89"
+ ],
+ [
+  "wait",
+  0.3
+ ],
+ [
+  "shot",
+  "g24_peek_frozen"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 {USER} off"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 {USER} G24"
+ ],
+ [
+  "cmd",
+  "gave 소환 G27 1 6 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 180 5"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 {USER} on"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G27"
+ ],
+ [
+  "wait",
+  0.3
+ ],
+ [
+  "shot",
+  "g27_frozen"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 {USER} off"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 {USER} G27"
+ ],
+ [
+  "cmd",
+  "tp {USER} 6.5 72 -21.5 180 0"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "cmd",
+  "gave 소환 G28 1 2 {USER}"
+ ],
+ [
+  "wait",
+  0.6
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 180 -75"
+ ],
+ [
+  "shot",
+  "g28_sky"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G28"
+ ],
+ [
+  "wait",
+  1.6
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 180 80"
+ ],
+ [
+  "shot",
+  "g28_shadow"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G28"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 180 -80"
+ ],
+ [
+  "shot",
+  "g28_lock"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G28"
+ ],
+ [
+  "wait",
+  1.4
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G28"
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 180 30"
+ ],
+ [
+  "shot",
+  "g28_drop"
+ ],
+ [
+  "wait",
+  0.6
+ ],
+ [
+  "shot",
+  "g28_splat"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G28"
+ ],
+ [
+  "wait",
+  2.2
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G28"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 {USER} G28"
+ ],
+ [
+  "cmd",
+  "tp {USER} 6.5 72 -21.5 180 0"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 180 10"
+ ],
+ [
+  "cmd",
+  "gave 시험 막힘정리 x"
+ ],
+ [
+  "cmd",
+  "gave 소환 G29 1 6 {USER}"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "shot",
+  "g29_roll"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G29"
+ ],
+ [
+  "wait",
+  2.5
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G29"
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 180 30"
+ ],
+ [
+  "shot",
+  "g29_closed"
+ ],
+ [
+  "wait",
+  2.0
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 90 20"
+ ],
+ [
+  "shot",
+  "g29_side"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G29"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "tp {USER} ~4.6 ~ ~"
+ ],
+ [
+  "wait",
+  0.6
+ ],
+ [
+  "cmd",
+  "gave 시험 자리 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "shot",
+  "g29_shove"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "cmd",
+  "gave 시험 자리 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G29"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 {USER} G29"
+ ],
+ [
+  "cmd",
+  "tp {USER} 6.5 72 -21.5 180 0"
+ ],
+ [
+  "cmd",
+  "tp Bishop 9.5 72 -21.5 90 0"
+ ],
+ [
+  "wait",
+  1.2
+ ],
+ [
+  "cmd",
+  "gave 시험 시선 {USER} 180 15"
+ ],
+ [
+  "cmd",
+  "gave 소환 G30 1 7 {USER}"
+ ],
+ [
+  "wait",
+  0.6
+ ],
+ [
+  "shot",
+  "g30_crawl"
+ ],
+ [
+  "wait",
+  0.8
+ ],
+ [
+  "shot",
+  "g30_near"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G30"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "shot",
+  "g30_sting"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹하나 {USER} G30"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 {USER} G30"
+ ],
+ [
+  "wait",
+  6
+ ],
+ [
+  "cmd",
+  "gave 시험 자리 {USER}"
+ ],
+ [
+  "shot",
+  "g30_drag"
+ ],
+ [
+  "wait",
+  8
+ ],
+ [
+  "cmd",
+  "gave 시험 자리 {USER}"
+ ],
+ [
+  "shot",
+  "g30_walk"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "wait",
+  3.5
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 Bishop"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "shot",
+  "g30_pop"
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "shot",
+  "g30_pop2"
+ ],
+ [
+  "cmd",
+  "gave 상태"
+ ]
+]

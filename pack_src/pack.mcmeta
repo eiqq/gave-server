@@ -1,0 +1,10 @@
+{
+ "pack": {
+  "description": "게이브 (총은 모드에서, CREDITS.txt, 개인 시험용)",
+  "min_format": [
+   97,
+   1
+  ],
+  "max_format": 97
+ }
+}

@@ -1,0 +1,2940 @@
+{
+ "note": "원정 라운드 종류 100(보통 60 + 뒤 막 전용 40). tools/trip/rounds.py 가 data/trip/rounds_draft.json 에 CHANGE 표를 입혀 구움(손으로 고치지 않음). 축 값 뜻은 axes, 바뀐 줄은 change 칸, 숫자 손잡이는 kr.gave.trip.Rounds.Tune",
+ "axes": {
+  "comp": {
+   "mix": "그 라운드의 종을 고루",
+   "swarm": "떼 역할 종 위주(70%)",
+   "charge": "돌격 종 위주",
+   "ranged": "원거리 종 위주",
+   "sky": "하늘 띠 종만",
+   "ground": "바닥, 땅밑 띠 종 위주",
+   "tank": "튼튼이, 방패 종 위주",
+   "trap": "함정, 미리 깔리는 종 위주",
+   "mimic": "흉내, 미끼 종 위주",
+   "elite": "정예 종 위주",
+   "support": "지원 종을 끼운 조합(지원 25%)",
+   "eater": "가두는, 끄는 종 위주",
+   "latent": "붙는, 잠복 종 위주",
+   "giant": "거대 종(4블록 넘는 몸) 위주",
+   "objective": "목표 압박 종(트럭을 무는 종) 위주",
+   "mono": "한 종만",
+   "duo": "두 종만(앞잡이 + 받침)",
+   "new": "이 라운드에 처음 나오는 종의 몫을 두 배",
+   "return": "앞에서 본 종만(새 종은 한 마리씩만)"
+  },
+  "tempo": {
+   "normal": {
+    "units": 1.0,
+    "hp": 1.0
+   },
+   "flood": {
+    "units": 1.6,
+    "hp": 0.6
+   },
+   "few": {
+    "units": 0.5,
+    "hp": 2.2
+   },
+   "burst": {
+    "units": 1.0,
+    "hp": 1.0,
+    "hold": 800,
+    "note": "40초 동안 거의 안 나오다 한꺼번에"
+   },
+   "pulses3": {
+    "units": 1.2,
+    "hp": 1.0,
+    "pulses": 3,
+    "gap": 300,
+    "note": "세 번의 파도, 사이 15초"
+   },
+   "ramp": {
+    "units": 1.1,
+    "hp": 1.0,
+    "speedUp": 0.25,
+    "note": "라운드 동안 빠르기가 +25% 까지"
+   },
+   "trickle": {
+    "units": 0.0,
+    "hp": 0.8,
+    "rate": 1.0,
+    "note": "시간제: 동시 수 목표 x 0.7 을 끝없이 채움(목표가 끝낼 때까지)"
+   },
+   "finale": {
+    "units": 1.0,
+    "hp": 1.0,
+    "finalShare": 0.6,
+    "finalGoal": 2.0,
+    "note": "대기열의 60% 가 마지막 몰아치기"
+   }
+  },
+  "dir": {
+   "ring": "360도 고르게",
+   "lean": "한쪽 쏠림(덤 60%)",
+   "two": "맞은편 두 쪽에서만",
+   "spin": "쏠림 쪽이 20초마다 90도씩 돎",
+   "road": "길 앞과 뒤 좁은 호(좌우 25도)에서만",
+   "back": "모든 무리가 사람들이 안 보는 쪽으로",
+   "near": "사람의 끝 안쪽 반지름 30 에서 솟음",
+   "far": "가장 먼 고리(84)에서 길게 걸어옴"
+  },
+  "env": {
+   "base": "막의 기본",
+   "fog3": "안개 3",
+   "fog4": "안개 4",
+   "fog5": "안개 5",
+   "clear": "맑음(안개 1, 감독의 '하늘 종만' 규칙은 comp 가 sky 일 때만)",
+   "dark": "막 어둠 한 단계 더(테마 시계 + 0.5 막, 노란 점)",
+   "rain": "비(걷기 소리 큼, 물웅덩이 넓어짐)",
+   "storm": "번개: 평소 안개 4, 번개가 칠 때 2초 맑음",
+   "wind": "맞바람: 바람 쪽으로 쏘는 탄 사거리 x0.6, 바람 쪽에서 오는 게이브 빠르기 x1.2",
+   "ash": "재(안개 2 + 재 날림, 3막 기본을 다른 막에서)",
+   "silent": "소리 없는 라운드(감독 기존 장치)",
+   "flicker": "트럭 등이 깜빡임(중앙 원 빛이 4초에 1초 꺼짐)",
+   "eye": "물웅덩이 속 눈(감독 기존 사건)",
+   "crack": "땅 갈라짐(감독 기존 사건)"
+  },
+  "goal": {
+   "kill": "다 잡기(지금 규칙)",
+   "survive": "값 초 버티기(끝나면 남은 떼는 물러남)",
+   "truck": "트럭 지키기: 트럭 노림 몫 x3, 다 잡으면 끝",
+   "hold": "자리 지키기: 표시 원 값 개를 채움(보급 점령전과 같은 규칙, 원마다 12초)",
+   "collect": "줍기: 값 개를 주워 트럭에 싣기(든 사람은 못 쏨)",
+   "hunt": "표적 사냥: 표시된 값 마리를 잡으면 끝(나머지는 물러남)",
+   "timed": "값 초 안에 다 잡으면 보상 두 배, 넘겨도 끝까지",
+   "build": "건조: 건조 막대 한 칸(25%)이 찰 때까지(발사장 전용, 6절)"
+  },
+  "reward": {
+   "base": "보통",
+   "money": "처치 보상 x1.5",
+   "box": "모두 무기 상자 한 번 공짜",
+   "aug": "모두 증강 제안 한 번",
+   "repair": "트럭 +8%",
+   "ammo": "모두 탄약 가득",
+   "revive": "다음 쉬는 시간 부활 값 절반",
+   "part": "트럭 부품 한 번: 상점의 부품 칸이 켜지고 먼저 연 사람이 카드 셋 가운데 고른다"
+  }
+ },
+ "kinds": [
+  {
+   "key": "r_plain",
+   "name": "몰려온다",
+   "line": "사방에서 고르게",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "mix",
+   "tempo": "normal",
+   "dir": "ring",
+   "env": "base",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {},
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_plain",
+   "linePhrase": "rd_r_plain_l"
+  },
+  {
+   "key": "r_flood",
+   "name": "떼거리",
+   "line": "약한 것이 끝없이",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "swarm",
+   "tempo": "flood",
+   "dir": "ring",
+   "env": "base",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "money",
+   "mods": {},
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_flood",
+   "linePhrase": "rd_r_flood_l"
+  },
+  {
+   "key": "r_few",
+   "name": "큰 놈들",
+   "line": "적지만 단단하다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "tank",
+   "tempo": "few",
+   "dir": "ring",
+   "env": "base",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {},
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_few",
+   "linePhrase": "rd_r_few_l"
+  },
+  {
+   "key": "r_charge",
+   "name": "돌격",
+   "line": "한쪽에서 달려든다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "charge",
+   "tempo": "normal",
+   "dir": "lean",
+   "env": "base",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {},
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_charge",
+   "linePhrase": "rd_r_charge_l"
+  },
+  {
+   "key": "r_ranged",
+   "name": "빗발",
+   "line": "멀리서 쏘아 댄다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "ranged",
+   "tempo": "normal",
+   "dir": "ring",
+   "env": "base",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {},
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_ranged",
+   "linePhrase": "rd_r_ranged_l"
+  },
+  {
+   "key": "r_sky",
+   "name": "하늘에서",
+   "line": "위만 본다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "sky",
+   "tempo": "normal",
+   "dir": "ring",
+   "env": "base",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {},
+   "fx": [],
+   "change": "r_clear 와 겹쳐 안개를 그대로 둠: 하늘 종이 흙먼지 위에서 내리꽂는다(맑음은 r_clear)",
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_sky",
+   "linePhrase": "rd_r_sky_l"
+  },
+  {
+   "key": "r_ground",
+   "name": "발밑",
+   "line": "바닥을 본다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "ground",
+   "tempo": "normal",
+   "dir": "near",
+   "env": "base",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {},
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_ground",
+   "linePhrase": "rd_r_ground_l"
+  },
+  {
+   "key": "r_trap",
+   "name": "깔린 것들",
+   "line": "이미 와 있다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "trap",
+   "tempo": "normal",
+   "dir": "ring",
+   "env": "base",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {
+    "placed": 2.0
+   },
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_trap",
+   "linePhrase": "rd_r_trap_l"
+  },
+  {
+   "key": "r_elite",
+   "name": "정예 무리",
+   "line": "하나하나가 세다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "elite",
+   "tempo": "few",
+   "dir": "ring",
+   "env": "base",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "aug",
+   "mods": {
+    "elites": 2.0
+   },
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_elite",
+   "linePhrase": "rd_r_elite_l"
+  },
+  {
+   "key": "r_support",
+   "name": "북 치는 것들",
+   "line": "뒤에 선 것부터",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "support",
+   "tempo": "normal",
+   "dir": "ring",
+   "env": "base",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {},
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_support",
+   "linePhrase": "rd_r_support_l"
+  },
+  {
+   "key": "r_mono",
+   "name": "한 종만",
+   "line": "같은 얼굴 수백",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "mono",
+   "tempo": "flood",
+   "dir": "ring",
+   "env": "base",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "money",
+   "mods": {},
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_mono",
+   "linePhrase": "rd_r_mono_l"
+  },
+  {
+   "key": "r_duo",
+   "name": "짝패",
+   "line": "둘이 맞물린다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "duo",
+   "tempo": "normal",
+   "dir": "two",
+   "env": "base",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {},
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_duo",
+   "linePhrase": "rd_r_duo_l"
+  },
+  {
+   "key": "r_new",
+   "name": "처음 보는 것들",
+   "line": "새 얼굴이 많다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "new",
+   "tempo": "normal",
+   "dir": "ring",
+   "env": "base",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {
+    "fresh": 2
+   },
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_new",
+   "linePhrase": "rd_r_new_l"
+  },
+  {
+   "key": "r_return",
+   "name": "돌아온 것들",
+   "line": "아는 얼굴뿐",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "return",
+   "tempo": "normal",
+   "dir": "ring",
+   "env": "base",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {},
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_return",
+   "linePhrase": "rd_r_return_l"
+  },
+  {
+   "key": "r_giant",
+   "name": "거대한 것",
+   "line": "멀리서부터 보인다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "giant",
+   "tempo": "few",
+   "dir": "far",
+   "env": "base",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "money",
+   "mods": {},
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_giant",
+   "linePhrase": "rd_r_giant_l"
+  },
+  {
+   "key": "r_objective",
+   "name": "트럭을 노린다",
+   "line": "사람은 본 척도 안 한다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "objective",
+   "tempo": "normal",
+   "dir": "ring",
+   "env": "base",
+   "goal": "truck",
+   "goalValue": 0,
+   "reward": "repair",
+   "mods": {},
+   "fx": [
+    "kamikaze"
+   ],
+   "change": "r_truck 과 숫자만 달라서: 트럭 노림 개체가 트럭에 닿으면 터진다(트럭 1.5%, 둘레 사람 피해)",
+   "launch": false,
+   "icon": "ti_goal_truck",
+   "phrase": "rd_r_objective",
+   "linePhrase": "rd_r_objective_l"
+  },
+  {
+   "key": "r_lean",
+   "name": "한쪽에서",
+   "line": "화살촉 쪽이 두껍다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "mix",
+   "tempo": "normal",
+   "dir": "lean",
+   "env": "base",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {},
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_lean",
+   "linePhrase": "rd_r_lean_l"
+  },
+  {
+   "key": "r_two",
+   "name": "앞뒤에서",
+   "line": "등을 맞대라",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "mix",
+   "tempo": "normal",
+   "dir": "two",
+   "env": "base",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {},
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_two",
+   "linePhrase": "rd_r_two_l"
+  },
+  {
+   "key": "r_spin",
+   "name": "도는 쏠림",
+   "line": "두꺼운 쪽이 돈다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "mix",
+   "tempo": "normal",
+   "dir": "spin",
+   "env": "base",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {},
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_spin",
+   "linePhrase": "rd_r_spin_l"
+  },
+  {
+   "key": "r_back",
+   "name": "등 뒤",
+   "line": "안 보는 쪽에서만",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "mix",
+   "tempo": "normal",
+   "dir": "back",
+   "env": "base",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {},
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_back",
+   "linePhrase": "rd_r_back_l"
+  },
+  {
+   "key": "r_near",
+   "name": "코앞에서 솟는다",
+   "line": "발밑이 꺼진다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "ground",
+   "tempo": "burst",
+   "dir": "near",
+   "env": "base",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {},
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_near",
+   "linePhrase": "rd_r_near_l"
+  },
+  {
+   "key": "r_far",
+   "name": "지평선에서",
+   "line": "길게 걸어온다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "mix",
+   "tempo": "ramp",
+   "dir": "far",
+   "env": "clear",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {},
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_far",
+   "linePhrase": "rd_r_far_l"
+  },
+  {
+   "key": "r_road",
+   "name": "길 따라",
+   "line": "앞뒤 좁은 길로만",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "charge",
+   "tempo": "normal",
+   "dir": "road",
+   "env": "base",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {},
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_road",
+   "linePhrase": "rd_r_road_l"
+  },
+  {
+   "key": "r_burst",
+   "name": "고요 뒤",
+   "line": "조용하다, 그리고",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "mix",
+   "tempo": "burst",
+   "dir": "ring",
+   "env": "silent",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {},
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_burst",
+   "linePhrase": "rd_r_burst_l"
+  },
+  {
+   "key": "r_pulses",
+   "name": "세 번의 파도",
+   "line": "셋을 세라",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "mix",
+   "tempo": "pulses3",
+   "dir": "ring",
+   "env": "base",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {},
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_pulses",
+   "linePhrase": "rd_r_pulses_l"
+  },
+  {
+   "key": "r_ramp",
+   "name": "점점 빨리",
+   "line": "갈수록 빨라진다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "mix",
+   "tempo": "ramp",
+   "dir": "ring",
+   "env": "base",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {},
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_ramp",
+   "linePhrase": "rd_r_ramp_l"
+  },
+  {
+   "key": "r_trickle",
+   "name": "끝없이",
+   "line": "90초를 버틴다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "swarm",
+   "tempo": "trickle",
+   "dir": "ring",
+   "env": "base",
+   "goal": "survive",
+   "goalValue": 90,
+   "reward": "base",
+   "mods": {},
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_survive",
+   "phrase": "rd_r_trickle",
+   "linePhrase": "rd_r_trickle_l"
+  },
+  {
+   "key": "r_finale",
+   "name": "마지막에 몰린다",
+   "line": "끝이 가장 두껍다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "mix",
+   "tempo": "finale",
+   "dir": "ring",
+   "env": "base",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {},
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_finale",
+   "linePhrase": "rd_r_finale_l"
+  },
+  {
+   "key": "r_timed",
+   "name": "빨리 끝내라",
+   "line": "시간 안이면 두 배",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "mix",
+   "tempo": "normal",
+   "dir": "ring",
+   "env": "base",
+   "goal": "timed",
+   "goalValue": 75,
+   "reward": "money",
+   "mods": {},
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_timed",
+   "phrase": "rd_r_timed",
+   "linePhrase": "rd_r_timed_l"
+  },
+  {
+   "key": "r_slow",
+   "name": "느린 벽",
+   "line": "안 죽고 조여 온다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "tank",
+   "tempo": "few",
+   "dir": "ring",
+   "env": "fog3",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {
+    "speed": 0.7,
+    "hp": 1.3
+   },
+   "fx": [
+    "wall"
+   ],
+   "change": "r_few 와 가름: 모두 같은 반지름(62)에서 한 줄 벽으로 나와 같은 빠르기로 조여 온다",
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_slow",
+   "linePhrase": "rd_r_slow_l"
+  },
+  {
+   "key": "r_fog",
+   "name": "안개",
+   "line": "가까이 와서야 보인다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "mix",
+   "tempo": "normal",
+   "dir": "ring",
+   "env": "fog4",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {},
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_fog",
+   "linePhrase": "rd_r_fog_l"
+  },
+  {
+   "key": "r_fog5",
+   "name": "한 치 앞",
+   "line": "소리로 찾아라",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "mix",
+   "tempo": "few",
+   "dir": "near",
+   "env": "fog5",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "money",
+   "mods": {},
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_fog5",
+   "linePhrase": "rd_r_fog5_l"
+  },
+  {
+   "key": "r_clear",
+   "name": "맑음",
+   "line": "끝까지 다 보인다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "sky",
+   "tempo": "normal",
+   "dir": "far",
+   "env": "clear",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {
+    "hp": 1.25
+   },
+   "fx": [
+    "searchlight"
+   ],
+   "change": "감독맵의 맑은 웨이브(하늘 종만, 체력 +25%, 탐조등)를 이 라운드로 옮김",
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_clear",
+   "linePhrase": "rd_r_clear_l"
+  },
+  {
+   "key": "r_dark",
+   "name": "더 어두운 밤",
+   "line": "노란 점만 뜬다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "mix",
+   "tempo": "normal",
+   "dir": "ring",
+   "env": "dark",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {},
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_dark",
+   "linePhrase": "rd_r_dark_l"
+  },
+  {
+   "key": "r_rain",
+   "name": "소나기",
+   "line": "웅덩이가 넓어진다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "ground",
+   "tempo": "normal",
+   "dir": "ring",
+   "env": "rain",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {},
+   "fx": [
+    "rain"
+   ],
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_rain",
+   "linePhrase": "rd_r_rain_l"
+  },
+  {
+   "key": "r_storm",
+   "name": "번개",
+   "line": "번쩍일 때만 보인다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "mix",
+   "tempo": "pulses3",
+   "dir": "ring",
+   "env": "storm",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {},
+   "fx": [
+    "strike",
+    "flash"
+   ],
+   "change": "번개가 실제로 떨어진다(1.5초 예고 원, 둘레 게이브 큰 피해, 사람 작은 피해). 번쩍일 때 2초 맑음",
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_storm",
+   "linePhrase": "rd_r_storm_l"
+  },
+  {
+   "key": "r_wind",
+   "name": "맞바람",
+   "line": "바람 쪽은 멀다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "ranged",
+   "tempo": "normal",
+   "dir": "lean",
+   "env": "wind",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {},
+   "fx": [
+    "wind"
+   ],
+   "change": "탄 사거리 대신 바람 쪽 게이브가 받는 피해 x0.6(12블록 넘게 떨어진 것), 바람 쪽 게이브 빠르기 x1.2",
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_wind",
+   "linePhrase": "rd_r_wind_l"
+  },
+  {
+   "key": "r_silent",
+   "name": "소리 없음",
+   "line": "아무것도 안 들린다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "mimic",
+   "tempo": "normal",
+   "dir": "back",
+   "env": "silent",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {},
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_silent",
+   "linePhrase": "rd_r_silent_l"
+  },
+  {
+   "key": "r_flicker",
+   "name": "깜빡이는 등",
+   "line": "트럭 등이 꺼진다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "mix",
+   "tempo": "normal",
+   "dir": "ring",
+   "env": "flicker",
+   "goal": "truck",
+   "goalValue": 0,
+   "reward": "repair",
+   "mods": {},
+   "fx": [
+    "flicker"
+   ],
+   "launch": false,
+   "icon": "ti_goal_truck",
+   "phrase": "rd_r_flicker",
+   "linePhrase": "rd_r_flicker_l"
+  },
+  {
+   "key": "r_crack",
+   "name": "땅 갈라짐",
+   "line": "틈에서 스민다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "ground",
+   "tempo": "normal",
+   "dir": "near",
+   "env": "crack",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {},
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_crack",
+   "linePhrase": "rd_r_crack_l"
+  },
+  {
+   "key": "r_survive",
+   "name": "버텨라",
+   "line": "120초",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "mix",
+   "tempo": "trickle",
+   "dir": "ring",
+   "env": "base",
+   "goal": "survive",
+   "goalValue": 120,
+   "reward": "base",
+   "mods": {},
+   "fx": [
+    "tight"
+   ],
+   "change": "r_trickle 과 숫자만 달라서: 120초 동안 트럭 둘레 반지름 16 고리 안에서만(밖은 밀려나며 탐)",
+   "launch": false,
+   "icon": "ti_goal_survive",
+   "phrase": "rd_r_survive",
+   "linePhrase": "rd_r_survive_l"
+  },
+  {
+   "key": "r_truck",
+   "name": "트럭을 지켜라",
+   "line": "전부 트럭으로 간다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "objective",
+   "tempo": "flood",
+   "dir": "ring",
+   "env": "base",
+   "goal": "truck",
+   "goalValue": 0,
+   "reward": "repair",
+   "mods": {
+    "truckShare": 0.6
+   },
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_truck",
+   "phrase": "rd_r_truck",
+   "linePhrase": "rd_r_truck_l"
+  },
+  {
+   "key": "r_hold",
+   "name": "자리를 지켜라",
+   "line": "금빛 원 하나",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "mix",
+   "tempo": "trickle",
+   "dir": "ring",
+   "env": "base",
+   "goal": "hold",
+   "goalValue": 1,
+   "reward": "box",
+   "mods": {},
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_hold",
+   "phrase": "rd_r_hold",
+   "linePhrase": "rd_r_hold_l"
+  },
+  {
+   "key": "r_hold2",
+   "name": "두 자리",
+   "line": "갈라져 지킨다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "mix",
+   "tempo": "trickle",
+   "dir": "two",
+   "env": "base",
+   "goal": "hold",
+   "goalValue": 2,
+   "reward": "aug",
+   "mods": {},
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_hold",
+   "phrase": "rd_r_hold2",
+   "linePhrase": "rd_r_hold2_l"
+  },
+  {
+   "key": "r_collect",
+   "name": "부품 줍기",
+   "line": "여섯 개를 싣는다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "mix",
+   "tempo": "trickle",
+   "dir": "ring",
+   "env": "base",
+   "goal": "collect",
+   "goalValue": 6,
+   "reward": "part",
+   "mods": {},
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_collect",
+   "phrase": "rd_r_collect",
+   "linePhrase": "rd_r_collect_l"
+  },
+  {
+   "key": "r_ammo",
+   "name": "탄약 줍기",
+   "line": "넷을 싣는다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "swarm",
+   "tempo": "trickle",
+   "dir": "ring",
+   "env": "base",
+   "goal": "collect",
+   "goalValue": 4,
+   "reward": "ammo",
+   "mods": {
+    "ammoPrice": 2.0
+   },
+   "fx": [
+    "drops"
+   ],
+   "change": "r_collect 와 가름: 탄약통은 놓여 있지 않고 잡은 게이브가 떨군다(싸우는 곳에서 주워 와야 함)",
+   "launch": false,
+   "icon": "ti_goal_collect",
+   "phrase": "rd_r_ammo",
+   "linePhrase": "rd_r_ammo_l"
+  },
+  {
+   "key": "r_hunt",
+   "name": "표적 사냥",
+   "line": "금 테두리 셋",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "elite",
+   "tempo": "trickle",
+   "dir": "far",
+   "env": "base",
+   "goal": "hunt",
+   "goalValue": 3,
+   "reward": "aug",
+   "mods": {},
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_hunt",
+   "phrase": "rd_r_hunt",
+   "linePhrase": "rd_r_hunt_l"
+  },
+  {
+   "key": "r_hunt_gold",
+   "name": "금빛 사냥",
+   "line": "달아나기 전에 다섯",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "mix",
+   "tempo": "normal",
+   "dir": "ring",
+   "env": "base",
+   "goal": "hunt",
+   "goalValue": 5,
+   "reward": "money",
+   "mods": {
+    "bounty": 5,
+    "flee": 45
+   },
+   "fx": [
+    "flee"
+   ],
+   "change": "재미 현상금(Bounty) 대신 Goals 의 사냥 표적이 금빛이 되고 사람을 피해 달아나며 45초 뒤 사라짐(재미 장치에 기대지 않음)",
+   "launch": false,
+   "icon": "ti_goal_hunt",
+   "phrase": "rd_r_hunt_gold",
+   "linePhrase": "rd_r_hunt_gold_l"
+  },
+  {
+   "key": "r_cargo",
+   "name": "떨어진 짐",
+   "line": "짐 곁을 지킨다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "objective",
+   "tempo": "normal",
+   "dir": "lean",
+   "env": "base",
+   "goal": "hold",
+   "goalValue": 1,
+   "reward": "money",
+   "mods": {
+    "holdAt": "road"
+   },
+   "fx": [
+    "cargo"
+   ],
+   "change": "r_hold 와 가름: 원 가운데 짐에 체력이 있고 게이브 일부가 짐을 노린다(부서지면 놓침)",
+   "launch": false,
+   "icon": "ti_goal_hold",
+   "phrase": "rd_r_cargo",
+   "linePhrase": "rd_r_cargo_l"
+  },
+  {
+   "key": "r_start",
+   "name": "시동을 걸어라",
+   "line": "맞으면 꺼진다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "objective",
+   "tempo": "trickle",
+   "dir": "ring",
+   "env": "flicker",
+   "goal": "start",
+   "goalValue": 75,
+   "reward": "repair",
+   "mods": {
+    "truckStall": true
+   },
+   "fx": [
+    "flicker"
+   ],
+   "change": "버티기 대신 시동 막대: 트럭 앞(보닛) 4블록 안에 사람이 있으면 차고, 트럭이 맞으면 깎인다",
+   "launch": false,
+   "icon": "ti_goal_start",
+   "phrase": "rd_r_start",
+   "linePhrase": "rd_r_start_l"
+  },
+  {
+   "key": "r_gold",
+   "name": "금빛 떼",
+   "line": "돈 두 배, 아픔 두 배",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "mix",
+   "tempo": "flood",
+   "dir": "ring",
+   "env": "base",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "money",
+   "mods": {
+    "money": 2.0,
+    "dmg": 1.5
+   },
+   "fx": [
+    "gold"
+   ],
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_gold",
+   "linePhrase": "rd_r_gold_l"
+  },
+  {
+   "key": "r_box",
+   "name": "상자를 문 놈",
+   "line": "잡으면 상자",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "elite",
+   "tempo": "few",
+   "dir": "ring",
+   "env": "base",
+   "goal": "hunt",
+   "goalValue": 1,
+   "reward": "box",
+   "mods": {},
+   "fx": [
+    "carrier"
+   ],
+   "change": "상자를 문 놈: 표적 하나가 금빛이고 늘 화살촉으로 보인다(잡으면 모두 무기 상자 공짜)",
+   "launch": false,
+   "icon": "ti_goal_hunt",
+   "phrase": "rd_r_box",
+   "linePhrase": "rd_r_box_l"
+  },
+  {
+   "key": "r_supply",
+   "name": "보급 비",
+   "line": "상자가 쏟아진다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "swarm",
+   "tempo": "flood",
+   "dir": "ring",
+   "env": "base",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {},
+   "fx": [
+    "crates3"
+   ],
+   "change": "r_bounty3(현상금 셋: 재미 장치 현상금 게이브 그 자체, 사용자가 취소)을 바꿈. 진짜 팀 보급 상자 셋이 15, 45, 75초에 떨어지고(쏘면 부서짐), 떼가 쏟아진다",
+   "was": "r_bounty3",
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_supply",
+   "linePhrase": "rd_r_supply_l"
+  },
+  {
+   "key": "r_thin",
+   "name": "총알 아껴라",
+   "line": "탄약이 두 배 값",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "mix",
+   "tempo": "normal",
+   "dir": "ring",
+   "env": "base",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "ammo",
+   "mods": {
+    "ammoPrice": 2.0,
+    "autoPrice": 2.0
+   },
+   "fx": [
+    "scarce"
+   ],
+   "change": "r_plain 과 값만 달라서: 라운드가 열릴 때 모두의 예비탄이 반으로 줄고 탄약 칸이 두 배 값(끝나면 보상으로 가득)",
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_thin",
+   "linePhrase": "rd_r_thin_l"
+  },
+  {
+   "key": "r_glass",
+   "name": "유리 몸",
+   "line": "쉽게 죽고 세게 문다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "charge",
+   "tempo": "flood",
+   "dir": "ring",
+   "env": "base",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {
+    "hp": 0.15,
+    "dmg": 1.8,
+    "speed": 1.15
+   },
+   "fx": [
+    "pale"
+   ],
+   "change": "r_flood 와 숫자만 달라서: 한 방에 죽는 창백한 돌격 떼(떼 종 대신 달려드는 종)",
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_glass",
+   "linePhrase": "rd_r_glass_l"
+  },
+  {
+   "key": "r_thick",
+   "name": "질긴 것들",
+   "line": "잘 안 죽는다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "tank",
+   "tempo": "normal",
+   "dir": "ring",
+   "env": "base",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "money",
+   "mods": {
+    "hp": 1.5
+   },
+   "fx": [
+    "regen"
+   ],
+   "change": "r_few 와 숫자만 달라서: 3초 안 맞으면 초당 4.5% 씩 다시 찬다(몰아 쏴야 함)",
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_thick",
+   "linePhrase": "rd_r_thick_l"
+  },
+  {
+   "key": "r_fast",
+   "name": "빠른 것들",
+   "line": "쏠 틈이 없다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "charge",
+   "tempo": "ramp",
+   "dir": "ring",
+   "env": "base",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {
+    "speed": 1.3
+   },
+   "fx": [
+    "lunge"
+   ],
+   "change": "r_ramp 와 숫자만 달라서: 3초마다 반 초씩 2.6배로 튀어 나간다",
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_fast",
+   "linePhrase": "rd_r_fast_l"
+  },
+  {
+   "key": "r_split",
+   "name": "쪼개진다",
+   "line": "맞으면 둘이 된다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "swarm",
+   "tempo": "normal",
+   "dir": "ring",
+   "env": "base",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {
+    "mutation": "split"
+   },
+   "fx": [
+    "split"
+   ],
+   "change": "감독 변이는 판 내내 남아서 이 라운드에만 쪼개짐을 Rounds 가 직접 건다",
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_split",
+   "linePhrase": "rd_r_split_l"
+  },
+  {
+   "key": "r_pop",
+   "name": "터진다",
+   "line": "죽으면서 터진다",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "swarm",
+   "tempo": "normal",
+   "dir": "near",
+   "env": "base",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {
+    "mutation": "burst"
+   },
+   "fx": [
+    "burst"
+   ],
+   "change": "감독 변이는 판 내내 남아서 이 라운드에만 터짐을 Rounds 가 직접 건다",
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_pop",
+   "linePhrase": "rd_r_pop_l"
+  },
+  {
+   "key": "r_riders",
+   "name": "올라탄 것들",
+   "line": "등에 하나씩 더",
+   "acts": [
+    1,
+    4
+   ],
+   "comp": "support",
+   "tempo": "normal",
+   "dir": "ring",
+   "env": "base",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {
+    "mutation": "riders"
+   },
+   "fx": [
+    "riders"
+   ],
+   "change": "감독 변이는 판 내내 남아서 이 라운드에만 올라타기를 Rounds 가 직접 건다",
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_r_riders",
+   "linePhrase": "rd_r_riders_l"
+  },
+  {
+   "key": "u_grab",
+   "name": "끌고 간다",
+   "line": "잡히면 끌려간다",
+   "acts": [
+    2,
+    4
+   ],
+   "comp": "eater",
+   "tempo": "normal",
+   "dir": "back",
+   "env": "base",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {},
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_u_grab",
+   "linePhrase": "rd_u_grab_l"
+  },
+  {
+   "key": "u_latent",
+   "name": "붙은 것",
+   "line": "서로 짜내라",
+   "acts": [
+    2,
+    4
+   ],
+   "comp": "latent",
+   "tempo": "normal",
+   "dir": "ring",
+   "env": "base",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {
+    "latentCap": 8
+   },
+   "fx": [
+    "latent"
+   ],
+   "change": "판 전체 잠복 상한(config latentCap)은 Players 몫이라 못 바꿈: 잠복 종 위주 + 잠복 덮어쓰기 대신 붙은 사람이 있으면 그 둘레 게이브가 빨라짐",
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_u_latent",
+   "linePhrase": "rd_u_latent_l"
+  },
+  {
+   "key": "u_tide",
+   "name": "차오르는 물",
+   "line": "마른 땅이 줄어든다",
+   "acts": [
+    2,
+    2
+   ],
+   "comp": "ground",
+   "tempo": "trickle",
+   "dir": "ring",
+   "env": "rain",
+   "goal": "survive",
+   "goalValue": 100,
+   "reward": "repair",
+   "mods": {
+    "puddleGrow": true
+   },
+   "fx": [
+    "tide",
+    "rain"
+   ],
+   "change": "물 칸은 젖은 벌 땅에만 있어 2막 전용으로(물이 차오르며 마른 땅이 줄고, 물 칸에 선 사람은 느려짐)",
+   "launch": false,
+   "icon": "ti_goal_survive",
+   "phrase": "rd_u_tide",
+   "linePhrase": "rd_u_tide_l"
+  },
+  {
+   "key": "u_mire",
+   "name": "진창",
+   "line": "발이 빠진다",
+   "acts": [
+    2,
+    4
+   ],
+   "comp": "tank",
+   "tempo": "few",
+   "dir": "ring",
+   "env": "rain",
+   "goal": "truck",
+   "goalValue": 0,
+   "reward": "part",
+   "mods": {
+    "walk": 0.85
+   },
+   "fx": [
+    "mire",
+    "rain"
+   ],
+   "launch": false,
+   "icon": "ti_goal_truck",
+   "phrase": "rd_u_mire",
+   "linePhrase": "rd_u_mire_l"
+  },
+  {
+   "key": "u_lightning",
+   "name": "번개만",
+   "line": "번개 사이는 칠흑",
+   "acts": [
+    2,
+    4
+   ],
+   "comp": "mimic",
+   "tempo": "pulses3",
+   "dir": "back",
+   "env": "fog5",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "aug",
+   "mods": {
+    "dark": true,
+    "dim": 1.0
+   },
+   "fx": [
+    "flash"
+   ],
+   "change": "r_storm 과 가름: 칠흑(안개 5 + 어둠 가득)이고 번개는 비추기만 함",
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_u_lightning",
+   "linePhrase": "rd_u_lightning_l"
+  },
+  {
+   "key": "u_under",
+   "name": "땅 밑",
+   "line": "전부 밑에서 온다",
+   "acts": [
+    2,
+    4
+   ],
+   "comp": "ground",
+   "tempo": "burst",
+   "dir": "under",
+   "env": "fog3",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {},
+   "fx": [],
+   "change": "r_near 와 가름: 사람 바로 곁(7~11블록)에서 솟는다(1.5초 땅 흔들림 예고)",
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_u_under",
+   "linePhrase": "rd_u_under_l"
+  },
+  {
+   "key": "u_chain",
+   "name": "사슬 하늘",
+   "line": "위로 끌려간다",
+   "acts": [
+    2,
+    4
+   ],
+   "comp": "sky",
+   "tempo": "normal",
+   "dir": "ring",
+   "env": "clear",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {},
+   "fx": [
+    "hook"
+   ],
+   "change": "하늘 종이 사슬(셰이더 광선)로 사람을 걸어 끌어올린다: 그 게이브를 맞히면 끊김",
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_u_chain",
+   "linePhrase": "rd_u_chain_l"
+  },
+  {
+   "key": "u_nest",
+   "name": "알 무더기",
+   "line": "깨기 전에 부숴라",
+   "acts": [
+    2,
+    4
+   ],
+   "comp": "trap",
+   "tempo": "trickle",
+   "dir": "ring",
+   "env": "base",
+   "goal": "hunt",
+   "goalValue": 6,
+   "reward": "money",
+   "mods": {
+    "eggs": true
+   },
+   "fx": [
+    "eggs"
+   ],
+   "change": "알 무더기는 땅에 놓인 쏠 수 있는 알 여섯(알주머니 그림): 35초 안에 못 깨면 깨어나 떼가 쏟아진다",
+   "launch": false,
+   "icon": "ti_goal_hunt",
+   "phrase": "rd_u_nest",
+   "linePhrase": "rd_u_nest_l"
+  },
+  {
+   "key": "u_two_truck",
+   "name": "양쪽에서 트럭으로",
+   "line": "두 줄이 트럭을 문다",
+   "acts": [
+    2,
+    4
+   ],
+   "comp": "objective",
+   "tempo": "normal",
+   "dir": "two",
+   "env": "base",
+   "goal": "truck",
+   "goalValue": 0,
+   "reward": "repair",
+   "mods": {
+    "truckShare": 0.5
+   },
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_truck",
+   "phrase": "rd_u_two_truck",
+   "linePhrase": "rd_u_two_truck_l"
+  },
+  {
+   "key": "u_bound",
+   "name": "묶인 보급",
+   "line": "끄는 넷을 잡아라",
+   "acts": [
+    2,
+    4
+   ],
+   "comp": "eater",
+   "tempo": "trickle",
+   "dir": "far",
+   "env": "fog3",
+   "goal": "hunt",
+   "goalValue": 4,
+   "reward": "box",
+   "mods": {},
+   "fx": [
+    "haul"
+   ],
+   "change": "끄는 넷이 보급 상자를 바깥으로 끌고 간다: 넷을 다 잡으면 상자가 남고(모두 무기 상자), 바깥 60블록에 닿으면 잃음",
+   "launch": false,
+   "icon": "ti_goal_hunt",
+   "phrase": "rd_u_bound",
+   "linePhrase": "rd_u_bound_l"
+  },
+  {
+   "key": "u_blackwater",
+   "name": "검은 물",
+   "line": "둑 위를 지켜라",
+   "acts": [
+    2,
+    2
+   ],
+   "comp": "ground",
+   "tempo": "trickle",
+   "dir": "ring",
+   "env": "dark",
+   "goal": "hold",
+   "goalValue": 1,
+   "reward": "aug",
+   "mods": {
+    "puddleGrow": true,
+    "holdAt": "road"
+   },
+   "fx": [
+    "blackwater"
+   ],
+   "change": "물 칸은 젖은 벌 땅에만 있어 2막 전용. 검은 물에 선 사람은 초당 피해, 지킬 원은 길 둔덕 위",
+   "launch": false,
+   "icon": "ti_goal_hold",
+   "phrase": "rd_u_blackwater",
+   "linePhrase": "rd_u_blackwater_l"
+  },
+  {
+   "key": "u_echo",
+   "name": "메아리",
+   "line": "소리가 반대쪽에서 난다",
+   "acts": [
+    2,
+    4
+   ],
+   "comp": "mimic",
+   "tempo": "normal",
+   "dir": "ring",
+   "env": "silent",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {
+    "echo": true
+   },
+   "fx": [
+    "echo"
+   ],
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_u_echo",
+   "linePhrase": "rd_u_echo_l"
+  },
+  {
+   "key": "u_faces",
+   "name": "아는 얼굴",
+   "line": "동료 얼굴을 썼다",
+   "acts": [
+    3,
+    4
+   ],
+   "comp": "mimic",
+   "tempo": "normal",
+   "dir": "ring",
+   "env": "ash",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {
+    "likeness": "dead"
+   },
+   "fx": [
+    "faces"
+   ],
+   "change": "죽은 적 있는 사람의 얼굴과 이름을 쓴 사람 탈 게이브(G50)가 섞임(없으면 흉내 종만)",
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_u_faces",
+   "linePhrase": "rd_u_faces_l"
+  },
+  {
+   "key": "u_names",
+   "name": "이름표",
+   "line": "이름 단 것을 잡아라",
+   "acts": [
+    3,
+    4
+   ],
+   "comp": "mimic",
+   "tempo": "trickle",
+   "dir": "back",
+   "env": "ash",
+   "goal": "hunt",
+   "goalValue": 4,
+   "reward": "aug",
+   "mods": {
+    "likeness": "any"
+   },
+   "fx": [
+    "names"
+   ],
+   "change": "사냥 표적 넷 머리 위에 판에 든 사람 이름(아무나: 원정.md 14절 9번)",
+   "launch": false,
+   "icon": "ti_goal_hunt",
+   "phrase": "rd_u_names",
+   "linePhrase": "rd_u_names_l"
+  },
+  {
+   "key": "u_learn",
+   "name": "배운다",
+   "line": "많이 쓴 총이 덜 먹힌다",
+   "acts": [
+    3,
+    4
+   ],
+   "comp": "support",
+   "tempo": "normal",
+   "dir": "ring",
+   "env": "base",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {
+    "learn": 0.6
+   },
+   "fx": [
+    "learn"
+   ],
+   "change": "판 전체 G51 배움과 따로, 이 라운드에 가장 많이 맞힌 무기 키가 x0.6(15초마다 다시 셈)",
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_u_learn",
+   "linePhrase": "rd_u_learn_l"
+  },
+  {
+   "key": "u_armed",
+   "name": "총 든 것들",
+   "line": "저쪽도 쏜다",
+   "acts": [
+    3,
+    4
+   ],
+   "comp": "ranged",
+   "tempo": "normal",
+   "dir": "lean",
+   "env": "ash",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "box",
+   "mods": {
+    "armed": true
+   },
+   "fx": [
+    "armed"
+   ],
+   "change": "총 주운 게이브(G52)를 감독 대신 Rounds 가 직접 낸다(사람 수에 따라 2~8)",
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_u_armed",
+   "linePhrase": "rd_u_armed_l"
+  },
+  {
+   "key": "u_bait",
+   "name": "미끼",
+   "line": "줍지 마라",
+   "acts": [
+    3,
+    4
+   ],
+   "comp": "trap",
+   "tempo": "normal",
+   "dir": "ring",
+   "env": "fog3",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "money",
+   "mods": {
+    "placed": 3.0
+   },
+   "fx": [
+    "bait"
+   ],
+   "change": "r_trap 과 가름: 탄약통 미끼 다섯(줍거나 다가가면 덮침) + 진짜 보급 상자 하나",
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_u_bait",
+   "linePhrase": "rd_u_bait_l"
+  },
+  {
+   "key": "u_blessing",
+   "name": "축복",
+   "line": "받으면 안 된다",
+   "acts": [
+    3,
+    4
+   ],
+   "comp": "support",
+   "tempo": "few",
+   "dir": "ring",
+   "env": "base",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "aug",
+   "mods": {},
+   "fx": [
+    "blessing"
+   ],
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_u_blessing",
+   "linePhrase": "rd_u_blessing_l"
+  },
+  {
+   "key": "u_ember",
+   "name": "불씨 땅",
+   "line": "밟으면 탄다",
+   "acts": [
+    3,
+    4
+   ],
+   "comp": "charge",
+   "tempo": "trickle",
+   "dir": "near",
+   "env": "ash",
+   "goal": "survive",
+   "goalValue": 110,
+   "reward": "repair",
+   "mods": {
+    "emberGrow": true
+   },
+   "fx": [
+    "ember"
+   ],
+   "launch": false,
+   "icon": "ti_goal_survive",
+   "phrase": "rd_u_ember",
+   "linePhrase": "rd_u_ember_l"
+  },
+  {
+   "key": "u_ashfall",
+   "name": "재가 내린다",
+   "line": "그림자만 보인다",
+   "acts": [
+    3,
+    4
+   ],
+   "comp": "swarm",
+   "tempo": "flood",
+   "dir": "ring",
+   "env": "ash",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {
+    "dim": 0.4
+   },
+   "fx": [
+    "shadow"
+   ],
+   "change": "그림자만 보인다: 게이브 얼굴이 빈 얼굴(PAL_BLANK)로, 재 안개",
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_u_ashfall",
+   "linePhrase": "rd_u_ashfall_l"
+  },
+  {
+   "key": "u_elite_pair",
+   "name": "정예 둘",
+   "line": "둘을 갈라놓아라",
+   "acts": [
+    3,
+    4
+   ],
+   "comp": "elite",
+   "tempo": "trickle",
+   "dir": "two",
+   "env": "base",
+   "goal": "hunt",
+   "goalValue": 2,
+   "reward": "aug",
+   "mods": {
+    "elites": 3.0
+   },
+   "fx": [
+    "pair"
+   ],
+   "change": "정예 둘이 12블록 안에 붙어 있으면 서로 체력을 채우고 피해를 반만 받는다",
+   "launch": false,
+   "icon": "ti_goal_hunt",
+   "phrase": "rd_u_elite_pair",
+   "linePhrase": "rd_u_elite_pair_l"
+  },
+  {
+   "key": "u_no_shop",
+   "name": "잠긴 트럭",
+   "line": "라운드 내내 상점이 없다",
+   "acts": [
+    3,
+    4
+   ],
+   "comp": "objective",
+   "tempo": "normal",
+   "dir": "ring",
+   "env": "flicker",
+   "goal": "truck",
+   "goalValue": 0,
+   "reward": "part",
+   "mods": {
+    "shopLocked": true
+   },
+   "fx": [
+    "shoplock",
+    "flicker"
+   ],
+   "launch": false,
+   "icon": "ti_goal_truck",
+   "phrase": "rd_u_no_shop",
+   "linePhrase": "rd_u_no_shop_l"
+  },
+  {
+   "key": "u_heavy",
+   "name": "무거운 밤",
+   "line": "느리고 안 죽는다",
+   "acts": [
+    3,
+    4
+   ],
+   "comp": "tank",
+   "tempo": "few",
+   "dir": "ring",
+   "env": "dark",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "money",
+   "mods": {
+    "hp": 2.0,
+    "speed": 0.75,
+    "truckShare": 0.4
+   },
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_u_heavy",
+   "linePhrase": "rd_u_heavy_l"
+  },
+  {
+   "key": "u_all",
+   "name": "전부",
+   "line": "이 막의 모든 얼굴",
+   "acts": [
+    3,
+    4
+   ],
+   "comp": "mix",
+   "tempo": "flood",
+   "dir": "ring",
+   "env": "base",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "money",
+   "mods": {
+    "species": 12
+   },
+   "fx": [],
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_u_all",
+   "linePhrase": "rd_u_all_l"
+  },
+  {
+   "key": "u_decoy",
+   "name": "가짜 등불",
+   "line": "진짜 트럭은 하나",
+   "acts": [
+    3,
+    4
+   ],
+   "comp": "trap",
+   "tempo": "normal",
+   "dir": "back",
+   "env": "fog4",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {
+    "decoyLamps": 3
+   },
+   "fx": [
+    "decoy"
+   ],
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_u_decoy",
+   "linePhrase": "rd_u_decoy_l"
+  },
+  {
+   "key": "u_revenge",
+   "name": "되돌아온 동료",
+   "line": "잡으면 싸게 꺼낸다",
+   "acts": [
+    3,
+    4
+   ],
+   "comp": "return",
+   "tempo": "trickle",
+   "dir": "far",
+   "env": "ash",
+   "goal": "hunt",
+   "goalValue": 0,
+   "reward": "revive",
+   "mods": {
+    "likeness": "dead",
+    "huntAllDeathBorn": true
+   },
+   "fx": [
+    "revenge"
+   ],
+   "needs": "dead",
+   "change": "죽은 사람이 없으면 이 라운드는 뽑지 않음(되돌아올 동료가 없음)",
+   "launch": false,
+   "icon": "ti_goal_hunt",
+   "phrase": "rd_u_revenge",
+   "linePhrase": "rd_u_revenge_l"
+  },
+  {
+   "key": "u_curse2",
+   "name": "겹저주",
+   "line": "빠르고 질기다",
+   "acts": [
+    3,
+    4
+   ],
+   "comp": "mix",
+   "tempo": "normal",
+   "dir": "ring",
+   "env": "dark",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "aug",
+   "mods": {
+    "money": 2.5
+   },
+   "fx": [
+    "curse2"
+   ],
+   "change": "재미 저주 카드(취소) 대신 이 라운드가 스스로 저주 둘을 뽑아 건다(빠름, 질김, 아픔, 안개, 어둠, 탄약값, 트럭 노림 가운데 둘)",
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_u_curse2",
+   "linePhrase": "rd_u_curse2_l"
+  },
+  {
+   "key": "u_stare",
+   "name": "보는 동안",
+   "line": "눈을 떼면 온다",
+   "acts": [
+    3,
+    4
+   ],
+   "comp": "mimic",
+   "tempo": "normal",
+   "dir": "ring",
+   "env": "base",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {
+    "gaze": true
+   },
+   "fx": [
+    "gaze"
+   ],
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_u_stare",
+   "linePhrase": "rd_u_stare_l"
+  },
+  {
+   "key": "u_carrion",
+   "name": "시체 먹는 밤",
+   "line": "먹고 자란다",
+   "acts": [
+    3,
+    4
+   ],
+   "comp": "swarm",
+   "tempo": "trickle",
+   "dir": "ring",
+   "env": "dark",
+   "goal": "survive",
+   "goalValue": 120,
+   "reward": "money",
+   "mods": {
+    "corpseFeed": true
+   },
+   "fx": [
+    "feed"
+   ],
+   "launch": false,
+   "icon": "ti_goal_survive",
+   "phrase": "rd_u_carrion",
+   "linePhrase": "rd_u_carrion_l"
+  },
+  {
+   "key": "u_hands",
+   "name": "손",
+   "line": "바퀴를 잡는다",
+   "acts": [
+    3,
+    4
+   ],
+   "comp": "ground",
+   "tempo": "burst",
+   "dir": "truck",
+   "env": "ash",
+   "goal": "truck",
+   "goalValue": 0,
+   "reward": "repair",
+   "mods": {
+    "truckShare": 0.7,
+    "truckDmg": 1.5
+   },
+   "fx": [],
+   "change": "바퀴를 잡는 손: 트럭 둘레 6~12블록 땅에서 솟고 트럭이 받는 피해 x1.5",
+   "launch": false,
+   "icon": "ti_goal_truck",
+   "phrase": "rd_u_hands",
+   "linePhrase": "rd_u_hands_l"
+  },
+  {
+   "key": "u_close",
+   "name": "조여 오는 고리",
+   "line": "설 땅이 줄어든다",
+   "acts": [
+    3,
+    4
+   ],
+   "comp": "tank",
+   "tempo": "trickle",
+   "dir": "ring",
+   "env": "fog3",
+   "goal": "survive",
+   "goalValue": 100,
+   "reward": "aug",
+   "mods": {
+    "roamShrink": 24
+   },
+   "fx": [
+    "shrink"
+   ],
+   "launch": false,
+   "icon": "ti_goal_survive",
+   "phrase": "rd_u_close",
+   "linePhrase": "rd_u_close_l"
+  },
+  {
+   "key": "u_hush",
+   "name": "침묵",
+   "line": "쏘면 그쪽으로 온다",
+   "acts": [
+    3,
+    4
+   ],
+   "comp": "mix",
+   "tempo": "burst",
+   "dir": "noise",
+   "env": "silent",
+   "goal": "kill",
+   "goalValue": 0,
+   "reward": "base",
+   "mods": {
+    "noiseLean": true
+   },
+   "fx": [
+    "noise"
+   ],
+   "change": "쏜 사람 쪽(가운데에서 본 각)에서 다음 무리가 나온다",
+   "launch": false,
+   "icon": "ti_goal_kill",
+   "phrase": "rd_u_hush",
+   "linePhrase": "rd_u_hush_l"
+  },
+  {
+   "key": "f_fuel",
+   "name": "연료 주입",
+   "line": "펌프를 지켜라",
+   "acts": [
+    4,
+    4
+   ],
+   "comp": "objective",
+   "tempo": "trickle",
+   "dir": "ring",
+   "env": "flicker",
+   "goal": "build",
+   "goalValue": 1,
+   "reward": "aug",
+   "mods": {
+    "point": "pump"
+   },
+   "fx": [
+    "flicker"
+   ],
+   "launch": true,
+   "icon": "ti_goal_build",
+   "phrase": "rd_f_fuel",
+   "linePhrase": "rd_f_fuel_l"
+  },
+  {
+   "key": "f_frame",
+   "name": "선체 조립",
+   "line": "발판을 타고 오른다",
+   "acts": [
+    4,
+    4
+   ],
+   "comp": "giant",
+   "tempo": "trickle",
+   "dir": "two",
+   "env": "clear",
+   "goal": "build",
+   "goalValue": 1,
+   "reward": "part",
+   "mods": {
+    "point": "gantry"
+   },
+   "fx": [],
+   "launch": true,
+   "icon": "ti_goal_build",
+   "phrase": "rd_f_frame",
+   "linePhrase": "rd_f_frame_l"
+  },
+  {
+   "key": "f_power",
+   "name": "발전기",
+   "line": "꺼지면 칠흑",
+   "acts": [
+    4,
+    4
+   ],
+   "comp": "mix",
+   "tempo": "trickle",
+   "dir": "back",
+   "env": "dark",
+   "goal": "build",
+   "goalValue": 1,
+   "reward": "repair",
+   "mods": {
+    "point": "generator",
+    "dim": 0.5
+   },
+   "fx": [],
+   "launch": true,
+   "icon": "ti_goal_build",
+   "phrase": "rd_f_power",
+   "linePhrase": "rd_f_power_l"
+  },
+  {
+   "key": "f_board",
+   "name": "탑승",
+   "line": "한 명씩 오른다",
+   "acts": [
+    4,
+    4
+   ],
+   "comp": "swarm",
+   "tempo": "trickle",
+   "dir": "ring",
+   "env": "clear",
+   "goal": "build",
+   "goalValue": 1,
+   "reward": "revive",
+   "mods": {
+    "point": "ramp"
+   },
+   "fx": [],
+   "launch": true,
+   "icon": "ti_goal_build",
+   "phrase": "rd_f_board",
+   "linePhrase": "rd_f_board_l"
+  },
+  {
+   "key": "f_lights",
+   "name": "꺼지는 등",
+   "line": "하늘이 등을 끈다",
+   "acts": [
+    4,
+    4
+   ],
+   "comp": "sky",
+   "tempo": "trickle",
+   "dir": "ring",
+   "env": "flicker",
+   "goal": "build",
+   "goalValue": 1,
+   "reward": "base",
+   "mods": {
+    "point": "lights"
+   },
+   "fx": [
+    "flicker"
+   ],
+   "launch": true,
+   "icon": "ti_goal_build",
+   "phrase": "rd_f_lights",
+   "linePhrase": "rd_f_lights_l"
+  },
+  {
+   "key": "f_pad",
+   "name": "발사대 위",
+   "line": "좁은 길로 달려든다",
+   "acts": [
+    4,
+    4
+   ],
+   "comp": "charge",
+   "tempo": "trickle",
+   "dir": "road",
+   "env": "clear",
+   "goal": "build",
+   "goalValue": 1,
+   "reward": "money",
+   "mods": {
+    "point": "pad"
+   },
+   "fx": [],
+   "launch": true,
+   "icon": "ti_goal_build",
+   "phrase": "rd_f_pad",
+   "linePhrase": "rd_f_pad_l"
+  },
+  {
+   "key": "f_count",
+   "name": "초읽기",
+   "line": "150초",
+   "acts": [
+    4,
+    4
+   ],
+   "comp": "mix",
+   "tempo": "finale",
+   "dir": "ring",
+   "env": "clear",
+   "goal": "survive",
+   "goalValue": 150,
+   "reward": "base",
+   "mods": {},
+   "fx": [],
+   "launch": true,
+   "icon": "ti_goal_survive",
+   "phrase": "rd_f_count",
+   "linePhrase": "rd_f_count_l"
+  },
+  {
+   "key": "f_everyone",
+   "name": "모두 온다",
+   "line": "지금까지 본 전부",
+   "acts": [
+    4,
+    4
+   ],
+   "comp": "return",
+   "tempo": "trickle",
+   "dir": "ring",
+   "env": "clear",
+   "goal": "build",
+   "goalValue": 1,
+   "reward": "aug",
+   "mods": {
+    "species": 16
+   },
+   "fx": [],
+   "launch": true,
+   "icon": "ti_goal_build",
+   "phrase": "rd_f_everyone",
+   "linePhrase": "rd_f_everyone_l"
+  }
+ ],
+ "pools": {
+  "plain": [
+   "r_plain",
+   "r_flood",
+   "r_few",
+   "r_charge",
+   "r_ranged",
+   "r_sky",
+   "r_ground",
+   "r_support",
+   "r_duo",
+   "r_new",
+   "r_return",
+   "r_lean",
+   "r_two",
+   "r_spin",
+   "r_back",
+   "r_far",
+   "r_clear",
+   "r_road",
+   "r_pulses",
+   "r_ramp",
+   "r_finale",
+   "r_fog",
+   "r_rain",
+   "r_wind",
+   "r_crack",
+   "r_split",
+   "r_pop",
+   "r_riders",
+   "r_giant",
+   "r_mono",
+   "u_grab",
+   "u_latent",
+   "u_under",
+   "u_chain",
+   "u_echo",
+   "u_faces",
+   "u_learn",
+   "u_ashfall",
+   "u_stare"
+  ],
+  "easy": [
+   "r_flood",
+   "r_mono",
+   "r_glass",
+   "r_gold",
+   "r_timed",
+   "r_supply",
+   "r_hunt_gold"
+  ],
+  "loot": [
+   "r_collect",
+   "r_ammo",
+   "r_hold",
+   "r_box",
+   "r_hunt",
+   "r_cargo",
+   "u_bound",
+   "u_nest",
+   "special:airdrop",
+   "special:gallery"
+  ],
+  "elite": [
+   "r_elite",
+   "r_hunt",
+   "r_box",
+   "r_thick",
+   "u_elite_pair",
+   "u_blessing",
+   "u_names",
+   "u_armed"
+  ],
+  "truck": [
+   "r_objective",
+   "r_truck",
+   "r_flicker",
+   "r_start",
+   "u_two_truck",
+   "u_mire",
+   "u_hands"
+  ],
+  "hard": [
+   "r_trap",
+   "r_near",
+   "r_burst",
+   "r_slow",
+   "r_fog5",
+   "r_dark",
+   "r_storm",
+   "r_silent",
+   "r_survive",
+   "r_trickle",
+   "r_hold2",
+   "r_thin",
+   "r_fast",
+   "u_tide",
+   "u_lightning",
+   "u_blackwater",
+   "u_bait",
+   "u_ember",
+   "u_no_shop",
+   "u_heavy",
+   "u_all",
+   "u_decoy",
+   "u_curse2",
+   "u_carrion",
+   "u_close",
+   "u_hush",
+   "u_revenge"
+  ],
+  "launch": [
+   "f_fuel",
+   "f_frame",
+   "f_power",
+   "f_board",
+   "f_lights",
+   "f_pad",
+   "f_count",
+   "f_everyone"
+  ]
+ },
+ "alias": {
+  "r_bounty3": "r_supply"
+ },
+ "launch": [
+  "f_fuel",
+  "f_frame",
+  "f_power",
+  "f_board",
+  "f_lights",
+  "f_pad",
+  "f_count",
+  "f_everyone"
+ ],
+ "first": "r_plain",
+ "specials": [
+  {
+   "key": "chase",
+   "name": "추격전",
+   "acts": [
+    1,
+    4
+   ],
+   "line": "떨어지지 마라",
+   "cls": "kr.gave.trip.special.Chase"
+  },
+  {
+   "key": "breakdown",
+   "name": "고장",
+   "acts": [
+    1,
+    4
+   ],
+   "line": "시동이 꺼졌다",
+   "cls": "kr.gave.trip.special.Breakdown"
+  },
+  {
+   "key": "refuel",
+   "name": "주유",
+   "acts": [
+    1,
+    4
+   ],
+   "line": "기름통 넷",
+   "cls": "kr.gave.trip.special.Refuel"
+  },
+  {
+   "key": "bridge",
+   "name": "좁은 다리",
+   "acts": [
+    1,
+    3
+   ],
+   "line": "길이 좁다",
+   "cls": "kr.gave.trip.special.Bridge"
+  },
+  {
+   "key": "blackout",
+   "name": "정전된 밤",
+   "acts": [
+    1,
+    4
+   ],
+   "line": "불이 나갔다",
+   "cls": "kr.gave.trip.special.Blackout"
+  },
+  {
+   "key": "sandstorm",
+   "name": "모래폭풍",
+   "acts": [
+    1,
+    1
+   ],
+   "line": "바람을 등져라",
+   "cls": "kr.gave.trip.special.Sandstorm"
+  },
+  {
+   "key": "hush",
+   "name": "숨죽이기",
+   "acts": [
+    1,
+    4
+   ],
+   "line": "쏘지 마라",
+   "cls": "kr.gave.trip.special.Hush"
+  },
+  {
+   "key": "airdrop",
+   "name": "보급 낙하",
+   "acts": [
+    1,
+    4
+   ],
+   "line": "상자가 쏟아진다",
+   "cls": "kr.gave.trip.special.Airdrop"
+  },
+  {
+   "key": "stampede",
+   "name": "떼몰이",
+   "acts": [
+    1,
+    4
+   ],
+   "line": "비켜라",
+   "cls": "kr.gave.trip.special.Stampede"
+  },
+  {
+   "key": "hostage",
+   "name": "끌려간 동료",
+   "acts": [
+    1,
+    4
+   ],
+   "line": "데려와라",
+   "cls": "kr.gave.trip.special.Hostage"
+  },
+  {
+   "key": "gallery",
+   "name": "사격장",
+   "acts": [
+    1,
+    3
+   ],
+   "line": "금빛을 쏴라",
+   "cls": "kr.gave.trip.special.Gallery"
+  },
+  {
+   "key": "scatter",
+   "name": "흩어짐",
+   "acts": [
+    1,
+    4
+   ],
+   "line": "트럭으로 모여라",
+   "cls": "kr.gave.trip.special.Scatter"
+  },
+  {
+   "key": "tide",
+   "name": "밀물",
+   "acts": [
+    2,
+    2
+   ],
+   "line": "물이 온다",
+   "cls": "kr.gave.trip.special.Tide"
+  },
+  {
+   "key": "callnames",
+   "name": "이름 부르는 밤",
+   "acts": [
+    3,
+    3
+   ],
+   "line": "대답하지 마라",
+   "cls": "kr.gave.trip.special.CallNames"
+  },
+  {
+   "key": "sinking",
+   "name": "가라앉는 트럭",
+   "acts": [
+    3,
+    4
+   ],
+   "line": "바퀴를 문 넷",
+   "cls": "kr.gave.trip.special.Sinking"
+  },
+  {
+   "key": "ram",
+   "name": "가로막힌 길",
+   "acts": [
+    3,
+    4
+   ],
+   "line": "뚫어라",
+   "cls": "kr.gave.trip.special.Ram"
+  },
+  {
+   "key": "eyeson",
+   "name": "등 돌리면",
+   "acts": [
+    3,
+    4
+   ],
+   "line": "눈을 떼지 마라",
+   "cls": "kr.gave.trip.special.EyesOn"
+  },
+  {
+   "key": "facestorm",
+   "name": "얼굴 폭풍",
+   "acts": [
+    3,
+    4
+   ],
+   "line": "화면을 닦아라",
+   "cls": "kr.gave.trip.special.FaceStorm"
+  },
+  {
+   "key": "lastrun",
+   "name": "마지막 질주",
+   "acts": [
+    3,
+    3
+   ],
+   "line": "저 불빛까지",
+   "cls": "kr.gave.trip.special.LastRun"
+  },
+  {
+   "key": "litpad",
+   "name": "투광등",
+   "acts": [
+    4,
+    4
+   ],
+   "line": "불을 지켜라",
+   "cls": "kr.gave.trip.special.LitPad"
+  },
+  {
+   "key": "fuelfire",
+   "name": "연료 화재",
+   "acts": [
+    4,
+    4
+   ],
+   "line": "불이 조여 온다",
+   "cls": "kr.gave.trip.special.FuelFire"
+  },
+  {
+   "key": "skyfall",
+   "name": "하늘이 내려온다",
+   "acts": [
+    4,
+    4
+   ],
+   "line": "위를 쏴라",
+   "cls": "kr.gave.trip.special.SkyFall"
+  }
+ ]
+}

@@ -1,0 +1,31 @@
+{
+ "title": "Thunder, Very Close, Rain, 01",
+ "author": "InspectorJ",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/thunder-very-close-rain-01",
+ "license": "CC BY 3.0",
+ "license_url": "https://creativecommons.org/licenses/by/3.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC-BY 3.0 (http://creativecommons.org/licenses/by/3.0/)",
+ "note": "",
+ "desc": "A single close thunder strike with rain in the background. Recorded with a Zoom H1 on 15th September 2016, England.",
+ "urls": [
+  "https://opengameart.org/sites/default/files/Thunder%2C%20Very%20Close%2C%20Rain%2C%2001.wav"
+ ],
+ "pack": "oga_thunder_close",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "Thunder, Very Close, Rain, 01.wav",
+   "bytes": 2256508,
+   "sha256": "b62c7184cf3241862698a596c0c824cfd0717a6cec0089436d46270fe94cb00a"
+  }
+ ],
+ "files": [
+  {
+   "file": "thunder_very_close_rain_01.wav",
+   "orig": "Thunder, Very Close, Rain, 01.wav",
+   "bytes": 2256508,
+   "sha256": "b62c7184cf3241862698a596c0c824cfd0717a6cec0089436d46270fe94cb00a"
+  }
+ ]
+}

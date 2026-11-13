@@ -1,0 +1,267 @@
+[
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gamemode adventure {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=PREP",
+  15
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 총 {USER} RIFLE"
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "cmd",
+  "gave 소환 G01 6 14 {USER}"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "shot",
+  "g01_spawn"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER}"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "shot",
+  "g01_approach"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER}"
+ ],
+ [
+  "wait",
+  1.2
+ ],
+ [
+  "shot",
+  "g01_windup"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹보기 {USER}"
+ ],
+ [
+  "wait",
+  0.6
+ ],
+ [
+  "shot",
+  "g01_charge"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "shot",
+  "g01_hit"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER}"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G01 70"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 60"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "shot",
+  "g01_shoot"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "shot",
+  "g01_corpses"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 예산 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 총상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 체력 {USER} 100"
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "cmd",
+  "gave 소환 G02 1 18 {USER}"
+ ],
+ [
+  "wait",
+  0.5
+ ],
+ [
+  "shot",
+  "g02_far"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 예산 {USER}"
+ ],
+ [
+  "wait",
+  2.5
+ ],
+ [
+  "shot",
+  "g02_near"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER}"
+ ],
+ [
+  "wait",
+  1.2
+ ],
+ [
+  "shot",
+  "g02_halt"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER}"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "shot",
+  "g02_pounce"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "wait",
+  1.5
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 보기 {USER} G02 60"
+ ],
+ [
+  "cmd",
+  "gave 시험 쏘기 {USER} 50"
+ ],
+ [
+  "wait",
+  1.0
+ ],
+ [
+  "shot",
+  "g02_shoot"
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "shot",
+  "g02_after"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹목록 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 예산 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 시험 사람상태 {USER}"
+ ],
+ [
+  "cmd",
+  "gave 중지"
+ ],
+ [
+  "wait",
+  1
+ ]
+]

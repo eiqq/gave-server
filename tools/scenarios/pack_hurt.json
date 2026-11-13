@@ -1,0 +1,50 @@
+[
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gamemode creative {USER}"
+ ],
+ [
+  "cmd",
+  "time set noon"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s run tp @s ~ ~ ~ 0 0"
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^0.9 ^-0.1 ^4 run summon minecraft:item_display ~ ~ ~ {Tags:[\"hurtme\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+ ],
+ [
+  "cmd",
+  "execute as {USER} at @s anchored eyes rotated 0 0 positioned ^-0.9 ^-0.1 ^4 run summon minecraft:item_display ~ ~ ~ {Tags:[\"pk\"],brightness:{sky:12,block:12},view_range:2.0,item:{id:\"minecraft:paper\",count:1,components:{\"minecraft:item_model\":\"gave:gabe/g01\",\"minecraft:custom_model_data\":{strings:[\"\"]}}}}"
+ ],
+ [
+  "rec",
+  "hurt2",
+  30
+ ],
+ [
+  "wait",
+  2.6
+ ],
+ [
+  "recstop"
+ ],
+ [
+  "shot",
+  "after"
+ ],
+ [
+  "cmd",
+  "kill @e[type=item_display]"
+ ]
+]

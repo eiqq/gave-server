@@ -1,0 +1,384 @@
+[
+ [
+  "cmd",
+  "gamemode adventure {USER}"
+ ],
+ [
+  "wait",
+  2
+ ],
+ [
+  "cmd",
+  "gave 중지"
+ ],
+ [
+  "wait",
+  1
+ ],
+ [
+  "cmd",
+  "gave 시작"
+ ],
+ [
+  "until",
+  "state=PREP",
+  15
+ ],
+ [
+  "cmd",
+  "gave 시험 판끝막기 x on"
+ ],
+ [
+  "cmd",
+  "gave 시험 균형 x ALIVE_PER_WAVE 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 균형 x ALIVE_BASE 0"
+ ],
+ [
+  "until",
+  "state=WAVE",
+  20
+ ],
+ [
+  "cmd",
+  "gave 시험 몹죽이기 x"
+ ],
+ [
+  "cmd",
+  "tp {USER} 6.5 64 -9.5 0 0"
+ ],
+ [
+  "cmd",
+  "gave 시험 몹정지 x on"
+ ],
+ [
+  "cmd",
+  "gamemode adventure Bishop"
+ ],
+ [
+  "cmd",
+  "gave 시험 총모델 {USER} tac_ak47 RARE"
+ ],
+ [
+  "cmd",
+  "gave 시험 섬광 {USER} 400"
+ ],
+ [
+  "wait",
+  0.9
+ ],
+ [
+  "shot",
+  "fp_tac_ak47"
+ ],
+ [
+  "wait",
+  6.1
+ ],
+ [
+  "cmd",
+  "gave 시험 총모델 {USER} sg_dark_matter RARE"
+ ],
+ [
+  "cmd",
+  "gave 시험 섬광 {USER} 400"
+ ],
+ [
+  "wait",
+  0.9
+ ],
+ [
+  "shot",
+  "fp_sg_dark_matter"
+ ],
+ [
+  "wait",
+  6.1
+ ],
+ [
+  "cmd",
+  "gave 시험 총모델 {USER} tac_m82a2 RARE"
+ ],
+ [
+  "cmd",
+  "gave 시험 섬광 {USER} 400"
+ ],
+ [
+  "wait",
+  0.9
+ ],
+ [
+  "shot",
+  "fp_tac_m82a2"
+ ],
+ [
+  "wait",
+  6.1
+ ],
+ [
+  "cmd",
+  "gave 시험 총모델 {USER} tac_aa_12 RARE"
+ ],
+ [
+  "cmd",
+  "gave 시험 섬광 {USER} 400"
+ ],
+ [
+  "wait",
+  0.9
+ ],
+ [
+  "shot",
+  "fp_tac_aa_12"
+ ],
+ [
+  "wait",
+  6.1
+ ],
+ [
+  "cmd",
+  "gave 시험 총모델 {USER} tac_db_short RARE"
+ ],
+ [
+  "cmd",
+  "gave 시험 섬광 {USER} 400"
+ ],
+ [
+  "wait",
+  0.9
+ ],
+ [
+  "shot",
+  "fp_tac_db_short"
+ ],
+ [
+  "wait",
+  6.1
+ ],
+ [
+  "cmd",
+  "gave 시험 총모델 {USER} sg_musket RARE"
+ ],
+ [
+  "cmd",
+  "gave 시험 섬광 {USER} 400"
+ ],
+ [
+  "wait",
+  0.9
+ ],
+ [
+  "shot",
+  "fp_sg_musket"
+ ],
+ [
+  "wait",
+  6.1
+ ],
+ [
+  "cmd",
+  "gave 시험 총모델 {USER} tac_m1911 RARE"
+ ],
+ [
+  "cmd",
+  "gave 시험 섬광 {USER} 400"
+ ],
+ [
+  "wait",
+  0.9
+ ],
+ [
+  "shot",
+  "fp_tac_m1911"
+ ],
+ [
+  "wait",
+  6.1
+ ],
+ [
+  "cmd",
+  "gave 시험 총모델 {USER} tac_p90 RARE"
+ ],
+ [
+  "cmd",
+  "gave 시험 섬광 {USER} 400"
+ ],
+ [
+  "wait",
+  0.9
+ ],
+ [
+  "shot",
+  "fp_tac_p90"
+ ],
+ [
+  "wait",
+  6.1
+ ],
+ [
+  "cmd",
+  "gave 시험 총모델 {USER} sg_spitfire RARE"
+ ],
+ [
+  "cmd",
+  "gave 시험 섬광 {USER} 400"
+ ],
+ [
+  "wait",
+  0.9
+ ],
+ [
+  "shot",
+  "fp_sg_spitfire"
+ ],
+ [
+  "wait",
+  6.1
+ ],
+ [
+  "cmd",
+  "gave 시험 총모델 {USER} tac_grenade_launcher RARE"
+ ],
+ [
+  "cmd",
+  "gave 시험 섬광 {USER} 400"
+ ],
+ [
+  "wait",
+  0.9
+ ],
+ [
+  "shot",
+  "fp_tac_grenade_launcher"
+ ],
+ [
+  "wait",
+  6.1
+ ],
+ [
+  "cmd",
+  "gave 시험 총모델 {USER} sg_micina RARE"
+ ],
+ [
+  "cmd",
+  "gave 시험 섬광 {USER} 400"
+ ],
+ [
+  "wait",
+  0.9
+ ],
+ [
+  "shot",
+  "fp_sg_micina"
+ ],
+ [
+  "wait",
+  6.1
+ ],
+ [
+  "cmd",
+  "gave 시험 총모델 {USER} sg_super_shotgun RARE"
+ ],
+ [
+  "cmd",
+  "gave 시험 섬광 {USER} 400"
+ ],
+ [
+  "wait",
+  0.9
+ ],
+ [
+  "shot",
+  "fp_sg_super_shotgun"
+ ],
+ [
+  "wait",
+  6.1
+ ],
+ [
+  "cmd",
+  "gave 시험 총모델 {USER} tac_hk_mp5a5_sd RARE"
+ ],
+ [
+  "cmd",
+  "gave 시험 섬광 {USER} 400"
+ ],
+ [
+  "wait",
+  0.9
+ ],
+ [
+  "shot",
+  "fp_tac_hk_mp5a5_sd"
+ ],
+ [
+  "wait",
+  6.1
+ ],
+ [
+  "cmd",
+  "gave 시험 총모델 {USER} bow RARE"
+ ],
+ [
+  "cmd",
+  "gave 시험 섬광 {USER} 400"
+ ],
+ [
+  "wait",
+  0.9
+ ],
+ [
+  "shot",
+  "fp_bow"
+ ],
+ [
+  "wait",
+  6.1
+ ],
+ [
+  "cmd",
+  "gave 시험 총모델 {USER} sg_gale RARE"
+ ],
+ [
+  "cmd",
+  "gave 시험 섬광 {USER} 400"
+ ],
+ [
+  "wait",
+  0.9
+ ],
+ [
+  "shot",
+  "fp_sg_gale"
+ ],
+ [
+  "wait",
+  6.1
+ ],
+ [
+  "cmd",
+  "gave 시험 총모델 {USER} sg_krauser RARE"
+ ],
+ [
+  "cmd",
+  "gave 시험 섬광 {USER} 400"
+ ],
+ [
+  "wait",
+  0.9
+ ],
+ [
+  "shot",
+  "fp_sg_krauser"
+ ],
+ [
+  "wait",
+  6.1
+ ],
+ [
+  "cmd",
+  "gave 중지"
+ ]
+]

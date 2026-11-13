@@ -1,0 +1,360 @@
+[
+[
+"cmd",
+"gamemode adventure {USER}"
+],
+[
+"wait",
+2
+],
+[
+"cmd",
+"gave 시험 균형 x FIRST_MIN 0"
+],
+[
+"cmd",
+"gave 시험 균형 x FIRST_SHARE 0"
+],
+[
+"cmd",
+"gave 시작"
+],
+[
+"until",
+"state=PREP",
+15
+],
+[
+"cmd",
+"gave 시험 판끝막기 x on"
+],
+[
+"until",
+"state=WAVE",
+20
+],
+[
+"cmd",
+"gave 시험 균형 x ALIVE_BASE 0"
+],
+[
+"cmd",
+"gave 시험 균형 x ALIVE_PER_WAVE 0"
+],
+[
+"wait",
+1
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"cmd",
+"gave 시험 체력 {USER} 100"
+],
+[
+"cmd",
+"gave 시험 래그돌값 x settleSeconds 40"
+],
+[
+"cmd",
+"time set noon"
+],
+[
+"cmd",
+"gave 시험 몹정지 x off"
+],
+[
+"cmd",
+"gave 시험 총굴리기 {USER} SNIPER EPIC"
+],
+[
+"cmd",
+"tp {USER} 0.5 64 -10 0 0"
+],
+[
+"cmd",
+"gave 시험 몹정지 x off"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G34 1 0.5 2.5"
+],
+[
+"wait",
+1.2
+],
+[
+"cmd",
+"gave 시험 몹정지 x on"
+],
+[
+"cmd",
+"gave 시험 총굴리기 {USER} SNIPER EPIC"
+],
+[
+"wait",
+0.8
+],
+[
+"cmd",
+"gave 시험 몹목록 x G34"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G34 0 1.05 0.00"
+],
+[
+"wait",
+0.4
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 2"
+],
+[
+"wait",
+0.8
+],
+[
+"cmd",
+"gave 시험 몹목록 x G34"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 시험 몹정지 x off"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G34 1 0.5 2.5"
+],
+[
+"wait",
+1.2
+],
+[
+"cmd",
+"gave 시험 몹정지 x on"
+],
+[
+"cmd",
+"gave 시험 총굴리기 {USER} SNIPER EPIC"
+],
+[
+"wait",
+0.8
+],
+[
+"cmd",
+"gave 시험 몹목록 x G34"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G34 0 0.80 0.00"
+],
+[
+"wait",
+0.4
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 2"
+],
+[
+"wait",
+0.8
+],
+[
+"cmd",
+"gave 시험 몹목록 x G34"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 시험 몹정지 x off"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G43 1 0.5 2.5"
+],
+[
+"wait",
+1.2
+],
+[
+"cmd",
+"gave 시험 몹정지 x on"
+],
+[
+"cmd",
+"gave 시험 총굴리기 {USER} SNIPER EPIC"
+],
+[
+"wait",
+0.8
+],
+[
+"cmd",
+"gave 시험 몹목록 x G43"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G43 0 1.20 0.00"
+],
+[
+"wait",
+0.4
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 2"
+],
+[
+"wait",
+0.8
+],
+[
+"cmd",
+"gave 시험 몹목록 x G43"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 시험 몹정지 x off"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G18 1 0.5 2.5"
+],
+[
+"wait",
+1.2
+],
+[
+"cmd",
+"gave 시험 몹정지 x on"
+],
+[
+"cmd",
+"gave 시험 총굴리기 {USER} SNIPER EPIC"
+],
+[
+"wait",
+0.8
+],
+[
+"cmd",
+"gave 시험 몹목록 x G18"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G18 0 0.00 1.30"
+],
+[
+"wait",
+0.4
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 2"
+],
+[
+"wait",
+0.8
+],
+[
+"cmd",
+"gave 시험 몹목록 x G18"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 시험 몹정지 x off"
+],
+[
+"cmd",
+"gave 시험 몹놓기 x G27 1 0.5 2.5"
+],
+[
+"wait",
+1.2
+],
+[
+"cmd",
+"gave 시험 몹정지 x on"
+],
+[
+"cmd",
+"gave 시험 총굴리기 {USER} SNIPER EPIC"
+],
+[
+"wait",
+0.8
+],
+[
+"cmd",
+"gave 시험 몹목록 x G27"
+],
+[
+"cmd",
+"gave 시험 보기 {USER} G27 0 1.00 0.00"
+],
+[
+"wait",
+0.4
+],
+[
+"cmd",
+"gave 시험 쏘기 {USER} 2"
+],
+[
+"wait",
+0.8
+],
+[
+"cmd",
+"gave 시험 몹목록 x G27"
+],
+[
+"cmd",
+"gave 시험 몹죽이기 x"
+],
+[
+"wait",
+0.3
+],
+[
+"cmd",
+"gave 중지"
+]
+]

@@ -1,0 +1,66 @@
+{
+ "title": "Heartbeat sounds",
+ "author": "bart",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/heartbeat-sounds",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0",
+ "note": "같은 글의 heartbeat.flp(FL Studio 작업 파일)는 받지 않음",
+ "urls": [
+  "https://opengameart.org/sites/default/files/heartbeat_slow_0.wav",
+  "https://opengameart.org/sites/default/files/heartbeat_fast_0.wav",
+  "https://opengameart.org/sites/default/files/heartbeat_slow_reverb.wav",
+  "https://opengameart.org/sites/default/files/heartbeat_fast_reverb.wav"
+ ],
+ "pack": "oga_heartbeat",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "heartbeat_fast_0.wav",
+   "bytes": 397080,
+   "sha256": "cda9235df232a5a06724a02798f7240e3e6eca96a992fa5560edd5b4b24823ce"
+  },
+  {
+   "file": "heartbeat_fast_reverb.wav",
+   "bytes": 397080,
+   "sha256": "76b1ef5eb6c986de2d275c0b3442ac239ffeab22e0592a7c060f0ac570c3421b"
+  },
+  {
+   "file": "heartbeat_slow_0.wav",
+   "bytes": 635216,
+   "sha256": "ce5d2bbe4c9e2a8843fc76419070b9e88f71b2aa4ba7226a5f50a6b45d13be60"
+  },
+  {
+   "file": "heartbeat_slow_reverb.wav",
+   "bytes": 635216,
+   "sha256": "91c6d6a0be7bbeff048b8f8a3175a4eac973b7caebf260a797ef6327945878f5"
+  }
+ ],
+ "files": [
+  {
+   "file": "heartbeat_fast_0.wav",
+   "orig": "heartbeat_fast_0.wav",
+   "bytes": 397080,
+   "sha256": "cda9235df232a5a06724a02798f7240e3e6eca96a992fa5560edd5b4b24823ce"
+  },
+  {
+   "file": "heartbeat_fast_reverb.wav",
+   "orig": "heartbeat_fast_reverb.wav",
+   "bytes": 397080,
+   "sha256": "76b1ef5eb6c986de2d275c0b3442ac239ffeab22e0592a7c060f0ac570c3421b"
+  },
+  {
+   "file": "heartbeat_slow_0.wav",
+   "orig": "heartbeat_slow_0.wav",
+   "bytes": 635216,
+   "sha256": "ce5d2bbe4c9e2a8843fc76419070b9e88f71b2aa4ba7226a5f50a6b45d13be60"
+  },
+  {
+   "file": "heartbeat_slow_reverb.wav",
+   "orig": "heartbeat_slow_reverb.wav",
+   "bytes": 635216,
+   "sha256": "91c6d6a0be7bbeff048b8f8a3175a4eac973b7caebf260a797ef6327945878f5"
+  }
+ ]
+}

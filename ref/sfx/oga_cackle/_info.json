@@ -1,0 +1,30 @@
+{
+ "title": "Witch Cackle",
+ "author": "AntumDeluge",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/witch-cackle",
+ "license": "CC0 1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC0",
+ "note": "",
+ "urls": [
+  "https://opengameart.org/sites/default/files/witch_cackle-1_0.ogg"
+ ],
+ "pack": "oga_cackle",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "witch_cackle-1_0.ogg",
+   "bytes": 16594,
+   "sha256": "6698c4f70facd5e9b4285ff34897099f70c95a826c6775ba4fba7ef5afbc4caf"
+  }
+ ],
+ "files": [
+  {
+   "file": "witch_cackle_1_0.ogg",
+   "orig": "witch_cackle-1_0.ogg",
+   "bytes": 16594,
+   "sha256": "6698c4f70facd5e9b4285ff34897099f70c95a826c6775ba4fba7ef5afbc4caf"
+  }
+ ]
+}

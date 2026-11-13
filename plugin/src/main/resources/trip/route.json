@@ -1,0 +1,916 @@
+{
+ "note": "굳힌 길 데이터(tools/trip/route.py 가 data/trip/stages_draft.json 에서 만듦, 손으로 고치지 않음). 설계 docs/모듈/원정.md 3절",
+ "types": {
+  "fight": {
+   "name": "전투",
+   "risk": 1,
+   "reward": [
+    "money"
+   ],
+   "first": "pool:plain",
+   "second": "pool:plain",
+   "sign": "fight"
+  },
+  "elite": {
+   "name": "정예",
+   "risk": 2,
+   "reward": [
+    "aug"
+   ],
+   "first": "pool:plain",
+   "second": "pool:elite",
+   "sign": "elite"
+  },
+  "cache": {
+   "name": "보급",
+   "risk": 1,
+   "reward": [
+    "box",
+    "ammo"
+   ],
+   "first": "pool:easy",
+   "second": "pool:loot",
+   "sign": "cache"
+  },
+  "rest": {
+   "name": "정비",
+   "risk": 1,
+   "reward": [
+    "repair",
+    "revive"
+   ],
+   "first": "pool:truck",
+   "second": "pool:plain",
+   "sign": "rest"
+  },
+  "event": {
+   "name": "사건",
+   "risk": 2,
+   "reward": [
+    "unknown"
+   ],
+   "first": "event",
+   "second": "pool:plain",
+   "sign": "event"
+  },
+  "rush": {
+   "name": "험로",
+   "risk": 3,
+   "reward": [
+    "part",
+    "money"
+   ],
+   "first": "special",
+   "second": "pool:hard",
+   "sign": "rush"
+  },
+  "trap": {
+   "name": "함정",
+   "risk": 3,
+   "reward": [
+    "aug",
+    "aug"
+   ],
+   "first": "pool:hard",
+   "second": "special_or_hard",
+   "sign": "trap"
+  },
+  "unknown": {
+   "name": "미지",
+   "risk": 0,
+   "reward": [
+    "unknown"
+   ],
+   "first": "reveal",
+   "second": "reveal",
+   "sign": "unknown"
+  },
+  "gate": {
+   "name": "보스 길목",
+   "risk": 3,
+   "reward": [
+    "boss"
+   ],
+   "first": "gate",
+   "second": "boss",
+   "sign": "gate"
+  }
+ },
+ "pools": {
+  "plain": [
+   "r_plain",
+   "r_flood",
+   "r_few",
+   "r_charge",
+   "r_ranged",
+   "r_sky",
+   "r_ground",
+   "r_support",
+   "r_duo",
+   "r_new",
+   "r_return",
+   "r_lean",
+   "r_two",
+   "r_spin",
+   "r_back",
+   "r_far",
+   "r_clear",
+   "r_road",
+   "r_pulses",
+   "r_ramp",
+   "r_finale",
+   "r_fog",
+   "r_rain",
+   "r_wind",
+   "r_crack",
+   "r_split",
+   "r_pop",
+   "r_riders",
+   "r_giant",
+   "r_mono",
+   "u_grab",
+   "u_latent",
+   "u_under",
+   "u_chain",
+   "u_echo",
+   "u_faces",
+   "u_learn",
+   "u_ashfall",
+   "u_stare"
+  ],
+  "easy": [
+   "r_flood",
+   "r_mono",
+   "r_glass",
+   "r_gold",
+   "r_timed",
+   "r_bounty3",
+   "r_hunt_gold"
+  ],
+  "loot": [
+   "r_collect",
+   "r_ammo",
+   "r_hold",
+   "r_box",
+   "r_hunt",
+   "r_cargo",
+   "u_bound",
+   "u_nest",
+   "special:airdrop",
+   "special:gallery"
+  ],
+  "elite": [
+   "r_elite",
+   "r_hunt",
+   "r_box",
+   "r_thick",
+   "u_elite_pair",
+   "u_blessing",
+   "u_names",
+   "u_armed"
+  ],
+  "truck": [
+   "r_objective",
+   "r_truck",
+   "r_flicker",
+   "r_start",
+   "u_two_truck",
+   "u_mire",
+   "u_hands"
+  ],
+  "hard": [
+   "r_trap",
+   "r_near",
+   "r_burst",
+   "r_slow",
+   "r_fog5",
+   "r_dark",
+   "r_storm",
+   "r_silent",
+   "r_survive",
+   "r_trickle",
+   "r_hold2",
+   "r_thin",
+   "r_fast",
+   "u_tide",
+   "u_lightning",
+   "u_blackwater",
+   "u_bait",
+   "u_ember",
+   "u_no_shop",
+   "u_heavy",
+   "u_all",
+   "u_decoy",
+   "u_curse2",
+   "u_carrion",
+   "u_close",
+   "u_hush",
+   "u_revenge"
+  ]
+ },
+ "weights": {
+  "1": {
+   "fight": 34,
+   "elite": 14,
+   "cache": 16,
+   "rest": 12,
+   "event": 10,
+   "rush": 8,
+   "unknown": 6,
+   "trap": 0
+  },
+  "2": {
+   "fight": 28,
+   "elite": 16,
+   "cache": 13,
+   "rest": 12,
+   "event": 10,
+   "rush": 11,
+   "unknown": 10,
+   "trap": 0
+  },
+  "3": {
+   "fight": 22,
+   "elite": 16,
+   "cache": 10,
+   "rest": 10,
+   "event": 10,
+   "rush": 12,
+   "unknown": 10,
+   "trap": 10
+  }
+ },
+ "rules": {
+  "stages": 15,
+  "votes": 14,
+  "roundsPerStage": 2,
+  "bossRounds": [
+   10,
+   20,
+   30,
+   35
+  ],
+  "launchFrom": 31,
+  "vote": {
+   "open": 40,
+   "close": 60,
+   "shop": 400,
+   "tie": 40,
+   "hint": 180,
+   "reach": 60.0,
+   "radius": 2.6
+  },
+  "travel": {
+   "normal": 200,
+   "act": 320,
+   "confine": 8.0,
+   "fog": 5,
+   "speed": 1.2
+  },
+  "rest": {
+   "truck": 0.4,
+   "dead": 0.2
+  },
+  "safe": [
+   "fight",
+   "cache",
+   "rest"
+  ],
+  "unknown": {
+   "1": {
+    "cache": 35,
+    "event": 25,
+    "trap": 30,
+    "rest": 10
+   },
+   "2": {
+    "cache": 35,
+    "event": 25,
+    "trap": 30,
+    "rest": 10
+   },
+   "3": {
+    "trap": 40,
+    "cache": 25,
+    "event": 25,
+    "rest": 10
+   }
+  },
+  "forced": {
+   "1": {
+    "from": 3,
+    "to": 4,
+    "special": "chase"
+   },
+   "2": {
+    "from": 7,
+    "to": 9,
+    "special": ""
+   },
+   "3": {
+    "from": 12,
+    "to": 14,
+    "special": ""
+   }
+  }
+ },
+ "effects": {
+  "fight": {
+   "end": {
+    "money": 0.25
+   }
+  },
+  "elite": {
+   "end": {
+    "aug": 1
+   }
+  },
+  "cache": {
+   "arrive": {
+    "ammo": 1
+   },
+   "round": {
+    "crate": 200
+   }
+  },
+  "rest": {
+   "arrive": {
+    "truck": 0.3
+   },
+   "mul": {
+    "price": 0.8,
+    "revive": 0.5
+   }
+  },
+  "event": {},
+  "rush": {
+   "end": {
+    "part": 1,
+    "money": 1.5
+   }
+  },
+  "trap": {
+   "mul": {
+    "truckShare": 2.0
+   },
+   "end": {
+    "aug": 2
+   }
+  },
+  "gate_rest": {
+   "arrive": {
+    "truck": 0.3
+   },
+   "mul": {
+    "price": 0.8,
+    "revive": 0.5
+   }
+  },
+  "gate_arm": {
+   "arrive": {
+    "ammo": 1,
+    "box": 1
+   }
+  },
+  "gate_run": {
+   "end": {
+    "part": 1
+   },
+   "boss": {
+    "hp": 0.92
+   }
+  },
+  "launch": {}
+ },
+ "gates": [
+  {
+   "key": "gate_rest",
+   "name": "숨 고르기",
+   "icon": "rest",
+   "first": "pool:truck",
+   "risk": 1
+  },
+  {
+   "key": "gate_arm",
+   "name": "무장",
+   "icon": "cache",
+   "first": "pool:loot",
+   "risk": 2
+  },
+  {
+   "key": "gate_run",
+   "name": "질주",
+   "icon": "rush",
+   "first": "special:chase(3막은 lastrun 고정)",
+   "risk": 3
+  }
+ ],
+ "cards": [
+  {
+   "key": "a1_road",
+   "act": 1,
+   "type": "fight",
+   "name": "국도",
+   "props": "road_poles"
+  },
+  {
+   "key": "a1_jam",
+   "act": 1,
+   "type": "fight",
+   "name": "멈춘 차들",
+   "props": "car_jam"
+  },
+  {
+   "key": "a1_nest",
+   "act": 1,
+   "type": "elite",
+   "name": "얼굴 둥지",
+   "props": "mounds"
+  },
+  {
+   "key": "a1_cache",
+   "act": 1,
+   "type": "cache",
+   "name": "뒤집힌 짐차",
+   "props": "spilled_cargo"
+  },
+  {
+   "key": "a1_rest",
+   "act": 1,
+   "type": "rest",
+   "name": "길가 쉼터",
+   "props": "tire_stack"
+  },
+  {
+   "key": "a1_signal",
+   "act": 1,
+   "type": "event",
+   "name": "라디오 신호",
+   "props": "antenna"
+  },
+  {
+   "key": "a1_gas",
+   "act": 1,
+   "type": "rush",
+   "name": "말라붙은 주유소",
+   "props": "drums",
+   "special": "refuel"
+  },
+  {
+   "key": "a1_bridge",
+   "act": 1,
+   "type": "rush",
+   "name": "마른 강 다리",
+   "props": "rail_posts",
+   "special": "bridge"
+  },
+  {
+   "key": "a1_dust",
+   "act": 1,
+   "type": "rush",
+   "name": "먼지 기둥",
+   "props": "tumbleweeds",
+   "special": "sandstorm"
+  },
+  {
+   "key": "a1_fork",
+   "act": 1,
+   "type": "unknown",
+   "name": "표지판 없는 길",
+   "props": "blank_signs"
+  },
+  {
+   "key": "a2_marsh",
+   "act": 2,
+   "type": "fight",
+   "name": "갈대 벌",
+   "props": "reeds"
+  },
+  {
+   "key": "a2_ford",
+   "act": 2,
+   "type": "fight",
+   "name": "여울",
+   "props": "marker_poles"
+  },
+  {
+   "key": "a2_pylons",
+   "act": 2,
+   "type": "elite",
+   "name": "쓰러진 송전탑",
+   "props": "pylon_parts"
+  },
+  {
+   "key": "a2_bus",
+   "act": 2,
+   "type": "cache",
+   "name": "가라앉은 버스",
+   "props": "sunk_bus"
+  },
+  {
+   "key": "a2_levee",
+   "act": 2,
+   "type": "rest",
+   "name": "둑 위",
+   "props": "sandbags"
+  },
+  {
+   "key": "a2_voices",
+   "act": 2,
+   "type": "event",
+   "name": "부르는 소리",
+   "props": "lanterns"
+  },
+  {
+   "key": "a2_flood",
+   "act": 2,
+   "type": "rush",
+   "name": "물 찬 길",
+   "props": "marker_poles",
+   "special": "tide"
+  },
+  {
+   "key": "a2_mud",
+   "act": 2,
+   "type": "rush",
+   "name": "진창",
+   "props": "ruts",
+   "special": "breakdown"
+  },
+  {
+   "key": "a2_storm",
+   "act": 2,
+   "type": "rush",
+   "name": "번개 벌판",
+   "props": "dead_trees",
+   "special": "blackout"
+  },
+  {
+   "key": "a2_mist",
+   "act": 2,
+   "type": "unknown",
+   "name": "물안개",
+   "props": "none"
+  },
+  {
+   "key": "a3_ash",
+   "act": 3,
+   "type": "fight",
+   "name": "재 벌판",
+   "props": "ash_drifts"
+  },
+  {
+   "key": "a3_bones",
+   "act": 3,
+   "type": "fight",
+   "name": "말뚝 숲",
+   "props": "stakes"
+  },
+  {
+   "key": "a3_pit",
+   "act": 3,
+   "type": "elite",
+   "name": "꺼진 땅",
+   "props": "crater_rim"
+  },
+  {
+   "key": "a3_convoy",
+   "act": 3,
+   "type": "cache",
+   "name": "불탄 호송대",
+   "props": "burnt_trucks"
+  },
+  {
+   "key": "a3_camp",
+   "act": 3,
+   "type": "rest",
+   "name": "불 꺼진 야영지",
+   "props": "camp"
+  },
+  {
+   "key": "a3_names",
+   "act": 3,
+   "type": "event",
+   "name": "이름 적힌 말뚝",
+   "props": "name_stakes"
+  },
+  {
+   "key": "a3_embers",
+   "act": 3,
+   "type": "rush",
+   "name": "불씨 길",
+   "props": "ember_cracks",
+   "special": "ram"
+  },
+  {
+   "key": "a3_wave",
+   "act": 3,
+   "type": "trap",
+   "name": "손 흔드는 사람들",
+   "props": "mannequins",
+   "special": "callnames"
+  },
+  {
+   "key": "a3_sink",
+   "act": 3,
+   "type": "trap",
+   "name": "무른 땅",
+   "props": "ash_drifts",
+   "special": "sinking"
+  },
+  {
+   "key": "a3_glass",
+   "act": 3,
+   "type": "unknown",
+   "name": "거울 벌",
+   "props": "glass_patches"
+  }
+ ],
+ "events": [
+  {
+   "key": "ev_radio",
+   "acts": [
+    1,
+    3
+   ],
+   "line": "누가 듣고 있나",
+   "ready": true,
+   "end": {
+    "aug": 1
+   }
+  },
+  {
+   "key": "ev_hitch",
+   "acts": [
+    1,
+    2
+   ],
+   "line": "태워 달라고 한다",
+   "ready": true,
+   "arrive": {
+    "hitch": 0.6,
+    "money": 0.5,
+    "mob": "G50",
+    "mobs": 2
+   }
+  },
+  {
+   "key": "ev_convoy",
+   "acts": [
+    1,
+    3
+   ],
+   "line": "먼저 간 사람들",
+   "ready": false
+  },
+  {
+   "key": "ev_storm",
+   "acts": [
+    1,
+    3
+   ],
+   "line": "날씨가 바뀐다",
+   "ready": true,
+   "mul": {
+    "reward": 1.3
+   }
+  },
+  {
+   "key": "ev_toll",
+   "acts": [
+    1,
+    3
+   ],
+   "line": "길을 막았다",
+   "ready": false
+  },
+  {
+   "key": "ev_stowaway",
+   "acts": [
+    2,
+    3
+   ],
+   "line": "짐칸에 뭔가 있다",
+   "ready": false
+  },
+  {
+   "key": "ev_fuel",
+   "acts": [
+    1,
+    3
+   ],
+   "line": "기름이 샌다",
+   "ready": false
+  },
+  {
+   "key": "ev_gift",
+   "acts": [
+    1,
+    3
+   ],
+   "line": "길에 상자가 있다",
+   "ready": true,
+   "round": {
+    "crate": 100
+   },
+   "arrive": {
+    "box": 1
+   }
+  },
+  {
+   "key": "ev_names",
+   "acts": [
+    3,
+    3
+   ],
+   "line": "아는 이름이다",
+   "ready": false
+  },
+  {
+   "key": "ev_quiet",
+   "acts": [
+    1,
+    3
+   ],
+   "line": "너무 조용하다",
+   "ready": true,
+   "mul": {
+    "reward": 1.5
+   }
+  },
+  {
+   "key": "ev_mirror",
+   "acts": [
+    2,
+    3
+   ],
+   "line": "우리가 또 있다",
+   "ready": false
+  },
+  {
+   "key": "ev_dawn",
+   "acts": [
+    2,
+    3
+   ],
+   "line": "벌써 아침인가",
+   "ready": false
+  }
+ ],
+ "scenery": {
+  "road_poles": {
+   "layout": "road",
+   "models": [
+    "trip/lamp",
+    "trip/delineator",
+    "trip/delineator",
+    "trip/delineator"
+   ],
+   "count": 16,
+   "gap": 9
+  },
+  "car_jam": {
+   "layout": "jam",
+   "models": [
+    "trip/wreck_sedan",
+    "trip/wreck_pickup",
+    "trip/cone",
+    "trip/wreck_sedan",
+    "trip/barrier"
+   ],
+   "count": 12
+  },
+  "spilled_cargo": {
+   "layout": "cluster",
+   "models": [
+    "weapon_crate",
+    "ammo_box",
+    "weapon_crate",
+    "trip/cone"
+   ],
+   "count": 12,
+   "spots": 3
+  },
+  "tire_stack": {
+   "layout": "cluster",
+   "models": [
+    "trip/barrel",
+    "trip/barrel",
+    "trip/cone"
+   ],
+   "count": 12,
+   "spots": 3
+  },
+  "drums": {
+   "layout": "cluster",
+   "models": [
+    "trip/barrel"
+   ],
+   "count": 14,
+   "spots": 4
+  },
+  "rail_posts": {
+   "layout": "road",
+   "models": [
+    "trip/guardrail"
+   ],
+   "count": 16,
+   "gap": 5
+  },
+  "blank_signs": {
+   "layout": "road",
+   "models": [
+    "trip/post_unknown",
+    "trip/delineator"
+   ],
+   "count": 12,
+   "gap": 12
+  },
+  "marker_poles": {
+   "layout": "road",
+   "models": [
+    "trip/delineator_red",
+    "trip/delineator"
+   ],
+   "count": 16,
+   "gap": 6
+  },
+  "sandbags": {
+   "layout": "cluster",
+   "models": [
+    "trip/barrier",
+    "trip/barrier",
+    "trip/fence"
+   ],
+   "count": 12,
+   "spots": 3
+  },
+  "lanterns": {
+   "layout": "scatter",
+   "models": [
+    "trip/lamp"
+   ],
+   "count": 6
+  },
+  "stakes": {
+   "layout": "scatter",
+   "models": [
+    "trip/delineator_red"
+   ],
+   "count": 16
+  },
+  "name_stakes": {
+   "layout": "scatter",
+   "models": [
+    "trip/delineator"
+   ],
+   "count": 12
+  },
+  "camp": {
+   "layout": "cluster",
+   "models": [
+    "trip/barrel",
+    "weapon_crate",
+    "trip/cone",
+    "trip/fence"
+   ],
+   "count": 10,
+   "spots": 2
+  },
+  "burnt_trucks": {
+   "layout": "jam",
+   "models": [
+    "trip/burnt_pickup",
+    "trip/burnt_sedan",
+    "trip/burnt_pickup",
+    "trip/barrier"
+   ],
+   "count": 8
+  }
+ },
+ "rewardIcon": {
+  "money": "gave:shop/coin",
+  "aug": "gave:shop/aug_roll",
+  "box": "gave:weapon_box",
+  "ammo": "gave:shop/ammo",
+  "repair": "gave:shop/upgrade",
+  "revive": "gave:shop/bandage",
+  "part": "minecraft:iron_ingot",
+  "boss": "minecraft:wither_skeleton_skull"
+ },
+ "sceneryMissing": [
+  "antenna",
+  "ash_drifts",
+  "crater_rim",
+  "dead_trees",
+  "ember_cracks",
+  "glass_patches",
+  "mannequins",
+  "mounds",
+  "pylon_parts",
+  "reeds",
+  "ruts",
+  "sunk_bus",
+  "tumbleweeds"
+ ]
+}

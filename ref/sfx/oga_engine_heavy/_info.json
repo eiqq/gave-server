@@ -1,0 +1,31 @@
+{
+ "title": "Engine-loop heavy vehicle/tank",
+ "author": "Nayckron",
+ "site": "opengameart.org",
+ "page": "https://opengameart.org/content/engine-loop-heavy-vehicletank",
+ "license": "CC BY 3.0",
+ "license_url": "https://creativecommons.org/licenses/by/3.0/",
+ "license_seen": "OpenGameArt 글 페이지 License(s) 칸: CC-BY 3.0, GPL 3.0 (http://creativecommons.org/licenses/by/3.0/, http://www.gnu.org/licenses/gpl-3.0.html)",
+ "note": "",
+ "desc": "Engine loop for a tank or a heavy vehicle. Modified from a car-loop to fit a tank engine. The pack contains a base version and 3 copies with faster speeds to emulate the different speeds of the vehicle. The pack has an WAV, MP3 and OGG format.",
+ "urls": [
+  "https://opengameart.org/sites/default/files/engine_heavy_loop_0.wav"
+ ],
+ "pack": "oga_engine_heavy",
+ "downloaded": "2026-11-12",
+ "sources": [
+  {
+   "file": "engine_heavy_loop.wav",
+   "bytes": 704300,
+   "sha256": "11b053f13c40a8ea9926b16cc8ed51c67ad90bfe9b49e80cfd974500ded6a400"
+  }
+ ],
+ "files": [
+  {
+   "file": "engine_heavy_loop.wav",
+   "orig": "engine_heavy_loop.wav",
+   "bytes": 704300,
+   "sha256": "11b053f13c40a8ea9926b16cc8ed51c67ad90bfe9b49e80cfd974500ded6a400"
+  }
+ ]
+}
