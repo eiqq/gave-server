@@ -162,7 +162,7 @@ def sounds(k: kit.Kit):
     k.sample("drip", ["lrsf_horror/bloop_drip_blood_drip_00", "lrsf_horror/bloop_drip_blood_drip_01", "lrsf_horror/bloop_drip_blood_drip_04"],
              "뚝뚝 떨어지는 즙", pitch=0.75, attenuation=24)
     k.sample("throw", ["oga_creature80b/slime_02", "oga_creature80b/slime_03"], "알을 떼어 던짐", pitch=0.8, attenuation=24, n=2)
-    k.sample("splat", ["oga_sfx100/splash_01", "oga_sfx100/splash_02"], "알이 깨짐", pitch=0.9, attenuation=16, n=2)
+    k.sample("splat", ["oga_sfx100/splash_01", "oga_sfx100/splash_02"], "알이 깨짐", pitch=0.9, attenuation=24, n=2)
     k.sample("burst", ["oga_water40/splash_04", "oga_creature80b/slime_02", "kenney_impact/impactsoft_heavy_001"], "송이가 터짐", pitch=0.6,
              attenuation=48, level=-9)
 

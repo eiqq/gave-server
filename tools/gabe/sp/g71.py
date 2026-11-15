@@ -186,7 +186,7 @@ def icon_img(k):
 def sounds(k: kit.Kit):
     k.sample("gust", "tag:wind", "거대한 날개 바람", pitch=0.6, attenuation=128)
     k.sample("flap", "tag:flap", "거대한 날갯짓", pitch=0.45, attenuation=96)
-    k.sample("scrape", "tag:scratch", "꽁지가 땅을 긁는다", pitch=0.6, attenuation=48)
+    k.sample("scrape", "tag:scratch", "꽁지가 땅을 긁는다", pitch=0.6, attenuation=64)
 
 
 def phrases():

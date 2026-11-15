@@ -32,7 +32,8 @@ import net.kyori.adventure.text.Component;
 
 /**
  * 수류탄(좀비런 Grenades 를 옮김): F 로 던짐(눈높이로 던지면 20 블록 안팎, 위로 던지면 더 멀리), 튕기며 구르다 던진 뒤 2초에 터짐.
- * 반경 6 안에서 폭발 자리에서 보이는(블록에 안 가린) 게이브에게 거리 감쇠 피해(가운데 120, 가장자리 25, 종류 EXPLOSION). 사람은 안 다침.
+ * 반경 6 안에서 폭발 자리에서 보이는(블록에 안 가린) 게이브에게 거리 감쇠 피해(가운데 120, 가장자리 25, 종류 EXPLOSION, 게이브 체력 배율의
+ * 제곱근만큼 커짐). 사람은 안 다침. 맞힘과 처치는 총과 같은 길(Guns.credit)로 기록해 처치 증강이 터진다.
  * 16 블록 안 사람은 화면이 흔들림. 가까운 사람은 폭발음, 먼 사람(48 블록 밖)은 먼 폭발음.
  * 날아가는 수류탄은 모드 모델(grenade_thrown, 실제 크기)을 진행 방향 옆 축으로 굴려 보인다.
  * <p>
@@ -199,6 +200,8 @@ public final class Grenades implements Listener {
         Vector e0 = eye0.toVector();
         HitTargets t = host.targets();
         int hits = 0, kills = 0;
+        // 판 크기와 웨이브를 조금 따라간다(게이브 체력 배율의 제곱근): 30명 판에서도 가운데 한 무리는 잡히게, 혼자 판에서는 그대로
+        double scale = Math.sqrt(guns.crowdHp());
         for (Object o : t.inRadius(at, RADIUS + 1)) {
             Vector c = t.center(o);
             if (c == null) continue;
@@ -215,7 +218,11 @@ public final class Grenades implements Listener {
             Vector dir = c.clone().subtract(at.toVector());
             dir = dir.lengthSquared() < 1e-6 ? new Vector(0, 1, 0) : dir.normalize();
             hits++;
-            if (t.damage(o, new Damage(falloff(best), DamageType.EXPLOSION, n.owner, c.clone(), dir, "grenade", 0))) kills++;
+            double amount = falloff(best) * scale;
+            boolean died = t.damage(o, new Damage(amount, DamageType.EXPLOSION, n.owner, c.clone(), dir, "grenade", 0));
+            if (died) kills++;
+            // 처치 셈, 처치 회복과 현상금 같은 증강 알림도 총과 같은 길로
+            guns.credit(n.owner, o, amount, died, null, false);
         }
         // 흔들림: 16 블록 안(관전자 빼고)
         for (Player o : w.getPlayers()) {
@@ -223,12 +230,6 @@ public final class Grenades implements Listener {
             double d = o.getLocation().distance(at);
             if (d < 16) shake(o, (float) (4.0 * (1 - d / 16)));
         }
-        Guns.Arms a = n.owner == null ? null : guns.arms(n.owner);
-        if (a != null && kills > 0) {
-            a.kills += kills;
-            a.killAt = host.now();
-        }
-        if (a != null && hits > 0) a.hitAt = host.now();
         lastLog = String.format("첫착지=%.1f 터진자리=%.1f 튕김=%d 맞힘=%d 죽임=%d", n.firstLand, Math.hypot(at.getX() - n.from.getX(), at.getZ() - n.from.getZ()),
             n.bounces, hits, kills);
         host.plugin().getLogger().info("[수류탄] " + lastLog);

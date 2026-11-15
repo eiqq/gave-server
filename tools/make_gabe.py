@@ -12,8 +12,10 @@ python -X utf8 tools/make_gabe.py --only g05 --preview   build/gabe/preview/g05.
 
 나오는 것
 - build/gabe/sp/<종>/        종마다 조각(팩 파일, looks, 소리, 자막, 아이콘, 덮개). --only 로 그 종만 새로 굽는다.
-                             build/gabe/sp/common/ 은 엔진 공용 자산(tools/gabe/common.py: 소리 gabe.bite, gabe.split, 래그돌 사체의
-                             막대기 마디 모델 gave:gabe/common_rod). common.py 가 조각보다 새로우면 --only 일 때도 다시 굽는다
+                             build/gabe/sp/common/ 은 엔진 공용 자산(tools/gabe/common.py: 소리 gabe.bite, gabe.split, 보탠 크리처 소리
+                             gabe.cry_* 등(tools/gabe/flesh.py), 래그돌 사체의 막대기 마디 모델 gave:gabe/common_rod).
+                             common.py 나 flesh.py 가 조각보다 새로우면 --only 일 때도 다시 굽는다.
+                             data/gabe_voice.json(종마다 보탠 소리 별칭)을 고치면 종 전체를 다시 굽는다
 - build/gabe/pack_layer/     모든 조각을 합친 층(build_pack.py 가 소품 층 다음, pack_src 앞에 얹음)
     assets/gave/items/gabe/<모델>.json, models/item/gabe/*.json, textures/item/gabe/**.png, sounds/gabe/**.ogg,
     sounds.json(소리 사건 gabe.<종>.<이름>), lang/ko_kr.json, en_us.json(자막), gabe_looks.json(모델별 틴트 칸 역할표, Look.java 가 읽음)
@@ -295,7 +297,8 @@ def main():
     FRAG.mkdir(parents=True, exist_ok=True)
     # 엔진 공용 자산(tools/gabe/common.py: 공용 소리, 래그돌 막대기 마디 모델): 전부 구울 때, 조각이 없거나 common.py 보다 낡았을 때
     common_out = FRAG / "common" / "looks.json"
-    if not a.only or not common_out.is_file() or common_out.stat().st_mtime < (TOOLS / "gabe/common.py").stat().st_mtime:
+    newest = max((TOOLS / "gabe" / f).stat().st_mtime for f in ("common.py", "flesh.py"))
+    if not a.only or not common_out.is_file() or common_out.stat().st_mtime < newest:
         only = ["common"] + only
     for key in only:
         try:

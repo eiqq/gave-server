@@ -172,9 +172,10 @@ public class Chase extends Special {
     /** 서 있는 사람을 판 위로(뒤를 보게). */
     private void board() {
         List<Player> ps = standing();
-        int i = 0;
+        // 한 줄 자리 수는 판 폭에서(폭 9 면 다섯): 판 오른쪽 절반도 처음부터 쓴다
+        int i = 0, cols = Math.max(1, (int) ((px1 - px0 - 1.4) / 1.8) + 1);
         for (Player p : ps) {
-            double x = px0 + 0.7 + (i % 3) * 1.8, z = pz0 + 1.2 + (i / 3) * 1.6;
+            double x = px0 + 0.7 + (i % cols) * 1.8, z = pz0 + 1.2 + (i / cols) * 1.6;
             if (z > pz1 - 0.5) z = pz0 + 1.2 + rnd.nextDouble() * (pz1 - pz0 - 2);
             p.teleport(new Location(game.world, x, Plaza.FLOOR_Y + 0.05, z, 0f, 5f));
             i++;
@@ -289,7 +290,9 @@ public class Chase extends Special {
                 drops++;
                 continue;
             }
-            if ((now - h.since) % 20 == 0 && now > h.since && tr != null) truckDealt += tr.hitFrac(Tune.HANG_TRUCK, g, "cause_sp_chase_hang");
+            // 매달린 동안 초당 HANG_TRUCK: 무는 피해(Truck.biteDamage)처럼 사람 수^TRUCK_POW 로 나눈다(혼자면 그대로, 떼가 큰 판에서 트럭이 녹지 않게)
+            if ((now - h.since) % 20 == 0 && now > h.since && tr != null)
+                truckDealt += tr.hitFrac(Tune.HANG_TRUCK / Math.pow(trip.people(), Trip.Tune.TRUCK_POW), g, "cause_sp_chase_hang");
             if (now - h.since >= Tune.HANG_TICKS) {
                 // 기어오름: 판 가장자리 안쪽으로
                 it.remove();
@@ -310,6 +313,8 @@ public class Chase extends Special {
             if (s.life != Life.ALIVE || s.grabbedBy == null || fallen.containsKey(p.getUniqueId())) continue;
             Location l = p.getLocation();
             if (onPlatform(l.toVector(), 1.5)) continue;
+            // 마지막 서 있는 사람은 안 가둔다(가두면 다음 틱에 '서 있는 사람 0' 으로 판이 끝남: 숨죽이기, 끌려간 동료와 같은 규칙)
+            if (standing().size() <= 1) continue;
             // 판 밖으로 끌려감: 그 게이브에 갇혀 뒤로 흘러간다
             Gabe by = s.grabbedBy;
             game.players.trap(p, by);

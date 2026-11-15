@@ -139,16 +139,25 @@ public final class Stampede extends Special {
                 g.noReward = false;
                 h.members.add(g);
                 h.lane.put(g, lat);
-                if (h.heads.size() < Tune.HERD_HEADS && h.rows == 0 || h.heads.size() < Tune.HERD_HEADS && h.rows == 1) {
-                    h.heads.add(g);
-                    if (g.body != null) {
-                        g.body.look.palette |= Look.PAL_GOLD;
-                        g.body.look.open = true;
-                    }
-                }
+                if (h.heads.size() < Tune.HERD_HEADS && h.rows <= 1) head(h, g);
             }
         }
         if (h.rows >= rowsAll || h.made >= h.want) h.spawnedAll = true;
+        // 화면 예산이 차서 앞 두 줄이 하나도 못 나왔으면 나온 것 가운데 앞에서부터 머리로(머리가 없으면 가를 길이 없어 트럭이 그냥 받힌다)
+        if (h.spawnedAll && h.heads.isEmpty()) for (Gabe g : h.members) {
+            if (h.heads.size() >= Tune.HERD_HEADS) break;
+            if (g.dead || g.removed) continue;
+            head(h, g);
+        }
+    }
+
+    /** 떼 머리로 찍음(금빛, 눈 뜸). */
+    private static void head(Herd h, Gabe g) {
+        h.heads.add(g);
+        if (g.body != null) {
+            g.body.look.palette |= Look.PAL_GOLD;
+            g.body.look.open = true;
+        }
     }
 
     private void run(Herd h, long now) {

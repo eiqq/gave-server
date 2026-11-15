@@ -379,6 +379,11 @@ def patch_credits():
 
 def write_info():
     old = json.loads((REF / "_info.json").read_text(encoding="utf-8")) if (REF / "_info.json").is_file() else {}
+    # 기록된 원본이 하나라도 없으면(ref/ 를 다시 받는 중인 PC) 기록을 다시 쓰지 않는다: 없는 곡이 _info.json 에서 빠져 출처 기록이 줄어든다
+    gone = [v["file"] for v in old.values() if not (ROOT / v["file"]).is_file()]
+    if gone:
+        print(f"ref/bgm/_info.json 은 그대로 둠: 기록된 원본 {len(gone)}개가 없다({gone[0]} ...). python -I -X utf8 tools/fetch_ref.py bgm")
+        return
     out = {}
     for src, isrc in SOURCES.items():
         f = src_path(src)

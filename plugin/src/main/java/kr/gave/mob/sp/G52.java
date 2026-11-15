@@ -349,7 +349,7 @@ public final class G52 extends Gabe implements DeathBorn {
         }
         tracer(from, end, dir, main);
         if (hitP != null) {
-            hit(hitP, spec.damage() * POWER * VS_PLAYER * Guns.falloff(best, spec.range()), "cause_g52");
+            hit(hitP, spec.damage() / Guns.singleShot(kind) * POWER * VS_PLAYER * Guns.falloff(best, spec.range()), "cause_g52");
         } else if (rb != null && rb.getHitBlock() != null && main) {
             game.shotFx.hit(end.toLocation(game.world), rb.getHitBlockFace(), rb.getHitBlock().getType(), dir, false);
         }

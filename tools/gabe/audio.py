@@ -616,7 +616,9 @@ def credit_lines():
         return []
     packs = json.loads(SFX_LIB.read_text(encoding="utf-8"))["packs"]
     by = [k for k, p in packs.items() if not p["license"].startswith("CC0")]
-    L = ["[7b] 받은 효과음(assets/gave/sounds/director, sfx, 음악 신호 boss_sting, 종의 *_s<번호>. tools/make_director_sounds.py, 키트 k.sample)",
+    L = ["[7b] 받은 효과음(assets/gave/sounds/director, sfx, 음악 신호 boss_sting, 종의 *_s<번호>. tools/make_director_sounds.py, 키트 k.sample.",
+         "  보탠 크리처 소리 gabe/common 의 울음과 far 의 먼 부름, 대답 가운데 일부 변형은 oga_giggle, oga_laughs, oga_laughter, oga_humming 을",
+         "  음절로 끊어 뒤집거나 높이를 바꿔 겹친 것: tools/gabe/flesh.py)",
          "  원본은 아래 묶음에서 받았다. 고친 내용: 자름, 앞뒤 무음 자름, 크기 맞춤, 모노로 바꿈(자리 소리), libvorbis 로 다시 인코딩, 높이는",
          "  sounds.json pitch 로 바꿈. 원작자가 이 팩을 만들거나 승인한 것이 아니다.",
          "  CC BY(저작자 표시 필요): " + (", ".join(by) if by else "없음") + ". 나머지는 CC0(표시 의무 없음, 고마움으로 적음)."]

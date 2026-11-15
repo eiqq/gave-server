@@ -16,9 +16,12 @@ import net.kyori.adventure.text.format.TextColor;
 import net.kyori.adventure.text.format.TextDecoration;
 
 /**
- * 굴린 총 하나: 종류(모델, 소리, 반동은 종류 그대로) + 등급 + 굴린 스탯 배율 + 특성 + 강화 단계.
- * 유효 총 = Guns.SPECS(종류) x {@link #mods()} x GunHost.mods(p). 권총은 굴리지 않는 기본 권총({@link #basic})이고 강화만 된다.
- * 강화 단계는 {@link #upgrade()} 로만 바꾼다(ver 가 올라 Guns 가 유효 총을 다시 만듦).
+ * 총 하나: 종류 + 모델 + 등급 + 강화 단계. 굴리는 것은 종류, 모델, 등급뿐이고 성능은 그 셋으로 정해진다(2026-11-14 사용자 '같은 등급이면 성능
+ * 통일'): 등급 배율은 {@link #GRADE} 한 벌, 특성은 모델마다 정해진 둘({@link #traitsOf}: 영웅은 첫째, 전설은 둘 다). 같은 모델 같은 등급이면
+ * 누가 뽑아도 같은 총이다(사용자 정정: '같은 총'은 같은 모델. 모델마다 화력이 다른 것은 그 모델의 개성, Guns.effective).
+ * 유효 총 = Guns.SPECS(종류) x 모델 배율(Models) x {@link #mods()} x GunHost.mods(p).
+ * 권총은 굴리지 않는 기본 권총({@link #basic})이고 강화만 된다. 강화 단계는 {@link #upgrade()}, {@link #inherit} 로만 바꾼다
+ * (ver 가 올라 Guns 가 유효 총을 다시 만듦). 강화는 총을 바꿔도 그대로 따라간다({@link #INHERIT} 1).
  */
 public final class Gun {
 
@@ -58,7 +61,7 @@ public final class Gun {
         }
     }
 
-    /** 특성('더 잘하게' 만). 영웅 1개, 전설 2개 */
+    /** 특성('더 잘하게' 만). 영웅 1개, 전설 2개. 어떤 특성인지는 모델마다 정해져 있다({@link #traitsOf}) */
     public enum Trait {
         /** 맞은 자리 반경 1.8 작은 폭발(그 발 피해 45%, 한 발에 한 번) */
         EXPLOSIVE("폭발탄"),
@@ -86,11 +89,17 @@ public final class Gun {
             return null;
         }
 
-        /** 이 쏘는 방식에 뜻이 있는 특성인가(불길, 냉기, 번개, 폭발에는 관통이 없고, 불길과 냉기에는 폭발탄, 연쇄가 없음, 레일건은 이미 다 꿰뚫음) */
+        /**
+         * 이 쏘는 방식에서 실제로 일하는 특성인가(Guns.traits, Arsenal 의 구현 기준). 불길, 냉기: 관통, 폭발탄, 연쇄 없음. 번개: 관통 없음.
+         * 유탄: 관통, 연쇄 없음. 로켓: 관통, 연쇄 없음, 넉백은 늘 밀치므로 뺌. 레일건: 이미 다 꿰뚫고 폭발탄, 연쇄는 구현이 없음
+         */
         public boolean fits(Guns.Fire f) {
             return switch (f) {
                 case FLAME, FREEZE -> this != PIERCE && this != EXPLOSIVE && this != CHAIN;
-                case CHAIN, LOB, ROCKET, CHARGE -> this != PIERCE;
+                case CHAIN -> this != PIERCE;
+                case LOB -> this != PIERCE && this != CHAIN;
+                case ROCKET -> this != PIERCE && this != CHAIN && this != KNOCKBACK;
+                case CHARGE -> this != PIERCE && this != CHAIN && this != EXPLOSIVE;
                 default -> true;
             };
         }
@@ -98,8 +107,11 @@ public final class Gun {
 
     /** 강화 상한(2026-11-11 10 → 20: 늦은 판에 돈 쓸 곳. 값은 단계마다 1.25 배로 계속 오름, Shop.Ware.UP_GUN) */
     public static final int MAX_LEVEL = 20;
-    /** 새로 뽑은 총(상점 뽑기, 꾸러미 같은 다른 데서 생긴 총)이 바꿀 때 이어받는 지금 총 강화 단계 몫 */
-    public static final double INHERIT = 0.5;
+    /**
+     * 새로 뽑은 총(상점 뽑기, 꾸러미 같은 다른 데서 생긴 총)이 바꿀 때 이어받는 지금 총 강화 단계 몫. 1 = 그대로(2026-11-14: 강화는 총이 아니라
+     * 사람의 주무기 강화처럼 따라간다. 0.5 였을 때는 중반부터 강화에 쓴 돈이 아까워 총을 못 바꿨다)
+     */
+    public static final double INHERIT = 1.0;
     /** 강화 단계마다 피해 +8% */
     public static final double LEVEL_DMG = 0.08;
     public static final double LIFESTEAL_HP = 5, CRIT_ADD = 0.15;
@@ -113,9 +125,9 @@ public final class Gun {
     /** 모델 키(소품 층 gave:&lt;키&gt;, Models 표): 같은 종류 안에서 어떤 총인가(이름, 성능 배율, 총소리, 그림). 종류 키면 그 종류 기본 모델 */
     public final String model;
     public final Rarity rarity;
-    /** 굴린 배율(1 = 바탕 그대로). reload 는 시간 배율(작을수록 빠름), spread 는 작을수록 곧음 */
+    /** 등급 배율(1 = 바탕 그대로, {@link #GRADE}). reload 는 시간 배율(작을수록 빠름), spread 는 작을수록 곧음 */
     public final double damage, rate, mag, reload, spread, range;
-    /** 굴린 관통 더하기 */
+    /** 등급 관통 더하기 */
     public final int pierce;
     public final Set<Trait> traits;
     private int level, ver;
@@ -144,16 +156,6 @@ public final class Gun {
     /** 굴리지 않은 기본 총(일반, 배율 1, 특성 없음): 권총, 시험 훅 '총 KIND' */
     public static Gun basic(Kind k) {
         return new Gun(k, Rarity.COMMON, 1, 1, 1, 1, 1, 1, 0, EnumSet.noneOf(Trait.class), 0);
-    }
-
-    /** 굴리지 않은 기본 총, 모델을 정해서(시험 훅 '총모델') */
-    public static Gun basic(Kind k, String model) {
-        return new Gun(k, model, Rarity.COMMON, 1, 1, 1, 1, 1, 1, 0, EnumSet.noneOf(Trait.class), 0);
-    }
-
-    /** 같은 총의 모델을 바꾼 복사(굴린 스탯, 특성, 등급 그대로, 강화 0) */
-    public Gun withModel(String m) {
-        return new Gun(kind, m, rarity, damage, rate, mag, reload, spread, range, pierce, traits, 0);
     }
 
     public int level() {
@@ -186,7 +188,7 @@ public final class Gun {
         return true;
     }
 
-    /** 이 총의 배율(굴린 스탯 x 강화 단계 x 특성 관통, 치명). 예비탄은 탄창 배율과 같이 움직임(탄창 수가 같게) */
+    /** 이 총의 배율(등급 x 강화 단계 x 특성 관통, 치명). 예비탄은 탄창 배율과 같이 움직임(탄창 수가 같게) */
     public GunMods mods() {
         return new GunMods(damage * (1 + LEVEL_DMG * level), rate, mag, reload, spread, 1, range, pierce + (has(Trait.PIERCE) ? PIERCE_ADD : 0), 0,
                 has(Trait.CRIT) ? CRIT_ADD : 0, mag);
@@ -197,40 +199,60 @@ public final class Gun {
         return Guns.effective(kind, this, GunMods.NONE);
     }
 
-    // ------------------------------------------------------------------ 굴리기
+    // ------------------------------------------------------------------ 등급, 특성(정해진 값)
 
-    /** 등급마다 스탯 범위 [낮음, 높음]: 피해, 연사, 탄창, 재장전(시간), 퍼짐, 사거리 */
-    private static final double[][][] RANGE = {
-        // 일반
-        {{0.90, 1.05}, {0.95, 1.05}, {0.90, 1.10}, {0.95, 1.10}, {0.90, 1.10}, {0.95, 1.05}},
-        // 희귀
-        {{1.00, 1.15}, {1.00, 1.10}, {1.00, 1.25}, {0.85, 1.00}, {0.80, 1.00}, {1.00, 1.10}},
-        // 영웅
-        {{1.10, 1.28}, {1.05, 1.15}, {1.10, 1.40}, {0.75, 0.92}, {0.70, 0.90}, {1.05, 1.20}},
-        // 전설
-        {{1.22, 1.42}, {1.10, 1.22}, {1.25, 1.60}, {0.65, 0.85}, {0.55, 0.80}, {1.10, 1.30}}};
-    /** 등급마다 관통 +1 확률(전설은 늘 +1, 그 위로 30% 에 +1 더) */
-    private static final double[] PIERCE_CHANCE = {0, 0.15, 0.4, 1.0};
+    /**
+     * 등급마다 정해진 배율: 피해, 연사, 탄창, 재장전(시간), 퍼짐, 사거리. 한 대상 지속 화력으로 일반 1 : 희귀 1.24 : 영웅 1.53 : 전설 1.88 쯤
+     * (소총 기준: 등급 사이가 겹치지 않고 한 단계마다 눈에 띄게). tools/balance_sim.py 가 이 표를 읽는다
+     */
+    private static final double[][] GRADE = {
+        {1.00, 1.00, 1.00, 1.00, 1.00, 1.00},
+        {1.14, 1.03, 1.10, 0.93, 0.90, 1.05},
+        {1.30, 1.06, 1.20, 0.86, 0.80, 1.10},
+        {1.48, 1.10, 1.30, 0.80, 0.70, 1.15}};
+    /** 등급마다 관통 더하기(관통이 뜻 있는 방식만: 광선, 점사, 회전, 화살, 빛줄기) */
+    private static final int[] GRADE_PIERCE = {0, 0, 1, 1};
 
-    /** k 종류, r 등급으로 굴림(특성: 영웅 1, 전설 2, 서로 다름) */
-    public static Gun roll(Kind k, Rarity r, Random rnd) {
-        return roll(k, Models.pick(k, rnd), r, rnd);
+    private static boolean pierces(Guns.Fire f) {
+        return f == Guns.Fire.HITSCAN || f == Guns.Fire.BURST || f == Guns.Fire.SPIN || f == Guns.Fire.BOLT || f == Guns.Fire.BEAM;
     }
 
-    /** k 종류의 모델 model 을 r 등급으로 굴림 */
-    public static Gun roll(Kind k, String model, Rarity r, Random rnd) {
-        double[][] t = RANGE[r.ordinal()];
-        double[] v = new double[6];
-        for (int i = 0; i < 6; i++) v[i] = round2(t[i][0] + rnd.nextDouble() * (t[i][1] - t[i][0]));
-        int pierce = rnd.nextDouble() < PIERCE_CHANCE[r.ordinal()] ? 1 : 0;
-        if (r == Rarity.LEGENDARY && rnd.nextDouble() < 0.3) pierce++;
-        int nTraits = r == Rarity.LEGENDARY ? 2 : r == Rarity.EPIC ? 1 : 0;
-        List<Trait> pool = new ArrayList<>(List.of(Trait.values()));
+    /**
+     * 그 모델의 특성: 그 방식에 맞는({@link Trait#fits}) 특성 가운데 모델 키로 정해지는 둘. 영웅은 첫째, 전설은 둘 다, 그 아래는 없음.
+     * 무작위가 아니라 모델의 개성이다(같은 모델은 늘 같은 특성). 특성 종류나 fits 를 바꾸면 모델마다 특성이 다시 정해진다
+     */
+    public static Set<Trait> traitsOf(Kind k, String model, Rarity r) {
+        Set<Trait> out = EnumSet.noneOf(Trait.class);
+        int n = r == Rarity.LEGENDARY ? 2 : r == Rarity.EPIC ? 1 : 0;
+        if (n == 0) return out;
         Guns.Fire fire = Guns.mode(k).fire();
-        pool.removeIf(tr -> !tr.fits(fire));
-        Set<Trait> traits = EnumSet.noneOf(Trait.class);
-        for (int i = 0; i < nTraits && !pool.isEmpty(); i++) traits.add(pool.remove(rnd.nextInt(pool.size())));
-        return new Gun(k, model, r, v[0], v[1], v[2], v[3], v[4], v[5], pierce, traits, 0);
+        List<Trait> pool = new ArrayList<>();
+        for (Trait t : Trait.values()) if (t.fits(fire)) pool.add(t);
+        if (pool.isEmpty()) return out;
+        int h = (model == null ? k.name() : model).hashCode();
+        int first = Math.floorMod(h, pool.size());
+        out.add(pool.get(first));
+        if (n > 1 && pool.size() > 1) out.add(pool.get((first + 1 + Math.floorMod(h / 31, pool.size() - 1)) % pool.size()));
+        return out;
+    }
+
+    /** k 종류의 모델 model, r 등급 총(같은 인자면 늘 같은 성능) */
+    public static Gun of(Kind k, String model, Rarity r) {
+        double[] g = GRADE[r.ordinal()];
+        String m = model == null ? Models.defaultKey(k) : model;
+        return new Gun(k, m, r, g[0], g[1], g[2], g[3], g[4], g[5], pierces(Guns.mode(k).fire()) ? GRADE_PIERCE[r.ordinal()] : 0, traitsOf(k, m, r), 0);
+    }
+
+    // ------------------------------------------------------------------ 굴리기(종류, 모델, 등급만)
+
+    /** k 종류, r 등급: 그 종류 안 모델을 고르게 굴림 */
+    public static Gun roll(Kind k, Rarity r, Random rnd) {
+        return of(k, Models.pick(k, rnd), r);
+    }
+
+    /** k 종류의 모델 model 을 r 등급으로(굴릴 것이 없다: {@link #of} 와 같음. 옛 호출 꼴을 지킴) */
+    public static Gun roll(Kind k, String model, Rarity r, Random rnd) {
+        return of(k, model, r);
     }
 
     /**
@@ -314,10 +336,6 @@ public final class Gun {
         return Rarity.COMMON;
     }
 
-    private static double round2(double v) {
-        return Math.round(v * 100) / 100.0;
-    }
-
     // ------------------------------------------------------------------ 보이기
 
     /** 종류 한국어 이름 */
@@ -344,21 +362,35 @@ public final class Gun {
     private static final TextColor GOOD = TextColor.color(0x7CF07C), BAD = TextColor.color(0xFF7A7A), PLAIN = TextColor.color(0xD8D8D8),
         DIM = TextColor.color(0x8A8A8A), TRAIT = TextColor.color(0xFFC53D);
 
+    /** 한 대상 지속 화력(초당 피해: 탄창을 다 쏘고 재장전까지 한 바퀴, 사람 증강 빼고). 상점 '화력' 줄 */
+    public double power() {
+        return Guns.sustained(spec());
+    }
+
     /**
-     * 상점 스탯 줄. other 가 있으면 그 총보다 나은 값은 초록, 못한 값은 빨강(같으면 흰색). 사람 증강은 빼고 총끼리만 견줌
+     * 상점 스탯 줄. 맨 위 '화력'(한 대상 지속 초당 피해)은 어떤 총과도 견줘 색을 매기고(나으면 초록, 못하면 빨강), 그 아래 값들은 other 가
+     * 같은 종류일 때만 색을 매긴다(다른 종류끼리는 뜻이 달라 견줄 수 없다: 화염방사기 '피해 5'가 소총 14 보다 못한 것이 아님). 그 방식에서
+     * 쓰지 않는 값(불길의 퍼짐, 레일건 관통, 유탄 사거리)은 줄을 내지 않는다. 연사는 실제 박자(점사 쉼, 모으기 포함), 재장전은 빈 총을 다
+     * 채우는 시간(산탄총은 한 발씩 넣는 시간의 합). 사람 증강은 빼고 총끼리만 견줌
      */
     public List<Component> lore(Gun other) {
         Spec s = spec(), o = other == null ? null : other.spec();
+        Spec same = o != null && other.kind == kind ? o : null;
+        Guns.Fire fire = Guns.mode(kind).fire();
         List<Component> out = new ArrayList<>();
+        String how = Guns.modeLine(s);
+        if (how != null) out.add(Component.text(how, DIM).decoration(TextDecoration.ITALIC, false));
+        out.add(line("화력", String.valueOf(Math.round(Guns.sustained(s))), Guns.sustained(s), o == null ? Double.NaN : Guns.sustained(o), true));
         out.add(line("피해", fmt(s.damage()) + (s.pellets() > 1 ? " x" + s.pellets() : ""), s.damage() * s.pellets(),
-            o == null ? Double.NaN : o.damage() * o.pellets(), true));
-        out.add(line("연사", fmt(s.rps()), s.rps(), o == null ? Double.NaN : o.rps(), true));
-        out.add(line("탄창", String.valueOf(s.mag()), s.mag(), o == null ? Double.NaN : o.mag(), true));
-        double rl = s.reload() / 20.0;
-        out.add(line("재장전", fmt(rl) + "초", rl, o == null ? Double.NaN : o.reload() / 20.0, false));
-        out.add(line("퍼짐", fmt(s.spread()), s.spread(), o == null ? Double.NaN : o.spread(), false));
-        if (s.pierce() > 0 || o != null && o.pierce() > 0) out.add(line("관통", String.valueOf(s.pierce()), s.pierce(), o == null ? Double.NaN : o.pierce(), true));
-        out.add(line("사거리", String.valueOf(Math.round(s.range())), s.range(), o == null ? Double.NaN : o.range(), true));
+            same == null ? Double.NaN : same.damage() * same.pellets(), true));
+        out.add(line("연사", fmt(Guns.shotsPerSecond(s)), Guns.shotsPerSecond(s), same == null ? Double.NaN : Guns.shotsPerSecond(same), true));
+        out.add(line("탄창", String.valueOf(s.mag()), s.mag(), same == null ? Double.NaN : same.mag(), true));
+        double rl = Guns.reloadTicks(s) / 20.0;
+        out.add(line("재장전", fmt(rl) + "초", rl, same == null ? Double.NaN : Guns.reloadTicks(same) / 20.0, false));
+        if (s.spread() > 0) out.add(line("퍼짐", fmt(s.spread()), s.spread(), same == null ? Double.NaN : same.spread(), false));
+        if (pierces(fire) && s.pierce() > 0) out.add(line("관통", String.valueOf(s.pierce()), s.pierce(), same == null ? Double.NaN : same.pierce(), true));
+        if (fire != Guns.Fire.LOB && fire != Guns.Fire.ROCKET)
+            out.add(line("사거리", String.valueOf(Math.round(s.range())), s.range(), same == null ? Double.NaN : same.range(), true));
         for (Trait t : traits) out.add(Component.text(t.ko, TRAIT).decoration(TextDecoration.ITALIC, false));
         return out;
     }

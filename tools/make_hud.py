@@ -7,7 +7,7 @@ python -X utf8 tools/make_hud.py [--preview build/hud/preview.png] [--mock build
   칸 표(SLOTS)와 팔레트(PALETTE)의 이름은 kr.gave.game.Hud 가 HudLine.slot / pal 로 부른다. 칸 차례 = 그리는 차례(덮개가 맨 밑).
 - 총, 수류탄 그림은 소품 층(build/props/pack_layer, 읽기만)의 모드 모델을 옆에서 그린 실루엣(tools/props/vmodel.py).
   소모품 아이콘과 동전은 총 담당 make_shop_icons.py 가 그린 pack_src/assets/gave/textures/item/shop/*.png(읽기만, 없으면 건너뜀).
-  글자는 바닐라 ascii.png(1배, 2배). 막대, 고리, 적중 표시, 점, 무한, 방향 화살표는 셰이더가 그린다(글리프 텍셀에는 자리와 모양 번호만).
+  글자는 바닐라 ascii.png(1배 hud_s, 2배 hud_m, 이름용 1배 hud_n). hud_s, hud_m 의 숫자만 따로 그린 그림(digits1.png, digits2.png). 막대, 고리, 적중 표시, 점, 무한, 방향 화살표는 셰이더가 그린다(글리프 텍셀에는 자리와 모양 번호만).
 - 한국어 글귀(phrases): data/phrases/*.json({키: 글})과 data/bestiary.json 종 이름(키 name_g01 .. name_g55)을 Galmuri11 Bold
   (art/fonts, OFL 1.1)로 미리 그린 그림 글리프. 그림 이름 = 글귀 키(소문자), 240 텍셀보다 넓으면 키.2, 키.3 으로 나눈다.
 - 종 아이콘: build/gabe/icons/<종>.png(64x64, make_gabe 가 만듦) 하나를 세 크기 글리프 ic_l_<종>(20 GUI, 죽은 이유 카드),
@@ -39,6 +39,9 @@ from pathlib import Path
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
+from mcjar import client_jar  # 26.3 클라 jar 를 공식 런처 자리 말고도 찾는다(GV_CLIENT_JAR, fabric-loom 캐시. 공식 자리에 있으면 예전과 같음)
+from make_shop_ui import ART  # 상점 값 숫자(HUD 1배 숫자도 같은 그림. 불러도 실행되는 코드 없음)
+
 ROOT = Path(__file__).resolve().parent.parent
 PACK = ROOT / "pack_src"
 SRC = ROOT / "pack_hud"
@@ -47,7 +50,7 @@ GABE = ROOT / "build/gabe"  # 게이브 몹 층 산출물(팩 담당 make_gabe, 
 ICON_DIR = GABE / "icons"
 COVERS_JSON = GABE / "covers.json"
 SHOP_TEX = PACK / "assets/gave/textures/item/shop"  # 총 담당 make_shop_icons.py 몫(읽기만)
-JAR = Path(os.environ.get("APPDATA", "")) / ".minecraft/versions/26.3/26.3.jar"
+JAR = client_jar()  # tools/mcjar.py: 공식 런처로 26.3 을 켠 적 없는 PC 에서도 돌게
 VANILLA = Path.home() / ".cache/mc-shader-vanilla/26.3/assets/minecraft/shaders/core"
 JAVA_OUT = ROOT / "build/wip/hud/plugin/src/main/java/kr/gave/hud/HudSpec.java"
 CHECK = Path.home() / ".claude/skills/minecraft-shader/scripts/check_shaders.py"
@@ -269,7 +272,7 @@ OUT = Out()
 PROVIDERS = []  # gave:hud 글꼴 제공자(펜 이동 다음에)
 IMAGES = []  # (이름, 글자, 전진 폭, 잉크 폭 GUI, 높이, ascent)
 IMAGE_FILE = {}  # 이름 → 그림 파일(TEX 안 상대 이름, 같은 그림을 여러 크기로 쓰는 아이콘은 하나)
-SHAPES = {}  # 이름 → (첫 글자, 전진 폭, 높이, ascent)
+SHAPES = {}  # 이름 → (첫 글자, 전진 폭, 높이, ascent, 글자 수)
 COVERS = []  # 덮개 키
 ICONS = []  # 아이콘이 있는 종 키(g01 ..)
 # 그림 글자 자리: U+E100..E3FF 다음 U+E600..F8FF(E400..E5FF 는 모양 묶음, E000..E01F 는 펜 이동)
@@ -321,8 +324,7 @@ def add_sheet(name, cells, cols, height, ascent, first):
     assert cw <= 240 and chh <= 240
     assert re.fullmatch(r"[a-z0-9_.-]+", name) and 0 <= ascent <= height, name
     assert 0xE400 <= first and first + len(cells) <= 0xE600, f"모양 묶음 {name} 글자 자리는 U+E400..E5FF"
-    for other, (f2, *_r) in SHAPES.items():
-        n2 = 64 if other.startswith(("bar_", "ring_")) else 1
+    for other, (f2, *_r, n2) in SHAPES.items():
         assert first + len(cells) <= f2 or f2 + n2 <= first, f"모양 묶음 {name} 과 {other} 글자 자리가 겹침"
     rows = -(-len(cells) // cols)
     sheet = Image.new("RGBA", (cw * cols, chh * rows), (0, 0, 0, 0))
@@ -334,7 +336,7 @@ def add_sheet(name, cells, cols, height, ascent, first):
         chars.append(row)
     OUT.png(f"{TEX}/{name}.png", sheet)
     PROVIDERS.append({"type": "bitmap", "file": f"gave:font/hud/{name}.png", "height": height, "ascent": ascent, "chars": chars})
-    SHAPES[name] = (first, advance(cells[0], height), height, ascent)
+    SHAPES[name] = (first, advance(cells[0], height), height, ascent, len(cells))
 
 
 # ---------------------------------------------------------------- 그림 도우미
@@ -387,7 +389,105 @@ def glyph_img(img, h_gui, pad_bottom=0, w_gui=None):
     return im
 
 
-# ---------------------------------------------------------------- 글자(바닐라 ascii.png 를 1배, 2배로)
+# ---------------------------------------------------------------- 글자(바닐라 ascii.png 를 1배, 2배로. 숫자만 따로 그린 그림)
+# 바닐라 숫자는 7막대 같아 잘 안 읽혀(유저, 2026-11-14) hud_s, hud_m 의 숫자와 HUD 가 숫자 곁에 쓰는 기호만 바꾼다. hud_n 은 바닐라 1배 그대로(사람 이름, 크레딧).
+# 펜 이동은 바닐라와 같다(1배 6, 2배 11, : 3): Java 자리 계산(HudSpec.ADV_*)이 그대로다. 좁은 1 은 칸 오른쪽 끝 열에 알파 1 텍셀(MARK)을 둬 폭을 맞춘다
+# (26.3 BitmapProvider 는 알파가 0 이 아닌 열을 잉크로 세고, 셰이더는 알파 0.02 아래를 버려 안 보임). 그림은 흰 잉크만(그림자는 바닐라 글자 그림자 + SHADOW 팔레트).
+# 한 글꼴에서는 앞 공급자가 이기지만(26.3 FontSet) 차례에 기대지 않게 ascii 공급자에서 바꾼 글자를 비운다.
+
+# 1배: 상점 ART(6 x 11, 획 두 화소) + / %. 텍셀 1 = 3/4 GUI(한국어 글귀와 같은 격자), 칸 8 x 12, 잉크 4.5 x 8.25 GUI
+S_CHARS = "0123456789+/%"
+S_CELL, S_HEIGHT, S_ASCENT = (8, 12), 9, 8
+S_ART = {
+    "/": ["....##", "....##", "...##.", "...##.", "..##..", "..##..", "..##..", ".##...", ".##...", "##....", "##...."],
+    "%": ["##..##", "##..##", "....##", "...##.", "...##.", "..##..", ".##...", ".##...", "##....", "##..##", "##..##"],
+}
+MARK = (255, 255, 255, 1)  # 폭 맞춤 텍셀
+
+
+def s_cell(ch):
+    rows = ART.get(ch) or S_ART[ch]
+    assert len(rows) == 11 and max(len(r) for r in rows) == 6, ch
+    img = Image.new("RGBA", S_CELL, (255, 255, 255, 0))
+    px = img.load()
+    for y, row in enumerate(rows):
+        for x, v in enumerate(row):
+            if v == "#":
+                px[x, y] = (255, 255, 255, 255)
+    if all(px[5, y][3] == 0 for y in range(11)):
+        px[5, 10] = MARK
+    return img
+
+
+# 2배: 같은 뼈대를 선으로 다시 그린 매끈한 숫자(1배를 두 배로 하면 16.5 GUI 라 알림 띠와 화면 위 끝을 넘음). 텍셀 4 = 1 GUI(RES), 칸 44 x 60,
+# 잉크 9.5 x 14.25 GUI(바닐라 2배와 같은 윗선)
+M_CHARS = "0123456789:"
+M_CELL, M_HEIGHT, M_ASCENT = (44, 60), 15, 14
+M_W, M_H, M_T = 9.5, 14.25, 2.4  # 잉크 폭, 높이, 획 굵기(GUI)
+M_R = 3.0  # 둥근 모서리 반지름(획 가운데선, GUI)
+M_SS = 8  # 그릴 때 텍셀 하나를 몇 배로
+_CW, _CH = M_W - M_T, M_H - M_T  # 획 가운데선 상자
+_HOOK = M_R / _CH  # 끝이 둥글게 말려 끝나는 길이(세로 비율)
+_MID = 0.45
+# 글자 → [(점들(가운데선 상자 안 0..1), 점마다 모서리 반지름, 닫힌 선인가)]
+M_STROKES = {
+    "0": [([(0, 0), (1, 0), (1, 1), (0, 1)], [M_R] * 4, True)],
+    "1": [([(0.02, 0.30), (0.56, 0), (0.56, 1)], [0, 0, 0], False)],
+    "2": [([(0, _HOOK), (0, 0), (1, 0), (1, 0.40), (0, 1), (1, 1)], [0, M_R, M_R, 1.6, 0, 0], False)],
+    "3": [([(0, _HOOK), (0, 0), (1, 0), (1, _MID), (0.36, _MID)], [0, M_R, M_R, 2.2, 0], False),
+          ([(0.36, _MID), (1, _MID), (1, 1), (0, 1), (0, 1 - _HOOK)], [0, 2.2, M_R, M_R, 0], False)],
+    "4": [([(0.76, 1), (0.76, 0), (0, 0.70), (1, 0.70)], [0, 0, 0, 0], False)],
+    "5": [([(1, 0), (0, 0), (0, 0.42), (1, 0.42), (1, 1), (0, 1), (0, 1 - _HOOK)], [0, 0, 0, M_R, M_R, M_R, 0], False)],
+    "6": [([(1, _HOOK), (1, 0), (0, 0), (0, 1), (1, 1), (1, 0.44), (0, 0.44)], [0, M_R, M_R, M_R, M_R, M_R, 0], False)],
+    "7": [([(0, 0), (1, 0), (0.32, 1)], [0, 0.8, 0], False)],
+    "8": [([(0.05, 0), (0.95, 0), (0.95, _MID), (0.05, _MID)], [2.6] * 4, True),
+          ([(0, _MID), (1, _MID), (1, 1), (0, 1)], [M_R] * 4, True)],
+    "9": [([(0, 1 - _HOOK), (0, 1), (1, 1), (1, 0), (0, 0), (0, 0.56), (1, 0.56)], [0, M_R, M_R, M_R, M_R, M_R, 0], False)],
+}
+
+
+def fillet(pts, radii, closed):
+    """꺾이는 점을 반지름 r 의 둥근 모서리로 바꾼 촘촘한 꺾은선(점은 GUI 좌표)"""
+    n = len(pts)
+    out = []
+    for i, (p, r) in enumerate(zip(pts, radii)):
+        if r <= 0 or (not closed and i in (0, n - 1)):
+            out.append(p)
+            continue
+        a, b = pts[(i - 1) % n], pts[(i + 1) % n]
+        la, lb = math.dist(a, p), math.dist(b, p)
+        d = min(r, la / 2 if radii[(i - 1) % n] > 0 else la, lb / 2 if radii[(i + 1) % n] > 0 else lb)
+        p1 = (p[0] + (a[0] - p[0]) * d / la, p[1] + (a[1] - p[1]) * d / la)
+        p2 = (p[0] + (b[0] - p[0]) * d / lb, p[1] + (b[1] - p[1]) * d / lb)
+        for k in range(17):
+            u = k / 16
+            out.append(((1 - u) ** 2 * p1[0] + 2 * u * (1 - u) * p[0] + u * u * p2[0],
+                        (1 - u) ** 2 * p1[1] + 2 * u * (1 - u) * p[1] + u * u * p2[1]))
+    if closed:
+        out += out[:2]
+    return out
+
+
+def m_cell(ch):
+    s = RES * M_SS
+    big = Image.new("L", (M_CELL[0] * M_SS, M_CELL[1] * M_SS), 0)
+    d = ImageDraw.Draw(big)
+    if ch == ":":
+        q = 2.25
+        for top in (3.75, 10.5):
+            d.rectangle((0, top * s, q * s - 1, (top + q) * s - 1), fill=255)
+    else:
+        for pts, radii, closed in M_STROKES[ch]:
+            line = fillet([(M_T / 2 + u * _CW, M_T / 2 + v * _CH) for u, v in pts], radii, closed)
+            d.line([(x * s, y * s) for x, y in line], fill=255, width=round(M_T * s), joint="curve")
+    img = Image.new("RGBA", M_CELL, (255, 255, 255, 0))
+    img.putalpha(big.resize(M_CELL, Image.BOX))
+    px = img.load()
+    edge = round(M_W * RES) - 1  # 잉크 오른쪽 끝 열(38 텍셀 = 9.5 GUI)
+    if ch != ":" and all(px[edge, y][3] == 0 for y in range(M_CELL[1])):
+        px[edge, round(M_H * RES) - 1] = MARK
+    return img
+
 
 def jar_png(path):
     with zipfile.ZipFile(JAR) as z:
@@ -402,9 +502,10 @@ def text_fonts():
     img = jar_png("assets/minecraft/textures/font/ascii.png")
     cw, chh = img.width // len(grid[0]), img.height // len(grid)
     keep = {chr(c) for c in range(0x21, 0x7F)}
-    rows = ["".join(c if c in keep else "\u0000" for c in row) for row in grid]
     tables = {}
-    for name, k in (("hud_s", 1), ("hud_m", 2)):
+    for name, k, chars, cell_fn, file, height, ascent in (("hud_s", 1, S_CHARS, s_cell, "digits1", S_HEIGHT, S_ASCENT),
+                                                         ("hud_m", 2, M_CHARS, m_cell, "digits2", M_HEIGHT, M_ASCENT),
+                                                         ("hud_n", 1, "", None, None, 0, 0)):
         adv = {" ": 4 * k}
         for r, row in enumerate(grid):
             for c, chv in enumerate(row):
@@ -412,9 +513,19 @@ def text_fonts():
                     continue
                 cell = img.crop((c * cw, r * chh, (c + 1) * cw, (r + 1) * chh))
                 adv[chv] = int(0.5 + ink_width(cell) * (8 * k) / chh) + 1
-        OUT.put(f"assets/gave/font/{name}.json", json.dumps({"providers": [
-            {"type": "space", "advances": {" ": 4 * k}},
-            {"type": "bitmap", "file": "minecraft:font/ascii.png", "height": 8 * k, "ascent": 7 * k, "chars": rows}]}, indent=1))
+        providers = [{"type": "space", "advances": {" ": 4 * k}}]
+        if chars:
+            cells = [cell_fn(c) for c in chars]
+            sheet = Image.new("RGBA", (cells[0].width * len(cells), cells[0].height), (255, 255, 255, 0))
+            for i, c in enumerate(cells):
+                sheet.paste(c, (i * c.width, 0))
+            OUT.png(f"{TEX}/{file}.png", sheet)
+            providers.append({"type": "bitmap", "file": f"gave:font/hud/{file}.png", "height": height, "ascent": ascent, "chars": [chars]})
+            new = {c: advance(cell, height) for c, cell in zip(chars, cells)}
+            assert new == {c: adv[c] for c in chars}, f"{name} 숫자 펜 이동이 바닐라와 다름(Java 자리 계산이 어긋남): {new}"
+        rows = ["".join(c if c in keep and c not in chars else "\u0000" for c in row) for row in grid]
+        providers.append({"type": "bitmap", "file": "minecraft:font/ascii.png", "height": 8 * k, "ascent": 7 * k, "chars": rows})
+        OUT.put(f"assets/gave/font/{name}.json", json.dumps({"providers": providers}, indent=1))
         tables[name] = adv
     return tables
 
@@ -731,8 +842,8 @@ def coord_cell(code):
     return Image.fromarray(a, "RGBA")
 
 
-# 흰 네모 종류: 이름, 높이, 잉크 줄, ascent(GUI)
-RECTS = (("strike", 4, 1, 4), ("panel", 17, 17, 12), ("band", 20, 20, 15), ("uline", 2, 2, 0), ("plate", 24, 24, 10))
+# 흰 네모 종류: 이름, 높이, 잉크 줄, ascent(GUI). sub = 띠(band) 바로 아래 한 줄 판(NT_LOW 기준선 58 에서 49..63, 알림 띠 NT 의 아래 끝 49 에 붙음)
+RECTS = (("strike", 4, 1, 4), ("panel", 17, 17, 12), ("band", 20, 20, 15), ("uline", 2, 2, 0), ("plate", 24, 24, 10), ("sub", 14, 14, 9))
 
 # 막대 묶음 모양(목업용): 이름 → (폭, 높이, 아래 빈 줄)
 BARS = {"bar_phase": (120, 5, 0), "bar_reload": (60, 3, 0), "bar_mini": (16, 3, 2), "bar_hp": (HP_W, 6, 0), "bar_meter": (40, 3, 0),
@@ -760,18 +871,25 @@ def rects():
     """단색 네모(셰이더 모양, G = 팔레트). 폭 2^k 를 이어 붙인다(HudLine.rect): 줄(이름 긋기, 기준선 위 4 에 1 줄), 판(높이 17),
     띠(알림 바탕, 높이 20), 밑줄(총 등급, 2 줄, 기준선 아래), 두 줄 판(죽은 이유 카드, 높이 24). 그림 글리프로 하면 쌍선형이
     가장자리에서 아틀라스 틈을 섞어 반투명 판의 이음매에 줄이 보였다(2026-11-10 게임 사진)"""
-    ch = 0xE584
-    for kind, h, ink, asc in RECTS:
+    def solid(kind, h, ink, asc, ch):
         for k in range(8):
             w = 1 << k
             a = np.zeros((h, w, 4), np.uint8)
             a[:ink] = (0, 0, SOLID, 255)
             add_sheet(f"{kind}_{w}", [Image.fromarray(a, "RGBA")], 1, h, asc, ch)
             ch += 1
-    assert ch <= 0xE5C0, "단색 네모 글자 자리가 bar_meter 와 겹침"
+        return ch
+
+    ch = 0xE584
+    for r in RECTS[:5]:
+        ch = solid(*r, ch)
     # 보스 체력 막대(200 x 6, 시간 모양이 아니라 채움만 쓰므로 글자 하나): 단색 네모 바로 뒤 빈 자리(bar_meter 앞)
     add_sheet("bar_boss", [bar_cell(BOSS_W, 6, 0)], 1, 6, 6, ch)
-    assert ch + 1 <= 0xE5C0, "bar_boss 글자 자리가 bar_meter 와 겹침"
+    ch += 1
+    # 나중에 더한 종류(sub)는 bar_boss 뒤에(앞 글자 자리가 밀리지 않게)
+    for r in RECTS[5:]:
+        ch = solid(*r, ch)
+    assert ch <= 0xE5C0, "단색 네모, bar_boss 글자 자리가 bar_meter 와 겹침"
 
 
 # ---------------------------------------------------------------- 그림(아이콘)
@@ -1246,16 +1364,17 @@ def java(tables):
     L = ["package kr.gave.hud;", "",
          "/** tools/make_hud.py 가 만든다(손으로 고치지 말 것). 팩 pack_src 의 HUD 글꼴, 글리프, 칸, 팔레트와 짝이다. */",
          "public final class HudSpec {", "    private HudSpec() {", "    }", "", *JAVA_HELPERS,
-         '    public static final String FONT_HUD = "gave:hud", FONT_S = "gave:hud_s", FONT_M = "gave:hud_m";',
+         '    public static final String FONT_HUD = "gave:hud", FONT_S = "gave:hud_s", FONT_M = "gave:hud_m", FONT_N = "gave:hud_n";',
          f"    public static final int B_IMG = {B_IMG}, B_SHAPE = {B_SHAPE}, B_TIMED = {B_TIMED}, TIMED_SPAN = {TIMED_SPAN}, PERIOD = {PERIOD};",
          f"    public static final int MOVE_BITS = {MOVE_BITS}, HIT_TICKS = {HIT_TICKS};",
          "    /** 화면 덮개: 조각 cv_<키>_<0..COLS*ROWS-1>(줄 r = 칸 CV<r>, 칸 c 는 x = COVER_X0 + COVER_STEP * c 에 놓음) */",
          f"    public static final int COVER_X0 = {COVER_X0}, COVER_STEP = {COVER_STEP}, COVER_COLS = {COVER_COLS}, COVER_ROWS = {COVER_ROWS};",
          f"    /** 체력 막대 폭(bar_hp 텍셀) */",
          f"    public static final int HP_W = {HP_W};",
-         "    /** 글자 0x20..0x7E 전진 폭(+0x1000): 1배, 2배 */",
+         "    /** 글자 0x20..0x7E 전진 폭(+0x1000): 1배, 2배, 이름(1배 바닐라) */",
          f"    public static final String ADV_S = {adv_string(tables['hud_s'])};",
          f"    public static final String ADV_M = {adv_string(tables['hud_m'])};",
+         f"    public static final String ADV_N = {adv_string(tables['hud_n'])};",
          "    /** 그림 글리프: 이름, 글자, 전진 폭, 잉크 폭, 높이, ascent(GUI) */",
          "    public static final String[] IMAGES = " + jstrs(i[0] for i in IMAGES) + ";",
          "    public static final String IMAGE_CHARS = " + jstr("".join(i[1] for i in IMAGES)) + ";",
@@ -1319,7 +1438,9 @@ def clean(root):
 
 
 def check(stage):
-    r = subprocess.run([sys.executable, "-X", "utf8", str(CHECK), str(stage), "--mc", "26.3"], capture_output=True, text=True,
+    # 만든 사람 PC 의 검사기가 없으면 tools/shader_check.py 로 대신한다(LWJGL shaderc 컴파일. 그것도 못 돌리는 PC 면 건너뜀을 찍고 통과)
+    cmd = [str(CHECK), str(stage), "--mc", "26.3"] if CHECK.is_file() else [str(ROOT / "tools/shader_check.py"), str(stage)]
+    r = subprocess.run([sys.executable, "-X", "utf8", *cmd], capture_output=True, text=True,
                        encoding="utf-8", errors="replace")
     tail = "\n".join((r.stdout + r.stderr).strip().splitlines()[-25:])
     return r.returncode == 0, tail
@@ -1391,6 +1512,7 @@ def preview(path):
 class Mock:
     """GUI W x H 를 k 배 화소로. 칸 기준점, 글리프 ascent, 펜 이동, 셰이더 모양(막대, 고리, 적중, 화살표, 덮개 FIT)을 셰이더처럼 흉내"""
     _ascii = None
+    _digits = None
 
     def __init__(self, gui, k=3, bg=None):
         self.W, self.H = gui
@@ -1403,6 +1525,7 @@ class Mock:
                 grid = next(p for p in json.loads(z.read("assets/minecraft/font/include/default.json"))["providers"]
                             if p.get("file") == "minecraft:font/ascii.png")["chars"]
             Mock._ascii = (jar_png("assets/minecraft/textures/font/ascii.png"), {c: (x, y) for y, row in enumerate(grid) for x, c in enumerate(row)})
+            Mock._digits = {"S": ({c: s_cell(c) for c in S_CHARS}, S_HEIGHT, S_ASCENT), "M": ({c: m_cell(c) for c in M_CHARS}, M_HEIGHT, M_ASCENT)}
         self.pal = {n: v for n, v, _ in PALETTE}
         self.img_by = {i[0]: i for i in IMAGES}
         self.slot = {s[0]: s for s in SLOTS}
@@ -1450,34 +1573,36 @@ class MockLine:
         self.pen = x
         return self
 
-    def width(self, font, s):
-        f = 1 if font == "S" else 2
+    @staticmethod
+    def glyph(font, ch):
+        """글꼴 S, M, N 의 글자 하나: (칸 그림, 칸 높이 GUI, ascent, 펜 이동). 빈칸은 그림 None"""
+        f = 2 if font == "M" else 1
+        if ch == " ":
+            return None, 0, 0, 4 * f
+        cells, height, asc = Mock._digits.get(font, ({}, 0, 0))
+        if ch in cells:
+            return cells[ch], height, asc, advance(cells[ch], height)
         ascii_img, where = Mock._ascii
-        w = 0
-        for ch in s:
-            if ch == " ":
-                w += 4 * f
-                continue
-            cx, cy = where[ch]
-            w += int(0.5 + ink_width(ascii_img.crop((cx * 8, cy * 8, cx * 8 + 8, cy * 8 + 8))) * f) + 1
-        return w
+        cx, cy = where[ch]
+        raw = ascii_img.crop((cx * 8, cy * 8, cx * 8 + 8, cy * 8 + 8))
+        return raw, 8 * f, 7 * f, int(0.5 + ink_width(raw) * f) + 1
+
+    def width(self, font, s):
+        return sum(MockLine.glyph(font, ch)[3] for ch in s)
 
     def text(self, font, s, p="WHITE"):
         m, k = self.m, self.m.k
         ax, ay = m.anchor(self.slot)
-        f = 1 if font == "S" else 2
-        ascii_img, where = Mock._ascii
         for ch in s:
-            if ch == " ":
-                self.pen += 4 * f
-                continue
-            cx, cy = where[ch]
-            raw = ascii_img.crop((cx * 8, cy * 8, cx * 8 + 8, cy * 8 + 8))
-            cell = raw.resize((8 * f * k, 8 * f * k), Image.NEAREST)
-            top = (ay - 7 * f) * k
-            m.put(m.tint(cell, m.pal["SHADOW"]), (ax + self.pen + f) * k, top + f * k)
-            m.put(m.tint(cell, m.pal[p]), (ax + self.pen) * k, top)
-            self.pen += int(0.5 + ink_width(raw) * f) + 1
+            raw, height, asc, adv = MockLine.glyph(font, ch)
+            if raw is not None:
+                # 칸 높이 height GUI 로(셰이더의 날카로운 쌍선형 = 넓이 평균). 글자 그림자는 글자 크기와 상관없이 1 GUI(26.3 GlyphInfo.getShadowOffset)
+                up = raw.resize((raw.width * height * k, raw.height * height * k), Image.NEAREST)
+                cell = up.resize((raw.width * height * k // raw.height, height * k), Image.BOX)
+                top = (ay - asc) * k
+                m.put(m.tint(cell, m.pal["SHADOW"]), (ax + self.pen + 1) * k, top + k)
+                m.put(m.tint(cell, m.pal[p]), (ax + self.pen) * k, top)
+            self.pen += adv
         return self
 
     def text_right(self, x, font, s, p="WHITE"):
@@ -1693,8 +1818,8 @@ def mock_scene(gui, scene, bg=None):
             continue
         p = {"down": "RED_BLINK", "trap": "PURPLE", "dead": "DIM", "me": "GOLD", "alive": "WHITE", "grab": "PURPLE_BLINK", "revived": "GREEN"}[st]
         tl.at(0)
-        nw = tl.width("S", nm)
-        tl.text("S", nm, p)
+        nw = tl.width("N", nm)
+        tl.text("N", nm, p)
         if st == "dead":
             tl.at(-1).rect("strike", nw, "STRIKE")
         if st == "down":
@@ -1866,8 +1991,8 @@ def mock_boss(gui, scene, bg=None):
         tl = L(f"TM{i}")
         p = {"down": "RED_BLINK", "trap": "PURPLE", "me": "GOLD", "alive": "WHITE"}[st]
         tl.at(0)
-        w = tl.width("S", nm)
-        tl.text("S", nm, p)
+        w = tl.width("N", nm)
+        tl.text("N", nm, p)
         if st == "down":
             L(f"TMB{i}").at(w + 2).bar("bar_mini", 0.6)
         if st == "trap":
@@ -1960,13 +2085,17 @@ def mock_round(gui, scene, bg=None):
         iw = nm.ink(ic) if ic in m.img_by else 0
         w = (iw + 4 if iw else 0) + pw
         x0 = -(w // 2)
-        nm.at(x0 - 5).rect("band", w + 10, "PANEL")
+        lw = nm.pw(line) if line in m.ph else 0
+        cw = max(w, lw)
+        c0 = -(cw // 2)
+        nm.at(c0 - 5).rect("band", cw + 10, "PANEL")
         if iw:
             nm.at(x0).img(ic, "GOLD")
         nm.at(x0 + (iw + 4 if iw else 0)).phrase(name, "WHITE")
         if line in m.ph:
             ll = L("NT_LOW")
-            ll.at(-(ll.pw(line) // 2)).phrase(line, "GRAY")
+            ll.at(c0 - 5).rect("sub", cw + 10, "PANEL")
+            ll.at(-(lw // 2)).phrase(line, "GRAY")
     L("HP_HURT").bar("bar_hp", 0.8, color=WHITE)
     L("HP").bar("bar_hp", 0.7)
     L("TRK_HURT").bar("bar_hp", 0.6, color=WHITE)

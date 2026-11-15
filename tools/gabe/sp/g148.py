@@ -183,7 +183,7 @@ def sounds(k: kit.Kit):
     k.sample("toll", "tag:bell+low", "하늘의 종소리", pitch=0.5, attenuation=96, n=2)
     k.sample("ring", "kenney_impact/impactbell_heavy_001", "종 몸이 울린다", pitch=0.6, attenuation=64, n=1)
     k.sample("crash", "tag:quake", "종이 내려앉는다", pitch=0.6, attenuation=96, n=2)
-    k.sample("crack", "tag:breaking", "테가 떨어져 나간다", pitch=0.7, attenuation=48)
+    k.sample("crack", "tag:breaking", "테가 떨어져 나간다", pitch=0.7, attenuation=64)
 
 
 def phrases():

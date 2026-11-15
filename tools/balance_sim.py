@@ -28,6 +28,8 @@ python -X utf8 tools/balance_sim.py [--seeds 12] [--people 1,3,5,10,20,30] [--sk
   몹 예산을 코드에서 읽음(옛 200 고정 → Mobs.BUDGET - CHILD_ROOM), 판 길이(분), 붕대, 최후의 저항(끔이 기본).
 2026-11-12(curve_apply): 보스 차례를 Director.Tune.BOSS_WAVES(+ BOSS_EVERY, BossDirector.ORDER)에서 읽음(옛 BOSS_EVERY 배수), 감독에 들어간 곡선 손잡이와 보스 체력 표,
   원정 숫자를 코드에서 읽음(read_curve). 엔딩 웨이브 = B5 가 처음 나오는 웨이브.
+2026-11-15(gunbal): 총은 모델까지(상자가 그 종류 모델을 고르게 고르고 모델 배율, 등급, 반올림 갚기를 Guns.effective 와 같은 식으로: model_spec), 떼(마리 여럿)는
+  게임처럼 한 발에 한 마리(넘친 피해는 버려짐), 폭발과 불만 무리 모두. --horde 는 종류마다 떼 막기 효율(초당 없앤 감독 단위, 버려진 피해 몫)과 보스 처치 시간.
 """
 import argparse
 import ast
@@ -76,17 +78,19 @@ SIM_DEFAULT = {
     "ranged_mul": 0.5,         # 원거리 종(포물선 침, 던진 막대기)은 피할 수 있어 서서 맞는 값의 절반
     "acq": 0.30,               # 처치 뒤 다음 표적까지(초), 혼자면 등 뒤 돌아보기 몫이 더해짐
     "acq_solo_turn": 0.35,
+    "acq_overlap": 0,          # 1 이면 다음 표적 찾기가 그 발의 박자와 겹침(느린 총은 노리쇠를 당기며 옮겨 겨눔). 0 은 박자 뒤에 더함(옛 가정)
     "revive_s": 3.0,
     "bleed_s": 12.0,
     "revive_hp": 0.3,
     "aug_dps": 0.09,           # 증강 하나의 평균 화력 이득
     "members": {"G02": 20, "G04": 1, "G11": 22, "G53": 24, "G45": 7, "G29": 8, "G40": 12},
     # ---- 2026-11-12 curve35
-    # 무기 17종(Guns.SPECS, Guns.MODES 를 줄인 것): 종류 → [연사 보정(점사 쉼, 회전, 모으기, 불붙음), 떼 한가운데서 한 발에 맞는 마리 수(관통, 폭발, 번짐, 원뿔)]
+    # 무기 종류: 종류 → [피해 덤(늘 붙는 치명. 불길의 불붙음은 gun_single 이 셈), 떼 한가운데서 한 발에 맞는 마리 수(관통, 폭발, 번짐, 원뿔: 관통 감쇠가 없을 때의 값)].
+    # 박자(점사 쉼, 미니건 회전, 레일건 모으기, 산탄총 한 발씩 재장전, 재장전과 쏜 뒤 쉼 겹침)는 코드의 Guns.SPECS, MODES 에서 셈한다(gun_cycle)
     "gun": {
         "PISTOL": [1.0, 1.0], "SMG": [1.0, 1.0], "SHOTGUN": [1.0, 1.3], "RIFLE": [1.0, 1.0], "SNIPER": [1.0, 2.2],
-        "FLAME": [1.15, 3.5], "LAUNCHER": [1.0, 3.0], "ROCKET": [1.0, 4.5], "MINIGUN": [0.9, 1.0], "LMG": [1.0, 1.35],
-        "REVOLVER": [1.05, 1.6], "BURST": [0.38, 1.0], "DMR": [1.03, 1.6], "RAILGUN": [0.95, 4.0], "TESLA": [1.0, 2.6],
+        "FLAME": [1.0, 3.5], "LAUNCHER": [1.0, 3.0], "ROCKET": [1.0, 4.5], "MINIGUN": [1.0, 1.0], "LMG": [1.0, 1.35],
+        "REVOLVER": [1.05, 1.6], "BURST": [1.0, 1.0], "DMR": [1.03, 1.6], "RAILGUN": [1.0, 4.0], "TESLA": [1.0, 2.6],
         "FREEZE": [1.0, 3.0], "BOW": [1.0, 2.5],
         # 2026-11-12 wpn_max 가 더한 아홉(산탄 둘, 관통 5 볼트액션, 관통 12 대물 저격총, 관통 3 머스킷과 광선총, 나머지는 한 발에 한 마리)
         "AUTOSHOT": [1.0, 1.3], "DOUBLE": [1.0, 1.3], "BOLTACTION": [1.0, 2.25], "MACHINEPISTOL": [1.0, 1.0], "DUAL": [1.0, 1.0],
@@ -119,6 +123,8 @@ CURVE_DEFAULT = {
     "ENDLESS_DMG": 1.0, "ENDLESS_UNITS": 1.0,       # 끝없는 구간에서 웨이브마다 곱하는 피해, 총량(체력은 Tune.HP_LATE_FROM, HP_GROWTH_LATE)
     "MUT_FROM": 41, "MUT_EVERY": 5,                 # 변이가 쌓이기 시작하는 웨이브, 간격
     "REWARD_CROWD": 1.0,       # 보상에 곱하는 무리 체력 배율의 지수(지금 1: 체력 배율만큼 보상도)
+    # 돈 나누기(kr.gave.player.Wallet, read_curve 가 코드에서 읽음): 처치 보상의 팀 몫(모두 똑같이), 둘 이상이 함께 잡았을 때 때린 사람들에게 더 얹는 몫
+    "WALLET_TEAM": 0.7, "WALLET_JOINT": 0.1,
     "BOSS_SMALL_TEAM": 1,      # 1 이면 보스 피해에도 난이도와 적은 인원 배율(Director.bossDmgMul)을 곱함. 0 이면 보스 한 방은 사람 수, 난이도와 무관(Boss.hitBoss 가 아직 안 곱하는 지금 코드)
     "ENDING_BREAK_S": 60.0,
     "MAX_WAVE": 80,
@@ -140,7 +146,7 @@ CURVE_DEFAULT = {
     # {"전투": {"w": 무게, "diff": 난이도 배수(수 하나 또는 [낮음, 높음]), "reward": 처치 보상 배수, "truck": 트럭 노림 배수, "repair": 수리 값 배수,
     #           "heal": 스테이지 끝 체력 회복 비율, "aug": 스테이지 끝 1인 증강 기대 수, "money": 스테이지 끝 1인 덤(U)}}
     "STAGES": {
-        "전투": {"w": 30, "diff": 1.0, "reward": 1.0},
+        "전투": {"w": 30, "diff": 1.0, "reward": 1.0, "money": 1.0},
         "정예": {"w": 14, "diff": [1.2, 1.3], "reward": [1.5, 1.8], "aug": 0.5},
         "보상": {"w": 14, "diff": [0.9, 1.0], "reward": [1.4, 1.6], "truck": 1.3},
         "함정": {"w": 12, "diff": [1.3, 1.45], "reward": [2.0, 2.3]},
@@ -171,6 +177,16 @@ BOSS_DEFAULT = {
 
 SIM, CURVE, BOSS = {}, {}, {}
 T, SP, GUNS, WARES, RAR_MUL, ODDS, BOXW = {}, {}, {}, {}, [], [], {}
+# 종류 → (쏘는 방식, count, ticks, effect): Guns.MODES. 관통 감쇠, 레일건 모으기 겹침이 코드에 있는지(옛 코드와 견줄 때)
+GMODES, GUN_NEW = {}, {"pierce_keep": 0.0, "rail_keep": 0.0, "charge_overlap": False}
+# 등급 배율 줄(Gun.GRADE: 피해, 연사, 탄창, 재장전, 퍼짐, 사거리)과 종류마다 등급 화력 배율(그 종류 바탕 총에 등급 배율을 Java 반올림으로 건 지속 화력 / 바탕)
+GRADE_ROWS, RAR_KIND = [], {}
+# 무기 모델 표(tools/props.json "arms" = jar 의 props.json: Models): 종류 → {모델 키: [피해, 연사, 탄창, 재장전, 사거리] 배율}. 모델 값 저장(model_spec)
+MODELS, _SPEC = {}, {}
+# 피해 셈(hurt_mob 이 쌓음, horde 가 비우고 읽음): 준 피해, 실제로 깎은 체력, 없앤 감독 단위(떼는 마리 몫), 처치(떼는 마리)
+STATS = {"dealt": 0.0, "removed": 0.0, "units": 0.0, "kills": 0}
+# 넓게 맞히는 방식: 게임의 떼 종은 폭발, 불이면 맞은 자리 3블록 안 모든 마리가, 그 밖은 가장 가까운 한 마리만 맞는다(G02.damage)
+AREA = ("LOB", "ROCKET", "FLAME")
 RARITY_PRICE = [1, 1.2, 1.45, 1.8]
 UPG = 0.08
 MAX_LEVEL, INHERIT, CAP_HP, CAP_ARMOR, BUDGET = 20, 0.5, 20, 14, 440
@@ -283,6 +299,15 @@ def read_curve():
                    ("BOSS_REPAIR", "BOSS_TRUCK_HEAL"), ("REVIVE_U", "REVIVE_U"), ("REVIVE_STEP", "REVIVE_STEP")):
         if tk in tr:
             CURVE[ck] = tr[tk]
+    # 돈 나누기 몫(Wallet.TEAM, JOINT)
+    try:
+        w = src(JAVA + "player/Wallet.java")
+        for name, key in (("TEAM", "WALLET_TEAM"), ("JOINT", "WALLET_JOINT")):
+            m = re.search(r"public static double " + name + r" = ([0-9.]+)", w)
+            if m:
+                CURVE[key] = float(m.group(1))
+    except OSError:
+        pass
     try:
         m = re.search(r"DEATH_LOSS = ([0-9.]+)", src(JAVA + "player/Players.java"))
         if m:
@@ -318,6 +343,7 @@ def read_species():
 
 
 def read_guns():
+    """Guns.SPECS(탄창, 예비, 연사, 재장전 틱, 알 수, 사거리, 관통, 한 발씩 넣는가, 피해)와 Guns.MODES(쏘는 방식)."""
     s = src(JAVA + "gun/Guns.java")
     g = {}
     for m in re.finditer(r'new Spec\(Kind\.(\w+), "\w+", "[^"]+", ([^)]*?)"\w+",\s*Sound\.\w+, [\d.]+f, (\d+), [\d.]+, new Recoil\([^)]*\), ([\d.]+)\)', s, re.S):
@@ -325,28 +351,208 @@ def read_guns():
         mag, reserve, rps = int(nums[0]), int(nums[1]), float(nums[2])
         reload, pellets, rng = int(nums[9]), int(nums[10]), float(nums[11])
         pierce = int(float(nums[12])) if len(nums) > 12 and re.fullmatch(r"[0-9.]+", nums[12]) else 0
-        g[m.group(1)] = dict(mag=mag, reserve=reserve, rps=rps, reload=reload / 20.0, pellets=pellets, range=rng, dmg=float(m.group(4)), pierce=pierce)
+        shells = len(nums) > 13 and nums[13] == "true"
+        g[m.group(1)] = dict(mag=mag, reserve=reserve, rps=rps, reload=reload / 20.0, shells=shells, pellets=pellets, range=rng, dmg=float(m.group(4)),
+                             pierce=pierce)
+    # 단발 배율(2026-11-15 Guns.SINGLE_SHOT: Guns.add 가 바탕 한 발 피해에 곱함). 표가 없는 코드면 1
+    m = re.search(r"SINGLE_SHOT = Map\.of\(([^;]*)\);", s)
+    for k, v in re.findall(r"Kind\.(\w+), ([\d.]+)", m.group(1) if m else ""):
+        if k in g:
+            g[k]["dmg"] *= float(v)
+    GMODES.clear()
+    for m in re.finditer(r"MODES\.put\(Kind\.(\w+), new Mode\(Fire\.(\w+), (\d+), (\d+), [\d.]+, [\d.]+, [\d.]+, [\d.]+, ([\d.]+)\)\)", s):
+        GMODES[m.group(1)] = (m.group(2), int(m.group(3)), int(m.group(4)), float(m.group(5)))
+    # 새 코드인가: 관통 감쇠(Guns.pierced 0.8, 레일 0.9), 레일건 모으기와 쏜 뒤 쉼 겹침(chargeEnd)
+    m = re.search(r"static double pierced\(int n\) \{\s*return Math\.max\(([\d.]+), Math\.pow\(([\d.]+), n\)\)", s)
+    GUN_NEW["pierce_keep"] = float(m.group(2)) if m else 0.0
+    GUN_NEW["pierce_floor"] = float(m.group(1)) if m else 0.0
+    a = src(JAVA + "gun/Arsenal.java")
+    m = re.search(r"Math\.max\(([\d.]+), Math\.pow\(([\d.]+), n\)\)", a)
+    GUN_NEW["rail_keep"] = float(m.group(2)) if m else 0.0
+    GUN_NEW["rail_floor"] = float(m.group(1)) if m else 0.0
+    GUN_NEW["charge_overlap"] = "chargeEnd(" in s
+    # 미니건: 새 코드(Guns.cycleTicks)는 누른 채 재장전하면 총열이 도는 채로 남는다고 셈(이어 쏘는 동안 다 돈 빠르기)
+    GUN_NEW["spin_kept"] = "static double cycleTicks(" in s
+    # 모델 화력: 새 코드(2026-11-15)는 모델 배율(피해 포함)이 그대로 걸리고 한 발 피해를 그 총 자신의 반올림 전 화력에 맞춤(smoothSustained),
+    # 옛 코드(2026-11-14)는 표의 피해 배율을 안 쓰고 모델 없는 같은 등급 총의 화력에 맞춤
+    GUN_NEW["model_own"] = "smoothSustained(" in s
     return g
 
 
+def gun_cycle(kind, g=None):
+    """(탄창 안 발 사이 초, 마지막 발부터 다음 탄창 첫 발까지 초, 한 바퀴 초): Guns.cycleTicks 와 같은 식.
+    재장전은 마지막 발 직후 시작해 쏜 뒤 쉼과 겹친다. 산탄총은 시작 자세 7 + 한 발 x 탄창 + 끝 펌프 8 틱(시작, 펌프는 재장전 배율만큼),
+    점사는 점사 뒤 쉼, 레일건은 재장전 뒤 다시 모으기(옛 코드는 발마다 쉼 뒤에 모으기), 미니건은 새 코드면 다 돈 빠르기(옛 코드는 탄창마다
+    총열을 처음부터 돌림)."""
+    g = g or GUNS[kind]
+    fire, count, ticks, effect = GMODES.get(kind, ("HITSCAN", 0, 0, 0.0))
+    mag, gap = max(1, int(g["mag"])), 20.0 / g["rps"]
+    reload = g["reload"] * 20.0
+    if g.get("shells"):
+        mul = max(0.2, min(5.0, g["reload"] / GUNS[kind]["reload"])) if kind in GUNS else 1.0
+        reload = max(1, jround(7 * mul)) + mag * reload + max(1, jround(8 * mul))
+    if fire == "BURST":
+        n = max(1, count)
+        bursts = (mag + n - 1) // n
+        last = (mag - 1) * gap + (bursts - 1) * ticks
+        tail = max(reload, gap + (ticks if mag % n == 0 else 0))
+    elif fire == "CHARGE":
+        if GUN_NEW["charge_overlap"]:
+            last, tail = (mag - 1) * max(gap, ticks), max(reload + ticks, gap)
+        else:
+            last, tail = (mag - 1) * (gap + ticks), max(reload, gap) + ticks
+    elif fire == "SPIN" and not GUN_NEW.get("spin_kept"):
+        spin, nxt, t, left = 0.0, 0.0, 0, mag
+        while left > 0 and t < 100000:
+            spin = min(1.0, spin + 1.0 / max(1, ticks))
+            if spin >= effect:
+                nxt = max(nxt, t)
+                while nxt < t + 1 and left > 0:
+                    left -= 1
+                    nxt += gap / (0.2 + 0.8 * spin)
+            t += 1
+        last, tail = float(t), max(reload, 1.0)
+    else:
+        last, tail = (mag - 1) * gap, max(reload, gap)
+    cyc = last + tail
+    shot = last / (mag - 1) if mag > 1 else cyc
+    return shot / 20.0, (tail if mag > 1 else 0.0) / 20.0, cyc / 20.0
+
+
+def gun_single(kind, g=None):
+    """한 대상 지속 초당 피해(다 맞음, 치명과 감쇠 없음): 상점 '화력' 줄과 같은 값. 불길은 불붙음 피해를 더함."""
+    g = g or GUNS[kind]
+    _, _, cyc = gun_cycle(kind, g)
+    dps = g["dmg"] * g["pellets"] * max(1, int(g["mag"])) / cyc
+    fire, _, _, effect = GMODES.get(kind, ("HITSCAN", 0, 0, 0.0))
+    return dps + g["dmg"] * effect if fire == "FLAME" else dps
+
+
+def jround(x):
+    """Java Math.round(양수): 반은 올림(파이썬 round 는 짝수 쪽으로 가서 다름)"""
+    return int(math.floor(x + 0.5))
+
+
+def cycle_ticks(kind, gap, reload, mag):
+    """Guns.cycle(새 코드): 발 사이 gap 틱, 빈 총을 다 채우는 reload 틱, 탄창 mag(정수) 발의 한 바퀴 틱."""
+    fire, count, ticks, _ = GMODES.get(kind, ("HITSCAN", 0, 0, 0.0))
+    if fire == "BURST":
+        n = max(1, count)
+        return (mag - 1) * gap + ((mag + n - 1) // n - 1) * ticks + max(reload, gap + (ticks if mag % n == 0 else 0))
+    if fire == "CHARGE":
+        return (mag - 1) * max(gap, ticks) + max(reload + ticks, gap)
+    return (mag - 1) * gap + max(reload, gap)
+
+
+def smooth_single(kind, mul):
+    """Guns.smoothSustained: 바탕에 배율 mul [피해, 연사, 탄창, 재장전, 사거리] 을 곱한 탄창과 재장전 틱을 소수 그대로 둔 한 대상 지속 화력
+    (탄창은 이웃한 두 정수의 한 바퀴를 곧게 이음)."""
+    g = GUNS[kind]
+    rm = max(0.2, min(5.0, mul[3]))
+    mag, rl, gap = max(1.0, g["mag"] * mul[2]), g["reload"] * 20.0 * rm, 20.0 / max(0.1, g["rps"] * mul[1])
+    lo = int(mag)
+    f = mag - lo
+    cyc = sum(wt * cycle_ticks(kind, gap, 7 * rm + k * rl + 8 * rm if g.get("shells") else rl, k) for k, wt in ((lo, 1 - f), (lo + 1, f)) if wt > 0)
+    dmg = g["dmg"] * max(0.0, mul[0])
+    dps = mag * dmg * g["pellets"] / cyc * 20
+    fire, _, _, effect = GMODES.get(kind, ("HITSCAN", 0, 0, 0.0))
+    return dps + dmg * effect if fire == "FLAME" else dps
+
+
+def model_spec(kind, key=None, r=0):
+    """Guns.effective(강화 0, 사람 증강 없이): 종류 바탕 x 모델 배율 x 등급 r 줄(Gun.GRADE)을 Spec.with 처럼 한 번 반올림하고, 한 발 피해를
+    새 코드면 그 총 자신의 반올림 전 화력(smooth_single)에, 옛 코드면 모델 없는 같은 등급 총의 화력에 맞춘다. 강화는 피해에만 곱해지고
+    반올림과 상관없어 Person.weapon 이 곱한다. 돌려줌: GUNS 꼴 dict(바꾸지 말 것: 모아 둔 값)"""
+    ck = (kind, key, r)
+    if ck in _SPEC:
+        return _SPEC[ck]
+    g = GUNS[kind]
+    row = GRADE_ROWS[r] if r < len(GRADE_ROWS) else [1.0] * 6
+    grade = [row[0], row[1], row[2], row[3], row[5]]
+    mm = MODELS.get(kind, {}).get(key) if key else None
+    own = GUN_NEW.get("model_own")
+    mul = [a * b for a, b in zip(grade, ([mm[0]] if own else [1.0]) + mm[1:])] if mm else grade
+
+    def rounded(mu):
+        t = max(1, jround(g["reload"] * 20.0 * max(0.2, min(5.0, mu[3]))))
+        return dict(g, dmg=g["dmg"] * mu[0], rps=max(0.1, g["rps"] * mu[1]), mag=max(1, jround(g["mag"] * mu[2])), reload=t / 20.0,
+                    range=max(1.0, g["range"] * mu[4]))
+    s = rounded(mul)
+    got = gun_single(kind, s)
+    want = smooth_single(kind, mul) if own else gun_single(kind, rounded(grade)) if mm else got
+    if want > 0 and got > 0:
+        s["dmg"] *= want / got
+    _SPEC[ck] = s
+    return s
+
+
+def grade_mul(kind, r):
+    """종류 kind 바탕 총(모델 배율 없이)의 등급 r 이 등급 없는 바탕보다 센 배율(한 대상 지속 화력, Guns.effective 와 같은 반올림 갚기)."""
+    if kind not in RAR_KIND:
+        base = gun_single(kind)
+        RAR_KIND[kind] = [gun_single(kind, model_spec(kind, None, i)) / base if base > 0 else 1.0 for i in range(len(GRADE_ROWS[:4]))] or RAR_MUL
+    return RAR_KIND[kind][r]
+
+
+def read_models():
+    """무기 모델 표(tools/props.json "arms", compile_wip 이 jar 에 넣는 것): 종류마다 모델 키와 배율. 표가 없으면 빈 것(종류 바탕 하나)."""
+    try:
+        arms = json.loads((ROOT / "tools/props.json").read_text(encoding="utf-8")).get("arms", {})
+    except (OSError, ValueError):
+        arms = {}
+    out = {}
+    for key, m in arms.items():
+        out.setdefault(m["kind"], {})[key] = [float(m.get(x) or 1.0) for x in ("dmg", "rps", "mag", "reload", "range")]
+    return out
+
+
+def _pierce_crowd(crowd, keep, floor, per=0.3):
+    """관통 감쇠가 든 코드: 덤으로 맞는 마리(crowd - 1, 한 마리에 per 씩 쳐 온 값)가 차례로 keep^i (아래끝 floor) 몫만 받는다."""
+    extra = crowd - 1
+    if extra <= 0 or keep <= 0:
+        return crowd
+    n = max(1, round(extra / per))
+    avg = sum(max(floor, keep ** i) for i in range(1, n + 1)) / n
+    return 1 + extra * avg
+
+
 def gun_model(kind):
-    """[연사 보정, 떼 한가운데서 한 발에 맞는 마리 수]. SIM gun 표에 없는 새 종류는 관통과 산탄으로 어림(관통 하나에 +0.3, 4 넘으면 +0.05 씩, 3 까지. 산탄 1.3)."""
+    """[피해 덤, 떼 한가운데서 한 발에 맞는 마리 수]. SIM gun 표에 없는 새 종류는 관통과 산탄으로 어림(관통 하나에 +0.3, 4 넘으면 +0.05 씩, 3 까지. 산탄 1.3).
+    마리 수는 관통 감쇠와 상관없는 '맞는 수'다. 감쇠(Guns.pierced, 레일 광선)는 gun_keep 이 주고, 덤으로 맞는 마리가 차례로 그 몫만 받는다."""
+    g = GUNS.get(kind, {})
     m = SIM["gun"].get(kind)
     if m:
-        return m
+        bonus, crowd = m
+    else:
+        pc = g.get("pierce", 0)
+        crowd = 1 + 0.3 * min(pc, 4) + 0.05 * max(0, min(pc, 20) - 4)
+        if g.get("pellets", 1) > 2:
+            crowd = max(crowd, 1.3)
+        bonus, crowd = 1.0, min(3.0, crowd)
+    # 번개: 표의 값은 번질 때 0.75 배 기준이다. 코드의 번짐 배율(Mode.effect)이 바뀌면 번진 몫의 합만큼 덤을 맞춘다
+    fire, count, _, effect = GMODES.get(kind, ("HITSCAN", 0, 0, 0.0))
+    if fire == "CHAIN" and count > 0 and effect > 0:
+        crowd = 1 + (crowd - 1) * sum(effect ** i for i in range(1, count + 1)) / sum(0.75 ** i for i in range(1, count + 1))
+    return [bonus, crowd]
+
+
+def gun_keep(kind):
+    """(꿰뚫을 때마다 남는 몫, 아래끝): 덤으로 맞는 i 번째 마리는 max(아래끝, 몫^i) 만큼 받는다. 감쇠가 없는 코드나 관통이 아닌 범위(폭발, 번짐, 원뿔)는 (1, 1)."""
     g = GUNS.get(kind, {})
-    pc = g.get("pierce", 0)
-    crowd = 1 + 0.3 * min(pc, 4) + 0.05 * max(0, min(pc, 20) - 4)
-    if g.get("pellets", 1) > 2:
-        crowd = max(crowd, 1.3)
-    return [1.0, min(3.0, crowd)]
+    fire = GMODES.get(kind, ("HITSCAN",))[0]
+    if fire == "CHARGE" and GUN_NEW["rail_keep"] > 0:
+        return GUN_NEW["rail_keep"], GUN_NEW.get("rail_floor", 0.0)
+    if fire in ("HITSCAN", "BURST", "SPIN", "BOLT", "BEAM") and g.get("pierce", 0) > 0 and g.get("pellets", 1) <= 2 and GUN_NEW["pierce_keep"] > 0:
+        return GUN_NEW["pierce_keep"], GUN_NEW.get("pierce_floor", 0.0)
+    return 1.0, 1.0
 
 
 def read_wares():
     s = src(JAVA + "game/Shop.java")
     body = s[s.index("enum Ware"):s.index("public final int base")]
     w = {}
-    for m in re.finditer(r"(\w+)\((\d+), ([\d.]+), ([\d.]+), \d+\)", body):
+    # 바탕 값, 오름, 단계 뒤의 칸 번호는 하나 이상(Ware(base, growth, level, slot, oldSlot))
+    for m in re.finditer(r"(\w+)\((\d+), ([\d.]+), ([\d.]+)(?:, \d+)+\)", body):
         w[m.group(1)] = (int(m.group(2)), float(m.group(3)), float(m.group(4)))
     if "BOX" not in w and "ROLL_RIFLE" in w:
         w["BOX"] = w["ROLL_RIFLE"]
@@ -356,9 +562,21 @@ def read_wares():
 
 
 def read_rarity():
+    """등급마다 한 대상 화력 배율(소총 기준 지속 화력: 피해, 연사, 탄창, 재장전 배율을 한 바퀴로 셈), 등급 확률표, 상자 가중치.
+    새 코드는 등급마다 정해진 값(Gun.GRADE), 옛 코드는 굴리는 범위(Gun.RANGE)의 가운데 값."""
     s = src(JAVA + "gun/Gun.java")
-    rng = re.findall(r"\{\{([\d.]+), ([\d.]+)\}, \{([\d.]+), ([\d.]+)\}", s)  # 피해, 연사 범위만
-    dmg_rate = [((float(a) + float(b)) / 2) * ((float(c) + float(d)) / 2) for a, b, c, d in rng[:4]]
+    rows = []
+    m = re.search(r"GRADE = \{(.*?)\};", s, re.S)
+    if m:
+        for r in re.findall(r"\{([\d., ]+)\}", m.group(1)):
+            rows.append([float(x) for x in r.split(",")])
+    else:
+        m = re.search(r"RANGE = \{(.*?)\};", s, re.S)
+        for r in re.findall(r"\{((?:\{[\d., ]+\},? ?)+)\}", m.group(1)):
+            rows.append([(float(a) + float(b)) / 2 for a, b in re.findall(r"\{([\d.]+), ([\d.]+)\}", r)])
+    GRADE_ROWS[:] = rows
+    RAR_KIND.clear()
+    dmg_rate = [grade_mul("RIFLE", i) for i in range(len(rows[:4]))] if "RIFLE" in GUNS else [1.0] * 4
     odds = []
     for m in re.finditer(r"if \(wave <= (\d+)\) return new int\[\] \{(\d+), (\d+), (\d+), (\d+)\}", s):
         odds.append((int(m.group(1)), [int(m.group(i)) for i in range(2, 6)]))
@@ -409,8 +627,12 @@ def load(over=None, name="지금"):
     T = read_tune()
     SP = read_species()
     GUNS = read_guns()
+    MODELS.clear()
+    MODELS.update(read_models())
+    _SPEC.clear()
     WARES, RARITY_PRICE = read_wares()
     RAR_MUL, ODDS, BOXW = read_rarity()
+    GUN_NEW["fixed_grade"] = "GRADE = {" in src(JAVA + "gun/Gun.java")
     MAX_LEVEL, INHERIT, UPG, CAP_HP, CAP_ARMOR = read_caps()
     BUDGET = read_budget()
     CONFIG_NAME = name
@@ -418,6 +640,8 @@ def load(over=None, name="지금"):
     read_curve()
     if over:
         apply(over)
+        _SPEC.clear()
+        RAR_KIND.clear()
     finish_curve()
 
 
@@ -821,7 +1045,8 @@ class Person:
         self.reviving = 0.0
         self.money = 0
         self.earned = 0
-        self.gun = None   # (종류, 등급 배율, 강화, 등급 0..3)
+        self.owed = 0.0   # 아직 안 받은 처치 돈(지갑이 1초에 한 번 줌)
+        self.gun = None   # (종류, 그 모델 그 등급 총 값(model_spec), 강화, 등급 0..3, 모델 키)
         self.pistol_lv = 0
         self.augs = 0
         self.stat_hp = 0
@@ -839,32 +1064,31 @@ class Person:
 
     def weapon(self):
         if self.gun:
-            kind, mul, lv = self.gun[0], self.gun[1], self.gun[2]
+            kind, g, lv = self.gun[0], self.gun[1], self.gun[2]
         else:
-            kind, mul, lv = "PISTOL", 1.0, self.pistol_lv
-        g = GUNS[kind]
-        k = mul * (1 + UPG * lv) * (1 + SIM["aug_dps"]) ** self.augs
+            kind, g, lv = "PISTOL", GUNS["PISTOL"], self.pistol_lv
+        k = (1 + UPG * lv) * (1 + SIM["aug_dps"]) ** self.augs
         return kind, g, k
 
     def dps(self):
         """한 표적에 이어 쏠 때 초당 피해(재장전 포함, 명중 전)."""
         kind, g, k = self.weapon()
-        rps = g["rps"] * gun_model(kind)[0]
-        cyc = g["mag"] / rps + g["reload"]
-        return g["dmg"] * g["pellets"] * k * g["mag"] / cyc
+        return gun_single(kind, g) * gun_model(kind)[0] * k
 
 
 def gun_base(kind):
-    g = GUNS[kind]
-    rm, crowd = gun_model(kind)
-    rps = g["rps"] * rm
-    return g["dmg"] * g["pellets"] * g["mag"] / (g["mag"] / rps + g["reload"]), crowd
+    """(한 대상 지속 화력, 떼 덤: 관통 감쇠가 있으면 덤으로 맞는 몫을 그만큼 낮춘 값). 점수 = 한 대상 x (1 + 0.5 x (떼 덤 - 1))."""
+    bonus, crowd = gun_model(kind)
+    keep, floor = gun_keep(kind)
+    if keep < 1:
+        crowd = _pierce_crowd(crowd, keep, floor)
+    return gun_single(kind) * bonus, crowd
 
 
 def gun_score(gun):
-    """사람이 두 총을 견줄 때의 어림 값: 한 표적 화력 x 떼 덤(절반만 쳐 줌) x 등급 x 강화."""
-    single, crowd = gun_base(gun[0])
-    return single * (1 + 0.5 * (crowd - 1)) * gun[1] * (1 + UPG * gun[2])
+    """사람이 두 총을 견줄 때의 어림 값: 그 모델 그 등급의 한 표적 화력 x 떼 덤(절반만 쳐 줌) x 강화."""
+    crowd = gun_base(gun[0])[1]
+    return gun_single(gun[0], gun[1]) * gun_model(gun[0])[0] * (1 + 0.5 * (crowd - 1)) * (1 + UPG * gun[2])
 
 
 def roll_gun(p, wave, rnd):
@@ -884,7 +1108,12 @@ def roll_gun(p, wave, rnd):
         kind = rnd.choices(kinds, ws)[0]
     else:
         kind = rnd.choice(["SMG", "RIFLE", "SHOTGUN", "RIFLE"])
-    return kind, RAR_MUL[r] * rnd.uniform(0.95, 1.05), 0, r
+    # 그 종류 안 모델은 고르게(Models.pick). 새 코드(Gun.GRADE)는 같은 모델 같은 등급이면 값이 같다. 옛 코드(RANGE)는 굴린 값이라 바탕 총을 조금 흔든다
+    keys = list(MODELS.get(kind, {})) or [None]
+    key = keys[rnd.randrange(len(keys))]
+    if GUN_NEW.get("fixed_grade"):
+        return kind, model_spec(kind, key, r), 0, r, key
+    return kind, dict(GUNS[kind], dmg=GUNS[kind]["dmg"] * RAR_MUL[r] * rnd.uniform(0.95, 1.05)), 0, r, key
 
 
 def shop(p, wave, rnd):
@@ -906,7 +1135,7 @@ def shop(p, wave, rnd):
             g = roll_gun(p, wave, rnd)
             # 뽑은 총은 지금 총 강화의 INHERIT 몫을 이어받음(게임과 같음): 강화 넣은 지금 총보다 나을 때만 바꿈
             if p.gun:
-                g = (g[0], g[1], int(p.gun[2] * INHERIT), g[3])
+                g = (g[0], g[1], int(p.gun[2] * INHERIT), g[3], g[4])
             if not p.gun or gun_score(g) > gun_score(p.gun):
                 p.gun = g
         else:
@@ -934,7 +1163,7 @@ def shop(p, wave, rnd):
         spend -= cost
         bought.append(what)
         if what == "up":
-            p.gun = (p.gun[0], p.gun[1], p.gun[2] + 1, p.gun[3])
+            p.gun = (p.gun[0], p.gun[1], p.gun[2] + 1, p.gun[3], p.gun[4])
         elif what == "uppistol":
             p.pistol_lv += 1
         elif what == "hp":
@@ -968,7 +1197,8 @@ def shop(p, wave, rnd):
 # ------------------------------------------------------------------ 웨이브 한 번
 
 class Mob:
-    __slots__ = ("sp", "r", "hp", "mhp", "members", "speed", "dps", "reward", "unit", "dead", "truck", "tdps")
+    # 떼(마리 여럿): hp 는 맞고 있는 앞 마리, rest 는 나머지 마리(폭발, 불만 함께 깎임), mem0 은 처음 마리 수
+    __slots__ = ("sp", "r", "hp", "mhp", "members", "speed", "dps", "reward", "unit", "dead", "truck", "tdps", "rest", "mem0")
 
 
 class Boss:
@@ -1031,9 +1261,9 @@ def make_mob(s, w, hpb, n, rb=1.0, ctx=None, rnd=None):
     m.sp = s
     k = hp_mul(w) * hpb * crowd_hp(w, n) * dpow("DIFF_HP", diff)
     mem = SIM["members"].get(s["id"], 1) if "SWARM" in s["roles"] else 1
-    m.members = mem
+    m.members = m.mem0 = mem
     m.mhp = s["hp"] * k
-    m.hp = m.mhp
+    m.hp = m.rest = m.mhp
     m.r = SIM["placed_r"] if s["spawn"] == "PLACED" else SIM["start_r"]
     m.speed = (SIM["walk_sky"] if s["spawn"] == "SKY" else SIM["walk"]) * speed_mul(w) * (0.0 if s["spawn"] == "PLACED" else 1.0)
     if s["spawn"] == "PLACED":
@@ -1055,29 +1285,146 @@ def make_mob(s, w, hpb, n, rb=1.0, ctx=None, rnd=None):
     return m
 
 
-def hurt_mob(m, dmg, mobs, p):
-    """몹 하나에 피해. 죽으면 True(목록에서 빼고 쏜 사람에게 보상)."""
+CONTRIB = {}     # id(몹) → {사람: 실제로 깎은 양}(Mobs.onHurt 의 g.contrib)
+POOL = [0.0]     # 아직 안 나눈 팀 몫(Wallet.team)
+
+
+def pay_kill(m, killer):
+    """Wallet.kill: 보상의 WALLET_TEAM 은 팀 몫으로, 나머지는 때린 사람들이 때린 만큼(둘 이상이 함께 잡았으면 WALLET_JOINT 를 더 얹음)."""
+    c = CONTRIB.pop(id(m), None) or {killer: 1.0}
+    total = max(1, round(m.reward)) if m.reward > 0 else 0
+    if total <= 0:
+        return
+    team = CURVE.get("WALLET_TEAM", 0.7)
+    POOL[0] += total * team
+    mine = total * (1 - team + (CURVE.get("WALLET_JOINT", 0.1) if len(c) >= 2 else 0)) / sum(c.values())
+    for q, v in c.items():
+        q.owed += mine * v
+
+
+def settle(people):
+    """Wallet.tick 의 정산(1초에 한 번): 팀 몫을 모두에게 똑같이 얹고 쌓인 몫을 올려서 준다. 모의에는 잠수가 없어 모두가 받는다."""
+    if POOL[0] > 0 and people:
+        each = POOL[0] / len(people)
+        POOL[0] = 0.0
+        for q in people:
+            q.owed += each
+    for q in people:
+        if q.owed > 1e-9:
+            pay = math.ceil(q.owed - 1e-9)
+            q.owed = 0.0
+            q.money += pay
+            q.earned += pay
+
+
+def _left(m):
+    return max(0.0, m.hp) + (m.members - 1) * max(0.0, m.rest) if m.members > 1 else max(0.0, m.hp)
+
+
+def hurt_mob(m, dmg, mobs, p, area=False, pieces=1):
+    """몹 하나에 피해. 죽으면 True(목록에서 빼고 보상을 지갑 규칙으로 쌓음: pay_kill). 떼(마리 여럿)는 게임(G02.damage 꼴)처럼: 폭발과 불(area)은
+    모든 마리가 dmg 씩, 그 밖은 맞은 한 마리만(넘친 피해는 버려짐. 산탄 알, 쌍권총 두 발처럼 pieces 개로 된 한 방은 한 개씩 차례로 앞 마리에).
+    STATS 에 준 피해, 깎은 체력, 없앤 감독 단위(떼는 마리 몫), 처치(떼는 마리)를 쌓는다."""
     if m.dead:
         return False
+    before = _left(m)
+    STATS["dealt"] += dmg * (m.members if area else 1)
     if m.members > 1:
-        per = m.mhp
-        kill = max(1, int(dmg // per)) if dmg >= per else 0
-        if kill == 0:
+        kill = 0
+        if area:
             m.hp -= dmg
-            if m.hp <= 0:
-                kill = 1
-                m.hp = m.mhp
+            m.rest -= dmg
+            kill = m.members if m.rest <= 0 else 1 if m.hp <= 0 else 0
+            if 0 < kill < m.members:
+                m.hp = m.rest
+        else:
+            for _ in range(max(1, pieces)):
+                m.hp -= dmg / max(1, pieces)
+                if m.hp <= 0:
+                    kill += 1
+                    if kill >= m.members:
+                        break
+                    m.hp = m.rest
         m.members -= kill
         dead = m.members <= 0
     else:
+        kill = 1 if dmg >= m.hp else 0
         m.hp -= dmg
         dead = m.hp <= 0
+    removed = before - (0.0 if dead else _left(m))
+    if removed > 0:
+        c = CONTRIB.setdefault(id(m), {})
+        c[p] = c.get(p, 0.0) + removed
+    STATS["removed"] += removed
+    STATS["kills"] += kill
+    STATS["units"] += kill * unit(m.sp) / max(1, m.mem0)
     if dead:
         m.dead = True
         mobs.remove(m)
-        p.money += round(m.reward)
-        p.earned += round(m.reward)
+        pay_kill(m, p)
     return dead
+
+
+def volley(p, i, n, mobs, hist, see, budget, rnd, mul, acq):
+    """사람 하나(i 번째, n 명 가운데)가 budget 초 동안 떼를 쏨: 가까운 것부터 사람마다 조금씩 나눠 맡고, 처치 뒤 acq 초 다음 표적 찾기.
+    mobs 는 가까운 차례, hist 는 5블록 띠마다 수(떼 덤). 돌려줌: (남은 초, 처치 수)"""
+    kind, g, k = p.weapon()
+    k *= mul
+    bonus, crowd = gun_model(kind)
+    k *= bonus
+    keep, keep_floor = gun_keep(kind)
+    shot_s, tail_s, _ = gun_cycle(kind, g)
+    area = GMODES.get(kind, ("HITSCAN",))[0] in AREA
+    killed = 0
+    while budget > 0 and mobs:
+        if p.busy > 0:
+            use = min(budget, p.busy)
+            p.busy -= use
+            budget -= use
+            continue
+        if p.mag <= 0:
+            # 재장전은 마지막 발 직후 시작해 쏜 뒤 쉼과 겹친다(마지막 발의 박자 몫은 이미 썼다)
+            p.busy = max(0.0, tail_s - shot_s)
+            p.mag = g["mag"]
+            continue
+        idx = min(len(mobs) - 1, (i * 2) % max(1, min(len(mobs), 2 * n)))
+        m = mobs[idx]
+        if m.r > min(see, g["range"]):
+            break
+        p.mag -= 1
+        p.shots += 1
+        budget -= shot_s
+        fall = 1 - 0.5 * max(0, min(1, (m.r / g["range"] - 0.6) / 0.4))
+        acc = p.skill * max(0.35, min(1.0, 1.15 - m.r / 70))
+        if g["pellets"] > 2:
+            pieces = sum(1 for _ in range(g["pellets"]) if rnd.random() < acc * max(0.15, 1 - m.r / 28))
+            dmg = g["dmg"] * k * fall * pieces
+        else:
+            pieces = g["pellets"]
+            dmg = g["dmg"] * g["pellets"] * k * fall if rnd.random() < acc else 0
+        if dmg <= 0:
+            continue
+        more = []
+        if crowd > 1 and len(mobs) > 1:
+            b = int(m.r // 5)
+            near = hist.get(b, 0) + 0.5 * (hist.get(b - 1, 0) + hist.get(b + 1, 0))
+            sat = min(1.0, near / max(1.0, m.r / 8.0) / SIM["crowd_sat"])
+            extra = (crowd - 1) * sat * SIM["crowd_scale"]
+            cnt = int(extra) + (1 if rnd.random() < extra - int(extra) else 0)
+            more = mobs[idx + 1:idx + 1 + cnt]
+        dead = hurt_mob(m, dmg, mobs, p, area, pieces)
+        for oi, o in enumerate(more):
+            if hurt_mob(o, dmg * max(keep_floor, keep ** (oi + 1)), mobs, p, area, pieces):
+                killed += 1
+        if dead:
+            killed += 1
+            p.busy = max(0.0, acq - shot_s) if SIM["acq_overlap"] else acq
+    if budget < 0:
+        # 마지막 발의 박자가 이 걸음을 넘친 몫은 다음 걸음으로(2026-11-15 고침: 전에는 버려서 발 사이가 걸음(0.5초)보다 긴 총이 걸음마다 쐈다.
+        # 머스킷 초당 2발(실제 0.45), 로켓 6.6 배, 레일건과 대물 2.2 배, 산탄총 1.5 배, 저격총 1.25 배)
+        p.busy += -budget
+        budget = 0.0
+    return budget, killed
 
 
 def wave(w, people, rnd, seen, window=600, autorevive=False, log=None, strength=0, boss=None, ctx=None):
@@ -1117,7 +1464,10 @@ def wave(w, people, rnd, seen, window=600, autorevive=False, log=None, strength=
     # 보스 공격 피해에 곱하는 난이도(Director.bossDmgMul 의 난이도 몫). BOSS_SMALL_TEAM 이 0 이면 난이도도 적은 인원 배율도 안 곱함(Boss.hitBoss 가 안 곱하는 코드)
     bdmg = dpow("DIFF_DMG") * dpow("DIFF_DMG", ctx.get("diff", 1.0)) if CURVE.get("BOSS_SMALL_TEAM") else 1.0
 
+    CONTRIB.clear()
+
     def done(**kw):
+        settle(people)
         res.update(t=t, killed=killed, dmg=dmg_taken, stand=stand, enraged=enraged, total=total, **kw)
         if bs:
             res["boss_hp"] = bs.max
@@ -1127,6 +1477,9 @@ def wave(w, people, rnd, seen, window=600, autorevive=False, log=None, strength=
 
     while t < window:
         t += dt
+        # 지갑 정산(1초에 한 번)
+        if int(t) != int(t - dt):
+            settle(people)
         # 내보내기
         if queue and t >= next_band:
             next_band = t + T["BAND_EVERY"] / 20
@@ -1198,54 +1551,9 @@ def wave(w, people, rnd, seen, window=600, autorevive=False, log=None, strength=
         for i, p in enumerate(up):
             if p.reviving > 0:
                 continue
-            kind, g, k = p.weapon()
-            k *= ls_fire
-            rm, crowd = gun_model(kind)
-            rps = g["rps"] * rm
             fb = bs.focus if fighting else 0.0
-            budget = dt * (1 - fb)
-            while budget > 0 and mobs:
-                if p.busy > 0:
-                    use = min(budget, p.busy)
-                    p.busy -= use
-                    budget -= use
-                    continue
-                if p.mag <= 0:
-                    p.busy = g["reload"]
-                    p.mag = g["mag"]
-                    continue
-                # 표적: 가까운 것부터 사람마다 조금씩 나눠 맡음
-                idx = min(len(mobs) - 1, (i * 2) % max(1, min(len(mobs), 2 * n)))
-                m = mobs[idx]
-                if m.r > min(see, g["range"]):
-                    break
-                p.mag -= 1
-                p.shots += 1
-                budget -= 1.0 / rps
-                fall = 1 - 0.5 * max(0, min(1, (m.r / g["range"] - 0.6) / 0.4))
-                acc = p.skill * max(0.35, min(1.0, 1.15 - m.r / 70))
-                if g["pellets"] > 2:
-                    hits = sum(1 for _ in range(g["pellets"]) if rnd.random() < acc * max(0.15, 1 - m.r / 28))
-                    dmg = g["dmg"] * k * fall * hits
-                else:
-                    dmg = g["dmg"] * g["pellets"] * k * fall if rnd.random() < acc else 0
-                if dmg <= 0:
-                    continue
-                more = []
-                if crowd > 1 and len(mobs) > 1:
-                    b = int(m.r // 5)
-                    near = hist.get(b, 0) + 0.5 * (hist.get(b - 1, 0) + hist.get(b + 1, 0))
-                    sat = min(1.0, near / max(1.0, m.r / 8.0) / SIM["crowd_sat"])
-                    extra = (crowd - 1) * sat * SIM["crowd_scale"]
-                    cnt = int(extra) + (1 if rnd.random() < extra - int(extra) else 0)
-                    more = mobs[idx + 1:idx + 1 + cnt]
-                dead = hurt_mob(m, dmg, mobs, p)
-                for o in more:
-                    if hurt_mob(o, dmg, mobs, p):
-                        killed += 1
-                if dead:
-                    killed += 1
-                    p.busy = acq
+            budget, got = volley(p, i, n, mobs, hist, see, dt * (1 - fb), rnd, ls_fire, acq)
+            killed += got
             if fighting:
                 # 보스에 쏜 시간 = 몰두 몫 + 쏠 떼가 없어 남은 시간
                 left = max(0.0, budget) if not mobs or p.busy <= 0 else 0.0
@@ -1349,13 +1657,101 @@ def probe(w, n, kind, skill, seed, window, level=0, augs=0):
     for p in people:
         p.skill = skill
         if kind != "PISTOL":
-            p.gun = (kind, 1.0, level, 0)
+            p.gun = (kind, model_spec(kind), level, 0, None)
         else:
             p.pistol_lv = level
         p.augs = augs
     log = []
     r = wave(w, people, rnd, set(), window=window, autorevive=True, log=log)
     return r, log
+
+
+# 떼 막기 효율을 견줄 바탕: 물량에 맞는 종류(이 가운데 값과 견줌)
+HORDE_REF = ("SMG", "LMG", "MINIGUN", "SHOTGUN", "AUTOSHOT", "DOUBLE")
+
+
+def armed(kind, skill, rnd, r=0, lv=0, augs=0, mul=1.0):
+    """정한 총을 든 사람 하나(명중 그대로): 그 종류 바탕 총의 등급 r, 강화 lv, 증강 augs, 한 발 피해 x mul."""
+    p = Person(skill, rnd)
+    p.skill = skill
+    g = model_spec(kind, None, r)
+    p.gun = (kind, g if mul == 1.0 else dict(g, dmg=g["dmg"] * mul), lv, r, None)
+    p.augs = augs
+    return p
+
+
+def horde(kind, w, n, skill, seed, secs=60.0, r=0, lv=0, augs=0, mul=1.0):
+    """떼 막기 효율: 웨이브 w, 인원 n 의 떼(plan 의 종 구성, make_mob 체력)를 늘 동시 목표(alive_goal)만큼 채워 두고(죽으면 띠에서 새로)
+    혼자 그 종류 바탕 총(등급 r, 강화 lv, 증강 augs, 한 발 피해 x mul)으로 secs 초 쏜다. 사람은 안 맞는다. 쏘기는 wave() 와 같은 volley.
+    돌려줌: dict(units 초당 없앤 감독 단위(떼는 마리 몫), kills 초당 처치(떼는 마리), waste 넘쳐 버린 피해 몫)"""
+    rnd = random.Random(seed)
+    pl = plan(w, n, rnd, set())
+    pool = [SP[k] for k, c in pl["counts"].items() if SP[k]["spawn"] != "PLACED" for _ in range(c)] or [SP["G01"]]
+    rnd.shuffle(pool)
+    p = armed(kind, skill, rnd, r, lv, augs, mul)
+    goal, dt = alive_goal(w, n), SIM["dt"]
+    see = {0: SIM["see"], 1: 140, 2: 48, 3: 36, 4: 25, 5: 14}[pl["fog"]]
+    acq = SIM["acq"] + SIM["acq_solo_turn"] / math.sqrt(n)
+    mobs, made = [], 0
+    alive = 0
+    while alive < goal:
+        m = make_mob(pool[made % len(pool)], w, pl["hpb"], n, pl["rb"])
+        m.r = rnd.uniform(SIM["contact"], SIM["start_r"])
+        mobs.append(m)
+        made += 1
+        alive += m.unit
+    for k in STATS:
+        STATS[k] = 0
+    t = 0.0
+    while t < secs:
+        t += dt
+        alive = sum(m.unit for m in mobs)
+        while alive < goal:
+            m = make_mob(pool[made % len(pool)], w, pl["hpb"], n, pl["rb"])
+            mobs.append(m)
+            made += 1
+            alive += m.unit
+        hist = {}
+        for m in mobs:
+            reach = SIM["ranged"] if "RANGED" in m.sp["roles"] else SIM["contact"]
+            if m.r > reach:
+                m.r = max(reach, m.r - m.speed * dt)
+            hist[int(m.r // 5)] = hist.get(int(m.r // 5), 0) + 1
+        mobs.sort(key=lambda m: m.r)
+        volley(p, 0, n, mobs, hist, see, dt, rnd, 1.0, acq)
+    CONTRIB.clear()
+    return dict(units=STATS["units"] / secs, kills=STATS["kills"] / secs, waste=1 - STATS["removed"] / STATS["dealt"] if STATS["dealt"] > 0 else 0.0)
+
+
+def boss_probe(kind, w, n, skill, seed, r=0, lv=0, augs=0, mul=1.0):
+    """보스 처치 시간(초): 웨이브 w 의 보스(와 떼)를 n 명이 모두 그 종류 바탕 총으로 잡음(쓰러지면 바로 일어남). 못 잡으면 None."""
+    rnd = random.Random(seed)
+    people = [armed(kind, skill, rnd, r, lv, augs, mul) for _ in range(n)]
+    res = wave(w, people, rnd, set(), autorevive=True, boss=boss_of(w))
+    return res.get("boss_t") if res.get("boss_dead") else None
+
+
+def print_horde(points, skill, seeds):
+    """종류마다 떼 막기 효율(보스 웨이브가 아닌 점)과 보스 처치 시간(보스 웨이브 점). 점 = (웨이브, 인원, 등급 0..3, 강화, 증강).
+    떼 효율 괄호는 물량에 맞는 종류(HORDE_REF) 가운데 값과의 비. 값을 바꿔 보려면 --set "SNIPER.dmg=175" 처럼."""
+    kinds = [k for k in GUNS if k != "PISTOL"]
+    hp, bp = [x for x in points if not is_boss_wave(x[0])], [x for x in points if is_boss_wave(x[0])]
+    eff = {(k, x): [horde(k, x[0], x[1], skill, 300 + s, r=x[2], lv=x[3], augs=x[4]) for s in range(seeds)] for k in kinds for x in hp}
+    boss = {(k, x): [boss_probe(k, x[0], x[1], skill, 300 + s, r=x[2], lv=x[3], augs=x[4]) for s in range(seeds)] for k in kinds for x in bp}
+    ref = {x: statistics.median(statistics.mean(e["units"] for e in eff[(k, x)]) for k in HORDE_REF) for x in hp}
+    print(f"명중 {skill}, 씨앗 {seeds}. 떼 = 초당 없앤 감독 단위(물량 바탕 {'/'.join(HORDE_REF)} 가운데 값과의 비), 초당 처치(떼는 마리), 버린 피해 %. "
+          "보스 = 모두 그 총일 때 처치 초")
+    head = " | ".join([f"떼 {x[0]}웨이브 {x[1]}명 등급{x[2]} +{x[3]} 증강{x[4]}" for x in hp] + [f"보스 {x[0]}웨이브 {x[1]}명" for x in bp])
+    print(f"종류 | 단발 피해(일반, 전설) | {head}")
+    for k in kinds:
+        cells = []
+        for x in hp:
+            u = statistics.mean(e["units"] for e in eff[(k, x)])
+            cells.append(f"{u:.2f}({u / ref[x]:.2f}) {statistics.mean(e['kills'] for e in eff[(k, x)]):.2f} {100 * statistics.mean(e['waste'] for e in eff[(k, x)]):.0f}%")
+        for x in bp:
+            ts = [v for v in boss[(k, x)] if v is not None]
+            cells.append(f"{statistics.mean(ts):.0f}" + ("" if len(ts) == seeds else f"({len(ts)}/{seeds})") if ts else "-")
+        print(f"{k}{'*' if k in HORDE_REF else ''} | {model_spec(k, None, 0)['dmg']:.1f}, {model_spec(k, None, 3)['dmg']:.1f} | " + " | ".join(cells))
 
 
 _COST = {}
@@ -1664,6 +2060,7 @@ def main():
     ap.add_argument("--upto", type=int, default=40)
     ap.add_argument("--bosses", action="store_true", help="보스 체력과 걸리는 시간 표")
     ap.add_argument("--probe", default="", help="웨이브:총:초[:강화] 를 쉼표로(예 1:PISTOL:60,5:PISTOL:50,10:RIFLE:50) 혼자, 명중 --skill")
+    ap.add_argument("--horde", default="", help="웨이브:인원:등급(0..3):강화:증강 을 쉼표로(예 15:30:1:15:5,20:30:1:17:6): 종류마다 떼 막기 효율, 보스 웨이브면 보스 처치 초")
     ap.add_argument("--set", default="", help="모의에서만 바꿔 보기: Tune 이름=값, 종.hp=값, SIM 이름=값, 총.dmg=값, curve.이름=값, boss.이름=값, ware.이름=바탕/오름/단계")
     ap.add_argument("--set-file", default="", help="값 파일(json: tune, curve, boss, ware, sim, species, gun, odds, caps). --set 은 그 위에 덮음")
     ap.add_argument("--compare", default="", help="값 파일 둘 이상을 쉼표로: 나란히 견줌('-' 는 지금 코드 그대로)")
@@ -1686,6 +2083,9 @@ def main():
             for sd in range(3):
                 r, log = probe(w, 1, kind, skills[0], 50 + sd, win, lv)
                 print(f"웨이브 {w} {kind}+{lv} 씨앗 {sd}: 총 {r['total']} 처치 {r['killed']} 걸림 {r['t']:.0f}초 {r['counts']} 피해 {dict((k, round(v)) for k, v in r['by'].items())} | (초, 처치, 산, 체력, 쓰러짐, 돈) {log}")
+        return
+    if a.horde:
+        print_horde([tuple(int(v) for v in x.split(":")) for x in a.horde.split(",")], skills[0], a.seeds)
         return
     if a.curve:
         print_curve(a.curve, skills[0], a.seeds, a.upto)

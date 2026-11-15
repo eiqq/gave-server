@@ -1,0 +1,124 @@
+{
+ "providers": [
+  {
+   "type": "space",
+   "advances": {
+    " ": 3,
+    "": 1,
+    "": 2,
+    "": 4,
+    "": 8,
+    "": 16,
+    "": 32,
+    "": 64,
+    "": 128,
+    "": 256,
+    "": 512,
+    "": -1,
+    "": -2,
+    "": -4,
+    "": -8,
+    "": -16,
+    "": -32,
+    "": -64,
+    "": -128,
+    "": -256,
+    "": -512
+   }
+  },
+  {
+   "type": "bitmap",
+   "file": "gave:font/shop/shop.png",
+   "height": 222,
+   "ascent": 13,
+   "chars": [
+    ""
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "gave:font/shop/row0.png",
+   "height": 9,
+   "ascent": -7,
+   "chars": [
+    ""
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "gave:font/shop/row1.png",
+   "height": 9,
+   "ascent": -19,
+   "chars": [
+    ""
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "gave:font/shop/row2.png",
+   "height": 9,
+   "ascent": -49,
+   "chars": [
+    ""
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "gave:font/shop/row3.png",
+   "height": 9,
+   "ascent": -85,
+   "chars": [
+    ""
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "gave:font/shop/row4.png",
+   "height": 9,
+   "ascent": -135,
+   "chars": [
+    ""
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "gave:font/shop/row5.png",
+   "height": 9,
+   "ascent": -166,
+   "chars": [
+    ""
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "gave:font/shop/pick_parts.png",
+   "height": 9,
+   "ascent": 8,
+   "chars": [
+    ""
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "gave:font/shop/pick_cards.png",
+   "height": 9,
+   "ascent": 8,
+   "chars": [
+    ""
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "gave:font/shop/num.png",
+   "height": 9,
+   "ascent": 8,
+   "chars": [
+    "0123456789+-/%.,x→원"
+   ]
+  },
+  {
+   "type": "reference",
+   "id": "minecraft:default"
+  }
+ ]
+}

@@ -242,6 +242,11 @@ public final class Hostage extends Special {
 
     @Override
     protected void end() {
+        // 웨이브 중에 닫히면(시험 건너뛰기, '특수 x 끝') 고치에 든 사람을 풀어 준다: 먹은 개체가 없는 갇힘이라 쉬는 시간 부활 말고는 풀 길이 없다
+        if (game.state == Game.State.WAVE) for (Cocoon c : cocoons) {
+            Player p = c.done ? null : Bukkit.getPlayer(c.who);
+            if (p != null) game.players.free(p);
+        }
         cocoons.clear();
     }
 

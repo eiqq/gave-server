@@ -27,6 +27,7 @@ import kr.gave.mob.LookState;
 import kr.gave.mob.Mobs;
 import kr.gave.mob.Role;
 import kr.gave.mob.Species;
+import kr.gave.trip.Launch;
 import kr.gave.trip.Rounds;
 import kr.gave.trip.Trip;
 import kr.gave.trip.Truck;
@@ -101,8 +102,10 @@ public final class SkyFall extends Late {
         return "ti_goal_build";
     }
 
+    /** 발사장(Launch)이 이 라운드의 건조와 끝을 쥐고 있나: 31~34 밖에서 열리면(시험) 제 건조 막대와 끝 판정으로 돈다. */
     private boolean launch() {
-        return trip.has("Launch");
+        Launch l = trip.has("Launch") ? trip.part(Launch.class) : null;
+        return l != null && l.building();
     }
 
     @Override
@@ -238,7 +241,7 @@ public final class SkyFall extends Late {
         }
         // 천장이 닿음
         if (h <= LateTune.SKY_LOW + 0.01 && now % 20 == 0) {
-            for (Player p : game.players.standing()) game.players.hurt(p, LateTune.SKY_DMG, null, "cause_sp_skyfall");
+            for (Player p : game.players.standing()) game.players.hurt(p, LateTune.SKY_DMG * game.director.dmgCmd(), null, "cause_sp_skyfall");
             Truck tr = truck();
             if (tr != null) drained += tr.hitFrac(LateTune.SKY_TRUCK, null, "cause_sp_skyfall");
             game.horizon.shake(0.5, 20);

@@ -87,6 +87,7 @@ public final class Game implements GunHost {
         this.director = new Director(this);
         this.augments = new Augments(this);
         this.shop = new Shop(this);
+        shop.ammoBought.add(augments.rules::ammoBought);
         this.hud = new Hud(this);
         this.records = new Records(this);
         this.music = new Music(this);
@@ -134,6 +135,16 @@ public final class Game implements GunHost {
         run("director.side", director::sideTick);
         // 사람이 갈 수 있는 끝(Plaza.R_ROAM): 모든 상태에서 피해 없이 부드럽게 되밂
         run("roam", () -> Roam.tick(world, tick));
+        // 판 흐름 판정(감독, 원정 부품에 묻는 것)이 던져도 그 틱의 HUD, 음악, 원정 틱은 돈다
+        run("flow", this::flow);
+        run("hud", hud::tick);
+        run("music", music::tick);
+        run("horizon", horizon::tick);
+        // 원정 부품(모든 상태: 대기실에서도 트럭이 서 있다)
+        run("trip", trip::tick);
+    }
+
+    private void flow() {
         switch (state) {
             case LOBBY -> lobbyTick();
             case PREP -> {
@@ -158,11 +169,6 @@ public final class Game implements GunHost {
                 if (stateTicks() >= overSeconds * 20L) reset();
             }
         }
-        run("hud", hud::tick);
-        run("music", music::tick);
-        run("horizon", horizon::tick);
-        // 원정 부품(모든 상태: 대기실에서도 트럭이 서 있다)
-        run("trip", trip::tick);
     }
 
     private void runModules(boolean wavePhase) {
@@ -206,11 +212,9 @@ public final class Game implements GunHost {
         if (tick - lobbyCountdownAt >= 30 * 20L) start();
     }
 
+    /** 판 끝 판정: 서 있는 사람이 없나(나간 사람, 크리에이티브로 바꾼 사람은 서 있어도 안 셈: Players.anyStanding). */
     private boolean nobodyStanding() {
-        for (PState s : players.all()) {
-            if (s.life == Life.ALIVE) return false;
-        }
-        return true;
+        return !players.anyStanding();
     }
 
     // ------------------------------------------------------------------ 판 흐름
@@ -221,13 +225,16 @@ public final class Game implements GunHost {
         round++;
         wave = 0;
         lobbyCountdownAt = -1;
-        director.reset();
-        records.reset();
+        // 단계마다 run 으로 감싼다: 한 단계(한 사람)가 던져도 판은 준비 상태까지 간다(반쯤 시작한 채 대기실에 남지 않게)
+        run("director.reset", director::reset);
+        run("records.reset", records::reset);
         for (Player p : Bukkit.getOnlinePlayers()) {
             if (!inGame(p)) continue;
-            players.join(p);
-            guns.equip(p);
-            p.teleport(players.shopSpot());
+            run("start.join", () -> {
+                players.join(p);
+                guns.equip(p);
+                p.teleport(players.shopSpot());
+            });
         }
         // 원정: 지도, 덱, 트럭 체력, 테마
         run("trip.start", trip::startGame);
@@ -236,28 +243,36 @@ public final class Game implements GunHost {
         run("opening", () -> stateAt += kr.gave.trip.Travel.opening(this));
     }
 
+    // 판 흐름 함수는 단계마다 run 으로 감싼다: 한 단계가 던져도 상태는 꼭 넘어간다. 감싸지 않으면 감독이 던질 때 상태와 stateAt 이 그대로라
+    // 다음 틱에 같은 함수가 또 불려, 매 틱 웨이브 번호가 오르거나(beginWave) 판 끝에 갇힌다(reset).
+
     public void beginWave(int n) {
         wave = n;
         // 원정: 라운드 종류 고르기, 덱(감독이 계획을 짜기 전)
         run("trip.before", () -> trip.beforeRound(n));
-        director.beginWave(n);
+        run("director.beginWave", () -> director.beginWave(n));
         set(State.WAVE);
-        crates.beginWave(n);
+        run("crates.beginWave", () -> crates.beginWave(n));
         run("trip.begin", () -> trip.beginRound(n));
     }
 
     public void beginBreak() {
         set(State.BREAK);
-        director.beginBreak(wave);
+        run("director.beginBreak", () -> director.beginBreak(wave));
         // 쉬는 시간 시작: 서 있는 사람 체력 회복(Director.Tune.BREAK_HEAL)
-        for (Player p : players.standing()) players.heal(p, players.get(p).maxHp * Director.Tune.BREAK_HEAL);
+        run("break.heal", () -> {
+            for (Player p : players.standing()) players.heal(p, players.get(p).maxHp * Director.Tune.BREAK_HEAL);
+        });
         // 라운드가 끝나면 모두 부활(2026-11-12 사용자): 죽은, 갇힌, 쓰러진 사람 모두 상점 앞에서 체력 가득, 공짜(Players.reviveFree).
         // 원정의 돈 내고 꺼내기는 라운드 중에만 쓰인다. 발사 차례(B5 엔딩 뒤)에는 예전 규칙: 쓰러진 사람, 기다리던 사람만 일어나고 죽은 사람은 꺼내기로
         boolean free = players.breakReviveNow(), paid = trip.paidRevive();
         for (Player p : players.inPlay()) {
-            PState s = players.get(p);
-            if (free) players.reviveFree(p);
-            else if (s.life == Life.DOWNED || s.life == Life.WAITING || s.life == Life.DEAD && !paid) players.reviveAtShop(p, false);
+            // 한 사람이 던져도 나머지는 부활
+            run("break.revive", () -> {
+                PState s = players.get(p);
+                if (free) players.reviveFree(p);
+                else if (s.life == Life.DOWNED || s.life == Life.WAITING || s.life == Life.DEAD && !paid) players.reviveAtShop(p, false);
+            });
         }
         // 원정: 보상, 갈림길, 이동 예약
         run("trip.break", () -> trip.beginBreak(wave));
@@ -265,33 +280,33 @@ public final class Game implements GunHost {
 
     public void gameOver() {
         set(State.OVER);
-        guns.settle();
         recorded = false;
-        director.gameOver();
+        run("guns.settle", guns::settle);
+        run("director.gameOver", director::gameOver);
         run("trip.over", trip::gameOver);
     }
 
     private void finishRecord() {
         recorded = true;
-        records.finish(wave);
+        run("records.finish", () -> records.finish(wave));
     }
 
     /** 판을 멈추고 모두 대기실로. */
     public void reset() {
         if (state == State.OVER && !recorded) finishRecord();
-        mobs.clear();
-        guns.clearAll();
-        grenades.clear();
-        shotFx.clear();
-        director.reset();
-        shop.clear();
-        crates.clear();
-        horizon.clear();
+        run("mobs.clear", mobs::clear);
+        run("guns.clear", guns::clearAll);
+        run("grenades.clear", grenades::clear);
+        run("shotFx.clear", shotFx::clear);
+        run("director.reset", director::reset);
+        run("shop.clear", shop::clear);
+        run("crates.clear", crates::clear);
+        run("horizon.clear", horizon::clear);
         // 원정: 땅과 테마, 놓은 것 되돌리기
         run("trip.reset", trip::reset);
-        hud.clear();
-        for (Player p : Bukkit.getOnlinePlayers()) toLobby(p);
-        players.clear();
+        run("hud.clear", hud::clear);
+        for (Player p : Bukkit.getOnlinePlayers()) run("toLobby", () -> toLobby(p));
+        run("players.clear", players::clear);
         wave = 0;
         set(State.LOBBY);
     }
@@ -300,9 +315,10 @@ public final class Game implements GunHost {
         reset();
     }
 
+    /** 대기실로(상태, 판에서 얻은 것 정리). 크리에이티브(맵 짓는 사람)는 상태만 정리하고 자리는 그대로 둔다. */
     public void toLobby(Player p) {
         players.toLobby(p);
-        p.teleport(Plaza.lobbySpot(world));
+        if (inGame(p)) p.teleport(Plaza.lobbySpot(world));
     }
 
     public String status() {
@@ -364,6 +380,11 @@ public final class Game implements GunHost {
     @Override
     public void onHelp(Player p) {
         players.help(p);
+    }
+
+    @Override
+    public void crit(Player p) {
+        hud.crit(p);
     }
 
     // ------------------------------------------------------------------ 시험 훅

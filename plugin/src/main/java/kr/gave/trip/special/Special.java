@@ -126,7 +126,7 @@ public abstract class Special implements SpecialRound {
         public static int DARK_BLOCK = 1, DARK_SKY = 0;
 
         // ---------------------------------------------------------------- 6 모래폭풍
-        /** 안개 단계, 바람이 바뀌는 틱, 마주 봄 각(도), 바람 쪽 게이브 빠르기, 바람을 마주 보고 멀리 쏜 피해 배율과 거리, 노출된 사람 초당 피해, 바람 그늘 길이와 폭의 반, 맞바람 느려짐(%). */
+        /** 안개 단계, 바람이 바뀌는 틱, 마주 봄 각(도), 바람 쪽 게이브 빠르기, 바람을 마주 보고 멀리 쏜 피해 배율과 거리, (SAND_STING 그늘 밖 초당 피해는 2026-11-13 사용자 '모래폭풍 1뎀씩 주는 그거는 삭제해'로 안 씀), 바람 그늘 길이와 폭의 반, 맞바람 느려짐(%). */
         public static int SAND_FOG = 4, WIND_EVERY = 500;
         public static double WIND_ARC = 60, WIND_SPEED = 1.35, SAND_DMG = 0.55, SAND_NEAR = 10, SAND_STING = 0.6, SHADE_LEN = 7, SHADE_HALF = 5.0, SAND_SLOW = 18;
 
@@ -165,6 +165,9 @@ public abstract class Special implements SpecialRound {
         /** 흩어지는 반지름, 안개 단계, 경적 간격, 모였다고 보는 반지름, 혼자인 사람(이 반지름 안에 동료 없음), 혼자를 노리는 반지름. */
         public static double SCATTER_R0 = 30, SCATTER_R1 = 44, GATHER_R = 12, LONER_R = 9, LONER_FORCE_R = 22;
         public static int SCATTER_FOG = 5, HORN_EVERY = 200;
+        /** 모였다고 치는 몫(서 있는 사람 가운데 원 안에 든 몫)과 기다리는 끝(초): 원 밖에서 멈춘 한 사람이 라운드를 붙잡지 않게. */
+        public static double GATHER_SHARE = 0.8;
+        public static int GATHER_SECONDS = 60;
 
         private Tune() {
         }
@@ -330,7 +333,8 @@ public abstract class Special implements SpecialRound {
         seen.clear();
         Theme th = trip.part(Theme.class);
         if (th != null && opened) th.dim(0, 1);
-        if (fogBefore >= 0 && fogSet) game.director.bossFog(fogBefore);
+        // 웨이브 중에 닫히면 연 때의 단계로, 그 밖(쉬는 시간, 판 끝, 정리)에는 막의 기본으로: 연 때의 감독 안개 사건이 쉬는 시간에 남지 않게
+        if (fogBefore >= 0 && fogSet) game.director.bossFog(game.state == Game.State.WAVE ? fogBefore : th != null ? th.fogBase() : 0);
         fogSet = false;
         fogBefore = -1;
         if (cued != null && cued.equals(game.music.cue())) game.music.uncue();
@@ -348,7 +352,8 @@ public abstract class Special implements SpecialRound {
             return false;
         }
         if (check(done)) {
-            // 다 잡기 꼴: 남은 떼가 없으니 물러남 없이 바로 끝
+            // 다 잡기 꼴: 남은 떼가 없으니 물러남 없이 바로 끝(완료 알림은 Late 바탕의 특수와 같이)
+            say("rd_done", 60);
             ended = endedOk = true;
             endAt = now;
             return true;

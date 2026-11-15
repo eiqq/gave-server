@@ -1,0 +1,1405 @@
+{
+ "about": "종마다 보탠 크리처 소리(tools/gabe/flesh.py NEAR)를 무엇으로 쓸지(키트 finish 가 별칭 사건 gabe.<종>.idle, gait, gait_<재질>, flesh 로 굽고 Java kr.gave.mob.Ears 가 부름). size: 죽을 때 얹는 살덩이 층(flesh_small, mid, big), 모든 종. cry: 울음 사건이 하나도 없는 종만 공용 울음(cry_small, mid, big, ground), 자기 울음이 있거나 흉내, 숨는 종이면 null. move: 이동 사건이 없는 종만 공용 이동 소리(flap 은 재질 없이 gait, tick, pat, thud, drag 는 재질 넷 gait_dry, mud, ash, pad), 있거나 걷지 않으면 null. pitch: 몸집에 따른 높이 배율(세 갈래 모두에 곱함, 0.75~1.35). 종 스크립트가 같은 이름으로 sound() 를 부르면 그것이 이김. 표에 없는 종은 보탠 소리가 없다(새 종은 여기에 한 줄 더함). 고친 뒤에는 종 전체를 다시 굽는다(make_gabe).",
+ "species": {
+  "g01": {
+   "name": "가오리 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": null,
+   "pitch": 1.0
+  },
+  "g02": {
+   "name": "새끼 가오리 떼",
+   "size": "small",
+   "cry": null,
+   "move": null,
+   "pitch": 1.35
+  },
+  "g03": {
+   "name": "막대기 곡예 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": null,
+   "pitch": 1.0
+  },
+  "g04": {
+   "name": "뭉텅이 떼 게이브",
+   "size": "small",
+   "cry": "small",
+   "move": "flap",
+   "pitch": 1.35
+  },
+  "g05": {
+   "name": "혹 터지는 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": null,
+   "pitch": 1.0
+  },
+  "g06": {
+   "name": "침 뱉는 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": null,
+   "pitch": 1.0
+  },
+  "g07": {
+   "name": "재화 흉내 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": null,
+   "pitch": 1.0
+  },
+  "g08": {
+   "name": "금빛 홍조 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": "flap",
+   "pitch": 1.0
+  },
+  "g09": {
+   "name": "멈칫 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": "flap",
+   "pitch": 1.0
+  },
+  "g10": {
+   "name": "쪼개지는 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": null,
+   "pitch": 1.0
+  },
+  "g11": {
+   "name": "시체 뜯는 떼 게이브",
+   "size": "small",
+   "cry": "small",
+   "move": null,
+   "pitch": 1.35
+  },
+  "g12": {
+   "name": "얼굴 꿰는 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": "flap",
+   "pitch": 1.0
+  },
+  "g13": {
+   "name": "바람개비 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": "flap",
+   "pitch": 1.0
+  },
+  "g14": {
+   "name": "상점 갉는 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": null,
+   "pitch": 1.0
+  },
+  "g15": {
+   "name": "박수 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": "flap",
+   "pitch": 1.0
+  },
+  "g16": {
+   "name": "내리꽂는 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": null,
+   "pitch": 1.0
+  },
+  "g17": {
+   "name": "우는 아기 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": "drag",
+   "pitch": 1.0
+  },
+  "g18": {
+   "name": "겹겹 덧댄 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": null,
+   "pitch": 1.0
+  },
+  "g19": {
+   "name": "펼친 얼굴 방패 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": null,
+   "pitch": 1.0
+  },
+  "g20": {
+   "name": "얼굴 곡예 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": "flap",
+   "pitch": 1.0
+  },
+  "g21": {
+   "name": "노크하는 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": null,
+   "pitch": 1.0
+  },
+  "g22": {
+   "name": "뒷걸음 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": null,
+   "pitch": 1.0
+  },
+  "g23": {
+   "name": "코앞 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": "flap",
+   "pitch": 1.0
+  },
+  "g24": {
+   "name": "땅밑 얼굴 게이브",
+   "size": "mid",
+   "cry": "ground",
+   "move": "drag",
+   "pitch": 1.0
+  },
+  "g25": {
+   "name": "셋 목말 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": null,
+   "pitch": 1.0
+  },
+  "g26": {
+   "name": "실뭉치 게이브",
+   "size": "small",
+   "cry": null,
+   "move": "drag",
+   "pitch": 1.35
+  },
+  "g27": {
+   "name": "겹얼굴 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": "flap",
+   "pitch": 1.0
+  },
+  "g28": {
+   "name": "짓누르는 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": null,
+   "pitch": 1.0
+  },
+  "g29": {
+   "name": "손잡고 도는 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": "flap",
+   "pitch": 1.0
+  },
+  "g30": {
+   "name": "얼굴 다리 지네 게이브",
+   "size": "big",
+   "cry": null,
+   "move": null,
+   "pitch": 0.78
+  },
+  "g31": {
+   "name": "웅덩이 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": "drag",
+   "pitch": 1.0
+  },
+  "g32": {
+   "name": "웃음 옮는 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": "flap",
+   "pitch": 1.0
+  },
+  "g33": {
+   "name": "토끼귀 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": null,
+   "pitch": 1.0
+  },
+  "g34": {
+   "name": "딱딱 씹는 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": "flap",
+   "pitch": 1.0
+  },
+  "g35": {
+   "name": "엎드린 척 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": null,
+   "pitch": 1.0
+  },
+  "g36": {
+   "name": "실핏줄 잇는 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": "flap",
+   "pitch": 1.0
+  },
+  "g37": {
+   "name": "보자기 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": null,
+   "pitch": 1.0
+  },
+  "g38": {
+   "name": "업은 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": null,
+   "pitch": 1.0
+  },
+  "g39": {
+   "name": "사슬 늘어뜨린 게이브",
+   "size": "big",
+   "cry": null,
+   "move": "flap",
+   "pitch": 0.78
+  },
+  "g40": {
+   "name": "짐승 탄 게이브",
+   "size": "small",
+   "cry": null,
+   "move": null,
+   "pitch": 1.35
+  },
+  "g41": {
+   "name": "가시 쏘는 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": null,
+   "pitch": 1.0
+  },
+  "g42": {
+   "name": "알주머니 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": "flap",
+   "pitch": 1.0
+  },
+  "g43": {
+   "name": "탐조등 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": "flap",
+   "pitch": 1.0
+  },
+  "g44": {
+   "name": "꾸러미 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": null,
+   "pitch": 1.0
+  },
+  "g45": {
+   "name": "줄지어 나는 게이브",
+   "size": "small",
+   "cry": "small",
+   "move": null,
+   "pitch": 1.35
+  },
+  "g46": {
+   "name": "골라 먹는 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": "flap",
+   "pitch": 1.0
+  },
+  "g47": {
+   "name": "문틀에 말린 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": null,
+   "pitch": 1.0
+  },
+  "g48": {
+   "name": "열매 단 나무 게이브",
+   "size": "big",
+   "cry": null,
+   "move": null,
+   "pitch": 0.78
+  },
+  "g49": {
+   "name": "축복 주는 게이브",
+   "size": "big",
+   "cry": null,
+   "move": null,
+   "pitch": 0.78
+  },
+  "g50": {
+   "name": "사람 탈 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": null,
+   "pitch": 1.0
+  },
+  "g51": {
+   "name": "보고 배우는 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": "flap",
+   "pitch": 1.0
+  },
+  "g52": {
+   "name": "총 주운 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": "flap",
+   "pitch": 1.0
+  },
+  "g53": {
+   "name": "점으로 짠 얼굴 떼",
+   "size": "small",
+   "cry": null,
+   "move": null,
+   "pitch": 1.35
+  },
+  "g54": {
+   "name": "올라타는 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": null,
+   "pitch": 1.0
+  },
+  "g55": {
+   "name": "가짜 종소리 게이브",
+   "size": "big",
+   "cry": null,
+   "move": "flap",
+   "pitch": 0.78
+  },
+  "g56": {
+   "name": "깡충 줄 게이브",
+   "size": "small",
+   "cry": "small",
+   "move": null,
+   "pitch": 1.29
+  },
+  "g57": {
+   "name": "종종걸음 게이브",
+   "size": "small",
+   "cry": "small",
+   "move": null,
+   "pitch": 1.35
+  },
+  "g58": {
+   "name": "비명 횡대 게이브",
+   "size": "small",
+   "cry": null,
+   "move": "tick",
+   "pitch": 1.26
+  },
+  "g59": {
+   "name": "물동이 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": null,
+   "pitch": 1.17
+  },
+  "g60": {
+   "name": "튀는 공 게이브",
+   "size": "small",
+   "cry": "small",
+   "move": "flap",
+   "pitch": 1.35
+  },
+  "g61": {
+   "name": "설 짐승 게이브",
+   "size": "big",
+   "cry": null,
+   "move": null,
+   "pitch": 0.84
+  },
+  "g62": {
+   "name": "부채 게이브",
+   "size": "small",
+   "cry": "small",
+   "move": "flap",
+   "pitch": 1.21
+  },
+  "g63": {
+   "name": "집게다리 게이브",
+   "size": "mid",
+   "cry": "ground",
+   "move": null,
+   "pitch": 1.08
+  },
+  "g64": {
+   "name": "등 뒤에 앉는 게이브",
+   "size": "small",
+   "cry": null,
+   "move": null,
+   "pitch": 1.32
+  },
+  "g65": {
+   "name": "빨랫줄 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": "flap",
+   "pitch": 0.96
+  },
+  "g66": {
+   "name": "바구니 진 덩치 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": "drag",
+   "pitch": 0.86
+  },
+  "g67": {
+   "name": "허수아비 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": null,
+   "pitch": 1.0
+  },
+  "g68": {
+   "name": "오뚝이 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": "flap",
+   "pitch": 1.14
+  },
+  "g69": {
+   "name": "털 뭉치 게이브",
+   "size": "small",
+   "cry": "small",
+   "move": "drag",
+   "pitch": 1.32
+  },
+  "g70": {
+   "name": "풍선 게이브",
+   "size": "small",
+   "cry": null,
+   "move": "flap",
+   "pitch": 1.32
+  },
+  "g71": {
+   "name": "해 가리는 날개 게이브",
+   "size": "big",
+   "cry": "big",
+   "move": null,
+   "pitch": 0.75
+  },
+  "g72": {
+   "name": "불꼬리 운석 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": "tick",
+   "pitch": 1.29
+  },
+  "g73": {
+   "name": "왕관 쓴 떼 게이브",
+   "size": "small",
+   "cry": "small",
+   "move": "tick",
+   "pitch": 1.35
+  },
+  "g74": {
+   "name": "칙칙 수레 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": null,
+   "pitch": 1.26
+  },
+  "g75": {
+   "name": "배불뚝이 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": null,
+   "pitch": 0.98
+  },
+  "g76": {
+   "name": "머리 돋는 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": "flap",
+   "pitch": 1.06
+  },
+  "g77": {
+   "name": "하늘 발 게이브",
+   "size": "big",
+   "cry": "big",
+   "move": null,
+   "pitch": 0.76
+  },
+  "g78": {
+   "name": "돈 냄새 사냥개 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": "tick",
+   "pitch": 1.14
+  },
+  "g79": {
+   "name": "접시 세는 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": "flap",
+   "pitch": 1.06
+  },
+  "g80": {
+   "name": "춤추는 굴렁쇠 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": null,
+   "pitch": 1.17
+  },
+  "g81": {
+   "name": "눈싸움 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": "flap",
+   "pitch": 0.96
+  },
+  "g82": {
+   "name": "발자국 게이브",
+   "size": "small",
+   "cry": "small",
+   "move": null,
+   "pitch": 1.32
+  },
+  "g83": {
+   "name": "장승 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": "flap",
+   "pitch": 0.98
+  },
+  "g84": {
+   "name": "오르골 게이브",
+   "size": "small",
+   "cry": "small",
+   "move": "tick",
+   "pitch": 1.32
+  },
+  "g85": {
+   "name": "땅 금 입 게이브",
+   "size": "big",
+   "cry": "big",
+   "move": "thud",
+   "pitch": 0.78
+  },
+  "g86": {
+   "name": "소금쟁이 게이브",
+   "size": "small",
+   "cry": "small",
+   "move": null,
+   "pitch": 1.17
+  },
+  "g87": {
+   "name": "세 바람 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": null,
+   "pitch": 1.21
+  },
+  "g88": {
+   "name": "백눈 호저 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": "tick",
+   "pitch": 1.04
+  },
+  "g89": {
+   "name": "조개 게이브",
+   "size": "mid",
+   "cry": "ground",
+   "move": null,
+   "pitch": 1.14
+  },
+  "g90": {
+   "name": "등불 나방 게이브",
+   "size": "small",
+   "cry": "small",
+   "move": null,
+   "pitch": 1.35
+  },
+  "g91": {
+   "name": "빗줄기 커튼 게이브",
+   "size": "big",
+   "cry": "big",
+   "move": "flap",
+   "pitch": 0.75
+  },
+  "g92": {
+   "name": "팔 뻗는 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": null,
+   "pitch": 1.04
+  },
+  "g93": {
+   "name": "피리 부는 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": "flap",
+   "pitch": 0.96
+  },
+  "g94": {
+   "name": "솥 다리 게이브",
+   "size": "big",
+   "cry": "big",
+   "move": "flap",
+   "pitch": 0.8
+  },
+  "g95": {
+   "name": "두 번째 그림자 게이브",
+   "size": "small",
+   "cry": null,
+   "move": null,
+   "pitch": 1.26
+  },
+  "g96": {
+   "name": "쇠 먹는 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": "tick",
+   "pitch": 0.94
+  },
+  "g97": {
+   "name": "올려다보면 삼키는 구름 게이브",
+   "size": "big",
+   "cry": "big",
+   "move": "flap",
+   "pitch": 0.75
+  },
+  "g98": {
+   "name": "물러나는 초롱 게이브",
+   "size": "mid",
+   "cry": "ground",
+   "move": null,
+   "pitch": 0.96
+  },
+  "g99": {
+   "name": "붓 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": "flap",
+   "pitch": 1.02
+  },
+  "g100": {
+   "name": "가마 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": null,
+   "pitch": 0.9
+  },
+  "g101": {
+   "name": "나만 보이는 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": "tick",
+   "pitch": 1.17
+  },
+  "g102": {
+   "name": "던져 올리는 손 게이브",
+   "size": "big",
+   "cry": null,
+   "move": null,
+   "pitch": 0.81
+  },
+  "g103": {
+   "name": "국자 게이브",
+   "size": "big",
+   "cry": "big",
+   "move": null,
+   "pitch": 0.78
+  },
+  "g104": {
+   "name": "딱지 게이브",
+   "size": "small",
+   "cry": "small",
+   "move": null,
+   "pitch": 1.35
+  },
+  "g105": {
+   "name": "병풍 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": null,
+   "pitch": 0.96
+  },
+  "g106": {
+   "name": "숨 쉬는 땅 게이브",
+   "size": "big",
+   "cry": null,
+   "move": "thud",
+   "pitch": 0.75
+  },
+  "g107": {
+   "name": "솟구쳐 덮는 게이브",
+   "size": "big",
+   "cry": "big",
+   "move": "thud",
+   "pitch": 0.75
+  },
+  "g108": {
+   "name": "죽은 척 게이브",
+   "size": "small",
+   "cry": null,
+   "move": null,
+   "pitch": 1.21
+  },
+  "g109": {
+   "name": "몰리면 변하는 떼 게이브",
+   "size": "small",
+   "cry": "small",
+   "move": "tick",
+   "pitch": 1.35
+  },
+  "g110": {
+   "name": "긁는 게이브",
+   "size": "small",
+   "cry": "small",
+   "move": null,
+   "pitch": 1.26
+  },
+  "g111": {
+   "name": "제 머리 든 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": null,
+   "pitch": 1.06
+  },
+  "g112": {
+   "name": "허물 벗는 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": "flap",
+   "pitch": 1.0
+  },
+  "g113": {
+   "name": "성난 새장 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": null,
+   "pitch": 1.04
+  },
+  "g114": {
+   "name": "개미 무덤 게이브",
+   "size": "mid",
+   "cry": "ground",
+   "move": "tick",
+   "pitch": 0.96
+  },
+  "g115": {
+   "name": "진드기 덮인 거인 게이브",
+   "size": "big",
+   "cry": "big",
+   "move": null,
+   "pitch": 0.81
+  },
+  "g116": {
+   "name": "수레바퀴 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": null,
+   "pitch": 0.88
+  },
+  "g117": {
+   "name": "등 맞댄 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": null,
+   "pitch": 1.04
+  },
+  "g118": {
+   "name": "빚 놓는 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": "flap",
+   "pitch": 1.17
+  },
+  "g119": {
+   "name": "이름 연 게이브",
+   "size": "big",
+   "cry": null,
+   "move": "flap",
+   "pitch": 0.84
+  },
+  "g120": {
+   "name": "사체 버섯 게이브",
+   "size": "mid",
+   "cry": "ground",
+   "move": "drag",
+   "pitch": 1.08
+  },
+  "g121": {
+   "name": "채 가는 둥지 게이브",
+   "size": "big",
+   "cry": null,
+   "move": "flap",
+   "pitch": 0.76
+  },
+  "g122": {
+   "name": "호리병 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": "flap",
+   "pitch": 1.14
+  },
+  "g123": {
+   "name": "벌레 구름 게이브",
+   "size": "small",
+   "cry": "small",
+   "move": "flap",
+   "pitch": 1.35
+  },
+  "g124": {
+   "name": "도깨비불 게이브",
+   "size": "small",
+   "cry": null,
+   "move": "flap",
+   "pitch": 1.35
+  },
+  "g125": {
+   "name": "갈비 우리 거인 게이브",
+   "size": "big",
+   "cry": null,
+   "move": null,
+   "pitch": 0.77
+  },
+  "g126": {
+   "name": "줄 인형 부리는 게이브",
+   "size": "big",
+   "cry": "big",
+   "move": null,
+   "pitch": 0.75
+  },
+  "g127": {
+   "name": "머리 탑 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": null,
+   "pitch": 0.86
+  },
+  "g128": {
+   "name": "솟는 목 게이브",
+   "size": "big",
+   "cry": "big",
+   "move": "flap",
+   "pitch": 0.75
+  },
+  "g129": {
+   "name": "가로지르는 장대 거인 게이브",
+   "size": "big",
+   "cry": "big",
+   "move": null,
+   "pitch": 0.75
+  },
+  "g130": {
+   "name": "따라 하는 거인 게이브",
+   "size": "big",
+   "cry": "big",
+   "move": null,
+   "pitch": 0.75
+  },
+  "g131": {
+   "name": "묻힌 얼굴 게이브",
+   "size": "big",
+   "cry": "big",
+   "move": null,
+   "pitch": 0.76
+  },
+  "g132": {
+   "name": "신호탄 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": "tick",
+   "pitch": 1.19
+  },
+  "g133": {
+   "name": "물마루 게이브",
+   "size": "mid",
+   "cry": "ground",
+   "move": null,
+   "pitch": 1.0
+  },
+  "g134": {
+   "name": "북 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": "tick",
+   "pitch": 1.14
+  },
+  "g135": {
+   "name": "일곱 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": null,
+   "pitch": 1.02
+  },
+  "g136": {
+   "name": "총 엉키는 덩치 게이브",
+   "size": "big",
+   "cry": "big",
+   "move": null,
+   "pitch": 0.84
+  },
+  "g137": {
+   "name": "하늘 원반 게이브",
+   "size": "big",
+   "cry": null,
+   "move": "flap",
+   "pitch": 0.75
+  },
+  "g138": {
+   "name": "다친 냄새 물구나무 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": "tick",
+   "pitch": 1.23
+  },
+  "g139": {
+   "name": "떠넘기는 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": "flap",
+   "pitch": 1.14
+  },
+  "g140": {
+   "name": "항아리 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": "flap",
+   "pitch": 0.96
+  },
+  "g141": {
+   "name": "밀려오는 얼굴 벽 게이브",
+   "size": "big",
+   "cry": "big",
+   "move": "thud",
+   "pitch": 0.75
+  },
+  "g142": {
+   "name": "담 치는 지네 게이브",
+   "size": "big",
+   "cry": "big",
+   "move": null,
+   "pitch": 0.75
+  },
+  "g143": {
+   "name": "갈아 먹는 톱니 게이브",
+   "size": "big",
+   "cry": "big",
+   "move": "thud",
+   "pitch": 0.76
+  },
+  "g144": {
+   "name": "소리 먹는 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": null,
+   "pitch": 0.97
+  },
+  "g145": {
+   "name": "못 박힌 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": null,
+   "pitch": 0.98
+  },
+  "g146": {
+   "name": "고리 문 게이브",
+   "size": "mid",
+   "cry": "ground",
+   "move": null,
+   "pitch": 0.94
+  },
+  "g147": {
+   "name": "저울 게이브",
+   "size": "big",
+   "cry": "big",
+   "move": "flap",
+   "pitch": 0.75
+  },
+  "g148": {
+   "name": "내려앉는 종 게이브",
+   "size": "big",
+   "cry": "big",
+   "move": "flap",
+   "pitch": 0.75
+  },
+  "g149": {
+   "name": "안 보이는 거인 게이브",
+   "size": "big",
+   "cry": null,
+   "move": null,
+   "pitch": 0.75
+  },
+  "g150": {
+   "name": "모래시계 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": "tick",
+   "pitch": 0.98
+  },
+  "g151": {
+   "name": "꿰뚫는 작살 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": "flap",
+   "pitch": 1.08
+  },
+  "g152": {
+   "name": "하늘 시계추 게이브",
+   "size": "big",
+   "cry": "big",
+   "move": null,
+   "pitch": 0.75
+  },
+  "g153": {
+   "name": "하늘 찢는 게이브",
+   "size": "big",
+   "cry": "big",
+   "move": null,
+   "pitch": 0.75
+  },
+  "g154": {
+   "name": "여덟 머리 게이브",
+   "size": "big",
+   "cry": null,
+   "move": "thud",
+   "pitch": 0.84
+  },
+  "g155": {
+   "name": "말뚝에 묶인 거인 게이브",
+   "size": "big",
+   "cry": null,
+   "move": "thud",
+   "pitch": 0.75
+  },
+  "g156": {
+   "name": "줄넘기 게이브",
+   "size": "mid",
+   "cry": "ground",
+   "move": "drag",
+   "pitch": 0.96
+  },
+  "g157": {
+   "name": "새끼 딸린 게이브",
+   "size": "small",
+   "cry": null,
+   "move": "tick",
+   "pitch": 1.32
+  },
+  "g158": {
+   "name": "문턱 게이브",
+   "size": "small",
+   "cry": "small",
+   "move": "tick",
+   "pitch": 1.35
+  },
+  "g159": {
+   "name": "민들레 홀씨 게이브",
+   "size": "small",
+   "cry": "small",
+   "move": "flap",
+   "pitch": 1.17
+  },
+  "g160": {
+   "name": "엉뚱 달리기 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": null,
+   "pitch": 1.21
+  },
+  "g161": {
+   "name": "순찰 병정 게이브",
+   "size": "big",
+   "cry": "big",
+   "move": null,
+   "pitch": 0.84
+  },
+  "g162": {
+   "name": "덮쳐 앉는 게이브",
+   "size": "mid",
+   "cry": "ground",
+   "move": null,
+   "pitch": 1.29
+  },
+  "g163": {
+   "name": "프로펠러 모자 게이브",
+   "size": "small",
+   "cry": "small",
+   "move": null,
+   "pitch": 1.35
+  },
+  "g164": {
+   "name": "몰이 게이브",
+   "size": "small",
+   "cry": "small",
+   "move": "tick",
+   "pitch": 0.98
+  },
+  "g165": {
+   "name": "무른 땅 게이브",
+   "size": "small",
+   "cry": "small",
+   "move": null,
+   "pitch": 1.35
+  },
+  "g166": {
+   "name": "까치발 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": null,
+   "pitch": 0.96
+  },
+  "g167": {
+   "name": "뽑기 집게 게이브",
+   "size": "big",
+   "cry": "big",
+   "move": null,
+   "pitch": 0.81
+  },
+  "g168": {
+   "name": "꿰매는 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": "flap",
+   "pitch": 1.26
+  },
+  "g169": {
+   "name": "물그림자 게이브",
+   "size": "big",
+   "cry": null,
+   "move": "flap",
+   "pitch": 0.78
+  },
+  "g170": {
+   "name": "똬리 게이브",
+   "size": "big",
+   "cry": "big",
+   "move": null,
+   "pitch": 0.75
+  },
+  "g171": {
+   "name": "빈틈 노리는 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": "tick",
+   "pitch": 1.26
+  },
+  "g172": {
+   "name": "잿가루 게이브",
+   "size": "mid",
+   "cry": "ground",
+   "move": "drag",
+   "pitch": 1.06
+  },
+  "g173": {
+   "name": "외투 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": null,
+   "pitch": 0.98
+  },
+  "g174": {
+   "name": "손자국 게이브",
+   "size": "mid",
+   "cry": "ground",
+   "move": null,
+   "pitch": 1.11
+  },
+  "g175": {
+   "name": "태워 주는 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": "tick",
+   "pitch": 1.06
+  },
+  "g176": {
+   "name": "쟁기 게이브",
+   "size": "mid",
+   "cry": "ground",
+   "move": null,
+   "pitch": 1.06
+  },
+  "g177": {
+   "name": "우는 장막 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": null,
+   "pitch": 0.97
+  },
+  "g178": {
+   "name": "머리 따로 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": "flap",
+   "pitch": 1.04
+  },
+  "g179": {
+   "name": "다시 오는 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": "tick",
+   "pitch": 1.04
+  },
+  "g180": {
+   "name": "송곳 게이브",
+   "size": "big",
+   "cry": "big",
+   "move": "thud",
+   "pitch": 0.84
+  },
+  "g181": {
+   "name": "잿빛 돌 게이브",
+   "size": "mid",
+   "cry": "ground",
+   "move": null,
+   "pitch": 1.0
+  },
+  "g182": {
+   "name": "요새 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": "tick",
+   "pitch": 0.93
+  },
+  "g183": {
+   "name": "가짜 트럭 게이브",
+   "size": "big",
+   "cry": null,
+   "move": null,
+   "pitch": 0.84
+  },
+  "g184": {
+   "name": "펼친 책 게이브",
+   "size": "big",
+   "cry": null,
+   "move": "flap",
+   "pitch": 0.75
+  },
+  "g185": {
+   "name": "말뚝 든 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": "tick",
+   "pitch": 1.17
+  },
+  "g186": {
+   "name": "양탄자 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": null,
+   "pitch": 1.0
+  },
+  "g187": {
+   "name": "테두리 갉는 게이브",
+   "size": "mid",
+   "cry": "ground",
+   "move": null,
+   "pitch": 0.96
+  },
+  "g188": {
+   "name": "사이렌 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": "flap",
+   "pitch": 0.9
+  },
+  "g189": {
+   "name": "꼭 맞는 구멍 게이브",
+   "size": "mid",
+   "cry": null,
+   "move": "drag",
+   "pitch": 1.21
+  },
+  "g190": {
+   "name": "초침 게이브",
+   "size": "small",
+   "cry": "small",
+   "move": null,
+   "pitch": 1.35
+  },
+  "g191": {
+   "name": "포도송이 게이브",
+   "size": "mid",
+   "cry": "mid",
+   "move": "tick",
+   "pitch": 0.96
+  },
+  "g192": {
+   "name": "초승달 조각 게이브",
+   "size": "small",
+   "cry": null,
+   "move": null,
+   "pitch": 1.35
+  },
+  "g193": {
+   "name": "빛 쫓는 게이브",
+   "size": "big",
+   "cry": null,
+   "move": null,
+   "pitch": 0.78
+  },
+  "g194": {
+   "name": "바닥 밑 게이브",
+   "size": "mid",
+   "cry": "ground",
+   "move": null,
+   "pitch": 0.88
+  },
+  "g195": {
+   "name": "어둠 장막 게이브",
+   "size": "big",
+   "cry": null,
+   "move": null,
+   "pitch": 0.75
+  },
+  "g196": {
+   "name": "하늘 아치 게이브",
+   "size": "big",
+   "cry": null,
+   "move": "flap",
+   "pitch": 0.75
+  },
+  "g197": {
+   "name": "수 채우는 안개 게이브",
+   "size": "big",
+   "cry": null,
+   "move": "thud",
+   "pitch": 0.75
+  },
+  "g198": {
+   "name": "나란히 걷는 거인 게이브",
+   "size": "big",
+   "cry": "big",
+   "move": null,
+   "pitch": 0.75
+  },
+  "g199": {
+   "name": "눈 찾는 거인 게이브",
+   "size": "big",
+   "cry": null,
+   "move": null,
+   "pitch": 0.75
+  },
+  "g200": {
+   "name": "하늘 아가리 게이브",
+   "size": "big",
+   "cry": "big",
+   "move": "flap",
+   "pitch": 0.75
+  }
+ }
+}

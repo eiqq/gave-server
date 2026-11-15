@@ -79,12 +79,12 @@ POSTS = ("unknown", "fight", "launch", "elite")
 #   mul: 그 스테이지 동안의 배율(Trip.mul 키: price, revive, truckShare, reward, money ...)
 #   boss: 보스 길목 질주를 끝까지 달렸을 때 보스 체력 배율(ask bossHp)
 EFFECTS = {
-    "fight": {"end": {"money": 0.25}},
+    "fight": {"end": {"money": 1.0}},
     "elite": {"end": {"aug": 1}},
     "cache": {"arrive": {"ammo": 1}, "round": {"crate": 200}},
     "rest": {"arrive": {"truck": 0.30}, "mul": {"price": 0.8, "revive": 0.5}},
     "event": {},
-    "rush": {"end": {"part": 1, "money": 1.5}},
+    "rush": {"end": {"part": 1, "money": 5.0}},
     "trap": {"mul": {"truckShare": 2.0}, "end": {"aug": 2}},
     "gate_rest": {"arrive": {"truck": 0.30}, "mul": {"price": 0.8, "revive": 0.5}},
     "gate_arm": {"arrive": {"ammo": 1, "box": 1}},
@@ -93,10 +93,10 @@ EFFECTS = {
 }
 
 # 사건 가운데 지금 엔진으로 되는 것만 굴린다(ready). 나머지는 묶음 7, 8(라운드 종류, 특수)이 들어온 뒤에.
-#   arrive.hitch: 손 든 사람(그 몫은 모두 0.5U, 아니면 사람 탈 게이브가 트럭 곁에서 나옴)
+#   arrive.hitch: 손 든 사람(그 몫은 모두 2U, 아니면 사람 탈 게이브가 트럭 곁에서 나옴)
 EVENT_IMPL = {
     "ev_radio": {"end": {"aug": 1}},
-    "ev_hitch": {"arrive": {"hitch": 0.6, "money": 0.5, "mob": "G50", "mobs": 2}},
+    "ev_hitch": {"arrive": {"hitch": 0.6, "money": 2.0, "mob": "G50", "mobs": 2}},
     "ev_storm": {"mul": {"reward": 1.3}},
     "ev_gift": {"round": {"crate": 100}, "arrive": {"box": 1}},
     "ev_quiet": {"mul": {"reward": 1.5}},
@@ -123,7 +123,7 @@ RULES = {
 }
 
 # 스테이지 소품 묶음(카드의 props → 놓는 법). 모델은 trip/<이름>(이 파일이 굽는 TrafficCraft 소품)과 소품 층의 월드 소품 키.
-# 모델 후보를 못 구한 묶음은 없다(그 스테이지는 소품 없이). layout: road 길 양옆 줄, jam 길 위, cluster 몇 무더기, scatter 흩뿌림
+# 모델 후보를 못 구한 묶음은 여기 없다(그 스테이지는 소품 없이: 구운 route.json 의 sceneryMissing 에 묶음 이름이 남는다). layout: road 길 양옆 줄, jam 길 위, cluster 몇 무더기, scatter 흩뿌림
 SCENERY = {
     "road_poles": {"layout": "road", "models": ["trip/lamp", "trip/delineator", "trip/delineator", "trip/delineator"], "count": 16, "gap": 9},
     "car_jam": {"layout": "jam", "models": ["trip/wreck_sedan", "trip/wreck_pickup", "trip/cone", "trip/wreck_sedan", "trip/barrier"], "count": 12},

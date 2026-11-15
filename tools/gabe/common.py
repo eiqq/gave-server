@@ -2,10 +2,12 @@
 
 gave:gabe.bite  물어뜯기(서로 다른 종 머리가 닿음, 반경 20)
 gave:gabe.split 얼굴이 갈라져 둘(오래 살면 변함 3단계, 반경 20)
+gave:gabe.cry_*, move_*, flesh_*, corpse_*  보탠 크리처 소리(2026-11-14, tools/gabe/flesh.py NEAR, Java kr.gave.mob.Ears). 종마다의 별칭
+                gabe.<종>.idle, gait, gait_<재질>, flesh 가 이것을 가리킨다(키트 finish, data/gabe_voice.json)
 gave:gabe/common_rod  래그돌 사체의 흐물 막대기 마디 하나(엔진 kr.gave.mob.Ragdoll.ROD_MODEL). 한 변 1 블록 정육면체이고 길이 쪽이 +Y:
                 디스플레이가 (굵기, 마디 길이, 굵기)로 늘여 그린다. 상태 = 텍스처("" 엔드 막대기, flesh, wetskin, bone: kit.RAG_PARTS)
 """
-from gabe import audio, kit
+from gabe import audio, flesh, kit
 
 
 def build(k: kit.Kit):
@@ -26,3 +28,5 @@ def sounds(k: kit.Kit):
             attenuation=20, event="gabe.bite")
     k.sound("split", "얼굴이 갈라짐", synth=lambda i: audio.squish(seed=60 + i, dur=0.4), vanilla=[("mob/slime/big1", 0.6)],
             attenuation=20, event="gabe.split")
+    for name, e in flesh.NEAR.items():
+        k.sound(name, e["sub"], synth=[flesh.master(fn(s), e) for fn, s in e["variants"]], attenuation=e["att"], event=f"gabe.{name}")

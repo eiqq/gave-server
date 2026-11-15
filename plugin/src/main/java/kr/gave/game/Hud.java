@@ -18,6 +18,7 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
+import kr.gave.gun.ClientClock;
 import kr.gave.gun.Gun;
 import kr.gave.gun.Guns;
 import kr.gave.hud.HudLine;
@@ -409,15 +410,24 @@ public final class Hud {
         // 이동 연출(trip_route 의 Travel)은 다 검은 동안 screen.black, screen.line 을 내놓는다(검어지고 밝아지는 흐림은 Travel 이 제목 글로)
         String line = storyActive() ? storyLine() : tv.get("screen.line") instanceof String k ? k : null;
         boolean black = now < blackUntil || storyActive() || Boolean.TRUE.equals(tv.get("screen.black"));
-        if (line != null && hasPhrase(line)) s.set(STORY, phrase(new HudLine().at(-(phraseWidth(line) / 2)), line, WHITE));
+        // 인트로(kr.gave.trip.Story): screen.alt = 0.5초마다 잠깐 비치는 다른 줄(본 줄과 같은 왼쪽 끝에서 시작해 바뀐 글자만 어긋나 깜빡인다. 팔레트 효과라
+        // 다시 보내는 것이 없다), screen.cover = 검은 화면 위에 얹는 덮개 그림(맨 위 VL 칸: 글 위에 그려진다)
+        if (line != null && hasPhrase(line)) {
+            String altKey = tv.get("screen.alt") instanceof String ak && hasPhrase(ak) ? ak : null;
+            int x0 = -(phraseWidth(line) / 2);
+            HudLine l = phrase(new HudLine().at(x0), line, altKey == null ? WHITE : ANTI_FLASH);
+            if (altKey != null) phrase(l.at(x0), altKey, FLASH);
+            s.set(STORY, l);
+        }
         if (black && hasCover("black")) {
             drawCover("black", s);
+            if (tv.get("screen.cover") instanceof String ck && hasCover(ck) && VL.length > 0 && VL[0] >= 0) drawCover(ck, s, VL, WHITE);
             // 원정 엔딩 크레딧(trip_launch: Launch 의 hud 값 credits.lines = 지금 쪽 이름 줄, 위에서 아래로): 검은 화면 가운데 칸 넷에 바닐라 글자로
             if (tv.get("credits.lines") instanceof List<?> cl) {
                 int[] rows = {BS_TITLE, BS_SUB, END_NUM, STORY};
                 for (int i = 0; i < cl.size() && i < rows.length; i++) {
                     String t = String.valueOf(cl.get(i));
-                    s.set(rows[i], new HudLine().at(-(HudLine.width(HudLine.S, t) / 2)).text(HudLine.S, t, WHITE));
+                    s.set(rows[i], new HudLine().at(-(HudLine.width(HudLine.N, t) / 2)).text(HudLine.N, t, WHITE));
                 }
             }
             return;
@@ -458,7 +468,9 @@ public final class Hud {
             s.set(BS_PH, bsPh);
             s.set(BS_NAME, bsName);
         }
-        for (int i = 0; i < fsLines.length; i++) if (fsLines[i] != null) s.set(FS[i], fsLines[i]);
+        // 처음 본 종 목록은 길 투표 판이 떠 있는 동안 숨김(셋째 갈래 오른쪽 끝과 포개짐)
+        boolean voting = tv.get("route.fork") instanceof String fork && !fork.isEmpty();
+        if (!voting) for (int i = 0; i < fsLines.length; i++) if (fsLines[i] != null) s.set(FS[i], fsLines[i]);
         money(st, v, s);
         roster(p, v, s);
         edgesFor(p, st, v);
@@ -644,12 +656,12 @@ public final class Hud {
                 case WAITING -> GHOST;
                 default -> grabbed ? PURPLE_BLINK : self ? GOLD : blink ? WHITE_BLINK : WHITE;
             };
-            int w = HudLine.width(HudLine.S, name);
-            HudLine l = new HudLine().text(HudLine.S, name, pal);
+            int w = HudLine.width(HudLine.N, name);
+            HudLine l = new HudLine().text(HudLine.N, name, pal);
             if (life == Life.DEAD && game.trip.paidRevive() && x != null) {
                 // 원정: 죽은 사람은 게이브가 되었다(이름 흐림 + 그 게이브 아이콘, '살려 달라' 신호 3초 동안 깜빡)
                 boolean calling = now - x.callAt < 60;
-                l = new HudLine().text(HudLine.S, name, calling ? WHITE_BLINK : DIM).at(w + 2).img(icon("s", x.deathResult != null ? x.deathResult : Species.G38), calling ? WHITE_BLINK : IMG_DIM);
+                l = new HudLine().text(HudLine.N, name, calling ? WHITE_BLINK : DIM).at(w + 2).img(icon("s", x.deathResult != null ? x.deathResult : Species.G38), calling ? WHITE_BLINK : IMG_DIM);
             } else if (life == Life.DEAD) l.at(-1).rect("strike", w, STRIKE);
             if (life == Life.TRAPPED && x != null && x.eater != null) l.at(w + 2).img(icon("s", x.eater.sp), WHITE);
             s.set(TM[i], l);
@@ -953,7 +965,7 @@ public final class Hud {
     /** 아이콘 인자: 종 키(g05 → 그 크기 아이콘) 또는 그림 이름. 없으면 null */
     private static String iconImage(String key, String size) {
         if (key == null) return null;
-        Species sp = key.length() == 3 && key.charAt(0) == 'g' ? Species.of(key) : null;
+        Species sp = key.length() >= 3 && key.length() <= 4 && key.charAt(0) == 'g' ? Species.of(key) : null;
         // 보스 키(b1 .. b5): 그 보스 아이콘, 없으면 공용 보스 그림
         if (sp == null && key.length() == 2 && key.charAt(0) == 'b' && Character.isDigit(key.charAt(1))) {
             Species b = Species.of(key);
@@ -1025,11 +1037,11 @@ public final class Hud {
         v.points.add(new Point(at.clone(), now + ticks));
     }
 
-    /** 적중 표시(kill 이면 빨간 처치 표시). */
+    /** 적중 표시(kill 이면 빨간 처치 표시). 끝 틱은 셰이더 도장이라 클라 시계 어림(ClientClock)으로 찍는다. */
     public void hit(Player p, boolean kill) {
         if (p == null) return;
         View v = view(p.getUniqueId());
-        long end = game.worldTime() + HudSpec.HIT_TICKS;
+        long end = ClientClock.time(game.world) + HudSpec.HIT_TICKS;
         if (kill) v.killEnd = end;
         else v.hitEnd = end;
     }
@@ -1256,12 +1268,14 @@ public final class Hud {
         String ic = tv.get("goal.icon") instanceof String i && HudLine.has(i) ? i : null;
         int iw = ic == null ? 0 : HudLine.ink(ic), pw = phraseWidth(name);
         int w = (iw > 0 ? iw + 4 : 0) + pw, x0 = -(w / 2);
-        HudLine l = new HudLine().at(x0 - 5).rect("band", w + 10, PANEL);
+        String ln = tv.get("round.line") instanceof String t && hasPhrase(t) && NT_LOW >= 0 ? t : null;
+        // 한 줄이 있으면 띠 바로 아래 판(sub)에 얹어 한 장으로: 판 없이는 트럭 지붕 막대(월드 글 표시) 같은 뒤 그림과 겹쳐 안 읽혔다
+        int lw = ln == null ? 0 : phraseWidth(ln), cw = Math.max(w, lw), c0 = -(cw / 2);
+        HudLine l = new HudLine().at(c0 - 5).rect("band", cw + 10, PANEL);
         if (ic != null) l.at(x0).img(ic, GOLD);
         phrase(l.at(x0 + (iw > 0 ? iw + 4 : 0)), name, WHITE);
         s.set(NT, l);
-        if (tv.get("round.line") instanceof String ln && hasPhrase(ln) && NT_LOW >= 0)
-            s.set(NT_LOW, phrase(new HudLine().at(-(phraseWidth(ln) / 2)), ln, GRAY));
+        if (ln != null) s.set(NT_LOW, phrase(new HudLine().at(c0 - 5).rect("sub", cw + 10, PANEL).at(-(lw / 2)), ln, GRAY));
     }
 
     /**
@@ -1376,9 +1390,20 @@ public final class Hud {
     public void bossHit(Player p, boolean weak) {
         if (p == null) return;
         View v = view(p.getUniqueId());
-        long end = game.worldTime() + HudSpec.HIT_TICKS;
+        long end = ClientClock.time(game.world) + HudSpec.HIT_TICKS;
         if (weak) v.weakEnd = end;
         else v.immuneEnd = end;
+    }
+
+    /**
+     * 치명타 적중 표시: 보스 약점과 같은 금색 칸(C_WEAK, 칸 차례가 C_HIT, C_KILL 뒤). 같은 발로 처치 표시가 막 켜졌으면(끝 틱이 한 틱 안) 빨간 처치
+     * 표시를 덮지 않게 건너뜀. Game.crit 이 부른다.
+     */
+    public void crit(Player p) {
+        if (p == null) return;
+        View v = view(p.getUniqueId());
+        long end = ClientClock.time(game.world) + HudSpec.HIT_TICKS;
+        if (v.killEnd < end - 1) v.weakEnd = end;
     }
 
     private void pushAll(Notice n) {

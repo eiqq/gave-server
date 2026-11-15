@@ -5,8 +5,12 @@ import java.util.Map;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
+import org.bukkit.entity.Display;
+import org.bukkit.entity.ItemDisplay;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.Vector;
+import org.joml.Matrix4f;
 
 import kr.gave.Props;
 import kr.gave.game.Director;
@@ -29,6 +33,9 @@ public final class Tide extends Late {
     private int level = -1;
     private double pump;
     private long pumpedUntil = -1, nextGrab;
+    /** 손잡이 자리 바닥 고리(자리 표식이자 퍼내는 몫)와 그려 둔 칸. */
+    private ItemDisplay handleRing;
+    private int handleShown = -1;
     private int grabs, pumps;
     private double drained;
 
@@ -55,11 +62,15 @@ public final class Tide extends Late {
         th.rain(Boolean.TRUE);
         th.storm(true);
         darken(0.3);
+        handleRing = null;
+        handleShown = -1;
+        drawHandle();
         return true;
     }
 
     @Override
     protected void end() {
+        handleRing = null;
         Theme th = theme();
         if (th != null) {
             th.flood(0, 3);
@@ -116,6 +127,40 @@ public final class Tide extends Late {
         return new Vector(Truck.X1 + 1.2, Plaza.FLOOR_Y, Truck.OZ);
     }
 
+    /**
+     * 손잡이 자리 바닥 고리(초록, 퍼내는 몫만큼 호. 퍼낸 동안은 가득): 어디에 서야 하는지 보이게 하는 표식이자 진행 표시. 디스플레이 하나, 여덟 칸으로
+     * 끊어 칸이 바뀔 때만 다시 싣는다.
+     */
+    private void drawHandle() {
+        int q = pumpedUntil > game.now() ? 8 : (int) Math.round(Math.max(0, Math.min(1, pump / LateTune.PUMP_TICKS)) * 8);
+        boolean has = handleRing != null && handleRing.isValid();
+        if (q == handleShown && has) return;
+        handleShown = q;
+        ItemStack it = game.shotFx.downRing(Math.max(0.02, q / 8.0), true);
+        if (has) {
+            handleRing.setItemStack(it);
+            return;
+        }
+        Vector h = handle();
+        float s = (float) (LateTune.PUMP_R / Rounds.Tune.RING_BASE_R);
+        handleRing = keep(game.world.spawn(new Location(game.world, h.getX(), Plaza.FLOOR_Y + 0.05, h.getZ()), ItemDisplay.class, d -> {
+            d.setPersistent(false);
+            d.setItemStack(it);
+            d.setItemDisplayTransform(ItemDisplay.ItemDisplayTransform.NONE);
+            d.setBillboard(Display.Billboard.FIXED);
+            d.setBrightness(new Display.Brightness(15, 15));
+            d.setTransformationMatrix(new Matrix4f().scale(s));
+            d.setDisplayWidth((float) (LateTune.PUMP_R * 2.4));
+            d.setDisplayHeight(1f);
+            d.setViewRange(2.0f);
+        }));
+    }
+
+    /** 모두에게 손잡이 쪽 화살촉(HUD 값이라 패킷이 따로 없다). */
+    private void pointHandle() {
+        game.hud.point(null, handle().setY(Plaza.FLOOR_Y + 1), 100);
+    }
+
     @Override
     protected void step(long t) {
         long now = game.now();
@@ -123,8 +168,11 @@ public final class Tide extends Late {
         // 물이 한 칸 오름
         int want = (int) Math.min(LateTune.TIDE_LEVELS.length - 1, t / LateTune.TIDE_STEP);
         if (want != level && th != null) {
+            boolean dry = wet() < LateTune.TIDE_WHEEL;
             level = want;
             th.flood(wet(), 3);
+            // 물이 바퀴에 닿는 순간: 깎임을 막는 손잡이 자리를 모두에게 짚어 준다
+            if (dry && wet() >= LateTune.TIDE_WHEEL) pointHandle();
             Props.soundAround(loc(new Vector(Plaza.CX + 0.5, 0, Plaza.CZ + 0.5), 1), "director.flood", Sound.AMBIENT_UNDERWATER_ENTER, 1.4f, 0.8f, 0.6f, 160, -1);
             if (level > 0) notice("sp_tide_rise", 50);
         }
@@ -144,7 +192,7 @@ public final class Tide extends Late {
                 if (grabTick && rnd.nextDouble() < LateTune.TIDE_GRAB * (0.5 + wet())) {
                     grabs++;
                     game.players.root(p, LateTune.TIDE_GRAB_TICKS, "trip_tide_grab");
-                    game.players.hurt(p, LateTune.TIDE_GRAB_DMG, null, "cause_sp_tide");
+                    game.players.hurt(p, LateTune.TIDE_GRAB_DMG * game.director.dmgCmd(), null, "cause_sp_tide");
                     game.world.spawnParticle(Particle.SPLASH, l.getX(), Plaza.FLOOR_Y + 0.2, l.getZ(), 24, 0.4, 0.1, 0.4, 0.1);
                     Props.soundAround(l, "gabe.g24.rumble", Sound.ENTITY_PLAYER_SPLASH_HIGH_SPEED, 1f, 1f, 0.8f, 24, -1);
                     notice(p, "sp_tide_grab", 30);
@@ -172,10 +220,13 @@ public final class Tide extends Late {
                 Props.soundAround(loc(h, 1), "director.flood", Sound.ITEM_BUCKET_EMPTY, 1.2f, 1.2f, 1f, 40, -1);
             }
         } else pump = Math.max(0, pump - 0.5);
+        drawHandle();
         // 바퀴가 잠기면 트럭이 깎임(퍼낸 동안은 안 깎임)
         Truck tr = truck();
         if (tr != null && wet() >= LateTune.TIDE_WHEEL && now >= pumpedUntil && now % 20 == 0) {
             drained += tr.hitFrac(LateTune.TIDE_TRUCK, null, "cause_sp_tide");
+            // 깎이는데 손잡이에 아무도 없으면 10초마다 다시 짚는다
+            if (!near && now % 200 == 0) pointHandle();
             if (now % 100 == 0) game.world.spawnParticle(Particle.BUBBLE_POP, Truck.OX, Plaza.FLOOR_Y + 0.6, Truck.OZ, 30, 1.6, 0.2, 3, 0.05);
         }
         stream(LateTune.STREAM_SHARE);

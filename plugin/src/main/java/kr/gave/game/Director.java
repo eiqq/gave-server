@@ -41,7 +41,6 @@ import net.kyori.adventure.key.Key;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextColor;
 import kr.gave.Props;
-import kr.gave.gun.Guns;
 import kr.gave.mob.Body;
 import kr.gave.mob.Damage;
 import kr.gave.mob.DamageType;
@@ -197,7 +196,9 @@ public final class Director {
 
         // 보상: 감독이 낸 개체의 보상(종 기본값) x REWARD_MUL x (1 + REWARD_PER_WAVE x (웨이브 - 1)) x 무리 체력 배율^REWARD_CROWD(사람 수, 동시 수 넘침) x 넘침 보정.
         // 2026-11-12 파워커브: 1.4 → 0.95(수가 1.45배라 1인 벌이는 비슷), REWARD_CROWD 0.53(체력 지수 0.75 에서도 한 사람 벌이가 인원과 무관하게: 0.6 + 0.75 x 0.53 = 1)
-        public static double REWARD_MUL = 0.95, REWARD_PER_WAVE = 0.0, REWARD_CROWD = 0.53;
+        // 2026-11-14 돈 구조(build/audit/돈.md 안 B): 0.95 → 2.3. 설정 moneyMul 1.7 과 30명 판의 도움 배율(약 1.4)을 여기에 녹였다(설정 배율은 1 이 기본).
+        // 나누기는 kr.gave.player.Wallet(팀 몫 70% 는 모두 똑같이, 30% 는 때린 만큼, 함께 잡으면 +10%)
+        public static double REWARD_MUL = 2.3, REWARD_PER_WAVE = 0.0, REWARD_CROWD = 0.53;
 
         // 인원 비례: 총량은 접속자^UNITS_POW, 체력은 x 접속자^HP_POW(동시 수 상한에 걸린 몫도 체력으로). 사람 수와 무관하게 비슷하게(근거 tools/balance_sim.py)
         // 2026-11-11 0.45, 0.58 → 0.4, 0.45. 2026-11-12 → 0.6, 0.35: 30명 판이 웨이브마다 160 마리에 막혀 체력만 불었음(수는 많게, 한 마리는 덜 단단하게)
@@ -789,8 +790,11 @@ public final class Director {
             double ang;
             if (!Double.isNaN(e.ang())) ang = e.ang() + (rnd.nextDouble() - 0.5) * Math.toRadians(30);
             else if (e.lean() && plan != null && plan.lean >= 0) ang = leanAngle(plan.lean);
-            else if (i < even) ang = a0 + step * i + (rnd.nextDouble() - 0.5) * step * 0.4;
-            else ang = unwatchedAngle(band);
+            else if (i < even) {
+                ang = a0 + step * i + (rnd.nextDouble() - 0.5) * step * 0.4;
+                // 고르게 나눈 자리가 누군가의 코앞(안 보이는 거리 안쪽)이면 안 보는 쪽 후보로 바꾼다: 끝 가까이 나가 있는 사람 눈앞 허공에서 솟지 않게
+                if (exposed(ang, band)) ang = unwatchedAngle(band);
+            } else ang = unwatchedAngle(band);
             if (solo != null) ang = besideSolo(ang);
             spawnEntry(e.sp(), false, ang, band);
             qAt++;
@@ -2361,6 +2365,22 @@ public final class Director {
     }
 
     /**
+     * 고리 위 각 ang, 반지름 band 의 자리가 서 있는 누군가에게서 '안 보이는 거리'({@link #hideDist}) 안쪽인가(그 사람 눈에 나오는 순간이 보임). 안개가 맑아 숨길
+     * 수 없으면(안개 끝 - 4 가 HIDE_MAX 를 넘음: 맑음 단계) 늘 false: 어디서 나와도 보이니 바꿔 봐야 사람들 등 뒤로 쏠리기만 한다.
+     */
+    private boolean exposed(double ang, double band) {
+        int lv = (int) Math.round(Math.max(0, Math.min(5, fogGoal)));
+        if (Fog.END[lv] - 4 > Tune.HIDE_MAX) return false;
+        double x = Plaza.CX + 0.5 + Math.cos(ang) * band, z = Plaza.CZ + 0.5 + Math.sin(ang) * band, hide = hideDist();
+        for (Player p : game.players.standing()) {
+            Location l = p.getLocation();
+            double dx = x - l.getX(), dz = z - l.getZ();
+            if (dx * dx + dz * dz < hide * hide) return true;
+        }
+        return false;
+    }
+
+    /**
      * (x, z) 가 얼마나 눈에 띄는 자리인가: 그 자리를 가장 정면으로 보는 사람의 시선 맞음(-1 등 뒤 .. 1 정면). 누군가에게서 hide 블록 안쪽이면 2 넘게 더한다.
      */
     private static double watched(List<Player> ps, double x, double z, double hide) {
@@ -2716,11 +2736,7 @@ public final class Director {
                 id.setItemStack(Body.item("gabe/g01", "", ls, game.worldTime()));
             }
         }
-        for (Player p : game.players.standing()) {
-            if (p.getLocation().toVector().setY(0).distanceSquared(at.clone().setY(0)) <= 14 * 14) {
-                Guns.kick(p, (float) (rnd.nextGaussian() * 4), (float) (rnd.nextGaussian() * 3));
-            }
-        }
+        // 곁에 선 사람의 시점을 튕기던 것은 뺌(2026-11-12 사용자 "시야 각도를 바꾸는 게이브는 등장하지 않게 해"와 같은 취지: 눈 뜸과 소리, 알림은 그대로)
         game.hud.notice("ev_eye", 80);
         if (!silentOn) Props.soundAround(at.toLocation(game.world), "director.eye", Sound.ENTITY_ELDER_GUARDIAN_AMBIENT, 1f, 1f, 0.5f, 30, -1);
         log("물웅덩이 속 눈 뜸 빠르기 x1.15");

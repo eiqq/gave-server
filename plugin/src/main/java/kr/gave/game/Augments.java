@@ -26,7 +26,6 @@ import org.bukkit.util.Vector;
 import io.papermc.paper.datacomponent.DataComponentTypes;
 import io.papermc.paper.datacomponent.item.CustomModelData;
 import io.papermc.paper.datacomponent.item.ItemLore;
-import io.papermc.paper.datacomponent.item.TooltipDisplay;
 import kr.gave.Props;
 import kr.gave.gun.Gun;
 import kr.gave.gun.GunHooks;
@@ -370,7 +369,9 @@ public final class Augments implements GunHooks {
      * (truckDamageMul, bait, repairPriceMul, revivePriceMul, paid, winch, ramMul: 원정 쪽이 그 메서드를 한 번이라도 불렀음)
      */
     public boolean ready(String need) {
-        return need == null || forcedNeeds.contains(need) || wired.contains(need) || links.ready(need);
+        // 불린 고리 기록(wired)은 판을 넘어 남는다: 그 뒤 대기실에서 원정을 끄면 고리를 부를 부품이 없으니 원정이 켜져 있을 때만 믿는다
+        boolean hooked = wired.contains(need) && game.trip != null && game.trip.enabled;
+        return need == null || forcedNeeds.contains(need) || hooked || links.ready(need);
     }
 
     /** 값 단위 U(원): 지금 웨이브 무기 상자 값(연결이 주면 그 값) */
@@ -801,6 +802,11 @@ public final class Augments implements GunHooks {
      * 무기에 묶인 것은 그 총을 든 사람에게만
      */
     private List<Aug> roll(Player p, int count) {
+        return roll(p, count, List.of());
+    }
+
+    /** avoid = 같은 묶음에 이미 있는 카드(한도가 찬 카드 하나를 바꿔 굴릴 때): 그 카드와 그 갈래는 피한다 */
+    private List<Aug> roll(Player p, int count, List<Aug> avoid) {
         int[] o = odds(Math.max(1, game.wave));
         List<Aug> can = new ArrayList<>(), risks = new ArrayList<>();
         for (Aug a : Aug.values()) {
@@ -809,8 +815,10 @@ public final class Augments implements GunHooks {
             else can.add(a);
         }
         List<Aug> out = new ArrayList<>();
-        int riskSlot = !risks.isEmpty() && rnd.nextDouble() < AugData.roll("risk", 0.22) ? rnd.nextInt(count) : -1;
+        // 위험 카드는 고를 다른 카드가 있는 묶음에만: 한 장짜리 묶음이 위험 카드면 그 저주를 받기 전에는 상점을 못 연다(묶음을 버리는 길이 없음)
+        int riskSlot = count >= 2 && !risks.isEmpty() && rnd.nextDouble() < AugData.roll("risk", 0.22) ? rnd.nextInt(count) : -1;
         Set<Cat> used = EnumSet.noneOf(Cat.class);
+        for (Aug a : avoid) used.add(a.cat);
         for (int i = 0; i < count; i++) {
             Aug pick = null;
             if (i == riskSlot) pick = weighted(risks);
@@ -819,7 +827,8 @@ public final class Augments implements GunHooks {
                 Gun.Rarity tier = x < o[0] ? Gun.Rarity.COMMON : x < o[0] + o[1] ? Gun.Rarity.RARE : Gun.Rarity.EPIC;
                 List<Aug> pool = new ArrayList<>();
                 // 처음 스무 번은 갈래가 안 겹치게, 그래도 없으면 겹쳐도 됨
-                for (Aug a : can) if (a.tier == tier && !out.contains(a) && (tries >= 20 || !used.contains(a.cat))) pool.add(a);
+                for (Aug a : can)
+                    if (a.tier == tier && !out.contains(a) && !avoid.contains(a) && (tries >= 20 || !used.contains(a.cat))) pool.add(a);
                 if (!pool.isEmpty()) pick = weighted(pool);
             }
             if (pick == null) continue;
@@ -855,36 +864,57 @@ public final class Augments implements GunHooks {
         return b == null ? 0 : b.pending.size();
     }
 
-    /** 맨 앞 뽑기의 카드(없으면 빈 목록) */
-    public List<Aug> cards(Player p) {
+    /** 이 카드를 지금 더 가질 수 없나(겹침 한도가 참) */
+    private boolean full(Player p, Aug a) {
+        return a.max > 0 && count(p, a) >= a.max;
+    }
+
+    /**
+     * 맨 앞 뽑기(없으면 null). 묶음은 받는 순간 굴려 쌓아 두므로, 열 때에는 그사이 얻어 한도가 찬 카드가 섞여 있을 수 있다(쌓인 두 묶음에 같은
+     * '하나만' 증강, 주사위가 준 증강): 그대로 고르면 한도를 넘겨 겹친다. 그런 카드는 같은 규칙으로 한 장을 다시 굴려 바꾸고(부품 카드와 바꿀 것이
+     * 없을 때는 뺌), 카드가 다 빠진 묶음은 버린다
+     */
+    private Offer front(Player p) {
         Build b = builds.get(p.getUniqueId());
-        return b == null || b.pending.isEmpty() ? List.of() : b.pending.peek().cards();
+        if (b == null) return null;
+        for (Offer o = b.pending.peek(); o != null; o = b.pending.peek()) {
+            List<Aug> cards = o.cards();
+            for (int i = cards.size() - 1; i >= 0; i--) {
+                if (!full(p, cards.get(i))) continue;
+                Aug old = cards.remove(i);
+                List<Aug> again = old.cat == Cat.PART ? List.<Aug>of() : roll(p, 1, cards);
+                if (!again.isEmpty()) cards.add(i, again.get(0));
+                lastLog = "한도가 찬 카드 바꿈 " + p.getName() + " " + old.key + " -> " + (again.isEmpty() ? "없음" : again.get(0).key);
+            }
+            if (!cards.isEmpty()) return o;
+            b.pending.poll();
+        }
+        return null;
+    }
+
+    /** 맨 앞 뽑기의 카드(없으면 빈 목록). 한도가 찬 카드는 바꿔 굴린 뒤의 것({@link #front}) */
+    public List<Aug> cards(Player p) {
+        Offer o = front(p);
+        return o == null ? List.of() : o.cards();
     }
 
     /** 카드 화면 칸(27칸 상자: 11, 13, 15). 그 위아래 칸(-9, +9)에 갈래 색 유리판 */
     public static final int[] CARD_SLOTS = {11, 13, 15};
-
-    /** 갈래 색 유리판(툴팁 없음) */
-    private static ItemStack pane(Cat c) {
-        ItemStack it = ItemStack.of(c.pane);
-        it.setData(DataComponentTypes.TOOLTIP_DISPLAY, TooltipDisplay.tooltipDisplay().hideTooltip(true).build());
-        return it;
-    }
 
     /** 맨 앞 뽑기 카드 화면을 연다. 고를 것이 없으면 false. back = 고른 뒤 상점으로 돌아감 */
     public boolean openCards(Player p, boolean back) {
         List<Aug> cards = cards(p);
         if (cards.isEmpty()) return false;
         Shop.View v = new Shop.View(p.getUniqueId(), Shop.View.CARDS, back);
-        Inventory inv = Bukkit.createInventory(v, 27, Component.empty());
+        Inventory inv = Bukkit.createInventory(v, 27, ShopUi.title(ShopUi.CARDS));
         v.inv = inv;
         for (int i = 0; i < cards.size() && i < CARD_SLOTS.length; i++) {
             Aug a = cards.get(i);
             int slot = CARD_SLOTS[i];
-            inv.setItem(slot, card(a, count(p, a)));
+            inv.setItem(slot, ShopUi.card(card(a, count(p, a))));
             // 갈래 색 테두리(위아래). 위험은 붉은 판이 옆 대각선까지 둘러 한눈에 다름
-            inv.setItem(slot - 9, pane(a.cat));
-            inv.setItem(slot + 9, pane(a.cat));
+            inv.setItem(slot - 9, ShopUi.bar(a.cat.pane, true));
+            inv.setItem(slot + 9, ShopUi.bar(a.cat.pane, false));
             final int idx = i;
             v.actions.put(slot, () -> pick(p, idx));
         }
@@ -892,7 +922,7 @@ public final class Augments implements GunHooks {
             if (!cards.get(i).risk) continue;
             for (int d : new int[] {-10, -8, 8, 10}) {
                 int s2 = CARD_SLOTS[i] + d;
-                if (inv.getItem(s2) == null) inv.setItem(s2, pane(Cat.RISK));
+                if (inv.getItem(s2) == null) inv.setItem(s2, ShopUi.bar(Cat.RISK.pane, d < 0));
             }
         }
         game.shop.show(p, v);
@@ -904,16 +934,19 @@ public final class Augments implements GunHooks {
         Build b = build(p);
         Offer o = b.pending.peek();
         if (o == null || index < 0 || index >= o.cards().size()) return false;
-        b.pending.poll();
-        Aug a = o.cards().get(index);
-        give(p, a);
-        Props.sound(p, null, Sound.UI_CARTOGRAPHY_TABLE_TAKE_RESULT, 1f, 1f, 1f);
         Shop.View cur = game.shop.view(p);
         boolean back = cur != null && cur.back;
-        if (!b.pending.isEmpty()) openCards(p, back);
-        else if (back) game.shop.open(p);
+        // 화면을 연 뒤에 한도가 찬 카드(그사이 주사위가 같은 증강을 줌)는 주지 않는다: 아래 openCards 가 바꿔 굴린 카드로 다시 보여 준다
+        boolean took = !full(p, o.cards().get(index));
+        if (took) {
+            b.pending.poll();
+            give(p, o.cards().get(index));
+            Props.sound(p, null, Sound.UI_CARTOGRAPHY_TABLE_TAKE_RESULT, 1f, 1f, 1f);
+        }
+        if (openCards(p, back)) return took;
+        if (back) game.shop.open(p);
         else game.shop.close(p);
-        return true;
+        return took;
     }
 
     private static Key iconKey(String icon) {
@@ -960,9 +993,7 @@ public final class Augments implements GunHooks {
         double heal = 3 * count(shooter, Aug.LEECH) + (gun != null && gun.has(Gun.Trait.LIFESTEAL) ? Gun.LIFESTEAL_HP : 0);
         PState s = ps(shooter);
         if (heal > 0 && s.life == Life.ALIVE) game.players.heal(shooter, heal);
-        int bounty = count(shooter, Aug.BOUNTY);
-        if (bounty > 0 && target instanceof Gabe g && !g.noReward && g.reward > 0)
-            game.players.addMoney(shooter, (int) Math.max(1, Math.round(g.reward * 0.10 * bounty)));
+        // 현상금의 돈은 지갑이 준다(AugRules.earnMul: 버는 처치 돈 +10% x 장수)
     }
 
     @Override
@@ -1102,6 +1133,16 @@ public final class Augments implements GunHooks {
         if (p != null && amount > 0) rules.paid(p, what, amount);
     }
 
+    /** 낸 돈을 돌려받음(쉬는 시간 공짜 부활로 꺼내기 모금이 풀림): 물주, 단골이 그 돈에는 보너스를 주지 않게 셈에서 뺀다 */
+    public void refunded(UUID id, String what, int amount) {
+        if (id != null && amount > 0) rules.refunded(id, what, amount);
+    }
+
+    /** 벌이가 아닌 돈 옮김(돌려받기, 합류 몫: Players.addMoneyRaw 가 부름). 빚의 '반값 벌이'와 '상점에서 씀' 셈이 이 돈을 세지 않는다 */
+    public void moved(UUID id, int amount) {
+        if (id != null && amount != 0) rules.moved(id, amount);
+    }
+
     /** dead 를 payer 가 꺼냄(몸값 유대, 돌아온 자) */
     public void revived(Player dead, Player payer) {
         rules.revived(dead, payer);
@@ -1129,7 +1170,10 @@ public final class Augments implements GunHooks {
      * 이 고리가 없으면 쓰러진 다음 틱에 저절로 일으킨다(AugRules)
      */
     public boolean cheatDeath(Player p) {
-        return p != null && rules.cheatDeath(p);
+        if (p == null || !rules.cheatDeath(p)) return false;
+        // 무적(armor 0)을 지금 건다: 다음 틱의 apply 를 기다리면 같은 틱의 두 번째 피해(떼 여러 마리)에 체력 1 에서 그대로 쓰러진다
+        apply(p);
+        return true;
     }
 
     // ------------------------------------------------------------------ 판 정리

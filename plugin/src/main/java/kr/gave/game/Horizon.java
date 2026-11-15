@@ -13,6 +13,7 @@ import java.util.UUID;
 
 import org.bukkit.Location;
 import org.bukkit.Sound;
+import org.bukkit.SoundCategory;
 import org.bukkit.entity.Display;
 import org.bukkit.entity.ItemDisplay;
 import org.bukkit.entity.Player;
@@ -41,6 +42,7 @@ import kr.gave.world.Plaza;
  * <li>하늘: 높은 웨이브에 거대한 그림자 게이브(G01 모델을 크게, 느린 날갯짓)가 흙먼지 속에서 나와 하늘을 가로지르며 내려다봄. 더 높은 웨이브의
  * 마지막 몰아치기에는 하늘을 메우는 얼굴들(머리 위, 고개를 들어야 보임).</li>
  * <li>소리 층: 흙먼지 너머 먼 포효(사람마다 떼가 짙은 쪽에서). 소리는 aud12 의 sfx.* 사건(팩에 없으면 바닐라 대체 소리).</li>
+ * <li>먼 저음 층({@link #farTick}, 2026-11-14 보탬): 가만히 집중해야 들리는 낮은 울음(far.*, tools/make_far_sounds.py). 설정 sfx.far, sfx.farVolume.</li>
  * <li>판 끝: 그림자 떼가 중앙 원으로 조여 와 삼킴.</li>
  * </ol>
  * 보스가 실제로 나오는 웨이브(director.bossWave() 이고 boss 고리가 있음)에는 하늘과 큰 물결을 끄고 지평선 떼만 옅게 둔다(보스가 더 커 보이게).
@@ -97,7 +99,22 @@ public final class Horizon {
         public static int ROAR_MIN = 120, ROAR_MAX = 340;
         /** 판 끝: 그림자 떼가 가운데에서 이 반지름까지 조여 옴. */
         public static double END_R = 20;
+        /**
+         * 먼 저음 층(보탠 소리): 부름 사이 틱(세기 1 → CALL_MIN, 0 → CALL_MAX), 웨이브 첫 부름까지, 대답이 부름 뒤에 오는 틱과 확률, 땅 밑 울림 사이와
+         * 확률, 큰 물결 땅울림과 떨어뜨릴 틱, 먼 포효와 떨어뜨릴 틱(포효 길이), 쉬는 시간 숨(보스 앞이면 거대한 것)까지 틱.
+         */
+        public static int CALL_MIN = 360, CALL_MAX = 680, CALL_FIRST = 100, ANSWER_AFTER = 130, SWELL_GAP = 800, SWELL_QUAKE_GAP = 240, ROAR_LEN = 80,
+                BREATH_AFTER = 60;
+        public static double ANSWER_CHANCE = 0.5, SWELL_CHANCE = 0.5;
+        /** 먼 저음을 놓는 거리(사람마다 자기 자리에서 같은 방향으로), 쉬는 시간 숨과 거대한 것의 크기(웨이브 중 부름에 견준 몫: -4 dB, +4 dB). */
+        public static double FAR_DIST = 40, BREATH_GAIN = 0.63, GIANT_GAIN = 1.585;
     }
+
+    /** 먼 저음 층의 소리 갈래(클라 설정 '주변/환경' 막대로 따로 줄이고 키움). */
+    static final SoundCategory FAR_CATEGORY = SoundCategory.AMBIENT;
+    /** 먼 저음 사건 → (팩 들리는 거리, 길이 틱: 동시에 둘까지만 울리게 셈). tools/gabe/flesh.py FAR 와 같게. */
+    private static final Map<String, int[]> FAR = Map.of("far.call", new int[] {128, 280}, "far.answer", new int[] {128, 180}, "far.swell",
+            new int[] {0, 230}, "far.breath", new int[] {0, 320}, "far.giant", new int[] {192, 350});
 
     /** 팩 모델(키트, tools/gabe/sp/horizon.py). 없으면 G02 떼 덩어리(lod)를 크게 대신 쓴다. */
     public static final String MODEL = "gabe/horizon", FALLBACK = "gabe/g02", FALLBACK_STATE = "lod", GIANT_MODEL = "gabe/g01";
@@ -161,6 +178,15 @@ public final class Horizon {
     private final List<Object[]> later = new ArrayList<>();
     /** 이 틱까지 지평선 그림자(카드, 하늘 얼굴, 거대한 그림자)를 숨김(이동, 추격전, 점화: {@link #hide}). */
     private long hideUntil = -1;
+    // 먼 저음 층(config.yml sfx.far, sfx.farVolume: 웨이브 중 부름이 듣는 귀에서 파일 크기의 몇 배인가, 0.28 = 파일 -23 LUFS 가 -34)
+    public boolean farOn;
+    private float farVolume;
+    private long farStateAt = -1, nextCallAt, lastCallAt = -100000, answerAt = -1, lastSwell = -100000, lastRoarAt = -100000;
+    private double answerAng;
+    private boolean lullPrev;
+    /** 울리고 있는 먼 저음이 끝나는 틱(동시에 둘까지: 스트림 풀 8개를 브금과 나눠 씀). */
+    private final long[] farEnds = new long[2];
+    private int nCall, nAnswer, nSwell, nBreath, nGiantCall;
 
     public Horizon(Game game) {
         this.game = game;
@@ -171,6 +197,16 @@ public final class Horizon {
             // 설정을 못 읽으면 켬
         }
         enabled = on;
+        boolean far = true;
+        double fv = 0.28;
+        try {
+            far = game.plugin.getConfig().getBoolean("sfx.far", true);
+            fv = game.plugin.getConfig().getDouble("sfx.farVolume", 0.28);
+        } catch (RuntimeException ignored) {
+            // 설정을 못 읽으면 기본값
+        }
+        farOn = far;
+        farVolume = (float) Math.max(0, Math.min(1, fv));
     }
 
     // ------------------------------------------------------------------ 카드
@@ -350,6 +386,8 @@ public final class Horizon {
         surgePrev = finalPrev = false;
         silentFrozen = false;
         hideUntil = -1;
+        farStateAt = answerAt = -1;
+        farEnds[0] = farEnds[1] = 0;
     }
 
     private void clearSky() {
@@ -401,6 +439,7 @@ public final class Horizon {
         duskTick(now);
         laterTick(now);
         if (game.state == Game.State.WAVE) roarTick(now);
+        farTick(now);
     }
 
     /** 10틱마다: 안개, 세기, 각도별 떼, 보일 카드, 몰아치기 가장자리. */
@@ -775,6 +814,7 @@ public final class Horizon {
         if (nextRoarAt == 0) nextRoarAt = now + Tune.ROAR_MAX;
         if (now < nextRoarAt) return;
         nextRoarAt = now + Math.round(Tune.ROAR_MAX - (Tune.ROAR_MAX - Tune.ROAR_MIN) * level) + rnd.nextInt(60);
+        lastRoarAt = now;
         int best = 0;
         for (int i = 1; i < BINS; i++) if (sector[i] + rnd.nextDouble() * 0.3 > sector[best]) best = i;
         double a = (best + 0.5) / BINS * Math.PI * 2;
@@ -783,6 +823,138 @@ public final class Horizon {
             Props.soundTo(p, at, "sfx.roar_far", Sound.ENTITY_RAVAGER_ROAR, (float) (0.45 + 0.4 * level), 0.85f + rnd.nextFloat() * 0.3f, 0.55f, -1);
         }
         nRoar++;
+    }
+
+    // ------------------------------------------------------------------ 먼 저음 층(2026-11-14 보탬)
+
+    /**
+     * 지평선 너머 떼가 한 목소리처럼 내는 낮은 울음(가만히 집중해야 들림, 듣는 귀에서 브금보다 11~13 LU 아래). 기존 먼 포효와 땅울림은 그대로 두고 시간표로 피한다.
+     * 웨이브 중: 부름(far.call)이 CALL_MAX~CALL_MIN 틱에 하나(세기가 셀수록 잦게, 첫 부름은 CALL_FIRST 틱 뒤), 떼가 가장 짙은 쪽에서. 몰아치기가 잦아들면 당겨 온다
+ * (앞 부름에서 CALL_MIN 틱이 지났을 때만).
+     * 먼 포효가 끝난 뒤(다음 포효까지 3초 넘게 남았을 때)에만. 절반쯤 ANSWER_AFTER 틱 뒤 다른 쪽에서 대답(far.answer). 잦아들 때 가끔 땅 밑 울림(far.swell,
+     * 방향 없음, 큰 물결 땅울림과 떨어뜨림). 쉬는 시간: BREATH_AFTER 틱 뒤 한 번 지평선의 숨(far.breath, 다음이 보스 웨이브면 거대한 것의 울음 far.giant).
+     * 보스가 실제로 나오는 웨이브와 소리 없는 웨이브에는 내지 않는다. 동시에 둘까지만(스트림 풀). 사람마다 자기 자리에서 FAR_DIST 블록, 모두 같은 방향.
+     */
+    private void farTick(long now) {
+        if (!farOn || game.director.silent()) return;
+        boolean entered = game.stateAt != farStateAt;
+        farStateAt = game.stateAt;
+        if (game.state == Game.State.BREAK) {
+            if (entered) answerAt = -1;
+            if (game.stateTicks() == Tune.BREATH_AFTER) {
+                var bd = game.director.bosses;
+                if (bd != null && bd.enabled && kr.gave.mob.boss.BossDirector.isBossWave(game.wave + 1))
+                    farSay("far.giant", rnd.nextDouble() * Math.PI * 2, Tune.GIANT_GAIN);
+                else farBed("far.breath", Tune.BREATH_GAIN);
+            }
+            return;
+        }
+        if (game.state != Game.State.WAVE || bossOn()) return;
+        if (entered) {
+            nextCallAt = now + Tune.CALL_FIRST + rnd.nextInt(Tune.CALL_FIRST);
+            answerAt = -1;
+        }
+        boolean lull = !game.director.surging();
+        if (lull && !lullPrev && !entered) {
+            if (nextCallAt - now > 60 && now - lastCallAt >= Tune.CALL_MIN) nextCallAt = now + 20 + rnd.nextInt(40);
+            if (now - lastSwell >= Tune.SWELL_GAP && now - lastBig >= Tune.SWELL_QUAKE_GAP && rnd.nextDouble() < Tune.SWELL_CHANCE) {
+                lastSwell = now;
+                farBed("far.swell", 1);
+            }
+        }
+        lullPrev = lull;
+        if (answerAt >= 0 && now >= answerAt) {
+            answerAt = -1;
+            farSay("far.answer", answerAng, 1);
+        }
+        if (now < nextCallAt) return;
+        if (nextRoarAt - now <= 60 || now - lastRoarAt < Tune.ROAR_LEN || farBusy(now) >= farEnds.length) {
+            nextCallAt = now + 20; // 먼 포효나 앞 소리를 피해 1초 뒤에 다시
+            return;
+        }
+        nextCallAt = now + Math.round(Tune.CALL_MAX - (Tune.CALL_MAX - Tune.CALL_MIN) * level) + rnd.nextInt(40);
+        lastCallAt = now;
+        int best = 0;
+        for (int i = 1; i < BINS; i++) if (sector[i] + rnd.nextDouble() * 0.3 > sector[best]) best = i;
+        double a = (best + 0.5) / BINS * Math.PI * 2;
+        farSay("far.call", a, 1);
+        if (rnd.nextDouble() < Tune.ANSWER_CHANCE) {
+            answerAt = now + Tune.ANSWER_AFTER;
+            answerAng = a + Math.PI * (0.5 + rnd.nextDouble());
+        }
+    }
+
+    private int farBusy(long now) {
+        int n = 0;
+        for (long e : farEnds) if (e > now) n++;
+        return n;
+    }
+
+    /** 동시에 둘까지: 빈 자리에 끝 틱을 적고 true, 자리가 없으면 false. */
+    private boolean farSlot(String ev) {
+        long now = game.now();
+        for (int i = 0; i < farEnds.length; i++) {
+            if (farEnds[i] > now) continue;
+            farEnds[i] = now + FAR.get(ev)[1];
+            switch (ev) {
+                case "far.call" -> nCall++;
+                case "far.answer" -> nAnswer++;
+                case "far.swell" -> nSwell++;
+                case "far.breath" -> nBreath++;
+                default -> nGiantCall++;
+            }
+            return true;
+        }
+        return false;
+    }
+
+    /** 방향 있는 먼 저음(mono): 사람마다 자기 자리에서 ang 쪽 FAR_DIST 블록. 그 거리에서 듣는 크기가 farVolume x gain 이 되게 음량을 돋움. */
+    private void farSay(String ev, double ang, double gain) {
+        if (!farSlot(ev)) return;
+        float vol = (float) Math.min(1, farVolume * gain / (1 - Tune.FAR_DIST / FAR.get(ev)[0]));
+        float j = 0.96f + rnd.nextFloat() * 0.08f;
+        for (Player p : game.players.inPlay()) {
+            Location at = p.getLocation().clone().add(Math.cos(ang) * Tune.FAR_DIST, 2, Math.sin(ang) * Tune.FAR_DIST);
+            Props.soundTo(p, at, ev, vol, j, FAR_CATEGORY);
+        }
+    }
+
+    /** 방향 없는 먼 저음(stereo 파일이라 거리 감쇠 없이 그대로): 사람마다 자기 자리에서. */
+    private void farBed(String ev, double gain) {
+        if (!farSlot(ev)) return;
+        float vol = (float) Math.min(1, farVolume * gain);
+        float j = 0.96f + rnd.nextFloat() * 0.08f;
+        for (Player p : game.players.inPlay()) Props.sound(p, ev, vol, j, FAR_CATEGORY);
+    }
+
+    /** 시험 훅 '소리 x' 의 먼 저음 몫 한 줄. */
+    public String farStatus() {
+        return String.format(Locale.ROOT, "far=%s 크기=%.2f 부름=%d 대답=%d 울림=%d 숨=%d 거인=%d 울리는중=%d 다음부름=%d틱", farOn, farVolume, nCall, nAnswer, nSwell,
+                nBreath, nGiantCall, farBusy(game.now()), game.state == Game.State.WAVE ? Math.max(0, nextCallAt - game.now()) : -1);
+    }
+
+    /** 시험 훅 '/gave 시험 소리 x far [on|off|크기]' 와 '부름|대답|울림|숨|거인'(시간표, 동시 둘 제한을 건너뛰고 지금 한 번). */
+    public String farTest(String sub, String arg) {
+        switch (sub) {
+            case "far" -> {
+                if (arg.equals("on") || arg.equals("off")) farOn = arg.equals("on");
+                else if (!arg.isEmpty()) farVolume = (float) Math.max(0, Math.min(1, Double.parseDouble(arg)));
+            }
+            case "부름", "대답", "울림", "숨", "거인" -> {
+                farEnds[0] = farEnds[1] = 0;
+                double a = rnd.nextDouble() * Math.PI * 2;
+                switch (sub) {
+                    case "부름" -> farSay("far.call", a, 1);
+                    case "대답" -> farSay("far.answer", a, 1);
+                    case "울림" -> farBed("far.swell", 1);
+                    case "숨" -> farBed("far.breath", Tune.BREATH_GAIN);
+                    default -> farSay("far.giant", a, Tune.GIANT_GAIN);
+                }
+            }
+            default -> {
+            }
+        }
+        return "[소리] " + farStatus();
     }
 
     // ------------------------------------------------------------------ 하늘: 거대한 그림자 게이브

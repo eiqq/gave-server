@@ -1,5 +1,10 @@
 package kr.gave.player;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.EnumSet;
@@ -15,6 +20,8 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Color;
@@ -53,6 +60,7 @@ import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.player.PlayerArmorStandManipulateEvent;
 import org.bukkit.event.player.PlayerAttemptPickupItemEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
+import org.bukkit.event.player.PlayerGameModeChangeEvent;
 import org.bukkit.event.player.PlayerInteractAtEntityEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -172,19 +180,85 @@ public final class Players implements Listener {
     }
 
     /**
-     * 돈 배율(설정 moneyMul, 기본 1.7: 2026-11-12 사용자 "돈을 지금 상태에서 70% 가량 더 많이"). 사람이 버는 모든 돈({@link #addMoney} 의 양수:
+     * 돈 배율(설정 moneyMul, 기본 1: 운영자 행사용. 2026-11-14 까지의 1.7 은 Director.Tune.REWARD_MUL 같은 바탕 값에 녹였다). 사람이 버는 모든 돈({@link #addMoney} 의 양수:
      * 처치, 보스, 라운드, 증강, 팀, 스테이지 보상)에 곱한다. 옮기기(돌려받기, 합류 몫, 시험)는 {@link #addMoneyRaw} 로 곱하지 않는다.
      */
-    public double moneyMul = 1.7;
+    public double moneyMul = 1.0;
+
+    /** 처치 보상 나누기와 정산(팀 몫, 때린 몫, 팀 일 수당, 따라잡기 몫). */
+    public final Wallet wallet;
 
     public Players(Game game) {
         this.game = game;
+        this.wallet = new Wallet(game);
         try {
-            double m = game.plugin.getConfig().getDouble("moneyMul", 1.7);
+            // 옛 돈 설정(assistMul 이나 roundMoneyMul 이 남은 파일): 한 번만 옮긴다(migrateMoney. 두 키가 없어진 뒤 운영자가 바꾼 moneyMul 은 그대로)
+            var cfg = game.plugin.getConfig();
+            if (cfg.contains("assistMul", true) || cfg.contains("roundMoneyMul", true)) migrateMoney(cfg);
+            double m = cfg.getDouble("moneyMul", 1.0);
             if (m > 0 && !Double.isNaN(m) && !Double.isInfinite(m)) moneyMul = Math.min(100, m);
         } catch (RuntimeException e) {
-            moneyMul = 1.7;
+            moneyMul = 1.0;
         }
+    }
+
+    /** 2026-11-14 까지의 moneyMul 기본(e4c25c4 의 config.yml 과 이 클래스): 옛 설정을 옮길 때 옛 값을 이것으로 나눈다. */
+    static final double OLD_MONEY_MUL = 1.7;
+    private static final Pattern MONEY_LINE = Pattern.compile("(moneyMul[ \\t]*:[ \\t]*)([^#\\r\\n]*?)([ \\t]*(?:#[^\\r\\n]*)?)(\\r?\\n)?");
+    private static final Pattern OLD_KEY_LINE = Pattern.compile("(?:assistMul|roundMoneyMul)[ \\t]*:.*", Pattern.DOTALL);
+
+    /**
+     * 옛 돈 설정 옮기기(2026-11-14 돈 구조): 옛 moneyMul 의 기본 1.7 과 assistMul, roundMoneyMul 은 바탕 값에 녹였다. 메모리 값을 바꾸고, 설정 파일은
+     * 줄 단위로 고친다({@link #migrateMoneyText}: 다른 줄의 주석, 한 줄 목록, 줄 끝 CRLF 는 그대로). moneyMul 은 '옛 값 / 1.7'(운영자가 올려 둔
+     * 행사 배율의 비율은 지킴, 옛 기본이면 1). 파일을 못 고치면 기록 한 줄을 남기고 메모리 값만 바꾼다(다음에 켤 때 다시 해 봄).
+     */
+    private void migrateMoney(org.bukkit.configuration.file.FileConfiguration cfg) {
+        double old = cfg.contains("moneyMul", true) ? cfg.getDouble("moneyMul", OLD_MONEY_MUL) : OLD_MONEY_MUL;
+        if (!(old > 0) || !Double.isFinite(old)) old = OLD_MONEY_MUL;
+        double now = Math.round(old / OLD_MONEY_MUL * 1000) / 1000.0;
+        cfg.set("moneyMul", now);
+        cfg.set("assistMul", null);
+        cfg.set("roundMoneyMul", null);
+        String how;
+        try {
+            Path f = game.plugin.getDataFolder().toPath().resolve("config.yml");
+            String out = migrateMoneyText(Files.readString(f, StandardCharsets.UTF_8), now);
+            Path tmp = f.resolveSibling("config.yml.money-tmp");
+            Files.writeString(tmp, out, StandardCharsets.UTF_8);
+            Files.move(tmp, f, StandardCopyOption.REPLACE_EXISTING);
+            how = "설정 파일은 그 줄만 고침";
+        } catch (IOException | RuntimeException e) {
+            how = "설정 파일은 못 고쳐 메모리 값만 바꿈(" + e + ")";
+        }
+        game.plugin.getLogger().info("[돈] 옛 돈 설정을 옮김: moneyMul " + old + " 에서 " + now + " 으로(옛 기본 1.7 을 바탕 값에 녹임), assistMul, roundMoneyMul 지움. " + how);
+    }
+
+    /**
+     * {@link #migrateMoney} 의 파일 고치기(줄 단위, 줄 끝 그대로): 맨 바깥 assistMul, roundMoneyMul 줄을 지우고(바로 위 줄이 그 키의 옛 기본 주석이면 같이),
+     * moneyMul 줄은 값만 now 로 바꾼다(바로 위 줄이 옛 기본 주석 '돈 70% 더: 1.7'이면 지금 기본 주석으로). 그 밖의 줄은 한 글자도 안 바꾼다.
+     */
+    static String migrateMoneyText(String text, double now) {
+        List<String> out = new ArrayList<>();
+        for (String line : text.split("(?<=\\n)", -1)) {
+            if (OLD_KEY_LINE.matcher(line).matches()) {
+                int last = out.size() - 1;
+                if (last >= 0 && (out.get(last).startsWith("# 함께 때린 사람(어시스트)") || out.get(last).startsWith("# 스테이지(2라운드)가 끝날 때"))) out.remove(last);
+                continue;
+            }
+            Matcher m = MONEY_LINE.matcher(line);
+            if (m.matches()) {
+                String eol = m.group(4) == null ? "" : m.group(4);
+                int last = out.size() - 1;
+                if (last >= 0 && out.get(last).startsWith("#") && out.get(last).contains("\"돈 70% 더\": 1.7")) {
+                    String e = eol.isEmpty() ? "\n" : eol;
+                    out.set(last, "# 사람이 버는 모든 돈(처치, 보스, 라운드, 증강, 팀, 스테이지 보상)의 배율. 기본 1(운영자 행사용: 2 면 돈 두 배). 돌려받기, 사람끼리 옮기기에는 안 곱함." + e
+                        + "# 2026-11-14 돈 구조를 바꾸며 옛 값(moneyMul 1.7, assistMul 2.0, roundMoneyMul 2.0)은 바탕 값에 녹였다: 1.7 로 되돌리면 두 번 곱해진다" + e);
+                }
+                line = m.group(1) + now + m.group(3) + eol;
+            }
+            out.add(line);
+        }
+        return String.join("", out);
     }
 
     public PState get(Player p) {
@@ -199,15 +273,23 @@ public final class Players implements Listener {
         return states.values();
     }
 
-    /** 서 있는 사람(쏠 수 있음). */
+    /**
+     * 서 있는 사람(쏠 수 있음). 나간 사람과 판 중에 크리에이티브로 바꾼 사람은 상태가 서 있어도 뺀다(피해도 틱도 안 받는 사람이
+     * 몹 표적, 감독 인원 셈, 판 끝 판정에 남지 않게).
+     */
     public List<Player> standing() {
         List<Player> out = new ArrayList<>();
         for (PState s : states.values()) {
             if (!s.standing() || s.offline) continue;
             Player p = Bukkit.getPlayer(s.id);
-            if (p != null && p.isOnline()) out.add(p);
+            if (p != null && p.isOnline() && game.inGame(p)) out.add(p);
         }
         return out;
+    }
+
+    /** 판 끝 판정(Game): 서 있는 사람이 하나라도 있나. 시험 훅 판끝막기의 빈 상태도 센다. */
+    public boolean anyStanding() {
+        return phantom != null && phantom.life == Life.ALIVE || !standing().isEmpty();
     }
 
     /** 판에 든 사람(서 있음, 쓰러짐, 죽음, 갇힘, 기다림). 나간 사람은 빠짐. */
@@ -248,6 +330,15 @@ public final class Players implements Listener {
 
     public void tick() {
         long now = game.now();
+        // 돈 정산은 맨 앞에서 따로(뒤의 사람 틱이 던져도 돈은 돌고, 지갑이 던져도 사람 틱은 돈다)
+        try {
+            wallet.tick();
+        } catch (RuntimeException e) {
+            if (now - walletErrAt >= 200) {
+                walletErrAt = now;
+                game.plugin.getLogger().log(java.util.logging.Level.WARNING, "[돈] 정산 오류", e);
+            }
+        }
         phaseEdges();
         boolean over = game.state == Game.State.OVER;
         for (PState s : new ArrayList<>(states.values())) {
@@ -276,6 +367,9 @@ public final class Players implements Listener {
         if (!launches.isEmpty()) launchTick(now);
         if (now % 40 == 0) visibilityPass();
     }
+
+    /** 지갑 정산 오류를 마지막으로 기록한 틱(10초에 한 번). */
+    private long walletErrAt = Long.MIN_VALUE / 2;
 
     /** 판 상태가 바뀐 첫 틱: 웨이브 시작이면 기다리던 사람을 넣고, 쉬는 시간 시작이면 갇힌 사람을 상점 앞에 세운다. */
     private void phaseEdges() {
@@ -950,7 +1044,9 @@ public final class Players implements Listener {
         boolean cleaned = swept || game.state == Game.State.BREAK && game.stateAt == game.now();
         for (PState s : new ArrayList<>(states.values())) {
             if (s == phantom) continue;
-            boolean trapped = s.life == Life.TRAPPED && s.eater == eater;
+            // 갇힌 채 나간 사람(상태는 DEAD + offline, 먹은 개체는 deathMob 에 남음)도 그 개체에 갇힌 사람으로 본다(잡히면 돌아올 때 손실 없이 선다)
+            boolean away = s.offline && s.quitLife == Life.TRAPPED && s.deathMob == eater;
+            boolean trapped = away || s.life == Life.TRAPPED && s.eater == eater;
             // 갇힘 이어 가기(FREE): 정리로 치워진 개체(웨이브 끝)에 갇힌 사람은 갇힌 채 둔다(가둔 종이 잇는다)
             if (trapped && s.trapHold && cleaned) {
                 s.eater = null;
@@ -958,7 +1054,7 @@ public final class Players implements Listener {
                 continue;
             }
             boolean paid = game.trip.paidRevive();
-            boolean carried = s.life == Life.DEAD && s.deathMob == eater && (paid || carrier(s.deathResult));
+            boolean carried = !trapped && s.life == Life.DEAD && s.deathMob == eater && (paid || carrier(s.deathResult));
             if (!trapped && !carried) continue;
             if (paid && carried) {
                 // 원정: 내 얼굴을 한 게이브가 잡혀도 돌아오지 않는다. 사람이 잡았으면 꺼내는 값이 싸지고(얼굴 깎임), 정리로 치워졌으면 다음 라운드에 다시 선다
@@ -972,6 +1068,12 @@ public final class Players implements Listener {
                 Player tp = Bukkit.getPlayer(s.id);
                 if (tp != null && !s.offline) {
                     trappedToDead(tp);
+                    continue;
+                }
+                if (away) {
+                    // 나간 사람도 같게: 돌아오면 죽은 채(꺼내는 값 절반)
+                    s.deathMob = null;
+                    s.trappedDeath = true;
                     continue;
                 }
             }
@@ -1072,6 +1174,8 @@ public final class Players implements Listener {
     public void reviveAtShop(Player p, boolean penalty) {
         PState s = get(p);
         long now = game.now();
+        // 나간 사람은 세우지 않는다(돌아오면 resume 이 잇는다): 오프라인 상태가 서 있는 사람이 되면 전멸해도 판이 안 끝난다
+        if (s.offline) return;
         if (s.life == Life.WAITING) {
             activate(p, s);
             return;
@@ -1106,7 +1210,7 @@ public final class Players implements Listener {
      */
     public boolean reviveAtTruck(Player p, Player payer) {
         PState s = get(p);
-        if (s.life != Life.DEAD) return false;
+        if (s.life != Life.DEAD || s.offline) return false;
         long now = game.now();
         Gabe mob = s.deathMob;
         cleanup(p, s);
@@ -1158,6 +1262,7 @@ public final class Players implements Listener {
         Location up = ground(seat);
         teleportKeepLook(p, up);
         if (helper != null) get(helper).revives++;
+        wallet.helped(helper, p);
         Props.sound(up, null, Sound.BLOCK_AMETHYST_BLOCK_CHIME, 1f, 1.2f, 1f);
         log("일어남 " + p.getName() + " 도운 사람 " + (helper == null ? "-" : helper.getName()));
     }
@@ -1172,25 +1277,13 @@ public final class Players implements Listener {
         s.resumeHp = false;
         if (s.joinBonus) {
             s.joinBonus = false;
-            // 팀 평균에서 셈(이미 돈 배율이 든 값): 배율을 또 곱하지 않음
-            int b = teamAverage(s) / 2;
+            // 따라잡기 몫: 판에 든 다른 사람들의 판 누적 벌이 평균 x Wallet.JOIN(이미 번 돈에서 셈: 배율을 또 곱하지 않음)
+            int b = wallet.joinGrant(s);
             if (b > 0) addMoneyRaw(p, b);
         }
         if (game.guns.arms(p) == null) game.guns.equip(p);
         p.teleport(shopSpot());
         log("판에 듦 " + p.getName());
-    }
-
-    /** 판에 든 다른 사람들의 평균 재화. */
-    private int teamAverage(PState me) {
-        long sum = 0;
-        int n = 0;
-        for (PState o : states.values()) {
-            if (o == me || o == phantom || o.life == Life.LOBBY || o.life == Life.WAITING) continue;
-            sum += o.money;
-            n++;
-        }
-        return n == 0 ? 0 : (int) (sum / n);
     }
 
     private void toWaiting(Player p, PState s) {
@@ -1313,6 +1406,7 @@ public final class Players implements Listener {
         else {
             cure(t);
             cured(t, "squeeze");
+            wallet.helped(p, t);
             Props.sound(t.getLocation(), null, Sound.ENTITY_SLIME_SQUISH, 1f, 0.7f, 1f);
             log("짜냄 " + t.getName() + " 도운 사람 " + p.getName());
         }
@@ -1371,6 +1465,7 @@ public final class Players implements Listener {
         if (did) {
             Props.sound(victim.getLocation(), null, Sound.ENTITY_SLIME_SQUISH, 0.9f, 1f, 1f);
             log("떼어 냄 " + victim.getName() + " 도운 사람 " + (helper == null ? "-" : helper.getName()));
+            wallet.helped(helper, victim);
         }
         return did;
     }
@@ -1417,20 +1512,48 @@ public final class Players implements Listener {
 
     /**
      * 재화 벌이(음수면 빼기). 양수면 돈 배율 {@link #moneyMul} 을 곱해(반올림, 줄지 않음) earned 에 쌓고 Hud.money 로 +n 을 띄운다
-     * (부르는 쪽이 Hud.money 를 따로 부르지 말 것). 사람이 버는 돈은 모두 여기로 온다.
+     * (부르는 쪽이 Hud.money 를 따로 부르지 말 것). 사람이 버는 돈은 모두 여기로 온다. 증강 '빚'이 남은 동안 절반(Wallet.earnMul, 남는 쪽 올림:
+     * 원본 규칙). 증강이 주는 돈은 {@link #addBonus}, 옮기기는 {@link #addMoneyRaw} 라 빚에 안 걸린다.
      */
     public void addMoney(Player p, int amount) {
-        if (amount > 0) amount = (int) Math.max(amount, Math.min(Integer.MAX_VALUE / 4, Math.round(amount * moneyMul)));
-        addMoneyRaw(p, amount);
+        if (amount > 0) {
+            amount = (int) Math.max(amount, Math.min(Integer.MAX_VALUE / 4, Math.round(amount * moneyMul)));
+            double k = wallet.earnMul(p.getUniqueId());
+            if (k < 1) amount = (int) Math.ceil(amount * k - 1e-9);
+        }
+        credit(p, get(p), amount);
     }
 
-    /** 옮기기(돌려받기, 합류 몫, 시험): 돈 배율 없이 더함(음수면 빼기). 양수면 earned 에 쌓고 +n 을 띄운다. */
+    /** 증강이 주는 돈(이자, 단골, 내기, 장물, 빚의 큰돈: AugRules.grant, 지갑의 물주 덤): 돈 배율은 곱하고 빚의 반값에는 안 걸린다(원본 규칙). */
+    public void addBonus(Player p, int amount) {
+        if (amount <= 0) return;
+        credit(p, get(p), (int) Math.max(amount, Math.min(Integer.MAX_VALUE / 4, Math.round(amount * moneyMul))));
+    }
+
+    /**
+     * 옮기기(돌려받기, 합류 몫, 시험): 돈 배율 없이 더함(음수면 빼기), 빚의 반값에도 안 걸림. 양수면 earned 에 쌓고 +n 을 띄운다. 벌이가 아니라서
+     * 증강에 알린다(Augments.moved: 같은 틱에 쓴 돈이 '상점에서 씀' 셈에서 덜 잡히지 않게).
+     */
     public void addMoneyRaw(Player p, int amount) {
         PState s = get(p);
+        credit(p, s, amount);
+        game.augments.moved(s.id, amount);
+    }
+
+    /** 나간 사람에게도 닿는 옮기기(모금 돌려주기): 판 상태에 바로 더한다(+n 표시는 접속 중일 때만). 판 상태가 없으면 false. */
+    public boolean addMoneyRaw(UUID id, int amount) {
+        PState s = states.get(id);
+        if (s == null) return false;
+        credit(s.offline ? null : Bukkit.getPlayer(id), s, amount);
+        game.augments.moved(id, amount);
+        return true;
+    }
+
+    private void credit(Player p, PState s, int amount) {
         s.money += amount;
         if (amount > 0) {
             s.earned += amount;
-            game.hud.money(p, amount);
+            if (p != null) game.hud.money(p, amount);
         }
     }
 
@@ -1479,6 +1602,14 @@ public final class Players implements Listener {
         s.joinBonus = false;
         s.holdSkips = 0;
         s.freeRevive = s.freedAway = s.resumeHp = false;
+        // 원정 칸도 판마다 새로(꺼내진 횟수가 남으면 다음 판 꺼내는 값이 처음부터 비싸다)
+        s.deaths = s.revived = 0;
+        s.deadRound = 0;
+        s.revivePool = 0;
+        s.faceKilled = s.trappedDeath = false;
+        s.callAt = -100000;
+        s.safeUntil = 0;
+        s.revivePaid = s.repairPaid = 0;
         s.name = p.getName();
         fresh(p);
     }
@@ -1492,10 +1623,15 @@ public final class Players implements Listener {
         applyMove(p, s, game.now());
         tabTick(p, s);
         fresh(p);
+        if (game.inGame(p)) {
+            // 판에서 얻은 것(총, 소모품 그림)과 걸린 것(어둠, 실명)을 대기실까지 끌고 오지 않는다. 크리에이티브(맵 짓는 사람)는 그대로
+            p.getInventory().clear();
+            p.clearActivePotionEffects();
+        }
     }
 
     /**
-     * 나감(Gave.onQuit). 대기실이면 상태를 지우고, 판 중이면 남겨 둔다(재화, 증강, 기록, 죽음 결과): 판 계산에서 빼려고 DEAD 로 두고
+     * 나감(Gave.onQuit). 대기실이면 상태를 지우고, 판 중이면(판 끝 연출 중에도: 그 뒤에 쓰는 판 기록에 남게) 남겨 둔다(재화, 증강, 기록, 죽음 결과): 판 계산에서 빼려고 DEAD 로 두고
      * offline 표시, 나갈 때 상태는 quitLife. 돌아오면 그 상태에서 이어 간다(arrive): 서 있던 사람은 그 체력 그대로(웨이브 중이면 다음
      * 쉬는 시간이나 웨이브까지 기다림), 쓰러졌거나 죽었던 사람은 죽은 채(쉬는 시간이면 바로 손실 부활), 갇혔던 사람은 손실 없이.
      * 붙잡힘, 머리 부착은 Detachable 'release' 로 알리고 푼다.
@@ -1519,11 +1655,14 @@ public final class Players implements Listener {
         }
         Rig r = rigs.remove(id);
         if (r != null) removeRigEntities(r);
-        if (game.state == Game.State.LOBBY || game.state == Game.State.OVER || s.life == Life.LOBBY || s == phantom) {
+        if (game.state == Game.State.LOBBY || s.life == Life.LOBBY || s == phantom) {
             states.remove(id);
             return;
         }
         if (s.offline) return;
+        // 원정: 죽은 채 나가면 그 사람 모금에 낸 돈을 낸 사람들에게 바로 돌려준다(돌아올 때까지 묶이지 않게)
+        kr.gave.trip.Revive rv = game.trip.revive();
+        if (rv != null) rv.refund(id);
         s.offline = true;
         s.quitLife = s.life;
         s.resumeHp = s.life == Life.ALIVE;
@@ -2576,6 +2715,23 @@ public final class Players implements Listener {
         });
     }
 
+    /**
+     * 판이 도는 중에 크리에이티브에서 나온 사람(판 시작 때 빠져 있던 운영자)은 새로 들어온 사람처럼 판에 든다. 그대로 두면 대기실 상태로
+     * 경기장에 남는다(못 쏘고 몹도 안 노림). 반대로 판 중에 크리에이티브로 바꾼 사람은 standing() 이 뺀다.
+     * 관전자 모드로 가는 사람(구경하는 운영자, 시험 카메라)은 판에 넣지 않는다.
+     */
+    @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
+    public void onGameMode(PlayerGameModeChangeEvent e) {
+        Player p = e.getPlayer();
+        GameMode to = e.getNewGameMode();
+        if (p.getGameMode() != GameMode.CREATIVE || to == GameMode.CREATIVE || to == GameMode.SPECTATOR) return;
+        Bukkit.getScheduler().runTask(game.plugin, () -> {
+            PState s = states.get(p.getUniqueId());
+            boolean running = game.state == Game.State.PREP || game.state == Game.State.WAVE || game.state == Game.State.BREAK;
+            if (running && p.isOnline() && (s == null || s.life == Life.LOBBY)) arrive(p);
+        });
+    }
+
     @EventHandler(priority = EventPriority.MONITOR)
     public void onJoin(PlayerJoinEvent e) {
         Player p = e.getPlayer();
@@ -2621,7 +2777,7 @@ public final class Players implements Listener {
         s.offline = false;
         s.quitLife = null;
         s.name = p.getName();
-        s.joinBonus = false;
+        // joinBonus 는 그대로 둔다: 판에 들기 전에(웨이브 중 기다리다) 나갔다 온 사람은 아직 합류 몫을 안 받았다(activate 가 한 번 주고 끔)
         boolean wave = game.state == Game.State.WAVE;
         switch (q) {
             case ALIVE, WAITING, LOBBY -> {
@@ -2629,9 +2785,20 @@ public final class Players implements Listener {
                 else activate(p, s);
             }
             default -> {
-                // 쓰러짐, 죽음, 갇힘: 죽은 채로. 나간 사이 업은(총 주운) 개체가 잡혔으면 바로 손실 없이.
-                if (s.freedAway) {
-                    reviveAtShop(p, false);
+                // 쓰러짐, 죽음, 갇힘: 죽은 채로. 나간 사이 업은(총 주운) 개체나 먹은 개체가 잡혔으면 바로 손실 없이
+                // (먹은 개체가 freeFrom 을 거치지 않고 사라진 것도 같게: 접속 중이었다면 trappedTick 이 세웠다).
+                boolean eaterGone = q == Life.TRAPPED && s.deathMob != null && (s.deathMob.dead || s.deathMob.removed);
+                if (s.freedAway || eaterGone) {
+                    // 원정에서도 서게 reviveFree 로(reviveAtShop 은 원정의 죽은 사람을 세우지 않는다)
+                    reviveFree(p);
+                    return;
+                }
+                // 갇힌 채 나갔다 웨이브 중에 돌아옴: 먹은 개체가 살아 있으면 다시 갇힌다(그 개체를 잡으면 여느 때처럼 풀림)
+                if (wave && q == Life.TRAPPED && s.deathMob != null && !s.deathMob.dead && !s.deathMob.removed) {
+                    Gabe eater = s.deathMob;
+                    cleanup(p, s);
+                    s.life = Life.ALIVE;
+                    trap(p, eater);
                     return;
                 }
                 // 쉬는 시간, 준비 중: 놓친 쉬는 시간 공짜 부활을 지금(꺼내기 값, 업은 개체 쉬어 가기 없이). 발사 차례에는 예전 규칙
@@ -2644,9 +2811,15 @@ public final class Players implements Listener {
                 if (!wave && s.holdSkips == 0) {
                     s.life = Life.DEAD;
                     reviveAtShop(p, true);
-                    return;
+                    // 섰으면 끝. 원정의 발사 차례(공짜 부활이 없는 쉬는 시간)에는 죽은 사람이 서지 않는다: 아래에서 죽은 채 관전으로
+                    if (s.life != Life.DEAD) return;
+                } else if (!wave && s.holdSkips == 1) s.holdSkips = 2;
+                // 쓰러지거나 갇힌 채 나갔다가 죽은 채로 돌아옴: 이제 죽음 하나로 친다(원정: 죽은 라운드를 지금으로 적는다. 안 적으면 옛 값이 남아
+                // 꺼내는 값이 바닥까지 깎인다). 갇혔던 사람은 '갇힌 채 라운드를 넘김'과 같은 값 절반
+                if (q != Life.DEAD) {
+                    deathBegan(p, s);
+                    if (q == Life.TRAPPED) s.trappedDeath = true;
                 }
-                if (!wave && s.holdSkips == 1) s.holdSkips = 2;
                 toDead(p, s);
             }
         }
@@ -2658,6 +2831,7 @@ public final class Players implements Listener {
     public String test(Player p, String[] a) {
         if (a.length < 3) return null;
         String act = a[1];
+        if (act.startsWith("지갑")) return wallet.test(p, a);
         double n1 = num(a, 3), n2 = num(a, 4);
         switch (act) {
             case "판규칙" -> {

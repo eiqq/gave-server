@@ -58,11 +58,19 @@ import net.kyori.adventure.text.format.TextDecoration;
  * 권총 강화, 탄약 채우기, 소모품 7(수류탄, 조명탄, 화염병, 딸랑이, 정화, 글귀 적힌 비옷, 붕대), 스탯 4(최대 체력, 받는 피해, 걷기, 재장전),
  * 증강 뽑기, 가진 증강 한 줄.
  * <p>
+ * 화면(2026-11-14 shopui, docs/모듈/총상점.md '상점 화면'): 54칸 상자 창의 여섯 줄에 그 아래 플레이어 인벤토리 세 줄(게임이 쓰지 않는 칸 9~35)을
+ * 이어 아홉 줄을 한 화면으로 쓴다. 묶음마다 '그림 줄 + 그 아래 값 줄': 장비와 강화(줄 0, 1), 상자(2, 3), 소모품(4, 5), 팀(6, 7), 증강(8).
+ * 값은 그림 바로 아래 칸에 굵은 숫자로 보인다(금색 = 살 수 있음, 빨강 = 돈이 모자람 + 그림이 어두워짐, 자물쇠 = 잠김, 초록 확인 표시 = 다 삼).
+ * 풍선 도움말에는 이름, 지금 → 다음, 값, 못 사는 까닭만 적는다. 칸 그림과 글자는 {@link ShopUi} 가 입힌다: 팩에 상점 화면 자산이 없으면
+ * (옛 팩) 옛 그림 아이템 그대로 보이고 값은 풍선 도움말에만 있다. 플레이어 인벤토리에 놓는 칸 아이템에는 표식을 달아 화면을 닫을 때와 들어올 때
+ * 치운다({@link #sweep}). 고를 증강 카드가 쌓여 있으면 상점을 열 때 카드부터 띄우되, 고르지 않고 닫았으면 다음에는 상점이 열리고 '고를 카드'
+ * 칸으로 다시 들어간다(카드가 상점을 막지 않게).
+ * <p>
  * 열기: 카운터(중앙 원 한가운데 보급 상자 한 칸과 그 위 등불)를 보고 우클릭(GunHost.tryUse → {@link #tryOpen}), 또는 돕기(좌클릭)로
  * {@link #helpOpen}. 웨이브 중에는 보급 상자 둘레(R_SHOP)에서만, 준비와 쉬는 시간에는 중앙 원(R_SAFE) 안 어디서나. 카운터 블록이 아직 없는 맵이면
  * 준비와 쉬는 시간에만 가운데 축을 겨눈 것으로 친다. 시선에 게이브가 카운터보다 가까우면 열지 않고 쏜다(상점 지킴이). 붙잡힘, 묶임, 쓰러짐이면
  * 열지 않고, 열린 화면도 붙잡히거나 쓰러지거나 자리를 벗어나면 닫힌다. 열린 동안은 못 쏜다(Guns).
- * 뽑은 총은 바로 바꾸지 않고 지금 총 옆 칸에 놓인다(나은 값 초록, 못한 값 빨강): 그 칸을 누르면 바꾸고, 지금 총을 누르면 버린다.
+ * 뽑은 총은 바로 바꾸지 않고 '뽑은 총' 칸에 놓인다(나은 값 초록, 못한 값 빨강): 그 칸을 누르면 바꾸고, 지금 총을 누르면 버린다.
  * 뽑은 총이 놓여 있는 동안 뽑기 칸은 잠긴다(값 줄 지움). 꾸러미, 상자 종이 준 총은 차례로 기다린다.
  * 3번 칸에 다른 소모품이 있을 때 소모품을 사면 그것을 버리므로 값 아래 버릴 것을 빨갛게 보이고 두 번 눌러야 산다.
  * <p>
@@ -71,7 +79,7 @@ import net.kyori.adventure.text.format.TextDecoration;
  * {@link #gnawStart} 로 칸 하나를 잠그고 {@link #gnawEnd} 로 풀거나, 다 갉았으면 다음 쉬는 시간에 그 칸 값 25% 오름.
  * <p>
  * 원정(docs/모듈/원정.md 4절, 7절): 트럭이 서 있으면(kr.gave.trip.Truck.live()) 카운터는 트럭 발자국(3 x 6 배리어)이고 거리도 발자국까지로 잰다.
- * 트럭이 터지는 중이면 열리지 않는다. 새 칸: 자동 탄약(14), 트럭 수리(16, 팀 모금), 트럭 부품(17), 꺼내기 줄(36~44: 죽은 동료 머리, kr.gave.trip.Revive 가 그림).
+ * 트럭이 터지는 중이면 열리지 않는다. 새 칸: 자동 탄약, 트럭 수리(팀 모금), 트럭 부품, 꺼내기(죽은 동료 머리, kr.gave.trip.Revive 가 그림). 칸 번호는 위 화면 문단.
  * 값 끝에 game.trip.priceMul(w)(정비 스테이지 할인 같은 원정 배율)을 곱한다.
  */
 public final class Shop implements Listener {
@@ -81,26 +89,30 @@ public final class Shop implements Listener {
         // 무기 상자 줄(칸 18~26, 2026-11-12 boxsplit 사용자 "소총 랜덤박스, 샷건 랜덤박스 이런 식으로 분화"): BOX 는 모든 종류(옛 상자 그대로,
         // 원정 돈 단위 U 와 tools/balance_sim.py 가 이 값을 읽음), 그 뒤 여덟은 갈래 상자({@link Crate}, 바탕 값 = BOX 130 x 0.7~1.4).
         // 단계마다 곱은 그 사람이 그 갈래를 산 횟수에 붙는다(갈래마다 따로, 모든 종류 상자는 1 이라 오르지 않음)
-        BOX(130, 0.05, 1, 18),
-        BOX_PISTOL(90, 0.05, 1.1, 19), BOX_SMG(110, 0.05, 1.1, 20), BOX_RIFLE(130, 0.05, 1.1, 21), BOX_MG(155, 0.05, 1.1, 22),
-        BOX_SHOTGUN(125, 0.05, 1.1, 23), BOX_SNIPER(145, 0.05, 1.1, 24), BOX_SPECIAL(170, 0.05, 1.1, 25), BOX_BLAST(180, 0.05, 1.1, 26),
-        UP_GUN(30, 0.05, 1.25, 2), UP_PISTOL(25, 0.05, 1.25, 11), AMMO(15, 0.05, 1, 13),
-        GRENADE(20, 0.05, 1, 27), FLARE(20, 0.05, 1, 28), MOLOTOV(25, 0.05, 1, 29), RATTLE(15, 0.05, 1, 30), CLEANSE(25, 0.05, 1, 31),
-        RAINCOAT(35, 0.05, 1, 32), BANDAGE(15, 0.05, 1, 33),
-        HP(35, 0.05, 1.3, 4), ARMOR(40, 0.05, 1.3, 5), MOVE(30, 0.05, 1.3, 6), RELOAD(35, 0.05, 1.3, 7),
-        AUG(150, 0.05, 1.25, 35),
+        // 마지막 두 수: 화면 칸(2026-11-14 shopui 배치. 0~53 은 상자 창, 54~80 은 그 아래 플레이어 인벤토리 세 줄. 값은 그 아래 칸에 보임),
+        // 옛 칸 번호(2026-11-12 배치: 옛 시험 대본의 '사기 <숫자>' 가 그 물건을 가리키게)
+        BOX(130, 0.05, 1, 18, 18),
+        BOX_PISTOL(90, 0.05, 1.1, 19, 19), BOX_SMG(110, 0.05, 1.1, 20, 20), BOX_RIFLE(130, 0.05, 1.1, 21, 21), BOX_MG(155, 0.05, 1.1, 22, 22),
+        BOX_SHOTGUN(125, 0.05, 1.1, 23, 23), BOX_SNIPER(145, 0.05, 1.1, 24, 24), BOX_SPECIAL(170, 0.05, 1.1, 25, 25),
+        BOX_BLAST(180, 0.05, 1.1, 26, 26),
+        UP_GUN(30, 0.05, 1.25, 1, 2), UP_PISTOL(25, 0.05, 1.25, 3, 11), AMMO(15, 0.05, 1, 36, 13),
+        GRENADE(20, 0.05, 1, 38, 27), FLARE(20, 0.05, 1, 39, 28), MOLOTOV(25, 0.05, 1, 40, 29), RATTLE(15, 0.05, 1, 41, 30),
+        CLEANSE(25, 0.05, 1, 42, 31), RAINCOAT(35, 0.05, 1, 43, 32), BANDAGE(15, 0.05, 1, 44, 33),
+        HP(35, 0.05, 1.3, 5, 4), ARMOR(40, 0.05, 1.3, 6, 5), MOVE(30, 0.05, 1.3, 7, 6), RELOAD(35, 0.05, 1.3, 8, 7),
+        AUG(150, 0.05, 1.25, 62, 35),
         // 원정(트럭이 서 있을 때만 보임): 자동 탄약(한 번 사면 판 내내, 눌러 끄고 켬), 트럭 수리(팀 모금), 트럭 부품(보상으로 받은 차례가 있을 때 고름).
         // 값은 kr.gave.trip.Trip.Tune(AUTO_AMMO_U, REPAIR_U x 무기 상자 바탕값)이 정한다. 여기 바탕 값은 1웨이브 어림(표를 읽는 도구용)
-        AUTO_AMMO(80, 0.05, 1, 14), REPAIR(40, 0.05, 1, 16), PART(0, 0, 1, 17);
+        AUTO_AMMO(80, 0.05, 1, 37, 14), REPAIR(40, 0.05, 1, 54, 16), PART(0, 0, 1, 55, 17);
 
-        public final int base, slot;
+        public final int base, slot, oldSlot;
         public final double growth, level;
 
-        Ware(int base, double growth, double level, int slot) {
+        Ware(int base, double growth, double level, int slot, int oldSlot) {
             this.base = base;
             this.growth = growth;
             this.level = level;
             this.slot = slot;
+            this.oldSlot = oldSlot;
         }
 
         public String key() {
@@ -154,8 +166,9 @@ public final class Shop implements Listener {
                 // 종류 이름이 아님
             }
             try {
+                // 숫자는 옛 칸 번호(옛 시험 대본): 새 배치의 칸은 키로 부른다
                 int slot = Integer.parseInt(s);
-                for (Ware w : values()) if (w.slot == slot) return w;
+                for (Ware w : values()) if (w.oldSlot == slot) return w;
             } catch (NumberFormatException e) {
                 // 칸 번호가 아님
             }
@@ -249,10 +262,12 @@ public final class Shop implements Listener {
 
     /** 강화 값 등급 배율(일반, 희귀, 영웅, 전설) */
     private static final double[] RARITY_PRICE = {1, 1.2, 1.45, 1.8};
-    /** 상점 칸: 지금 총, 뽑은 총, 권총, 재화, 가진 증강 줄 */
-    public static final int SLOT_GUN = 0, SLOT_PENDING = 1, SLOT_PISTOL = 9, SLOT_MONEY = 8, ROW_AUGS = 45;
-    /** 원정 꺼내기 줄(죽은 동료 머리 아홉까지, 칸 36~44). */
-    public static final int ROW_REVIVE = 36;
+    /** 화면 칸: 지금 총, 권총, 뽑은 총, 재화(머리띠 돈 표시가 걸리는 칸 = 뽑은 총 아래), 가진 증강(여덟 칸), 고를 카드 */
+    public static final int SLOT_GUN = 0, SLOT_PISTOL = 2, SLOT_PENDING = 4, SLOT_MONEY = 13, ROW_AUGS = 72, AUGS = 8, SLOT_CARDS = 80;
+    /** 원정 꺼내기(죽은 동료 머리 여섯 칸 56~61. 일곱 명부터는 마지막 칸이 쪽 넘김: Revive.render 가 주는 아홉 명까지). */
+    public static final int ROW_REVIVE = 56, REVIVES = 6;
+    /** 화면 칸 번호: 이 번호부터는 상자 창 아래 플레이어 인벤토리(인벤토리 칸 = 번호 - BELOW + 9). 값 칸 = 그림 칸 + TAG(바로 아래) */
+    private static final int BELOW = 54, TAG = 9;
     /** 카운터: 가운데 칸에서 체비쇼프 거리 이 안(맵 PlazaGen 의 한가운데 보급 상자 한 칸), 발 높이~그 위 한 칸(등불) */
     public static final int COUNTER_R = 0;
     /** 카운터를 보는 거리(블록) */
@@ -269,6 +284,8 @@ public final class Shop implements Listener {
         public final boolean back;
         public Inventory inv;
         public final Map<Integer, Runnable> actions = new HashMap<>();
+        /** 상점: 이번에 그린 아래 세 줄(플레이어 인벤토리 9~35). 화면이 열려 있을 때 달라진 칸만 인벤토리에 옮긴다({@link Shop#flush}) */
+        final ItemStack[] below = new ItemStack[27];
 
         public View(UUID who, String kind, boolean back) {
             this.who = who;
@@ -292,6 +309,11 @@ public final class Shop implements Listener {
     private final Map<UUID, Ware> swapAsk = new HashMap<>();
     private final Map<UUID, Long> swapAt = new HashMap<>();
     private final Map<UUID, Long> clickAt = new HashMap<>();
+    /**
+     * 탄약을 산 뒤에 불리는 고리(손으로 사든 자동 탄약이 사든 {@link #buy} 의 탄약 갈래를 지나면). 증강이 '탄약을 샀다'를 돈과 탄 수로 짐작하지
+     * 않게 여기에 더하면 된다: game.shop.ammoBought.add(p -&gt; ...)
+     */
+    public final List<java.util.function.Consumer<Player>> ammoBought = new ArrayList<>();
     private final Map<Ware, Integer> gnawed = new EnumMap<>(Ware.class);
     private final List<Ware> gnawRaise = new ArrayList<>();
     private Ware gnawing;
@@ -302,6 +324,7 @@ public final class Shop implements Listener {
     public Shop(Game game) {
         this.game = game;
         this.supplies = new Supplies(game);
+        this.uiMark = new org.bukkit.NamespacedKey(game.plugin, "shopui");
     }
 
     // ------------------------------------------------------------------ 열기 조건
@@ -443,18 +466,30 @@ public final class Shop implements Listener {
     /** 화면을 연 판 틱(같은 틱의 우클릭이 소모품을 쓰지 않게) */
     private final Map<UUID, Long> shownAt = new HashMap<>();
 
-    /** 화면을 다음 틱에 연다(클릭 처리 중 바로 열지 않게) */
+    /** 화면을 다음 틱에 연다(클릭 처리 중 바로 열지 않게). 상점은 창이 실제로 열린 뒤에 아래 세 줄을 채운다(열기가 취소되면 안 채움) */
     void show(Player p, View v) {
         shownAt.put(p.getUniqueId(), game.now());
         Bukkit.getScheduler().runTask(game.plugin, () -> {
-            if (p.isOnline()) p.openInventory(v.inv);
+            if (!p.isOnline()) return;
+            p.openInventory(v.inv);
+            if (view(p) == v && v.kind.equals(View.SHOP)) flush(p, v);
         });
     }
 
-    /** 상점을 연다(조건은 보지 않음, 시험 훅과 tryOpen, helpOpen 이 부름). 고를 증강 카드가 쌓였으면 카드부터 */
+    /** 카드 화면을 고르지 않고 닫은 사람 → 그때 쌓여 있던 묶음 수. 그 수 그대로면 상점을 열 때 카드부터 띄우지 않는다(새 묶음이 오면 다시 띄움) */
+    private final Map<UUID, Integer> cardsLater = new HashMap<>();
+
+    /**
+     * 상점을 연다(조건은 보지 않음, 시험 훅과 tryOpen, helpOpen 이 부름). 고를 증강 카드가 쌓였으면 카드부터. 다만 그 카드를 고르지 않고 닫았던
+     * 사람은 상점이 열리고 '고를 카드' 칸으로 다시 들어간다(받기 싫은 카드가 탄약, 수리, 상자를 막지 않게)
+     */
     public void open(Player p) {
         if (game.guns.arms(p) == null) return;
-        if (game.augments.pending(p) > 0 && game.augments.openCards(p, true)) return;
+        ShopUi.sync(game);
+        int cards = game.augments.pending(p);
+        Integer later = cardsLater.get(p.getUniqueId());
+        if (cards == 0) cardsLater.remove(p.getUniqueId());
+        else if ((later == null || later != cards) && game.augments.openCards(p, true)) return;
         View cur = view(p);
         if (cur != null && cur.kind.equals(View.SHOP)) {
             // 이미 열려 있으면 칸만 다시
@@ -462,7 +497,7 @@ public final class Shop implements Listener {
             return;
         }
         View v = new View(p.getUniqueId(), View.SHOP, false);
-        v.inv = Bukkit.createInventory(v, 54, Component.empty());
+        v.inv = Bukkit.createInventory(v, 54, ShopUi.title(ShopUi.SHOP));
         render(p, v);
         show(p, v);
         Props.sound(p, null, Sound.BLOCK_BARREL_OPEN, 0.7f, 1f, 1.2f);
@@ -475,19 +510,27 @@ public final class Shop implements Listener {
         });
     }
 
-    private static final TextColor DIM = TextColor.color(0x9A9A9A), OK = TextColor.color(0x7CF07C), NO = TextColor.color(0xFF7A7A),
-        GOLD = TextColor.color(0xFFC53D), WHITE = TextColor.color(0xF0F0F0);
+    /** 풍선 도움말 색: 덜 중요한 설명(밝은 회색), 못 사는 까닭(빨강), 값(금색), 이름(흰색). 중간 회색 글자는 쓰지 않는다 */
+    private static final TextColor DIM = TextColor.color(ShopUi.SOFT), NO = TextColor.color(ShopUi.RED), GOLD = TextColor.color(ShopUi.GOLD),
+        WHITE = TextColor.color(ShopUi.WHITE);
 
     private static Component text(String s, TextColor c) {
         return Component.text(s, c).decoration(TextDecoration.ITALIC, false);
     }
 
-    /** 상점 아이콘(gave:shop/&lt;키&gt; 또는 주어진 모델), 이름, 줄 */
+    /** 상점 아이콘(gave:shop/&lt;키&gt; 또는 주어진 모델), 이름, 줄. 바탕 아이템은 부싯돌(종이는 붕대 쿨다운 막이 같은 종이 아이콘에도 덮임) */
     private static ItemStack icon(Key model, Component name, List<Component> lore, int amount) {
-        ItemStack it = ItemStack.of(Material.PAPER, Math.max(1, Math.min(64, amount)));
+        ItemStack it = ItemStack.of(Material.FLINT, Math.max(1, Math.min(64, amount)));
         it.setData(DataComponentTypes.ITEM_MODEL, model);
         it.setData(DataComponentTypes.ITEM_NAME, name);
         if (lore != null && !lore.isEmpty()) it.setData(DataComponentTypes.LORE, ItemLore.lore(lore));
+        return it;
+    }
+
+    /** 풍선 도움말 없는 아이콘(갉힌 칸, 오염 실눈) */
+    private static ItemStack blank(Key model) {
+        ItemStack it = icon(model, Component.empty(), null, 1);
+        it.setData(DataComponentTypes.TOOLTIP_DISPLAY, TooltipDisplay.tooltipDisplay().hideTooltip(true).build());
         return it;
     }
 
@@ -507,62 +550,193 @@ public final class Shop implements Listener {
         return it;
     }
 
+    /** 값 줄: 살 수 있으면 금색 값, 모자라면 빨간 값과 모자란 돈 */
     private Component priceLine(Player p, int price) {
-        return text(price + "원", money(p) >= price ? OK : NO);
+        int lack = price - money(p);
+        if (lack <= 0) return ShopUi.num(price + "원", ShopUi.GOLD);
+        return ShopUi.num(price + "원", ShopUi.RED).append(text("  ", NO)).append(ShopUi.num(lack + "원", ShopUi.RED)).append(text(" 모자람", NO));
     }
 
     private int money(Player p) {
         return game.players.get(p).money;
     }
 
-    private void render(Player p, View v) {
-        Inventory inv = v.inv;
-        inv.clear();
-        v.actions.clear();
-        Guns.Arms a = game.guns.arms(p);
-        if (a == null) return;
-        Gun cur = a.gun, pend = pendingGun.get(p.getUniqueId());
-        // 칸(2026-11-12 boxsplit): 0 지금 총, 1 뽑은 총, 2 총 강화, 4~7 스탯, 8 재화 / 9 권총, 11 권총 강화, 13 탄약, 14 자동 탄약, 16 수리, 17 부품
-        // / 18~26 무기 상자 줄(모든 종류 + 갈래 여덟) / 27~33 소모품, 35 증강 / 36~44 꺼내기 / 45~53 가진 증강
-        if (cur != null) {
-            List<Component> lore = cur.lore(pend);
-            inv.setItem(SLOT_GUN, gunIcon(cur, cur.title(), lore, false));
-            if (pend != null) v.actions.put(SLOT_GUN, () -> keep(p));
+    /** 플레이어 인벤토리에 놓은 상점 칸 아이템의 표식(닫을 때, 들어올 때 이 표식이 있는 것만 치운다) */
+    private final org.bukkit.NamespacedKey uiMark;
+
+    /** 화면 칸 slot 에 아이템을 놓는다: BELOW 부터는 아래 세 줄 그림(표식을 달아 v.below 에, 인벤토리로는 {@link #flush} 가 옮김) */
+    private void set(Player p, View v, int slot, ItemStack it) {
+        if (slot < BELOW) {
+            v.inv.setItem(slot, it);
+            return;
         }
-        if (pend != null) {
-            inv.setItem(SLOT_PENDING, gunIcon(pend, pend.title(), pend.lore(cur), true));
-            v.actions.put(SLOT_PENDING, () -> take(p));
-        }
-        inv.setItem(SLOT_PISTOL, gunIcon(a.pistol, a.pistol.title(), a.pistol.lore(null), false));
-        for (Ware w : Ware.values()) put(p, v, w, a);
-        inv.setItem(SLOT_MONEY, icon(shopKey("coin"), text(money(p) + "원", GOLD), null, 1));
-        // 원정: 꺼내기 줄(죽은 동료 머리, 먼저 죽은 차례로 아홉까지)
-        Revive rv = game.trip.revive();
-        if (rv != null) rv.render(p, v, ROW_REVIVE);
-        // 가진 증강 한 줄(9칸, 넘치면 8칸 + 마지막 칸에 나머지 수, 그 칸 툴팁에 나머지 목록)
-        List<Map.Entry<Augments.Aug, Integer>> owned = new ArrayList<>(game.augments.owned(p).entrySet());
-        int show = owned.size() > 9 ? 8 : owned.size();
-        for (int i = 0; i < show; i++) inv.setItem(ROW_AUGS + i, Augments.card(owned.get(i).getKey(), owned.get(i).getValue()));
-        if (owned.size() > 9) {
-            List<Component> rest = new ArrayList<>();
-            for (Map.Entry<Augments.Aug, Integer> e : owned.subList(8, owned.size()))
-                rest.add(text(e.getKey().ko + (e.getValue() > 1 ? " x" + e.getValue() : ""), e.getKey().tier.color()));
-            inv.setItem(ROW_AUGS + 8, icon(shopKey("aug_roll"), text("+" + (owned.size() - 8), WHITE), rest, owned.size() - 8));
-        }
-        // 상점 오염: 빈칸 사이에 실눈 글리프
-        if (contamination > 0) {
-            List<Integer> empty = new ArrayList<>();
-            for (int s = 0; s < ROW_AUGS; s++) if (inv.getItem(s) == null) empty.add(s);
-            Collections.shuffle(empty, rnd);
-            for (int k = 0; k < Math.min(contamination, empty.size()); k++) {
-                ItemStack eye = icon(shopKey("eye"), Component.empty(), null, 1);
-                eye.setData(DataComponentTypes.TOOLTIP_DISPLAY, TooltipDisplay.tooltipDisplay().hideTooltip(true).build());
-                inv.setItem(empty.get(k), eye);
+        if (it != null) it.editPersistentDataContainer(c -> c.set(uiMark, org.bukkit.persistence.PersistentDataType.BYTE, (byte) 1));
+        v.below[slot - BELOW] = it;
+    }
+
+    private boolean marked(ItemStack it) {
+        return it != null && it.getPersistentDataContainer().has(uiMark);
+    }
+
+    /**
+     * 아래 세 줄 그림을 인벤토리 9~35 에 옮긴다: 지금 것과 다른 칸만 쓴다(PlayerInventory.setItem 은 부를 때마다 칸 패킷을 바로 보내서,
+     * 그대로인 칸을 다시 쓰면 그만큼 패킷이 나간다). 표식 없는 아이템(크리에이티브의 물건)이 있는 칸은 덮지 않고 그 칸 누름도 뺀다
+     */
+    private void flush(Player p, View v) {
+        org.bukkit.inventory.PlayerInventory inv = p.getInventory();
+        for (int i = 0; i < 27; i++) {
+            ItemStack want = v.below[i], have = inv.getItem(9 + i);
+            if (have != null && !marked(have)) {
+                v.actions.remove(BELOW + i);
+                continue;
             }
+            if (want == null ? have != null : !want.equals(have)) inv.setItem(9 + i, want);
         }
     }
 
-    /** 칸 하나: 아이콘, 이름, 값 줄, 누르면 사기. 갉히는 칸은 갉힌 그림(못 삼) */
+    /** 플레이어 인벤토리에 놓았던 상점 칸 아이템을 치움(상점 화면을 닫을 때, 들어올 때). 표식이 없는 아이템은 건드리지 않는다 */
+    private void sweep(Player p) {
+        org.bukkit.inventory.PlayerInventory inv = p.getInventory();
+        for (int i = 9; i < 36; i++) if (marked(inv.getItem(i))) inv.setItem(i, null);
+    }
+
+    /**
+     * 그림 칸과 그 아래 값 칸: 누름은 둘 다 같다. 값 칸은 글자만 그리고 풍선 도움말이 없다({@link ShopUi#tag}). tag = 값 칸 글자(빈 글이면 값 칸
+     * 없음), color = 그 색
+     */
+    private void card(Player p, View v, int slot, ItemStack tile, String tag, int color, Runnable press) {
+        set(p, v, slot, tile);
+        ItemStack below = ShopUi.tag(tag, color);
+        if (below != null) set(p, v, slot + TAG, below);
+        if (press == null) return;
+        v.actions.put(slot, press);
+        if (below != null) v.actions.put(slot + TAG, press);
+    }
+
+    /**
+     * 총 칸: 등급 색 판 + 그 총 모델, 강화 단계는 아래 칸에 +n(흰색). fresh = 새로 뽑은 총(밝은 판 + 느낌표, 아래 칸은 돈 표시 자리라 비움).
+     * 누름은 그림 칸에만(지금 총의 누름은 뽑은 총 버리기라, 풍선 도움말 없는 +n 칸을 강화로 알고 눌러 버리는 일이 없게)
+     */
+    private void gunCard(Player p, View v, int slot, Gun g, List<Component> lore, boolean fresh, Runnable press) {
+        ItemStack tile = ShopUi.tile(gunIcon(g, g.title(), lore, fresh), g.model != null ? g.model : Guns.SPECS.get(g.kind).key(),
+            g.rarity.key() + (fresh ? "_hi" : ""), false, fresh ? ShopUi.BADGE_NEW : -1);
+        card(p, v, slot, tile, fresh || g.level() <= 0 ? "" : "+" + g.level(), ShopUi.WHITE, null);
+        if (press != null) v.actions.put(slot, press);
+    }
+
+    private void render(Player p, View v) {
+        v.inv.clear();
+        java.util.Arrays.fill(v.below, null);
+        v.actions.clear();
+        Guns.Arms a = game.guns.arms(p);
+        if (a == null) {
+            if (view(p) == v) flush(p, v);
+            return;
+        }
+        Gun cur = a.gun, pend = pendingGun.get(p.getUniqueId());
+        // 화면 칸(줄마다 아홉 칸, 묶음 = 그림 줄 + 그 아래 값 줄. 왼쪽 띠의 줄 이름은 tools/make_shop_ui.py BANDS):
+        // 장비와 강화 0 지금 총, 1 그 강화, 2 권총, 3 그 강화, 4 뽑은 총, 5~8 스탯 / 상자 18~26(모든 종류 + 갈래 여덟) / 소모품 36 탄약, 37 자동 탄약,
+        // 38~44 소모품 / 팀(아래 인벤토리) 54 수리, 55 부품, 56~61 꺼내기, 62 증강 뽑기 / 증강 72~79 가진 증강, 80 고를 카드. 돈은 머리띠 오른쪽(걸리는 칸 13)
+        if (cur != null) {
+            List<Component> lore = new ArrayList<>(cur.lore(pend));
+            if (pend != null) lore.add(text("누르면 새 총을 버림", NO));
+            gunCard(p, v, SLOT_GUN, cur, lore, false, pend == null ? null : () -> keep(p));
+        }
+        if (pend != null) {
+            List<Component> lore = new ArrayList<>(pend.lore(cur));
+            lore.add(text("누르면 이 총으로 바꿈", GOLD));
+            gunCard(p, v, SLOT_PENDING, pend, lore, true, () -> take(p));
+        }
+        gunCard(p, v, SLOT_PISTOL, a.pistol, a.pistol.lore(null), false, null);
+        for (Ware w : Ware.values()) put(p, v, w, a);
+        // 돈: 머리띠 오른쪽에 동전과 숫자(걸린 칸은 비어 보임). 옛 팩이면 동전 아이콘 이름으로
+        ItemStack wallet = ShopUi.wallet(money(p));
+        set(p, v, SLOT_MONEY, wallet != null ? wallet : icon(shopKey("coin"), text(money(p) + "원", GOLD), null, 1));
+        renderRevive(p, v);
+        // 고를 카드(고르지 않고 닫아 둔 증강 묶음): 누르면 카드 화면
+        int cards = game.augments.pending(p);
+        if (cards > 0) {
+            ItemStack it = icon(shopKey("aug_roll"), text("고를 카드 " + cards, GOLD), List.of(text("누르면 카드를 고름", WHITE)), cards);
+            set(p, v, SLOT_CARDS, ShopUi.tile(it, "aug_roll", "gold", false, ShopUi.BADGE_NEW));
+            v.actions.put(SLOT_CARDS, () -> {
+                cardsLater.remove(p.getUniqueId());
+                game.augments.openCards(p, true);
+            });
+        }
+        // 가진 증강(AUGS 칸, 넘치면 마지막 칸에 나머지 수, 그 칸 풍선 도움말에 나머지 목록)
+        List<Map.Entry<Augments.Aug, Integer>> owned = new ArrayList<>(game.augments.owned(p).entrySet());
+        int show = owned.size() > AUGS ? AUGS - 1 : owned.size();
+        for (int i = 0; i < show; i++) set(p, v, ROW_AUGS + i, ShopUi.card(Augments.card(owned.get(i).getKey(), owned.get(i).getValue())));
+        if (owned.size() > AUGS) {
+            List<Component> rest = new ArrayList<>();
+            for (Map.Entry<Augments.Aug, Integer> e : owned.subList(show, owned.size()))
+                rest.add(text(e.getKey().ko + (e.getValue() > 1 ? " x" + e.getValue() : ""), e.getKey().tier.color()));
+            int more = owned.size() - show;
+            set(p, v, ROW_AUGS + show, ShopUi.tile(icon(shopKey("aug_roll"), text("증강 " + more + "개 더", WHITE), rest, more), "aug_roll", "tile", false, -1));
+        }
+        // 상점 오염: 화면의 빈칸 사이에 실눈 글리프
+        if (contamination > 0) {
+            List<Integer> empty = new ArrayList<>();
+            for (int s = 0; s < BELOW + 27; s++) {
+                ItemStack mine = s < BELOW ? null : p.getInventory().getItem(s - BELOW + 9);
+                if ((s < BELOW ? v.inv.getItem(s) : v.below[s - BELOW]) == null && (mine == null || marked(mine))) empty.add(s);
+            }
+            Collections.shuffle(empty, rnd);
+            for (int k = 0; k < Math.min(contamination, empty.size()); k++)
+                set(p, v, empty.get(k), ShopUi.tile(blank(shopKey("eye")), "eye", "", false, -1));
+        }
+        if (view(p) == v) flush(p, v);
+    }
+
+    /** 꺼내기 칸을 그릴 때 Revive.render 가 채우는 임시 화면(머리 아이템과 누름 행동을 받아 우리 칸으로 옮긴다) */
+    private final View reviveScratch = new View(new UUID(0, 0), View.SHOP, false);
+    /** 꺼내기 쪽(죽은 사람이 REVIVES 명을 넘을 때 마지막 칸으로 넘김) */
+    private final Map<UUID, Integer> revivePage = new HashMap<>();
+
+    /**
+     * 원정 꺼내기: 죽은 동료 머리(먼저 죽은 차례). 머리, 설명 줄, 누름은 Revive 가 만들고(아홉 명까지) 여기서는 칸 그림과 한 번 누를 값을 입힌다.
+     * REVIVES 명을 넘으면 마지막 칸이 쪽 넘김(남은 사람 수)
+     */
+    private void renderRevive(Player p, View v) {
+        Revive rv = game.trip.revive();
+        if (rv == null) return;
+        if (reviveScratch.inv == null) reviveScratch.inv = Bukkit.createInventory(null, 9);
+        reviveScratch.inv.clear();
+        reviveScratch.actions.clear();
+        rv.render(p, reviveScratch, 0);
+        int n = 0;
+        while (n < 9 && reviveScratch.inv.getItem(n) != null) n++;
+        if (n == 0) {
+            revivePage.remove(p.getUniqueId());
+            return;
+        }
+        List<Player> dead = rv.dead();
+        int per = n > REVIVES ? REVIVES - 1 : REVIVES, pages = (n + per - 1) / per;
+        int page = Math.min(pages - 1, revivePage.getOrDefault(p.getUniqueId(), 0));
+        for (int k = 0; k < per && page * per + k < n; k++) {
+            int i = page * per + k;
+            ItemStack head = reviveScratch.inv.getItem(i);
+            Runnable press = reviveScratch.actions.get(i);
+            if (i >= dead.size()) {
+                set(p, v, ROW_REVIVE + k, ShopUi.style(head));
+                if (press != null) v.actions.put(ROW_REVIVE + k, press);
+                continue;
+            }
+            int cost = rv.cost(p, rv.step(game.players.get(dead.get(i))));
+            boolean can = money(p) >= cost;
+            card(p, v, ROW_REVIVE + k, ShopUi.tile(head, "head", "tile", !can, -1), ShopUi.price(cost), can ? ShopUi.GOLD : ShopUi.RED, press);
+        }
+        if (pages > 1) {
+            int rest = n - Math.min(per, n - page * per);
+            ItemStack more = icon(shopKey("aug_roll"), text("죽은 동료 " + rest + "명 더", WHITE), List.of(text("누르면 다음 쪽", WHITE)), rest);
+            card(p, v, ROW_REVIVE + REVIVES - 1, ShopUi.tile(more, "head", "gold", true, -1), "+" + Math.min(99, rest), ShopUi.WHITE, () -> {
+                revivePage.put(p.getUniqueId(), (page + 1) % pages);
+                refresh(p);
+            });
+        }
+    }
+
+    /** 칸 하나: 그림, 이름, 값 줄, 누르면 사기. 갉히는 칸은 갉힌 그림(못 삼) */
     private void put(Player p, View v, Ware w, Guns.Arms a) {
         if (w == Ware.UP_GUN && a.gun == null) return;
         if (w.trip()) {
@@ -570,14 +744,15 @@ public final class Shop implements Listener {
             return;
         }
         if (w == gnawing) {
-            ItemStack it = icon(shopKey("gnawed"), Component.empty(), null, 1);
-            it.setData(DataComponentTypes.TOOLTIP_DISPLAY, TooltipDisplay.tooltipDisplay().hideTooltip(true).build());
-            v.inv.setItem(w.slot, it);
+            set(p, v, w.slot, ShopUi.tile(blank(shopKey("gnawed")), "gnawed", "", false, -1));
             return;
         }
         int price = price(p, w);
         List<Component> lore = new ArrayList<>();
         ItemStack it;
+        // art = 칸 그림 키, plate = 판, why = 잠긴 까닭(값 대신 자물쇠, 칸이 어두워짐), done = 더 살 것이 없음(초록 확인 표시)
+        String art, plate = "tile", why = null;
+        boolean done = false;
         String sup = w.supply();
         Augments.Stat st = w.stat();
         if (w.box()) {
@@ -586,7 +761,7 @@ public final class Shop implements Listener {
             Component odds = Component.empty().decoration(TextDecoration.ITALIC, false);
             for (int r = 0; r < o.length; r++) {
                 if (o[r] <= 0) continue;
-                odds = odds.append(Component.text(o[r] + "% ", Gun.Rarity.values()[r].color()));
+                odds = odds.append(ShopUi.num(o[r] + "% ", Gun.Rarity.values()[r].color().value()));
             }
             lore.add(odds);
             // 갈래 상자: 든 종류 한 줄
@@ -595,49 +770,59 @@ public final class Shop implements Listener {
                 for (Guns.Kind k : c.kinds) ks.append(ks.isEmpty() ? "" : ", ").append(Gun.kindName(k));
                 lore.add(text(ks.toString(), DIM));
             }
-            // 뽑은 총이 놓여 있으면 잠김: 값 줄을 지워 보임(그 총을 고르면 풀림)
-            boolean locked = pendingGun.containsKey(p.getUniqueId());
-            int free = freeBoxes(p);
-            lore.add(locked ? text(price + "원", DIM).decoration(TextDecoration.STRIKETHROUGH, true) : free > 0 ? text("공짜 x" + free, OK) : priceLine(p, price));
-            Component name = text(c == null ? "무기 상자" : c.ko + " 상자", locked ? DIM : GOLD);
-            if (c == null) it = icon(Props.has("weapon_box") ? Key.key(Props.NS, "weapon_box") : shopKey("roll_rifle"), name, lore, 1);
+            // 뽑은 총이 놓여 있으면 잠김(그 총을 고르면 풀림)
+            if (pendingGun.containsKey(p.getUniqueId())) why = "뽑은 총부터 고르기";
+            else if (freeBoxes(p) > 0) lore.add(text("공짜 표 " + freeBoxes(p) + "장", GOLD));
+            Component name = text(c == null ? "무기 상자" : c.ko + " 상자", WHITE);
+            if (c == null) it = icon(Props.has("weapon_box") ? Key.key(Props.NS, "weapon_box") : shopKey("roll_rifle"), name, null, 1);
             else {
-                // 갈래 대표 총 + 상자 뒤판(pack_src gave:shop/box, strings[0] = 대표 모델 키). 산 횟수만큼 쌓임 수(오른 값의 단계)
-                it = icon(shopKey("box"), name, lore, Math.max(1, boxBuys(p, w)));
+                // 옛 그림: 갈래 대표 총 + 상자 뒤판(pack_src gave:shop/box, strings[0] = 대표 모델 키), 산 횟수만큼 쌓임 수
+                it = icon(shopKey("box"), name, null, Math.max(1, boxBuys(p, w)));
                 it.setData(DataComponentTypes.CUSTOM_MODEL_DATA, CustomModelData.customModelData().addString(c.icon).build());
             }
+            art = c == null ? "crate" : c.icon;
         } else if (w == Ware.UP_GUN || w == Ware.UP_PISTOL) {
             Gun g = w == Ware.UP_GUN ? a.gun : a.pistol;
-            boolean max = g.level() >= Gun.MAX_LEVEL;
-            lore.add(text("+" + g.level() + (max ? "" : " > +" + (g.level() + 1)), DIM));
-            if (!max) lore.add(priceLine(p, price));
-            it = icon(shopKey("upgrade"), text((w == Ware.UP_GUN ? Gun.kindName(g.kind) : "권총") + " 강화", WHITE), lore, Math.max(1, g.level()));
+            done = g.level() >= Gun.MAX_LEVEL;
+            lore.add(ShopUi.num("+" + g.level() + (done ? "" : " → +" + (g.level() + 1)), ShopUi.WHITE));
+            it = icon(shopKey("upgrade"), text((w == Ware.UP_GUN ? Gun.kindName(g.kind) : "권총") + " 강화", WHITE), null, Math.max(1, g.level()));
+            art = "upgrade";
         } else if (w == Ware.AMMO) {
             lore.add(text("장전 + 예비 가득", DIM));
-            lore.add(priceLine(p, price));
-            it = icon(Props.has("ammo_box") ? Key.key(Props.NS, "ammo_box") : shopKey("ammo"), text("탄약", WHITE), lore, 1);
+            it = icon(Props.has("ammo_box") ? Key.key(Props.NS, "ammo_box") : shopKey("ammo"), text("탄약", WHITE), null, 1);
+            art = Props.has("ammo_box") ? "ammo_box" : "ammo";
         } else if (sup != null) {
             int have = supplies.count(p, sup);
             int max = Supplies.MAX.getOrDefault(sup, 1);
+            done = have >= max;
             lore.add(text(Supplies.LINE.get(sup), DIM));
-            if (have < max) lore.add(priceLine(p, price));
-            // 3번 칸의 다른 소모품을 버리게 되면 버릴 것을 빨갛게(두 번 눌러 삼, 첫 누름 뒤에는 칸이 반짝임)
-            String drop = have < max ? supplies.wouldDrop(p, sup) : null;
+            lore.add(ShopUi.num(have + "/" + max, ShopUi.WHITE));
+            // 3번 칸의 다른 소모품을 버리게 되면 버릴 것을 빨갛게(두 번 눌러 삼, 첫 누름 뒤에는 칸 판이 금색)
+            String drop = done ? null : supplies.wouldDrop(p, sup);
             if (drop != null) lore.add(text(Supplies.NAME.get(drop) + " " + game.guns.arms(p).items() + " 버림", NO));
-            it = icon(Supplies.model(sup), text(Supplies.NAME.get(sup), WHITE), lore, Math.max(1, have));
-            if (drop != null && asking(p, w)) it.setData(DataComponentTypes.ENCHANTMENT_GLINT_OVERRIDE, true);
+            it = icon(Supplies.model(sup), text(Supplies.NAME.get(sup), WHITE), null, Math.max(1, have));
+            if (drop != null && asking(p, w)) {
+                plate = "gold";
+                it.setData(DataComponentTypes.ENCHANTMENT_GLINT_OVERRIDE, true);
+            }
+            art = sup;
         } else if (st != null) {
             int lv = game.augments.stat(p, st);
-            lore.add(text(lv + "/" + st.cap, DIM));
-            if (lv < st.cap) lore.add(priceLine(p, price));
-            it = icon(shopKey("stat_" + st.key()), text(st.ko, WHITE), lore, Math.max(1, lv));
+            done = lv >= st.cap;
+            lore.add(ShopUi.num(lv + "/" + st.cap, ShopUi.WHITE));
+            it = icon(shopKey("stat_" + st.key()), text(st.ko, WHITE), null, Math.max(1, lv));
+            art = "stat_" + st.key();
         } else {
-            int pend = game.augments.pending(p);
-            lore.add(priceLine(p, price));
-            it = icon(shopKey("aug_roll"), text("증강", Gun.Rarity.EPIC.color()), lore, Math.max(1, pend));
+            it = icon(shopKey("aug_roll"), text("증강 뽑기", WHITE), null, 1);
+            art = "aug_roll";
         }
-        v.inv.setItem(w.slot, it);
-        v.actions.put(w.slot, () -> buy(p, w));
+        // 값: 다 샀으면 확인 표시(초록), 잠겼으면 자물쇠, 아니면 값 숫자(살 수 있으면 금색, 모자라면 빨강에 그림이 어두워짐)
+        boolean can = !done && why == null && money(p) >= price;
+        if (why != null) lore.add(text(why, NO));
+        else if (!done) lore.add(priceLine(p, price));
+        if (!lore.isEmpty()) it.setData(DataComponentTypes.LORE, ItemLore.lore(lore));
+        card(p, v, w.slot, ShopUi.tile(it, art, plate, !done && !can, -1), done ? ShopUi.CHECK : why != null ? ShopUi.LOCK : ShopUi.price(price),
+            done ? ShopUi.GREEN : why != null ? ShopUi.SOFT : can ? ShopUi.GOLD : ShopUi.RED, () -> buy(p, w));
     }
 
     /** 원정 칸(트럭이 서 있을 때만): 자동 탄약, 트럭 수리, 트럭 부품 */
@@ -645,29 +830,40 @@ public final class Shop implements Listener {
         Truck truck = game.trip.truck();
         if (truck == null) return;
         List<Component> lore = new ArrayList<>();
-        ItemStack it;
         if (w == Ware.AUTO_AMMO) {
-            // 자동 탄약은 증강(Augments 기본 판매 autoammo)이 칸 그림, 사기, 저절로 사는 동작을 모두 쥔다
-            it = game.augments.stapleIcon(p, Augments.AUTO_AMMO);
+            // 자동 탄약은 증강(Augments 기본 판매 autoammo)이 이름, 설명 줄, 사기, 저절로 사는 동작을 모두 쥔다. 여기서는 칸 그림과 값 칸만
+            ItemStack it = game.augments.stapleIcon(p, Augments.AUTO_AMMO);
             if (it == null) return;
+            boolean own = game.augments.hasStaple(p, Augments.AUTO_AMMO), on = game.augments.stapleOn(p, Augments.AUTO_AMMO);
+            int price = price(p, w);
+            boolean can = own ? on : money(p) >= price;
+            card(p, v, w.slot, ShopUi.tile(it, Props.has("ammo_box") ? "ammo_box" : "ammo", "tile", !can, ShopUi.BADGE_AUTO),
+                own ? on ? ShopUi.CHECK : "-" : ShopUi.price(price), own ? on ? ShopUi.GREEN : ShopUi.SOFT : can ? ShopUi.GOLD : ShopUi.RED,
+                () -> buy(p, w));
         } else if (w == Ware.REPAIR) {
             int pct = (int) Math.round(truck.frac() * 100);
             boolean full = truck.hp() >= truck.maxHp() - 1e-6;
-            lore.add(text(pct + "%" + (full ? "" : " > " + (int) Math.round(Math.min(1, (truck.hp() + truck.repairAmount()) / truck.maxHp()) * 100) + "%"),
-                pct < 25 ? NO : pct < 60 ? GOLD : OK));
-            if (!full) lore.add(priceLine(p, price(p, w)));
+            int price = price(p, w);
+            boolean can = !full && money(p) >= price;
+            lore.add(ShopUi.num(pct + "%" + (full ? "" : " → " + (int) Math.round(Math.min(1, (truck.hp() + truck.repairAmount()) / truck.maxHp()) * 100) + "%"),
+                pct < 25 ? ShopUi.RED : pct < 60 ? ShopUi.GOLD : ShopUi.GREEN));
+            if (!full) lore.add(priceLine(p, price));
             // 그림은 트럭 모델 그대로(원정 층 gave:trip/truck 의 인벤토리 표시 변환)
-            it = icon(Key.key(Props.NS, "trip/truck"), text("트럭 수리", full ? DIM : WHITE), lore, 1);
+            card(p, v, w.slot, ShopUi.tile(icon(Key.key(Props.NS, "trip/truck"), text("트럭 수리", WHITE), lore, 1), "truck", "tile", !full && !can, -1),
+                full ? ShopUi.CHECK : ShopUi.price(price), full ? ShopUi.GREEN : can ? ShopUi.GOLD : ShopUi.RED, () -> buy(p, w));
         } else {
             int pend = truck.pendingParts();
             if (pend <= 0 && truck.parts().isEmpty()) return;
             for (Map.Entry<String, Integer> e : truck.parts().entrySet())
                 lore.add(text(Truck.partName(e.getKey()) + (e.getValue() > 1 ? " x" + e.getValue() : ""), DIM));
-            it = icon(Key.key(Props.NS, "trip/wheel"), text("트럭 부품", pend > 0 ? GOLD : DIM), lore, Math.max(1, pend));
-            if (pend > 0) it.setData(DataComponentTypes.ENCHANTMENT_GLINT_OVERRIDE, true);
+            // 고를 차례가 있으면 금색 판(붙일 부품이 더 없으면 강조하지 않음)
+            boolean pick = pend > 0 && !partsDry;
+            if (pick) lore.add(text("누르면 부품을 고름", GOLD));
+            ItemStack it = icon(Key.key(Props.NS, "trip/wheel"), text("트럭 부품", WHITE), lore, Math.max(1, pend));
+            if (pick) it.setData(DataComponentTypes.ENCHANTMENT_GLINT_OVERRIDE, true);
+            card(p, v, w.slot, ShopUi.tile(it, "wheel", pick ? "gold" : "tile", false, pick ? ShopUi.BADGE_NEW : -1),
+                pick && pend > 1 ? "x" + Math.min(99, pend) : "", ShopUi.WHITE, () -> buy(p, w));
         }
-        v.inv.setItem(w.slot, it);
-        v.actions.put(w.slot, () -> buy(p, w));
     }
 
     // ------------------------------------------------------------------ 값
@@ -744,6 +940,7 @@ public final class Shop implements Listener {
             pay(p, price);
             Props.sound(p, null, Sound.ITEM_ARMOR_EQUIP_IRON, 0.8f, 1f, 1.2f);
             lastLog = "탄약 " + a.res[a.primary == null ? 0 : a.primary.ordinal()];
+            for (java.util.function.Consumer<Player> hook : ammoBought) hook.accept(p);
         } else if (sup != null) {
             if (!supplies.canTake(p, sup)) return deny(p, "가득");
             String drop = supplies.wouldDrop(p, sup);
@@ -807,8 +1004,13 @@ public final class Shop implements Listener {
         return true;
     }
 
-    /** 트럭 부품을 고르는 중인 사람(먼저 연 사람이 고른다, 닫으면 풀림) */
+    /** 트럭 부품을 고르는 중인 사람(먼저 연 사람이 고른다, 닫으면 풀림)과 그 칸을 누른 틱 */
     private UUID partPicker;
+    private long partPickAt;
+    /** 이번 차례에 굴려 둔 부품 카드(닫았다 다시 열어도, 다른 사람이 열어도 그대로. 하나를 고르면 지워 다음 차례에 새로 굴림) */
+    private List<Truck.PartDef> partOffer;
+    /** 붙일 부품이 더 없음(남은 차례는 쓸 수 없다: 칸 강조를 끔). 쉬는 시간마다 다시 본다(범퍼처럼 늦게 후보가 되는 부품) */
+    private boolean partsDry;
 
     /** 공짜 무기 상자 표(원정 스테이지 보상 box): 사람마다 남은 수. 있으면 무기 상자 값이 0 이고 한 번 뽑을 때 하나 씀. 판 끝에 지움 */
     private final Map<UUID, Integer> freeBoxes = new HashMap<>();
@@ -835,25 +1037,37 @@ public final class Shop implements Listener {
         return m == null ? 0 : m.getOrDefault(w, 0);
     }
 
-    /** 트럭 부품 카드 셋: 고르면 트럭에 붙고 상점으로 돌아간다 */
+    /** 트럭 부품 카드 셋: 고르면 트럭에 붙고 상점으로 돌아간다. 카드는 차례마다 한 번만 굴린다(닫았다 열어 다시 굴리지 못하게) */
     private void openParts(Player p, Truck truck) {
-        List<Truck.PartDef> offer = truck.partOffer(3, rnd);
+        if (partOffer == null) partOffer = truck.partOffer(3, rnd);
+        List<Truck.PartDef> offer = partOffer;
         if (offer.isEmpty()) {
+            partOffer = null;
+            partsDry = true;
             deny(p, "붙일 부품 없음");
+            refresh(p);
             return;
         }
         partPicker = p.getUniqueId();
+        partPickAt = game.now();
         View v = new View(p.getUniqueId(), View.PARTS, true);
-        v.inv = Bukkit.createInventory(v, 27, Component.empty());
+        v.inv = Bukkit.createInventory(v, 27, ShopUi.title(ShopUi.PARTS));
         int[] at = offer.size() == 1 ? new int[] {13} : offer.size() == 2 ? new int[] {12, 14} : new int[] {11, 13, 15};
         for (int i = 0; i < offer.size(); i++) {
             Truck.PartDef d = offer.get(i);
             int have = truck.part(d.key());
-            v.inv.setItem(at[i], icon(shopKey("aug_roll"), text(d.name() + (have > 0 ? " x" + (have + 1) : ""), GOLD), List.of(text(d.line(), DIM)), 1));
+            // 그림은 그 부품(증강 갈래 part)의 카드 그림: 셋이 서로 다르게 보인다. 표에 없는 부품이면 바퀴
+            Augments.Aug aug = Augments.Aug.of(d.key());
+            ItemStack it = aug == null ? ShopUi.tile(icon(shopKey("aug_roll"), Component.empty(), null, 1), "wheel", "gold", false, -1)
+                : ShopUi.card(Augments.card(aug, 1));
+            it.setData(DataComponentTypes.ITEM_NAME, text(d.name() + (have > 0 ? " x" + (have + 1) : ""), GOLD));
+            it.setData(DataComponentTypes.LORE, ItemLore.lore(List.of(text(d.line(), WHITE))));
+            v.inv.setItem(at[i], it);
             v.actions.put(at[i], () -> {
                 if (!truck.takePendingPart()) return;
                 truck.addPart(d.key());
                 partPicker = null;
+                partOffer = null;
                 Props.soundAround(Truck.center().toLocation(game.world).add(0, 1, 0), null, Sound.BLOCK_ANVIL_USE, 0.7f, 1f, 0.9f, 32, -1);
                 lastLog = "부품 " + d.key() + " 고른 사람 " + p.getName();
                 game.plugin.getLogger().info("[상점] 트럭 부품 " + d.name() + " 고른 사람 " + p.getName());
@@ -937,8 +1151,18 @@ public final class Shop implements Listener {
         return pendingGun.get(p.getUniqueId());
     }
 
-    /** 열려 있으면 칸을 다시 그림 */
+    /** 다시 그릴 사람(다음 {@link #tick} 에 사람마다 한 번만 그림) */
+    private final java.util.Set<UUID> dirty = new java.util.HashSet<>();
+
+    /**
+     * 열려 있으면 칸을 다시 그림. 바로 그리지 않고 표시만 해 두었다가 다음 틱에 한 번 그린다: 수리, 꺼내기처럼 한 번 누름이 모두의 화면을 다시 그리게
+     * 하는 일이 같은 틱에 여러 번 와도 사람마다 한 번
+     */
     public void refresh(Player p) {
+        if (p != null) dirty.add(p.getUniqueId());
+    }
+
+    private void redraw(Player p) {
         View v = view(p);
         if (v != null && v.kind.equals(View.SHOP)) render(p, v);
     }
@@ -1009,17 +1233,30 @@ public final class Shop implements Listener {
     // ------------------------------------------------------------------ 틱, 정리
 
     public void tick() {
+        ShopUi.sync(game);
         supplies.tick();
         long now = game.now();
         if (game.state == Game.State.BREAK && lastState != Game.State.BREAK) {
             for (Ware w : gnawRaise) gnawed.merge(w, 1, Integer::sum);
             gnawRaise.clear();
             game.augments.onBreak();
+            if (partsDry) {
+                Truck t = game.trip.truck();
+                partsDry = t != null && t.partOffer(1, rnd).isEmpty();
+            }
         }
         lastState = game.state;
         if (now % 10 == 0) for (Player p : game.players.inPlay()) game.augments.apply(p);
-        // 원정: 꺼내기 줄과 수리 칸이 열린 화면에서 따라 바뀌게 1초마다 다시 그림(자동 탄약의 저절로 사기는 Augments 가 함)
-        if (now % 20 == 0 && game.trip.truck() != null) for (Player p : game.players.inPlay()) refresh(p);
+        // 열린 상점을 1초마다 다시 그림: 값(웨이브, 갉힘), 돈, 꺼내기와 수리 칸이 따라 바뀌게(원정이 꺼진 판에서도). 사람마다 틱을 나눠
+        // (엔티티 번호 나머지) 한 틱에 몰리지 않게. 그린 결과가 같으면 칸 패킷은 나가지 않는다(위 칸은 바닐라 비교, 아래 칸은 flush)
+        for (Player p : game.players.inPlay()) if (Math.floorMod(now + p.getEntityId(), 20L) == 0) refresh(p);
+        // 부품 칸을 누른 사람이 고르기 화면에 없으면(누른 틱과 화면이 열리는 틱 사이에 나감) 다른 사람이 고를 수 있게 푼다
+        if (partPicker != null && now - partPickAt > 2) {
+            Player picker = Bukkit.getPlayer(partPicker);
+            View pv = picker == null ? null : view(picker);
+            if (pv == null || !pv.kind.equals(View.PARTS)) partPicker = null;
+        }
+        if (now % 200 == 0) shownAt.values().removeIf(at -> now - at > 1);
         // 둘 수 없는 자리(웨이브가 시작됐는데 보급 상자 둘레 밖, 쓰러짐, 붙잡힘)면 닫음(붙잡히면 좌클릭 탈출 연타가 상자 칸 클릭이 되지 않게 2 틱마다)
         if (now % 2 == 0) for (Player p : Bukkit.getOnlinePlayers()) {
             View v = view(p);
@@ -1034,6 +1271,15 @@ public final class Shop implements Listener {
             swapAt.remove(e.getKey());
             Player p = Bukkit.getPlayer(e.getKey());
             if (p != null) refresh(p);
+        }
+        // 표시해 둔 다시 그림(사람마다 한 번)
+        if (!dirty.isEmpty()) {
+            List<UUID> ids = new ArrayList<>(dirty);
+            dirty.clear();
+            for (UUID id : ids) {
+                Player p = Bukkit.getPlayer(id);
+                if (p != null) redraw(p);
+            }
         }
     }
 
@@ -1059,20 +1305,15 @@ public final class Shop implements Listener {
         forced.clear();
         freeBoxes.clear();
         boxBuys.clear();
+        shownAt.clear();
+        cardsLater.clear();
+        revivePage.clear();
+        dirty.clear();
+        partPicker = null;
+        partOffer = null;
+        partsDry = false;
         supplies.clear();
         game.augments.clear();
-    }
-
-    public void forget(UUID id) {
-        pendingGun.remove(id);
-        gunQueue.remove(id);
-        swapAsk.remove(id);
-        swapAt.remove(id);
-        clickAt.remove(id);
-        shownAt.remove(id);
-        forced.remove(id);
-        supplies.forget(id);
-        game.augments.forget(id);
     }
 
     // ------------------------------------------------------------------ 이벤트
@@ -1082,7 +1323,7 @@ public final class Shop implements Listener {
         if (!(e.getView().getTopInventory().getHolder(false) instanceof View v)) return;
         e.setCancelled(true);
         if (!(e.getWhoClicked() instanceof Player p) || !v.who.equals(p.getUniqueId())) return;
-        if (e.getClickedInventory() != e.getView().getTopInventory()) return;
+        // 화면 칸 번호 그대로 누름 표를 찾는다(상점은 상자 창 아래 플레이어 인벤토리 세 줄도 화면이다). 표에 없는 칸은 아무 일 없음
         switch (e.getClick()) {
             case LEFT, RIGHT, SHIFT_LEFT, SHIFT_RIGHT -> {
             }
@@ -1107,9 +1348,19 @@ public final class Shop implements Listener {
     public void onClose(InventoryCloseEvent e) {
         if (e.getInventory().getHolder(false) instanceof View v) {
             forced.remove(e.getPlayer().getUniqueId());
+            if (v.kind.equals(View.SHOP) && e.getPlayer() instanceof Player pl) sweep(pl);
+            // 카드 화면을 고르지 않고 직접 닫음: 그 묶음이 그대로인 동안은 상점을 열 때 카드부터 띄우지 않는다
+            if (v.kind.equals(View.CARDS) && e.getReason() == InventoryCloseEvent.Reason.PLAYER && e.getPlayer() instanceof Player pl)
+                cardsLater.put(pl.getUniqueId(), game.augments.pending(pl));
             // 트럭 부품 카드를 고르지 않고 닫음: 차례는 그대로 남고 다른 사람이 열 수 있다
             if (v.kind.equals(View.PARTS) && e.getPlayer().getUniqueId().equals(partPicker)) partPicker = null;
         }
+    }
+
+    /** 들어올 때: 서버가 상점을 연 채로 죽었으면 남았을 칸 아이템을 치운다 */
+    @EventHandler
+    public void onJoin(org.bukkit.event.player.PlayerJoinEvent e) {
+        sweep(e.getPlayer());
     }
 
     /** 3번 칸을 들고 우클릭: 소모품 쓰기(Guns.onInteract 가 상점을 열었으면 건너뜀) */
@@ -1227,7 +1478,9 @@ public final class Shop implements Listener {
                     // 칸 번호가 Ware 가 아니면 화면 칸 행동(뽑은 총 1, 지금 총 0)
                     View v = view(p);
                     try {
+                        // 옛 대본의 칸 번호: 0 지금 총(지키기), 1 뽑은 총(바꾸기). 그 밖의 수는 지금 화면 칸
                         int slot = Integer.parseInt(a[3]);
+                        if (slot == 1) slot = SLOT_PENDING;
                         Runnable r = v == null ? null : v.actions.get(slot);
                         if (r == null) return "그 칸 없음 " + slot;
                         r.run();
@@ -1282,11 +1535,14 @@ public final class Shop implements Listener {
                 if (p == null || a.length < 4) return "상점칸 <이름> <칸>";
                 View v = view(p);
                 if (v == null) return "안 열림";
-                ItemStack it = v.inv.getItem(Integer.parseInt(a[3]));
+                int at = Integer.parseInt(a[3]);
+                ItemStack it = at < BELOW ? v.inv.getItem(at) : p.getInventory().getItem(at - BELOW + 9);
                 if (it == null) return "빈칸";
                 Component n = it.getData(DataComponentTypes.ITEM_NAME);
+                CustomModelData cmd = it.getData(DataComponentTypes.CUSTOM_MODEL_DATA);
                 return "model=" + it.getData(DataComponentTypes.ITEM_MODEL) + " x" + it.getAmount() + " name="
-                    + (n == null ? "-" : net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer.plainText().serialize(n));
+                    + (n == null ? "-" : net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer.plainText().serialize(n))
+                    + (cmd == null ? "" : " cell=" + cmd.strings() + " veil=" + cmd.flags() + " text=" + cmd.floats());
             }
             case "오염" -> {
                 contaminate(a.length > 3 ? Integer.parseInt(a[3]) : 3);

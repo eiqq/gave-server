@@ -419,7 +419,7 @@ def run(g):
 
     def write_props_json():
         write()
-        p = g["ROOT"] / "tools/props.json"
+        p = g.get("PROPS_JSON", g["ROOT"] / "tools/props.json")  # build_props.PROPS_JSON: 굽는 자리를 돌리면 표 파일도 따라감
         obj = json.loads(p.read_text(encoding="utf-8"))
         obj["sound_notes"] = SOUND_NOTES
         p.write_text(json.dumps(obj, ensure_ascii=False, indent=1), encoding="utf-8")

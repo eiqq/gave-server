@@ -285,19 +285,19 @@
    "item_model": "gave:tac_ak47",
    "source": "Timeless and Classics Guns (Serene Wave Studio, ClumsyAlien) 0.3.14.2 (Forge 1.16.5) https://modrinth.com/mod/timeless-and-classics-guns",
    "license": "에셋 CC BY-NC-SA 4.0(Modrinth 본문), 코드 GPL-3.0-or-later",
-   "notes": "TaC ak47, ak47_bolt + 탄창 ak47_mag_standard, 요소 343",
+   "notes": "TaC ak47, ak47_bolt, ak47_stock_tactical + 탄창 ak47_mag_standard, 요소 396",
    "real": "AK-47",
    "grip": [
     7.587,
     6.442,
-    22.442
+    17.036
    ]
   },
   "tac_ak47_nomag": {
    "item_model": "gave:tac_ak47_nomag",
    "source": "Timeless and Classics Guns (Serene Wave Studio, ClumsyAlien) 0.3.14.2 (Forge 1.16.5) https://modrinth.com/mod/timeless-and-classics-guns",
    "license": "에셋 CC BY-NC-SA 4.0(Modrinth 본문), 코드 GPL-3.0-or-later",
-   "notes": "tac_ak47 에서 탄창 부품만 뺀 것(재장전 연출용, 표시 변환과 좌표 같음, 같은 텍스처), 요소 321",
+   "notes": "tac_ak47 에서 탄창 부품만 뺀 것(재장전 연출용, 표시 변환과 좌표 같음, 같은 텍스처), 요소 374",
    "variant_of": "tac_ak47"
   },
   "tac_hk416_a5": {
@@ -475,19 +475,19 @@
    "item_model": "gave:tac_sks_tactical",
    "source": "Timeless and Classics Guns (Serene Wave Studio, ClumsyAlien) 0.3.14.2 (Forge 1.16.5) https://modrinth.com/mod/timeless-and-classics-guns",
    "license": "에셋 CC BY-NC-SA 4.0(Modrinth 본문), 코드 GPL-3.0-or-later",
-   "notes": "TaC sks_tactical, sks_tactical_bolt, sks_tactical_sight + 탄창 sks_tactical_mag_standard, 요소 406",
+   "notes": "TaC sks_tactical, sks_tactical_bolt, sks_tactical_sight, sks_tactical_stock_heavy + 탄창 sks_tactical_mag_standard, 요소 457",
    "real": "SKS",
    "grip": [
-    7.781,
-    7.602,
-    25.612
+    7.783,
+    7.606,
+    20.189
    ]
   },
   "tac_sks_tactical_nomag": {
    "item_model": "gave:tac_sks_tactical_nomag",
    "source": "Timeless and Classics Guns (Serene Wave Studio, ClumsyAlien) 0.3.14.2 (Forge 1.16.5) https://modrinth.com/mod/timeless-and-classics-guns",
    "license": "에셋 CC BY-NC-SA 4.0(Modrinth 본문), 코드 GPL-3.0-or-later",
-   "notes": "tac_sks_tactical 에서 탄창 부품만 뺀 것(재장전 연출용, 표시 변환과 좌표 같음, 같은 텍스처), 요소 398",
+   "notes": "tac_sks_tactical 에서 탄창 부품만 뺀 것(재장전 연출용, 표시 변환과 좌표 같음, 같은 텍스처), 요소 449",
    "variant_of": "tac_sks_tactical"
   },
   "tac_fn_fal": {
@@ -836,11 +836,11 @@
    "item_model": "gave:tac_micro_uzi",
    "source": "Timeless and Classics Guns (Serene Wave Studio, ClumsyAlien) 0.3.14.2 (Forge 1.16.5) https://modrinth.com/mod/timeless-and-classics-guns",
    "license": "에셋 CC BY-NC-SA 4.0(Modrinth 본문), 코드 GPL-3.0-or-later",
-   "notes": "TaC micro_uzi, micro_uzi_bolt, micro_uzi_sight, micro_uzi_stock_folded + 탄창 micro_uzi_mag_standard, 요소 278",
+   "notes": "TaC micro_uzi, micro_uzi_bolt, micro_uzi_stock_folded + 탄창 micro_uzi_mag_standard, 요소 242",
    "real": "마이크로 우지",
    "grip": [
     8.197,
-    5.665,
+    7.934,
     12.667
    ]
   },
@@ -848,7 +848,7 @@
    "item_model": "gave:tac_micro_uzi_nomag",
    "source": "Timeless and Classics Guns (Serene Wave Studio, ClumsyAlien) 0.3.14.2 (Forge 1.16.5) https://modrinth.com/mod/timeless-and-classics-guns",
    "license": "에셋 CC BY-NC-SA 4.0(Modrinth 본문), 코드 GPL-3.0-or-later",
-   "notes": "tac_micro_uzi 에서 탄창 부품만 뺀 것(재장전 연출용, 표시 변환과 좌표 같음, 같은 텍스처), 요소 268",
+   "notes": "tac_micro_uzi 에서 탄창 부품만 뺀 것(재장전 연출용, 표시 변환과 좌표 같음, 같은 텍스처), 요소 232",
    "variant_of": "tac_micro_uzi"
   },
   "tac_m1911": {
@@ -1045,11 +1045,11 @@
    "item_model": "gave:tac_aa_12",
    "source": "Timeless and Classics Guns (Serene Wave Studio, ClumsyAlien) 0.3.14.2 (Forge 1.16.5) https://modrinth.com/mod/timeless-and-classics-guns",
    "license": "에셋 CC BY-NC-SA 4.0(Modrinth 본문), 코드 GPL-3.0-or-later",
-   "notes": "TaC aa_12, aa_12_bolt, aa_12_bolt_handle, aa_12_muzzle_default, aa_12_sight + 탄창 aa_12_mag_standard, 요소 293",
+   "notes": "TaC aa_12, aa_12_bolt, aa_12_bolt_handle, aa_12_muzzle_default, aa_12_sight + 탄창 aa_12_mag_standard, 요소 292",
    "real": "AA-12",
    "grip": [
     8.062,
-    8.325,
+    8.334,
     16.451
    ]
   },
@@ -1057,7 +1057,7 @@
    "item_model": "gave:tac_aa_12_nomag",
    "source": "Timeless and Classics Guns (Serene Wave Studio, ClumsyAlien) 0.3.14.2 (Forge 1.16.5) https://modrinth.com/mod/timeless-and-classics-guns",
    "license": "에셋 CC BY-NC-SA 4.0(Modrinth 본문), 코드 GPL-3.0-or-later",
-   "notes": "tac_aa_12 에서 탄창 부품만 뺀 것(재장전 연출용, 표시 변환과 좌표 같음, 같은 텍스처), 요소 279",
+   "notes": "tac_aa_12 에서 탄창 부품만 뺀 것(재장전 연출용, 표시 변환과 좌표 같음, 같은 텍스처), 요소 278",
    "variant_of": "tac_aa_12"
   },
   "tac_m1014": {
@@ -1107,19 +1107,19 @@
    "item_model": "gave:tac_rpk",
    "source": "Timeless and Classics Guns (Serene Wave Studio, ClumsyAlien) 0.3.14.2 (Forge 1.16.5) https://modrinth.com/mod/timeless-and-classics-guns",
    "license": "에셋 CC BY-NC-SA 4.0(Modrinth 본문), 코드 GPL-3.0-or-later",
-   "notes": "TaC rpk, rpk_bolt + 탄창 rpk_mag_standard, 요소 366",
+   "notes": "TaC rpk, rpk_bolt, rpk_stock_tactical + 탄창 rpk_mag_standard, 요소 401",
    "real": "RPK",
    "grip": [
-    8.91,
-    9.288,
-    23.839
+    8.901,
+    9.276,
+    18.801
    ]
   },
   "tac_rpk_nomag": {
    "item_model": "gave:tac_rpk_nomag",
    "source": "Timeless and Classics Guns (Serene Wave Studio, ClumsyAlien) 0.3.14.2 (Forge 1.16.5) https://modrinth.com/mod/timeless-and-classics-guns",
    "license": "에셋 CC BY-NC-SA 4.0(Modrinth 본문), 코드 GPL-3.0-or-later",
-   "notes": "tac_rpk 에서 탄창 부품만 뺀 것(재장전 연출용, 표시 변환과 좌표 같음, 같은 텍스처), 요소 353",
+   "notes": "tac_rpk 에서 탄창 부품만 뺀 것(재장전 연출용, 표시 변환과 좌표 같음, 같은 텍스처), 요소 388",
    "variant_of": "tac_rpk"
   },
   "tac_dp28": {
@@ -1145,12 +1145,12 @@
    "item_model": "gave:tac_grenade_launcher",
    "source": "Timeless and Classics Guns (Serene Wave Studio, ClumsyAlien) 0.3.14.2 (Forge 1.16.5) https://modrinth.com/mod/timeless-and-classics-guns",
    "license": "에셋 CC BY-NC-SA 4.0(Modrinth 본문), 코드 GPL-3.0-or-later",
-   "notes": "TaC grenade_launcher_base, grenade_launcher_cylinder, 요소 43",
+   "notes": "TaC grenade_launcher_base, grenade_launcher_cylinder, 요소 50",
    "real": "MGL",
    "grip": [
     8.0,
-    5.436,
-    9.548
+    6.536,
+    9.85
    ]
   },
   "tac_hk_mp5a5_sd": {
@@ -1271,19 +1271,19 @@
    "item_model": "gave:tac_ak47_sd",
    "source": "Timeless and Classics Guns (Serene Wave Studio, ClumsyAlien) 0.3.14.2 (Forge 1.16.5) https://modrinth.com/mod/timeless-and-classics-guns",
    "license": "에셋 CC BY-NC-SA 4.0(Modrinth 본문), 코드 GPL-3.0-or-later",
-   "notes": "TaC ak47, ak47_bolt, ak47_muzzle_silencer + 탄창 ak47_mag_standard, 요소 375",
+   "notes": "TaC ak47, ak47_bolt, ak47_muzzle_silencer, ak47_stock_tactical + 탄창 ak47_mag_standard, 요소 428",
    "real": "소음 AK-47",
    "grip": [
     7.587,
     6.442,
-    24.11
+    18.704
    ]
   },
   "tac_ak47_sd_nomag": {
    "item_model": "gave:tac_ak47_sd_nomag",
    "source": "Timeless and Classics Guns (Serene Wave Studio, ClumsyAlien) 0.3.14.2 (Forge 1.16.5) https://modrinth.com/mod/timeless-and-classics-guns",
    "license": "에셋 CC BY-NC-SA 4.0(Modrinth 본문), 코드 GPL-3.0-or-later",
-   "notes": "tac_ak47_sd 에서 탄창 부품만 뺀 것(재장전 연출용, 표시 변환과 좌표 같음, 같은 텍스처), 요소 353",
+   "notes": "tac_ak47_sd 에서 탄창 부품만 뺀 것(재장전 연출용, 표시 변환과 좌표 같음, 같은 텍스처), 요소 406",
    "variant_of": "tac_ak47_sd"
   },
   "tac_m4_sd": {
@@ -1328,19 +1328,19 @@
    "item_model": "gave:tac_micro_uzi_sd",
    "source": "Timeless and Classics Guns (Serene Wave Studio, ClumsyAlien) 0.3.14.2 (Forge 1.16.5) https://modrinth.com/mod/timeless-and-classics-guns",
    "license": "에셋 CC BY-NC-SA 4.0(Modrinth 본문), 코드 GPL-3.0-or-later",
-   "notes": "TaC micro_uzi, micro_uzi_bolt, micro_uzi_sight, micro_uzi_stock_folded, micro_uzi_muzzle_silencer + 탄창 micro_uzi_mag_standard, 요소 286",
+   "notes": "TaC micro_uzi, micro_uzi_bolt, micro_uzi_stock_folded, micro_uzi_muzzle_silencer + 탄창 micro_uzi_mag_standard, 요소 250",
    "real": "소음 마이크로 우지",
    "grip": [
     8.197,
-    5.665,
-    12.667
+    7.934,
+    16.32
    ]
   },
   "tac_micro_uzi_sd_nomag": {
    "item_model": "gave:tac_micro_uzi_sd_nomag",
    "source": "Timeless and Classics Guns (Serene Wave Studio, ClumsyAlien) 0.3.14.2 (Forge 1.16.5) https://modrinth.com/mod/timeless-and-classics-guns",
    "license": "에셋 CC BY-NC-SA 4.0(Modrinth 본문), 코드 GPL-3.0-or-later",
-   "notes": "tac_micro_uzi_sd 에서 탄창 부품만 뺀 것(재장전 연출용, 표시 변환과 좌표 같음, 같은 텍스처), 요소 276",
+   "notes": "tac_micro_uzi_sd 에서 탄창 부품만 뺀 것(재장전 연출용, 표시 변환과 좌표 같음, 같은 텍스처), 요소 240",
    "variant_of": "tac_micro_uzi_sd"
   },
   "sg_dark_matter": {
@@ -1728,9 +1728,9 @@
    "notes": "Scorched Guns 2 mas_peddler/main + 탄창 mas_peddler/stan_mag, 요소 41",
    "real": "MAS 페들러",
    "grip": [
-    8.005,
-    4.225,
-    12.319
+    5.515,
+    4.445,
+    13.679
    ]
   },
   "sg_mas_peddler_nomag": {
@@ -1816,11 +1816,11 @@
    "item_model": "gave:sg_big_bore",
    "source": "Scorched Guns 2 (ribs) 0.5.5 (Forge 1.20.1) https://modrinth.com/mod/scorched-guns-2",
    "license": "GPL-3.0-or-later(Modrinth), jar mods.toml GNU GPLv3",
-   "notes": "Scorched Guns 2 big_bore/main, big_bore/sights, big_bore/hammer, 요소 26",
+   "notes": "Scorched Guns 2 big_bore/main, big_bore/sights, big_bore/hammer, 요소 31",
    "real": "빅 보어",
    "grip": [
-    8.0,
-    6.816,
+    7.999,
+    6.789,
     22.487
    ]
   },
@@ -2016,10 +2016,10 @@
    "item_model": "gave:sg_rat_king_and_queen",
    "source": "Scorched Guns 2 (ribs) 0.5.5 (Forge 1.20.1) https://modrinth.com/mod/scorched-guns-2",
    "license": "GPL-3.0-or-later(Modrinth), jar mods.toml GNU GPLv3",
-   "notes": "Scorched Guns 2 rat_king_and_queen/main, rat_king_and_queen/stan_barrel, rat_king_and_queen/receiver_1, rat_king_and_queen/receiver_2 + 탄창 rat_king_and_queen/stan_mag, 요소 62",
+   "notes": "Scorched Guns 2 rat_king_and_queen/main, rat_king_and_queen/stan_barrel, rat_king_and_queen/receiver_1, rat_king_and_queen/receiver_2 + 탄창 rat_king_and_queen/stan_mag, 요소 31",
    "real": "쥐왕 부부",
    "grip": [
-    12.325,
+    8.0,
     6.678,
     11.688
    ]
@@ -2028,7 +2028,7 @@
    "item_model": "gave:sg_rat_king_and_queen_nomag",
    "source": "Scorched Guns 2 (ribs) 0.5.5 (Forge 1.20.1) https://modrinth.com/mod/scorched-guns-2",
    "license": "GPL-3.0-or-later(Modrinth), jar mods.toml GNU GPLv3",
-   "notes": "sg_rat_king_and_queen 에서 탄창 부품만 뺀 것(재장전 연출용, 표시 변환과 좌표 같음, 같은 텍스처), 요소 58",
+   "notes": "sg_rat_king_and_queen 에서 탄창 부품만 뺀 것(재장전 연출용, 표시 변환과 좌표 같음, 같은 텍스처), 요소 29",
    "variant_of": "sg_rat_king_and_queen"
   },
   "sg_prima_materia": {
@@ -2319,11 +2319,11 @@
    "item_model": "gave:sg_whizzbanger",
    "source": "Scorched Guns 2 (ribs) 0.5.5 (Forge 1.20.1) https://modrinth.com/mod/scorched-guns-2",
    "license": "GPL-3.0-or-later(Modrinth), jar mods.toml GNU GPLv3",
-   "notes": "Scorched Guns 2 whizzbanger/main, 요소 22",
+   "notes": "Scorched Guns 2 whizzbanger/main, 요소 18",
    "real": "위즈뱅어",
    "grip": [
-    11.881,
-    6.445,
+    8.0,
+    7.326,
     7.299
    ]
   },
@@ -2331,11 +2331,11 @@
    "item_model": "gave:sg_boomstick",
    "source": "Scorched Guns 2 (ribs) 0.5.5 (Forge 1.20.1) https://modrinth.com/mod/scorched-guns-2",
    "license": "GPL-3.0-or-later(Modrinth), jar mods.toml GNU GPLv3",
-   "notes": "Scorched Guns 2 boomstick/main, boomstick/barrel, boomstick/stan_grip, boomstick/stock_wooden, 요소 21",
+   "notes": "Scorched Guns 2 boomstick/main, boomstick/barrel, boomstick/stan_grip, boomstick/stock_wooden, 요소 33",
    "real": "붐스틱",
    "grip": [
     7.79,
-    7.859,
+    7.7,
     10.409
    ]
   },
@@ -2427,7 +2427,7 @@
    "item_model": "gave:sg_floundergat",
    "source": "Scorched Guns 2 (ribs) 0.5.5 (Forge 1.20.1) https://modrinth.com/mod/scorched-guns-2",
    "license": "GPL-3.0-or-later(Modrinth), jar mods.toml GNU GPLv3",
-   "notes": "Scorched Guns 2 floundergat/main, 요소 29",
+   "notes": "Scorched Guns 2 floundergat/main, 요소 32",
    "real": "플라운더개트",
    "grip": [
     8.0,
@@ -2659,11 +2659,11 @@
    "item_model": "gave:sg_super_shotgun",
    "source": "Scorched Guns 2 (ribs) 0.5.5 (Forge 1.20.1) https://modrinth.com/mod/scorched-guns-2",
    "license": "GPL-3.0-or-later(Modrinth), jar mods.toml GNU GPLv3",
-   "notes": "Scorched Guns 2 super_shotgun/main, 요소 17",
+   "notes": "Scorched Guns 2 super_shotgun/main, 요소 20",
    "real": "슈퍼 샷건",
    "grip": [
     8.0,
-    7.171,
+    7.115,
     17.683
    ]
   },
@@ -2799,7 +2799,7 @@
    "real": "사이클론",
    "grip": [
     8.0,
-    3.278,
+    4.708,
     10.51
    ]
   },
@@ -2881,11 +2881,11 @@
    "item_model": "gave:sg_rocket_rifle",
    "source": "Scorched Guns 2 (ribs) 0.5.5 (Forge 1.20.1) https://modrinth.com/mod/scorched-guns-2",
    "license": "GPL-3.0-or-later(Modrinth), jar mods.toml GNU GPLv3",
-   "notes": "Scorched Guns 2 rocket_rifle/main, rocket_rifle/stan_grip, 요소 26",
+   "notes": "Scorched Guns 2 rocket_rifle/main, rocket_rifle/stan_grip, 요소 30",
    "real": "로켓 소총",
    "grip": [
     7.47,
-    7.397,
+    7.295,
     15.161
    ]
   },
@@ -2917,12 +2917,12 @@
    "item_model": "gave:sg_bomb_lance",
    "source": "Scorched Guns 2 (ribs) 0.5.5 (Forge 1.20.1) https://modrinth.com/mod/scorched-guns-2",
    "license": "GPL-3.0-or-later(Modrinth), jar mods.toml GNU GPLv3",
-   "notes": "Scorched Guns 2 bomb_lance/main, bomb_lance/barrel, 요소 15",
+   "notes": "Scorched Guns 2 bomb_lance/main, bomb_lance/barrel, 요소 17",
    "real": "봄 랜스",
    "grip": [
     8.0,
-    4.278,
-    12.825
+    5.649,
+    12.525
    ]
   },
   "sg_gyrojet_pistol": {
@@ -2960,12 +2960,12 @@
    "item_model": "gave:sg_blasphemy",
    "source": "Scorched Guns 2 (ribs) 0.5.5 (Forge 1.20.1) https://modrinth.com/mod/scorched-guns-2",
    "license": "GPL-3.0-or-later(Modrinth), jar mods.toml GNU GPLv3",
-   "notes": "Scorched Guns 2 blasphemy/main, blasphemy/head, 요소 12",
+   "notes": "Scorched Guns 2 blasphemy/main, blasphemy/head, 요소 16",
    "real": "블래스퍼미",
    "grip": [
     8.0,
-    5.062,
-    9.387
+    4.709,
+    11.446
    ]
   },
   "sg_inquisitor": {
@@ -3008,12 +3008,12 @@
    "item_model": "gave:sg_pulsar",
    "source": "Scorched Guns 2 (ribs) 0.5.5 (Forge 1.20.1) https://modrinth.com/mod/scorched-guns-2",
    "license": "GPL-3.0-or-later(Modrinth), jar mods.toml GNU GPLv3",
-   "notes": "Scorched Guns 2 pulsar/main, 요소 25",
+   "notes": "Scorched Guns 2 pulsar/main, 요소 27",
    "real": "펄서",
    "grip": [
     8.0,
     7.371,
-    10.428
+    11.153
    ]
   },
   "sg_teslock_rifle": {
@@ -3529,6 +3529,42 @@
    "source": "Timeless and Classics Guns (Serene Wave Studio, ClumsyAlien) 0.3.14.2 (Forge 1.16.5) https://modrinth.com/mod/timeless-and-classics-guns",
    "license": "에셋 CC BY-NC-SA 4.0(Modrinth 본문), 코드 GPL-3.0-or-later",
    "notes": "상점 총 그림: strings[0] 등급 뒤판(pack_src frame_*), strings[1] 모델 키 또는 종류 키 총 모델(이 층, gui 표시 변환 그대로). 아이템 정의만"
+  },
+  "gcb_mastiff": {
+   "item_model": "gave:gcb_mastiff",
+   "source": "GCB 서버 리소스팩 Minecraft 26.3",
+   "license": "없음(권리 미확인, ref/gcb/_info.json)",
+   "notes": "gcb:item/weapon/apexweapons/mastif/base, 요소 45",
+   "real": "마스티프",
+   "grip": [
+    8.0,
+    6.432,
+    20.175
+   ]
+  },
+  "gcb_rampage": {
+   "item_model": "gave:gcb_rampage",
+   "source": "GCB 서버 리소스팩 Minecraft 26.3",
+   "license": "없음(권리 미확인, ref/gcb/_info.json)",
+   "notes": "gcb:item/weapon/apexweapons/rampage/base, 요소 271",
+   "real": "렘페이지",
+   "grip": [
+    8.199,
+    6.238,
+    14.953
+   ]
+  },
+  "gcb_boltpistol": {
+   "item_model": "gave:gcb_boltpistol",
+   "source": "GCB 서버 리소스팩 Minecraft 26.3",
+   "license": "없음(권리 미확인, ref/gcb/_info.json)",
+   "notes": "modelengine:spacemarine/bolter, 요소 56",
+   "real": "볼트 피스톨",
+   "grip": [
+    8.244,
+    7.363,
+    15.425
+   ]
   }
  },
  "equipment": {},
@@ -5746,6 +5782,75 @@
    ],
    "subtitle_ko": "광선총 사격",
    "attenuation_distance": 64
+  },
+  "gave:gun.gcb_mastiff.fire": {
+   "files": [
+    "gun/gcb/mastiff_fire1.ogg",
+    "gun/gcb/mastiff_fire2.ogg",
+    "gun/gcb/mastiff_fire3.ogg"
+   ],
+   "subtitle_ko": "마스티프 사격",
+   "attenuation_distance": 80
+  },
+  "gave:gun.gcb_mastiff.shell": {
+   "files": [
+    "gun/gcb/mastiff_shell.ogg"
+   ],
+   "subtitle_ko": "산탄 넣음"
+  },
+  "gave:gun.gcb_mastiff.reload_end": {
+   "files": [
+    "gun/gcb/mastiff_reload_end.ogg"
+   ],
+   "subtitle_ko": "산탄총 재장전 끝"
+  },
+  "gave:gun.gcb_rampage.fire": {
+   "files": [
+    "gun/gcb/rampage_fire1.ogg",
+    "gun/gcb/rampage_fire2.ogg",
+    "gun/gcb/rampage_fire3.ogg"
+   ],
+   "subtitle_ko": "렘페이지 사격",
+   "attenuation_distance": 96
+  },
+  "gave:gun.gcb_rampage.mag_out": {
+   "files": [
+    "gun/gcb/rampage_mag_out.ogg"
+   ],
+   "subtitle_ko": "탄창 빠짐"
+  },
+  "gave:gun.gcb_rampage.mag_in": {
+   "files": [
+    "gun/gcb/rampage_mag_in.ogg"
+   ],
+   "subtitle_ko": "탄창 꽂음"
+  },
+  "gave:gun.gcb_rampage.charge": {
+   "files": [
+    "gun/gcb/rampage_charge.ogg"
+   ],
+   "subtitle_ko": "장전 손잡이 당김"
+  },
+  "gave:gun.gcb_boltpistol.fire": {
+   "files": [
+    "gun/gcb/boltpistol_fire1.ogg",
+    "gun/gcb/boltpistol_fire2.ogg",
+    "gun/gcb/boltpistol_fire3.ogg"
+   ],
+   "subtitle_ko": "볼트 피스톨 사격",
+   "attenuation_distance": 80
+  },
+  "gave:gun.gcb_boltpistol.mag_out": {
+   "files": [
+    "gun/gcb/boltpistol_mag_out.ogg"
+   ],
+   "subtitle_ko": "탄창 빠짐"
+  },
+  "gave:gun.gcb_boltpistol.mag_in": {
+   "files": [
+    "gun/gcb/boltpistol_mag_in.ogg"
+   ],
+   "subtitle_ko": "탄창 꽂음"
   }
  },
  "arms": {
@@ -6029,22 +6134,22 @@
    "reload": 1.01,
    "spread": 1.06,
    "sound": "gun.tac_ak47.fire",
-   "len": 0.87,
+   "len": 1.17,
    "height": null,
    "grip": "two",
    "G": [
     7.59,
     6.44,
-    22.44
+    17.04
    ],
    "muzzle": [
     7.59,
     11.74,
-    -7.42
+    -12.83
    ],
-   "scale_tp": 0.4513,
+   "scale_tp": 0.4494,
    "shrink": 1.0,
-   "elements": 343,
+   "elements": 396,
    "flash": [
     0.35,
     0.32
@@ -6331,22 +6436,22 @@
    "reload": 0.96,
    "spread": 0.92,
    "sound": "gun.tac_sks_tactical.fire",
-   "len": 1.05,
+   "len": 1.35,
    "height": null,
    "grip": "two",
    "G": [
     7.78,
-    7.6,
-    25.61
+    7.61,
+    20.19
    ],
    "muzzle": [
     7.78,
-    10.63,
-    -10.66
+    10.61,
+    -15.75
    ],
-   "scale_tp": 0.4502,
-   "shrink": 1.0,
-   "elements": 406,
+   "scale_tp": 0.4506,
+   "shrink": 0.991,
+   "elements": 457,
    "flash": [
     0.4,
     0.4
@@ -6927,17 +7032,17 @@
    "grip": "one",
    "G": [
     8.2,
-    5.67,
+    7.93,
     12.67
    ],
    "muzzle": [
     8.2,
-    13.24,
+    15.5,
     -6.15
    ],
    "scale_tp": 0.3278,
    "shrink": 1.0,
-   "elements": 278,
+   "elements": 242,
    "flash": [
     0.3,
     0.26
@@ -7270,17 +7375,17 @@
    "grip": "two",
    "G": [
     8.06,
-    8.32,
+    8.33,
     16.45
    ],
    "muzzle": [
     8.06,
-    11.09,
+    11.1,
     -14.56
    ],
    "scale_tp": 0.4503,
    "shrink": 1.0,
-   "elements": 293,
+   "elements": 292,
    "flash": [
     0.42,
     0.36
@@ -7391,22 +7496,22 @@
    "reload": 0.95,
    "spread": 0.85,
    "sound": "gun.tac_rpk.fire",
-   "len": 1.07,
+   "len": 1.35,
    "height": null,
    "grip": "two",
    "G": [
-    8.91,
-    9.29,
-    23.84
+    8.9,
+    9.28,
+    18.8
    ],
    "muzzle": [
     8.0,
-    14.23,
-    -11.05
+    14.17,
+    -15.75
    ],
-   "scale_tp": 0.4494,
-   "shrink": 1.0,
-   "elements": 366,
+   "scale_tp": 0.4504,
+   "shrink": 0.99,
+   "elements": 401,
    "flash": [
     0.36,
     0.34
@@ -7449,22 +7554,22 @@
    "kind": "LAUNCHER",
    "name": "MGL",
    "src": "tac",
-   "len": 0.62,
+   "len": 0.76,
    "height": null,
    "grip": "two",
    "G": [
     8.0,
-    5.44,
-    9.55
+    6.54,
+    9.85
    ],
    "muzzle": [
     8.0,
     9.24,
-    1.53
+    -0.35
    ],
-   "scale_tp": 0.7664,
+   "scale_tp": 0.7281,
    "shrink": 1.0,
-   "elements": 43,
+   "elements": 50,
    "flash": [
     0.42,
     0.36
@@ -7649,22 +7754,22 @@
    "reload": 1.01,
    "spread": 0.99,
    "sound": "gun.tac_ak47_sd.fire",
-   "len": 0.96,
+   "len": 1.26,
    "height": null,
    "grip": "two",
    "G": [
     7.59,
     6.44,
-    24.11
+    18.7
    ],
    "muzzle": [
     7.59,
     11.72,
-    -9.09
+    -14.5
    ],
-   "scale_tp": 0.4494,
+   "scale_tp": 0.4481,
    "shrink": 1.0,
-   "elements": 375,
+   "elements": 428,
    "flash": null,
    "dual": false
   },
@@ -7734,22 +7839,22 @@
    "reload": 0.89,
    "spread": 1.04,
    "sound": "gun.tac_micro_uzi_sd.fire",
-   "len": 0.4,
+   "len": 0.73,
    "height": null,
    "grip": "two",
    "G": [
     8.2,
-    5.67,
-    12.67
+    7.93,
+    16.32
    ],
    "muzzle": [
     8.2,
-    13.24,
-    -6.15
+    15.51,
+    -9.81
    ],
-   "scale_tp": 0.2261,
+   "scale_tp": 0.328,
    "shrink": 1.0,
-   "elements": 286,
+   "elements": 250,
    "flash": null,
    "dual": false
   },
@@ -7859,7 +7964,7 @@
    "reload": 1.25,
    "spread": 0.95,
    "sound": "gun.sg_rg_jigsaw.fire",
-   "len": 1.36,
+   "len": 1.27,
    "height": null,
    "grip": "two",
    "G": [
@@ -7872,7 +7977,7 @@
     9.45,
     -5.05
    ],
-   "scale_tp": 0.8337,
+   "scale_tp": 0.7785,
    "shrink": 1.0,
    "elements": 58,
    "flash": [
@@ -8089,8 +8194,8 @@
    ],
    "muzzle": [
     8.0,
-    7.26,
-    -8.76
+    9.51,
+    -1.51
    ],
    "scale_tp": 0.6922,
    "shrink": 1.0,
@@ -8422,9 +8527,9 @@
    "height": null,
    "grip": "two",
    "G": [
-    8.0,
-    4.23,
-    12.32
+    5.51,
+    4.45,
+    13.68
    ],
    "muzzle": [
     5.51,
@@ -8641,17 +8746,17 @@
    "grip": "two",
    "G": [
     8.0,
-    6.82,
+    6.79,
     22.49
    ],
    "muzzle": [
     8.0,
-    9.24,
+    9.22,
     -9.61
    ],
    "scale_tp": 0.6586,
    "shrink": 1.0,
-   "elements": 26,
+   "elements": 31,
    "flash": [
     0.55,
     0.55
@@ -8853,7 +8958,7 @@
    "reload": 1.04,
    "spread": 1.03,
    "sound": "gun.sg_rusty_gnat.fire",
-   "len": 1.29,
+   "len": 0.85,
    "height": null,
    "grip": "two",
    "G": [
@@ -8866,7 +8971,7 @@
     10.21,
     -0.05
    ],
-   "scale_tp": 1.2821,
+   "scale_tp": 0.8448,
    "shrink": 1.0,
    "elements": 35,
    "flash": [
@@ -9011,7 +9116,7 @@
    "height": null,
    "grip": "one",
    "G": [
-    12.32,
+    8.0,
     6.68,
     11.69
    ],
@@ -9022,7 +9127,7 @@
    ],
    "scale_tp": 0.8316,
    "shrink": 1.0,
-   "elements": 62,
+   "elements": 31,
    "flash": [
     0.3,
     0.26
@@ -9227,7 +9332,7 @@
    "reload": 0.93,
    "spread": 1.04,
    "sound": "gun.sg_railworker.fire",
-   "len": 0.54,
+   "len": 0.52,
    "height": null,
    "grip": "one",
    "G": [
@@ -9240,7 +9345,7 @@
     8.96,
     2.77
    ],
-   "scale_tp": 0.8267,
+   "scale_tp": 0.7961,
    "shrink": 1.0,
    "elements": 46,
    "flash": [
@@ -9642,18 +9747,18 @@
    "height": null,
    "grip": "one",
    "G": [
-    11.88,
-    6.45,
+    8.0,
+    7.33,
     7.3
    ],
    "muzzle": [
-    11.88,
-    7.0,
+    8.0,
+    7.88,
     3.12
    ],
    "scale_tp": 0.8369,
    "shrink": 1.0,
-   "elements": 22,
+   "elements": 18,
    "flash": [
     0.34,
     0.3
@@ -9674,17 +9779,17 @@
    "grip": "two",
    "G": [
     7.79,
-    7.86,
+    7.7,
     10.41
    ],
    "muzzle": [
     8.0,
-    10.1,
+    9.94,
     -2.74
    ],
    "scale_tp": 0.7669,
    "shrink": 1.0,
-   "elements": 21,
+   "elements": 33,
    "flash": [
     0.42,
     0.36
@@ -9931,7 +10036,7 @@
    ],
    "scale_tp": 0.8358,
    "shrink": 1.0,
-   "elements": 29,
+   "elements": 32,
    "flash": [
     0.42,
     0.36
@@ -10167,7 +10272,7 @@
    "mag": 1.22,
    "spread": 0.85,
    "sound": "gun.sg_shellurker.fire",
-   "len": 1.2,
+   "len": 1.15,
    "height": null,
    "grip": "two",
    "G": [
@@ -10180,7 +10285,7 @@
     9.66,
     -3.58
    ],
-   "scale_tp": 0.8293,
+   "scale_tp": 0.7948,
    "shrink": 1.0,
    "elements": 66,
    "flash": [
@@ -10198,7 +10303,7 @@
    "mag": 1.6,
    "spread": 0.9,
    "sound": "gun.sg_scratches.fire",
-   "len": 1.45,
+   "len": 1.12,
    "height": null,
    "grip": "two",
    "G": [
@@ -10211,7 +10316,7 @@
     10.41,
     -6.87
    ],
-   "scale_tp": 0.7799,
+   "scale_tp": 0.6024,
    "shrink": 1.0,
    "elements": 64,
    "flash": [
@@ -10416,7 +10521,7 @@
    "reload": 1.25,
    "spread": 1.02,
    "sound": "gun.sg_kiln_gun.fire",
-   "len": 1.45,
+   "len": 1.04,
    "height": null,
    "grip": "two",
    "G": [
@@ -10429,7 +10534,7 @@
     10.29,
     -6.0
    ],
-   "scale_tp": 0.8287,
+   "scale_tp": 0.5944,
    "shrink": 1.0,
    "elements": 44,
    "flash": [
@@ -10452,17 +10557,17 @@
    "grip": "two",
    "G": [
     8.0,
-    7.17,
+    7.12,
     17.68
    ],
    "muzzle": [
     8.0,
-    7.48,
-    -3.91
+    9.13,
+    0.76
    ],
    "scale_tp": 0.6379,
    "shrink": 1.0,
-   "elements": 17,
+   "elements": 20,
    "flash": [
     0.46,
     0.4
@@ -10553,8 +10658,8 @@
    ],
    "muzzle": [
     9.61,
-    7.19,
-    -12.97
+    9.67,
+    -7.67
    ],
    "scale_tp": 0.5531,
    "shrink": 1.0,
@@ -10669,7 +10774,7 @@
    "reload": 1.04,
    "spread": 1.13,
    "sound": "gun.sg_weevil.fire",
-   "len": 1.35,
+   "len": 1.04,
    "height": null,
    "grip": "heavy",
    "G": [
@@ -10682,7 +10787,7 @@
     9.09,
     -5.52
    ],
-   "scale_tp": 0.7987,
+   "scale_tp": 0.6153,
    "shrink": 1.0,
    "elements": 69,
    "flash": [
@@ -10699,7 +10804,7 @@
    "rps": 1.22,
    "mag": 1.6,
    "sound": "gun.sg_gattaler.fire",
-   "len": 1.08,
+   "len": 0.83,
    "height": null,
    "grip": "heavy",
    "G": [
@@ -10712,7 +10817,7 @@
     8.24,
     -2.78
    ],
-   "scale_tp": 0.8012,
+   "scale_tp": 0.6157,
    "shrink": 1.0,
    "elements": 39,
    "flash": [
@@ -10730,12 +10835,12 @@
    "mag": 0.76,
    "reload": 0.8,
    "sound": "gun.sg_cyclone.fire",
-   "len": 0.95,
+   "len": 0.72,
    "height": null,
    "grip": "heavy",
    "G": [
     8.0,
-    3.28,
+    4.71,
     10.51
    ],
    "muzzle": [
@@ -10743,7 +10848,7 @@
     7.44,
     -2.48
    ],
-   "scale_tp": 0.7252,
+   "scale_tp": 0.5496,
    "shrink": 1.0,
    "elements": 36,
    "flash": [
@@ -10758,7 +10863,7 @@
    "src": "sg2",
    "spread": 0.85,
    "sound": "gun.sg_thunderhead.fire",
-   "len": 1.27,
+   "len": 0.85,
    "height": null,
    "grip": "heavy",
    "G": [
@@ -10771,7 +10876,7 @@
     8.64,
     -4.66
    ],
-   "scale_tp": 0.8026,
+   "scale_tp": 0.5372,
    "shrink": 1.0,
    "elements": 26,
    "flash": [
@@ -10874,7 +10979,7 @@
    "dmg": 0.97,
    "rps": 1.13,
    "mag": 1.38,
-   "len": 1.07,
+   "len": 1.01,
    "height": null,
    "grip": "two",
    "G": [
@@ -10887,7 +10992,7 @@
     9.6,
     -2.73
    ],
-   "scale_tp": 0.7978,
+   "scale_tp": 0.7531,
    "shrink": 1.0,
    "elements": 48,
    "flash": [
@@ -10909,17 +11014,17 @@
    "grip": "heavy",
    "G": [
     7.47,
-    7.4,
+    7.3,
     15.16
    ],
    "muzzle": [
     7.47,
-    9.33,
+    9.23,
     -0.51
    ],
    "scale_tp": 0.8929,
    "shrink": 1.0,
-   "elements": 26,
+   "elements": 30,
    "flash": [
     0.5,
     0.5
@@ -10934,7 +11039,7 @@
    "rps": 0.82,
    "reload": 0.91,
    "spread": 1.06,
-   "len": 1.0,
+   "len": 0.95,
    "height": null,
    "grip": "heavy",
    "G": [
@@ -10947,7 +11052,7 @@
     9.04,
     -2.41
    ],
-   "scale_tp": 0.7683,
+   "scale_tp": 0.7299,
    "shrink": 1.0,
    "elements": 46,
    "flash": [
@@ -10964,7 +11069,7 @@
    "mag": 1.52,
    "reload": 0.91,
    "spread": 0.94,
-   "len": 1.6,
+   "len": 1.16,
    "height": null,
    "grip": "heavy",
    "G": [
@@ -10977,7 +11082,7 @@
     10.64,
     -11.12
    ],
-   "scale_tp": 0.6693,
+   "scale_tp": 0.4852,
    "shrink": 1.0,
    "elements": 63,
    "flash": [
@@ -10995,22 +11100,22 @@
    "mag": 0.6,
    "reload": 1.21,
    "spread": 0.85,
-   "len": 1.6,
+   "len": 1.3,
    "height": null,
    "grip": "heavy",
    "G": [
     8.0,
-    4.28,
-    12.82
+    5.65,
+    12.52
    ],
    "muzzle": [
     8.0,
-    8.0,
+    8.08,
     -12.12
    ],
-   "scale_tp": 0.636,
+   "scale_tp": 0.5168,
    "shrink": 1.0,
-   "elements": 15,
+   "elements": 17,
    "flash": [
     0.5,
     0.5
@@ -11085,22 +11190,22 @@
    "rps": 0.84,
    "mag": 0.9,
    "spread": 0.85,
-   "len": 0.62,
+   "len": 0.5,
    "height": null,
    "grip": "two",
    "G": [
     8.0,
-    5.06,
-    9.39
+    4.71,
+    11.45
    ],
    "muzzle": [
     8.0,
-    7.49,
-    2.24
+    9.02,
+    0.99
    ],
-   "scale_tp": 0.8604,
+   "scale_tp": 0.5703,
    "shrink": 1.0,
-   "elements": 12,
+   "elements": 16,
    "flash": [
     0.34,
     0.4
@@ -11144,7 +11249,7 @@
    "dmg": 0.96,
    "mag": 1.41,
    "spread": 1.19,
-   "len": 0.95,
+   "len": 0.78,
    "height": null,
    "grip": "heavy",
    "G": [
@@ -11157,7 +11262,7 @@
     7.93,
     -2.69
    ],
-   "scale_tp": 0.7111,
+   "scale_tp": 0.5839,
    "shrink": 1.0,
    "elements": 36,
    "flash": [
@@ -11200,22 +11305,22 @@
    "rps": 1.05,
    "reload": 0.8,
    "spread": 0.89,
-   "len": 0.42,
+   "len": 0.5,
    "height": null,
    "grip": "one",
    "G": [
     8.0,
     7.37,
-    10.43
+    11.15
    ],
    "muzzle": [
     8.0,
-    9.1,
-    3.97
+    9.67,
+    3.24
    ],
-   "scale_tp": 0.8333,
+   "scale_tp": 0.8408,
    "shrink": 1.0,
-   "elements": 25,
+   "elements": 27,
    "flash": null,
    "dual": false
   },
@@ -11332,7 +11437,7 @@
    "mag": 0.6,
    "reload": 1.25,
    "spread": 1.07,
-   "len": 1.11,
+   "len": 0.82,
    "height": null,
    "grip": "heavy",
    "G": [
@@ -11345,7 +11450,7 @@
     6.77,
     -3.08
    ],
-   "scale_tp": 0.8012,
+   "scale_tp": 0.5919,
    "shrink": 1.0,
    "elements": 52,
    "flash": null,
@@ -11760,7 +11865,7 @@
    "rps": 1.21,
    "mag": 1.6,
    "sound": "gun.sg_flayed_god.fire",
-   "len": 0.85,
+   "len": 0.8,
    "height": null,
    "grip": "heavy",
    "G": [
@@ -11773,7 +11878,7 @@
     3.74,
     -4.87
    ],
-   "scale_tp": 0.5282,
+   "scale_tp": 0.4971,
    "shrink": 1.0,
    "elements": 54,
    "flash": null,
@@ -11844,7 +11949,7 @@
    "rps": 1.22,
    "mag": 1.6,
    "sound": "gun.sg_shard_culler.fire",
-   "len": 0.75,
+   "len": 0.7,
    "height": null,
    "grip": "heavy",
    "G": [
@@ -11857,7 +11962,7 @@
     6.61,
     -1.47
    ],
-   "scale_tp": 0.6334,
+   "scale_tp": 0.5911,
    "shrink": 1.0,
    "elements": 57,
    "flash": null,
@@ -12001,6 +12106,102 @@
    "elements": 55,
    "flash": null,
    "dual": false
+  },
+  "gcb_mastiff": {
+   "kind": "SHOTGUN",
+   "name": "마스티프",
+   "src": "gcb",
+   "dmg": 0.9,
+   "rps": 1.19,
+   "mag": 0.75,
+   "reload": 0.89,
+   "spread": 0.9,
+   "sound": "gun.gcb_mastiff.fire",
+   "len": 1.15,
+   "height": null,
+   "grip": "two",
+   "G": [
+    8.0,
+    6.43,
+    20.18
+   ],
+   "muzzle": [
+    8.0,
+    10.43,
+    -14.75
+   ],
+   "scale_tp": 0.4044,
+   "shrink": 1.0,
+   "elements": 45,
+   "flash": [
+    0.42,
+    0.36
+   ],
+   "dual": false
+  },
+  "gcb_rampage": {
+   "kind": "LMG",
+   "name": "렘페이지",
+   "src": "gcb",
+   "dmg": 1.22,
+   "rps": 0.82,
+   "mag": 0.6,
+   "reload": 0.89,
+   "spread": 1.1,
+   "sound": "gun.gcb_rampage.fire",
+   "len": 1.35,
+   "height": null,
+   "grip": "two",
+   "G": [
+    8.2,
+    6.24,
+    14.95
+   ],
+   "muzzle": [
+    8.2,
+    9.22,
+    -11.21
+   ],
+   "scale_tp": 0.5623,
+   "shrink": 1.0,
+   "elements": 271,
+   "flash": [
+    0.36,
+    0.34
+   ],
+   "dual": false
+  },
+  "gcb_boltpistol": {
+   "kind": "REVOLVER",
+   "name": "볼트 피스톨",
+   "src": "gcb",
+   "dmg": 0.85,
+   "rps": 1.2,
+   "mag": 1.6,
+   "reload": 0.8,
+   "spread": 1.15,
+   "sound": "gun.gcb_boltpistol.fire",
+   "len": 0.5,
+   "height": null,
+   "grip": "one",
+   "G": [
+    8.24,
+    7.36,
+    15.43
+   ],
+   "muzzle": [
+    8.24,
+    11.69,
+    -0.62
+   ],
+   "scale_tp": 0.4638,
+   "shrink": 1.0,
+   "elements": 56,
+   "flash": [
+    0.34,
+    0.3
+   ],
+   "dual": false
   }
  },
  "arms_kinds": {
@@ -12050,7 +12251,8 @@
     "sg_floundergat",
     "sg_echoes_2",
     "sg_venturi",
-    "sg_fencer_thumper"
+    "sg_fencer_thumper",
+    "gcb_mastiff"
    ]
   },
   "RIFLE": {
@@ -12155,7 +12357,8 @@
     "sg_howler_conversion",
     "sg_spirulida",
     "sg_stigg",
-    "sg_weevil"
+    "sg_weevil",
+    "gcb_rampage"
    ]
   },
   "REVOLVER": {
@@ -12175,7 +12378,8 @@
     "sg_osgood_50",
     "sg_auvtomag",
     "sg_stiletto",
-    "sg_whizzbanger"
+    "sg_whizzbanger",
+    "gcb_boltpistol"
    ]
   },
   "BURST": {
@@ -13173,6 +13377,102 @@
    "process": "최대 음량 -3.0 dBFS 로(-2.1 dB), libvorbis q7 다시 부호화",
    "src_layout": "mono",
    "src_dur": 0.68
+  },
+  {
+   "file": "gun/gcb/mastiff_fire1.ogg",
+   "from": "tools/props/gcb_sounds.py",
+   "source": "게이브(직접 합성)",
+   "process": "숫자 표로 합성한 소리(씨앗 고정), 모노 44100 Hz, libvorbis q7"
+  },
+  {
+   "file": "gun/gcb/mastiff_fire2.ogg",
+   "from": "tools/props/gcb_sounds.py",
+   "source": "게이브(직접 합성)",
+   "process": "숫자 표로 합성한 소리(씨앗 고정), 모노 44100 Hz, libvorbis q7"
+  },
+  {
+   "file": "gun/gcb/mastiff_fire3.ogg",
+   "from": "tools/props/gcb_sounds.py",
+   "source": "게이브(직접 합성)",
+   "process": "숫자 표로 합성한 소리(씨앗 고정), 모노 44100 Hz, libvorbis q7"
+  },
+  {
+   "file": "gun/gcb/mastiff_shell.ogg",
+   "from": "tools/props/gcb_sounds.py",
+   "source": "게이브(직접 합성)",
+   "process": "숫자 표로 합성한 소리(씨앗 고정), 모노 44100 Hz, libvorbis q7"
+  },
+  {
+   "file": "gun/gcb/mastiff_reload_end.ogg",
+   "from": "tools/props/gcb_sounds.py",
+   "source": "게이브(직접 합성)",
+   "process": "숫자 표로 합성한 소리(씨앗 고정), 모노 44100 Hz, libvorbis q7"
+  },
+  {
+   "file": "gun/gcb/rampage_fire1.ogg",
+   "from": "tools/props/gcb_sounds.py",
+   "source": "게이브(직접 합성)",
+   "process": "숫자 표로 합성한 소리(씨앗 고정), 모노 44100 Hz, libvorbis q7"
+  },
+  {
+   "file": "gun/gcb/rampage_fire2.ogg",
+   "from": "tools/props/gcb_sounds.py",
+   "source": "게이브(직접 합성)",
+   "process": "숫자 표로 합성한 소리(씨앗 고정), 모노 44100 Hz, libvorbis q7"
+  },
+  {
+   "file": "gun/gcb/rampage_fire3.ogg",
+   "from": "tools/props/gcb_sounds.py",
+   "source": "게이브(직접 합성)",
+   "process": "숫자 표로 합성한 소리(씨앗 고정), 모노 44100 Hz, libvorbis q7"
+  },
+  {
+   "file": "gun/gcb/rampage_mag_out.ogg",
+   "from": "tools/props/gcb_sounds.py",
+   "source": "게이브(직접 합성)",
+   "process": "숫자 표로 합성한 소리(씨앗 고정), 모노 44100 Hz, libvorbis q7"
+  },
+  {
+   "file": "gun/gcb/rampage_mag_in.ogg",
+   "from": "tools/props/gcb_sounds.py",
+   "source": "게이브(직접 합성)",
+   "process": "숫자 표로 합성한 소리(씨앗 고정), 모노 44100 Hz, libvorbis q7"
+  },
+  {
+   "file": "gun/gcb/rampage_charge.ogg",
+   "from": "tools/props/gcb_sounds.py",
+   "source": "게이브(직접 합성)",
+   "process": "숫자 표로 합성한 소리(씨앗 고정), 모노 44100 Hz, libvorbis q7"
+  },
+  {
+   "file": "gun/gcb/boltpistol_fire1.ogg",
+   "from": "tools/props/gcb_sounds.py",
+   "source": "게이브(직접 합성)",
+   "process": "숫자 표로 합성한 소리(씨앗 고정), 모노 44100 Hz, libvorbis q7"
+  },
+  {
+   "file": "gun/gcb/boltpistol_fire2.ogg",
+   "from": "tools/props/gcb_sounds.py",
+   "source": "게이브(직접 합성)",
+   "process": "숫자 표로 합성한 소리(씨앗 고정), 모노 44100 Hz, libvorbis q7"
+  },
+  {
+   "file": "gun/gcb/boltpistol_fire3.ogg",
+   "from": "tools/props/gcb_sounds.py",
+   "source": "게이브(직접 합성)",
+   "process": "숫자 표로 합성한 소리(씨앗 고정), 모노 44100 Hz, libvorbis q7"
+  },
+  {
+   "file": "gun/gcb/boltpistol_mag_out.ogg",
+   "from": "tools/props/gcb_sounds.py",
+   "source": "게이브(직접 합성)",
+   "process": "숫자 표로 합성한 소리(씨앗 고정), 모노 44100 Hz, libvorbis q7"
+  },
+  {
+   "file": "gun/gcb/boltpistol_mag_in.ogg",
+   "from": "tools/props/gcb_sounds.py",
+   "source": "게이브(직접 합성)",
+   "process": "숫자 표로 합성한 소리(씨앗 고정), 모노 44100 Hz, libvorbis q7"
   }
  ],
  "sound_notes": "모든 사건은 sounds.json 에 자막(ko_kr, en_us) 과 함께. 원본이 스테레오면 모노로 다시 부호화(libvorbis q7), 모노면 바이트 그대로 복사. 연사 총 소리는 꼬리를 잘라 겹침을 줄임(sound_files.process). 높이 계약(Props.java 머리 주석): 팩에 사건이 있으면 Java 는 흔들림(1 둘레 무작위, 없으면 1)만 pitch 로 보내고, 귀에 들리는 높이는 sounds.json pitch(사건의 pitch, 없으면 1)가 정한다(클라가 둘을 곱해 0.5~2.0 으로 자름). 모드 소리 높이를 바꾸려면 build_more.py PITCH 만 고친다. call 은 Java 가 부르는 자리와 값이고 fallback_pitch 는 팩에 사건이 없을 때 울리는 바닐라 대체 소리에만 쓴다. attenuation_distance 는 Java 가 보내는 반경과 맞춘다(soundAround 는 그 range, Props.sound 는 서버가 16 x 음량 안에 뿌려 16, 몸 소리 soundOn 은 16, 가까운 폭발은 48 밖을 먼 폭발이 넘겨받아 96). 반경보다 길면 반경 끝에서 뚝 끊긴다. Java 가 부르지 않는 사건, 고르지 않는 변형은 층에 넣지 않는다(build_more.py SOUNDS 위 주석). vanilla_reference 인 사건은 팩에 파일 없이 바닐라 소리를 가리킴(files 의 minecraft: 경로)"

@@ -1,4 +1,4 @@
-# 대기실에 minPlayers 명이 차면 30초 뒤 자동 시작
+# 대기실에 minPlayers 명이 차면 30초 뒤 자동 시작(minPlayers 는 1 이상: 0 이하로 적어도 1 로 읽는다). 켠 채 바꾸기: /gave 자동 on|off(저장 안 됨)
 autoStart: false
 minPlayers: 1
 # 판 시작 뒤 첫 웨이브까지 초
@@ -24,14 +24,18 @@ bosses: true
 bossHp: 0.6
 # 보스가 아닌 모든 게이브의 체력 배율(2026-11-12 사용자 "모든 몹의 생명력 25% 줄여": 0.75). 종 기본 체력에 곱하고, 감독 배율 같은 곱셈은 그 위에 얹힌다
 mobHp: 0.75
-# 사람이 버는 모든 돈(처치, 보스, 라운드, 증강, 팀, 스테이지 보상)의 배율(2026-11-12 사용자 "돈 70% 더": 1.7). 돌려받기, 사람끼리 옮기기에는 안 곱함
-moneyMul: 1.7
-# 함께 때린 사람(어시스트)의 처치 보상 몫 배율(잡은 사람 몫은 그대로)
-assistMul: 2.0
-# 스테이지(2라운드)가 끝날 때 모두에게 주는 기본 돈 배율
-roundMoneyMul: 2.0
+# 사람이 버는 모든 돈(처치, 보스, 라운드, 증강, 팀, 스테이지 보상)의 배율. 기본 1(운영자 행사용: 2 면 돈 두 배). 돌려받기, 사람끼리 옮기기에는 안 곱함.
+# 2026-11-14 돈 구조를 바꾸며 옛 값(moneyMul 1.7, assistMul 2.0, roundMoneyMul 2.0)은 바탕 값에 녹였다. 옛 설정 파일(assistMul 이나 roundMoneyMul 이 남은 것)은
+# 켤 때 한 번 moneyMul 을 1 로 돌리고 두 키를 지워 저장한다(Players). 1.7 로 되돌리면 두 번 곱해진다
+moneyMul: 1.0
 # 옛 대기실 방과 '게이브 우리'(이번 판 종 묶음이 유리 너머에서 도는 방). 기본 꺼짐: 대기실은 중앙 원이고 우리는 없다. 켜면 새 월드부터 방이 지어진다
 cage: false
+# 진짜 팀 보급 상자(웨이브 중 황야에 떨어짐). breakable 을 켜면 겨눠 쏜 총 직격에 부서져 사라진다(2026-11-12 사용자: 기본 꺼짐 = 안 부서짐)
+crates:
+  breakable: false
+# 게임 안 도감(/도감). quickKey 를 끄면 도감 빠른 키용 데이터팩을 깔지 않는다(이미 깔린 것은 그대로)
+dex:
+  quickKey: true
 # 래그돌 사체(docs/모듈/래그돌.md): 죽은 게이브가 맞은 쪽으로 튕겨 구르고 막대기가 늘어지다 굳어 땅으로 꺼진다. enabled 를 끄면 예전처럼 제자리에서 납작해짐
 ragdoll:
   enabled: true
@@ -60,7 +64,16 @@ music: true
 musicVolume: 0.7
 musicCategory: VOICE
 musicLog: false
+# 보탠 크리처 소리(2026-11-14, docs/소리출처.md '크리처 보강 소리'). 끄면 보탠 소리만 꺼지고 기존 소리는 그대로.
+# near: 가까운 울음, 걸음, 죽을 때 살덩이, 사체 소리(사람마다 예산, kr.gave.mob.Ears). far: 가만히 집중해야 들리는 먼 저음 층(kr.gave.game.Horizon.farTick,
+# 클라 '주변/환경' 막대, horizon.enabled 를 끄면 같이 꺼짐). farVolume: 웨이브 중 먼 부름이 듣는 귀에서 파일 크기의 몇 배인가(0..1). 0.28 이면 -34 LUFS
+# (브금보다 11~13 LU 아래), 쉬는 시간 숨은 그 0.63 배(-38), 보스 앞 거대한 것은 1.585 배(-30). 또렷하게 0.45(-30), 조용하게 0.18(-38)
+sfx:
+  near: true
+  far: true
+  farVolume: 0.28
 # 원정(docs/모듈/원정.md): 중앙 상점이 트럭이 되고(체력, 터지면 판 끝), 죽은 사람은 다른 사람이 돈을 내야 돌아온다. enabled 를 끄면 예전 판 그대로.
+# enabled 는 손으로 고치지 말고 운영자 명령 '/gave 원정 on|off' 로 바꾼다(서버를 다시 켜지 않아도 되고, 정한 값이 이 칸에 저장된다).
 # voteKeys: 숫자키 1 2 3 투표는 코드에서 늘 켜짐(RouteVote.KEYS), 이 칸은 끈 판에서도 켜는 덮개. afterLaunch: 발사 뒤 36라운드로 이어 감(기본 끔: 발사하면 판 끝).
 # credits: 엔딩 다섯 줄 뒤 그 판 사람 이름 크레딧.
 # 라운드가 끝나 쉬는 시간이 되면 죽은, 갇힌, 쓰러진 사람은 모두 공짜로 상점 앞에서 체력 가득으로 돌아온다(2026-11-12 사용자). 꺼내기(돈 내기)는 라운드 중에만.
@@ -74,5 +87,8 @@ trip:
   afterLaunch: false
   credits: true
   bossFreeRevive: false
+  # intro: 판 시작 인트로(kr.gave.trip.Story, 장면표는 jar 의 trip/intro.json). first = 서버를 켠 뒤 첫 판만 긴 판(검은 화면 약 28초), 그다음 판부터 짧은 판(약 9초).
+  #   full = 매 판 긴 판, short = 매 판 짧은 판, off = 인트로 없이 예전 오프닝(헌사 한 줄 뒤 이야기 한 줄)
+  intro: first
   noSpecials: [chase, sandstorm]  # 2026-11-13 사용자 '모래폭풍 1뎀씩 주는 그거는 삭제해'
   tune: {}

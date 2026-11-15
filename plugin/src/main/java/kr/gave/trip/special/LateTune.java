@@ -19,7 +19,7 @@ public final class LateTune {
     public static int BANNER_TICKS = 50, LINE_TICKS = 50;
     /** 끝나지 않는 특수의 안전 끝(초): 넘기면 놓침. */
     public static int MAX_SECONDS = 300;
-    /** 감독 대기열이 비면 채움: 살아 있는 수가 감독 동시 수 목표의 이 몫 아래면 STREAM_STEP 마리씩(40틱마다). */
+    /** 감독 대기열이 비면 채움: 살아 있는 수가 감독 동시 수 목표의 이 몫 아래면 STREAM_STEP 마리씩(40틱마다. 큰 판은 그 몫의 10분의 1 까지 한 번에). */
     public static double STREAM_SHARE = 0.75;
     public static int STREAM_STEP = 6, STREAM_EVERY = 40;
 
@@ -51,10 +51,10 @@ public final class LateTune {
 
     // ------------------------------------------------------------------ 가라앉는 트럭(3~4막)
 
-    /** 바퀴를 무는 얼굴 체력(웨이브 1 바탕, 감독 체력 배율과 사람 수^SINK_HP_POW 를 곱함), 몸 배율. */
+    /** 바퀴를 무는 얼굴 체력(웨이브 1 바탕, 감독 체력 배율을 곱함: 사람 수 몫은 그 배율에 들어 있어 SINK_HP_POW 는 안 읽는다), 몸 배율. */
     public static double SINK_HP = 260, SINK_HP_POW = 0.6;
     public static float SINK_SCALE = 1.7f;
-    /** 초당 트럭 깎임(넷이 다 물었을 때 최대 체력 몫), 쏴서 맞는 거리(트럭 가운데에서), 먼 사격 피해 배율. */
+    /** 초당 트럭 깎임(넷이 다 물었을 때 최대 체력 몫), 쏴서 맞는 거리(트럭 발자국에서), 먼 사격 피해 배율. */
     public static double SINK_DRAIN = 0.011, SINK_REACH = 7.5, SINK_FAR = 0.1;
     /** 트럭이 가라앉는 깊이(블록, 넷이 다 물면 이만큼까지), 틱마다 가라앉는 몫. 트럭 노림 x. */
     public static double SINK_DEPTH = 1.3, SINK_RATE = 0.0006, SINK_SHARE = 2.5, SINK_UNITS = 1.2;
@@ -79,10 +79,10 @@ public final class LateTune {
 
     // ------------------------------------------------------------------ 투광등(4막)
 
-    /** 건조 한 칸 초(등 넷이 다 켜졌을 때), 넷 다 꺼지면 초당 뒤로 가는 몫. */
+    /** 건조 한 칸 초(등 넷이 다 켜졌을 때), 넷 다 꺼지면 초당 뒤로 가는 몫(그 라운드 막대의 몫: 발사장에서도 같다). */
     public static double LIT_BUILD_SECONDS = 120, LIT_BACK = 0.01;
-    /** 등 끄러 가는 하늘 종 고르기 틱, 끄는 거리, 수 x. */
-    public static int LIT_RAID_EVERY = 160;
+    /** 등 끄러 가는 하늘 종 고르기 틱(LIT_RAID_FULL 명 기준: 사람이 적으면 그만큼 길게, 다섯 배까지), 끄는 거리, 수 x. */
+    public static int LIT_RAID_EVERY = 160, LIT_RAID_FULL = 30;
     public static double LIT_RAID_R = 2.6, LIT_UNITS = 1.2, LIT_HP = 1.15;
 
     // ------------------------------------------------------------------ 연료 화재(4막)
@@ -90,7 +90,7 @@ public final class LateTune {
     /** 불 고리: 처음 반지름, 조여 오는 끝(초 FIRE_SHRINK_S 동안), 그 뒤 트럭까지 조이는 빠르기(블록/초), 트럭에 닿았다고 보는 반지름. */
     public static double FIRE_R0 = 44, FIRE_R1 = 16, FIRE_LATE = 0.12, FIRE_TRUCK_R = 5;
     public static int FIRE_SHRINK_S = 100;
-    /** 불 띠 폭, 사람 초당 피해, 게이브 초당 피해(최대 체력 몫), 불붙은 게이브 피해 x, 옮긴 불(틱, 초당 피해), 트럭 초당 깎임. */
+    /** 불 띠 폭(FIRE_BAND 는 안 읽는다: 타는 땅은 고리의 0.9배 바깥 전부), 사람 초당 피해, 게이브 초당 피해(최대 체력 몫), 불붙은 게이브 피해 x, 옮긴 불(틱, 초당 피해), 트럭 초당 깎임. */
     public static double FIRE_BAND = 5, FIRE_DMG = 6, FIRE_MOB = 0.03, FIRE_BURN_MUL = 1.4, FIRE_SPREAD_DMG = 2, FIRE_TRUCK = 0.015;
     public static int FIRE_BURN_TICKS = 60, FIRE_MOB_BURN = 200;
     /** 밸브: 반지름, 잠그는 거리, 잠그는 틱, 건조 초. */

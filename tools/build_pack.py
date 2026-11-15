@@ -12,7 +12,7 @@ python -X utf8 tools/build_pack.py
   build/<이름>/Gave-pack.zip 으로 씀). GV_PACK_OUT 이 있을 때는 GV_PACK_SPLIT=1 일 때만 나누고, 아니면 예전처럼 소리까지 하나로 묶는다
   (그때 그 옆에 남은 옛 Gave-sound.zip 은 지운다: 남으면 서버가 소리를 두 번 보냄). 시험 팩도 늘 나누려면 아래 SPLIT_TEST 를 True 로.
   GV_PACK_SPLIT=0 이면 어디로 내보내든 하나로 묶는다.
-겹치는 경로는 뒤 층이 이긴다(소품 층 < 게이브 몹 층 < pack_src). 층의 pack.mcmeta 는 쓰지 않는다. 없는 층은 건너뛴다.
+겹치는 경로는 뒤 층이 이긴다(소품 층 < 옮긴 총 층 build/gcb/pack_layer < 원정 층 < 게이브 몹 층 < pack_src). 층의 pack.mcmeta 는 쓰지 않는다. 없는 층은 건너뛴다.
 단 assets/<이름공간>/sounds.json 과 lang/*.json 은 덮지 않고 키를 합친다(총 소리와 게이브 몹 소리가 같은 gave 이름공간).
 묶은 zip(나누면 두 팩 모두) 맨 위에 CREDITS.txt(소품 층의 저작자 표시, CC BY-NC-SA 조건)와 라이선스 전문이 없으면 내보내지 않고
 실패한다(종료 코드 1, 있던 팩은 그대로).
@@ -50,7 +50,8 @@ SPLIT = _SPLIT_ENV == "1" if _SPLIT_ENV in ("0", "1") else (SPLIT_TEST if os.env
 # 소리 팩에 갈 경로: 모든 이름공간의 sounds.json 과 sounds/ 아래 파일, 그리고 어디 있든 ogg. 나머지는 모습 팩, 맨 위 파일(경로에 / 없음)은 둘 다
 SOUND_PATH = re.compile(r"assets/[^/]+/(sounds\.json|sounds/.+)|.+\.ogg")
 PACK_DESC = ("게이브 모습", "게이브 소리")
-LAYERS = [ROOT / "build/props/pack_layer", ROOT / "build/trip/pack_layer", ROOT / "build/gabe/pack_layer", ROOT / "pack_src"]  # 원정 층(tools/make_trip.py: 트럭)
+LAYERS = [ROOT / "build/props/pack_layer", ROOT / "build/gcb/pack_layer", ROOT / "build/trip/pack_layer", ROOT / "build/gabe/pack_layer",
+          ROOT / "pack_src"]  # 옮긴 총 층(tools/props/build_gcb.py: 소품 층의 weapon_icon.json 을 덮으므로 소품 층 바로 뒤), 원정 층(tools/make_trip.py: 트럭)
 # 핫바, 인벤토리(gui 자리)에서 숨길 아이템 키 앞머리. 좀비런은 총, 수류탄, 능력 아이템을 모두 숨겼지만 게이브는 상자 상점과 인벤토리에
 # 총, 수류탄, 상점 그림이 보여야 해서 비워 둔다. 꼭 숨길 아이템이 생기면 여기에 더한다(손, 진열대, 땅에서는 그대로 보임).
 # 주의: 핫바 틀 그림은 make_pack_src 가 투명하게 하므로 핫바 칸의 아이템 그림은 화면 아래에 틀 없이 그려진다

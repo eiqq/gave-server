@@ -955,6 +955,8 @@ public final class Ragdoll {
     /** 물리 단계의 한 틱: 조각과 사슬을 굴리고 2틱마다 보낸다. 모두 멈추면 굳힌다. */
     private void active(Doll d, long now) {
         boolean still = true;
+        RagBody first = d.pieces.get(0).b;
+        int hits = first.bounces;
         for (Piece p : d.pieces) {
             RagBody b = p.b;
             // 멈춰 있던 조각 밑의 더미가 꺼졌으면 다시 떨어진다
@@ -964,6 +966,9 @@ public final class Ragdoll {
                 if (b.rest < 3) still = false;
             }
         }
+        // 처음 세게 닿은 순간의 사체 소리(굳은 사체 위면 쌓임)
+        if (hits == 0 && first.bounces > 0)
+            mobs.ears.corpse(first.x, first.y, first.z, pileOn && pile.support(first.x, first.z) > terrain.floor(first.x, first.z) + 0.05, !d.chains.isEmpty());
         Piece main = d.pieces.get(0);
         for (Chain c : d.chains) c.c.step(main.b, ground);
         corpsePos(d);
@@ -1258,6 +1263,7 @@ public final class Ragdoll {
 
     private void sink(Doll d, long now) {
         if (d.phase == SINKING || d.phase == GONE) return;
+        if (!d.pieces.isEmpty()) mobs.ears.sink(d.pieces.get(0).b.x, d.pieces.get(0).b.y, d.pieces.get(0).b.z);
         removeChains(d);
         for (Piece p : d.pieces) {
             p.keys = null;

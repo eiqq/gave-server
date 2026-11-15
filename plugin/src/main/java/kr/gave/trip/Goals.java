@@ -610,7 +610,8 @@ public final class Goals {
         }
         if (huntDeathBorn) {
             int dead = 0;
-            for (PState s : game.players.all()) if (s.life == Life.DEAD) dead++;
+            // 나간 사람(판 계산에서 빼려고 DEAD 로 둔 것)은 안 센다: 얼굴 개체가 없어 표적이 못 된다
+            for (PState s : game.players.all()) if (s.life == Life.DEAD && !s.offline) dead++;
             huntNeed = Math.max(1, dead);
         }
         if (huntNeed <= 0) huntNeed = 1;
@@ -734,9 +735,10 @@ public final class Goals {
     void on(String event, Object arg) {
         if (!active || kind != Kind.START || !Trip.EV_TRUCK_HIT.equals(event)) return;
         long now = game.now();
-        if (now - startKnockAt < 10) return;
+        // 깎임은 1초에 한 번, 무는 피해(Truck.biteDamage)처럼 사람 수^TRUCK_POW 로 나눈다(떼가 큰 판에서 맞는 횟수만큼 막대가 뒤로 가지 않게. 혼자면 한 번 값 그대로)
+        if (now - startKnockAt < 20) return;
         startKnockAt = now;
-        startProg = Math.max(0, startProg - Rounds.Tune.START_KNOCK);
+        startProg = Math.max(0, startProg - Rounds.Tune.START_KNOCK / Math.pow(trip.people(), Trip.Tune.TRUCK_POW));
     }
 
     // ------------------------------------------------------------------ 막대 값

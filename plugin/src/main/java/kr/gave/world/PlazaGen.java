@@ -460,7 +460,7 @@ public final class PlazaGen extends ChunkGenerator {
     }
 
     /** 발 위 칸: 보급 상자 위 등불, 원 안의 보이지 않는 빛 블록(밤에도 원 안이 보이게). 없으면 null. */
-    static String above(int x, int z) {
+    public static String above(int x, int z) {
         if (x == Plaza.CX && z == Plaza.CZ) return "lantern[hanging=false]";
         if (Math.floorMod(x, 3) == 0 && Math.floorMod(z, 3) == 0 && Math.hypot(x - Plaza.CX, z - Plaza.CZ) <= Plaza.R_SAFE - 1) return "light[level=" + LIGHT + "]";
         return null;

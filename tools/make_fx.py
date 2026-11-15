@@ -57,7 +57,8 @@ def models():
         d = NS / f"items/{name}.json"
         d.parent.mkdir(parents=True, exist_ok=True)
         d.write_text(json.dumps({"model": {"type": "minecraft:model", "model": f"gave:item/{name}",
-                                           "tints": [{"type": "minecraft:custom_model_data", "index": 0, "default": 16777215}]}},
+                                           # 기본 0 = 종류 0(안 그림, zrfx.glsl 맨 끝 가지). 16777215 는 종류 15 변형 3(레일 광선)으로 읽혀 색 없는 fx 아이템이 200초마다 번쩍인다
+                                           "tints": [{"type": "minecraft:custom_model_data", "index": 0, "default": 0}]}},
                                 indent=1), encoding="utf-8")
 
 

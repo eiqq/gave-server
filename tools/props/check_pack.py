@@ -32,7 +32,9 @@ ROOT = Path(__file__).resolve().parents[2]
 P = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "build/props/pack_layer"
 NS = "gave"
 A = P / "assets"
-JAR26 = os.path.expandvars(r"%APPDATA%/.minecraft/versions/26.3/26.3.jar")
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))  # tools/mcjar.py 를 부르려고
+from mcjar import client_jar  # noqa: E402  # 26.3 클라 jar 를 공식 런처 자리 말고도 찾는다(GV_CLIENT_JAR, fabric-loom 캐시. 공식 자리에 있으면 예전과 같음)
+JAR26 = str(client_jar())
 VANILLA = set(zipfile.ZipFile(JAR26).namelist()) if Path(JAR26).exists() else None
 MC = Path(os.path.expandvars(r"%APPDATA%/.minecraft"))
 
@@ -383,10 +385,12 @@ notes.append(f"소리 사건 {len(sj)}, 파일 {len(sound_files)}(모두 모노 
 if long_lead:
     notes.append("앞 무음 0.3초 넘는 파일(알림): " + ", ".join(long_lead))
 
-# props.json 과 맞추기
+# props.json 과 맞추기. build_gcb.py --props 가 넣은 옮긴 총 셋(gcb_*)의 아이템과 소리는 그 층(build/gcb/pack_layer)에 있다
 props = json.loads((ROOT / "tools/props.json").read_text(encoding="utf-8"))
+GCB = ROOT / "build/gcb/pack_layer/assets"
+sj_gcb = json.loads((GCB / f"{NS}/sounds.json").read_text(encoding="utf-8")) if (GCB / f"{NS}/sounds.json").exists() else {}
 for k, e in props["items"].items():
-    if not (A / f"{NS}/items/{k}.json").exists():
+    if not (A / f"{NS}/items/{k}.json").exists() and not (GCB / f"{NS}/items/{k}.json").exists():
         errs.append(f"props.json 아이템 {k}: 아이템 정의 없음")
     if e["item_model"] != f"{NS}:{k}":
         errs.append(f"props.json 아이템 {k}: item_model {e['item_model']}")
@@ -394,7 +398,7 @@ for k, e in props["equipment"].items():
     if k not in eqkeys:
         errs.append(f"props.json 장비 {k}: 장비 json 없음")
 for ev in props["sounds"]:
-    if ev.split(":", 1)[1] not in sj:
+    if ev.split(":", 1)[1] not in sj and ev.split(":", 1)[1] not in sj_gcb:
         errs.append(f"props.json 소리 {ev}: sounds.json 에 없음")
 for ev, d in sj.items():  # Java 는 팩을 읽기 전까지 props.json 의 사건과 변형 수(files)로 소리를 고른다
     pe = props["sounds"].get(f"{NS}:{ev}")

@@ -153,7 +153,7 @@ def sounds(k: kit.Kit):
     k.sample("step", "tag:giant", "거대한 발걸음", pitch=0.55, attenuation=64)
     k.sample("breath", "tag:breath", "숨소리", pitch=0.5, attenuation=32)
     k.sample("creak", ["kenney_rpg/creak1", "kenney_rpg/creak2"], "갈비 창살 벌어짐", pitch=0.5, attenuation=32)
-    k.sample("snap", ["lrsf_horror/bonecrack_03", "oga_breaking75/bfh1_rock_breaking_01"], "갈비 창살 부러짐", pitch=0.8, attenuation=32)
+    k.sample("snap", ["lrsf_horror/bonecrack_03", "oga_breaking75/bfh1_rock_breaking_01"], "갈비 창살 부러짐", pitch=0.8, attenuation=48)
 
 
 def phrases():

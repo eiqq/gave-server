@@ -36,6 +36,7 @@ import io.papermc.paper.datacomponent.DataComponentTypes;
 import io.papermc.paper.datacomponent.item.DyedItemColor;
 import io.papermc.paper.datacomponent.item.ItemAttributeModifiers;
 import io.papermc.paper.datacomponent.item.TooltipDisplay;
+import io.papermc.paper.datacomponent.item.UseCooldown;
 import kr.gave.Props;
 import kr.gave.game.Game;
 import kr.gave.mob.Damage;
@@ -182,6 +183,9 @@ public final class Supplies {
     public static ItemStack stack(String kind, int n) {
         ItemStack it = ItemStack.of(Material.PAPER, Math.max(1, Math.min(64, n)));
         it.setData(DataComponentTypes.ITEM_MODEL, model(kind));
+        // 쿨다운 묶음을 종류마다 따로(gave:supply/<종류>): 묶음이 없으면 종이 아이템 기본 묶음이 되어 붕대 쿨다운(Player.setCooldown)의 흰 막이
+        // 상점 그림, 증강 카드 같은 다른 종이 아이템 모두에 덮인다. 종이는 쓰는 동작이 없어 이 컴포넌트가 스스로 쿨다운을 걸지는 않는다
+        it.setData(DataComponentTypes.USE_COOLDOWN, UseCooldown.useCooldown(BANDAGE_TICKS / 20f).cooldownGroup(Key.key(Props.NS, "supply/" + kind)).build());
         it.setData(DataComponentTypes.ITEM_NAME, Component.empty());
         it.setData(DataComponentTypes.TOOLTIP_DISPLAY, TooltipDisplay.tooltipDisplay().hideTooltip(true).build());
         return it;
@@ -530,19 +534,15 @@ public final class Supplies {
             f.next = now + 10;
             HitTargets t = game.targets();
             if (t == null) continue;
-            double dmg = FIRE_DPS * 0.5;
-            Guns.Arms a = f.owner == null ? null : game.guns.arms(f.owner);
+            // 수류탄처럼 게이브 체력 배율의 제곱근만큼 커진다
+            double dmg = FIRE_DPS * 0.5 * Math.sqrt(game.guns.crowdHp());
             for (Object o : t.inRadius(f.at, FIRE_R + 1.5)) {
                 Vector c = t.center(o);
                 if (c == null) continue;
                 double dx = c.getX() - f.at.getX(), dz = c.getZ() - f.at.getZ(), dy = c.getY() - f.at.getY();
                 if (dx * dx + dz * dz > FIRE_R * FIRE_R || dy > 2.5 || dy < -1) continue;
                 boolean died = t.damage(o, new Damage(dmg, DamageType.FIRE, f.owner, c.clone(), new Vector(0, 1, 0), "molotov", 0));
-                if (died && a != null) {
-                    a.kills++;
-                    a.killAt = now;
-                }
-                if (f.owner != null) game.guns.hooks.onHit(f.owner, o, dmg, died, null);
+                game.guns.credit(f.owner, o, dmg, died, null, false);
             }
         }
     }

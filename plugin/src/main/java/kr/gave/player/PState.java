@@ -16,8 +16,9 @@ import kr.gave.mob.Species;
 /**
  * 사람 한 명의 판 상태. Players 가 들고 있고 다른 모듈은 읽거나 Players 메서드로 바꾼다.
  *
- * <p>틱은 모두 판 시계(Game.now()). 다른 모듈이 직접 써도 되는 칸: armor, moveMul, maxHp, bleedBonus, reviveMul, raincoat(증강, 상점),
- * grabPin, grabDetach, coverDetach(grab, cover 를 건 바로 뒤에 종이 바꿈), noLikeness. 나머지는 Players 메서드로 바꾼다.
+ * <p>틱은 모두 판 시계(Game.now()). 다른 모듈이 직접 써도 되는 칸: raincoat(상점), grabPin, grabDetach, coverDetach(grab, cover 를 건 바로 뒤에
+ * 종이 바꿈), noLikeness. armor, moveMul, maxHp, bleedBonus, reviveMul 은 Augments.apply 가 매 틱 증강과 상점 스탯에서 다시 계산해 덮어쓰므로
+ * 직접 쓰면 다음 틱에 사라진다: 받는 피해 배율은 Players.taken(키, 배율, 틱), 최대 체력 깎기는 {@link #cutMaxHp} 로 건다. 나머지는 Players 메서드로 바꾼다.
  */
 public final class PState {
 
@@ -137,7 +138,7 @@ public final class PState {
 
     // ------------------------------------------------------------------ 원정(docs/모듈/원정.md 7절, kr.gave.trip.Revive 와 Shop 이 씀)
 
-    /** 이 판에서 죽은 횟수, 돈을 내 꺼내진 횟수(꺼내는 값이 오름). */
+    /** 이 판에서 죽은 횟수, 돈을 내 꺼내진 횟수(꺼내는 값이 오름). 이 절의 칸은 판에 들 때(Players.join) 모두 지운다. */
     public int deaths, revived;
     /** 죽은 라운드(값이 라운드마다 내려감), 지금 죽음에 모인 돈(원). */
     public int deadRound;

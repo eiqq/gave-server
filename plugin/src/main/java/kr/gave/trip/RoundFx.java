@@ -374,7 +374,7 @@ final class RoundFx {
                 g.damage(new Damage(g.maxHp * Rounds.Tune.STRIKE_MOB + 20, DamageType.OTHER, null, g.pos.clone(), null, "trip_strike", 0));
             }
             for (Player p : game.players.standing()) {
-                if (p.getLocation().distanceSquared(l) <= Rounds.Tune.STRIKE_R * Rounds.Tune.STRIKE_R) game.players.hurt(p, Rounds.Tune.STRIKE_DMG, null, "cause_trip_strike");
+                if (p.getLocation().distanceSquared(l) <= Rounds.Tune.STRIKE_R * Rounds.Tune.STRIKE_R) game.players.hurt(p, Rounds.Tune.STRIKE_DMG * game.director.dmgCmd(), null, "cause_trip_strike");
             }
             struck++;
             flash(now);
@@ -470,7 +470,7 @@ final class RoundFx {
             Location l = p.getLocation();
             if (!Plaza.wet(l.getBlockX(), l.getBlockZ())) continue;
             game.players.slow(p, has("blackwater") ? Rounds.Tune.BLACKWATER_SLOW : Rounds.Tune.TIDE_SLOW, 14, "trip_water");
-            if (has("blackwater") && now % 20 == 0) game.players.hurt(p, Rounds.Tune.BLACKWATER_DMG, null, "cause_trip_water");
+            if (has("blackwater") && now % 20 == 0) game.players.hurt(p, Rounds.Tune.BLACKWATER_DMG * game.director.dmgCmd(), null, "cause_trip_water");
         }
     }
 
@@ -685,7 +685,7 @@ final class RoundFx {
     private void springBait(Bait b, Player p) {
         b.gone = true;
         remove(b.d);
-        game.players.hurt(p, Rounds.Tune.BAIT_DMG, null, "cause_trip_bait");
+        game.players.hurt(p, Rounds.Tune.BAIT_DMG * game.director.dmgCmd(), null, "cause_trip_bait");
         ambush(p.getLocation().toVector(), Rounds.Tune.AMBUSH_N);
         Props.soundAround(p.getLocation(), "trip.bait", Sound.ENTITY_EVOKER_FANGS_ATTACK, 1f, 0.1f, 0.8f, 32, -1);
     }
@@ -763,7 +763,7 @@ final class RoundFx {
                 remove(lp.d);
                 Block b = game.world.getBlockAt(lp.at.getBlockX(), Plaza.FLOOR_Y + 2, lp.at.getBlockZ());
                 if (b.getType() == Material.LIGHT) b.setType(Material.AIR, false);
-                game.players.hurt(p, Rounds.Tune.LAMP_DMG, null, "cause_trip_lamp");
+                game.players.hurt(p, Rounds.Tune.LAMP_DMG * game.director.dmgCmd(), null, "cause_trip_lamp");
                 ambush(l.toVector(), Rounds.Tune.AMBUSH_N + 1);
                 Props.soundAround(l, "trip.lamp", Sound.ENTITY_WITCH_CELEBRATE, 1f, 0.1f, 0.6f, 40, -1);
                 break;
@@ -870,7 +870,7 @@ final class RoundFx {
             for (double[] e : embers) {
                 double dx = l.getX() - e[0], dz = l.getZ() - e[1];
                 if (dx * dx + dz * dz <= e[2] * e[2]) {
-                    game.players.hurt(p, Rounds.Tune.EMBER_DMG, null, "cause_trip_ember");
+                    game.players.hurt(p, Rounds.Tune.EMBER_DMG * game.director.dmgCmd(), null, "cause_trip_ember");
                     break;
                 }
             }
@@ -911,7 +911,7 @@ final class RoundFx {
             if (r <= ringR) continue;
             Vector in = new Vector(Plaza.CX + 0.5 - l.getX(), 0, Plaza.CZ + 0.5 - l.getZ()).normalize().multiply(Rounds.Tune.SHRINK_PUSH);
             p.setVelocity(p.getVelocity().setX(in.getX()).setZ(in.getZ()));
-            if (now % 20 == 0) game.players.hurt(p, Rounds.Tune.SHRINK_DMG, null, "cause_trip_ring");
+            if (now % 20 == 0) game.players.hurt(p, Rounds.Tune.SHRINK_DMG * game.director.dmgCmd(), null, "cause_trip_ring");
         }
     }
 

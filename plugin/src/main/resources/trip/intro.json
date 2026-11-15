@@ -1,0 +1,32 @@
+{
+ "설명": "판 시작 인트로 장면표. kr.gave.trip.Story 가 읽어 화면을 그리고 tools/trip/intro.py 가 같은 표로 소리를 굽는다(표를 고치면 소리도 다시 구울 것). 틱 = 1/20초. fadeIn 검어지는 틱, fadeOut 밝아지는 틱, reveal 밝아지기 시작해 첫 웨이브까지 틱, gap 장면 뒤 글 없는 틱의 기본값. 장면: line 글귀 키(없으면 그림만), alt 0.5초마다 잠깐 비치는 다른 줄, cover 검은 화면 위 그림(HUD 덮개 키, 여럿이면 머무는 동안 차례로), stay 머무는 틱, gap 그 뒤 글 없는 틱, say 소리(없으면 목소리, chime 이면 안내 방송 종), voices 함께 말하는 목소리 수. 대본(scripts 에 하나, 2026-11-14 사용자가 a 를 고름. 키가 소리 이름 trip.intro_<키>_full, _short 에 들어감): title 밝아질 때 큰 제목 글귀 키, sub 그 아래 부제 글귀 키.",
+ "fadeIn": 20,
+ "fadeOut": 20,
+ "reveal": 80,
+ "gap": 6,
+ "scripts": {
+  "a": {
+   "name": "게이브 씨",
+   "title": "t_intro_a",
+   "full": [
+    {"line": "opening_1", "stay": 90, "gap": 10, "say": "chime"},
+    {"line": "intro_a1", "stay": 70},
+    {"line": "intro_fail", "alt": "intro_fail_x", "stay": 46},
+    {"line": "intro_a3", "stay": 54, "gap": 2, "voices": 2},
+    {"cover": ["g23_e0"], "stay": 8, "gap": 4},
+    {"line": "intro_a4", "cover": ["g17_lump1", "g17_lump2", "g17_lump3"], "stay": 45, "voices": 4},
+    {"line": "intro_a5", "cover": ["g17_lump3"], "stay": 48, "gap": 8},
+    {"line": "intro_truck", "stay": 57},
+    {"line": "intro_a7", "stay": 41, "gap": 2},
+    {"cover": ["g23_e0", "g23_e1", "g23_e2", "g23_e2"], "stay": 16, "gap": 2},
+    {"line": "intro_a8", "stay": 30, "gap": 0, "voices": 6}
+   ],
+   "short": [
+    {"line": "opening_1", "stay": 70, "gap": 8, "say": "chime"},
+    {"line": "ld_s0_human", "stay": 44, "gap": 2},
+    {"cover": ["g23_e0", "g23_e1", "g23_e2", "g23_e2"], "stay": 16, "gap": 2},
+    {"line": "intro_a8", "stay": 30, "gap": 0, "voices": 6}
+   ]
+  }
+ }
+}

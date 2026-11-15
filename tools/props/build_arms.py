@@ -13,12 +13,15 @@
 - gave:weapon_icon: 상점 총 그림(뒤판 = 등급 strings[0], 총 = 모델 키 또는 종류 키 strings[1]). gave:weapon_box: 무기 상자 그림.
 - gave:rocket_proj: 날아가는 로켓(TaC rpg7_rocket, 실제 크기, 가운데 (8,8,8) = 엔티티 자리, 앞 = 모델 -Z).
 - 표의 모델마다 정보(종류, 이름, 성능 배율, 손잡이, 총구 자리, 길이)를 ARMS_INFO 로 모아 build_props.write_props_json 이 props.json "arms" 로 쓴다.
+- 부품을 읽은 바로 뒤 tools/props/arms_patch.py 의 덧붙임(요소 빼기, 옮기기, 같은 모델 텍셀로 작은 요소 더하기, 판 뒷면 채우기,
+  불꽃 자리에서 총검 빼기)을 모드 좌표에서 건다(2026-11-15 gunmodel).
 """
 import json
 import re
 
 import numpy as np
 
+import arms_patch
 import arms_table
 import vmodel as V
 
@@ -125,6 +128,7 @@ def build_arm(row):
     key, src = row["key"], row["src"]
     els = G["parts"](row["parts"])
     mag = G["parts"]([row["mag"]]) if row.get("mag") else []
+    els, mag = arms_patch.apply(key, els, mag, G["tex_file"], backface=src != "tac")
     full = els + mag
     lo, hi = V.vbounds(full)
     if row.get("height"):
@@ -155,8 +159,10 @@ def build_arm(row):
     if dual:
         dual_model(key, grip, round(s_fp / k, 4), at)
     flash = row.get("flash", FLASH.get(row["kind"])) if row["kind"] not in NO_FLASH else None
-    gun_item(key, flash, dual)
-    mz = muzzle_point(m)
+    # 불꽃 자리: 총열보다 앞에 나온 총검(arms_patch muzzle_skip)은 빼고 센다
+    mz = muzzle_point({"elements": [e for e in full if not e.get("_nomuzzle")]}) if any(e.get("_nomuzzle") for e in full) else None
+    gun_item(key, flash, dual, mz)
+    mz = muzzle_point(m) if mz is None else mz
     ARMS_INFO[key] = dict(len=row.get("len"), height=row.get("height"), grip=row.get("grip", "two"), G=G["r"](grip, 2),
                           muzzle=None if mz is None else [round(float(x), 2) for x in mz], scale_tp=s_tp, shrink=round(k, 3), elements=len(full),
                           flash=flash, dual=dual)
@@ -185,9 +191,9 @@ def fface(uv, tint=0):
     return {"uv": uv, "texture": "#fx", "tintindex": tint}
 
 
-def flash_model(model, size_len):
+def flash_model(model, size_len, at=None):
     """총구 불꽃: 총구 앞 정면 판(색 0) + 총열 따라 뻗은 가로 판(색 1), 세로 판(색 2). 표시 변환은 총 모델 것을 옮겨 씀"""
-    m = muzzle_point(model)
+    m = muzzle_point(model) if at is None else at
     if m is None:
         return None
     mx, my, mz = m
@@ -250,10 +256,10 @@ def gun_item_def(key, flash, dual=False):
                       "fallback": {"type": "minecraft:composite", "models": third}}}
 
 
-def gun_item(key, flash, dual=False):
+def gun_item(key, flash, dual=False, at=None):
     A, NS = G["A"], G["NS"]
     model = json.loads((A / f"models/item/{key}.json").read_text(encoding="utf-8"))
-    fm = flash_model(model, flash) if flash else None
+    fm = flash_model(model, flash, at) if flash else None
     if fm is not None:
         G["put_json"](f"assets/{NS}/models/item/muzzle_{key}.json", fm)
     G["put_json"](f"assets/{NS}/items/{key}.json", gun_item_def(key, flash, dual))

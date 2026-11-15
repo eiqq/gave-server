@@ -30,6 +30,7 @@ import io.papermc.paper.datacomponent.DataComponentTypes;
 import io.papermc.paper.datacomponent.item.CustomModelData;
 import kr.gave.Props;
 import kr.gave.game.Game;
+import kr.gave.gun.ClientClock;
 import kr.gave.gun.Hit;
 import kr.gave.gun.HitTargets;
 import kr.gave.player.PState;
@@ -90,6 +91,8 @@ public final class Mobs implements HitTargets {
     public final Flow flow;
     /** 래그돌 사체(예산, 값은 config.yml ragdoll.*). */
     public final Ragdoll ragdoll;
+    /** 보탠 크리처 소리(울음, 이동, 살덩이, 사체: 듣는 사람마다 예산, config.yml sfx.near). */
+    final Ears ears;
     private final List<Gabe> live = new ArrayList<>();
     private int ids;
 
@@ -439,6 +442,7 @@ public final class Mobs implements HitTargets {
         this.game = game;
         this.flow = new Flow(game);
         this.ragdoll = new Ragdoll(game, this);
+        this.ears = new Ears(game, this);
         // 운영자 공격력 배율(/gave 공격력): 설정 playerDamageMul, 범위 밖이면 가장자리로
         try {
             double v = game.plugin.getConfig().getDouble("playerDamageMul", 1.0);
@@ -671,6 +675,7 @@ public final class Mobs implements HitTargets {
             pushFromPlayers();
             rules();
             pounceTick();
+            ears.tick();
             if ((game.now() & 1) == 0) nearTick();
             for (Gabe g : live) {
                 if (g.dead) continue;
@@ -1360,7 +1365,8 @@ public final class Mobs implements HitTargets {
             game.players.get(by).dealt += effective;
             if (g.hp > 0) game.hud.hit(by, false);
         }
-        if (g.body != null && d.type() != DamageType.BITE) g.body.flash(game.worldTime() + 3);
+        // 번쩍임 끝 틱은 셰이더 도장이라 클라 시계 어림으로(서버가 느릴 때 닿자마자 지난 것이 되지 않게, ClientClock)
+        if (g.body != null && d.type() != DamageType.BITE) g.body.flash(ClientClock.time(game.world) + 3);
         long now = game.now();
         if (now - g.hurtSoundAt >= 4 && d.type() != DamageType.BITE && !game.director.silent()) {
             g.hurtSoundAt = now;
@@ -1381,8 +1387,10 @@ public final class Mobs implements HitTargets {
         }
         // 갇힌 사람(eater)과 죽음 결과로 묶인 사람(deathMob: 업은 G38, 총 주운 G52) 모두: freeFrom 이 안에서 거른다
         unbind(g);
-        if (!game.director.silent())
+        if (!game.director.silent()) {
             Props.soundAround(g.loc(), "gabe." + g.sp.key() + ".die", Sound.ENTITY_SLIME_SQUISH, 1f, 0.9f + game.random.nextFloat() * 0.2f, 1.3f, 24, -1);
+            ears.flesh(g);
+        }
         if (g.body == null) return;
         // 몸에 붙은 글 줄(NAMETAG)은 사체에 남기지 않는다
         g.body.dropTags();
@@ -1485,47 +1493,18 @@ public final class Mobs implements HitTargets {
         return queryAt != null && queryTick == game.now() ? queryAt : null;
     }
 
-    /** 보상을 피해 기여 비율로 나눠 줌(가장 큰 나머지 순으로 원 단위를 맞춤). 기여가 없으면 처치한 사람에게 모두. */
+    /**
+     * 보상 나누기는 지갑이 한다(kr.gave.player.Wallet: 팀 몫은 모두 똑같이, 나머지는 때린 만큼, 1초에 한 번 정산). 피해 기록이 없는데 처치한
+     * 사람이 있으면(피해 없이 바로 죽인 것) 그 사람이 다 때린 것으로 친다. 사람이 준 피해도 처치한 사람도 없으면 사람 편 장치({@link #PDMG_DEVICE}:
+     * 트럭 지붕 기관총, 가시 철판)의 처치만 전부 팀 몫이고, 그 밖(자폭, 깔림, 불길, 게이브끼리, 번개)은 예전처럼 0 이다.
+     */
     private void payout(Gabe g, Damage d, int total) {
         Map<UUID, Double> c = g.contrib;
         if (c == null || c.isEmpty()) {
-            if (d != null && d.by() != null && d.by().isOnline()) game.players.addMoney(d.by(), total);
-            return;
+            if (d != null && d.by() != null) c = Map.of(d.by().getUniqueId(), 1.0);
+            else if (d == null || d.how() == null || !PDMG_DEVICE.contains(d.how())) return;
         }
-        double sum = 0;
-        for (double v : c.values()) sum += v;
-        if (sum <= 0) return;
-        List<UUID> ids = new ArrayList<>(c.keySet());
-        int[] give = new int[ids.size()];
-        double[] frac = new double[ids.size()];
-        int given = 0;
-        for (int i = 0; i < ids.size(); i++) {
-            double share = total * c.get(ids.get(i)) / sum;
-            give[i] = (int) Math.floor(share);
-            frac[i] = share - give[i];
-            given += give[i];
-        }
-        for (int left = total - given; left > 0; left--) {
-            int best = 0;
-            for (int i = 1; i < frac.length; i++) if (frac[i] > frac[best]) best = i;
-            give[best]++;
-            frac[best] = -1;
-        }
-        // 2026-11-12 사용자 '어시스트 했을 때 얻는 돈도 늘려봐': 잡은 사람 몫은 그대로, 함께 때린 사람 몫은 assistMul 배(기본 2).
-        // 피해를 10% 넘게 준 사람은 몫이 0 원이어도 1 원은 받는다
-        double assistMul = Math.max(1.0, game.plugin.getConfig().getDouble("assistMul", 2.0));
-        UUID killer = d != null && d.by() != null ? d.by().getUniqueId() : null;
-        for (int i = 0; i < ids.size(); i++) {
-            if (ids.get(i).equals(killer)) continue;
-            double part = c.get(ids.get(i)) / sum;
-            int base = give[i] > 0 ? give[i] : part >= 0.1 ? 1 : 0;
-            give[i] = (int) Math.round(base * assistMul);
-        }
-        for (int i = 0; i < ids.size(); i++) {
-            if (give[i] <= 0) continue;
-            Player p = Bukkit.getPlayer(ids.get(i));
-            if (p != null && p.isOnline()) game.players.addMoney(p, give[i]);
-        }
+        game.players.wallet.kill(c, total);
     }
 
     /** 이 개체에 사람별로 준 피해(읽기용 사본). */
@@ -1966,7 +1945,14 @@ public final class Mobs implements HitTargets {
     // ------------------------------------------------------------------ 예산, 정리
 
     public void clear() {
-        for (Gabe g : live) g.remove();
+        // 한 개체의 remove 가 던져도 나머지는 치운다(안 그러면 뒤 개체의 몸 디스플레이가 대기실까지 남는다)
+        for (Gabe g : live) {
+            try {
+                g.remove();
+            } catch (RuntimeException e) {
+                if (broken.add("clear:" + g.sp.name())) game.plugin.getLogger().log(Level.WARNING, "[몹] " + g.sp.name() + " 치우기 예외(나머지는 계속 치움)", e);
+            }
+        }
         live.clear();
         for (Corpse c : corpses) c.remove();
         corpses.clear();
@@ -2085,14 +2071,14 @@ public final class Mobs implements HitTargets {
         int aimed = d.aimTicks();
         if (by != null) {
             aimed = Math.max(aimed, aimTicks(by.getUniqueId(), g));
-            DamageType t = d.type();
-            if (at != null && (t == DamageType.BULLET || t == DamageType.PELLET || t == DamageType.SNIPER)) {
+            // 되돌린 광선 판정의 맞은 자리를 지금 자리로(Damage.rewind: 깃발이 없으면 예전처럼 BULLET, PELLET, SNIPER 만)
+            if (at != null && d.rewind()) {
                 double[] off = new double[3];
                 pastOffset(g, lagTicks(by), off);
                 at = at.clone().subtract(new Vector(off[0], off[1], off[2]));
             }
         }
-        Damage d2 = new Damage(d.amount(), d.type(), by, at, d.dir(), d.how(), aimed);
+        Damage d2 = new Damage(d.amount(), d.type(), by, at, d.dir(), d.how(), aimed, d.rewound());
         double k = scaleOf(g, d2);
         // 운영자 공격력 배율(/gave 공격력): 사람 편 피해에만
         if (pdmg != 1 && playerSide(d2)) k *= pdmg;
@@ -2325,7 +2311,7 @@ public final class Mobs implements HitTargets {
      * 시험 훅(/gave 시험 &lt;행동&gt; &lt;이름&gt; ...): 몹목록 [종] / 몹정지 on|off / 몹죽이기 [종] / 흐름 &lt;x&gt; &lt;z&gt; / 몹보기 /
      * 보기 [종] [틱](가장 가까운 게이브를 보게, 틱이면 그동안 계속) / 예산 / 몹시간 [on|off] / 몹놓기 &lt;종&gt; &lt;수&gt; &lt;x&gt; &lt;z&gt; [흩뿌림] /
      * 몹고리 &lt;종&gt; &lt;수&gt; &lt;반지름&gt; / 몹하나 &lt;번호&gt; / 래그돌 [on|off|다시] / 래그돌값 &lt;키&gt; &lt;값&gt; / 래그돌검사 /
-     * 몹치기 &lt;종류&gt; [수] [종] [방향] / 몹빠름 [종류 종 빠르기 [수] [틱]] / 패킷 [on|off|다시]. 이름 자리는 아무 글이나 되는 행동도 있다
+     * 몹치기 &lt;종류&gt; [수] [종] [방향] / 몹빠름 [종류 종 빠르기 [수] [틱]] / 패킷 [on|off|다시] / 소리 [...]({@link Ears}). 이름 자리는 아무 글이나 되는 행동도 있다
      * (사람이 필요 없을 때).
      */
     public String test(Player p, String[] a) {
@@ -2591,6 +2577,9 @@ public final class Mobs implements HitTargets {
                 }
                 return "fast=" + (fastType == null ? "-" : fastType.name()) + " left=" + fastLeft + " killed=" + fastKilled
                         + String.format(Locale.ROOT, " lastSpeed=%.2f ", fastLast) + ragdoll.status();
+            }
+            case "소리" -> {
+                return ears.test(p, a);
             }
             case "패킷" -> {
                 // 패킷 <이름> [on|off|다시]: 그 사람에게 나가는 패킷 수와 바이트(압축 뒤)를 틱마다 센다. on 붙임, 다시 0 으로, off 뗌. 인자 없으면 읽기.

@@ -20,6 +20,7 @@ import kr.gave.mob.Mobs;
 import kr.gave.mob.Role;
 import kr.gave.mob.Species;
 import kr.gave.trip.PadLights;
+import kr.gave.trip.Launch;
 import kr.gave.trip.Rounds;
 import kr.gave.trip.Trip;
 
@@ -50,8 +51,10 @@ public final class LitPad extends Late {
         return "ti_goal_build";
     }
 
+    /** 발사장(Launch)이 이 라운드의 건조와 끝을 쥐고 있나: 31~34 밖에서 열리면(시험) 제 건조 막대와 끝 판정으로 돈다. */
     private boolean launch() {
-        return trip.has("Launch");
+        Launch l = trip.has("Launch") ? trip.part(Launch.class) : null;
+        return l != null && l.building();
     }
 
     @Override
@@ -126,7 +129,8 @@ public final class LitPad extends Late {
         darken(0.72 + PadLights.DIM_PER_LAMP * (all - lit));
         // 건조
         if (launch()) {
-            if (lit == 0 && now % 20 == 0) trip.fire("buildDrain", LateTune.LIT_BACK);
+            // 뒤로 가는 몫은 그 라운드 막대의 초당 LIT_BACK(발사장의 건조 막대는 네 라운드 합이라 한 라운드 몫을 곱한다: 안 곱하면 네 배로 깎임)
+            if (lit == 0 && now % 20 == 0) trip.fire("buildDrain", LateTune.LIT_BACK * Launch.Tune.BUILD_PER_ROUND);
         } else {
             if (lit > 0) build += (double) lit / all / (LateTune.LIT_BUILD_SECONDS * 20);
             else build = Math.max(0, build - LateTune.LIT_BACK / 20);
@@ -167,7 +171,8 @@ public final class LitPad extends Late {
             }
         }
         if (now < nextRaid) return;
-        nextRaid = now + LateTune.LIT_RAID_EVERY;
+        // 사람이 적으면 끄러 오는 간격을 길게(LIT_RAID_FULL 명 기준, 다섯 배까지): 한두 명이 등 넷을 못 따라가 건조가 0 에 묶이지 않게
+        nextRaid = now + Math.round(LateTune.LIT_RAID_EVERY * Math.max(1, Math.min(5, LateTune.LIT_RAID_FULL / (double) trip.people())));
         List<Mobs.Light> litLamps = new ArrayList<>();
         for (Mobs.Light l : pad.lights()) if (l.lit() && !raiders.containsValue(l)) litLamps.add(l);
         if (litLamps.isEmpty()) return;
@@ -185,7 +190,8 @@ public final class LitPad extends Late {
             }
         }
         if (best == null) {
-            Species sp = rounds.pick(s -> s.band == Band.SKY && s.spawn == Species.Spawn.RING && !s.is(Role.BOSS));
+            // 하늘 띠 종은 모두 하늘에서 나오는 꼴(Spawn.SKY)이다: RING 으로 찾으면 하나도 없어 부르기가 한 번도 안 됐다
+            Species sp = rounds.pick(s -> s.band == Band.SKY && s.spawn == Species.Spawn.SKY && !s.is(Role.BOSS));
             if (sp != null) {
                 Vector at = polar(70, angleOf(head.getX(), head.getZ()) + (rnd.nextDouble() - 0.5) * 0.6);
                 best = rounds.spawnAt(sp, at);
