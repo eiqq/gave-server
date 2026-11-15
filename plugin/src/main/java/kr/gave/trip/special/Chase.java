@@ -17,6 +17,7 @@ import org.bukkit.util.Vector;
 
 import kr.gave.game.Director;
 import kr.gave.game.Game;
+import kr.gave.gun.Guns;
 import kr.gave.mob.Band;
 import kr.gave.mob.Damage;
 import kr.gave.mob.DamageType;
@@ -211,8 +212,11 @@ public class Chase extends Special {
         // 달리는 동안 지평선 그림자 숨김(매 틱 1초씩 늘림: 끝나면 저절로 풀림)
         game.horizon.hide(20);
         stream.tick();
-        // 판 위 가둠(2026-11-12 사용자 "시야 각도를 바꾸는 게이브는 등장하지 않게 해"와 같은 취지로 6틱마다 시점을 떨던 것은 뺌: Ram, LastRun 도 이 길)
-        for (Player p : game.players.inPlay()) confine(p, px0, px1, pz0, pz1);
+        // 판 위 가둠, 흔들림
+        for (Player p : game.players.inPlay()) {
+            confine(p, px0, px1, pz0, pz1);
+            if (alive(p) && t % 6 == 0) Guns.kick(p, 0f, (t / 6) % 2 == 0 ? 0.15f : -0.15f);
+        }
         mobs(now);
         fallTick(now);
         eventTick(now, t);
@@ -414,6 +418,7 @@ public class Chase extends Special {
         double frac = Tune.WALL_FRAC * left / Math.max(1, n) * game.augments.ramMul();
         truckDealt += tr.hitFrac(frac, null, "cause_sp_chase_wall");
         wallHits++;
+        game.horizon.shake(0.8, 16);
         sound(truckLoc(1), "trip.truck_hit", Sound.ENTITY_GENERIC_EXPLODE, 1.6f, 0.7f, 64);
     }
 
@@ -461,6 +466,7 @@ public class Chase extends Special {
                     if (x - px0 < Tune.GAP_EDGE || px1 - x < Tune.GAP_EDGE) game.players.root(p, Tune.GAP_ROOT, "sp_chase_gap");
                 }
                 if (tr != null) truckDealt += tr.hitFrac(Tune.GAP_FRAC, null, "cause_sp_chase_gap");
+                game.horizon.shake(0.8, 14);
                 sound(truckLoc(1), "trip.thud", Sound.ENTITY_IRON_GOLEM_DAMAGE, 1.8f, 0.5f, 64);
             }
             case "tunnel" -> fog(Tune.CHASE_FOG);

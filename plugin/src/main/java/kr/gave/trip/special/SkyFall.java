@@ -130,6 +130,7 @@ public final class SkyFall extends Late {
         fog(1);
         darken(0.72);
         Props.soundAround(loc(new Vector(Plaza.CX + 0.5, 0, Plaza.CZ + 0.5), 20), "sfx.colossus", Sound.ENTITY_WARDEN_ROAR, 2f, 0.6f, 0.5f, 220, -1);
+        game.horizon.shake(0.8, 40);
         return true;
     }
 
@@ -243,6 +244,7 @@ public final class SkyFall extends Late {
             for (Player p : game.players.standing()) game.players.hurt(p, LateTune.SKY_DMG * game.director.dmgCmd(), null, "cause_sp_skyfall");
             Truck tr = truck();
             if (tr != null) drained += tr.hitFrac(LateTune.SKY_TRUCK, null, "cause_sp_skyfall");
+            game.horizon.shake(0.5, 20);
         }
         // 그림자에서 솟는 땅 종
         if (now >= nextRise && !faces.isEmpty()) {

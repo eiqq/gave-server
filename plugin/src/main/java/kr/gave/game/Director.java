@@ -2364,8 +2364,13 @@ public final class Director {
         return best;
     }
 
-    /** 고리 위 각 ang, 반지름 band 의 자리가 서 있는 누군가에게서 '안 보이는 거리'({@link #hideDist}) 안쪽인가(그 사람 눈에 나오는 순간이 보임). */
+    /**
+     * 고리 위 각 ang, 반지름 band 의 자리가 서 있는 누군가에게서 '안 보이는 거리'({@link #hideDist}) 안쪽인가(그 사람 눈에 나오는 순간이 보임). 안개가 맑아 숨길
+     * 수 없으면(안개 끝 - 4 가 HIDE_MAX 를 넘음: 맑음 단계) 늘 false: 어디서 나와도 보이니 바꿔 봐야 사람들 등 뒤로 쏠리기만 한다.
+     */
     private boolean exposed(double ang, double band) {
+        int lv = (int) Math.round(Math.max(0, Math.min(5, fogGoal)));
+        if (Fog.END[lv] - 4 > Tune.HIDE_MAX) return false;
         double x = Plaza.CX + 0.5 + Math.cos(ang) * band, z = Plaza.CZ + 0.5 + Math.sin(ang) * band, hide = hideDist();
         for (Player p : game.players.standing()) {
             Location l = p.getLocation();

@@ -59,7 +59,7 @@ final class AugRules {
         // 지난 틱 값(바뀜을 알아챔)
         Life life;
         double hp = -1;
-        int money = Integer.MIN_VALUE, shots = -1, slot = -1, ammo = -1;
+        int money = Integer.MIN_VALUE, shots = -1, slot = -1;
         boolean sneak;
         Gabe grab;
         UUID reviver;
@@ -155,7 +155,6 @@ final class AugRules {
             n.money = old.money;
             n.shots = old.shots;
             n.slot = old.slot;
-            n.ammo = old.ammo;
             n.sneak = old.sneak;
             n.grab = old.grab;
             n.reviver = old.reviver;
@@ -355,7 +354,6 @@ final class AugRules {
         int slot = p.getInventory().getHeldItemSlot();
         Gun pg = game.shop.pendingGun(p);
         long pid = pg == null ? 0 : pg.id;
-        int ammo = a == null || a.primary == null ? 0 : a.mag[a.primary.ordinal()] + a.res[a.primary.ordinal()];
         if (r.life == null) {
             // 처음 본 틱: 지난 값 채우기만
             r.life = s.life;
@@ -366,7 +364,6 @@ final class AugRules {
             r.sneak = sneak;
             r.grab = s.grabbedBy;
             r.pendingGun = pid;
-            r.ammo = ammo;
         }
         // ---- 삶이 바뀜
         if (s.life != r.life) lifeChanged(p, s, r, r.life, now);
@@ -418,10 +415,7 @@ final class AugRules {
         if (r.money != Integer.MIN_VALUE && delta < 0 && game.shop.view(p) != null) spentNow(r, -delta);
         // ---- 처치 돈 배율(현상금, 얇은 피, 빚)과 팁 몫을 지갑에 알림(1초에 한 번)
         if (now % kr.gave.player.Wallet.EVERY == 0) game.players.wallet.rate(s.id, earnMul(p, r), has(p, Aug.M_TIP) ? Aug.M_TIP.n("frac", 0.1) : 0);
-        // ---- 탄약을 삼(돈이 줄고 탄이 늚): 나눠 쓰기
-        if (delta < 0 && ammo > r.ammo && r.ammo >= 0 && has(p, Aug.M_SHARE)) share(p, in, l);
         r.money = s.money;
-        r.ammo = ammo;
         // ---- 뽑은 총을 정함(바꾸든 버리든 한 자루가 버려짐): 장물
         if (r.pendingGun != 0 && pid != r.pendingGun && has(p, Aug.E_FENCE)) grant(p, (int) Math.round(Aug.E_FENCE.n("u", 0.3) * A.unit()));
         r.pendingGun = pid;
@@ -450,7 +444,7 @@ final class AugRules {
             if (beat % ears == 0 && has(p, Aug.B_EARS)) {
                 for (Gabe g : game.mobs.near(l.toVector(), Aug.B_EARS.n("r", 14), x -> x.disguised)) game.hud.point(p, g.pos.clone(), ears);
             }
-            autoAmmo(p, s, r, a, in, l, now);
+            autoAmmo(p, s, r, a, now);
         } else if (s.life == Life.DEAD || s.life == Life.TRAPPED) {
             int every = (int) Aug.D_GHOST.n("every", 60);
             if (beat % every == 0 && has(p, Aug.D_GHOST)) {
@@ -611,6 +605,11 @@ final class AugRules {
         }
     }
 
+    /** 상점 고리 {@link Shop#ammoBought}(손으로 사든 자동 탄약이 사든 탄약을 산 뒤): 나눠 쓰기. Game 생성자가 단다 */
+    void ammoBought(Player p) {
+        if (has(p, Aug.M_SHARE)) share(p, game.players.inPlay(), p.getLocation());
+    }
+
     /** 나눠 쓰기: 곁의 가까운 동료 count 명의 탄약도 채움 */
     private void share(Player p, List<Player> in, Location l) {
         double rr = Aug.M_SHARE.n("r", 6);
@@ -622,7 +621,6 @@ final class AugRules {
             if (n >= Aug.M_SHARE.n("count", 2)) break;
             if (!game.guns.refillAll(o)) continue;
             Props.sound(o, null, Sound.ITEM_ARMOR_EQUIP_IRON, 0.8f, 1f, 1.2f);
-            run(o).ammo = -1;
             n++;
         }
         lastLog = "나눠 쓰기 " + p.getName() + " " + n + "명";
@@ -634,7 +632,7 @@ final class AugRules {
      * 자동 탄약: 샀고 켜져 있고, 서 있고, 트럭 r 블록 안(추격전 판 위는 늘 곁)이고, 주무기의 탄창과 예비탄이 모두 0 이면 탄약 칸을 그때 값으로 산다.
      * 돈이 모자라거나 그 칸이 갉히는 중이면 안 삼. cd 틱에 한 번까지. 살 때 그 사람에게만 소리와 HUD 한 줄(글귀 aug_autoammo)
      */
-    private boolean autoAmmo(Player p, PState s, Run r, Guns.Arms a, List<Player> in, Location l, long now) {
+    private boolean autoAmmo(Player p, PState s, Run r, Guns.Arms a, long now) {
         if (a == null || a.primary == null || !A.stapleOn(p, Augments.AUTO_AMMO)) return false;
         if (game.state != Game.State.WAVE && game.state != Game.State.BREAK && game.state != Game.State.PREP) return false;
         int k = a.primary.ordinal();
@@ -659,11 +657,9 @@ final class AugRules {
         r.autoBuys++;
         spentNow(r, price);
         r.money = s.money;
-        r.ammo = a.mag[k] + a.res[k];
         Props.sound(p, null, Sound.BLOCK_DISPENSER_DISPENSE, 0.7f, 1f, 1.5f);
         if (Hud.hasPhrase("aug_autoammo")) game.hud.notice(p, "aug_autoammo", 40);
         lastLog = "자동 탄약 " + p.getName() + " -" + price + " 남은 돈 " + s.money;
-        if (has(p, Aug.M_SHARE)) share(p, in, l);
         return true;
     }
 
@@ -825,7 +821,7 @@ final class AugRules {
     boolean dryFire(Player p, Guns.Spec spec) {
         PState s = ps(p);
         // 자동 탄약: 빈 총을 당긴 그 순간에도 삼(연사가 빨라 한 틱에 여러 발인 총이 권총으로 넘어가기 전에). 샀으면 탄창이 찼으니 그대로 쏜다
-        if (A.stapleOn(p, Augments.AUTO_AMMO) && autoAmmo(p, s, run(p), game.guns.arms(p), game.players.inPlay(), p.getLocation(), game.now())) return false;
+        if (A.stapleOn(p, Augments.AUTO_AMMO) && autoAmmo(p, s, run(p), game.guns.arms(p), game.now())) return false;
         if (!has(p, Aug.X_BLOOD)) return false;
         double cost = Aug.X_BLOOD.n("hp", 2);
         if (!s.standing() || s.hp - cost < Aug.X_BLOOD.n("floor", 10)) return false;
@@ -920,7 +916,7 @@ final class AugRules {
             a = Aug.W_RIFLE_TAP;
             if (a.binds(kind) && arms != null && arms.streak() < a.n("shots", 3) && has(p, a)) k *= a.n("dmg", 1.35);
             a = Aug.W_SNIPER_LINE;
-            if (a.binds(kind) && game.guns.hitIndex > 0 && has(p, a)) k *= Math.min(a.n("max", 2.0), 1 + a.n("step", 0.2) * game.guns.hitIndex);
+            if (a.binds(kind) && game.guns.hitIndex > 0 && has(p, a)) k *= Math.min(a.n("max", 2.5), 1 + a.n("step", 0.3) * game.guns.hitIndex);
             a = Aug.W_FAR;
             if (a.binds(kind) && dist >= a.n("r", 40) && has(p, a)) k *= a.n("dmg", 1.5);
             a = Aug.W_SILENT_STALK;

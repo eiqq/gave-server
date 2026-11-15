@@ -64,6 +64,7 @@ public final class Scatter extends Special {
         fog(Tune.SCATTER_FOG);
         sound(truckLoc(1), "trip.brake", Sound.ENTITY_MINECART_INSIDE, 2f, 0.6f, 120);
         sound(truckLoc(1), "trip.thud", Sound.ENTITY_IRON_GOLEM_DAMAGE, 2f, 0.5f, 120);
+        game.horizon.shake(1.0, 20);
         rounds.goals().custom(icon(), 0, null);
         streaming = true;
         dimWant = 0.2;

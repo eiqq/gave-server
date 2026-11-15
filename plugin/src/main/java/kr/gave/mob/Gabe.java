@@ -10,6 +10,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
 import kr.gave.game.Game;
+import kr.gave.gun.ClientClock;
 
 /**
  * 가짜 몹 하나. 바탕 엔티티가 없고 위치, 속도, 체력은 서버 값이며 화면은 {@link Body} 가 그린다.
@@ -407,9 +408,9 @@ public abstract class Gabe {
         return age - stateAt;
     }
 
-    /** 맞은 번쩍임을 지금 건다(엔진이 맞을 때 저절로 부름). */
+    /** 맞은 번쩍임을 지금 건다(엔진이 맞을 때 저절로 부름). 끝 틱은 셰이더 도장이라 클라 시계 어림(ClientClock)으로 찍는다. */
     public void flash() {
-        if (body != null) body.flash(game.worldTime() + 3);
+        if (body != null) body.flash(ClientClock.time(game.world) + 3);
     }
 
     /** 오래 살면 변함 단계(0 없음, 1 입 찢어짐, 2 막대기 넷 + 빠르기 x1.25, 3 갈라짐까지 끝). */

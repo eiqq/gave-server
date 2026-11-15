@@ -104,6 +104,7 @@ public final class Sinking extends Late {
         });
         grabTruck();
         Props.soundAround(loc(new Vector(Truck.OX, 0, Truck.OZ), 1), "gabe.g24.rumble", Sound.ENTITY_WARDEN_DIG, 1.6f, 0.7f, 0.6f, 120, -1);
+        game.horizon.shake(0.6, 30);
         darken(act() >= 4 ? 0.75 : 0.55);
         return true;
     }

@@ -30,6 +30,7 @@ import io.papermc.paper.datacomponent.DataComponentTypes;
 import io.papermc.paper.datacomponent.item.CustomModelData;
 import kr.gave.Props;
 import kr.gave.game.Game;
+import kr.gave.gun.ClientClock;
 import kr.gave.gun.Hit;
 import kr.gave.gun.HitTargets;
 import kr.gave.player.PState;
@@ -1360,7 +1361,8 @@ public final class Mobs implements HitTargets {
             game.players.get(by).dealt += effective;
             if (g.hp > 0) game.hud.hit(by, false);
         }
-        if (g.body != null && d.type() != DamageType.BITE) g.body.flash(game.worldTime() + 3);
+        // 번쩍임 끝 틱은 셰이더 도장이라 클라 시계 어림으로(서버가 느릴 때 닿자마자 지난 것이 되지 않게, ClientClock)
+        if (g.body != null && d.type() != DamageType.BITE) g.body.flash(ClientClock.time(game.world) + 3);
         long now = game.now();
         if (now - g.hurtSoundAt >= 4 && d.type() != DamageType.BITE && !game.director.silent()) {
             g.hurtSoundAt = now;
@@ -2059,14 +2061,14 @@ public final class Mobs implements HitTargets {
         int aimed = d.aimTicks();
         if (by != null) {
             aimed = Math.max(aimed, aimTicks(by.getUniqueId(), g));
-            DamageType t = d.type();
-            if (at != null && (t == DamageType.BULLET || t == DamageType.PELLET || t == DamageType.SNIPER)) {
+            // 되돌린 광선 판정의 맞은 자리를 지금 자리로(Damage.rewind: 깃발이 없으면 예전처럼 BULLET, PELLET, SNIPER 만)
+            if (at != null && d.rewind()) {
                 double[] off = new double[3];
                 pastOffset(g, lagTicks(by), off);
                 at = at.clone().subtract(new Vector(off[0], off[1], off[2]));
             }
         }
-        Damage d2 = new Damage(d.amount(), d.type(), by, at, d.dir(), d.how(), aimed);
+        Damage d2 = new Damage(d.amount(), d.type(), by, at, d.dir(), d.how(), aimed, d.rewound());
         double k = scaleOf(g, d2);
         // 운영자 공격력 배율(/gave 공격력): 사람 편 피해에만
         if (pdmg != 1 && playerSide(d2)) k *= pdmg;

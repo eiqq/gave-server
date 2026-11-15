@@ -190,6 +190,7 @@ public final class Hush extends Special {
         alert("sa_hush_taken", 4, 60);
         Truck tr = trip.truck();
         if (tr != null) tr.hitFrac(Tune.NOISE_TRUCK, null, "cause_sp_hush");
+        game.horizon.shake(1.0, 24);
         if (giant != null) Props.soundOn(giant, "sfx.colossus", Sound.ENTITY_ENDER_DRAGON_GROWL, 1.4f, 0.8f, 0.4f);
         trip.log("숨죽이기 가득 참 " + fills + (who == null ? "" : " 채 감 " + who.getName()));
     }

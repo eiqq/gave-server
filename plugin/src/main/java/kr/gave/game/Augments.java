@@ -26,7 +26,6 @@ import org.bukkit.util.Vector;
 import io.papermc.paper.datacomponent.DataComponentTypes;
 import io.papermc.paper.datacomponent.item.CustomModelData;
 import io.papermc.paper.datacomponent.item.ItemLore;
-import io.papermc.paper.datacomponent.item.TooltipDisplay;
 import kr.gave.Props;
 import kr.gave.gun.Gun;
 import kr.gave.gun.GunHooks;
@@ -902,27 +901,20 @@ public final class Augments implements GunHooks {
     /** 카드 화면 칸(27칸 상자: 11, 13, 15). 그 위아래 칸(-9, +9)에 갈래 색 유리판 */
     public static final int[] CARD_SLOTS = {11, 13, 15};
 
-    /** 갈래 색 유리판(툴팁 없음) */
-    private static ItemStack pane(Cat c) {
-        ItemStack it = ItemStack.of(c.pane);
-        it.setData(DataComponentTypes.TOOLTIP_DISPLAY, TooltipDisplay.tooltipDisplay().hideTooltip(true).build());
-        return it;
-    }
-
     /** 맨 앞 뽑기 카드 화면을 연다. 고를 것이 없으면 false. back = 고른 뒤 상점으로 돌아감 */
     public boolean openCards(Player p, boolean back) {
         List<Aug> cards = cards(p);
         if (cards.isEmpty()) return false;
         Shop.View v = new Shop.View(p.getUniqueId(), Shop.View.CARDS, back);
-        Inventory inv = Bukkit.createInventory(v, 27, Component.empty());
+        Inventory inv = Bukkit.createInventory(v, 27, ShopUi.title(ShopUi.CARDS));
         v.inv = inv;
         for (int i = 0; i < cards.size() && i < CARD_SLOTS.length; i++) {
             Aug a = cards.get(i);
             int slot = CARD_SLOTS[i];
-            inv.setItem(slot, card(a, count(p, a)));
+            inv.setItem(slot, ShopUi.card(card(a, count(p, a))));
             // 갈래 색 테두리(위아래). 위험은 붉은 판이 옆 대각선까지 둘러 한눈에 다름
-            inv.setItem(slot - 9, pane(a.cat));
-            inv.setItem(slot + 9, pane(a.cat));
+            inv.setItem(slot - 9, ShopUi.bar(a.cat.pane, true));
+            inv.setItem(slot + 9, ShopUi.bar(a.cat.pane, false));
             final int idx = i;
             v.actions.put(slot, () -> pick(p, idx));
         }
@@ -930,7 +922,7 @@ public final class Augments implements GunHooks {
             if (!cards.get(i).risk) continue;
             for (int d : new int[] {-10, -8, 8, 10}) {
                 int s2 = CARD_SLOTS[i] + d;
-                if (inv.getItem(s2) == null) inv.setItem(s2, pane(Cat.RISK));
+                if (inv.getItem(s2) == null) inv.setItem(s2, ShopUi.bar(Cat.RISK.pane, d < 0));
             }
         }
         game.shop.show(p, v);

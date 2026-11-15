@@ -119,6 +119,7 @@ public final class Stampede extends Special {
         game.hud.waveFrom("sa_herd_come", Tune.HERD_WARN, yawOf(h.a));
         alert("sa_herd_come", 3, 80);
         sound(loc(ring(h.a, 40), 1), "sfx.horde_cry", Sound.ENTITY_ZOMBIE_VILLAGER_AMBIENT, 1.6f, 0.5f, 140);
+        game.horizon.shake(0.4, 40);
     }
 
     /** 4틱에 걸쳐 줄마다 놓음(한 틱에 수십을 놓지 않게). 앞줄 HERD_HEADS 는 금빛 머리. */
@@ -145,6 +146,7 @@ public final class Stampede extends Special {
         // 화면 예산이 차서 앞 두 줄이 하나도 못 나왔으면 나온 것 가운데 앞에서부터 머리로(머리가 없으면 가를 길이 없어 트럭이 그냥 받힌다)
         if (h.spawnedAll && h.heads.isEmpty()) for (Gabe g : h.members) {
             if (h.heads.size() >= Tune.HERD_HEADS) break;
+            if (g.dead || g.removed) continue;
             head(h, g);
         }
     }
@@ -205,6 +207,7 @@ public final class Stampede extends Special {
                 Truck tr = trip.truck();
                 if (tr != null) tr.hitFrac(Tune.HERD_TRUCK, g, "cause_sp_herd");
                 alert("sa_herd_hit", 4, 60);
+                game.horizon.shake(1.0, 20);
                 sound(truckLoc(1), "trip.truck_hit", org.bukkit.Sound.ENTITY_GENERIC_EXPLODE, 2f, 0.6f, 80);
                 break;
             }

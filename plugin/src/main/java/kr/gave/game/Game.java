@@ -87,6 +87,7 @@ public final class Game implements GunHost {
         this.director = new Director(this);
         this.augments = new Augments(this);
         this.shop = new Shop(this);
+        shop.ammoBought.add(augments.rules::ammoBought);
         this.hud = new Hud(this);
         this.records = new Records(this);
         this.music = new Music(this);
@@ -379,6 +380,11 @@ public final class Game implements GunHost {
     @Override
     public void onHelp(Player p) {
         players.help(p);
+    }
+
+    @Override
+    public void crit(Player p) {
+        hud.crit(p);
     }
 
     // ------------------------------------------------------------------ 시험 훅

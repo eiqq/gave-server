@@ -18,6 +18,7 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
+import kr.gave.gun.ClientClock;
 import kr.gave.gun.Gun;
 import kr.gave.gun.Guns;
 import kr.gave.hud.HudLine;
@@ -1025,11 +1026,11 @@ public final class Hud {
         v.points.add(new Point(at.clone(), now + ticks));
     }
 
-    /** 적중 표시(kill 이면 빨간 처치 표시). */
+    /** 적중 표시(kill 이면 빨간 처치 표시). 끝 틱은 셰이더 도장이라 클라 시계 어림(ClientClock)으로 찍는다. */
     public void hit(Player p, boolean kill) {
         if (p == null) return;
         View v = view(p.getUniqueId());
-        long end = game.worldTime() + HudSpec.HIT_TICKS;
+        long end = ClientClock.time(game.world) + HudSpec.HIT_TICKS;
         if (kill) v.killEnd = end;
         else v.hitEnd = end;
     }
@@ -1376,9 +1377,20 @@ public final class Hud {
     public void bossHit(Player p, boolean weak) {
         if (p == null) return;
         View v = view(p.getUniqueId());
-        long end = game.worldTime() + HudSpec.HIT_TICKS;
+        long end = ClientClock.time(game.world) + HudSpec.HIT_TICKS;
         if (weak) v.weakEnd = end;
         else v.immuneEnd = end;
+    }
+
+    /**
+     * 치명타 적중 표시: 보스 약점과 같은 금색 칸(C_WEAK, 칸 차례가 C_HIT, C_KILL 뒤). 같은 발로 처치 표시가 막 켜졌으면(끝 틱이 한 틱 안) 빨간 처치
+     * 표시를 덮지 않게 건너뜀. Game.crit 이 부른다.
+     */
+    public void crit(Player p) {
+        if (p == null) return;
+        View v = view(p.getUniqueId());
+        long end = ClientClock.time(game.world) + HudSpec.HIT_TICKS;
+        if (v.killEnd < end - 1) v.weakEnd = end;
     }
 
     private void pushAll(Notice n) {
