@@ -68,8 +68,8 @@ public final class BossDirector implements Director.BossHook {
         public static double CHARGE_BUFF = 1.15;
         /** 화남: 예상 시간의 몇 배. */
         public static double ENRAGE_AT = 2.2;
-        /** 보상: 25 x 웨이브 x 회차 배율 원, 엔딩 덤 원, 엔딩 뒤 쉬는 시간 틱. */
-        public static int REWARD_PER_WAVE = 25, ENDING_MONEY = 2000, ENDING_BREAK = 1200;
+        /** 보상: 45 x 웨이브 x 회차 배율 원, 엔딩 덤 원, 엔딩 뒤 쉬는 시간 틱(2026-11-14: 설정 moneyMul 1.7 을 녹여 25 → 45, 2000 → 3500). */
+        public static int REWARD_PER_WAVE = 45, ENDING_MONEY = 3500, ENDING_BREAK = 1200;
         /** 앞 쉬는 시간 끝 몇 틱 전부터 땅울림(세 번, 30틱 간격). */
         public static int PRE_RUMBLE = 100;
         /** 등장: 하늘이 어두워지는 틱(놓는 틱부터), 큰 그림자가 중앙 원에 드리우는 반지름(그림자는 등장 길이 동안 커지며 짙어짐), 쓸기 시험 기본 틱. */

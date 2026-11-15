@@ -132,7 +132,7 @@ public final class Gxx extends Gabe {
 - 피해 배율 훅(2026-11-11): `scale(key, Mobs.DamageScale)`, `unscale(key)`. `DamageScale.scale(Gabe 맞은것, Damage)` 가 돌려준 배율을 게이브가 받는 **모든** 피해(총 직격, 산탄, 저격, 수류탄, 폭발탄, 화염탄, 화염병, 연쇄)에 곱한다(건 차례대로, 0 이하는 0). 종류는 `d.type()`. 판이 바뀌어도 남으니 건 쪽이 판을 살펴 1 을 돌려주거나 뗀다. 본보기 G51Lesson(배운 종류 x0.7, 집계도 이 훅에서).
 - 쏠 수 있는 것(게이브 아님): `Mobs.Shootable`(`rayHit(o, dir, max)`, `shot(Damage)`, `center()`, `gone()`), `addShootable(s)`, `removeShootable(s)`. 총 광선이 게이브보다 먼저 닿으면 그것이 맞는다(`cast` 가 `Hit(s, ..)`, `damage` 가 `s.shot`). 수류탄 반경(`inRadius`)에는 안 든다. 진짜 보급 상자(10절)가 쓴다.
 - 기록: `contributions(g)`, `killedSpecies()`, `gazeTarget(g)`, `ruleSpeed(g)`, 카운터 `bites, gazes, mut1, mut2, splits`.
-- 죽음(onDeath): 보상을 피해 기여로 나눔(`Players.addMoney`), 처치한 사람 kills++, `Hud.hit(p, true)`, 판마다 종별 첫 처치 `Hud.firstKilled`. 그 뒤 붙잡힘 풀고 `Players.freeFrom(g)` 를 조건 없이, 죽음 소리(`gabe.gxx.die`), 사체(래그돌, 5.1절).
+- 죽음(onDeath): 보상을 지갑(`kr.gave.player.Wallet.kill`)에 넘김: 팀 몫 70% 는 판에 든 모두가 똑같이, 30% 는 때린 만큼, 둘 이상이 함께 잡으면 때린 사람들에게 +10%, 1초에 한 번 정산(소수 올림), 처치한 사람 kills++, `Hud.hit(p, true)`, 판마다 종별 첫 처치 `Hud.firstKilled`. 그 뒤 붙잡힘 풀고 `Players.freeFrom(g)` 를 조건 없이, 죽음 소리(`gabe.gxx.die`), 사체(래그돌, 5.1절).
 - Flow: `dir(at)`, `dist(x, z)`, `target(x, z)`, `floor(x, z)`, `walkable(x, z)`, `inGrid(x, z)`, `invalidate()`, `rescan()`(맵이 바뀌면). 상수 `STEP 0.6`(오르는 턱), `PERIOD 10`, `NEAR_BLOCKS 3`(마지막 3블록은 사람에게 직선).
 
 ### 5.1 사체(래그돌, `game.mobs.ragdoll` = `Ragdoll`, 명세 `docs/모듈/래그돌.md`)
@@ -173,7 +173,7 @@ public final class Gxx extends Gabe {
   - 웨이브 끝 정리(`noReward` 죽음 또는 쉬는 시간 첫 틱의 죽음)는 '살아남음'. 그래서 **G38, G52, G50 종은 noReward 를 켜지 말 것.**
 - 떼기 알림: 사람에게 붙는 종은 `Detachable.detached(victim, helper, how)` 를 구현(how = `escape`, `detach`, `release`. 나감, 붙인 개체 죽음도 release).
 - 돕기 차례(좌클릭, `help(p)`): 탈출 연타 → 일으키기(2.5블록, 3초 / reviveMul) → 떼기 `detach(helper, victim)` → 짜내기 → `game.mobs.helped(looked, p)` → 진짜 보급 상자 열기 `game.crates.tryOpen(p)` → `game.shop.helpOpen(p)`.
-- 아군 사격: `friendlyHit(shooter, victim)`(서 있으면 6틱 못 쏨, 쓰러졌으면 출혈 60틱 줄어듦). 재화: `addMoney(p, n)`(HUD +n 까지), `teamMoney(n)`, `spend(p, cost)`.
+- 아군 사격: `friendlyHit(shooter, victim)`(서 있으면 6틱 못 쏨, 쓰러졌으면 출혈 60틱 줄어듦). 재화: `addMoney(p, n)`(HUD +n 까지), `teamMoney(n)`, `spend(p, cost)`. 처치 돈 나누기 `players.wallet`: `kill(기여, 보상)`, `helped(도운 사람)`(일으키기, 짜내기, 떼기 수당 0.25U, 라운드에 여섯 번), `owe(낸 사람, 원)`(꺼내기에 낸 돈: 수리는 `PState.repairPaid` 를 읽음, 정산마다 팀 몫의 절반까지 먼저 갚음), `rate(사람, 처치 돈 배율, 팁 몫)`(AugRules 가 1초에 한 번), `joinGrant(PState)`. 시험 훅 `지갑 <이름|x>`, `지갑처치 <이름> <보상> [내 몫] [같이 때린 이름]`, `지갑값 x <TEAM|JOINT> <값>`, `지갑검사 x`.
 - 엎드린 척 종(G35)용 공개 부품: `Players.downedTag(name, sec, reviving)`, `TAG_UP 1.25`, `TAG_SCALE 0.8`, `RING_KIND`(= `ShotFx.DOWN_RING` 14, 2026-11-11), `RING_SCALE 2.4`, `RING_EVERY 6`. 바닥 고리는 늘 보이는 빨간 고리이고 남은 출혈만큼 호가 줄어든다(일으키는 중이면 초록): 아이템 `game.shotFx.downRing(남은몫 0..1, 일으키는중)` 을 6틱마다 다시 찍는다. `game.shotFx.fx("fx_flat", RING_KIND, 0)` 로 찍으면 가득 찬 빨간 고리(시간으로 지워지지 않음).
 - 다른 모듈은 `playerListName` 과 주 점수판 팀을 쓰지 않는다(Players 의 탭 색, 팀 `gave_downed`).
 - PState 써도 되는 칸: `attackMul`(사람별 공격력 배율, 총 직격에 곱함, 기본 1, 건 쪽이 되돌림: G49 축복용, 2026-11-11), `armor`, `moveMul`, `maxHp`, `bleedBonus`, `reviveMul`, `raincoat`, `grabPin`, `grabDetach`, `coverDetach`, `noLikeness`(참가자 이름, 스킨을 쓰는 종은 이 사람을 건너뜀). 나머지는 읽기만.

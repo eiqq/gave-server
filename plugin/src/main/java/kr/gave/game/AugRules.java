@@ -413,18 +413,11 @@ final class AugRules {
         } else if (s.life != Life.TRAPPED) r.trapTicks = 0;
         // ---- 느려짐, 묶임: 무쇠 다리
         if (has(p, Aug.B_IRON)) iron(s, r, now);
-        // ---- 돈이 바뀜: 상점에서 씀(단골, 구두쇠), 빚의 반값 벌이
+        // ---- 돈이 바뀜: 상점에서 씀(단골, 구두쇠). 빚의 반값 벌이는 처치 돈 배율(earnMul)로 지갑이 건다
         int delta = s.money - r.money;
-        if (r.money != Integer.MIN_VALUE && delta != 0) {
-            if (delta < 0 && game.shop.view(p) != null) spentNow(r, -delta);
-            else if (delta > 0 && r.debtRounds > 0) {
-                int cut = (int) Math.floor(delta * (1 - Aug.X_DEBT.n("earn", 0.5)));
-                if (cut > 0) {
-                    s.money -= cut;
-                    s.earned -= cut;
-                }
-            }
-        }
+        if (r.money != Integer.MIN_VALUE && delta < 0 && game.shop.view(p) != null) spentNow(r, -delta);
+        // ---- 처치 돈 배율(현상금, 얇은 피, 빚)과 팁 몫을 지갑에 알림(1초에 한 번)
+        if (now % kr.gave.player.Wallet.EVERY == 0) game.players.wallet.rate(s.id, earnMul(p, r), has(p, Aug.M_TIP) ? Aug.M_TIP.n("frac", 0.1) : 0);
         // ---- 탄약을 삼(돈이 줄고 탄이 늚): 나눠 쓰기
         if (delta < 0 && ammo > r.ammo && r.ammo >= 0 && has(p, Aug.M_SHARE)) share(p, in, l);
         r.money = s.money;
@@ -683,6 +676,14 @@ final class AugRules {
     }
 
     // ------------------------------------------------------------------ 돈
+
+    /** 처치 돈 배율(지갑이 팀 몫과 때린 몫에 곱함): 현상금 장마다 +10%, 얇은 피 +30%, 빚이 남은 동안 절반. */
+    private double earnMul(Player p, Run r) {
+        double k = 1 + 0.10 * A.count(p, Aug.BOUNTY);
+        if (has(p, Aug.X_BLEED)) k += Aug.X_BLEED.n("reward", 0.3);
+        if (r.debtRounds > 0) k *= Aug.X_DEBT.n("earn", 0.5);
+        return k;
+    }
 
     private void spentNow(Run r, int amount) {
         r.spentShop += amount;
@@ -1056,15 +1057,7 @@ final class AugRules {
             Guns.Spec sp = arms.spec(kind);
             if (sp != null) arms.mag[kind.ordinal()] = sp.mag();
         }
-        int reward = g.noReward ? 0 : g.reward;
-        if (reward > 0) {
-            if (has(p, Aug.M_TIP)) {
-                Player poor = null;
-                for (Player o : game.players.standing()) if (o != p && (poor == null || ps(o).money < ps(poor).money)) poor = o;
-                if (poor != null) game.players.addMoney(poor, (int) Math.max(1, Math.round(reward * Aug.M_TIP.n("frac", 0.1))));
-            }
-            if (has(p, Aug.X_BLEED)) game.players.addMoney(p, (int) Math.max(1, Math.round(reward * Aug.X_BLEED.n("reward", 0.3))));
-        }
+        // 팁, 얇은 피, 현상금의 돈은 지갑이 정산 때 준다(earnMul, Wallet.rate): 막타를 따지지 않는다
         a = Aug.E_SCRAP;
         if (elite(g) && has(p, a) && rnd.nextDouble() < a.n("chance", 0.2)) {
             if (rnd.nextBoolean() && game.guns.refillAll(p)) Props.sound(p, null, Sound.ITEM_ARMOR_EQUIP_IRON, 0.8f, 1f, 1.2f);

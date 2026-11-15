@@ -173,18 +173,35 @@ public final class Players implements Listener {
     }
 
     /**
-     * 돈 배율(설정 moneyMul, 기본 1.7: 2026-11-12 사용자 "돈을 지금 상태에서 70% 가량 더 많이"). 사람이 버는 모든 돈({@link #addMoney} 의 양수:
+     * 돈 배율(설정 moneyMul, 기본 1: 운영자 행사용. 2026-11-14 까지의 1.7 은 Director.Tune.REWARD_MUL 같은 바탕 값에 녹였다). 사람이 버는 모든 돈({@link #addMoney} 의 양수:
      * 처치, 보스, 라운드, 증강, 팀, 스테이지 보상)에 곱한다. 옮기기(돌려받기, 합류 몫, 시험)는 {@link #addMoneyRaw} 로 곱하지 않는다.
      */
-    public double moneyMul = 1.7;
+    public double moneyMul = 1.0;
+
+    /** 처치 보상 나누기와 정산(팀 몫, 때린 몫, 팀 일 수당, 따라잡기 몫). */
+    public final Wallet wallet;
 
     public Players(Game game) {
         this.game = game;
+        this.wallet = new Wallet(game);
         try {
-            double m = game.plugin.getConfig().getDouble("moneyMul", 1.7);
+            // 옛 돈 설정(assistMul 이나 roundMoneyMul 이 남은 파일)의 moneyMul 1.7 은 바탕 값에 녹였다: 한 번만 1 로 돌리고 두 키를 지워 저장한다
+            // (/gave 데미지 처럼 설정 파일에 남김. 두 키가 없어진 뒤 운영자가 바꾼 moneyMul 은 그대로)
+            var cfg = game.plugin.getConfig();
+            if (cfg.contains("assistMul", true) || cfg.contains("roundMoneyMul", true)) {
+                game.plugin.getLogger().info("[돈] 옛 돈 설정을 옮김: moneyMul " + cfg.get("moneyMul") + " 에서 1.0 으로, assistMul " + cfg.get("assistMul")
+                    + ", roundMoneyMul " + cfg.get("roundMoneyMul") + " 지움(2026-11-14 돈 구조: 옛 배율은 바탕 값에 녹였다)");
+                cfg.set("moneyMul", 1.0);
+                cfg.setComments("moneyMul", List.of("사람이 버는 모든 돈(처치, 보스, 라운드, 증강, 팀, 스테이지 보상)의 배율. 기본 1(운영자 행사용: 2 면 돈 두 배). 돌려받기, 사람끼리 옮기기에는 안 곱함.",
+                    "2026-11-14 돈 구조를 바꾸며 옛 값(moneyMul 1.7, assistMul 2.0, roundMoneyMul 2.0)은 바탕 값에 녹였다: 1.7 로 되돌리면 두 번 곱해진다"));
+                cfg.set("assistMul", null);
+                cfg.set("roundMoneyMul", null);
+                game.plugin.saveConfig();
+            }
+            double m = game.plugin.getConfig().getDouble("moneyMul", 1.0);
             if (m > 0 && !Double.isNaN(m) && !Double.isInfinite(m)) moneyMul = Math.min(100, m);
         } catch (RuntimeException e) {
-            moneyMul = 1.7;
+            moneyMul = 1.0;
         }
     }
 
@@ -284,6 +301,7 @@ public final class Players implements Listener {
         }
         if (!launches.isEmpty()) launchTick(now);
         if (now % 40 == 0) visibilityPass();
+        wallet.tick();
     }
 
     /** 판 상태가 바뀐 첫 틱: 웨이브 시작이면 기다리던 사람을 넣고, 쉬는 시간 시작이면 갇힌 사람을 상점 앞에 세운다. */
@@ -1177,6 +1195,7 @@ public final class Players implements Listener {
         Location up = ground(seat);
         teleportKeepLook(p, up);
         if (helper != null) get(helper).revives++;
+        wallet.helped(helper);
         Props.sound(up, null, Sound.BLOCK_AMETHYST_BLOCK_CHIME, 1f, 1.2f, 1f);
         log("일어남 " + p.getName() + " 도운 사람 " + (helper == null ? "-" : helper.getName()));
     }
@@ -1191,25 +1210,13 @@ public final class Players implements Listener {
         s.resumeHp = false;
         if (s.joinBonus) {
             s.joinBonus = false;
-            // 팀 평균에서 셈(이미 돈 배율이 든 값): 배율을 또 곱하지 않음
-            int b = teamAverage(s) / 2;
+            // 따라잡기 몫: 판에 든 다른 사람들의 판 누적 벌이 평균 x Wallet.JOIN(이미 번 돈에서 셈: 배율을 또 곱하지 않음)
+            int b = wallet.joinGrant(s);
             if (b > 0) addMoneyRaw(p, b);
         }
         if (game.guns.arms(p) == null) game.guns.equip(p);
         p.teleport(shopSpot());
         log("판에 듦 " + p.getName());
-    }
-
-    /** 판에 든 다른 사람들의 평균 재화. */
-    private int teamAverage(PState me) {
-        long sum = 0;
-        int n = 0;
-        for (PState o : states.values()) {
-            if (o == me || o == phantom || o.life == Life.LOBBY || o.life == Life.WAITING) continue;
-            sum += o.money;
-            n++;
-        }
-        return n == 0 ? 0 : (int) (sum / n);
     }
 
     private void toWaiting(Player p, PState s) {
@@ -1332,6 +1339,7 @@ public final class Players implements Listener {
         else {
             cure(t);
             cured(t, "squeeze");
+            wallet.helped(p);
             Props.sound(t.getLocation(), null, Sound.ENTITY_SLIME_SQUISH, 1f, 0.7f, 1f);
             log("짜냄 " + t.getName() + " 도운 사람 " + p.getName());
         }
@@ -1390,6 +1398,7 @@ public final class Players implements Listener {
         if (did) {
             Props.sound(victim.getLocation(), null, Sound.ENTITY_SLIME_SQUISH, 0.9f, 1f, 1f);
             log("떼어 냄 " + victim.getName() + " 도운 사람 " + (helper == null ? "-" : helper.getName()));
+            wallet.helped(helper);
         }
         return did;
     }
@@ -2744,6 +2753,7 @@ public final class Players implements Listener {
     public String test(Player p, String[] a) {
         if (a.length < 3) return null;
         String act = a[1];
+        if (act.startsWith("지갑")) return wallet.test(p, a);
         double n1 = num(a, 3), n2 = num(a, 4);
         switch (act) {
             case "판규칙" -> {

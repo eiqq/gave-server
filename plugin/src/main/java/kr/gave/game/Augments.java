@@ -1001,9 +1001,7 @@ public final class Augments implements GunHooks {
         double heal = 3 * count(shooter, Aug.LEECH) + (gun != null && gun.has(Gun.Trait.LIFESTEAL) ? Gun.LIFESTEAL_HP : 0);
         PState s = ps(shooter);
         if (heal > 0 && s.life == Life.ALIVE) game.players.heal(shooter, heal);
-        int bounty = count(shooter, Aug.BOUNTY);
-        if (bounty > 0 && target instanceof Gabe g && !g.noReward && g.reward > 0)
-            game.players.addMoney(shooter, (int) Math.max(1, Math.round(g.reward * 0.10 * bounty)));
+        // 현상금의 돈은 지갑이 준다(AugRules.earnMul: 버는 처치 돈 +10% x 장수)
     }
 
     @Override

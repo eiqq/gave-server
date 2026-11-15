@@ -196,7 +196,9 @@ public final class Director {
 
         // 보상: 감독이 낸 개체의 보상(종 기본값) x REWARD_MUL x (1 + REWARD_PER_WAVE x (웨이브 - 1)) x 무리 체력 배율^REWARD_CROWD(사람 수, 동시 수 넘침) x 넘침 보정.
         // 2026-11-12 파워커브: 1.4 → 0.95(수가 1.45배라 1인 벌이는 비슷), REWARD_CROWD 0.53(체력 지수 0.75 에서도 한 사람 벌이가 인원과 무관하게: 0.6 + 0.75 x 0.53 = 1)
-        public static double REWARD_MUL = 0.95, REWARD_PER_WAVE = 0.0, REWARD_CROWD = 0.53;
+        // 2026-11-14 돈 구조(build/audit/돈.md 안 B): 0.95 → 2.3. 설정 moneyMul 1.7 과 30명 판의 도움 배율(약 1.4)을 여기에 녹였다(설정 배율은 1 이 기본).
+        // 나누기는 kr.gave.player.Wallet(팀 몫 70% 는 모두 똑같이, 30% 는 때린 만큼, 함께 잡으면 +10%)
+        public static double REWARD_MUL = 2.3, REWARD_PER_WAVE = 0.0, REWARD_CROWD = 0.53;
 
         // 인원 비례: 총량은 접속자^UNITS_POW, 체력은 x 접속자^HP_POW(동시 수 상한에 걸린 몫도 체력으로). 사람 수와 무관하게 비슷하게(근거 tools/balance_sim.py)
         // 2026-11-11 0.45, 0.58 → 0.4, 0.45. 2026-11-12 → 0.6, 0.35: 30명 판이 웨이브마다 160 마리에 막혀 체력만 불었음(수는 많게, 한 마리는 덜 단단하게)

@@ -164,9 +164,8 @@ public final class StageRules {
 
     /** 모두에게 x U(서 있거나 쓰러진 사람). */
     private void money(double u) {
-        // 2026-11-13 사용자 '라운드 끝날 때 기본으로 얻는 돈도 2배쯤으로': 설정 roundMoneyMul(기본 2)
-        double k = Math.max(0, game.plugin.getConfig().getDouble("roundMoneyMul", 2.0));
-        int each = (int) Math.round(u * k * trip.unit() / 5.0) * 5, who = 0;
+        // 2026-11-14: 설정 roundMoneyMul(2)과 moneyMul(1.7)은 표 값(route.json effects 의 money)에 녹였다
+        int each = (int) Math.round(u * trip.unit() / 5.0) * 5, who = 0;
         if (each <= 0) return;
         for (Player p : game.players.inPlay()) {
             PState s = game.players.get(p);

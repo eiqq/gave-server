@@ -172,7 +172,9 @@ public final class Revive implements TripPart {
     public boolean bringBack(Player dead, Player payer) {
         if (!game.players.reviveAtTruck(dead, payer)) return false;
         pools.remove(dead.getUniqueId());
-        spent.remove(dead.getUniqueId());
+        // 꺼내기에 실제로 낸 돈은 팀이 갚는다(Wallet: 다음 정산부터 팀 몫에서 먼저)
+        Pool paid = spent.remove(dead.getUniqueId());
+        if (paid != null) for (Map.Entry<UUID, Integer> e : paid.payers().entrySet()) game.players.wallet.owe(e.getKey(), e.getValue());
         revivedCount++;
         game.augments.revived(dead, payer);
         game.hud.notice("trip_revived", 60);

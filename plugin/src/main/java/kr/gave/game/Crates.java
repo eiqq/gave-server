@@ -263,7 +263,7 @@ public final class Crates {
             }
         }
         if (got == null) {
-            int money = 30 + 6 * Math.max(1, game.wave);
+            int money = 50 + 10 * Math.max(1, game.wave);
             game.players.addMoney(p, money);
             got = money + "원";
         }

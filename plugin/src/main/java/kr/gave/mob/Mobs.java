@@ -1485,47 +1485,14 @@ public final class Mobs implements HitTargets {
         return queryAt != null && queryTick == game.now() ? queryAt : null;
     }
 
-    /** 보상을 피해 기여 비율로 나눠 줌(가장 큰 나머지 순으로 원 단위를 맞춤). 기여가 없으면 처치한 사람에게 모두. */
+    /**
+     * 보상 나누기는 지갑이 한다(kr.gave.player.Wallet: 팀 몫은 모두 똑같이, 나머지는 때린 만큼, 1초에 한 번 정산). 피해 기록이 없는데 처치한
+     * 사람이 있으면(피해 없이 바로 죽인 것) 그 사람이 다 때린 것으로 친다.
+     */
     private void payout(Gabe g, Damage d, int total) {
         Map<UUID, Double> c = g.contrib;
-        if (c == null || c.isEmpty()) {
-            if (d != null && d.by() != null && d.by().isOnline()) game.players.addMoney(d.by(), total);
-            return;
-        }
-        double sum = 0;
-        for (double v : c.values()) sum += v;
-        if (sum <= 0) return;
-        List<UUID> ids = new ArrayList<>(c.keySet());
-        int[] give = new int[ids.size()];
-        double[] frac = new double[ids.size()];
-        int given = 0;
-        for (int i = 0; i < ids.size(); i++) {
-            double share = total * c.get(ids.get(i)) / sum;
-            give[i] = (int) Math.floor(share);
-            frac[i] = share - give[i];
-            given += give[i];
-        }
-        for (int left = total - given; left > 0; left--) {
-            int best = 0;
-            for (int i = 1; i < frac.length; i++) if (frac[i] > frac[best]) best = i;
-            give[best]++;
-            frac[best] = -1;
-        }
-        // 2026-11-12 사용자 '어시스트 했을 때 얻는 돈도 늘려봐': 잡은 사람 몫은 그대로, 함께 때린 사람 몫은 assistMul 배(기본 2).
-        // 피해를 10% 넘게 준 사람은 몫이 0 원이어도 1 원은 받는다
-        double assistMul = Math.max(1.0, game.plugin.getConfig().getDouble("assistMul", 2.0));
-        UUID killer = d != null && d.by() != null ? d.by().getUniqueId() : null;
-        for (int i = 0; i < ids.size(); i++) {
-            if (ids.get(i).equals(killer)) continue;
-            double part = c.get(ids.get(i)) / sum;
-            int base = give[i] > 0 ? give[i] : part >= 0.1 ? 1 : 0;
-            give[i] = (int) Math.round(base * assistMul);
-        }
-        for (int i = 0; i < ids.size(); i++) {
-            if (give[i] <= 0) continue;
-            Player p = Bukkit.getPlayer(ids.get(i));
-            if (p != null && p.isOnline()) game.players.addMoney(p, give[i]);
-        }
+        if ((c == null || c.isEmpty()) && d != null && d.by() != null) c = Map.of(d.by().getUniqueId(), 1.0);
+        game.players.wallet.kill(c, total);
     }
 
     /** 이 개체에 사람별로 준 피해(읽기용 사본). */
