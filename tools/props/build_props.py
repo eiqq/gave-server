@@ -6,6 +6,7 @@ python -X utf8 tools/props/build_props.py
 도시 소품, 수류탄 상자는 뺐다. 입력 ref/mods/{timeless-and-classics-guns, just-enough-guns, tac-gear}/extracted 는 좀비런에서 복사해 왔다
 (jar 를 다시 받아 꺼내는 도구는 좀비런 tools/props/fetch_modrinth.py, extract_sources.py).
 """
+import hashlib
 import json
 import math
 import shutil
@@ -16,6 +17,7 @@ import imageio_ffmpeg
 import numpy as np
 from PIL import Image
 
+import arms_patch
 import vmodel as V
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -23,6 +25,8 @@ REF = ROOT / "ref/mods"
 OUT_FINAL = ROOT / "build/props/pack_layer"
 # 새로 만드는 동안은 옆 폴더에 쓰고 끝에 바꿔치기(다른 사람의 팩 묶기가 반쯤 지워진 층을 읽지 않게, 2026-11-12)
 OUT = ROOT / "build/props/pack_layer.new"
+# 플러그인 jar 에 들어가는 표. 층을 다른 자리에 시험 삼아 구울 때는 OUT_FINAL, OUT, A 와 이것을 그 자리로 돌려 놓고 main() 을 부른다
+PROPS_JSON = ROOT / "tools/props.json"
 NS = "gave"
 A = OUT / f"assets/{NS}"
 
@@ -246,6 +250,10 @@ def repack(faces, img, pad=1):
 
 
 REPACKED = {}
+# 화소가 똑같은 텍스처는 처음 쓴 것 하나만 두고 뒤의 모델은 그쪽을 가리킨다(2026-11-15: 같은 부품을 쓰는 총, 소음기 사본, 옛 다섯과
+# 쌍권총 사본이 같은 그림을 키마다 따로 넣어 아이템 아틀라스의 10% 가 사본이었다). (크기, RGBA 화소, mcmeta) 해시 → 텍스처 id
+DEDUP = True
+SAME_TEX = {}
 
 
 def finish_textures(key, elements, names=None, pack=True):
@@ -275,8 +283,14 @@ def finish_textures(key, elements, names=None, pack=True):
             img, did = repack(faces, img)
             if did:
                 REPACKED[f"{key}/{name}"] = (before, img.size)
-        put_png(f"assets/{NS}/textures/item/{key}/{name}.png", img)
         meta = Path(str(fp) + ".mcmeta")
+        if DEDUP:
+            h = hashlib.sha256(repr(img.size).encode() + img.convert("RGBA").tobytes() + (meta.read_bytes() if meta.is_file() else b"")).hexdigest()
+            if h in SAME_TEX:
+                textures[var] = SAME_TEX[h]
+                continue
+            SAME_TEX[h] = f"{NS}:item/{key}/{name}"
+        put_png(f"assets/{NS}/textures/item/{key}/{name}.png", img)
         if meta.is_file():  # 움직이는 텍스처(애니메이션 띠): 모드 mcmeta 를 바이트 그대로(2026-11-12, 새 무기 냉동총, 레일건)
             mp = OUT / f"assets/{NS}/textures/item/{key}/{name}.png.mcmeta"
             mp.write_bytes(meta.read_bytes())
@@ -459,6 +473,7 @@ def build_gun(key, spec):
         sc = V.transform(sc, 1.0, off)
         els += sc
     mag = parts([tac(spec["mag"])]) if spec.get("mag") else []
+    els, mag = arms_patch.apply(key, els, mag, tex_file, backface=False)  # 덧붙임 표(build_arms.build_arm 과 같음, TaC 라 판 뒷면은 안 채움)
     full = els + mag
     full, off = recenter(full)
     G = np.array(spec["G"], float) + off
@@ -584,7 +599,7 @@ LICENSE_FILES = {  # 파일 → 누구 몫. 하나라도 없으면 빌드를 멈
     "LICENSE-GPL-3.0.txt": "GNU General Public License 3.0 전문(https://www.gnu.org/licenses/gpl-3.0.txt 와 같은 바이트). [1] TaC 몫",
     "LICENSE-MIT-TAC-GEAR.txt": "MIT 전문, Copyright (c) GF2022. [2] TAC GEAR 몫(수류탄 소리)",
 }
-MODIFIED = "2026-11-12"  # 모드 에셋을 고친 날(수정 고지). 고치는 방식을 바꾸면 이 날짜도 바꿀 것(2026-11-12 wpn_max: 무기 모델 표 214 모델)
+MODIFIED = "2026-11-15"  # 모드 에셋을 고친 날(수정 고지). 고치는 방식을 바꾸면 이 날짜도 바꿀 것(2026-11-15 gunmodel: 덧붙임 표, 판 뒷면, 텍스처 사본 합치기)
 BY_NC_SA = "https://creativecommons.org/licenses/by-nc-sa/4.0/"
 CC0 = "https://creativecommons.org/publicdomain/zero/1.0/"
 CREDIT_GROUPS = [  # SOURCES 의 mod 앞머리 → CREDITS 절. 새 출처를 더하면 여기와 write_credits 에 절을 더할 것
@@ -687,6 +702,7 @@ def write_credits():
           "- 모델: 부품을 골라 합침, 크기 맞춤(26.3 좌표 범위 -16..32 안으로), 가운데와 앞 방향을 옮김, 표시 변환을 새로 적음,",
           "  26.3 이 못 굽는 그림 밖 uv 를 고침, 탄창 부품을 뺀 변종(*_nomag)을 더함. 팩을 묶을 때(tools/build_pack.py) 1인칭 몸짓용 사본",
           "  (models/item/kick/*)과 총구 불꽃 모델(muzzle_*)을 더함.",
+          "  일부 모델에서 부품을 빼거나 옮기고 같은 모델의 텍셀로 작은 요소를 더함, 한쪽 면 판에 뒷면을 채움, 같은 그림의 텍스처 사본을 하나로 합침.",
           "- 텍스처: 쓰는 조각만 모아 다시 배치(픽셀 그대로, 크기만 줄임).",
           "- 소리: 스테레오를 모노로 바꿈, 긴 꼬리와 앞 무음을 자름, libvorbis q7 다시 부호화(파일마다 [5]).",
           "- HUD(pack_src): 총, 수류탄 모델의 옆모습 실루엣을 만듦([4]).",
@@ -842,8 +858,7 @@ def write_props_json():
                           "call 이 있는 사건: Java(Props.sound, soundAround)는 바닐라 대체 소리에 맞춘 호출 pitch 를 모드 소리에도 곱하므로 "
                           "sounds.json pitch(entry_pitch) = final_pitch / 호출 pitch 로 되돌려 둠. Java 호출 pitch 를 바꾸면 build_more.py CALL 도 바꿀 것. "
                           "vanilla_reference 인 사건은 팩에 파일 없이 바닐라 소리를 가리킴(files 의 minecraft: 경로)"}
-    p = ROOT / "tools/props.json"
-    p.write_text(json.dumps(obj, ensure_ascii=False, indent=1), encoding="utf-8")
+    PROPS_JSON.write_text(json.dumps(obj, ensure_ascii=False, indent=1), encoding="utf-8")
 
 
 if __name__ == "__main__":
