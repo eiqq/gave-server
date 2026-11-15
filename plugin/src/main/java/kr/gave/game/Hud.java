@@ -410,9 +410,18 @@ public final class Hud {
         // 이동 연출(trip_route 의 Travel)은 다 검은 동안 screen.black, screen.line 을 내놓는다(검어지고 밝아지는 흐림은 Travel 이 제목 글로)
         String line = storyActive() ? storyLine() : tv.get("screen.line") instanceof String k ? k : null;
         boolean black = now < blackUntil || storyActive() || Boolean.TRUE.equals(tv.get("screen.black"));
-        if (line != null && hasPhrase(line)) s.set(STORY, phrase(new HudLine().at(-(phraseWidth(line) / 2)), line, WHITE));
+        // 인트로(kr.gave.trip.Story): screen.alt = 0.5초마다 잠깐 비치는 다른 줄(본 줄과 같은 왼쪽 끝에서 시작해 바뀐 글자만 어긋나 깜빡인다. 팔레트 효과라
+        // 다시 보내는 것이 없다), screen.cover = 검은 화면 위에 얹는 덮개 그림(맨 위 VL 칸: 글 위에 그려진다)
+        if (line != null && hasPhrase(line)) {
+            String altKey = tv.get("screen.alt") instanceof String ak && hasPhrase(ak) ? ak : null;
+            int x0 = -(phraseWidth(line) / 2);
+            HudLine l = phrase(new HudLine().at(x0), line, altKey == null ? WHITE : ANTI_FLASH);
+            if (altKey != null) phrase(l.at(x0), altKey, FLASH);
+            s.set(STORY, l);
+        }
         if (black && hasCover("black")) {
             drawCover("black", s);
+            if (tv.get("screen.cover") instanceof String ck && hasCover(ck) && VL.length > 0 && VL[0] >= 0) drawCover(ck, s, VL, WHITE);
             // 원정 엔딩 크레딧(trip_launch: Launch 의 hud 값 credits.lines = 지금 쪽 이름 줄, 위에서 아래로): 검은 화면 가운데 칸 넷에 바닐라 글자로
             if (tv.get("credits.lines") instanceof List<?> cl) {
                 int[] rows = {BS_TITLE, BS_SUB, END_NUM, STORY};
