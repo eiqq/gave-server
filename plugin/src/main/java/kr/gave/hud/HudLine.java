@@ -11,8 +11,8 @@ import java.util.Map;
  * 글리프 세로 자리는 글리프마다 정해져 있다(make_hud.py 의 높이, ascent).
  */
 public final class HudLine {
-    /** 글꼴: 바닐라 글자 1배, 2배, HUD 그림과 모양(펜 이동 포함) */
-    public static final int S = 0, M = 1, HUD = 2;
+    /** 글꼴: 글자 1배, 2배(숫자만 HUD 숫자 그림, 나머지는 바닐라), 이름(바닐라 1배 그대로, 폭은 S 와 같음), HUD 그림과 모양(펜 이동 포함) */
+    public static final int S = 0, M = 1, N = 2, HUD = 3;
 
     /** 조각 하나. b 는 표시 색 B(0 이면 펜 이동, 색 없음), g 는 팔레트 또는 채움, 시간 */
     record Piece(int font, String text, int g, int b, boolean shadow) {
@@ -24,15 +24,15 @@ public final class HudLine {
     // ------------------------------------------------------------------ 표
 
     private static final Map<String, Integer> IMG = new HashMap<>(), SHAPE = new HashMap<>(), SLOT = new HashMap<>(), PAL = new HashMap<>();
-    private static final int[][] ADV = new int[2][0x80];
+    private static final int[][] ADV = new int[3][0x80];
 
     static {
         for (int i = 0; i < HudSpec.IMAGES.length; i++) IMG.put(HudSpec.IMAGES[i], i);
         for (int i = 0; i < HudSpec.SHAPES.length; i++) SHAPE.put(HudSpec.SHAPES[i], i);
         for (int i = 0; i < HudSpec.SLOTS.length; i++) SLOT.put(HudSpec.SLOTS[i], i);
         for (int i = 0; i < HudSpec.PALETTE.length; i++) PAL.put(HudSpec.PALETTE[i], i);
-        String[] adv = {HudSpec.ADV_S, HudSpec.ADV_M};
-        for (int f = 0; f < 2; f++)
+        String[] adv = {HudSpec.ADV_S, HudSpec.ADV_M, HudSpec.ADV_N};
+        for (int f = 0; f < adv.length; f++)
             for (int c = 0x20; c < 0x7F; c++) ADV[f][c] = adv[f].charAt(c - 0x20) - 0x1000;
     }
 
@@ -111,7 +111,7 @@ public final class HudLine {
     }
 
     /**
-     * 폭 w 의 단색 네모(kind = strike, panel, band, uline, plate: tools/make_hud.py RECTS)를 2^k 조각으로 이어 pal 색으로.
+     * 폭 w 의 단색 네모(kind = strike, panel, band, uline, plate, sub: tools/make_hud.py RECTS)를 2^k 조각으로 이어 pal 색으로.
      * 조각은 셰이더 단색 모양(G = 팔레트, 가장 가까운 텍셀)이라 이음매에 틈이 없다. 모양이 없으면 같은 이름 그림 글리프로
      */
     public HudLine rect(String kind, int w, int pal) {

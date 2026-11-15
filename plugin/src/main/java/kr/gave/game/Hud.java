@@ -427,7 +427,7 @@ public final class Hud {
                 int[] rows = {BS_TITLE, BS_SUB, END_NUM, STORY};
                 for (int i = 0; i < cl.size() && i < rows.length; i++) {
                     String t = String.valueOf(cl.get(i));
-                    s.set(rows[i], new HudLine().at(-(HudLine.width(HudLine.S, t) / 2)).text(HudLine.S, t, WHITE));
+                    s.set(rows[i], new HudLine().at(-(HudLine.width(HudLine.N, t) / 2)).text(HudLine.N, t, WHITE));
                 }
             }
             return;
@@ -654,12 +654,12 @@ public final class Hud {
                 case WAITING -> GHOST;
                 default -> grabbed ? PURPLE_BLINK : self ? GOLD : blink ? WHITE_BLINK : WHITE;
             };
-            int w = HudLine.width(HudLine.S, name);
-            HudLine l = new HudLine().text(HudLine.S, name, pal);
+            int w = HudLine.width(HudLine.N, name);
+            HudLine l = new HudLine().text(HudLine.N, name, pal);
             if (life == Life.DEAD && game.trip.paidRevive() && x != null) {
                 // 원정: 죽은 사람은 게이브가 되었다(이름 흐림 + 그 게이브 아이콘, '살려 달라' 신호 3초 동안 깜빡)
                 boolean calling = now - x.callAt < 60;
-                l = new HudLine().text(HudLine.S, name, calling ? WHITE_BLINK : DIM).at(w + 2).img(icon("s", x.deathResult != null ? x.deathResult : Species.G38), calling ? WHITE_BLINK : IMG_DIM);
+                l = new HudLine().text(HudLine.N, name, calling ? WHITE_BLINK : DIM).at(w + 2).img(icon("s", x.deathResult != null ? x.deathResult : Species.G38), calling ? WHITE_BLINK : IMG_DIM);
             } else if (life == Life.DEAD) l.at(-1).rect("strike", w, STRIKE);
             if (life == Life.TRAPPED && x != null && x.eater != null) l.at(w + 2).img(icon("s", x.eater.sp), WHITE);
             s.set(TM[i], l);
@@ -963,7 +963,7 @@ public final class Hud {
     /** 아이콘 인자: 종 키(g05 → 그 크기 아이콘) 또는 그림 이름. 없으면 null */
     private static String iconImage(String key, String size) {
         if (key == null) return null;
-        Species sp = key.length() == 3 && key.charAt(0) == 'g' ? Species.of(key) : null;
+        Species sp = key.length() >= 3 && key.length() <= 4 && key.charAt(0) == 'g' ? Species.of(key) : null;
         // 보스 키(b1 .. b5): 그 보스 아이콘, 없으면 공용 보스 그림
         if (sp == null && key.length() == 2 && key.charAt(0) == 'b' && Character.isDigit(key.charAt(1))) {
             Species b = Species.of(key);
@@ -1266,12 +1266,14 @@ public final class Hud {
         String ic = tv.get("goal.icon") instanceof String i && HudLine.has(i) ? i : null;
         int iw = ic == null ? 0 : HudLine.ink(ic), pw = phraseWidth(name);
         int w = (iw > 0 ? iw + 4 : 0) + pw, x0 = -(w / 2);
-        HudLine l = new HudLine().at(x0 - 5).rect("band", w + 10, PANEL);
+        String ln = tv.get("round.line") instanceof String t && hasPhrase(t) && NT_LOW >= 0 ? t : null;
+        // 한 줄이 있으면 띠 바로 아래 판(sub)에 얹어 한 장으로: 판 없이는 트럭 지붕 막대(월드 글 표시) 같은 뒤 그림과 겹쳐 안 읽혔다
+        int lw = ln == null ? 0 : phraseWidth(ln), cw = Math.max(w, lw), c0 = -(cw / 2);
+        HudLine l = new HudLine().at(c0 - 5).rect("band", cw + 10, PANEL);
         if (ic != null) l.at(x0).img(ic, GOLD);
         phrase(l.at(x0 + (iw > 0 ? iw + 4 : 0)), name, WHITE);
         s.set(NT, l);
-        if (tv.get("round.line") instanceof String ln && hasPhrase(ln) && NT_LOW >= 0)
-            s.set(NT_LOW, phrase(new HudLine().at(-(phraseWidth(ln) / 2)), ln, GRAY));
+        if (ln != null) s.set(NT_LOW, phrase(new HudLine().at(c0 - 5).rect("sub", cw + 10, PANEL).at(-(lw / 2)), ln, GRAY));
     }
 
     /**

@@ -19,7 +19,7 @@ import net.kyori.adventure.text.format.TextColor;
  */
 public final class HudScreen {
     public static final int SLOTS = HudSpec.SLOTS.length;
-    private static final Key[] FONTS = {Key.key(HudSpec.FONT_S), Key.key(HudSpec.FONT_M), Key.key(HudSpec.FONT_HUD)};
+    private static final Key[] FONTS = {Key.key(HudSpec.FONT_S), Key.key(HudSpec.FONT_M), Key.key(HudSpec.FONT_N), Key.key(HudSpec.FONT_HUD)};
 
     private final BossBar bar = BossBar.bossBar(Component.empty(), 0f, BossBar.Color.WHITE, BossBar.Overlay.PROGRESS);
     private final HudLine[] lines = new HudLine[SLOTS];
