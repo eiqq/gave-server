@@ -29,20 +29,22 @@
 
 - 자바 25. 도구는 `~/.jdks/temurin-25/bin` 을 쓴다(`tools/build_plugin.sh`, `tools/compile_wip.py`). 다른 곳에 깔았으면 그 줄을 고치거나 그 자리에 연결한다.
 - Paper 26.3-231 을 `runtime/paper.jar` 에 두고 한 번 켠다(`runtime/libraries`, `runtime/versions` 가 플러그인 컴파일 클래스패스). 서버 꾸러미의 `paper.jar` 와 같다.
-- 파이썬 3 + Pillow, numpy, imageio-ffmpeg
-- 26.3 클라 jar `%APPDATA%/.minecraft/versions/26.3/26.3.jar`(공식 런처로 한 번 켬), 바닐라 셰이더 원본 `~/.cache/mc-shader-vanilla/26.3/assets/minecraft/shaders/core`(그 jar 에서 꺼냄)
-- 셰이더 검사기 `~/.claude/skills/minecraft-shader/scripts/check_shaders.py` 는 만든 사람 PC 의 도구라 저장소에 없다. 없으면 `--skip shaders` 로 빼고 게임 안에서 `latest.log` 로 본다.
-- 팩을 다시 만들려면 `ref/` 원본(아래)
+- 파이썬 3 + Pillow 11.1.0, numpy, imageio-ffmpeg. Pillow 는 11.1.0 이어야 팩 PNG 바이트가 릴리스와 같다(12.x 는 화소는 같고 압축 바이트와 도형 가장자리 몇 화소가 달라 팩 sha1 이 바뀐다). 다른 판이 깔려 있으면 `python -m venv` 로 따로 만들어 `pip install pillow==11.1.0 numpy imageio-ffmpeg` 하고 팩 생성기를 그 파이썬으로 돌린다
+- 26.3 클라 jar `%APPDATA%/.minecraft/versions/26.3/26.3.jar`(공식 런처로 한 번 켬). 다른 자리면 환경 변수 `GV_CLIENT_JAR` 로 알려 준다(찾는 차례는 `tools/mcjar.py`). 바닐라 셰이더 원본 `~/.cache/mc-shader-vanilla/26.3/assets/minecraft/shaders/core` 는 `python -I -X utf8 tools/fetch_ref.py shaders` 가 그 jar 에서 꺼낸다
+- 셰이더 검사기 `~/.claude/skills/minecraft-shader/scripts/check_shaders.py` 는 만든 사람 PC 의 도구라 저장소에 없다. 없으면 `tools/shader_check.py` 가 대신한다(gradle 캐시의 LWJGL shaderc 로 게임과 같은 옵션 컴파일, 그것도 없으면 건너뜀). 셰이더를 고쳤으면 게임 안 `latest.log` 도 본다.
+- 팩을 다시 만들려면 `ref/` 원본(아래 'ref 다시 받기', 대부분 `python -I -X utf8 tools/fetch_ref.py`)
 
 순서(명령은 모두 저장소 맨 위에서):
 
 1. `python -I -X utf8 tools/make_trip.py`: 원정 층(트럭, 우주선, 표지판) `build/trip/pack_layer`. `build_all.py` 단계에 없으니 처음과 원정 소품을 바꿨을 때 먼저 돌린다(없으면 팩에서 빠짐).
-2. `python -X utf8 tools/build_all.py`: props → pack_src → fx → gabe → director → bgm → hud → hud_promote → pack → shaders → layer → dex → real → parity → plugin. 결과 `build/Gave-pack.zip`, `build/Gave-sound.zip`, `build/Gave.jar`. 실패하면 그 단계에서 멈추고, 고친 뒤 `--from <단계>`. `--skip`, `--list`.
+2. `python -X utf8 tools/build_all.py`: props → gcb → pack_src → shop_ui → fx → gabe → director → bgm → hud → hud_promote → pack → shaders → layer → dex → real → parity → plugin. 결과 `build/Gave-pack.zip`, `build/Gave-sound.zip`, `build/Gave.jar`. 실패하면 그 단계에서 멈추고, 고친 뒤 `--from <단계>`. `--skip`, `--list`.
 3. 플러그인만 고칠 때는 `ref/` 없이 `bash tools/build_plugin.sh` 만으로 된다. 팩은 gave-pack 릴리스의 두 zip 을 `build/` 에 둔다(플러그인이 팩 안 `music.json`, `gabe_looks.json` 을 읽으므로 팩이 꼭 있어야 함).
 
 시험: `python -X utf8 tools/ingame.py --name <영역> --scenario tools/scenarios/<대본>.json`(시험 서버를 켜고 시험 클라로 대본을 돈 뒤 끔). 따로 컴파일은 `python -X utf8 tools/compile_wip.py --name <영역> [--promote]`. 포트와 잠금은 `docs/운영.md` '시험 도구'.
 
 ## ref 다시 받기
+
+대부분은 `python -I -X utf8 tools/fetch_ref.py [mods] [sfx] [bgm] [skin] [shaders]` 가 아래 기록(`_info.json`)의 주소에서 받아 해시를 맞추고 생성기가 읽는 자리에 꺼낸다(이미 있고 해시가 맞으면 다시 받지 않음). 못 받은 것은 `build/pipeline/dl/사람이_받을_것.txt` 에 남는다. AI 에이전트의 접근을 막은 곳(opengameart.org, kenney.nl)은 사람이 받는다: opengameart 는 사람이 자기 터미널에서 `--person` 을 붙여 돌리고, kenney 는 브라우저로 받아 `build/pipeline/dl/` 아래에 둔다(그 도구 머리 주석).
 
 | 자리 | 쓰는 도구 | 다시 받는 길 |
 |---|---|---|
@@ -53,6 +55,7 @@
 | `ref/sfx/<묶음>` | `tools/gabe/audio.py`, `make_director_sounds.py`, `make_bgm.py`, `props/build_more.py` | `docs/소리출처.md` 표(글 페이지, 라이선스, sha256)와 묶음마다 `_info.json`(받은 주소, 파일 sha256). 받는 스크립트는 없고 손으로 받아 소리 파일만 꺼낸다. 목록 `data/sfx_lib.json` 은 `python -X utf8 tools/gabe/audio.py lib` 가 다시 쓴다 |
 | `ref/bgm/incompetech`, `ref/bgm/oga` | `tools/make_bgm.py` | `docs/브금출처.md`(곡 페이지), `ref/bgm/_info.json`(sha256) |
 | `ref/_Gave_skin.png` | `tools/gabe/faces.py` | 마인크래프트 플레이어 `_Gave` 의 64x64 공개 스킨 |
+| `ref/gcb/extracted` | `tools/props/build_gcb.py` | 공개 주소 없음. 다른 서버(GCB)의 리소스팩 폴더가 있으면 `python -I -X utf8 tools/props/gcb_import.py <그 폴더>`, 없으면 그 서버 운영자에게서 `ref/gcb/extracted`(파일 6개, `_info.json` 의 sha256)를 받는다. 없어도 빌드는 되고 그 총 셋(마스티프, 렘페이지, 볼트 피스톨)만 빠진다 |
 
 `docs/소품출처.md` 는 이 저장소에 없다(좀비런 프로젝트 문서). 모드 소품의 출처와 라이선스는 `ref/mods/*/_info.json` 과 팩 `CREDITS.txt`(`tools/props/build_props.py` 의 `write_credits` 가 씀)에 있다.
 
