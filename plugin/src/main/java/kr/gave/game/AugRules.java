@@ -109,9 +109,11 @@ final class AugRules {
     private Game.State lastState = Game.State.LOBBY;
     private boolean halfDown;
     private long speakerUntil = -1;
-    /** 지금 맞힘의 문맥(Mobs.scale 훅이 적음): 무엇으로, 피해 종류 */
-    private String ctxHow;
-    private DamageType ctxType;
+    /**
+     * 이번 틱에 맞은 개체 → 그 피해(Mobs.scale 훅이 적음: 무엇으로, 피해 종류). 개체마다 따로 둔다: 전역 한 칸이면 맞은 개체가 죽으면서 둘레
+     * 개체에 준 피해(G05 의 즙)가 그 칸을 덮어, 그 처치에서 무기 조건(탄 돌려받기, 난사)이 빠진다
+     */
+    private final Map<Gabe, Damage> ctx = new java.util.IdentityHashMap<>();
     private long warnAt = -1000;
     String lastLog = "없음";
     int booms, corpseBooms, turretShots, hornBlasts, shatters, wallPatches, lures;
@@ -165,6 +167,7 @@ final class AugRules {
 
     void clear() {
         runs.clear();
+        ctx.clear();
         marks.clear();
         patches.clear();
         faces.clear();
@@ -187,11 +190,26 @@ final class AugRules {
         return g.sp.is(Role.ELITE) || g.sp.is(Role.TANK) || g.sp.is(Role.BOSS);
     }
 
-    /** 재화를 줌(빚의 반값 벌이에 걸리지 않게 지난 값을 맞춤) */
+    /** 재화를 줌(빚의 반값 벌이에 걸리지 않게 지난 값을 준 만큼 옮김: 같은 틱의 처치 벌이는 그대로 셈에 남는다) */
     private void grant(Player p, int amount) {
         if (amount <= 0) return;
+        int before = ps(p).money;
         game.players.addMoney(p, amount);
-        run(p).money = ps(p).money;
+        moved(p.getUniqueId(), ps(p).money - before);
+    }
+
+    /** 벌이가 아닌 돈 옮김(돌려받기, 합류 몫): 지난 틱 값을 같이 옮겨 빚의 반값 벌이와 '상점에서 씀' 셈에 안 걸리게 한다 */
+    void moved(UUID id, int amount) {
+        Run r = runs.get(id);
+        if (r != null && r.money != Integer.MIN_VALUE) r.money += amount;
+    }
+
+    /** 낸 돈을 돌려받음(꺼내기 모금이 쉬는 시간 공짜 부활로 풀림): 물주(낸 돈의 몫), 단골(쓴 돈의 몫)의 셈에서 뺀다 */
+    void refunded(UUID id, String what, int amount) {
+        Run r = runs.get(id);
+        if (r == null) return;
+        if ("repair".equals(what) || "revive".equals(what)) r.paidOthers = Math.max(0, r.paidOthers - amount);
+        r.spentShop = Math.max(0, r.spentShop - amount);
     }
 
     private Mark mark(Gabe g) {
@@ -233,8 +251,7 @@ final class AugRules {
 
     /** Mobs.scale 훅: 게이브가 받는 모든 피해에 곱함(표식, 지목, 낙인). 맞힘 문맥도 여기서 적는다 */
     double scale(Gabe g, Damage d) {
-        ctxHow = d.how();
-        ctxType = d.type();
+        ctx.put(g, d);
         if (marks.isEmpty()) return 1;
         Mark m = marks.get(g);
         if (m == null) return 1;
@@ -268,6 +285,7 @@ final class AugRules {
     void tick() {
         Game.State st = game.state;
         long now = game.now();
+        ctx.clear();
         if (st == Game.State.LOBBY) {
             lastState = st;
             if (!marks.isEmpty()) marks.clear();
@@ -385,7 +403,8 @@ final class AugRules {
             if (has(p, Aug.B_SLIP) && r.trapTicks >= Aug.B_SLIP.n("ticks", 120) && now >= r.slipReady) {
                 r.slipReady = now + (long) Aug.B_SLIP.n("cd", 1200);
                 lastLog = "미끄러운 몸 " + p.getName();
-                game.players.freeFrom(s.eater);
+                // 본인만 빠져나온다(freeFrom 은 그 개체가 잡힌 것으로 쳐 같이 갇힌 사람도 풀고, 보상 없는 개체면 원정에서 죽음으로 친다)
+                game.players.free(p);
             } else if (has(p, Aug.D_ESCAPE) && r.trapTicks >= Aug.D_ESCAPE.n("after", 240) && r.trapTicks % 20 == 0) {
                 Gabe e = s.eater;
                 game.mobs.damage(e, new Damage(e.maxHp * Aug.D_ESCAPE.n("dps", 0.08), DamageType.OTHER, p, e.pos.clone(), new Vector(0, 1, 0), "aug_escape", 0));
@@ -459,6 +478,8 @@ final class AugRules {
 
     private void lifeChanged(Player p, PState s, Run r, Life from, long now) {
         Life to = s.life;
+        // 내기: 쓰러지지 않고 바로 먹힌 라운드도 진 것으로
+        if (to == Life.TRAPPED && from == Life.ALIVE) r.downRound = true;
         if (to == Life.DOWNED && from == Life.ALIVE) {
             r.downRound = true;
             if (s.lastBy != null && has(p, Aug.D_GRUDGE)) r.grudge.add(s.lastBy);
@@ -948,7 +969,8 @@ final class AugRules {
         if (s.augs.isEmpty()) return;
         Run r = run(p);
         long now = game.now();
-        String how = ctxHow;
+        Damage hit = ctx.get(g);
+        String how = hit == null ? null : hit.how();
         Guns.Kind kind = how == null ? null : KIND_BY_KEY.get(how);
         Guns.Arms arms = game.guns.arms(p);
         Aug a;
@@ -1004,15 +1026,6 @@ final class AugRules {
         a = Aug.K_FEAR;
         if (elite(g) && has(p, a)) fear(p, g, a);
         if (has(p, Aug.K_HASTE)) r.hasteUntil = now + (long) Aug.K_HASTE.n("ticks", 60);
-        // 낙인이 찍힌 채 죽으면 곁의 다른 게이브로 옮겨 감
-        Mark m = marks.get(g);
-        if (m != null && now < m.brandUntil) {
-            Gabe next = game.mobs.nearest(g.pos, Aug.K_MARK.n("r", 5), x -> x != g && !x.dead);
-            if (next != null) {
-                brand(next, m.brandBy, (int) Aug.K_MARK.n("ticks", 120), m.brandAmp);
-                game.shotFx.streak(g.loc(), next.loc());
-            }
-        }
         a = Aug.W_FREEZE_SHATTER;
         if (game.guns.chilledOn(g) && has(p, a)) {
             shatters++;
@@ -1029,7 +1042,7 @@ final class AugRules {
             }
         }
         a = Aug.W_FLAME_OIL;
-        if ((ctxType == DamageType.FIRE || game.guns.burningOn(g)) && has(p, a)) {
+        if ((hit != null && hit.type() == DamageType.FIRE || game.guns.burningOn(g)) && has(p, a)) {
             Gabe next = game.mobs.nearest(g.pos, a.n("r", 3), x -> x != g && !x.dead && !game.guns.burningOn(x));
             if (next != null) {
                 Guns.Spec fl = game.guns.spec(p, Guns.Kind.FLAME);
@@ -1082,11 +1095,17 @@ final class AugRules {
 
     private void marksTick(long now) {
         if (marks.isEmpty() && faces.isEmpty()) return;
+        List<Map.Entry<Gabe, Mark>> jumped = null;
         for (Iterator<Map.Entry<Gabe, Mark>> it = marks.entrySet().iterator(); it.hasNext();) {
             Map.Entry<Gabe, Mark> e = it.next();
             Gabe g = e.getKey();
             Mark m = e.getValue();
             if (g.dead || g.removed) {
+                // 낙인이 찍힌 채 잡혔으면(치워진 것은 빼고) 아래에서 곁으로 옮긴다
+                if (!g.removed && now < m.brandUntil) {
+                    if (jumped == null) jumped = new ArrayList<>();
+                    jumped.add(Map.entry(g, m));
+                }
                 it.remove();
                 continue;
             }
@@ -1107,6 +1126,15 @@ final class AugRules {
                 }
             }
             if (!live) it.remove();
+        }
+        // 낙인이 찍힌 채 죽으면 곁의 다른 게이브로 옮겨 감. 맞힘 고리(onHit)가 아니라 여기서 한다: 누가 무엇으로 잡았든(증강 없는 동료,
+        // 지붕 기관총, 수류탄, 불 벽) 옮겨 가게. 죽은 다음 틱 맨 앞이라 한 틱 늦다
+        if (jumped != null) for (Map.Entry<Gabe, Mark> e : jumped) {
+            Gabe g = e.getKey();
+            Gabe next = game.mobs.nearest(g.pos, Aug.K_MARK.n("r", 5), x -> x != g && !x.dead);
+            if (next == null) continue;
+            brand(next, e.getValue().brandBy, (int) Aug.K_MARK.n("ticks", 120), e.getValue().brandAmp);
+            game.shotFx.streak(g.loc(), next.loc());
         }
         if (!faces.isEmpty() && now % 40 == 0) faces.keySet().removeIf(g -> g.dead || g.removed);
     }

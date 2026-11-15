@@ -54,6 +54,8 @@ public final class Revive implements TripPart {
     public final Game game;
     public final Trip trip;
     private final Map<UUID, Pool> pools = new HashMap<>();
+    /** 죽은 사람 → 낸 사람마다 실제로 낸 돈(몸값 증강이면 모금에 든 값보다 적다). 돌려줄 때는 모금이 아니라 이것만큼({@link #refund}). */
+    private final Map<UUID, Pool> spent = new HashMap<>();
     private boolean ruleShown;
     private int revivedCount, deathCount;
     private String lastLog = "없음";
@@ -133,9 +135,12 @@ public final class Revive implements TripPart {
      * 모금 한 번 누름: payer 가 dead 를 꺼내는 값의 1 / REVIVE_PARTS 를 냄. 모금이 차면 dead 가 트럭에서 내린다. 돌려주는 값: 낸 돈(못 냈으면 0).
      */
     public int press(Player payer, Player dead) {
-        if (!canPay(payer) || dead == null || dead == payer) return fail("낼 수 없음");
+        if (!canPay(payer) || dead == null || dead.getUniqueId().equals(payer.getUniqueId())) return fail("낼 수 없음");
+        // 상점 칸은 그린 순간의 Player 를 쥐고 있다: 그사이 나갔으면 거절하고(돈이 묶이고, 다 차면 오프라인 상태가 서 버림), 다시 들어왔으면 지금 그 사람으로
+        dead = Bukkit.getPlayer(dead.getUniqueId());
+        if (dead == null) return fail("나간 사람");
         PState s = game.players.get(dead);
-        if (s.life != Life.DEAD) return fail("죽은 사람이 아님");
+        if (s.life != Life.DEAD || s.offline) return fail("죽은 사람이 아님");
         PState ps = game.players.get(payer);
         Pool pool = pool(s.id);
         int price = price(s), step = pool.step(price, (int) Trip.Tune.REVIVE_PARTS);
@@ -147,6 +152,7 @@ public final class Revive implements TripPart {
             }
             if (!game.players.spend(payer, cost)) game.players.addMoney(payer, -cost);
             pool.add(payer.getUniqueId(), step);
+            spent.computeIfAbsent(s.id, k -> new Pool()).add(payer.getUniqueId(), cost);
             ps.revivePaid += cost;
             game.augments.paid(payer, "revive", cost);
             s.revivePool = pool.total();
@@ -166,6 +172,7 @@ public final class Revive implements TripPart {
     public boolean bringBack(Player dead, Player payer) {
         if (!game.players.reviveAtTruck(dead, payer)) return false;
         pools.remove(dead.getUniqueId());
+        spent.remove(dead.getUniqueId());
         revivedCount++;
         game.augments.revived(dead, payer);
         game.hud.notice("trip_revived", 60);
@@ -179,22 +186,35 @@ public final class Revive implements TripPart {
     }
 
     /**
-     * 쉬는 시간 공짜 부활로 돌아옴(Players.reviveFree 가 부름): 그 사람 모금에 이미 낸 돈을 낸 사람마다 돌려준다(옮기기라 돈 배율 없음), 모금을 지운다.
+     * 쉬는 시간 공짜 부활로 돌아옴(Players.reviveFree 가 부름): 그 사람 모금에 이미 낸 돈을 낸 사람마다 돌려주고 모금을 지운다({@link #refund}).
      * 꺼낸 횟수, 낸 사람의 꺼냄 기록, 증강 '꺼내짐' 효과는 세지 않는다(돈 내고 꺼낸 것이 아님).
      */
     public void freed(Player p) {
-        Pool pool = pools.remove(p.getUniqueId());
-        if (pool == null || pool.total() <= 0) return;
+        int back = refund(p.getUniqueId());
+        if (back > 0) trip.log("쉬는 시간 부활 " + p.getName() + " 모금 돌려줌 " + back + "원");
+    }
+
+    /**
+     * 이 죽은 사람의 모금을 지우고, 낸 사람마다 실제로 낸 돈(몸값이면 모금에 든 값보다 적다)을 돌려준다. 옮기기라 돈 배율이 없고, 낸 사람이
+     * 나가 있어도 판 상태에 더한다. 낸 돈으로 세던 것(꺼냄 기록, 증강 물주와 단골의 셈)에서도 뺀다. 쉬는 시간 공짜 부활({@link #freed}),
+     * 죽은 사람이 나감(Players.forget), 새 죽음에서 부른다. 돌려주는 값: 돌려준 돈의 합.
+     */
+    public int refund(UUID dead) {
+        pools.remove(dead);
+        Pool paid = spent.remove(dead);
+        if (paid == null) return 0;
         int back = 0;
-        for (Map.Entry<UUID, Integer> e : pool.payers().entrySet()) {
-            Player payer = Bukkit.getPlayer(e.getKey());
-            if (payer == null || e.getValue() <= 0) continue;
-            game.players.addMoneyRaw(payer, e.getValue());
-            PState ps = game.players.get(payer);
-            ps.revivePaid = Math.max(0, ps.revivePaid - e.getValue());
-            back += e.getValue();
+        for (Map.Entry<UUID, Integer> e : paid.payers().entrySet()) {
+            int v = e.getValue();
+            if (v <= 0 || !game.players.addMoneyRaw(e.getKey(), v)) continue;
+            PState ps = game.players.get(e.getKey());
+            // 돌려받은 돈은 번 돈이 아니다(옮기기가 earned 에 더한 것을 되돌림: 판 기록과 번 돈을 따라 주는 효과가 부풀지 않게)
+            ps.earned -= v;
+            ps.revivePaid = Math.max(0, ps.revivePaid - v);
+            game.augments.refunded(e.getKey(), "revive", v);
+            back += v;
         }
-        trip.log("쉬는 시간 부활 " + p.getName() + " 모금 돌려줌 " + back + "원");
+        return back;
     }
 
     /** 죽은 사람의 '살려 달라' 신호(좌클릭): 트럭에서 작은 소리, HUD 값 revive.calling 에 3초. REVIVE_CALL_EVERY 틱에 한 번. */
@@ -250,6 +270,7 @@ public final class Revive implements TripPart {
     @Override
     public void startGame() {
         pools.clear();
+        spent.clear();
         ruleShown = false;
         revivedCount = deathCount = 0;
     }
@@ -299,13 +320,15 @@ public final class Revive implements TripPart {
     @Override
     public void reset() {
         pools.clear();
+        spent.clear();
         ruleShown = false;
     }
 
     @Override
     public void on(String event, Object arg) {
         if (Trip.EV_DEAD.equals(event) && arg instanceof Player p) {
-            pools.remove(p.getUniqueId());
+            // 새 죽음은 빈 모금에서(남은 돈이 있으면 낸 사람에게)
+            refund(p.getUniqueId());
             deathCount++;
             // 판에서 처음 누가 죽을 때 모두에게 한 번, 죽은 사람에게는 늘
             if (!ruleShown) {

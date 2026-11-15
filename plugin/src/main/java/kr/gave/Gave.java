@@ -1,6 +1,7 @@
 package kr.gave;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
 
@@ -83,9 +84,10 @@ public final class Gave extends JavaPlugin implements Listener {
 
         game = new Game(this, w);
         game.autoStart = getConfig().getBoolean("autoStart", false);
-        game.minPlayers = getConfig().getInt("minPlayers", 1);
-        game.prepSeconds = getConfig().getInt("prepSeconds", 10);
-        game.breakSeconds = getConfig().getInt("breakSeconds", 25);
+        // minPlayers 0 이하면 자동 시작이 아무도 없는 대기실에서 빈 판을 되풀이해 돌리고 판마다 기록 줄을 쌓는다
+        game.minPlayers = Math.max(1, getConfig().getInt("minPlayers", 1));
+        game.prepSeconds = Math.max(0, getConfig().getInt("prepSeconds", 10));
+        game.breakSeconds = Math.max(0, getConfig().getInt("breakSeconds", 25));
         SpeciesBan.load(getConfig());
         getLogger().info("[종] " + SpeciesBan.describe());
         for (Object l : game.listeners()) {
@@ -104,9 +106,16 @@ public final class Gave extends JavaPlugin implements Listener {
 
     @Override
     public void onDisable() {
-        if (dex != null) dex.stop();
-        if (game != null) game.stop();
-        if (pack != null) pack.stop();
+        // 도감이나 판 정리가 던져도 팩 포트는 꼭 닫는다(남으면 다시 켤 때 포트를 못 연다)
+        try {
+            if (dex != null) dex.stop();
+        } finally {
+            try {
+                if (game != null) game.stop();
+            } finally {
+                if (pack != null) pack.stop();
+            }
+        }
     }
 
     @EventHandler
@@ -129,13 +138,14 @@ public final class Gave extends JavaPlugin implements Listener {
         if (g != null) e.setSpawnLocation(Plaza.lobbySpot(g.world));
     }
 
-    /** 나간 사람의 모듈별 상태를 지운다(총 Arms, 시야 걷기 속도, HUD 화면, 사람 상태). */
+    /** 나간 사람의 모듈별 상태를 지운다(총 Arms, 시야 걷기 속도, HUD 화면, 음악 재생 상태, 사람 상태). */
     @EventHandler
     public void onQuit(PlayerQuitEvent e) {
         if (game == null) return;
         UUID id = e.getPlayer().getUniqueId();
         game.guns.forget(id);
         game.hud.forget(id);
+        game.music.forget(id);
         game.players.forget(id);
     }
 
@@ -145,9 +155,35 @@ public final class Gave extends JavaPlugin implements Listener {
         SpeciesBan.open++;
         try {
             return command(s, a);
+        } catch (NumberFormatException e) {
+            // 숫자 인자를 바로 읽는 곳(웨이브, 소환, 시험 훅 수십 곳)에 숫자가 아닌 글이 오면 '내부 오류' 대신 한 줄로
+            s.sendMessage("숫자를 적을 자리다: " + e.getMessage());
+            return true;
         } finally {
             SpeciesBan.open--;
         }
+    }
+
+    /** /gave 웨이브 로 건너뛸 수 있는 가장 큰 웨이브. */
+    private static final int WAVE_MAX = 999;
+    private static final List<String> SUBS = List.of("시작", "중지", "상태", "팩", "자동", "웨이브", "데미지", "공격력", "소환", "시험");
+
+    /**
+     * /gave 탭 완성: 첫 칸은 하위 명령, 자동은 on off, 팩은 강제, 소환은 구현된 종. 사람 이름이 오는 칸(시험의 셋째, 소환의 다섯째)만 바닐라 이름 목록(null),
+     * 그 밖은 빈 목록(이것이 없으면 모든 칸에 사람 이름이 뜬다).
+     */
+    @Override
+    public List<String> onTabComplete(CommandSender s, Command cmd, String label, String[] a) {
+        if (a.length == 0) return List.of();
+        if (a.length == 1) return SUBS.stream().filter(x -> x.startsWith(a[0])).toList();
+        boolean test = a[0].equals("시험") || a[0].equals("test"), spawn = a[0].equals("소환") || a[0].equals("spawn");
+        if (a.length == 2 && (a[0].equals("자동") || a[0].equals("auto"))) return List.of("on", "off");
+        if (a.length == 2 && (a[0].equals("팩") || a[0].equals("pack"))) return List.of("강제");
+        if (a.length == 2 && spawn) {
+            String head = a[1].toUpperCase(Locale.ROOT);
+            return Arrays.stream(Species.values()).filter(Species::implemented).map(Species::name).filter(x -> x.startsWith(head)).limit(40).toList();
+        }
+        return test && a.length == 3 || spawn && a.length == 5 ? null : List.of();
     }
 
     private boolean command(CommandSender s, String[] a) {
@@ -156,7 +192,7 @@ public final class Gave extends JavaPlugin implements Listener {
             return true;
         }
         if (a.length == 0) {
-            s.sendMessage("/gave 시작 | 중지 | 상태 | 팩 | 자동 on|off | 웨이브 <n> | 데미지 [배율] | 공격력 [배율] | 소환 <종> [수] [거리] [이름] | 시험 <행동> <이름> ...");
+            s.sendMessage("/gave 시작 | 중지 | 상태 | 팩 [강제] | 자동 [on|off] | 웨이브 <n> | 데미지 [배율] | 공격력 [배율] | 소환 <종> [수] [거리] [이름] | 시험 <행동> <이름> ...");
             return true;
         }
         switch (a[0]) {
@@ -171,16 +207,41 @@ public final class Gave extends JavaPlugin implements Listener {
             case "상태", "status" -> s.sendMessage(game.status() + (Math.abs(game.director.dmgCmd() - 1) > 1e-9 ? " dmg=" + mul(game.director.dmgCmd()) : "")
                     + (Math.abs(game.mobs.pdmg() - 1) > 1e-9 ? " pdmg=" + mul(game.mobs.pdmg()) : ""));
             case "팩", "pack" -> {
-                pack.reload();
-                for (Player p : Bukkit.getOnlinePlayers()) pack.send(p);
-                s.sendMessage("팩 다시 보냄");
+                // 다시 읽기와 깃허브 확인은 뒤에서 돌고, 끝난 뒤에 보낸다: 확인 전에 보내면 모두가 이 PC 주소를 받아 있던 팩부터 내려간다.
+                // '강제' 는 깃허브에서 확인되지 않은 팩도 이 PC 포트로 내보냄(그 포트가 밖에서 열려 있을 때만 쓸 것)
+                boolean local = a.length > 1 && (a[1].equals("강제") || a[1].equalsIgnoreCase("force"));
+                boolean started = pack.reloadLater(local, why -> {
+                    int n = 0;
+                    if (why == null) for (Player p : Bukkit.getOnlinePlayers()) {
+                        pack.send(p);
+                        n++;
+                    }
+                    String msg = why == null ? "팩 다시 보냄(" + n + "명)" : why;
+                    getLogger().info("[팩] " + msg);
+                    s.sendMessage(msg);
+                });
+                s.sendMessage(started ? "팩을 다시 읽는 중: 확인이 끝나면 모두에게 보낸다" : "팩을 이미 다시 읽는 중이다");
             }
             case "자동", "auto" -> {
-                game.autoStart = a.length > 1 && a[1].equalsIgnoreCase("on");
-                s.sendMessage("자동 시작 " + game.autoStart);
+                // 인자가 없으면 지금 값만 알린다(예전에는 인자 없이 치면 꺼졌다)
+                if (a.length > 1) {
+                    switch (a[1].toLowerCase(Locale.ROOT)) {
+                        case "on", "켬", "true" -> game.autoStart = true;
+                        case "off", "끔", "false" -> game.autoStart = false;
+                        default -> {
+                            s.sendMessage("/gave 자동 on|off");
+                            return true;
+                        }
+                    }
+                }
+                s.sendMessage("자동 시작 " + game.autoStart + (game.autoStart ? "(대기실에 " + game.minPlayers + "명이 차면 30초 뒤)" : ""));
             }
             case "웨이브", "wave" -> {
-                int n = a.length > 1 ? Integer.parseInt(a[1]) : game.wave + 1;
+                int n = a.length > 1 ? Integer.parseInt(a[1].trim()) : game.wave + 1;
+                if (n < 1 || n > WAVE_MAX) {
+                    s.sendMessage("웨이브는 1~" + WAVE_MAX + " 사이만 된다: " + n);
+                    return true;
+                }
                 // 2026-11-12 버그 훑기: 판 끝(OVER) 연출 중에 건너뛰면 끝난 판에서 보스와 엔딩이 돌았다
                 if (game.state == Game.State.OVER) {
                     s.sendMessage("판이 끝나는 중이다: 대기실로 돌아간 뒤(/gave 중지) 다시");

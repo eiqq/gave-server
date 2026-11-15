@@ -19,6 +19,9 @@ final class AugTrip implements AugLinks {
     private final Game game;
     private Class<?> seen;
     private Method center, part;
+    /** 추격전 계열 특수 라운드가 도는 중인가(틱마다 한 번만 물음) */
+    private boolean chase;
+    private long chaseAt = -1;
 
     AugTrip(Game game) {
         this.game = game;
@@ -84,9 +87,20 @@ final class AugTrip implements AugLinks {
         }
     }
 
+    /**
+     * 추격전 계열(추격전, 가로막힌 길, 마지막 질주)에서는 모두 트럭 뒤 판(길이 22) 위에 타고 세상이 흐른다: 판 뒤쪽은 트럭 가운데에서 8블록이
+     * 넘어, 거리로 재면 트럭 곁 증강(문지기, 짐칸 사수, 들것, 확성기, 미끼)과 자동 탄약이 안 걸린다. 그 라운드 동안은 모두 트럭 곁으로 친다.
+     * 추격전 계열만 물음 'dist'(달린 몫)에 답한다(kr.gave.trip.special.Chase.ask)
+     */
     @Override
     public boolean onTruck(Player p) {
-        return false;
+        long now = game.now();
+        if (now != chaseAt) {
+            chaseAt = now;
+            Trip t = trip();
+            chase = t != null && game.state == Game.State.WAVE && t.ask("dist") != null;
+        }
+        return chase;
     }
 
     @Override

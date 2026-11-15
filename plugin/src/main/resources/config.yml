@@ -1,4 +1,4 @@
-# 대기실에 minPlayers 명이 차면 30초 뒤 자동 시작
+# 대기실에 minPlayers 명이 차면 30초 뒤 자동 시작(minPlayers 는 1 이상: 0 이하로 적어도 1 로 읽는다). 켠 채 바꾸기: /gave 자동 on|off(저장 안 됨)
 autoStart: false
 minPlayers: 1
 # 판 시작 뒤 첫 웨이브까지 초
@@ -32,6 +32,12 @@ assistMul: 2.0
 roundMoneyMul: 2.0
 # 옛 대기실 방과 '게이브 우리'(이번 판 종 묶음이 유리 너머에서 도는 방). 기본 꺼짐: 대기실은 중앙 원이고 우리는 없다. 켜면 새 월드부터 방이 지어진다
 cage: false
+# 진짜 팀 보급 상자(웨이브 중 황야에 떨어짐). breakable 을 켜면 겨눠 쏜 총 직격에 부서져 사라진다(2026-11-12 사용자: 기본 꺼짐 = 안 부서짐)
+crates:
+  breakable: false
+# 게임 안 도감(/도감). quickKey 를 끄면 도감 빠른 키용 데이터팩을 깔지 않는다(이미 깔린 것은 그대로)
+dex:
+  quickKey: true
 # 래그돌 사체(docs/모듈/래그돌.md): 죽은 게이브가 맞은 쪽으로 튕겨 구르고 막대기가 늘어지다 굳어 땅으로 꺼진다. enabled 를 끄면 예전처럼 제자리에서 납작해짐
 ragdoll:
   enabled: true

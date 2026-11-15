@@ -71,6 +71,7 @@ public final class Records {
 
     private void load() {
         if (!Files.isRegularFile(file)) return;
+        int broken = 0;
         try {
             for (String line : Files.readAllLines(file, StandardCharsets.UTF_8)) {
                 if (line.isBlank()) continue;
@@ -83,9 +84,11 @@ public final class Records {
                         if (e.has("seconds") && !(e.has("skipped") && e.get("skipped").getAsBoolean())) endingBest.merge(b, e.get("seconds").getAsLong(), Math::min);
                     }
                 } catch (RuntimeException ignored) {
-                    // 깨진 줄은 건너뜀
+                    // 깨진 줄은 건너뜀(몇 줄인지는 아래에서 알림)
+                    broken++;
                 }
             }
+            if (broken > 0) game.plugin.getLogger().warning("[기록] " + file.getFileName() + " 에서 못 읽은 줄 " + broken + "개를 건너뜀(그 판들은 최고 기록 셈에서 빠짐)");
         } catch (IOException e) {
             game.plugin.getLogger().warning("[기록] 읽기 실패: " + e);
         }
@@ -243,7 +246,16 @@ public final class Records {
         String line = new Gson().toJson(o);
         try {
             Files.createDirectories(file.getParent());
-            Files.writeString(file, line + "\n", StandardCharsets.UTF_8, StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+            // 쓰는 중에 서버가 죽어 마지막 줄이 줄바꿈 없이 끊겼으면 그 뒤에 붙지 않게 줄바꿈부터(붙으면 두 판이 모두 깨진 줄이 된다)
+            String lead = "";
+            if (Files.isRegularFile(file) && Files.size(file) > 0) {
+                try (java.nio.channels.SeekableByteChannel ch = Files.newByteChannel(file)) {
+                    java.nio.ByteBuffer last = java.nio.ByteBuffer.allocate(1);
+                    ch.position(ch.size() - 1);
+                    if (ch.read(last) == 1 && last.get(0) != '\n') lead = "\n";
+                }
+            }
+            Files.writeString(file, lead + line + "\n", StandardCharsets.UTF_8, StandardOpenOption.CREATE, StandardOpenOption.APPEND);
         } catch (IOException e) {
             game.plugin.getLogger().warning("[기록] 쓰기 실패: " + e);
         }

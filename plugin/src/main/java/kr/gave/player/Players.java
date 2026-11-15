@@ -53,6 +53,7 @@ import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.player.PlayerArmorStandManipulateEvent;
 import org.bukkit.event.player.PlayerAttemptPickupItemEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
+import org.bukkit.event.player.PlayerGameModeChangeEvent;
 import org.bukkit.event.player.PlayerInteractAtEntityEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -199,15 +200,23 @@ public final class Players implements Listener {
         return states.values();
     }
 
-    /** 서 있는 사람(쏠 수 있음). */
+    /**
+     * 서 있는 사람(쏠 수 있음). 나간 사람과 판 중에 크리에이티브로 바꾼 사람은 상태가 서 있어도 뺀다(피해도 틱도 안 받는 사람이
+     * 몹 표적, 감독 인원 셈, 판 끝 판정에 남지 않게).
+     */
     public List<Player> standing() {
         List<Player> out = new ArrayList<>();
         for (PState s : states.values()) {
             if (!s.standing() || s.offline) continue;
             Player p = Bukkit.getPlayer(s.id);
-            if (p != null && p.isOnline()) out.add(p);
+            if (p != null && p.isOnline() && game.inGame(p)) out.add(p);
         }
         return out;
+    }
+
+    /** 판 끝 판정(Game): 서 있는 사람이 하나라도 있나. 시험 훅 판끝막기의 빈 상태도 센다. */
+    public boolean anyStanding() {
+        return phantom != null && phantom.life == Life.ALIVE || !standing().isEmpty();
     }
 
     /** 판에 든 사람(서 있음, 쓰러짐, 죽음, 갇힘, 기다림). 나간 사람은 빠짐. */
@@ -950,7 +959,9 @@ public final class Players implements Listener {
         boolean cleaned = swept || game.state == Game.State.BREAK && game.stateAt == game.now();
         for (PState s : new ArrayList<>(states.values())) {
             if (s == phantom) continue;
-            boolean trapped = s.life == Life.TRAPPED && s.eater == eater;
+            // 갇힌 채 나간 사람(상태는 DEAD + offline, 먹은 개체는 deathMob 에 남음)도 그 개체에 갇힌 사람으로 본다(잡히면 돌아올 때 손실 없이 선다)
+            boolean away = s.offline && s.quitLife == Life.TRAPPED && s.deathMob == eater;
+            boolean trapped = away || s.life == Life.TRAPPED && s.eater == eater;
             // 갇힘 이어 가기(FREE): 정리로 치워진 개체(웨이브 끝)에 갇힌 사람은 갇힌 채 둔다(가둔 종이 잇는다)
             if (trapped && s.trapHold && cleaned) {
                 s.eater = null;
@@ -958,7 +969,7 @@ public final class Players implements Listener {
                 continue;
             }
             boolean paid = game.trip.paidRevive();
-            boolean carried = s.life == Life.DEAD && s.deathMob == eater && (paid || carrier(s.deathResult));
+            boolean carried = !trapped && s.life == Life.DEAD && s.deathMob == eater && (paid || carrier(s.deathResult));
             if (!trapped && !carried) continue;
             if (paid && carried) {
                 // 원정: 내 얼굴을 한 게이브가 잡혀도 돌아오지 않는다. 사람이 잡았으면 꺼내는 값이 싸지고(얼굴 깎임), 정리로 치워졌으면 다음 라운드에 다시 선다
@@ -972,6 +983,12 @@ public final class Players implements Listener {
                 Player tp = Bukkit.getPlayer(s.id);
                 if (tp != null && !s.offline) {
                     trappedToDead(tp);
+                    continue;
+                }
+                if (away) {
+                    // 나간 사람도 같게: 돌아오면 죽은 채(꺼내는 값 절반)
+                    s.deathMob = null;
+                    s.trappedDeath = true;
                     continue;
                 }
             }
@@ -1072,6 +1089,8 @@ public final class Players implements Listener {
     public void reviveAtShop(Player p, boolean penalty) {
         PState s = get(p);
         long now = game.now();
+        // 나간 사람은 세우지 않는다(돌아오면 resume 이 잇는다): 오프라인 상태가 서 있는 사람이 되면 전멸해도 판이 안 끝난다
+        if (s.offline) return;
         if (s.life == Life.WAITING) {
             activate(p, s);
             return;
@@ -1106,7 +1125,7 @@ public final class Players implements Listener {
      */
     public boolean reviveAtTruck(Player p, Player payer) {
         PState s = get(p);
-        if (s.life != Life.DEAD) return false;
+        if (s.life != Life.DEAD || s.offline) return false;
         long now = game.now();
         Gabe mob = s.deathMob;
         cleanup(p, s);
@@ -1421,16 +1440,33 @@ public final class Players implements Listener {
      */
     public void addMoney(Player p, int amount) {
         if (amount > 0) amount = (int) Math.max(amount, Math.min(Integer.MAX_VALUE / 4, Math.round(amount * moneyMul)));
-        addMoneyRaw(p, amount);
+        credit(p, get(p), amount);
     }
 
-    /** 옮기기(돌려받기, 합류 몫, 시험): 돈 배율 없이 더함(음수면 빼기). 양수면 earned 에 쌓고 +n 을 띄운다. */
+    /**
+     * 옮기기(돌려받기, 합류 몫, 시험): 돈 배율 없이 더함(음수면 빼기). 양수면 earned 에 쌓고 +n 을 띄운다. 벌이가 아니라서 증강에 알린다
+     * (Augments.moved: 빚의 '반값 벌이'가 돌려받은 돈까지 깎지 않게).
+     */
     public void addMoneyRaw(Player p, int amount) {
         PState s = get(p);
+        credit(p, s, amount);
+        game.augments.moved(s.id, amount);
+    }
+
+    /** 나간 사람에게도 닿는 옮기기(모금 돌려주기): 판 상태에 바로 더한다(+n 표시는 접속 중일 때만). 판 상태가 없으면 false. */
+    public boolean addMoneyRaw(UUID id, int amount) {
+        PState s = states.get(id);
+        if (s == null) return false;
+        credit(s.offline ? null : Bukkit.getPlayer(id), s, amount);
+        game.augments.moved(id, amount);
+        return true;
+    }
+
+    private void credit(Player p, PState s, int amount) {
         s.money += amount;
         if (amount > 0) {
             s.earned += amount;
-            game.hud.money(p, amount);
+            if (p != null) game.hud.money(p, amount);
         }
     }
 
@@ -1479,6 +1515,14 @@ public final class Players implements Listener {
         s.joinBonus = false;
         s.holdSkips = 0;
         s.freeRevive = s.freedAway = s.resumeHp = false;
+        // 원정 칸도 판마다 새로(꺼내진 횟수가 남으면 다음 판 꺼내는 값이 처음부터 비싸다)
+        s.deaths = s.revived = 0;
+        s.deadRound = 0;
+        s.revivePool = 0;
+        s.faceKilled = s.trappedDeath = false;
+        s.callAt = -100000;
+        s.safeUntil = 0;
+        s.revivePaid = s.repairPaid = 0;
         s.name = p.getName();
         fresh(p);
     }
@@ -1492,10 +1536,15 @@ public final class Players implements Listener {
         applyMove(p, s, game.now());
         tabTick(p, s);
         fresh(p);
+        if (game.inGame(p)) {
+            // 판에서 얻은 것(총, 소모품 그림)과 걸린 것(어둠, 실명)을 대기실까지 끌고 오지 않는다. 크리에이티브(맵 짓는 사람)는 그대로
+            p.getInventory().clear();
+            p.clearActivePotionEffects();
+        }
     }
 
     /**
-     * 나감(Gave.onQuit). 대기실이면 상태를 지우고, 판 중이면 남겨 둔다(재화, 증강, 기록, 죽음 결과): 판 계산에서 빼려고 DEAD 로 두고
+     * 나감(Gave.onQuit). 대기실이면 상태를 지우고, 판 중이면(판 끝 연출 중에도: 그 뒤에 쓰는 판 기록에 남게) 남겨 둔다(재화, 증강, 기록, 죽음 결과): 판 계산에서 빼려고 DEAD 로 두고
      * offline 표시, 나갈 때 상태는 quitLife. 돌아오면 그 상태에서 이어 간다(arrive): 서 있던 사람은 그 체력 그대로(웨이브 중이면 다음
      * 쉬는 시간이나 웨이브까지 기다림), 쓰러졌거나 죽었던 사람은 죽은 채(쉬는 시간이면 바로 손실 부활), 갇혔던 사람은 손실 없이.
      * 붙잡힘, 머리 부착은 Detachable 'release' 로 알리고 푼다.
@@ -1519,11 +1568,14 @@ public final class Players implements Listener {
         }
         Rig r = rigs.remove(id);
         if (r != null) removeRigEntities(r);
-        if (game.state == Game.State.LOBBY || game.state == Game.State.OVER || s.life == Life.LOBBY || s == phantom) {
+        if (game.state == Game.State.LOBBY || s.life == Life.LOBBY || s == phantom) {
             states.remove(id);
             return;
         }
         if (s.offline) return;
+        // 원정: 죽은 채 나가면 그 사람 모금에 낸 돈을 낸 사람들에게 바로 돌려준다(돌아올 때까지 묶이지 않게)
+        kr.gave.trip.Revive rv = game.trip.revive();
+        if (rv != null) rv.refund(id);
         s.offline = true;
         s.quitLife = s.life;
         s.resumeHp = s.life == Life.ALIVE;
@@ -2576,6 +2628,23 @@ public final class Players implements Listener {
         });
     }
 
+    /**
+     * 판이 도는 중에 크리에이티브에서 나온 사람(판 시작 때 빠져 있던 운영자)은 새로 들어온 사람처럼 판에 든다. 그대로 두면 대기실 상태로
+     * 경기장에 남는다(못 쏘고 몹도 안 노림). 반대로 판 중에 크리에이티브로 바꾼 사람은 standing() 이 뺀다.
+     * 관전자 모드로 가는 사람(구경하는 운영자, 시험 카메라)은 판에 넣지 않는다.
+     */
+    @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
+    public void onGameMode(PlayerGameModeChangeEvent e) {
+        Player p = e.getPlayer();
+        GameMode to = e.getNewGameMode();
+        if (p.getGameMode() != GameMode.CREATIVE || to == GameMode.CREATIVE || to == GameMode.SPECTATOR) return;
+        Bukkit.getScheduler().runTask(game.plugin, () -> {
+            PState s = states.get(p.getUniqueId());
+            boolean running = game.state == Game.State.PREP || game.state == Game.State.WAVE || game.state == Game.State.BREAK;
+            if (running && p.isOnline() && (s == null || s.life == Life.LOBBY)) arrive(p);
+        });
+    }
+
     @EventHandler(priority = EventPriority.MONITOR)
     public void onJoin(PlayerJoinEvent e) {
         Player p = e.getPlayer();
@@ -2621,7 +2690,7 @@ public final class Players implements Listener {
         s.offline = false;
         s.quitLife = null;
         s.name = p.getName();
-        s.joinBonus = false;
+        // joinBonus 는 그대로 둔다: 판에 들기 전에(웨이브 중 기다리다) 나갔다 온 사람은 아직 합류 몫을 안 받았다(activate 가 한 번 주고 끔)
         boolean wave = game.state == Game.State.WAVE;
         switch (q) {
             case ALIVE, WAITING, LOBBY -> {
@@ -2629,9 +2698,20 @@ public final class Players implements Listener {
                 else activate(p, s);
             }
             default -> {
-                // 쓰러짐, 죽음, 갇힘: 죽은 채로. 나간 사이 업은(총 주운) 개체가 잡혔으면 바로 손실 없이.
-                if (s.freedAway) {
-                    reviveAtShop(p, false);
+                // 쓰러짐, 죽음, 갇힘: 죽은 채로. 나간 사이 업은(총 주운) 개체나 먹은 개체가 잡혔으면 바로 손실 없이
+                // (먹은 개체가 freeFrom 을 거치지 않고 사라진 것도 같게: 접속 중이었다면 trappedTick 이 세웠다).
+                boolean eaterGone = q == Life.TRAPPED && s.deathMob != null && (s.deathMob.dead || s.deathMob.removed);
+                if (s.freedAway || eaterGone) {
+                    // 원정에서도 서게 reviveFree 로(reviveAtShop 은 원정의 죽은 사람을 세우지 않는다)
+                    reviveFree(p);
+                    return;
+                }
+                // 갇힌 채 나갔다 웨이브 중에 돌아옴: 먹은 개체가 살아 있으면 다시 갇힌다(그 개체를 잡으면 여느 때처럼 풀림)
+                if (wave && q == Life.TRAPPED && s.deathMob != null && !s.deathMob.dead && !s.deathMob.removed) {
+                    Gabe eater = s.deathMob;
+                    cleanup(p, s);
+                    s.life = Life.ALIVE;
+                    trap(p, eater);
                     return;
                 }
                 // 쉬는 시간, 준비 중: 놓친 쉬는 시간 공짜 부활을 지금(꺼내기 값, 업은 개체 쉬어 가기 없이). 발사 차례에는 예전 규칙
@@ -2644,9 +2724,15 @@ public final class Players implements Listener {
                 if (!wave && s.holdSkips == 0) {
                     s.life = Life.DEAD;
                     reviveAtShop(p, true);
-                    return;
+                    // 섰으면 끝. 원정의 발사 차례(공짜 부활이 없는 쉬는 시간)에는 죽은 사람이 서지 않는다: 아래에서 죽은 채 관전으로
+                    if (s.life != Life.DEAD) return;
+                } else if (!wave && s.holdSkips == 1) s.holdSkips = 2;
+                // 쓰러지거나 갇힌 채 나갔다가 죽은 채로 돌아옴: 이제 죽음 하나로 친다(원정: 죽은 라운드를 지금으로 적는다. 안 적으면 옛 값이 남아
+                // 꺼내는 값이 바닥까지 깎인다). 갇혔던 사람은 '갇힌 채 라운드를 넘김'과 같은 값 절반
+                if (q != Life.DEAD) {
+                    deathBegan(p, s);
+                    if (q == Life.TRAPPED) s.trappedDeath = true;
                 }
-                if (!wave && s.holdSkips == 1) s.holdSkips = 2;
                 toDead(p, s);
             }
         }
