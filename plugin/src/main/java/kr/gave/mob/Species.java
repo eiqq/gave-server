@@ -211,6 +211,7 @@ public enum Species {
     G198("나란히 걷는 거인 게이브", 34, 5, Band.HEAD, Spawn.RING, 1500, 2, 60, 4, Role.TANK, Role.SHIELD),
     G199("눈 찾는 거인 게이브", 34, 5, Band.HEAD, Spawn.RING, 3600, 5, 120, 4, Role.ELITE, Role.OBJECTIVE, Role.BONUS),
     G200("하늘 아가리 게이브", 34, 5, Band.SKY, Spawn.SKY, 4000, 6, 150, 4, Role.OBJECTIVE, Role.DISRUPT),
+    G201("안아줘요 게이브", 23, 4, Band.HEAD, Spawn.RING, 260, 2, 24, 3, Role.ELITE, Role.DISRUPT),
     B1("산더미 게이브", 10, 5, Band.GROUND, Spawn.DERIVED, 18500, 6, 0, 1, Role.BOSS),
     B2("하늘 덮는 게이브", 20, 5, Band.SKY, Spawn.DERIVED, 20000, 22, 0, 2, Role.BOSS),
     B3("에워싸는 게이브", 33, 5, Band.GROUND, Spawn.DERIVED, 32000, 36, 0, 4, Role.BOSS),
