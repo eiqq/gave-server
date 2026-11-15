@@ -343,8 +343,12 @@ public final class Guns implements Listener {
         return scaled(SHELL_START, mul) + s.mag() * s.reload() + scaled(SHELL_PUMP, mul);
     }
 
-    /** 누르고 있을 때 실제로 나가는 초당 발 수: 점사는 발 사이 박자와 점사 뒤 쉼, 레일건은 모으는 시간과 연사 박자 가운데 긴 쪽 */
+    /**
+     * 누르고 있을 때 실제로 나가는 초당 발 수: 점사는 발 사이 박자와 점사 뒤 쉼, 레일건은 모으는 시간과 연사 박자 가운데 긴 쪽.
+     * 탄창이 한 발인 총(활, 로켓, 머스킷)은 쏠 때마다 재장전이라 한 바퀴({@link #cycleTicks})로 센다
+     */
     public static double shotsPerSecond(Spec s) {
+        if (s.mag() <= 1) return 20.0 / cycleTicks(s);
         Mode md = mode(s.kind());
         double gap = 20.0 / s.rps();
         return switch (md.fire()) {
@@ -355,41 +359,31 @@ public final class Guns implements Listener {
     }
 
     /**
-     * 한 대상에 계속 쏠 때의 초당 피해: 탄창을 다 쏘고 재장전해 다시 쏘기까지 한 바퀴(다 맞음. 치명, 거리 감쇠, 범위 덤은 안 셈).
-     * 박자는 pull() 과 같다: 재장전은 마지막 발 직후 시작해 쏜 뒤 쉼과 겹치고, 점사는 점사 뒤 쉼, 레일건은 재장전 뒤 다시 모으기,
-     * 미니건은 총열이 도는 동안 느리다. 불길은 불붙음 피해를 더한다. 상점 '화력' 줄, 모델 사이 화력 맞춤(Models), 밸런스 표(tools/balance_sim.py 도 같은 식)
+     * 탄창 하나를 다 쏘고 재장전해 다음 탄창 첫 발까지 한 바퀴(틱). 박자는 pull() 과 같다: 재장전은 마지막 발 직후 시작해 쏜 뒤 쉼과 겹치고,
+     * 점사는 점사 뒤 쉼, 레일건은 재장전 뒤 다시 모으기. 미니건은 누른 채 재장전하면 총열이 도는 채로 남아(pull 이 재장전 중에는 회전을
+     * 건드리지 않음) 이어 쏘는 동안은 다 돈 빠르기다
      */
-    public static double sustained(Spec s) {
+    static double cycleTicks(Spec s) {
         Mode md = mode(s.kind());
-        double gap = 20.0 / s.rps(), reload = reloadTicks(s), ticks;
+        double gap = 20.0 / s.rps(), reload = reloadTicks(s);
         int mag = s.mag();
-        switch (md.fire()) {
+        return switch (md.fire()) {
             case BURST -> {
                 int n = Math.max(1, md.count()), bursts = (mag + n - 1) / n;
-                ticks = (mag - 1) * gap + (bursts - 1) * md.ticks() + Math.max(reload, gap + (mag % n == 0 ? md.ticks() : 0));
+                yield (mag - 1) * gap + (bursts - 1) * md.ticks() + Math.max(reload, gap + (mag % n == 0 ? md.ticks() : 0));
             }
-            case CHARGE -> ticks = (mag - 1) * Math.max(gap, md.ticks()) + Math.max(reload + md.ticks(), gap);
-            case SPIN -> {
-                // 총열: 틱마다 1/ticks 씩 돌아 effect 를 넘으면 나가고 연사는 돈 만큼(20%..100%). 재장전하는 동안 다 식는다
-                double spin = 0, next = 0;
-                int t = 0, left = mag;
-                while (left > 0 && t < 100000) {
-                    spin = Math.min(1, spin + 1.0 / Math.max(1, md.ticks()));
-                    if (spin >= md.effect()) {
-                        if (next < t) next = t;
-                        while (next < t + 1 && left > 0) {
-                            left--;
-                            next += gap / (0.2 + 0.8 * spin);
-                        }
-                    }
-                    t++;
-                }
-                ticks = t + Math.max(reload, 1);
-            }
-            default -> ticks = (mag - 1) * gap + Math.max(reload, gap);
-        }
-        double dps = mag * s.damage() * s.pellets() / ticks * 20;
-        return md.fire() == Fire.FLAME ? dps + s.damage() * md.effect() : dps;
+            case CHARGE -> (mag - 1) * Math.max(gap, md.ticks()) + Math.max(reload + md.ticks(), gap);
+            default -> (mag - 1) * gap + Math.max(reload, gap);
+        };
+    }
+
+    /**
+     * 한 대상에 계속 쏠 때의 초당 피해: 한 바퀴({@link #cycleTicks}) 동안 탄창을 다 맞힘(치명, 거리 감쇠, 범위 덤은 안 셈). 불길은 불붙음 피해를
+     * 더한다. 피해에 비례하므로 모델 사이 화력 맞춤(effective)이 피해 배율 하나로 맞출 수 있다. 상점 '화력' 줄, 밸런스 표(tools/balance_sim.py 도 같은 식)
+     */
+    public static double sustained(Spec s) {
+        double dps = s.mag() * s.damage() * s.pellets() / cycleTicks(s) * 20;
+        return mode(s.kind()).fire() == Fire.FLAME ? dps + s.damage() * mode(s.kind()).effect() : dps;
     }
 
     /** 쏘는 방식 한 줄(상점 줄 맨 위, 보통 총은 null): 값은 Mode 에서 읽어 숫자가 바뀌면 글도 따라온다 */
@@ -548,8 +542,8 @@ public final class Guns implements Listener {
         public int shots, kills, hits;
         /** 마지막으로 맞힌, 죽인 판 틱(HUD 적중 표시가 읽음). 없으면 -1 */
         public long hitAt = -1, killAt = -1;
-        /** 맞힘 소리, 아군에 막힘 소리를 마지막으로 낸 틱(쏜 사람만 듣는 소리를 틱마다 겹치지 않게) */
-        long hitSoundAt = -99, blockSoundAt = -99;
+        /** 맞힘 소리, 처치 소리, 아군에 막힘 소리를 마지막으로 낸 틱(쏜 사람만 듣는 소리를 틱마다 겹치지 않게) */
+        long hitSoundAt = -99, killSoundAt = -99, blockSoundAt = -99;
         /** 지금 배율과 그 배율을 건 총(종류 차례) */
         GunMods mods = GunMods.NONE;
         final Spec[] eff = new Spec[Kind.values().length];
@@ -889,6 +883,8 @@ public final class Guns implements Listener {
      */
     public void settle() {
         long now = host.now();
+        // 땅 위 바로잡기의 '최근 흔들림' 기록도 판과 함께 끝(나간 사람은 drop 이 지움)
+        kickedAt.clear();
         for (Map.Entry<UUID, Arms> e : arms.entrySet()) {
             Arms a = e.getValue();
             a.reloading = null;
@@ -983,6 +979,7 @@ public final class Guns implements Listener {
         arms.clear();
         parked.clear();
         whizAt.clear();
+        kickedAt.clear();
         burns.clear();
         burnsNew.clear();
         popAt.clear();
@@ -1018,19 +1015,24 @@ public final class Guns implements Listener {
     }
 
     /**
-     * 유효 총 = 바탕 Spec x 모델 배율 x 총 배율(등급, 강화) x 사람 배율. 배율을 먼저 다 곱한 뒤 한 번만 반올림한다(모델 배율로 탄창 2 가 1 이
-     * 된 뒤 등급 배율이 다시 걸려 어긋나지 않게). 산탄 알 더하기는 산탄총(바탕 알 2 이상)에만 건다(소총이 세 알 쏘지 않게)
+     * 유효 총 = 바탕 Spec x 모델 배율 x 총 배율(등급, 강화) x 사람 배율. 배율을 먼저 다 곱한 뒤 한 번만 반올림한다. 산탄 알 더하기는
+     * 산탄총(바탕 알 2 이상)에만 건다(소총이 세 알 쏘지 않게).
+     * 모델이 있으면 한 발 피해를 다시 맞춰, 같은 종류면 어느 모델이든 한 대상 지속 화력({@link #sustained})이 모델 배율만 뺀 같은 총(같은 등급,
+     * 강화, 증강)과 같다. 탄창, 재장전 반올림이 든 뒤의 값으로 맞추므로 탄창 1~2 모델이 등급이나 증강으로 한 발이 늘어도 화력은 같고,
+     * 모델의 차이는 '한 발이 센 대신 탄창이 작다' 같은 나눔과 퍼짐, 사거리, 관통, 소리, 모습뿐이다
      */
     public static Spec effective(Kind k, Gun g, GunMods m) {
         Spec base = SPECS.get(k);
         Models.Model md = g == null ? null : Models.of(g.model);
         GunMods all = m == null ? GunMods.NONE : m;
         if (g != null) all = g.mods().times(all);
-        if (md != null) all = md.mods().times(all);
         // 산탄 알 더하기는 산탄류(바탕 알 2 이상)에만: 쌍권총의 두 발은 알이 아니라 양손이라 더하지 않음
         if ((base.pellets() <= 1 || k == Kind.DUAL) && all.pellets() != 0) all = all.withPellets(0);
-        Spec s = base.with(all);
-        return md == null ? s : s.named(md.key(), md.sound());
+        if (md == null) return base.with(all);
+        Spec s = base.with(md.mods().times(all));
+        double want = sustained(base.with(all)), got = sustained(s);
+        if (want > 0 && got > 0) s = s.with(GunMods.NONE.mulDamage(want / got));
+        return s.named(md.key(), md.sound());
     }
 
     /** 이 사람이 그 총으로 쏠 때 치명 확률(Gun 특성 + 사람 배율) */
@@ -1382,17 +1384,21 @@ public final class Guns implements Listener {
         boolean right = e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK;
         if (!right) return;
         long now = host.now();
-        // 서버가 아직 '사용 중'이면 누른 채 다시 온 패킷(확인 신호의 답, 사용 중이 클라에 닿기 전의 되풀이): 상점 열기로 치지 않는다
+        // 서버가 아직 '사용 중'이면 누른 채 다시 온 패킷: 상점 열기로 치지 않는다. 사용 중인 클라는 누름을 안 보내므로 이때 클라는 사용 중이
+        // 아니다(확인 신호의 답, 사용 중이 클라에 닿기 전의 되풀이, 서버가 막은 칸 바꿈 뒤 클라만 사용을 끊은 것): 사용 중을 다시 보내 줘야
+        // 클라가 뗄 때 뗌을 보낸다
         boolean fresh = !usingHand(p);
         if (fresh) {
             if (a.holdNoFire) return;
-            if (host.tryUse(p)) {
+            // 총을 들었으면 서버가 '사용 중'을 켠다: 이 값이 클라에 닿으면 클라가 뗄 때 뗌을 보낸다(이미 뗀 뒤에 닿아도 바로 보냄).
+            // 상점을 열었을 때도 켠다: 뗄 때까지 holdNoFire 가 남고 클라가 누른 채 다시 누름을 보내 상점을 또 열지 않게
+            boolean used = host.tryUse(p);
+            if (held(p) != null) p.startUsingItem(EquipmentSlot.HAND);
+            if (used) {
                 a.holdNoFire = true;
                 return;
             }
-            // 총을 들었으면 서버가 '사용 중'을 켠다: 이 값이 클라에 닿으면 클라가 뗄 때 뗌을 보낸다(이미 뗀 뒤에 닿아도 바로 보냄)
-            if (held(p) != null) p.startUsingItem(EquipmentSlot.HAND);
-        } else if (a.probeAt >= 0) usingFlag(p, true);
+        } else usingFlag(p, true);
         // 어떤 누름 패킷이든 지금 버튼이 눌려 있다는 뜻: 4 틱 동안 한 발(연사 박자가 발 수를 막음). 빠른 연타가 앞 누름의 뗌보다 먼저 와도 살아남
         a.tapUntil = now + 4;
         a.confirmedAt = now;
@@ -1824,7 +1830,7 @@ public final class Guns implements Listener {
                 double amount = s.damage() * falloff(travelled + h.dist(), s.range()) * pierced(hitIndex) * hitMul(p, h.target(), s);
                 critNow = critChance > 0 && rnd.nextDouble() < critChance;
                 if (critNow) amount *= 2;
-                boolean died = targets.damage(h.target(), new Damage(amount, type, p, pos.clone(), d.clone(), s.key(), 0));
+                boolean died = targets.damage(h.target(), new Damage(amount, type, p, pos.clone(), d.clone(), s.key(), 0, true));
                 credit(p, h.target(), amount, died, gun, true);
                 critNow = false;
                 hitIndex = 0;
@@ -1922,7 +1928,7 @@ public final class Guns implements Listener {
                 // 같은 자리(분열 직후, 같은 자리 소환)면 방향은 탄 방향(0 벡터 normalize 로 NaN 이 되지 않게)
                 Vector jd = c.clone().subtract(from);
                 jd = jd.lengthSquared() < 1e-6 ? d.clone() : jd.normalize();
-                boolean k = t.damage(next, new Damage(dmg, DamageType.BULLET, p, c.clone(), jd, "chain", 0));
+                boolean k = t.damage(next, new Damage(dmg, DamageType.BULLET, p, c.clone(), jd, "chain", 0, false));
                 credit(p, next, dmg, k, gun, false);
                 from = c;
                 dmg *= 0.5;
@@ -2099,29 +2105,34 @@ public final class Guns implements Listener {
         else clock.at(when, send);
     }
 
-    /** 맞은 자리에서 나는 소리(탄착, 살): 쏜 사람에게는 늘(거리 안이면), 남에게는 {@link #othersHear} 몫만 */
+    /**
+     * 맞은 자리에서 나는 소리(탄착, 살): 쏜 사람에게는 늘(거리 안이면), 남에게는 {@link #othersHear} 몫만. 바닐라 대체 소리는 soundAround 처럼
+     * 들리는 거리만큼 음량을 키운다(솎을 때도 같은 거리에서 들리게)
+     */
     private void soundNear(Player shooter, Location at, String event, Sound fallback, float volume, float jitter, float fallbackPitch, double range) {
         if (othersHear >= 1) {
             Props.soundAround(at, event, fallback, volume, jitter, fallbackPitch, range, -1);
             return;
         }
+        float vol = Props.hasSound(event) ? volume : Math.max(volume, (float) (range / 16.0));
         double r2 = range * range;
         for (Player o : at.getWorld().getPlayers())
             if (o.getLocation().distanceSquared(at) <= r2 && (o == shooter || rnd.nextDouble() < othersHear))
-                Props.soundTo(o, at, event, fallback, volume, jitter, fallbackPitch, -1);
+                Props.soundTo(o, at, event, fallback, vol, jitter, fallbackPitch, -1);
     }
 
     /**
-     * 쏜 사람만 듣는 맞힘 소리(거리와 상관없이 본인 자리에서): 맞힘은 화살 맞는 딩 소리(2 틱에 한 번), 치명은 더 높고 크게, 처치는 다른 소리.
-     * 처치한 발에는 맞힘 소리를 겹치지 않는다. 멀리서 맞혀도(저격) HUD 표시 말고 귀로 안다
+     * 쏜 사람만 듣는 맞힘 소리(거리와 상관없이 본인 자리에서): 맞힘은 화살 맞는 딩 소리, 치명은 더 높고 크게(둘 다 2 틱에 하나), 처치는 다른
+     * 소리(한 틱에 하나). 처치 소리는 따로 세어 같은 틱의 맞힘 소리에 묻히지 않고, 처치한 틱에는 맞힘 소리를 더 내지 않는다.
+     * 산탄 아홉 알, 줄 선 떼를 꿰뚫는 레일건도 한 틱에 많아야 둘. 멀리서 맞혀도(저격) HUD 표시 말고 귀로 안다
      */
     void hitSound(Player p, Arms a, boolean died, boolean crit) {
         long now = host.now();
         if (died) {
-            if (now == a.hitSoundAt) return;
-            a.hitSoundAt = now;
+            if (now == a.killSoundAt) return;
+            a.killSoundAt = now;
             Props.sound(p, null, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 0.5f, 0.97f + rnd.nextFloat() * 0.06f, 0.75f);
-        } else if (crit || now - a.hitSoundAt >= 2) {
+        } else if (now != a.killSoundAt && now - a.hitSoundAt >= 2) {
             a.hitSoundAt = now;
             Props.sound(p, null, Sound.ENTITY_ARROW_HIT_PLAYER, crit ? 0.6f : 0.4f, 0.97f + rnd.nextFloat() * 0.06f, crit ? 1.8f : 1.25f);
         }

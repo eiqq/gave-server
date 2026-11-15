@@ -18,7 +18,8 @@ import net.kyori.adventure.text.format.TextDecoration;
 /**
  * 총 하나: 종류 + 모델 + 등급 + 강화 단계. 굴리는 것은 종류, 모델, 등급뿐이고 성능은 그 셋으로 정해진다(2026-11-14 사용자 '같은 등급이면 성능
  * 통일'): 등급 배율은 {@link #GRADE} 한 벌, 특성은 모델마다 정해진 둘({@link #traitsOf}: 영웅은 첫째, 전설은 둘 다). 같은 모델 같은 등급이면
- * 누가 뽑아도 같은 총이다. 유효 총 = Guns.SPECS(종류) x 모델 배율(Models) x {@link #mods()} x GunHost.mods(p).
+ * 누가 뽑아도 같은 총이고, 같은 종류 같은 등급이면 모델이 달라도 한 대상 지속 화력이 같다(Guns.effective 가 한 발 피해로 맞춤).
+ * 유효 총 = Guns.SPECS(종류) x 모델 배율(Models) x {@link #mods()} x GunHost.mods(p).
  * 권총은 굴리지 않는 기본 권총({@link #basic})이고 강화만 된다. 강화 단계는 {@link #upgrade()}, {@link #inherit} 로만 바꾼다
  * (ver 가 올라 Guns 가 유효 총을 다시 만듦). 강화는 총을 바꿔도 그대로 따라간다({@link #INHERIT} 1).
  */

@@ -35,7 +35,7 @@ import kr.gave.mob.Gabe;
  * 총 말고 다른 쏘는 방식(2026-11-12 무기 랜덤 상자, Guns.Fire): 불길과 냉기 원뿔(FLAME, FREEZE), 연쇄 번개(CHAIN), 모아 쏘는 관통 광선(CHARGE),
  * 날아가는 유탄과 로켓(LOB, ROCKET), 냉기 느려짐, 미니건 회전과 레일건 모으기 소리. Guns.fire 가 종류의 Mode 를 보고 한 발마다 부른다.
  * <p>
- * 피해는 host.targets() 로, 처치 셈은 Guns.count, 증강 알림은 Guns.hooks(대상 조건 배율, 처치 회복). 치명은 한 번 쏠 때 정한 확률(Guns 가 넘김).
+ * 피해는 host.targets() 로, 맞힘과 처치 기록, 증강 알림(처치 회복 등)은 Guns.credit 한곳, 대상 조건 배율은 Guns.hitMul. 치명은 한 번 쏠 때 정한 확률(Guns 가 넘김).
  * 총 특성: 화염탄은 불붙음(불길은 1.5 배, 냉기와 번개, 폭발, 레일 광선은 새로 붙임), 폭발탄은 폭발 반경 1.3 배(번개는 첫 대상 작은 폭발), 연쇄는
  * 번개 +2 번, 넉백은 밀침. 그 방식에서 일하지 않는 특성은 모델에 붙지 않는다(Gun.Trait.fits: 관통, 레일건의 폭발탄과 연쇄, 폭발의 연쇄, 로켓 넉백).
  * <p>
@@ -247,7 +247,7 @@ final class Arsenal {
     private void zap(Player p, Arms a, Spec s, Gun gun, Object o, Vector at, Vector dir, double dmg, boolean first) {
         HitTargets t = host.targets();
         World w = p.getWorld();
-        boolean died = t.damage(o, new Damage(dmg, DamageType.OTHER, p, at.clone(), dir.clone(), first ? s.key() : "chain", 0));
+        boolean died = t.damage(o, new Damage(dmg, DamageType.OTHER, p, at.clone(), dir.clone(), first ? s.key() : "chain", 0, first));
         hitBook(p, a, o, dmg, died, gun);
         chainHits++;
         fx().zap(at.toLocation(w));
@@ -292,7 +292,7 @@ final class Arsenal {
             guns.critNow = mul > 1;
             // 꿰뚫을 때마다 0.9 배(아래끝 0.4): 줄 선 것을 모두 꿰뚫되 뒤로 갈수록 약해진다
             double amount = s.damage() * hitMul(p, h.target(), s) * mul * Math.max(0.4, Math.pow(0.9, n));
-            boolean died = t.damage(h.target(), new Damage(amount, DamageType.SNIPER, p, pos.clone(), dir.clone(), s.key(), 0));
+            boolean died = t.damage(h.target(), new Damage(amount, DamageType.SNIPER, p, pos.clone(), dir.clone(), s.key(), 0, true));
             hitBook(p, a, h.target(), amount, died, gun);
             guns.critNow = false;
             guns.hitIndex = 0;

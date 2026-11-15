@@ -36,7 +36,8 @@ import net.kyori.adventure.key.Key;
  * <p>
  * 예산(판 규칙 '효과 50'): 자국을 뺀 연출 디스플레이는 한 번에 {@link #BUDGET} 개까지만 산다. 차 오르면 덤(full 연출: 먼지, 불똥, 뒤로 뿜는 안개,
  * 연기, 곁 탄 궤적)부터 안 낳고, 그다음 보통, 마지막까지 남는 것은 꼭(폭발 섬광 같은 것). 자국은 종류마다 따로 정한 한도(오래된 것부터 지움)를 지킨다.
- * 총 연출(탄 궤적, 맞은 자리)은 그 안에서도 따로 정한 자리({@link #GUN_ROOM})만 쓴다. 남에게 못 보인 탄 궤적은 쏜 사람에게만 보이는 것으로 낳는다(예산 밖).
+ * 총 연출(탄 궤적, 맞은 자리)은 그 안에서도 따로 정한 자리({@link #GUN_ROOM})만 쓴다. 남에게 못 보인 탄 궤적은 쏜 사람에게만 보이는 디스플레이
+ * 하나(사람마다 하나를 두고 옮겨 씀, 예산 밖)로 그린다.
  */
 public final class ShotFx {
     public static final int TRACER = 1, FLASH = 2, DUST = 3, SPARK = 4, DECAL = 5, FIRE = 6, RING = 7, SMOKE = 8, BILE = 9, BLOOD = 10;
@@ -75,12 +76,10 @@ public final class ShotFx {
         final boolean decal;
         /** 낳게 한 사람(사람 몫 예산), 없으면 null */
         java.util.UUID owner;
-        /** 예산 밖(날아가는 유탄, 로켓 몸통: 모양은 모드 모델, 수는 Arsenal.MAX_SHELLS 가 막음. 쏜 사람에게만 보이는 탄 궤적) */
+        /** 예산 밖(날아가는 유탄, 로켓 몸통: 모양은 모드 모델, 수는 Arsenal.MAX_SHELLS 가 막음) */
         boolean free;
         /** 총 연출 자리 번호(0 = 아님, 1 탄 궤적, 2 맞은 자리) */
         int gun;
-        /** 쏜 사람에게만 보이는 탄 궤적이면 그 사람 */
-        java.util.UUID own;
 
         Live(ItemDisplay d, long until, boolean decal) {
             this.d = d;
@@ -117,9 +116,22 @@ public final class ShotFx {
     private final int[] gunLive = new int[3];
     /** 지금 낳는 연출의 총 연출 자리 번호(tracer, gunBlood, gunHit 가 잠깐 켬) */
     private int gunFx;
-    /** 예산 밖에서 쏜 사람에게만 보이는 탄 궤적: 사람마다 동시에 이만큼까지(자기 탄이 어디로 가는지는 큰 판에서도 보이게) */
-    private static final int OWN_TRACERS = 2;
-    private final java.util.Map<java.util.UUID, Integer> ownLive = new java.util.HashMap<>();
+    /**
+     * 쏜 사람에게만 보이는 탄 궤적(자기 탄이 어디로 가는지는 큰 판에서도 보이게): 사람마다 디스플레이 하나를 두고 쏠 때마다 옮겨 쓴다
+     * (엔티티를 쏠 때마다 새로 만들고 지우지 않음). 자리는 순간 이동(보간 없음), 날아가는 것은 다음 틱의 변환 보간. 다 날면 아이템을 비워
+     * 숨기고(셰이더 도장은 3000 틱 뒤 다시 보이므로), {@link #OWN_IDLE} 틱 동안 안 쓰면 지운다
+     */
+    private static final class Own {
+        ItemDisplay d;
+        /** 보이게 한 사람(다시 들어오면 다른 객체라 새로 만듦) */
+        Player who;
+        /** 몇 번째 쓰임인가(다음 틱 날림이 그사이 새 궤적에 덮였는지 봄) */
+        int use;
+        long hideAt, dropAt;
+    }
+
+    private static final int OWN_IDLE = 200;
+    private final java.util.Map<java.util.UUID, Own> own = new java.util.HashMap<>();
     private final List<Live> timed = new ArrayList<>();
     private final ArrayDeque<ItemDisplay> holes = new ArrayDeque<>(), bloods = new ArrayDeque<>(), bigs = new ArrayDeque<>();
     /** 지금 살아 있는 자국 아닌 연출 수 */
@@ -335,8 +347,8 @@ public final class ShotFx {
     }
 
     /**
-     * 탄 궤적. share = 남에게도 보이게 낳아 볼지(총 연출 자리 안에서). 못 낳았거나 share 가 아니면 쏜 사람에게만 보이는 궤적을 낳는다
-     * (예산 밖, 사람마다 {@link #OWN_TRACERS} 개까지, 곁 알은 안 함): 서른 명이 함께 쏴도 자기 탄이 어디로 가는지는 보인다
+     * 탄 궤적. share = 남에게도 보이게 낳아 볼지(총 연출 자리 안에서). 못 낳았거나 share 가 아니면 쏜 사람에게만 보이는 궤적으로 그린다
+     * (예산 밖, 사람마다 하나를 옮겨 씀({@link Own}), 곁 알은 안 함): 서른 명이 함께 쏴도 자기 탄이 어디로 가는지는 보인다
      */
     public void tracer(Player shooter, Location eye, Location end, boolean main, boolean share) {
         Vector look = eye.getDirection();
@@ -360,17 +372,47 @@ public final class ShotFx {
                 gunFx = 0;
             }
         }
-        if (d == null && main && shooter != null && ownLive.getOrDefault(shooter.getUniqueId(), 0) < OWN_TRACERS) {
-            d = make(start, fx("fx_tracer", TRACER, 0), along(d2, w, len), Display.Billboard.FIXED, true, false);
-            shooter.showEntity(host.plugin(), d);
-            Live lv = new Live(d, host.now() + n + 4, false);
-            lv.free = true;
-            lv.own = shooter.getUniqueId();
-            timed.add(lv);
-            ownLive.merge(lv.own, 1, Integer::sum);
-        }
         Location to = end.clone().subtract(d2.clone().multiply(len));
+        if (d == null) {
+            if (main && shooter != null) ownTracer(shooter, start, along(d2, w, len), to, n);
+            return;
+        }
         drift(d, to, n);
+    }
+
+    /** 쏜 사람에게만 보이는 탄 궤적 하나({@link Own}): start 에 m 모양으로 놓고 다음 틱부터 ticks 동안 to 까지 날린다 */
+    private void ownTracer(Player shooter, Location start, Matrix4f m, Location to, int ticks) {
+        Own o = own.get(shooter.getUniqueId());
+        ItemStack look = fx("fx_tracer", TRACER, 0);
+        if (o == null || o.who != shooter || !o.d.isValid() || o.d.getWorld() != start.getWorld()) {
+            if (o != null && o.d.isValid()) o.d.remove();
+            o = new Own();
+            o.who = shooter;
+            o.d = make(start, look, m, Display.Billboard.FIXED, true, false);
+            shooter.showEntity(host.plugin(), o.d);
+            own.put(shooter.getUniqueId(), o);
+        } else {
+            Location at = start.clone();
+            at.setYaw(0);
+            at.setPitch(0);
+            o.d.teleport(at);
+            o.d.setItemStack(look);
+            o.d.setInterpolationDelay(0);
+            o.d.setInterpolationDuration(0);
+            o.d.setTransformationMatrix(m);
+        }
+        long now = host.now();
+        o.hideAt = now + ticks + 4;
+        o.dropAt = now + OWN_IDLE;
+        int use = ++o.use;
+        Own oo = o;
+        Matrix4f flown = new Matrix4f().translation((float) (to.getX() - start.getX()), (float) (to.getY() - start.getY()), (float) (to.getZ() - start.getZ())).mul(m);
+        Bukkit.getScheduler().runTaskLater(host.plugin(), () -> {
+            if (oo.use != use || !oo.d.isValid()) return;
+            oo.d.setInterpolationDelay(0);
+            oo.d.setInterpolationDuration(ticks);
+            oo.d.setTransformationMatrix(flown);
+        }, 1);
     }
 
     /** 총에 맞은 자리 피 안개(bloodHit 와 같되 총 연출 자리 안에서) */
@@ -696,17 +738,28 @@ public final class ShotFx {
                 live--;
             }
             if (o.gun > 0) gunLive[o.gun]--;
-            if (o.own != null) ownLive.computeIfPresent(o.own, (k, v) -> v <= 1 ? null : v - 1);
             if (o.owner != null) ownerLive.computeIfPresent(o.owner, (k, v) -> v <= 1 ? null : v - 1);
             it.remove();
         }
+        if (!own.isEmpty()) own.values().removeIf(o -> {
+            if (!o.d.isValid() || now >= o.dropAt) {
+                o.d.remove();
+                return true;
+            }
+            if (o.hideAt >= 0 && now >= o.hideAt) {
+                o.hideAt = -1;
+                o.d.setItemStack(ItemStack.empty());
+            }
+            return false;
+        });
     }
 
     public void clear() {
         for (Live o : timed) o.d.remove();
         timed.clear();
         ownerLive.clear();
-        ownLive.clear();
+        for (Own o : own.values()) o.d.remove();
+        own.clear();
         gunLive[1] = gunLive[2] = 0;
         wantAt.clear();
         holes.clear();
@@ -738,7 +791,7 @@ public final class ShotFx {
         if (p == null || a.length < 2) return null;
         String act = a[1];
         if (act.equals("연출수"))
-            return "fx=" + timed.size() + " live=" + live + "/" + BUDGET + " gun=" + gunLive[1] + "+" + gunLive[2] + " own=" + ownLive.values().stream().mapToInt(Integer::intValue).sum()
+            return "fx=" + timed.size() + " live=" + live + "/" + BUDGET + " gun=" + gunLive[1] + "+" + gunLive[2] + " own=" + own.size()
                 + " dropped=" + dropped + " decals=" + decals() + " holes=" + holes.size()
                 + " blood=" + bloods.size() + " big=" + bigs.size();
         if (act.equals("자국시험")) {
