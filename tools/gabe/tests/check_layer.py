@@ -99,7 +99,10 @@ for ev, d in snd.items():
         err(f"소리 {ev}: 자막 키 없음")
     for s in d["sounds"]:
         n = s["name"]
-        if n.startswith("gave:") and not (A / f"sounds/{n[5:]}.ogg").is_file():
+        if s.get("type") == "event":  # 별칭(보탠 크리처 소리 gabe.<종>.idle 등): 가리킨 사건이 층에 있어야 함
+            if n[5:] not in snd:
+                err(f"소리 {ev}: 가리킨 사건 없음 {n}")
+        elif n.startswith("gave:") and not (A / f"sounds/{n[5:]}.ogg").is_file():
             err(f"소리 {ev}: 파일 없음 {n}")
 for p in L.rglob("*.json"):
     if chr(0xB7) in p.read_text(encoding="utf-8"):

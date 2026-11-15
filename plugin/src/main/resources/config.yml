@@ -64,6 +64,14 @@ music: true
 musicVolume: 0.7
 musicCategory: VOICE
 musicLog: false
+# 보탠 크리처 소리(2026-11-14, docs/소리출처.md '크리처 보강 소리'). 끄면 보탠 소리만 꺼지고 기존 소리는 그대로.
+# near: 가까운 울음, 걸음, 죽을 때 살덩이, 사체 소리(사람마다 예산, kr.gave.mob.Ears). far: 가만히 집중해야 들리는 먼 저음 층(kr.gave.game.Horizon.farTick,
+# 클라 '주변/환경' 막대, horizon.enabled 를 끄면 같이 꺼짐). farVolume: 웨이브 중 먼 부름이 듣는 귀에서 파일 크기의 몇 배인가(0..1). 0.28 이면 -34 LUFS
+# (브금보다 11~13 LU 아래), 쉬는 시간 숨은 그 0.63 배(-38), 보스 앞 거대한 것은 1.585 배(-30). 또렷하게 0.45(-30), 조용하게 0.18(-38)
+sfx:
+  near: true
+  far: true
+  farVolume: 0.28
 # 원정(docs/모듈/원정.md): 중앙 상점이 트럭이 되고(체력, 터지면 판 끝), 죽은 사람은 다른 사람이 돈을 내야 돌아온다. enabled 를 끄면 예전 판 그대로.
 # enabled 는 손으로 고치지 말고 운영자 명령 '/gave 원정 on|off' 로 바꾼다(서버를 다시 켜지 않아도 되고, 정한 값이 이 칸에 저장된다).
 # voteKeys: 숫자키 1 2 3 투표는 코드에서 늘 켜짐(RouteVote.KEYS), 이 칸은 끈 판에서도 켜는 덮개. afterLaunch: 발사 뒤 36라운드로 이어 감(기본 끔: 발사하면 판 끝).

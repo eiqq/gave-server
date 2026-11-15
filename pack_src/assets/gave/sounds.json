@@ -2376,5 +2376,161 @@
     "stream": true
    }
   ]
+ },
+ "far.call": {
+  "sounds": [
+   {
+    "name": "gave:far/call_0",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 128,
+    "stream": true
+   },
+   {
+    "name": "gave:far/call_1",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 128,
+    "stream": true
+   },
+   {
+    "name": "gave:far/call_2",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 128,
+    "stream": true
+   },
+   {
+    "name": "gave:far/call_3",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 128,
+    "stream": true
+   },
+   {
+    "name": "gave:far/call_4",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 128,
+    "stream": true
+   },
+   {
+    "name": "gave:far/call_5",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 128,
+    "stream": true
+   },
+   {
+    "name": "gave:far/call_6",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 128,
+    "stream": true
+   }
+  ],
+  "subtitle": "subtitles.gave.far.call"
+ },
+ "far.answer": {
+  "sounds": [
+   {
+    "name": "gave:far/answer_0",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 128,
+    "stream": true
+   },
+   {
+    "name": "gave:far/answer_1",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 128,
+    "stream": true
+   },
+   {
+    "name": "gave:far/answer_2",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 128,
+    "stream": true
+   },
+   {
+    "name": "gave:far/answer_3",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 128,
+    "stream": true
+   },
+   {
+    "name": "gave:far/answer_4",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 128,
+    "stream": true
+   }
+  ],
+  "subtitle": "subtitles.gave.far.answer"
+ },
+ "far.swell": {
+  "sounds": [
+   {
+    "name": "gave:far/swell_0",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 16,
+    "stream": true
+   },
+   {
+    "name": "gave:far/swell_1",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 16,
+    "stream": true
+   },
+   {
+    "name": "gave:far/swell_2",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 16,
+    "stream": true
+   }
+  ]
+ },
+ "far.breath": {
+  "sounds": [
+   {
+    "name": "gave:far/breath_0",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 16,
+    "stream": true
+   },
+   {
+    "name": "gave:far/breath_1",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 16,
+    "stream": true
+   }
+  ]
+ },
+ "far.giant": {
+  "sounds": [
+   {
+    "name": "gave:far/giant_0",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 192,
+    "stream": true
+   },
+   {
+    "name": "gave:far/giant_1",
+    "volume": 1.0,
+    "pitch": 1.0,
+    "attenuation_distance": 192,
+    "stream": true
+   }
+  ],
+  "subtitle": "subtitles.gave.far.giant"
  }
 }

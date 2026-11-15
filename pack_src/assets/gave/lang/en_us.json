@@ -74,5 +74,8 @@
  "subtitles.gave.trip.gas_leak": "가스 새는 소리",
  "subtitles.gave.trip.pad_machine": "발사장 기계음",
  "subtitles.gave.trip.metal_groan": "쇠 울림",
- "subtitles.gave.trip.radio": "무전 잡음"
+ "subtitles.gave.trip.radio": "무전 잡음",
+ "subtitles.gave.far.call": "멀리서 낮은 울음",
+ "subtitles.gave.far.answer": "멀리서 대답",
+ "subtitles.gave.far.giant": "거대한 것의 울음"
 }

@@ -218,6 +218,16 @@ public final class Props {
         else if (fallback != null) to.playSound(at, fallback, SoundCategory.PLAYERS, volume, fallbackPitch * jitter, RND.nextLong());
     }
 
+    /** 한 사람에게만, 그 사람 자리에서 소리 갈래 cat 으로(모드 사건만, 팩에 없으면 안 울림: 보탠 먼 저음 층이 주변/환경 막대로 씀) */
+    public static void sound(Player to, String event, float volume, float jitter, SoundCategory cat) {
+        if (modSound(event, null)) to.playSound(to.getLocation(), NS + ":" + event, cat, volume, jitter, RND.nextLong());
+    }
+
+    /** 한 사람에게만, 자리 at 에서 소리 갈래 cat 으로(모드 사건만, 팩에 없으면 안 울림) */
+    public static void soundTo(Player to, Location at, String event, float volume, float jitter, SoundCategory cat) {
+        if (modSound(event, null)) to.playSound(at, NS + ":" + event, cat, volume, jitter, RND.nextLong());
+    }
+
     /** 몸에 붙여 울린 소리 하나(끊을 때 씀): 모드 사건 이름(gave:...) 또는 바닐라 소리 */
     public record Voice(String event, Sound vanilla) {
         void stop(Player p) {

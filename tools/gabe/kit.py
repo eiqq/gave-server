@@ -28,7 +28,7 @@ from pathlib import Path
 import numpy as np
 from PIL import Image
 
-from . import audio, faces, render
+from . import audio, faces, flesh, render
 
 ROOT = Path(__file__).resolve().parents[2]
 NS = "gave"
@@ -1208,19 +1208,21 @@ class Kit:
 
     # ------------------------------------------------------------------ 소리
 
-    def sound(self, name, subtitle, *, vanilla=(), synth=None, volume=1.0, pitch=1.0, attenuation=16, event=None, sample=()):
+    def sound(self, name, subtitle, *, vanilla=(), synth=None, volume=1.0, pitch=1.0, attenuation=16, event=None, sample=(), alias=None):
         """소리 사건 gave:gabe.<종>.<name>(Java: Gabe.sound(name, ...)). 변형마다 하나씩 무작위로 울림.
         vanilla: ["mob/phantom/flap1", ("mob/slime/big1", 0.8), {"name": ..., "pitch": ..., "volume": ...}] 처럼 바닐라 소리 파일
         (minecraft: 를 붙이지 않은 경로, 피치를 바꿔 가리킴). synth: audio 함수가 만든 배열 하나, 목록, 또는 seed → 배열 함수(변형 3개).
         sample: 받은 소리(data/sfx_lib.json) 목록. 꼴은 k.sample 의 src 와 같음(아이디, 'tag:..', dict). 새 소리는 synth 대신 이것으로.
         subtitle: 한국어 자막(자막 키 subtitles.gave.gabe.<종>.<name>). pitch 는 들리는 높이(Java 는 흔들림만 보냄).
-        attenuation: 들리는 거리(블록, Java 가 보내는 반경과 맞출 것. 위협 예고음은 넓게)"""
+        attenuation: 들리는 거리(블록, Java 가 보내는 반경과 맞출 것. 위협 예고음은 넓게)
+        alias: 다른 사건 이름(예 'gabe.cry_mid'). 주면 그 사건을 가리키는 별칭(type event: 높이와 크기는 곱해지고 들리는 거리와 자막은 그 사건 것,
+        subtitle 은 None)"""
         if not NAME.fullmatch(name):
             raise ValueError("소리 이름은 소문자, 숫자, _ 만")
-        if MIDDLE_DOT in subtitle:
+        if MIDDLE_DOT in (subtitle or ""):
             raise ValueError("자막에 가운뎃점 금지")
         ev = event or f"gabe.{self.key}.{name}"
-        entries = []
+        entries = [{"name": f"{NS}:{alias}", "type": "event", "volume": round(volume, 3), "pitch": round(pitch, 3)}] if alias else []
         for v in vanilla:
             if isinstance(v, str):
                 v = {"name": v}
@@ -1256,8 +1258,9 @@ class Kit:
             entries.append(ent)
         if not entries:
             raise ValueError(f"소리 {name}: vanilla, synth, sample 가운데 하나는 있어야 함")
-        self.sounds_json[ev] = {"sounds": entries, "subtitle": f"subtitles.{NS}.{ev}"}
-        self.lang[f"subtitles.{NS}.{ev}"] = subtitle
+        self.sounds_json[ev] = {"sounds": entries, "subtitle": f"subtitles.{NS}.{alias or ev}"}
+        if not alias:
+            self.lang[f"subtitles.{NS}.{ev}"] = subtitle
         return f"{NS}:{ev}"
 
     def sample(self, name, src, subtitle=None, *, pitch=1.0, volume=1.0, attenuation=16, n=3, level=-14.0, event=None):
@@ -1340,11 +1343,15 @@ class Kit:
         return render.render(els, self.textures, view=view, size=size, fit=fit, bg=bg)
 
     def finish(self):
-        """모델 마무리(변이 2 막대기), 엔진이 모든 종에 울리는 hurt, die 소리 기본값 → (팩 파일 {경로: 바이트}, looks {모델: 항목}, 아이콘 그림)"""
+        """모델 마무리(변이 2 막대기), 엔진이 모든 종에 울리는 hurt, die 소리 기본값과 보탠 크리처 소리 별칭(voice_aliases)
+        → (팩 파일 {경로: 바이트}, looks {모델: 항목}, 아이콘 그림)"""
         if self.models and self.key != "common":
             for name, (sub, van, att) in DEFAULT_SOUNDS.items():
                 if f"gabe.{self.key}.{name}" not in self.sounds_json:
                     self.sound(name, sub, vanilla=van, attenuation=att)
+            for name, target, p in voice_aliases(self.key):
+                if f"gabe.{self.key}.{name}" not in self.sounds_json:
+                    self.sound(name, None, alias=target, pitch=p)
         files, looks = {}, {}
         for m in self.models.values():
             m._auto_mut2()
@@ -1413,6 +1420,36 @@ DEFAULT_SOUNDS = {
     "hurt": ("게이브 움찔", [("mob/slime/small1", 1.45), ("mob/slime/small3", 1.5), ("mob/slime/small5", 1.4)], 16),
     "die": ("게이브 철퍽", [("mob/slime/big2", 0.72), ("mob/slime/big4", 0.68)], 24),
 }
+
+
+# 보탠 크리처 소리(2026-11-14, tools/gabe/flesh.py NEAR)를 종마다 무엇으로 쓸지. Java kr.gave.mob.Ears 가 gabe.<종>.idle, gait, gait_<재질>, flesh 를 부름
+VOICE = ROOT / "data/gabe_voice.json"
+_VOICE = None
+
+
+def _voice_rows(v):
+    rows = [("flesh", f"gabe.flesh_{v['size']}")]
+    if v["cry"]:
+        rows.append(("idle", f"gabe.cry_{v['cry']}"))
+    if v["move"] == "flap":
+        rows.append(("gait", "gabe.move_flap"))
+    elif v["move"]:
+        rows += [(f"gait_{m}", f"gabe.move_{v['move']}_{m}") for m in flesh.MATERIALS]
+    return [(name, target, v["pitch"]) for name, target in rows]
+
+
+def voice_aliases(key):
+    """data/gabe_voice.json 의 그 종 줄 → [(사건 이름, 가리킬 공용 사건, 높이)]. 표에 없는 종은 []. 표가 틀리면(없는 공용 사건, 높이 범위 밖) 멈춤"""
+    global _VOICE
+    if _VOICE is None:
+        table = json.loads(VOICE.read_text(encoding="utf-8"))["species"]
+        for k, v in table.items():
+            bad = [t for _, t, _ in _voice_rows(v) if t.split(".", 1)[1] not in flesh.NEAR]
+            if bad or not 0.5 <= v["pitch"] <= 2.0:
+                raise ValueError(f"{VOICE.name} {k}: 없는 공용 사건 {bad} 또는 높이 {v['pitch']} 가 0.5..2 밖")
+        _VOICE = table
+    v = _VOICE.get(key)
+    return _voice_rows(v) if v else []
 
 
 def _png(arr):

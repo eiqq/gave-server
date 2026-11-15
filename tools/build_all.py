@@ -6,7 +6,7 @@ python -X utf8 tools/build_all.py --skip props,bgm 빼고(이름은 --list)
 python -X utf8 tools/build_all.py --list          단계 이름과 명령
 
 순서: props(소품 층) → gcb(다른 서버에서 옮긴 총 셋, 자료가 없으면 건너뜀) → pack_src(팩 바탕) → shop_ui(상점 화면) → fx(셰이더 연출) → gabe(게이브 몹 층) → director(감독 소리)
-→ bgm(배경 음악) → hud(HUD 글꼴, 글귀) → hud_promote(HudSpec.java 를 코드로) → pack(build/Gave-pack.zip)
+→ far(먼 저음 층) → bgm(배경 음악) → hud(HUD 글꼴, 글귀) → hud_promote(HudSpec.java 를 코드로) → pack(build/Gave-pack.zip)
 → shaders(셰이더 검사) → layer(몹 층 검사) → dex(도감 글) → real(진짜 트리 jar build/real) → parity(키트와 Look 부호 대조) → plugin(build_plugin.sh).
 단계마다 출력은 build/build_all/<단계>.out 에 쓰고(서버를 띄우지 않으니 파이프 막힘 걱정은 없지만 길어서 파일로),
 실패하면 그 파일 끝 30줄을 보여 준다. 진짜 트리의 Java 를 고치지는 않는다(hud_promote 는 make_hud 가 만든 HudSpec 만 옮김).
@@ -30,6 +30,7 @@ STEPS = [
     ("fx", PY + ["tools/make_fx.py"]),
     ("gabe", PY + ["tools/make_gabe.py"]),
     ("director", PY + ["tools/make_director_sounds.py"]),
+    ("far", PY + ["tools/make_far_sounds.py"]),  # 보탠 먼 저음 층 far.*(받은 허밍 가공 변형이 감독 소리 파일을 풀므로 director 다음)
     ("bgm", PY + ["tools/make_bgm.py"]),
     ("hud", PY + ["tools/make_hud.py"]),
     ("hud_promote", PY + ["tools/compile_wip.py", "--name", "hud", "--promote"]),

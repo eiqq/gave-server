@@ -175,7 +175,7 @@ def build(k: kit.Kit):
 
 
 def sounds(k: kit.Kit):
-    k.sample("caw", "tag:bird", "둥지 우는 소리", pitch=0.55, attenuation=64)
+    k.sample("caw", "tag:bird", "둥지 우는 소리", pitch=0.55, attenuation=96)
     k.sample("stab", "tag:wood", "가지 내리꽂힘", pitch=0.6, attenuation=48)
     k.sample("wrap", "tag:wet", "살 띠가 감긴다", pitch=0.7, attenuation=32)
 

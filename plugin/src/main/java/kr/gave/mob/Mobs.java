@@ -91,6 +91,8 @@ public final class Mobs implements HitTargets {
     public final Flow flow;
     /** 래그돌 사체(예산, 값은 config.yml ragdoll.*). */
     public final Ragdoll ragdoll;
+    /** 보탠 크리처 소리(울음, 이동, 살덩이, 사체: 듣는 사람마다 예산, config.yml sfx.near). */
+    final Ears ears;
     private final List<Gabe> live = new ArrayList<>();
     private int ids;
 
@@ -440,6 +442,7 @@ public final class Mobs implements HitTargets {
         this.game = game;
         this.flow = new Flow(game);
         this.ragdoll = new Ragdoll(game, this);
+        this.ears = new Ears(game, this);
         // 운영자 공격력 배율(/gave 공격력): 설정 playerDamageMul, 범위 밖이면 가장자리로
         try {
             double v = game.plugin.getConfig().getDouble("playerDamageMul", 1.0);
@@ -672,6 +675,7 @@ public final class Mobs implements HitTargets {
             pushFromPlayers();
             rules();
             pounceTick();
+            ears.tick();
             if ((game.now() & 1) == 0) nearTick();
             for (Gabe g : live) {
                 if (g.dead) continue;
@@ -1383,8 +1387,10 @@ public final class Mobs implements HitTargets {
         }
         // 갇힌 사람(eater)과 죽음 결과로 묶인 사람(deathMob: 업은 G38, 총 주운 G52) 모두: freeFrom 이 안에서 거른다
         unbind(g);
-        if (!game.director.silent())
+        if (!game.director.silent()) {
             Props.soundAround(g.loc(), "gabe." + g.sp.key() + ".die", Sound.ENTITY_SLIME_SQUISH, 1f, 0.9f + game.random.nextFloat() * 0.2f, 1.3f, 24, -1);
+            ears.flesh(g);
+        }
         if (g.body == null) return;
         // 몸에 붙은 글 줄(NAMETAG)은 사체에 남기지 않는다
         g.body.dropTags();
@@ -2305,7 +2311,7 @@ public final class Mobs implements HitTargets {
      * 시험 훅(/gave 시험 &lt;행동&gt; &lt;이름&gt; ...): 몹목록 [종] / 몹정지 on|off / 몹죽이기 [종] / 흐름 &lt;x&gt; &lt;z&gt; / 몹보기 /
      * 보기 [종] [틱](가장 가까운 게이브를 보게, 틱이면 그동안 계속) / 예산 / 몹시간 [on|off] / 몹놓기 &lt;종&gt; &lt;수&gt; &lt;x&gt; &lt;z&gt; [흩뿌림] /
      * 몹고리 &lt;종&gt; &lt;수&gt; &lt;반지름&gt; / 몹하나 &lt;번호&gt; / 래그돌 [on|off|다시] / 래그돌값 &lt;키&gt; &lt;값&gt; / 래그돌검사 /
-     * 몹치기 &lt;종류&gt; [수] [종] [방향] / 몹빠름 [종류 종 빠르기 [수] [틱]] / 패킷 [on|off|다시]. 이름 자리는 아무 글이나 되는 행동도 있다
+     * 몹치기 &lt;종류&gt; [수] [종] [방향] / 몹빠름 [종류 종 빠르기 [수] [틱]] / 패킷 [on|off|다시] / 소리 [...]({@link Ears}). 이름 자리는 아무 글이나 되는 행동도 있다
      * (사람이 필요 없을 때).
      */
     public String test(Player p, String[] a) {
@@ -2571,6 +2577,9 @@ public final class Mobs implements HitTargets {
                 }
                 return "fast=" + (fastType == null ? "-" : fastType.name()) + " left=" + fastLeft + " killed=" + fastKilled
                         + String.format(Locale.ROOT, " lastSpeed=%.2f ", fastLast) + ragdoll.status();
+            }
+            case "소리" -> {
+                return ears.test(p, a);
             }
             case "패킷" -> {
                 // 패킷 <이름> [on|off|다시]: 그 사람에게 나가는 패킷 수와 바이트(압축 뒤)를 틱마다 센다. on 붙임, 다시 0 으로, off 뗌. 인자 없으면 읽기.

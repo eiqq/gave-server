@@ -85,7 +85,7 @@ def build(k: kit.Kit):
 def sounds(k: kit.Kit):
     # 내 발소리 뒤에 반 박자 늦게 붙는 젖은 '찰박'(이 종 신호): 발소리와 짧은 물 튀김을 낮게
     k.sample("step", ["kenney_impact/footstep_concrete_000", "oga_water40/splash_09", "oga_water40/splash_10"], "따라오는 발소리",
-             pitch=0.8, attenuation=10)
+             pitch=0.8, attenuation=12)
 
 
 def phrases():
