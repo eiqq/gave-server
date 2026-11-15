@@ -92,7 +92,7 @@ public final class Bridge extends Special {
                 Long at = fellAt.get(p.getUniqueId());
                 if (at == null || now - at >= 20) {
                     fellAt.put(p.getUniqueId(), now);
-                    game.players.hurt(p, Tune.BRIDGE_FALL_DMG, null, "cause_sp_bridge");
+                    game.players.hurt(p, Tune.BRIDGE_FALL_DMG * game.director.dmgCmd(), null, "cause_sp_bridge");
                     falls++;
                 }
             }

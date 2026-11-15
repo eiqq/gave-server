@@ -91,6 +91,10 @@ public final class Truck implements TripPart {
     static final double BOOM_DOWN = 20, BOOM_KILL = 9, BOOM_SHAKE = 60;
     /** 보스의 지킬 것 피해(사람 체력 100 기준 값) → 트럭 체력 비율: 피해 25 가 트럭 10%. */
     static final double WARD_FRAC = 0.004;
+    /** 끌려가던 트럭 노림 개체가 막힌 것으로 치는 1초 걸음(블록)과 트럭에서의 거리(이보다 가까우면 무는 자리를 기다리는 것). */
+    static final double STUCK_MOVE = 0.4, STUCK_FAR = 6;
+    /** 경적(부품 p_horn, 카드 글 '둘레를 밀쳐 낸다'): 밀쳐 내는 반경과 거리(augments_final.json 의 r, push 와 같은 값). */
+    static final double HORN_R = 8, HORN_PUSH = 2.5;
 
     /** 지금 서 있는 트럭(원정이 꺼져 있거나 부품이 없으면 null). Shop 의 정적 자리 메서드가 읽는다. */
     private static volatile Truck current;
@@ -114,6 +118,8 @@ public final class Truck implements TripPart {
         long nextBite, distractUntil, unsquashAt = -1;
         double lastHp;
         boolean biting;
+        /** 지난번 막힘 검사 때 자리({@link #stuck}). */
+        double sx, sz;
     }
 
     private final Map<Gabe, Mark> marks = new IdentityHashMap<>();
@@ -397,11 +403,18 @@ public final class Truck implements TripPart {
                     ShotFx.EXTRA);
             }
         }
-        // 경적(부품): 10% 깎일 때마다 둘레 게이브의 트럭 노림을 잠깐 풀어 물러나게
+        // 경적(부품): 10% 깎일 때마다 둘레 게이브를 밀쳐 내고 트럭 노림을 잠깐 풀어 물러나게
         if (part("p_horn") > 0 && frac() <= hornMark - 0.1) {
             hornMark = frac();
             honk(1f);
             for (Mark mk : marks.values()) mk.distractUntil = now + 30;
+            Vector c = center();
+            for (Gabe g : game.mobs.all()) {
+                if (g.dead || g.removed || g.sp.is(Role.BOSS) || dist(g.pos.getX(), g.pos.getZ()) > HORN_R) continue;
+                Vector away = g.pos.clone().subtract(c).setY(0);
+                if (away.lengthSquared() < 1e-6) away = new Vector(1, 0, 0);
+                Guns.shove(game.world, g, away.normalize(), HORN_PUSH);
+            }
         }
         trip.fire(Trip.EV_TRUCK_HIT, took);
         if (hp <= 0) die(cause);
@@ -418,6 +431,8 @@ public final class Truck implements TripPart {
         if (!alive() || amount <= 0) return 0;
         double got = Math.min(maxHp - hp, amount);
         hp += got;
+        // 경적(부품)의 다음 울림은 고친 체력에서 다시 10%: 안 올리면 고친 뒤 예전 바닥 밑으로 갈 때까지 안 울린다
+        if (frac() > hornMark) hornMark = frac();
         return got;
     }
 
@@ -589,7 +604,11 @@ public final class Truck implements TripPart {
             boolean distracted = now < m.distractUntil;
             if (m.seeker) {
                 seekers++;
-                if (!distracted) steer(g);
+                if (!distracted) {
+                    steer(g);
+                    // 곧게 끌려가다 막힌 칸(보스가 세운 벽, 둔덕) 앞에 서 버리면 잠깐 끌기를 풀어 제 걸음(흐름장: 막힌 칸을 돌아감)으로 돌린다
+                    if (stuck(g, m, now)) m.distractUntil = now + (long) Trip.Tune.TRUCK_DISTRACT;
+                }
             }
             double d = dist(g.pos.getX(), g.pos.getZ()) - g.radius;
             boolean near = d <= Trip.Tune.TRUCK_REACH && g.pos.getY() <= Plaza.FLOOR_Y + HEIGHT + 1.5;
@@ -646,6 +665,18 @@ public final class Truck implements TripPart {
         double x = Math.max(X0 + 0.9, Math.min(X1 - 0.9, g.pos.getX())), z = Math.max(Z0 + 0.9, Math.min(Z1 - 0.9, g.pos.getZ()));
         double y = g.flying ? Plaza.FLOOR_Y + 1.3 : g.pos.getY();
         game.mobs.lure(g, new Vector(x, y, z), 8);
+    }
+
+    /**
+     * 끌려가던 개체가 막혔나: 1초 동안 STUCK_MOVE 도 못 갔고 트럭에서 아직 STUCK_FAR 넘게 멀다(트럭 곁에서 무는 자리를 기다리는 개체는 아님).
+     * 개체마다 1초에 한 번만 잰다(그 밖의 틱은 false).
+     */
+    private boolean stuck(Gabe g, Mark m, long now) {
+        if ((now + g.id) % 20 != 0 || g.flying) return false;
+        double dx = g.pos.getX() - m.sx, dz = g.pos.getZ() - m.sz;
+        m.sx = g.pos.getX();
+        m.sz = g.pos.getZ();
+        return dx * dx + dz * dz < STUCK_MOVE * STUCK_MOVE && dist(g.pos.getX(), g.pos.getZ()) > STUCK_FAR;
     }
 
     /** 이 점에서 가장 가까운 트럭 겉면 점(불꽃 자리). */
@@ -843,6 +874,14 @@ public final class Truck implements TripPart {
         for (Map.Entry<Block, BlockData> e : lightsOff.entrySet()) if (e.getKey().getType().isAir()) e.getKey().setBlockData(e.getValue(), false);
         lightsOff.clear();
         dark = false;
+        // 치운 빛의 기억은 메모리에만 있다: 터진 뒤 판 정리 전에 서버가 강제로 꺼졌으면 원이 계속 어둡다. 생성기 자리(PlazaGen.above)의 빈칸을 다시 채운다
+        int r = Plaza.R_SAFE;
+        for (int x = Plaza.CX - r; x <= Plaza.CX + r; x++) for (int z = Plaza.CZ - r; z <= Plaza.CZ + r; z++) {
+            String up = kr.gave.world.PlazaGen.above(x, z);
+            if (up == null || !up.startsWith("light")) continue;
+            Block b = game.world.getBlockAt(x, Plaza.FLOOR_Y + 1, z);
+            if (b.getType().isAir()) b.setBlockData(kr.gave.world.PlazaGen.bd(up), false);
+        }
     }
 
     // ------------------------------------------------------------------ 월드 표시(지붕 위 막대, 연기, 불)
@@ -979,8 +1018,16 @@ public final class Truck implements TripPart {
 
     @Override
     public void enabled(boolean on) {
-        if (on) build();
-        else unbuild();
+        if (!on) {
+            unbuild();
+            return;
+        }
+        build();
+        // 대기실에서 켤 때(명령 '/gave 원정 on') 발자국 자리에 서 있던 사람은 배리어 속에 끼지 않게 대기실 자리로 옮긴다
+        for (Player p : game.world.getPlayers()) {
+            Location l = p.getLocation();
+            if (l.getX() > X0 - 0.3 && l.getX() < X1 + 0.3 && l.getZ() > Z0 - 0.3 && l.getZ() < Z1 + 0.3 && l.getY() < Plaza.FLOOR_Y + LAYERS) p.teleport(Plaza.lobbySpot(game.world));
+        }
     }
 
     @Override

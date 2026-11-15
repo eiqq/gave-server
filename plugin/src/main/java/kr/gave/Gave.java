@@ -166,10 +166,10 @@ public final class Gave extends JavaPlugin implements Listener {
 
     /** /gave 웨이브 로 건너뛸 수 있는 가장 큰 웨이브. */
     private static final int WAVE_MAX = 999;
-    private static final List<String> SUBS = List.of("시작", "중지", "상태", "팩", "자동", "웨이브", "데미지", "공격력", "소환", "시험");
+    private static final List<String> SUBS = List.of("시작", "중지", "상태", "팩", "자동", "원정", "웨이브", "데미지", "공격력", "소환", "시험");
 
     /**
-     * /gave 탭 완성: 첫 칸은 하위 명령, 자동은 on off, 팩은 강제, 소환은 구현된 종. 사람 이름이 오는 칸(시험의 셋째, 소환의 다섯째)만 바닐라 이름 목록(null),
+     * /gave 탭 완성: 첫 칸은 하위 명령, 자동과 원정은 on off, 팩은 강제, 소환은 구현된 종. 사람 이름이 오는 칸(시험의 셋째, 소환의 다섯째)만 바닐라 이름 목록(null),
      * 그 밖은 빈 목록(이것이 없으면 모든 칸에 사람 이름이 뜬다).
      */
     @Override
@@ -177,7 +177,7 @@ public final class Gave extends JavaPlugin implements Listener {
         if (a.length == 0) return List.of();
         if (a.length == 1) return SUBS.stream().filter(x -> x.startsWith(a[0])).toList();
         boolean test = a[0].equals("시험") || a[0].equals("test"), spawn = a[0].equals("소환") || a[0].equals("spawn");
-        if (a.length == 2 && (a[0].equals("자동") || a[0].equals("auto"))) return List.of("on", "off");
+        if (a.length == 2 && (a[0].equals("자동") || a[0].equals("auto") || a[0].equals("원정") || a[0].equals("trip"))) return List.of("on", "off");
         if (a.length == 2 && (a[0].equals("팩") || a[0].equals("pack"))) return List.of("강제");
         if (a.length == 2 && spawn) {
             String head = a[1].toUpperCase(Locale.ROOT);
@@ -192,7 +192,7 @@ public final class Gave extends JavaPlugin implements Listener {
             return true;
         }
         if (a.length == 0) {
-            s.sendMessage("/gave 시작 | 중지 | 상태 | 팩 [강제] | 자동 [on|off] | 웨이브 <n> | 데미지 [배율] | 공격력 [배율] | 소환 <종> [수] [거리] [이름] | 시험 <행동> <이름> ...");
+            s.sendMessage("/gave 시작 | 중지 | 상태 | 팩 [강제] | 자동 [on|off] | 원정 [on|off] | 웨이브 <n> | 데미지 [배율] | 공격력 [배율] | 소환 <종> [수] [거리] [이름] | 시험 <행동> <이름> ...");
             return true;
         }
         switch (a[0]) {
@@ -236,6 +236,7 @@ public final class Gave extends JavaPlugin implements Listener {
                 }
                 s.sendMessage("자동 시작 " + game.autoStart + (game.autoStart ? "(대기실에 " + game.minPlayers + "명이 차면 30초 뒤)" : ""));
             }
+            case "원정", "trip" -> s.sendMessage(tripCmd(a));
             case "웨이브", "wave" -> {
                 int n = a.length > 1 ? Integer.parseInt(a[1].trim()) : game.wave + 1;
                 if (n < 1 || n > WAVE_MAX) {
@@ -269,6 +270,30 @@ public final class Gave extends JavaPlugin implements Listener {
             default -> s.sendMessage("모르는 명령: " + a[0]);
         }
         return true;
+    }
+
+    /**
+     * /gave 원정 [on|off]: 원정(트럭이 있는 방식: 트럭, 길 투표, 이동, 발사장)을 켜고 끈다. 인자 없으면 지금 값만. 대기실이면 바로 바뀌고(트럭과 길 소품이
+     * 서거나 사라지고 땅을 다시 칠함), 판이 도는 중이면 그 판은 그대로 두고 대기실로 돌아가면 바뀐다(Trip.want). 설정 trip.enabled 에 저장해 다시 켜도 남는다.
+     */
+    private String tripCmd(String[] a) {
+        kr.gave.trip.Trip t = game.trip;
+        if (a.length > 1) {
+            boolean on;
+            switch (a[1].toLowerCase(Locale.ROOT)) {
+                case "on", "켬", "true" -> on = true;
+                case "off", "끔", "false" -> on = false;
+                default -> {
+                    return "/gave 원정 on|off";
+                }
+            }
+            t.want(on);
+            reloadConfig();
+            getConfig().set("trip.enabled", on);
+            saveConfig();
+        }
+        String now = "원정 " + (t.enabled ? "켜짐(트럭, 길 투표, 이동, 발사장)" : "꺼짐(트럭 없이 중앙 원에서 웨이브만)");
+        return t.wanted() == null ? now : now + ". 판이 도는 중이라 이 판은 그대로, 대기실로 돌아가면 " + (t.wanted() ? "켬" : "끔");
     }
 
     /**

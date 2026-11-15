@@ -21,8 +21,8 @@ import kr.gave.world.Plaza;
 
 /**
  * 12 흩어짐: 트럭이 급히 서며 모두 튕겨 나간다. 사람마다 R 30~44 의 다른 자리에서 안개 5 로 시작한다. 트럭은 HORN_EVERY 틱마다 경적을 울리고(그 사람에게 트럭 쪽
- * 화살촉) 등이 켜져 있다. 혼자인 사람(LONER_R 안에 동료 없음)부터 둘레 게이브가 노린다. 모두(서 있는 사람) 중앙 원에 들어오면 안개가 걷히고 보통 라운드로
- * 이어진다. 끝: 모인 뒤 다 잡기.
+ * 화살촉) 등이 켜져 있다. 혼자인 사람(LONER_R 안에 동료 없음)부터 둘레 게이브가 노린다. 서 있는 사람의 GATHER_SHARE 가 중앙 원에 들어오거나 GATHER_SECONDS 가
+ * 지나면 안개가 걷히고 보통 라운드로 이어진다. 끝: 모인 뒤 다 잡기.
  */
 public final class Scatter extends Special {
 
@@ -64,7 +64,6 @@ public final class Scatter extends Special {
         fog(Tune.SCATTER_FOG);
         sound(truckLoc(1), "trip.brake", Sound.ENTITY_MINECART_INSIDE, 2f, 0.6f, 120);
         sound(truckLoc(1), "trip.thud", Sound.ENTITY_IRON_GOLEM_DAMAGE, 2f, 0.5f, 120);
-        game.horizon.shake(1.0, 20);
         rounds.goals().custom(icon(), 0, null);
         streaming = true;
         dimWant = 0.2;
@@ -101,7 +100,8 @@ public final class Scatter extends Special {
                 } else if (loners.remove(p.getUniqueId())) unforce(k);
             }
         }
-        if (total > 0 && inside >= total) gather(now);
+        // 거의 다 모였거나(GATHER_SHARE) 오래 기다렸으면(GATHER_SECONDS) 모인 것으로: 원 밖에서 멈춘 한 사람 때문에 안전 끝(300초)까지 끌지 않는다
+        if (total > 0 && (inside >= Math.ceil(total * Tune.GATHER_SHARE) || now - openAt >= Tune.GATHER_SECONDS * 20L)) gather(now);
     }
 
     private void gather(long now) {

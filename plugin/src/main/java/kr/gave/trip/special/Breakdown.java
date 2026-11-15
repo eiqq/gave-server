@@ -107,10 +107,11 @@ public final class Breakdown extends Special {
     public void on(String event, Object arg) {
         if (!opened || ended || !Trip.EV_TRUCK_HIT.equals(event)) return;
         long now = game.now();
-        if (now - lastKnock < 10) return;
+        // 깎임은 1초에 한 번, 무는 피해(Truck.biteDamage)처럼 사람 수^TRUCK_POW 로 나눈다: 떼가 큰 판에서 맞는 횟수만큼 뒤로 가지 않고, 혼자여도 수리(초당 FIX_RATE)가 앞선다
+        if (now - lastKnock < 20) return;
         lastKnock = now;
         knocks++;
-        fix = Math.max(0, fix - Tune.FIX_KNOCK);
+        fix = Math.max(0, fix - Tune.FIX_KNOCK / Math.pow(trip.people(), Trip.Tune.TRUCK_POW));
     }
 
     @Override

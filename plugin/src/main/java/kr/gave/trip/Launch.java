@@ -264,6 +264,11 @@ public final class Launch implements TripPart {
         return build;
     }
 
+    /** 지금 라운드의 건조와 끝을 이 부품이 쥐고 있나(31~34 의 웨이브 중). 4막 특수는 이때만 끝 판정을 이 부품에 맡긴다. */
+    public boolean building() {
+        return buildRound > 0 && buildRound == game.wave;
+    }
+
     /** 건조를 깎음(B5 감싸기 같은 것). 지금 라운드 몫 안에서만 깎인다. */
     public void damageBuild(double frac, String cause) {
         if (frac <= 0) return;
@@ -449,6 +454,8 @@ public final class Launch implements TripPart {
     public void startGame() {
         resetState();
         noteNames();
+        // 지난 실행이 발사장 도중 강제로 꺼졌으면 남아 있을 투광등 빛 블록을 치운다(등이 내려가 있을 때만 일함)
+        PadLights.of(game).sweep();
     }
 
     /** 판에 든 사람 이름을 모음(크레딧용, 메모리에만). 나간 사람도 남긴다(그 판에 들어온 사람). */
@@ -458,8 +465,12 @@ public final class Launch implements TripPart {
 
     @Override
     public void beforeRound(int n) {
+        // 건너뛰기(시험 /gave 웨이브 n)로 발사장에서 길 라운드로 되돌아오면 발사대, 로켓, 투광등을 치운다
+        if (n <= Trip.LAST_ROAD_ROUND && built && phase == Phase.NONE) clearSite();
         if (n > Trip.LAST_ROAD_ROUND) {
             ensureBuilt();
+            // 건너뛰기는 엔진을 비워(Mobs.clear) 투광등이 판 갈고리 reset 으로 내려간다: 서 있어야 할 때면 다시 세운다(이미 서 있으면 아무 일 없음)
+            if (!lampsHidden) PadLights.of(game).raise(this);
             // 건너뛴 라운드(시험 /gave 웨이브 n): 앞 라운드 몫은 채운 것으로
             double floor = Math.min(1, (n - Trip.LAST_ROAD_ROUND - 1) * Tune.BUILD_PER_ROUND);
             if (build < floor) build = floor;
@@ -485,11 +496,13 @@ public final class Launch implements TripPart {
         lightsAt = -1;
         // 4막 특수 라운드(투광등, 연료 화재, 하늘이 내려온다)도 건조는 돈다: 끝(건조 한 칸)은 이 부품이 정하고(특수가 roundDone 에 false 를 넘김),
         // 빠르기는 mul("build"), 뒤로 돌리기는 사건 buildDrain(trip_special_b 약속)
-        boolean special = n == specialRound;
+        Rounds r = trip.part(Rounds.class);
+        // Rounds 가 이 라운드에 특수를 열었으면(이 부품이 쉬는 시간에 정한 것이든 시험 훅이든) 특수 라운드: 종류를 빌리지 않고 끝은 물러남으로
+        String opened = r == null ? null : r.specialKey();
+        boolean special = opened != null;
         // 보스 라운드(33 B3: 고리가 발사장을 둘러싸고 조여 옴): 건조는 그대로 돌고, Rounds 는 보스에게 비켜 주므로 종류를 빌리지 않는다
         boolean boss = Trip.bossRound(n);
-        kindKey = boss ? "boss" : special ? "special:" + specialKey : pickKind(n);
-        Rounds r = trip.part(Rounds.class);
+        kindKey = boss ? "boss" : special ? "special:" + opened : pickKind(n);
         if (r != null && kindKey != null && !special && !boss) {
             try {
                 if (r.use(kindKey, false)) {
@@ -608,6 +621,13 @@ public final class Launch implements TripPart {
     @Override
     public void gameOver() {
         for (Player p : game.players.inPlay()) if (seats.containsKey(p.getUniqueId())) game.players.unride(p);
+        // 발사로 끝난 판이 아니면(트럭 폭발, 전멸) 엔딩 차례를 접는다: 판 끝 연출과 탑승 알림, 초읽기가 섞이지 않게
+        if (phase != Phase.NONE && !Trip.END_LAUNCH.equals(trip.endCause())) {
+            if (storyMine) game.hud.storyStop();
+            storyMine = false;
+            seats.clear();
+            phase = Phase.NONE;
+        }
     }
 
     @Override

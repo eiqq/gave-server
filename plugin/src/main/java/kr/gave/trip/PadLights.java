@@ -199,18 +199,25 @@ public final class PadLights {
                 return;
             }
             if (!lightBlocks.isEmpty()) return;
+            for (Block b : spots()) {
+                if (!b.getType().isAir()) continue;
+                b.setBlockData(Bukkit.createBlockData("minecraft:light[level=15]"), false);
+                lightBlocks.add(b);
+            }
+        }
+
+        /** 이 등이 빛 블록을 까는 칸들(밑동에서 가운데 쪽으로 LIGHT_AT 블록, 멀수록 좌우로 벌림). */
+        private List<Block> spots() {
+            List<Block> out = new ArrayList<>();
             for (double s : LIGHT_AT) {
                 double x = base.getX() - Math.cos(ang) * s, z = base.getZ() - Math.sin(ang) * s;
                 for (int side = -1; side <= 1; side += 2) {
                     if (s < 5 && side > 0) continue;
                     double w = s < 5 ? 0 : s * 0.35 * side;
-                    int bx = (int) Math.floor(x - Math.sin(ang) * w), bz = (int) Math.floor(z + Math.cos(ang) * w);
-                    Block b = game.world.getBlockAt(bx, Plaza.FLOOR_Y + 1, bz);
-                    if (!b.getType().isAir()) continue;
-                    b.setBlockData(Bukkit.createBlockData("minecraft:light[level=15]"), false);
-                    lightBlocks.add(b);
+                    out.add(game.world.getBlockAt((int) Math.floor(x - Math.sin(ang) * w), Plaza.FLOOR_Y + 1, (int) Math.floor(z + Math.cos(ang) * w)));
                 }
             }
+            return out;
         }
 
         private void remove() {
@@ -328,6 +335,17 @@ public final class PadLights {
         }
         undark();
         game.mobs.unfield(FIELD);
+    }
+
+    /**
+     * 지난 실행이 남긴 빛 블록 치우기: 깐 칸의 기억(Lamp.lightBlocks)은 메모리에만 있어, 발사장 도중 서버가 강제로 꺼지면 밝기 15 빛이 대각선 넷에 남는다.
+     * 등이 내려가 있을 때 제 자리들의 밝기 15 빛 블록을 지운다(중앙 원 빛은 11, 트럭 지붕 빛은 14 라 안 건드린다). 판 시작에 Launch 가 부른다.
+     */
+    public void sweep() {
+        if (raised) return;
+        for (Lamp l : lamps) for (Block b : l.spots()) {
+            if (b.getType() == Material.LIGHT && b.getBlockData() instanceof org.bukkit.block.data.type.Light li && li.getLevel() == 15) b.setType(Material.AIR, false);
+        }
     }
 
     /** 제 등이 서 있나. */

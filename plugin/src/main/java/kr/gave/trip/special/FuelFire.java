@@ -24,6 +24,7 @@ import kr.gave.mob.Damage;
 import kr.gave.mob.DamageType;
 import kr.gave.mob.Gabe;
 import kr.gave.mob.Role;
+import kr.gave.trip.Launch;
 import kr.gave.trip.Rounds;
 import kr.gave.trip.Scenery;
 import kr.gave.trip.Trip;
@@ -71,8 +72,10 @@ public final class FuelFire extends Late {
         return "ti_goal_build";
     }
 
+    /** 발사장(Launch)이 이 라운드의 건조와 끝을 쥐고 있나: 31~34 밖에서 열리면(시험) 제 건조 막대와 끝 판정으로 돈다. */
     private boolean launch() {
-        return trip.has("Launch");
+        Launch l = trip.has("Launch") ? trip.part(Launch.class) : null;
+        return l != null && l.building();
     }
 
     @Override
@@ -185,7 +188,7 @@ public final class FuelFire extends Late {
         for (Player p : game.players.standing()) {
             Location l = p.getLocation();
             if (burns(l.getX(), l.getZ())) {
-                if (sec) game.players.hurt(p, LateTune.FIRE_DMG, null, "cause_sp_fuelfire");
+                if (sec) game.players.hurt(p, LateTune.FIRE_DMG * game.director.dmgCmd(), null, "cause_sp_fuelfire");
                 Vector in = new Vector(Plaza.CX + 0.5 - l.getX(), 0, Plaza.CZ + 0.5 - l.getZ());
                 if (in.lengthSquared() > 1e-6) game.players.push(p, in.normalize().multiply(0.12));
                 if (now % 6 == 0) game.shotFx.flame(l.clone().add(0, 0.4, 0), 0.8f, 16, ShotFx.EXTRA);
@@ -194,7 +197,7 @@ public final class FuelFire extends Late {
             if (until != null) {
                 if (until < now) burning.remove(p.getUniqueId());
                 else {
-                    if (sec) game.players.hurt(p, LateTune.FIRE_SPREAD_DMG, null, "cause_sp_fuelfire");
+                    if (sec) game.players.hurt(p, LateTune.FIRE_SPREAD_DMG * game.director.dmgCmd(), null, "cause_sp_fuelfire");
                     if (now % 5 == 0) game.shotFx.flame(l.clone().add(0, 1.0, 0), 0.6f, 14, ShotFx.EXTRA);
                 }
             }
@@ -204,7 +207,8 @@ public final class FuelFire extends Late {
             if (g.dead || g.removed || g.sp.is(Role.BOSS)) continue;
             if (burns(g.pos.getX(), g.pos.getZ())) {
                 burningMobs.put(g, now + LateTune.FIRE_MOB_BURN);
-                if (sec) game.mobs.damage(g, new Damage(g.maxHp * LateTune.FIRE_MOB, DamageType.FIRE, null, g.pos.clone(), null, "fuelfire", 0));
+                // 개체마다 다른 틱에(같은 틱에 수백 마리의 맞은 번쩍임이 한 덩어리로 나가지 않게)
+                if ((now + g.id) % 20 == 0) game.mobs.damage(g, new Damage(g.maxHp * LateTune.FIRE_MOB, DamageType.FIRE, null, g.pos.clone(), null, "fuelfire", 0));
             }
         }
         burningMobs.entrySet().removeIf(e -> e.getValue() < now || e.getKey().dead || e.getKey().removed);
@@ -317,8 +321,8 @@ public final class FuelFire extends Late {
                 ring.setDisplayWidth((float) (r * 2.4));
             }
         }
-        // 불꽃: 꺼지지 않은 호 위에(효과 예산 안에서)
-        if (open > 0 && now % 2 == 0) {
+        // 불꽃: 꺼지지 않은 호 위에(효과 예산 안에서: 4틱마다 셋이면 열여섯 남짓이라 '덤' 몫을 혼자 다 쓰지 않는다)
+        if (open > 0 && now % 4 == 0) {
             for (int k = 0; k < 3; k++) {
                 double a = rnd.nextDouble() * Math.PI * 2;
                 if (closed[arcOf(a)]) continue;

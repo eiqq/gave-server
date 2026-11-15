@@ -93,7 +93,6 @@ public final class Ram extends Chase {
             rammed += d;
             wallHits++;
         }
-        game.horizon.shake(fr > 0 ? 1.2 : 0.5, 18);
         sound(truckLoc(1), "trip.truck_hit", Sound.ENTITY_GENERIC_EXPLODE, 1.8f, fr > 0 ? 0.6f : 0.9f, 80);
         if (passed >= LateTune.RAM_WALLS) {
             trip.fire("chaseDone", null);

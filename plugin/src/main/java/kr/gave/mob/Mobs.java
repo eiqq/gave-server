@@ -1966,7 +1966,14 @@ public final class Mobs implements HitTargets {
     // ------------------------------------------------------------------ 예산, 정리
 
     public void clear() {
-        for (Gabe g : live) g.remove();
+        // 한 개체의 remove 가 던져도 나머지는 치운다(안 그러면 뒤 개체의 몸 디스플레이가 대기실까지 남는다)
+        for (Gabe g : live) {
+            try {
+                g.remove();
+            } catch (RuntimeException e) {
+                if (broken.add("clear:" + g.sp.name())) game.plugin.getLogger().log(Level.WARNING, "[몹] " + g.sp.name() + " 치우기 예외(나머지는 계속 치움)", e);
+            }
+        }
         live.clear();
         for (Corpse c : corpses) c.remove();
         corpses.clear();

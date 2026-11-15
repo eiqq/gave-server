@@ -63,8 +63,11 @@ public final class Repaint {
 
     /** 한 틱에 칠하기에 쓰는 시간 한도(ms). */
     public static double BUDGET_MS = 6.0;
-    /** 놓는 깃발: 클라에 알림(2) + 이웃 모양 갱신 없음(16) + 놓임 처리 없음(1024). */
-    private static final int FLAGS = 2 | 16 | 1024;
+    /**
+     * 놓는 깃발: 클라에 알림(2) + 이웃 모양 갱신 없음(16) + 놓임 처리 없음(512: 26.3 의 UPDATE_SKIP_ON_PLACE. 예전 CraftBukkit 의 1024 는 26.3 에 없는
+     * 깃발이라 가루 블록, 자갈마다 놓임 처리(블록 틱 예약)가 돌았다. CraftBlock 의 물리 없는 놓기도 16 | 512 를 쓴다).
+     */
+    private static final int FLAGS = Block.UPDATE_CLIENTS | Block.UPDATE_KNOWN_SHAPE | Block.UPDATE_SKIP_ON_PLACE;
     private static final int R = Plaza.R_PAINT, FY = Plaza.FLOOR_Y;
 
     private final Plugin plugin;

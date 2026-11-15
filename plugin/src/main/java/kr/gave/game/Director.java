@@ -41,7 +41,6 @@ import net.kyori.adventure.key.Key;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextColor;
 import kr.gave.Props;
-import kr.gave.gun.Guns;
 import kr.gave.mob.Body;
 import kr.gave.mob.Damage;
 import kr.gave.mob.DamageType;
@@ -789,8 +788,11 @@ public final class Director {
             double ang;
             if (!Double.isNaN(e.ang())) ang = e.ang() + (rnd.nextDouble() - 0.5) * Math.toRadians(30);
             else if (e.lean() && plan != null && plan.lean >= 0) ang = leanAngle(plan.lean);
-            else if (i < even) ang = a0 + step * i + (rnd.nextDouble() - 0.5) * step * 0.4;
-            else ang = unwatchedAngle(band);
+            else if (i < even) {
+                ang = a0 + step * i + (rnd.nextDouble() - 0.5) * step * 0.4;
+                // 고르게 나눈 자리가 누군가의 코앞(안 보이는 거리 안쪽)이면 안 보는 쪽 후보로 바꾼다: 끝 가까이 나가 있는 사람 눈앞 허공에서 솟지 않게
+                if (exposed(ang, band)) ang = unwatchedAngle(band);
+            } else ang = unwatchedAngle(band);
             if (solo != null) ang = besideSolo(ang);
             spawnEntry(e.sp(), false, ang, band);
             qAt++;
@@ -2360,6 +2362,17 @@ public final class Director {
         return best;
     }
 
+    /** 고리 위 각 ang, 반지름 band 의 자리가 서 있는 누군가에게서 '안 보이는 거리'({@link #hideDist}) 안쪽인가(그 사람 눈에 나오는 순간이 보임). */
+    private boolean exposed(double ang, double band) {
+        double x = Plaza.CX + 0.5 + Math.cos(ang) * band, z = Plaza.CZ + 0.5 + Math.sin(ang) * band, hide = hideDist();
+        for (Player p : game.players.standing()) {
+            Location l = p.getLocation();
+            double dx = x - l.getX(), dz = z - l.getZ();
+            if (dx * dx + dz * dz < hide * hide) return true;
+        }
+        return false;
+    }
+
     /**
      * (x, z) 가 얼마나 눈에 띄는 자리인가: 그 자리를 가장 정면으로 보는 사람의 시선 맞음(-1 등 뒤 .. 1 정면). 누군가에게서 hide 블록 안쪽이면 2 넘게 더한다.
      */
@@ -2716,11 +2729,7 @@ public final class Director {
                 id.setItemStack(Body.item("gabe/g01", "", ls, game.worldTime()));
             }
         }
-        for (Player p : game.players.standing()) {
-            if (p.getLocation().toVector().setY(0).distanceSquared(at.clone().setY(0)) <= 14 * 14) {
-                Guns.kick(p, (float) (rnd.nextGaussian() * 4), (float) (rnd.nextGaussian() * 3));
-            }
-        }
+        // 곁에 선 사람의 시점을 튕기던 것은 뺌(2026-11-12 사용자 "시야 각도를 바꾸는 게이브는 등장하지 않게 해"와 같은 취지: 눈 뜸과 소리, 알림은 그대로)
         game.hud.notice("ev_eye", 80);
         if (!silentOn) Props.soundAround(at.toLocation(game.world), "director.eye", Sound.ENTITY_ELDER_GUARDIAN_AMBIENT, 1f, 1f, 0.5f, 30, -1);
         log("물웅덩이 속 눈 뜸 빠르기 x1.15");

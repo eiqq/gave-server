@@ -123,7 +123,7 @@ RULES = {
 }
 
 # 스테이지 소품 묶음(카드의 props → 놓는 법). 모델은 trip/<이름>(이 파일이 굽는 TrafficCraft 소품)과 소품 층의 월드 소품 키.
-# 모델 후보를 못 구한 묶음은 없다(그 스테이지는 소품 없이). layout: road 길 양옆 줄, jam 길 위, cluster 몇 무더기, scatter 흩뿌림
+# 모델 후보를 못 구한 묶음은 여기 없다(그 스테이지는 소품 없이: 구운 route.json 의 sceneryMissing 에 묶음 이름이 남는다). layout: road 길 양옆 줄, jam 길 위, cluster 몇 무더기, scatter 흩뿌림
 SCENERY = {
     "road_poles": {"layout": "road", "models": ["trip/lamp", "trip/delineator", "trip/delineator", "trip/delineator"], "count": 16, "gap": 9},
     "car_jam": {"layout": "jam", "models": ["trip/wreck_sedan", "trip/wreck_pickup", "trip/cone", "trip/wreck_sedan", "trip/barrier"], "count": 12},

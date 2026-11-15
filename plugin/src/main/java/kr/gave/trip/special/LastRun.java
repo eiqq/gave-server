@@ -90,7 +90,6 @@ public final class LastRun extends Chase {
             stream.speed(Special.Tune.CHASE_SPEED * (1 + LateTune.LAST_STEP_SPEED * stage), 60);
             sound(truckLoc(1.5), "trip.engine_rev", Sound.ENTITY_MINECART_RIDING, 1.8f, 0.8f + stage * 0.2f, 80);
             sound(truckLoc(2), "trip.horn", Sound.ITEM_GOAT_HORN_SOUND_2, 2f, 1f, 96);
-            game.horizon.shake(0.6, 20);
         }
         long now = game.now();
         if (now % 10 == 0) horizon(f);

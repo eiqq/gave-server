@@ -422,7 +422,8 @@ public abstract class Late implements SpecialRound {
         if (game.director.queued() > 0) return;
         if (game.director.aliveNow() >= game.director.aliveGoal() * share) return;
         Species sp = streamSpecies();
-        if (sp != null) game.director.addQueue(sp, LateTune.STREAM_STEP);
+        // 한 번에 채우는 수: 작은 판은 STREAM_STEP 그대로, 큰 판은 채울 몫의 10분의 1(동시 수 목표가 사람 수를 따라 크니 채우는 빠르기도 따라간다)
+        if (sp != null) game.director.addQueue(sp, Math.max(LateTune.STREAM_STEP, (int) Math.ceil(game.director.aliveGoal() * share / 10)));
     }
 
     /** 채울 종: 이 웨이브 계획의 몰려오는 종 가운데 하나, 없으면 값싼 떼. */

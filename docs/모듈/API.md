@@ -228,7 +228,7 @@ public final class Gxx extends Gabe {
 
 ### 9.5 맵(`kr.gave.world.Plaza`, 구조물 없는 황야)
 - 끝없이 평평한 황야, 바닥 윗면 `FLOOR_Y` 64 완전 평지. 가운데 `CX, CZ` = 0, 0 칸에 보급 상자(상점 카운터, 그 칸만 막힘)와 등불. 거리는 `radius(x, z)`(가운데 칸 가운데에서).
-- 반지름: `R_SHOP` 3, `R_SAFE` 12(중앙 원), `R_ROAM` 48(사람의 끝, `Roam` 이 되밂), `R_SPAWN_IN` 72, `R_SPAWN_OUT` 84, `R_EDGE` 96(몹의 끝). 격자 `MIN..MAX` = -100..100.
+- 반지름: `R_SHOP` 5, `R_SAFE` 12(중앙 원), `R_ROAM` 48(사람의 끝, `Roam` 이 되밂), `R_SPAWN_IN` 72, `R_SPAWN_OUT` 84, `R_EDGE` 96(몹의 끝). 격자 `MIN..MAX` = -100..100.
 - 목록: `grates()`(땅 갈라진 틈 12, R 20~60), `puddles()`(물웅덩이 7, R 25~45, `puddleRadius(i)`), `lamps()`(등불 하나), `gates(d)`(그 방향 고리 위 점들), `gate(d)`. 빈 목록: `eaves()`, `doorFrames()`, `doorDecor()`, `cauldrons()`, `roofs()`. `nearGate` 늘 false, `roofed` 늘 false(지붕 없음).
 - 자리: `center(w)`, `lobby(w)`(중앙 원 안, 보급 상자 남쪽 6블록), `lobbySpot(w)`(원 안 흩음), `shopFront(w)`(보급 상자 남쪽 4블록, 부활 자리), `zone(x, z)`(보급상자, 상점둘레, 중앙원, 황야, 바깥, 고리북.., 가장자리, 밖).
 - 호환용(뜻 없음): `PAV`, `PAV_ROOF`, `PAV_DOOR` 0, `EAVE_Y` 바닥 + 3(허공에 매달리는 높이로만), `R_PLAZA` 36, `R_OUTER` 62, `R_WORLD` = R_EDGE, `LOBBY_*`, `inLobby`, `inCage`, `cagePoint`(cage 를 켰을 때만 뜻이 있음). 벽 뒤, 지붕 위, 기둥, 그늘 같은 가정은 하지 않는다. `clearLine`, `sees` 는 그대로 써도 된다(가리는 것이 거의 없을 뿐).
@@ -344,7 +344,7 @@ public final class Gxx extends Gabe {
 
 ## 15. 원정(트럭, 죽음과 꺼내기: `game.trip` = `kr.gave.trip.Trip`, 2026-11-12)
 
-자세한 것은 `docs/모듈/원정.md` 13.5절. 설정 `trip.enabled` 가 꺼져 있으면 `game.trip.truck()`, `revive()` 는 null 이고 예전 판 그대로다.
+자세한 것은 `docs/모듈/원정.md` 13.5절. 원정이 꺼져 있으면(설정 `trip.enabled`, 운영자 명령 `/gave 원정 on|off` 로 바꿈: `Trip.want`) `game.trip.truck()`, `revive()` 는 null 이고 예전 판 그대로다.
 
 - 상점 자리: 트럭이 서 있으면(`kr.gave.trip.Truck.live()`) 카운터는 트럭 발자국(x -1..1, z -3..2 배리어 두 층)이다. 종은 지금처럼 `Shop.counterCells()`, `counterCenter()`, `isCounter(block)` 을 쓰면 되고, 트럭에 붙는 자리는 `Truck.slots()`(발자국에 맞닿은 18칸과 트럭 쪽 방향), 거리는 `Truck.dist(x, z)`.
 - 트럭을 깎는 종: `Truck t = game.trip.truck(); if (t != null) t.hit(양, this, "cause_gxx")`(트럭 체력 단위, 최대 1000) 또는 `t.hitFrac(비율, this, 원인)`. 한 번 무는 값의 기준은 `t.biteDamage(sp)`. 터지는 종은 폭발이 발자국 3블록 안이면 사람 피해의 세 배를 `hit` 으로(`Trip.Tune.TRUCK_BLAST`). 엔진이 하는 것: 발자국 곁에 선 트럭 노림 개체와 사람을 2초 동안 못 문 개체는 저절로 문다(종 코드가 할 일 없음). 트럭 노림으로 찍으려면 `t.mark(g)`.

@@ -105,7 +105,6 @@ public final class Sandstorm extends Special {
             sound(truckLoc(2), "sfx.wind", Sound.ITEM_ELYTRA_FLYING, 1.6f, 0.6f, 96);
         }
         for (Gabe g : game.mobs.all()) if (!g.dead && !g.sp.is(Role.BOSS) && upwind(g.pos)) g.speedBuff *= Tune.WIND_SPEED;
-        boolean sec = now % 20 == 0;
         sheltered = exposed = 0;
         Vector w = windDir().multiply(-0.9);
         for (Player p : standing()) {
@@ -122,7 +121,6 @@ public final class Sandstorm extends Special {
                     else if (Hud.hasCover("dark")) game.hud.cover(p, "dark", 14);
                 }
             }
-            if (sec && !in) game.players.hurt(p, Tune.SAND_STING, null, "cause_sp_sand");
             if (now % 4 == 0) {
                 Location at = l.clone().add(Math.cos(windA) * 9, 1.6, Math.sin(windA) * 9);
                 p.spawnParticle(Particle.FALLING_DUST, at, in ? 6 : 28, 7, 2.5, 7, 0, SAND);

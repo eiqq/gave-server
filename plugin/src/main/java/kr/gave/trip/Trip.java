@@ -102,6 +102,8 @@ public final class Trip {
     private final List<String> missing = new ArrayList<>();
     private final Map<String, Long> failedAt = new HashMap<>();
     private String endCause;
+    /** 판 중에 '/gave 원정 on|off' 를 쳤을 때 대기실로 돌아가면 바꿀 값(없으면 null). */
+    private Boolean wanted;
 
     public Trip(Game game) {
         this.game = game;
@@ -382,6 +384,9 @@ public final class Trip {
                 fail(e.getKey(), "roundDone", ex);
             }
         }
+        // 트럭이 터지는 중(체력 0 뒤 TRUCK_DYING 틱)에는 라운드를 끝내지 않는다: 그 사이 쉬는 시간이 열려 보상과 부활을 다 한 뒤에 판이 끝나지 않게
+        Truck t = part(Truck.class);
+        if (done && t != null && t.dying()) return false;
         return done;
     }
 
@@ -426,6 +431,13 @@ public final class Trip {
     }
 
     public void tick() {
+        // 판 중에 예약한 켜고 끔: 대기실로 돌아온 첫 틱에 바꾼다
+        if (wanted != null && game.state == Game.State.LOBBY) {
+            boolean on = wanted;
+            wanted = null;
+            enable(on);
+            log("원정 " + (on ? "켬" : "끔") + "(판 중에 예약한 것)");
+        }
         each("tick", TripPart::tick);
     }
 
@@ -439,7 +451,25 @@ public final class Trip {
         endCause = null;
     }
 
-    /** 켜고 끔(대기실에서만: 시험 훅). 끌 때는 부품 reset 뒤 enabled(false), 켤 때는 enabled(true). */
+    /**
+     * 운영자 명령 '/gave 원정 on|off': 대기실이면 바로 바꾸고(true), 판이 도는 중이면 그 판은 그대로 두고 대기실로 돌아간 첫 틱에 바꾸게 적어 둔다(false).
+     * 판 중에 부품이 반쯤 꺼지거나 켜지는 일이 없게 바꾸는 자리는 늘 대기실이다. 지금 값과 같으면 예약만 지운다.
+     */
+    public boolean want(boolean on) {
+        if (game.state == Game.State.LOBBY) {
+            wanted = null;
+            return enable(on);
+        }
+        wanted = on == enabled ? null : on;
+        return false;
+    }
+
+    /** 대기실로 돌아가면 바꾸기로 적어 둔 값(없으면 null). */
+    public Boolean wanted() {
+        return wanted;
+    }
+
+    /** 켜고 끔(대기실에서만: 명령 '/gave 원정', 시험 훅). 끌 때는 부품 reset 뒤 enabled(false), 켤 때는 enabled(true). */
     public boolean enable(boolean on) {
         if (on == enabled) return true;
         if (game.state != Game.State.LOBBY) return false;
@@ -485,8 +515,9 @@ public final class Trip {
 
     /** /gave 상태 의 trip= 값과 그 뒤 부품 글(띄어쓰기로 이음). 꺼져 있으면 off. */
     public String status() {
-        if (!enabled) return "off";
+        if (!enabled) return wanted != null ? "off next=on" : "off";
         StringBuilder sb = new StringBuilder("on act=").append(act()).append(" stage=").append(stage()).append(" kind=").append(stageKind());
+        if (wanted != null) sb.append(" next=off");
         if (endCause != null) sb.append(" end=").append(endCause);
         for (Map.Entry<String, TripPart> e : parts.entrySet()) {
             try {

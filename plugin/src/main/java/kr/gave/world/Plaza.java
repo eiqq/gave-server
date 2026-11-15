@@ -44,7 +44,7 @@ public final class Plaza {
      * 나오는 고리, R_EDGE 몹이 못 나가는 끝.
      */
     public static final int R_SHOP = 5, R_SAFE = 12, R_ROAM = 48, R_SPAWN_IN = 72, R_SPAWN_OUT = 84, R_EDGE = 96;
-    /** 호환용(광장, 바깥 고리가 없어 뜻은 없다. 값은 예전 그대로). */
+    /** 호환용(광장, 바깥 고리가 없다. 값은 예전 그대로). R_OUTER 는 죽어서 날며 지켜보는 사람의 경계로 쓰인다(Players). */
     public static final int R_PLAZA = 36, R_OUTER = 62;
     /** 호환용(생성기는 이제 끝없이 짓는다). */
     public static final int R_WORLD = R_EDGE;

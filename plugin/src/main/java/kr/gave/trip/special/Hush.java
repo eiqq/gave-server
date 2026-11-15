@@ -138,20 +138,23 @@ public final class Hush extends Special {
             if (t % 80 == 0) Props.soundAround(at, null, Sound.ENTITY_ENDER_DRAGON_FLAP, 1f, 0.15f, 0.4f, 160, -1);
             if (t == (dur / 2) / 20 * 20) Props.soundOn(giant, "sfx.colossus", Sound.ENTITY_ENDER_DRAGON_GROWL, 1f, 0.9f, 0.45f);
         }
-        // 소음
+        // 소음: 서 있는 사람 수로 나눈 팀 평균(혼자면 예전 그대로: 30명이 저마다 쏴도 한 사람이 쏠 때와 같은 빠르기로 찬다). 웅크림도 웅크린 몫으로.
+        // 거대한 것이 내려와 있는 동안(diveUntil)은 안 찬다(가득 찬 바로 뒤에 다시 가득 차지 않게)
+        List<Player> st = standing();
+        double per = 1.0 / Math.max(1, st.size());
+        boolean diving = now < diveUntil;
         int crouch = 0;
-        for (Player p : standing()) {
+        for (Player p : st) {
             int shots = game.mobs.shotsBy(p, 1);
             double add = shots * Tune.NOISE_SHOT + (p.isSprinting() ? Tune.NOISE_SPRINT : 0);
             if (p.isSneaking()) crouch++;
             if (add > 0) {
-                noise += add;
+                if (!diving) noise += add * per;
                 loud.merge(p.getUniqueId(), add, Double::sum);
             }
         }
-        int blasts = game.mobs.blastsNear(null, 0, 1);
-        noise += blasts * Tune.NOISE_BLAST;
-        noise = Math.max(0, noise - (Tune.NOISE_DECAY + crouch * Tune.NOISE_CROUCH) / 20.0);
+        if (!diving) noise += game.mobs.blastsNear(null, 0, 1) * Tune.NOISE_BLAST * per;
+        noise = Math.max(0, noise - (Tune.NOISE_DECAY + crouch * per * Tune.NOISE_CROUCH) / 20.0);
         if (now % 20 == 0) loud.replaceAll((k, v) -> v * 0.9);
         if (now % 5 == 0) for (Player p : game.players.inPlay()) meter(p, "sa_gl_noise", noise / Tune.NOISE_MAX, 10);
         if (noise >= Tune.NOISE_MAX) snatch(now);
@@ -187,13 +190,17 @@ public final class Hush extends Special {
         alert("sa_hush_taken", 4, 60);
         Truck tr = trip.truck();
         if (tr != null) tr.hitFrac(Tune.NOISE_TRUCK, null, "cause_sp_hush");
-        game.horizon.shake(1.0, 24);
         if (giant != null) Props.soundOn(giant, "sfx.colossus", Sound.ENTITY_ENDER_DRAGON_GROWL, 1.4f, 0.8f, 0.4f);
         trip.log("숨죽이기 가득 참 " + fills + (who == null ? "" : " 채 감 " + who.getName()));
     }
 
     @Override
     protected void end() {
+        // 웨이브 중에 닫히면(시험 건너뛰기, '특수 x 끝') 채 간 사람을 풀어 준다: 먹은 개체가 없는 갇힘이라 쉬는 시간 부활 말고는 풀 길이 없다
+        if (game.state == Game.State.WAVE) for (UUID id : taken) {
+            Player p = org.bukkit.Bukkit.getPlayer(id);
+            if (p != null) game.players.free(p);
+        }
         loud.clear();
         taken.clear();
         giant = null;

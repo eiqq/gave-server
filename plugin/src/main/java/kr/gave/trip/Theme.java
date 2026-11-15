@@ -318,7 +318,12 @@ public final class Theme implements TripPart {
         dimAsk = 0;
         rainAsk = null;
         stormAsk = false;
-        if (Plaza.groundAct() != PlazaGen.baseAct() || repaint.running()) paint(PlazaGen.baseAct(), 0);
+        // 판 시작마다 땅이 바탕 막과 맞는지 한 번 훑는다(맞는 칸은 안 건드려 값싸다: 일곱 틱 안팎, 틱마다 예산 안). 지난 판이 남긴 칠이 있으면 고치고 기록에 남긴다
+        // (판 정리의 칠하기가 아직 도는 중이었으면 그것을 처음부터 다시 하는 것이라 기록하지 않는다)
+        boolean resuming = repaint.running();
+        repaint.start(PlazaGen.baseAct(), 0, 0, () -> {
+            if (!resuming && repaint.changed() > 0) trip.log("테마: 판 시작에 땅이 바탕 막과 달라 맞춤 " + repaint.stats());
+        });
         go(1, 0, START_TICKS);
     }
 

@@ -405,7 +405,10 @@ public final class Rounds implements TripPart {
                 trip.log("라운드 " + n + " 계획 고치기 오류(살아 있는 값만 씀): " + e);
             }
         }
-        if (special != null && planOk) special.plan(p);
+        if (special != null && planOk) {
+            special.plan(p);
+            applied = p;
+        }
         if (cur != null) {
             usedAt.put(cur.key, n);
             history.add(n + ":" + cur.key);
@@ -594,15 +597,25 @@ public final class Rounds implements TripPart {
         if (special != null) special.on(event, arg);
         // 쉬는 시간 계획이 없던 라운드(1라운드, 건너뛰기, 다시 짠 계획): 감독이 알려 주면 그 계획에 축 값을 입힌다(아직 대기열을 만들기 전)
         if (EV_PLAN.equals(event)) planHook = true;
-        if (EV_PLAN.equals(event) && arg instanceof Director.Plan p && cur != null && p.wave == game.wave && p != applied) {
-            try {
-                applyPlan(p, cur, p.wave);
-                pre = true;
-                applied = p;
-            } catch (RuntimeException e) {
-                trip.log("라운드 " + p.wave + " 계획 고치기 오류(감독 사건): " + e);
+        if (EV_PLAN.equals(event) && arg instanceof Director.Plan p && p.wave == game.wave && p != applied) {
+            if (cur != null) {
+                try {
+                    applyPlan(p, cur, p.wave);
+                    pre = true;
+                    applied = p;
+                } catch (RuntimeException e) {
+                    trip.log("라운드 " + p.wave + " 계획 고치기 오류(감독 사건): " + e);
+                }
             }
-            if (special != null) special.plan(p);
+            // 특수 라운드(cur 가 없다)도 제 몫(수 배율, 밤, 소리 없음)을 입힌다: 예전에는 이 줄이 cur 가 있을 때만 돌아 특수의 계획 몫이 빠졌다
+            if (special != null) {
+                try {
+                    special.plan(p);
+                    applied = p;
+                } catch (RuntimeException e) {
+                    trip.log("특수 " + specialKey + " 계획 고치기 오류(감독 사건): " + e);
+                }
+            }
         }
         goals.on(event, arg);
     }
@@ -752,8 +765,9 @@ public final class Rounds implements TripPart {
         return f != null ? f : table.kinds.values().iterator().next();
     }
 
+    /** 죽은 채 판에 남은 사람이 있나(나간 사람은 판 계산에서 빼려고 DEAD 로 두지만 얼굴 개체가 없어 '되돌아온 동료'의 표적이 못 된다: 안 센다). */
     private boolean anyDead() {
-        for (PState s : game.players.all()) if (s.life == Life.DEAD) return true;
+        for (PState s : game.players.all()) if (s.life == Life.DEAD && !s.offline) return true;
         return false;
     }
 

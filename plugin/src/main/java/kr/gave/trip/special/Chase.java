@@ -17,7 +17,6 @@ import org.bukkit.util.Vector;
 
 import kr.gave.game.Director;
 import kr.gave.game.Game;
-import kr.gave.gun.Guns;
 import kr.gave.mob.Band;
 import kr.gave.mob.Damage;
 import kr.gave.mob.DamageType;
@@ -172,9 +171,10 @@ public class Chase extends Special {
     /** 서 있는 사람을 판 위로(뒤를 보게). */
     private void board() {
         List<Player> ps = standing();
-        int i = 0;
+        // 한 줄 자리 수는 판 폭에서(폭 9 면 다섯): 판 오른쪽 절반도 처음부터 쓴다
+        int i = 0, cols = Math.max(1, (int) ((px1 - px0 - 1.4) / 1.8) + 1);
         for (Player p : ps) {
-            double x = px0 + 0.7 + (i % 3) * 1.8, z = pz0 + 1.2 + (i / 3) * 1.6;
+            double x = px0 + 0.7 + (i % cols) * 1.8, z = pz0 + 1.2 + (i / cols) * 1.6;
             if (z > pz1 - 0.5) z = pz0 + 1.2 + rnd.nextDouble() * (pz1 - pz0 - 2);
             p.teleport(new Location(game.world, x, Plaza.FLOOR_Y + 0.05, z, 0f, 5f));
             i++;
@@ -211,11 +211,8 @@ public class Chase extends Special {
         // 달리는 동안 지평선 그림자 숨김(매 틱 1초씩 늘림: 끝나면 저절로 풀림)
         game.horizon.hide(20);
         stream.tick();
-        // 판 위 가둠, 흔들림
-        for (Player p : game.players.inPlay()) {
-            confine(p, px0, px1, pz0, pz1);
-            if (alive(p) && t % 6 == 0) Guns.kick(p, 0f, (t / 6) % 2 == 0 ? 0.15f : -0.15f);
-        }
+        // 판 위 가둠(2026-11-12 사용자 "시야 각도를 바꾸는 게이브는 등장하지 않게 해"와 같은 취지로 6틱마다 시점을 떨던 것은 뺌: Ram, LastRun 도 이 길)
+        for (Player p : game.players.inPlay()) confine(p, px0, px1, pz0, pz1);
         mobs(now);
         fallTick(now);
         eventTick(now, t);
@@ -289,7 +286,9 @@ public class Chase extends Special {
                 drops++;
                 continue;
             }
-            if ((now - h.since) % 20 == 0 && now > h.since && tr != null) truckDealt += tr.hitFrac(Tune.HANG_TRUCK, g, "cause_sp_chase_hang");
+            // 매달린 동안 초당 HANG_TRUCK: 무는 피해(Truck.biteDamage)처럼 사람 수^TRUCK_POW 로 나눈다(혼자면 그대로, 떼가 큰 판에서 트럭이 녹지 않게)
+            if ((now - h.since) % 20 == 0 && now > h.since && tr != null)
+                truckDealt += tr.hitFrac(Tune.HANG_TRUCK / Math.pow(trip.people(), Trip.Tune.TRUCK_POW), g, "cause_sp_chase_hang");
             if (now - h.since >= Tune.HANG_TICKS) {
                 // 기어오름: 판 가장자리 안쪽으로
                 it.remove();
@@ -310,6 +309,8 @@ public class Chase extends Special {
             if (s.life != Life.ALIVE || s.grabbedBy == null || fallen.containsKey(p.getUniqueId())) continue;
             Location l = p.getLocation();
             if (onPlatform(l.toVector(), 1.5)) continue;
+            // 마지막 서 있는 사람은 안 가둔다(가두면 다음 틱에 '서 있는 사람 0' 으로 판이 끝남: 숨죽이기, 끌려간 동료와 같은 규칙)
+            if (standing().size() <= 1) continue;
             // 판 밖으로 끌려감: 그 게이브에 갇혀 뒤로 흘러간다
             Gabe by = s.grabbedBy;
             game.players.trap(p, by);
@@ -413,7 +414,6 @@ public class Chase extends Special {
         double frac = Tune.WALL_FRAC * left / Math.max(1, n) * game.augments.ramMul();
         truckDealt += tr.hitFrac(frac, null, "cause_sp_chase_wall");
         wallHits++;
-        game.horizon.shake(0.8, 16);
         sound(truckLoc(1), "trip.truck_hit", Sound.ENTITY_GENERIC_EXPLODE, 1.6f, 0.7f, 64);
     }
 
@@ -461,7 +461,6 @@ public class Chase extends Special {
                     if (x - px0 < Tune.GAP_EDGE || px1 - x < Tune.GAP_EDGE) game.players.root(p, Tune.GAP_ROOT, "sp_chase_gap");
                 }
                 if (tr != null) truckDealt += tr.hitFrac(Tune.GAP_FRAC, null, "cause_sp_chase_gap");
-                game.horizon.shake(0.8, 14);
                 sound(truckLoc(1), "trip.thud", Sound.ENTITY_IRON_GOLEM_DAMAGE, 1.8f, 0.5f, 64);
             }
             case "tunnel" -> fog(Tune.CHASE_FOG);
