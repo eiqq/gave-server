@@ -65,7 +65,9 @@ import net.kyori.adventure.text.Component;
  * <p>
  * 시스템 속성: gave.packDir(두 팩이 있는 폴더, 기본: 플러그인 폴더에서 세 단계 위의 build), gave.packHost(기본: 플레이어가 접속할 때 친 주소),
  * gave.packPort(기본 8290, 이 PC 주소 /pack.zip 과 /sound.zip), gave.packRepo(깃허브 저장소, 있으면 팩마다 릴리스
- * pack-&lt;그 팩 sha1 앞 12자리&gt;/&lt;파일 이름&gt; 을 받아 확인하고 맞는 팩만 그 주소로, 나머지 팩은 이 PC 주소로 보냄).
+ * pack-&lt;그 팩 sha1 앞 12자리&gt;/&lt;파일 이름&gt; 을 받아 확인하고 맞는 팩만 그 주소로, 나머지 팩은 이 PC 주소로 보냄),
+ * gave.packUrl(모습 팩을 받게 할 주소 하나, 예: 깃허브 브랜치의 커밋 고정 raw 주소. 있으면 gave.packRepo 보다 먼저 쓰고, 받아 본 sha1 이
+ * 이 PC 의 모습 팩과 같을 때만 그 주소로 보냄. 다르거나 못 받으면 이 PC 주소로).
  * 접속 전 구성 단계에서 보내고 모든 팩의 끝 상태가 올 때까지 기다린다. 하나라도 못 붙으면(거절 빼고) 들어온 뒤 한 번 다시 보낸다
  * (깃허브에서 못 받은 팩은 그때 이 PC 주소로).
  * 팩을 읽을 때마다(켤 때, /gave 팩) 내보내는 바로 그 zip 들의 assets/gave/sounds.json 을 합쳐 울릴 소리 사건을 다시 채운다(Props.packSounds).
@@ -113,6 +115,8 @@ public final class PackServer {
     private HttpServer http;
     private ExecutorService httpPool;
     private final String repo = System.getProperty("gave.packRepo");
+    /** 모습 팩을 받게 할 주소 하나(gave.packUrl). 있으면 깃허브 릴리스(gave.packRepo)보다 먼저 쓴다. */
+    private final String packUrl = System.getProperty("gave.packUrl");
     /** /gave 팩 이 뒤에서 읽는 중인가(겹쳐 읽지 않게). */
     private final AtomicBoolean reloading = new AtomicBoolean();
     /** 구성 단계에서 팩을 다 못 붙이고 들어오는 사람 → 다시 보낼 때 이 PC 주소로 보낼 팩 아이디(깃허브에서 못 받은 팩). */
@@ -277,21 +281,25 @@ public final class PackServer {
     }
 
     private boolean hasRepo() {
-        return repo != null && !repo.isBlank();
+        return repo != null && !repo.isBlank() || packUrl != null && !packUrl.isBlank();
     }
 
     /** d 가 깃허브 릴리스에 그대로 올라가 있으면 그 주소(없거나 다르면 null, 까닭을 기록). 팩 전체를 내려받으니 주 스레드 밖에서만. */
     private URI remoteOf(Pack k, Data d, boolean two) {
         String tag = "pack-" + d.sha1().substring(0, 12);
-        URI uri = URI.create("https://github.com/" + repo + "/releases/download/" + tag + "/" + k.fileName);
+        boolean byUrl = k == look && packUrl != null && !packUrl.isBlank();
+        if (!byUrl && (repo == null || repo.isBlank())) return null; // 주소가 모습 팩 것뿐이면 소리 팩은 이 PC 주소로
+        URI uri = byUrl ? URI.create(packUrl.trim())
+                : URI.create("https://github.com/" + repo + "/releases/download/" + tag + "/" + k.fileName);
         String got = remoteSha1(uri);
         if (d.sha1().equals(got)) {
             plugin.getLogger().info((two ? k.label + " " : "") + "팩은 깃허브에서 받게 한다: " + uri);
             return uri;
         }
-        String what = tag + (two ? "(" + k.fileName + ")" : "");
-        plugin.getLogger().warning((got == null ? "깃허브 " + repo + " 에 " + what + " 가 아직 없다."
-                : "깃허브 " + what + " 파일이 이 팩과 다르다(" + got + ").")
+        String what = byUrl ? uri.toString() : tag + (two ? "(" + k.fileName + ")" : "");
+        String where = byUrl ? "주소 " : "깃허브 " + repo + " 에 ";
+        plugin.getLogger().warning((got == null ? where + what + " 가 아직 없다."
+                : (byUrl ? "주소 " : "깃허브 ") + what + " 파일이 이 팩과 다르다(" + got + ").")
                 + " 그동안 " + (two ? k.label + " 팩은 " : "") + "이 PC 포트 " + port + " 로 보낸다.");
         return null;
     }
