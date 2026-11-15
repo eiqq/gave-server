@@ -32,7 +32,8 @@ STEPS = [
     ("hud", PY + ["tools/make_hud.py"]),
     ("hud_promote", PY + ["tools/compile_wip.py", "--name", "hud", "--promote"]),
     ("pack", PY + ["tools/build_pack.py"]),
-    ("shaders", PY + [str(SHADER_CHECK), "pack_src", "--mc", "26.3"]),
+    # 만든 사람 PC 의 검사기가 없으면 tools/shader_check.py(LWJGL shaderc 로 게임과 같은 옵션 컴파일)로 대신한다
+    ("shaders", PY + ([str(SHADER_CHECK), "pack_src", "--mc", "26.3"] if SHADER_CHECK.is_file() else ["tools/shader_check.py", "pack_src"])),
     ("layer", PY + ["tools/gabe/tests/check_layer.py"]),
     ("dex", PY + ["tools/gen_dex.py"]),  # 게임 안 도감 글(data/bestiary.json → plugin resources dex/species.json)
     ("real", PY + ["tools/compile_wip.py", "--real"]),

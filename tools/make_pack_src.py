@@ -14,9 +14,11 @@ from pathlib import Path
 
 from PIL import Image
 
+from mcjar import client_jar  # 26.3 클라 jar 를 공식 런처 자리 말고도 찾는다(GV_CLIENT_JAR, fabric-loom 캐시. 공식 자리에 있으면 예전과 같음)
+
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "pack_src"
-JAR = Path.home() / "AppData/Roaming/.minecraft/versions/26.3/26.3.jar"
+JAR = client_jar()  # tools/mcjar.py: 공식 런처로 26.3 을 켠 적 없는 PC 에서도 돌게
 SPRITES = "assets/minecraft/textures/gui/sprites/"
 HIDE = tuple("hud/" + p for p in ("air", "armor_", "experience_bar_", "food_", "hotbar", "jump_bar_", "heart/")) + ("boss_bar/",)
 

@@ -32,7 +32,9 @@ ROOT = Path(__file__).resolve().parents[2]
 P = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "build/props/pack_layer"
 NS = "gave"
 A = P / "assets"
-JAR26 = os.path.expandvars(r"%APPDATA%/.minecraft/versions/26.3/26.3.jar")
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))  # tools/mcjar.py 를 부르려고
+from mcjar import client_jar  # noqa: E402  # 26.3 클라 jar 를 공식 런처 자리 말고도 찾는다(GV_CLIENT_JAR, fabric-loom 캐시. 공식 자리에 있으면 예전과 같음)
+JAR26 = str(client_jar())
 VANILLA = set(zipfile.ZipFile(JAR26).namelist()) if Path(JAR26).exists() else None
 MC = Path(os.path.expandvars(r"%APPDATA%/.minecraft"))
 

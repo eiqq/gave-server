@@ -39,6 +39,8 @@ from pathlib import Path
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
+from mcjar import client_jar  # 26.3 클라 jar 를 공식 런처 자리 말고도 찾는다(GV_CLIENT_JAR, fabric-loom 캐시. 공식 자리에 있으면 예전과 같음)
+
 ROOT = Path(__file__).resolve().parent.parent
 PACK = ROOT / "pack_src"
 SRC = ROOT / "pack_hud"
@@ -47,7 +49,7 @@ GABE = ROOT / "build/gabe"  # 게이브 몹 층 산출물(팩 담당 make_gabe, 
 ICON_DIR = GABE / "icons"
 COVERS_JSON = GABE / "covers.json"
 SHOP_TEX = PACK / "assets/gave/textures/item/shop"  # 총 담당 make_shop_icons.py 몫(읽기만)
-JAR = Path(os.environ.get("APPDATA", "")) / ".minecraft/versions/26.3/26.3.jar"
+JAR = client_jar()  # tools/mcjar.py: 공식 런처로 26.3 을 켠 적 없는 PC 에서도 돌게
 VANILLA = Path.home() / ".cache/mc-shader-vanilla/26.3/assets/minecraft/shaders/core"
 JAVA_OUT = ROOT / "build/wip/hud/plugin/src/main/java/kr/gave/hud/HudSpec.java"
 CHECK = Path.home() / ".claude/skills/minecraft-shader/scripts/check_shaders.py"
@@ -1319,7 +1321,9 @@ def clean(root):
 
 
 def check(stage):
-    r = subprocess.run([sys.executable, "-X", "utf8", str(CHECK), str(stage), "--mc", "26.3"], capture_output=True, text=True,
+    # 만든 사람 PC 의 검사기가 없으면 tools/shader_check.py 로 대신한다(LWJGL shaderc 컴파일. 그것도 못 돌리는 PC 면 건너뜀을 찍고 통과)
+    cmd = [str(CHECK), str(stage), "--mc", "26.3"] if CHECK.is_file() else [str(ROOT / "tools/shader_check.py"), str(stage)]
+    r = subprocess.run([sys.executable, "-X", "utf8", *cmd], capture_output=True, text=True,
                        encoding="utf-8", errors="replace")
     tail = "\n".join((r.stdout + r.stderr).strip().splitlines()[-25:])
     return r.returncode == 0, tail

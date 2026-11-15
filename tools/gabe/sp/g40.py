@@ -17,8 +17,9 @@ import numpy as np
 from PIL import Image
 
 from gabe import audio, faces, kit
+from mcjar import client_jar  # 26.3 클라 jar 를 공식 런처 자리 말고도 찾는다(GV_CLIENT_JAR, fabric-loom 캐시. 공식 자리에 있으면 예전과 같음)
 
-JAR = Path.home() / "AppData/Roaming/.minecraft/versions/26.3/26.3.jar"
+JAR = client_jar()  # tools/mcjar.py: 공식 런처로 26.3 을 켠 적 없는 PC 에서도 돌게
 PX = 1 / 16
 # 무리 대형(몸 기준 x 옆, z 앞)과 마리마다 짐승. Java G40.HOMES, KINDS 와 같게
 HOMES = [(0.0, 0.9), (-1.15, 0.2), (1.15, 0.1), (-0.55, -1.0), (0.65, -1.1)]
