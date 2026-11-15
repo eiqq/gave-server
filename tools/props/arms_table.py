@@ -248,7 +248,7 @@ R("sg_terra_incognita", "ROCKET", "테라 인코그니타", "sg2", ["scguns:spec
 R("sg_bomb_lance", "ROCKET", "봄 랜스", "sg2", ["scguns:special/bomb_lance/main", "scguns:special/bomb_lance/barrel"], None, G=(8.0, -0.3, 16.4), len=1.3, grip="heavy", dmg=0.94, rps=0.96, magx=0.6, reload=1.21, spread=0.85)
 R("sg_gyrojet_pistol", "ROCKET", "자이로젯", "sg2", ["scguns:special/gyrojet_pistol/main"], "scguns:special/gyrojet_pistol/stan_mag", G=(8.0, 2.45, 13.79), len=0.49, grip="one", dmg=0.86, rps=1.05, magx=1.28, spread=1.06)
 R("sg_basker", "FLAME", "배스커", "sg2", ["scguns:special/basker/main", "scguns:special/basker/wooden_stock"], None, G=(8.0, 2.45, 16.48), len=1.38, grip="two", dmg=0.86, rps=1.05, magx=0.9, spread=0.85)
-R("sg_blasphemy", "FLAME", "블래스퍼미", "sg2", ["scguns:special/blasphemy/main", "scguns:special/blasphemy/head"], None, G=(8.0, -2.0, 11.0), len=0.5, grip="two", at=(0.37, -0.34, -0.60), dmg=1.07, rps=0.84, magx=0.9, spread=0.85)
+R("sg_blasphemy", "FLAME", "블래스퍼미", "sg2", ["scguns:special/blasphemy/main", "scguns:special/blasphemy/head"], None, G=(8.0, -2.0, 11.0), len=0.5, grip="two", at=(0.25, -0.29, -0.60), dmg=1.07, rps=0.84, magx=0.9, spread=0.85)
 R("sg_inquisitor", "FLAME", "인퀴지터", "sg2", ["scguns:special/inquisitor/main", "scguns:special/inquisitor/wooden_stock"], None, G=(8.0, 2.45, 16.48), len=1.45, grip="two", dmg=1.16, rps=0.95, magx=1.1, spread=1.15)
 R("sg_spitfire", "FLAME", "스핏파이어", "sg2", ["scguns:special/spitfire/main"], None, G=(8.0, 0.02, 8.07), len=0.78, grip="heavy", dmg=0.96, magx=1.41, spread=1.19)
 R("sg_lone_wonder", "TESLA", "론 원더", "sg2", ["scguns:special/lone_wonder/main", "scguns:special/lone_wonder/wooden_stock"], None, G=(8.0, 2.25, 14.95), len=1.45, grip="two", dmg=1.16, rps=0.95, magx=1.6)

@@ -173,7 +173,7 @@ public final class G201 extends Gabe implements Detachable {
         if (game.mobs.near(pos, 400, g -> g != this && g instanceof G201 o && o.busy()).size() >= cap) return false;
         prey = p;
         mark(p);
-        // 종 키 대신 HUD 그림 이름으로: Hud.iconImage 는 세 글자 종 키(g01..g99)만 알아본다
+        // 종 키를 넘겨도 되지만(Hud.iconImage 는 g 로 시작하는 3~4 글자 종 키를 알아본다) HUD 그림 이름을 바로 넘긴다
         game.hud.mark(p, "ic_s_" + sp.key(), cd(AIM) + 10);
         hold();
         aim.copy(chest(p));

@@ -2960,7 +2960,7 @@
    "item_model": "gave:sg_blasphemy",
    "source": "Scorched Guns 2 (ribs) 0.5.5 (Forge 1.20.1) https://modrinth.com/mod/scorched-guns-2",
    "license": "GPL-3.0-or-later(Modrinth), jar mods.toml GNU GPLv3",
-   "notes": "Scorched Guns 2 blasphemy/main, blasphemy/head, 요소 15",
+   "notes": "Scorched Guns 2 blasphemy/main, blasphemy/head, 요소 16",
    "real": "블래스퍼미",
    "grip": [
     8.0,
@@ -11205,7 +11205,7 @@
    ],
    "scale_tp": 0.5703,
    "shrink": 1.0,
-   "elements": 15,
+   "elements": 16,
    "flash": [
     0.34,
     0.4

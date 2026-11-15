@@ -468,7 +468,9 @@ public final class Hud {
             s.set(BS_PH, bsPh);
             s.set(BS_NAME, bsName);
         }
-        for (int i = 0; i < fsLines.length; i++) if (fsLines[i] != null) s.set(FS[i], fsLines[i]);
+        // 처음 본 종 목록은 길 투표 판이 떠 있는 동안 숨김(셋째 갈래 오른쪽 끝과 포개짐)
+        boolean voting = tv.get("route.fork") instanceof String fork && !fork.isEmpty();
+        if (!voting) for (int i = 0; i < fsLines.length; i++) if (fsLines[i] != null) s.set(FS[i], fsLines[i]);
         money(st, v, s);
         roster(p, v, s);
         edgesFor(p, st, v);
