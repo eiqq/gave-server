@@ -14,8 +14,11 @@ R(키, 종류, 이름, 출처, 부품, 탄창 부품, 이름표 인자...)
   옆모습 윤곽으로 다시 어림하거나 손으로 고쳤다(build/wpn_max/progress.md).
 - len: 손에 든 길이(블록, 모델 z 길이로 배율). height 는 세로로 쥐는 활의 높이.
 - grip: one(권총 자리), two(긴 총), heavy(허리에 드는 무거운 것). at(1인칭 손잡이 자리)과 flash(총구 불꽃 크기)의 기본을 정한다.
-- dmg, rps, magx, reload, spread, range: 그 종류 바탕 값(Guns.SPECS)에 곱하는 성능 배율(모드 자료에서 같은 종류 가운데 값에 견줘 어림,
-  초당 피해는 ±10% 안). pierce: 관통 더하기.
+- rps, magx, reload, spread, range: 그 종류 바탕 값(Guns.SPECS)에 곱하는 성능 배율(모드 자료에서 같은 종류 가운데 값에 견줘 어림).
+  pierce: 관통 더하기.
+- dmg: 이제 쓰이지 않는다(2026-11-14 gun, 표에는 남겨 둠). 한 발 피해는 Java(kr.gave.gun.Models.balance)가 그 모델의 연사, 탄창,
+  재장전 배율을 보고 한 대상 지속 화력이 종류 바탕 값과 같아지게 정한다: 같은 종류면 어느 모델이든 화력이 같고, 모델의 차이는
+  '한 발이 센 대신 탄창이 작다' 같은 나눔뿐이다(전에는 탄창 1~2 종류의 반올림까지 겹쳐 같은 종류 안에서 화력이 2 배 넘게 벌어졌다).
 - snd: ref/sfx/weapons/firearm-sound-library 의 가까운 한 발(파일 이름 앞부분) 또는 laser:<kenney 파일>. pitch: 그 소리 높이.
 """
 

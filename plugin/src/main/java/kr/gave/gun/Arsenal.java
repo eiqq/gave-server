@@ -36,8 +36,8 @@ import kr.gave.mob.Gabe;
  * 날아가는 유탄과 로켓(LOB, ROCKET), 냉기 느려짐, 미니건 회전과 레일건 모으기 소리. Guns.fire 가 종류의 Mode 를 보고 한 발마다 부른다.
  * <p>
  * 피해는 host.targets() 로, 처치 셈은 Guns.count, 증강 알림은 Guns.hooks(대상 조건 배율, 처치 회복). 치명은 한 번 쏠 때 정한 확률(Guns 가 넘김).
- * 굴린 총 특성: 화염탄은 불붙음(불길은 1.5 배, 냉기와 번개, 폭발은 새로 붙임), 폭발탄은 폭발 반경 1.3 배(번개는 첫 대상 작은 폭발), 연쇄는 번개 +2 번,
- * 넉백은 밀침. 관통은 이 방식들에 뜻이 없어 굴릴 때 빠진다(Gun.Trait.fits).
+ * 총 특성: 화염탄은 불붙음(불길은 1.5 배, 냉기와 번개, 폭발, 레일 광선은 새로 붙임), 폭발탄은 폭발 반경 1.3 배(번개는 첫 대상 작은 폭발), 연쇄는
+ * 번개 +2 번, 넉백은 밀침. 그 방식에서 일하지 않는 특성은 모델에 붙지 않는다(Gun.Trait.fits: 관통, 레일건의 폭발탄과 연쇄, 폭발의 연쇄, 로켓 넉백).
  * <p>
  * 효과는 ShotFx 셰이더 모양(종류 15: 번개, 불길, 서리, 광선)과 폭발, 연기. 줄기와 번개, 로켓 꼬리는 사람 몫 예산(ShotFx.ownerCap)을 지켜 30명이 함께
  * 쏴도 효과 한도 50 안에서 모두 조금씩 보인다. 날아가는 탄 몸통은 모드 모델(소품 층 rocket_proj, grenade_thrown)이고 한 번에 {@link #MAX_SHELLS} 개까지.
@@ -102,14 +102,11 @@ final class Arsenal {
     }
 
     private double hitMul(Player p, Object o, Spec s) {
-        return Math.max(0, guns.hooks.hitMul(p, o, s));
+        return guns.hitMul(p, o, s);
     }
 
     private void hitBook(Player p, Arms a, Object o, double amount, boolean died, Gun gun) {
-        a.hits++;
-        a.hitAt = host.now();
-        guns.count(a, died);
-        guns.hooks.onHit(p, o, amount, died, gun);
+        guns.credit(p, o, amount, died, gun, true);
     }
 
     // ------------------------------------------------------------------ 불길, 냉기
@@ -293,21 +290,21 @@ final class Arsenal {
             Vector pos = h.pos() == null ? e.clone().add(dir.clone().multiply(h.dist())) : h.pos().clone();
             guns.hitIndex = n;
             guns.critNow = mul > 1;
-            double amount = s.damage() * hitMul(p, h.target(), s) * mul;
+            // 꿰뚫을 때마다 0.9 배(아래끝 0.4): 줄 선 것을 모두 꿰뚫되 뒤로 갈수록 약해진다
+            double amount = s.damage() * hitMul(p, h.target(), s) * mul * Math.max(0.4, Math.pow(0.9, n));
             boolean died = t.damage(h.target(), new Damage(amount, DamageType.SNIPER, p, pos.clone(), dir.clone(), s.key(), 0));
             hitBook(p, a, h.target(), amount, died, gun);
             guns.critNow = false;
             guns.hitIndex = 0;
             railHits++;
-            fx().bloodHit(pos.toLocation(w), dir, n < 3);
+            if (n < 3) fx().gunBlood(pos.toLocation(w), dir, n == 0);
             if (!died && gun != null && gun.has(Gun.Trait.INCENDIARY)) guns.ignite(h.target(), p, gun, Math.max(6, s.damage() * 0.1), 60);
             if (!died && gun != null && gun.has(Gun.Trait.KNOCKBACK) && h.target() instanceof Gabe g) Guns.push(w, g, dir, 0.6);
             n++;
         }
         Location end = rb != null ? rb.getHitPosition().toLocation(w) : eye.clone().add(dir.clone().multiply(s.range()));
         fx().beam(muzzle(eye, dir), end);
-        if (rb != null) fx().hit(end, rb.getHitBlockFace(), rb.getHitBlock() == null ? Material.STONE : rb.getHitBlock().getType(), dir, true);
-        if (gun != null && gun.has(Gun.Trait.EXPLOSIVE) && rb != null) fx().pop(end);
+        if (rb != null) fx().gunHit(end, rb.getHitBlockFace(), rb.getHitBlock() == null ? Material.STONE : rb.getHitBlock().getType(), dir, true);
         return end;
     }
 
@@ -521,6 +518,13 @@ final class Arsenal {
         return o instanceof Gabe g && chills.containsKey(g);
     }
 
+    /** 지금 얼어붙어 있나(냉기를 이어 맞아 거의 멈춘 상태): 그동안 모든 총 피해를 더 받는다(Guns.FROZEN_BONUS) */
+    boolean frozenOn(Object o) {
+        if (!(o instanceof Gabe g)) return false;
+        Chill c = chills.get(g);
+        return c != null && c.hits >= c.deep && host.now() - c.lastAt <= 20;
+    }
+
     // ------------------------------------------------------------------ 틱, 그 밖
 
     /** 날아가는 탄을 움직이고 냉기 느려짐을 건다(Guns.tick 이 몹 다음에 부름: 다음 몹 틱의 빠르기에 걸림) */
@@ -549,7 +553,7 @@ final class Arsenal {
                 it.remove();
                 continue;
             }
-            boolean deep = c.hits >= c.deep && now - c.lastAt <= 20;
+            boolean deep = frozenOn(g);
             g.speedBuff *= deep ? DEEP_MUL : c.mul;
             if (now - c.fxAt >= (deep ? 8 : 16)) {
                 c.fxAt = now;

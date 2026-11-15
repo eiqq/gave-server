@@ -20,8 +20,8 @@ import kr.gave.gun.Guns.Kind;
 /**
  * 무기 모델 표(2026-11-12 wpn_max): 종류(쏘는 방식, {@link Kind}) 아래 모델 하나하나(이름, 모델 키, 성능 배율, 총소리 사건).
  * 표는 tools/props/arms_table.py 가 만들어 jar 안 props.json 의 "arms", "arms_kinds" 로 들어온다(build_props.py write_props_json).
- * 모델 키는 팩 아이템 gave:&lt;키&gt;, 소리 gave:gun.&lt;키&gt;.fire. 성능 배율은 그 종류 바탕 값(Guns.SPECS)에 곱한다(피해, 연사, 탄창, 재장전 시간,
- * 퍼짐, 사거리), 관통은 더한다. props.json 이 없거나 낡으면 종류마다 모델 하나(키 = 종류 키)로 돌아간다.
+ * 모델 키는 팩 아이템 gave:&lt;키&gt;, 소리 gave:gun.&lt;키&gt;.fire(부품 소리 gave:gun.&lt;키&gt;.&lt;부품&gt; 은 팩에 있을 때만, Guns.partEvent). 성능 배율은 그 종류 바탕 값
+ * (Guns.SPECS)에 곱한다(연사, 탄창, 재장전 시간, 퍼짐, 사거리. 피해는 표 값 대신 balance() 가 정함), 관통은 더한다. props.json 이 없거나 낡으면 종류마다 모델 하나(키 = 종류 키)로 돌아간다.
  */
 public final class Models {
     private Models() {
@@ -30,6 +30,15 @@ public final class Models {
     /** 모델 하나. sound 는 그 모델 총소리 사건(없으면 null: 종류 사건) */
     public record Model(String key, Kind kind, String name, String src, double dmg, double rps, double mag, double reload, double spread, double range,
         int pierce, String sound) {
+
+        /** 이 모델의 성능 배율(등급, 강화, 증강 배율과 한 번에 곱해 한 번만 반올림: Guns.effective). 예비탄은 탄창 배율을 따른다 */
+        public GunMods mods() {
+            return new GunMods(dmg, rps, mag, reload, spread, 1, range, pierce, 0, 0, mag);
+        }
+
+        Model withDmg(double d) {
+            return new Model(key, kind, name, src, d, rps, mag, reload, spread, range, pierce, sound);
+        }
     }
 
     private static final Map<String, Model> BY_KEY = new LinkedHashMap<>();
@@ -37,34 +46,60 @@ public final class Models {
     private static final Map<Kind, String> DEFAULT = new EnumMap<>(Kind.class);
 
     static {
+        // 한 줄이 틀려도(모르는 종류, 숫자가 아닌 칸) 그 줄만 건너뛰고 기록에 남긴다: 전에는 한 칸만 틀려도 말없이 모든 모델이 사라졌다
+        int bad = 0;
+        String first = null;
         try (InputStream in = Models.class.getResourceAsStream("/props.json")) {
-            if (in != null) {
-                JsonObject o = new Gson().fromJson(new InputStreamReader(in, StandardCharsets.UTF_8), JsonObject.class);
-                if (o != null && o.has("arms")) for (Map.Entry<String, JsonElement> e : o.getAsJsonObject("arms").entrySet()) {
+            JsonObject o = in == null ? null : new Gson().fromJson(new InputStreamReader(in, StandardCharsets.UTF_8), JsonObject.class);
+            if (o != null && o.has("arms")) for (Map.Entry<String, JsonElement> e : o.getAsJsonObject("arms").entrySet()) {
+                try {
                     JsonObject m = e.getValue().getAsJsonObject();
-                    Kind k;
-                    try {
-                        k = Kind.valueOf(m.get("kind").getAsString());
-                    } catch (RuntimeException ex) {
-                        continue;
-                    }
+                    Kind k = Kind.valueOf(m.get("kind").getAsString());
                     Model md = new Model(e.getKey(), k, str(m, "name", e.getKey()), str(m, "src", ""), num(m, "dmg"), num(m, "rps"), num(m, "mag"),
                         num(m, "reload"), num(m, "spread"), num(m, "range"), (int) Math.round(num(m, "pierce", 0)), m.has("sound") ? m.get("sound").getAsString() : null);
                     BY_KEY.put(md.key(), md);
                     BY_KIND.computeIfAbsent(k, x -> new ArrayList<>()).add(md);
+                } catch (RuntimeException ex) {
+                    bad++;
+                    if (first == null) first = e.getKey() + ": " + ex;
                 }
-                if (o != null && o.has("arms_kinds")) for (Map.Entry<String, JsonElement> e : o.getAsJsonObject("arms_kinds").entrySet()) {
-                    try {
-                        JsonObject kj = e.getValue().getAsJsonObject();
-                        if (kj.has("default")) DEFAULT.put(Kind.valueOf(e.getKey()), kj.get("default").getAsString());
-                    } catch (RuntimeException ex) {
-                        // 모르는 종류는 건너뜀
-                    }
+            }
+            if (o != null && o.has("arms_kinds")) for (Map.Entry<String, JsonElement> e : o.getAsJsonObject("arms_kinds").entrySet()) {
+                try {
+                    JsonObject kj = e.getValue().getAsJsonObject();
+                    if (kj.has("default")) DEFAULT.put(Kind.valueOf(e.getKey()), kj.get("default").getAsString());
+                } catch (RuntimeException ex) {
+                    // 모르는 종류는 건너뜀
                 }
             }
         } catch (Exception e) {
-            BY_KEY.clear();
-            BY_KIND.clear();
+            first = "props.json: " + e;
+            bad++;
+        }
+        balance();
+        java.util.logging.Logger log = java.util.logging.Logger.getLogger("Gave");
+        if (bad > 0) log.warning("[총] 무기 모델 표(props.json arms)에서 못 읽은 줄 " + bad + "개(첫 줄 " + first + "). 읽은 모델 " + BY_KEY.size());
+        else if (BY_KEY.isEmpty()) log.warning("[총] 무기 모델 표가 비어 있음(props.json arms): 종류마다 기본 모델 하나로 돌아감");
+    }
+
+    /**
+     * 같은 종류 안에서는 모델이 달라도 한 대상 지속 화력이 같게 맞춘다: 표의 연사, 탄창, 재장전 배율로 생긴 차이(전에는 같은 종류 안에서 2 배 넘게
+     * 벌어졌다)를 피해 배율로 갚는다. 그래서 모델의 차이는 '한 발이 센 대신 탄창이 작다' 같은 나눔뿐이고 총 화력은 종류 바탕 값(Guns.SPECS)과 같다.
+     * 표의 피해 배율은 무시된다(연사, 탄창, 재장전, 퍼짐이 그 모델의 성격)
+     */
+    private static void balance() {
+        for (Map.Entry<Kind, List<Model>> e : BY_KIND.entrySet()) {
+            Guns.Spec base = Guns.SPECS.get(e.getKey());
+            double want = Guns.sustained(base);
+            List<Model> l = e.getValue();
+            for (int i = 0; i < l.size(); i++) {
+                Model raw = l.get(i).withDmg(1);
+                double got = Guns.sustained(base.with(raw.mods()));
+                if (!(got > 0) || !(want > 0)) continue;
+                Model fixed = raw.withDmg(want / got);
+                l.set(i, fixed);
+                BY_KEY.put(fixed.key(), fixed);
+            }
         }
     }
 

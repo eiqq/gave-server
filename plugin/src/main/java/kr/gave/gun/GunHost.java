@@ -25,7 +25,7 @@ public interface GunHost {
     /** 웨이브나 쉬는 시간이면 true(대기실, 끝난 판은 false). */
     boolean running();
 
-    /** 붙잡힘, 쓰러짐, 묶임 등으로 쏘기, 재장전을 못 하면 true. */
+    /** 붙잡힘, 쓰러짐, 묶임, 돕는 중, 아군 탄 끊김으로 쏘기와 재장전 시작을 못 하면 true(이미 하던 재장전은 끝까지 간다). */
     boolean blocked(Player p);
 
     HitTargets targets();
@@ -41,4 +41,8 @@ public interface GunHost {
 
     /** 좌클릭(돕기). */
     void onHelp(Player p);
+
+    /** 방금 맞힌 발이 치명타(HUD 적중 표시를 금색으로 하는 데 쓴다). 기본은 아무 일 없음. */
+    default void crit(Player p) {
+    }
 }

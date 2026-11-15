@@ -36,6 +36,7 @@ import net.kyori.adventure.key.Key;
  * <p>
  * 예산(판 규칙 '효과 50'): 자국을 뺀 연출 디스플레이는 한 번에 {@link #BUDGET} 개까지만 산다. 차 오르면 덤(full 연출: 먼지, 불똥, 뒤로 뿜는 안개,
  * 연기, 곁 탄 궤적)부터 안 낳고, 그다음 보통, 마지막까지 남는 것은 꼭(폭발 섬광 같은 것). 자국은 종류마다 따로 정한 한도(오래된 것부터 지움)를 지킨다.
+ * 총 연출(탄 궤적, 맞은 자리)은 그 안에서도 따로 정한 자리({@link #GUN_ROOM})만 쓴다. 남에게 못 보인 탄 궤적은 쏜 사람에게만 보이는 것으로 낳는다(예산 밖).
  */
 public final class ShotFx {
     public static final int TRACER = 1, FLASH = 2, DUST = 3, SPARK = 4, DECAL = 5, FIRE = 6, RING = 7, SMOKE = 8, BILE = 9, BLOOD = 10;
@@ -74,8 +75,12 @@ public final class ShotFx {
         final boolean decal;
         /** 낳게 한 사람(사람 몫 예산), 없으면 null */
         java.util.UUID owner;
-        /** 예산 밖(날아가는 유탄, 로켓 몸통: 모양은 모드 모델, 수는 Arsenal.MAX_SHELLS 가 막음) */
+        /** 예산 밖(날아가는 유탄, 로켓 몸통: 모양은 모드 모델, 수는 Arsenal.MAX_SHELLS 가 막음. 쏜 사람에게만 보이는 탄 궤적) */
         boolean free;
+        /** 총 연출 자리 번호(0 = 아님, 1 탄 궤적, 2 맞은 자리) */
+        int gun;
+        /** 쏜 사람에게만 보이는 탄 궤적이면 그 사람 */
+        java.util.UUID own;
 
         Live(ItemDisplay d, long until, boolean decal) {
             this.d = d;
@@ -104,6 +109,17 @@ public final class ShotFx {
         return Math.max(1, (BUDGET - 6) / Math.max(1, wantAt.size()));
     }
 
+    /**
+     * 총 연출(1 탄 궤적, 2 맞은 자리의 피 안개와 먼지, 불똥)이 한 번에 차지할 수 있는 자리. 30명이 함께 쏘면 탄 궤적과 피 안개만으로 예산 50 이
+     * 늘 차서 폭발, 게이브 예고 같은 다른 연출이 밀려났다: 총 연출은 이 안에서만 낳는다(솎는 것은 Guns 가 판 전체 사격 양으로)
+     */
+    private static final int[] GUN_ROOM = {0, 12, 14};
+    private final int[] gunLive = new int[3];
+    /** 지금 낳는 연출의 총 연출 자리 번호(tracer, gunBlood, gunHit 가 잠깐 켬) */
+    private int gunFx;
+    /** 예산 밖에서 쏜 사람에게만 보이는 탄 궤적: 사람마다 동시에 이만큼까지(자기 탄이 어디로 가는지는 큰 판에서도 보이게) */
+    private static final int OWN_TRACERS = 2;
+    private final java.util.Map<java.util.UUID, Integer> ownLive = new java.util.HashMap<>();
     private final List<Live> timed = new ArrayList<>();
     private final ArrayDeque<ItemDisplay> holes = new ArrayDeque<>(), bloods = new ArrayDeque<>(), bigs = new ArrayDeque<>();
     /** 지금 살아 있는 자국 아닌 연출 수 */
@@ -115,8 +131,9 @@ public final class ShotFx {
         this.host = host;
     }
 
+    /** 연출 도장에 쓰는 시각: 클라 시계 어림(서버가 느려 클라가 앞서 있으면 그만큼 더한 세계 시각, {@link ClientClock}) */
     private long gameTime() {
-        return host.world().getGameTime();
+        return ClientClock.time(host.world());
     }
 
     /** 연출 아이템: PAPER + gave:&lt;model&gt; + 색 하나 [종류][씨앗(변형 2비트 + 무작위 6비트)][지금 세계 틱 mod 4000] */
@@ -189,15 +206,27 @@ public final class ShotFx {
     public ItemDisplay spawn(Location at, String model, int kind, int variant, Matrix4f m, Display.Billboard bb, boolean glow, int life,
         boolean visible, int prio, java.util.UUID owner) {
         boolean decal = kind == DECAL;
-        if (!decal && !room(prio) || owner != null && ownerLive.getOrDefault(owner, 0) >= ownerCap(owner)) {
+        int gun = decal ? 0 : gunFx;
+        if (!decal && (!room(prio) || gun > 0 && gunLive[gun] >= GUN_ROOM[gun]) || owner != null && ownerLive.getOrDefault(owner, 0) >= ownerCap(owner)) {
             dropped++;
             return null;
         }
-        ItemStack it = fx(model, kind, variant);
-        at = at.clone();
+        ItemDisplay d = make(at, fx(model, kind, variant), m, bb, glow, visible);
+        Live lv = new Live(d, host.now() + life, decal);
+        lv.owner = owner;
+        lv.gun = gun;
+        timed.add(lv);
+        if (!decal) live++;
+        if (gun > 0) gunLive[gun]++;
+        if (owner != null) ownerLive.merge(owner, 1, Integer::sum);
+        return d;
+    }
+
+    private static ItemDisplay make(Location where, ItemStack it, Matrix4f m, Display.Billboard bb, boolean glow, boolean visible) {
+        Location at = where.clone();
         at.setYaw(0);
         at.setPitch(0);
-        ItemDisplay d = at.getWorld().spawn(at, ItemDisplay.class, x -> {
+        return at.getWorld().spawn(at, ItemDisplay.class, x -> {
             x.setItemStack(it);
             x.setPersistent(false);
             x.setItemDisplayTransform(ItemDisplay.ItemDisplayTransform.NONE);
@@ -207,12 +236,6 @@ public final class ShotFx {
             x.setVisibleByDefault(visible);
             x.setViewRange(2.5f);
         });
-        Live lv = new Live(d, host.now() + life, decal);
-        lv.owner = owner;
-        timed.add(lv);
-        if (!decal) live++;
-        if (owner != null) ownerLive.merge(owner, 1, Integer::sum);
-        return d;
     }
 
     /** 판(fx_quad)의 면이 dir 을 보게(벽, 바닥에 붙는 자국), 폭 w, 길이 len */
@@ -308,6 +331,14 @@ public final class ShotFx {
      * 길이는 날아갈 거리의 1/4(0.8..4.5 블록), 가까운 탄은 짧고 가늘어 총에 붙은 빛줄기로 보이지 않게. main 이 아니면(산탄 곁 알) 덤
      */
     public void tracer(Player shooter, Location eye, Location end, boolean main) {
+        tracer(shooter, eye, end, main, true);
+    }
+
+    /**
+     * 탄 궤적. share = 남에게도 보이게 낳아 볼지(총 연출 자리 안에서). 못 낳았거나 share 가 아니면 쏜 사람에게만 보이는 궤적을 낳는다
+     * (예산 밖, 사람마다 {@link #OWN_TRACERS} 개까지, 곁 알은 안 함): 서른 명이 함께 쏴도 자기 탄이 어디로 가는지는 보인다
+     */
+    public void tracer(Player shooter, Location eye, Location end, boolean main, boolean share) {
         Vector look = eye.getDirection();
         Vector r = right(look);
         Vector up = r.clone().crossProduct(look).normalize();
@@ -320,9 +351,46 @@ public final class ShotFx {
         float len = (float) Math.min(4.5, Math.max(0.8, travel * 0.25));
         float w = (main ? 0.32f : 0.26f) * (float) Math.min(1, 0.6 + travel / 40);
         int n = (int) Math.max(1, Math.min(3, Math.round(travel / 45)));
-        ItemDisplay d = spawn(start, "fx_tracer", TRACER, 0, along(d2, w, len), Display.Billboard.FIXED, true, n + 4, main ? NORMAL : EXTRA);
+        ItemDisplay d = null;
+        if (share) {
+            gunFx = 1;
+            try {
+                d = spawn(start, "fx_tracer", TRACER, 0, along(d2, w, len), Display.Billboard.FIXED, true, n + 4, main ? NORMAL : EXTRA);
+            } finally {
+                gunFx = 0;
+            }
+        }
+        if (d == null && main && shooter != null && ownLive.getOrDefault(shooter.getUniqueId(), 0) < OWN_TRACERS) {
+            d = make(start, fx("fx_tracer", TRACER, 0), along(d2, w, len), Display.Billboard.FIXED, true, false);
+            shooter.showEntity(host.plugin(), d);
+            Live lv = new Live(d, host.now() + n + 4, false);
+            lv.free = true;
+            lv.own = shooter.getUniqueId();
+            timed.add(lv);
+            ownLive.merge(lv.own, 1, Integer::sum);
+        }
         Location to = end.clone().subtract(d2.clone().multiply(len));
         drift(d, to, n);
+    }
+
+    /** 총에 맞은 자리 피 안개(bloodHit 와 같되 총 연출 자리 안에서) */
+    public void gunBlood(Location at, Vector dir, boolean full) {
+        gunFx = 2;
+        try {
+            bloodHit(at, dir, full);
+        } finally {
+            gunFx = 0;
+        }
+    }
+
+    /** 총알 블록 탄착(hit 과 같되 먼지, 불똥은 총 연출 자리 안에서. 탄흔은 자국 한도) */
+    public void gunHit(Location at, BlockFace face, Material m, Vector dir, boolean full) {
+        gunFx = 2;
+        try {
+            hit(at, face, m, dir, full);
+        } finally {
+            gunFx = 0;
+        }
     }
 
     /** 대체 총구 불꽃(모드 총 모델이 없을 때): 쏜 사람에겐 화면 오른쪽 아래, 남에겐 든 총 앞 */
@@ -627,6 +695,8 @@ public final class ShotFx {
             } else if (!o.free) {
                 live--;
             }
+            if (o.gun > 0) gunLive[o.gun]--;
+            if (o.own != null) ownLive.computeIfPresent(o.own, (k, v) -> v <= 1 ? null : v - 1);
             if (o.owner != null) ownerLive.computeIfPresent(o.owner, (k, v) -> v <= 1 ? null : v - 1);
             it.remove();
         }
@@ -636,6 +706,8 @@ public final class ShotFx {
         for (Live o : timed) o.d.remove();
         timed.clear();
         ownerLive.clear();
+        ownLive.clear();
+        gunLive[1] = gunLive[2] = 0;
         wantAt.clear();
         holes.clear();
         bloods.clear();
@@ -666,7 +738,8 @@ public final class ShotFx {
         if (p == null || a.length < 2) return null;
         String act = a[1];
         if (act.equals("연출수"))
-            return "fx=" + timed.size() + " live=" + live + "/" + BUDGET + " dropped=" + dropped + " decals=" + decals() + " holes=" + holes.size()
+            return "fx=" + timed.size() + " live=" + live + "/" + BUDGET + " gun=" + gunLive[1] + "+" + gunLive[2] + " own=" + ownLive.values().stream().mapToInt(Integer::intValue).sum()
+                + " dropped=" + dropped + " decals=" + decals() + " holes=" + holes.size()
                 + " blood=" + bloods.size() + " big=" + bigs.size();
         if (act.equals("자국시험")) {
             // 큰 자국(그을음) 하나 뒤에 탄흔 n 개(기본 120)를 붙여도 그을음이 남는지(자국 한도가 종류마다 따로인지)
