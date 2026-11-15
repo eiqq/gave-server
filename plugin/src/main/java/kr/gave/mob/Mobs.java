@@ -1489,11 +1489,15 @@ public final class Mobs implements HitTargets {
 
     /**
      * 보상 나누기는 지갑이 한다(kr.gave.player.Wallet: 팀 몫은 모두 똑같이, 나머지는 때린 만큼, 1초에 한 번 정산). 피해 기록이 없는데 처치한
-     * 사람이 있으면(피해 없이 바로 죽인 것) 그 사람이 다 때린 것으로 친다.
+     * 사람이 있으면(피해 없이 바로 죽인 것) 그 사람이 다 때린 것으로 친다. 사람이 준 피해도 처치한 사람도 없으면 사람 편 장치({@link #PDMG_DEVICE}:
+     * 트럭 지붕 기관총, 가시 철판)의 처치만 전부 팀 몫이고, 그 밖(자폭, 깔림, 불길, 게이브끼리, 번개)은 예전처럼 0 이다.
      */
     private void payout(Gabe g, Damage d, int total) {
         Map<UUID, Double> c = g.contrib;
-        if ((c == null || c.isEmpty()) && d != null && d.by() != null) c = Map.of(d.by().getUniqueId(), 1.0);
+        if (c == null || c.isEmpty()) {
+            if (d != null && d.by() != null) c = Map.of(d.by().getUniqueId(), 1.0);
+            else if (d == null || d.how() == null || !PDMG_DEVICE.contains(d.how())) return;
+        }
         game.players.wallet.kill(c, total);
     }
 

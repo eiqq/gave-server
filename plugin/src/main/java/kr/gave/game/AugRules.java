@@ -189,11 +189,11 @@ final class AugRules {
         return g.sp.is(Role.ELITE) || g.sp.is(Role.TANK) || g.sp.is(Role.BOSS);
     }
 
-    /** 재화를 줌(빚의 반값 벌이에 걸리지 않게 지난 값을 준 만큼 옮김: 같은 틱의 처치 벌이는 그대로 셈에 남는다) */
+    /** 증강이 주는 돈(Players.addBonus: 돈 배율은 곱하고 빚의 반값에는 안 걸림). 준 만큼 지난 값을 옮겨 '상점에서 씀' 셈에 안 걸리게 한다 */
     private void grant(Player p, int amount) {
         if (amount <= 0) return;
         int before = ps(p).money;
-        game.players.addMoney(p, amount);
+        game.players.addBonus(p, amount);
         moved(p.getUniqueId(), ps(p).money - before);
     }
 
@@ -410,11 +410,12 @@ final class AugRules {
         } else if (s.life != Life.TRAPPED) r.trapTicks = 0;
         // ---- 느려짐, 묶임: 무쇠 다리
         if (has(p, Aug.B_IRON)) iron(s, r, now);
-        // ---- 돈이 바뀜: 상점에서 씀(단골, 구두쇠). 빚의 반값 벌이는 처치 돈 배율(earnMul)로 지갑이 건다
+        // ---- 돈이 바뀜: 상점에서 씀(단골, 구두쇠). 빚의 반값 벌이는 Players.addMoney 가 지갑 값(Wallet.earnMul)으로 건다
         int delta = s.money - r.money;
         if (r.money != Integer.MIN_VALUE && delta < 0 && game.shop.view(p) != null) spentNow(r, -delta);
-        // ---- 처치 돈 배율(현상금, 얇은 피, 빚)과 팁 몫을 지갑에 알림(1초에 한 번)
-        if (now % kr.gave.player.Wallet.EVERY == 0) game.players.wallet.rate(s.id, earnMul(p, r), has(p, Aug.M_TIP) ? Aug.M_TIP.n("frac", 0.1) : 0);
+        // ---- 처치 돈 배율(현상금, 얇은 피), 팁 몫, 물주 몫, 빚의 벌이 배율을 지갑에 알림(1초에 한 번)
+        if (now % kr.gave.player.Wallet.EVERY == 0) game.players.wallet.rate(s.id, killMul(p), has(p, Aug.M_TIP) ? Aug.M_TIP.n("frac", 0.1) : 0,
+            has(p, Aug.E_PATRON) ? Aug.E_PATRON.n("frac", 0.1) : 0, r.debtRounds > 0 ? Aug.X_DEBT.n("earn", 0.5) : 1);
         r.money = s.money;
         // ---- 뽑은 총을 정함(바꾸든 버리든 한 자루가 버려짐): 장물
         if (r.pendingGun != 0 && pid != r.pendingGun && has(p, Aug.E_FENCE)) grant(p, (int) Math.round(Aug.E_FENCE.n("u", 0.3) * A.unit()));
@@ -673,11 +674,10 @@ final class AugRules {
 
     // ------------------------------------------------------------------ 돈
 
-    /** 처치 돈 배율(지갑이 팀 몫과 때린 몫에 곱함): 현상금 장마다 +10%, 얇은 피 +30%, 빚이 남은 동안 절반. */
-    private double earnMul(Player p, Run r) {
+    /** 처치 돈 배율(지갑이 팀 몫과 때린 몫에 곱함): 현상금 장마다 +10%, 얇은 피 +30%. 빚의 반값은 모든 벌이에(Players.addMoney) */
+    private double killMul(Player p) {
         double k = 1 + 0.10 * A.count(p, Aug.BOUNTY);
         if (has(p, Aug.X_BLEED)) k += Aug.X_BLEED.n("reward", 0.3);
-        if (r.debtRounds > 0) k *= Aug.X_DEBT.n("earn", 0.5);
         return k;
     }
 
@@ -694,11 +694,19 @@ final class AugRules {
         r.money = ps(p).money;
     }
 
-    /** 원정 쪽이 알려 주는 씀: repair, revive 는 물주가, shop 은 단골과 구두쇠가 셈 */
+    /**
+     * 원정 쪽이 알려 주는 씀(단골, 구두쇠가 셈). 트럭 수리 값은 지갑이 찬 만큼 갚으므로(Wallet.repairFill) 단골 셈에 안 넣고 '씀'(구두쇠)으로만 친다.
+     * 꺼내기 값은 넣어 두었다가 쉬는 시간 환불(Revive.refund)이나 팀이 갚기로 할 때(Wallet.owe) refunded 로 뺀다. 물주는 지갑이 갚을 때 준다
+     */
     void paid(Player p, String what, int amount) {
         Run r = run(p);
-        if ("repair".equals(what) || "revive".equals(what)) r.paidOthers += amount;
-        spentNow(r, amount);
+        if ("repair".equals(what)) {
+            r.spentRound = true;
+            r.hoard = 0;
+        } else {
+            if ("revive".equals(what)) r.paidOthers += amount;
+            spentNow(r, amount);
+        }
         r.money = ps(p).money;
     }
 
@@ -712,7 +720,7 @@ final class AugRules {
         }
     }
 
-    /** 쉬는 시간 시작(사람마다): 이자, 단골, 물주, 내기, 구두쇠, 주사위, 빚 */
+    /** 쉬는 시간 시작(사람마다): 이자, 단골, 내기, 구두쇠, 주사위, 빚(물주는 지갑이 갚을 때 준다) */
     void onBreak(Player p) {
         Run r = run(p);
         PState s = ps(p);
@@ -720,7 +728,6 @@ final class AugRules {
         if (s.life != Life.WAITING) {
             if (has(p, Aug.E_INTEREST)) grant(p, (int) Math.min(Math.floor(s.money * Aug.E_INTEREST.n("frac", 0.06)), Math.round(Aug.E_INTEREST.n("cap", 0.5) * u)));
             if (r.spentShop > 0 && has(p, Aug.T_CASHBACK)) grant(p, (int) Math.floor(r.spentShop * Aug.T_CASHBACK.n("frac", 0.08)));
-            if (r.paidOthers > 0 && has(p, Aug.E_PATRON)) grant(p, (int) Math.floor(r.paidOthers * Aug.E_PATRON.n("frac", 0.3)));
             if (!r.downRound && s.standing() && has(p, Aug.E_BET)) grant(p, (int) Math.round(Aug.E_BET.n("u", 0.5) * u));
             if (has(p, Aug.E_HOARD)) r.hoard = r.spentRound ? 0 : (int) Math.min(Aug.E_HOARD.n("max", 10), r.hoard + 1);
             if (has(p, Aug.X_GAMBLE)) gamble(p);

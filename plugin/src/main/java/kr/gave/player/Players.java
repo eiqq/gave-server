@@ -1,5 +1,10 @@
 package kr.gave.player;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.EnumSet;
@@ -15,6 +20,8 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Color;
@@ -185,24 +192,73 @@ public final class Players implements Listener {
         this.game = game;
         this.wallet = new Wallet(game);
         try {
-            // 옛 돈 설정(assistMul 이나 roundMoneyMul 이 남은 파일)의 moneyMul 1.7 은 바탕 값에 녹였다: 한 번만 1 로 돌리고 두 키를 지워 저장한다
-            // (/gave 데미지 처럼 설정 파일에 남김. 두 키가 없어진 뒤 운영자가 바꾼 moneyMul 은 그대로)
+            // 옛 돈 설정(assistMul 이나 roundMoneyMul 이 남은 파일): 한 번만 옮긴다(migrateMoney. 두 키가 없어진 뒤 운영자가 바꾼 moneyMul 은 그대로)
             var cfg = game.plugin.getConfig();
-            if (cfg.contains("assistMul", true) || cfg.contains("roundMoneyMul", true)) {
-                game.plugin.getLogger().info("[돈] 옛 돈 설정을 옮김: moneyMul " + cfg.get("moneyMul") + " 에서 1.0 으로, assistMul " + cfg.get("assistMul")
-                    + ", roundMoneyMul " + cfg.get("roundMoneyMul") + " 지움(2026-11-14 돈 구조: 옛 배율은 바탕 값에 녹였다)");
-                cfg.set("moneyMul", 1.0);
-                cfg.setComments("moneyMul", List.of("사람이 버는 모든 돈(처치, 보스, 라운드, 증강, 팀, 스테이지 보상)의 배율. 기본 1(운영자 행사용: 2 면 돈 두 배). 돌려받기, 사람끼리 옮기기에는 안 곱함.",
-                    "2026-11-14 돈 구조를 바꾸며 옛 값(moneyMul 1.7, assistMul 2.0, roundMoneyMul 2.0)은 바탕 값에 녹였다: 1.7 로 되돌리면 두 번 곱해진다"));
-                cfg.set("assistMul", null);
-                cfg.set("roundMoneyMul", null);
-                game.plugin.saveConfig();
-            }
-            double m = game.plugin.getConfig().getDouble("moneyMul", 1.0);
+            if (cfg.contains("assistMul", true) || cfg.contains("roundMoneyMul", true)) migrateMoney(cfg);
+            double m = cfg.getDouble("moneyMul", 1.0);
             if (m > 0 && !Double.isNaN(m) && !Double.isInfinite(m)) moneyMul = Math.min(100, m);
         } catch (RuntimeException e) {
             moneyMul = 1.0;
         }
+    }
+
+    /** 2026-11-14 까지의 moneyMul 기본(e4c25c4 의 config.yml 과 이 클래스): 옛 설정을 옮길 때 옛 값을 이것으로 나눈다. */
+    static final double OLD_MONEY_MUL = 1.7;
+    private static final Pattern MONEY_LINE = Pattern.compile("(moneyMul[ \\t]*:[ \\t]*)([^#\\r\\n]*?)([ \\t]*(?:#[^\\r\\n]*)?)(\\r?\\n)?");
+    private static final Pattern OLD_KEY_LINE = Pattern.compile("(?:assistMul|roundMoneyMul)[ \\t]*:.*", Pattern.DOTALL);
+
+    /**
+     * 옛 돈 설정 옮기기(2026-11-14 돈 구조): 옛 moneyMul 의 기본 1.7 과 assistMul, roundMoneyMul 은 바탕 값에 녹였다. 메모리 값을 바꾸고, 설정 파일은
+     * 줄 단위로 고친다({@link #migrateMoneyText}: 다른 줄의 주석, 한 줄 목록, 줄 끝 CRLF 는 그대로). moneyMul 은 '옛 값 / 1.7'(운영자가 올려 둔
+     * 행사 배율의 비율은 지킴, 옛 기본이면 1). 파일을 못 고치면 기록 한 줄을 남기고 메모리 값만 바꾼다(다음에 켤 때 다시 해 봄).
+     */
+    private void migrateMoney(org.bukkit.configuration.file.FileConfiguration cfg) {
+        double old = cfg.contains("moneyMul", true) ? cfg.getDouble("moneyMul", OLD_MONEY_MUL) : OLD_MONEY_MUL;
+        if (!(old > 0) || !Double.isFinite(old)) old = OLD_MONEY_MUL;
+        double now = Math.round(old / OLD_MONEY_MUL * 1000) / 1000.0;
+        cfg.set("moneyMul", now);
+        cfg.set("assistMul", null);
+        cfg.set("roundMoneyMul", null);
+        String how;
+        try {
+            Path f = game.plugin.getDataFolder().toPath().resolve("config.yml");
+            String out = migrateMoneyText(Files.readString(f, StandardCharsets.UTF_8), now);
+            Path tmp = f.resolveSibling("config.yml.money-tmp");
+            Files.writeString(tmp, out, StandardCharsets.UTF_8);
+            Files.move(tmp, f, StandardCopyOption.REPLACE_EXISTING);
+            how = "설정 파일은 그 줄만 고침";
+        } catch (IOException | RuntimeException e) {
+            how = "설정 파일은 못 고쳐 메모리 값만 바꿈(" + e + ")";
+        }
+        game.plugin.getLogger().info("[돈] 옛 돈 설정을 옮김: moneyMul " + old + " 에서 " + now + " 으로(옛 기본 1.7 을 바탕 값에 녹임), assistMul, roundMoneyMul 지움. " + how);
+    }
+
+    /**
+     * {@link #migrateMoney} 의 파일 고치기(줄 단위, 줄 끝 그대로): 맨 바깥 assistMul, roundMoneyMul 줄을 지우고(바로 위 줄이 그 키의 옛 기본 주석이면 같이),
+     * moneyMul 줄은 값만 now 로 바꾼다(바로 위 줄이 옛 기본 주석 '돈 70% 더: 1.7'이면 지금 기본 주석으로). 그 밖의 줄은 한 글자도 안 바꾼다.
+     */
+    static String migrateMoneyText(String text, double now) {
+        List<String> out = new ArrayList<>();
+        for (String line : text.split("(?<=\\n)", -1)) {
+            if (OLD_KEY_LINE.matcher(line).matches()) {
+                int last = out.size() - 1;
+                if (last >= 0 && (out.get(last).startsWith("# 함께 때린 사람(어시스트)") || out.get(last).startsWith("# 스테이지(2라운드)가 끝날 때"))) out.remove(last);
+                continue;
+            }
+            Matcher m = MONEY_LINE.matcher(line);
+            if (m.matches()) {
+                String eol = m.group(4) == null ? "" : m.group(4);
+                int last = out.size() - 1;
+                if (last >= 0 && out.get(last).startsWith("#") && out.get(last).contains("\"돈 70% 더\": 1.7")) {
+                    String e = eol.isEmpty() ? "\n" : eol;
+                    out.set(last, "# 사람이 버는 모든 돈(처치, 보스, 라운드, 증강, 팀, 스테이지 보상)의 배율. 기본 1(운영자 행사용: 2 면 돈 두 배). 돌려받기, 사람끼리 옮기기에는 안 곱함." + e
+                        + "# 2026-11-14 돈 구조를 바꾸며 옛 값(moneyMul 1.7, assistMul 2.0, roundMoneyMul 2.0)은 바탕 값에 녹였다: 1.7 로 되돌리면 두 번 곱해진다" + e);
+                }
+                line = m.group(1) + now + m.group(3) + eol;
+            }
+            out.add(line);
+        }
+        return String.join("", out);
     }
 
     public PState get(Player p) {
@@ -274,6 +330,15 @@ public final class Players implements Listener {
 
     public void tick() {
         long now = game.now();
+        // 돈 정산은 맨 앞에서 따로(뒤의 사람 틱이 던져도 돈은 돌고, 지갑이 던져도 사람 틱은 돈다)
+        try {
+            wallet.tick();
+        } catch (RuntimeException e) {
+            if (now - walletErrAt >= 200) {
+                walletErrAt = now;
+                game.plugin.getLogger().log(java.util.logging.Level.WARNING, "[돈] 정산 오류", e);
+            }
+        }
         phaseEdges();
         boolean over = game.state == Game.State.OVER;
         for (PState s : new ArrayList<>(states.values())) {
@@ -301,8 +366,10 @@ public final class Players implements Listener {
         }
         if (!launches.isEmpty()) launchTick(now);
         if (now % 40 == 0) visibilityPass();
-        wallet.tick();
     }
+
+    /** 지갑 정산 오류를 마지막으로 기록한 틱(10초에 한 번). */
+    private long walletErrAt = Long.MIN_VALUE / 2;
 
     /** 판 상태가 바뀐 첫 틱: 웨이브 시작이면 기다리던 사람을 넣고, 쉬는 시간 시작이면 갇힌 사람을 상점 앞에 세운다. */
     private void phaseEdges() {
@@ -1195,7 +1262,7 @@ public final class Players implements Listener {
         Location up = ground(seat);
         teleportKeepLook(p, up);
         if (helper != null) get(helper).revives++;
-        wallet.helped(helper);
+        wallet.helped(helper, p);
         Props.sound(up, null, Sound.BLOCK_AMETHYST_BLOCK_CHIME, 1f, 1.2f, 1f);
         log("일어남 " + p.getName() + " 도운 사람 " + (helper == null ? "-" : helper.getName()));
     }
@@ -1339,7 +1406,7 @@ public final class Players implements Listener {
         else {
             cure(t);
             cured(t, "squeeze");
-            wallet.helped(p);
+            wallet.helped(p, t);
             Props.sound(t.getLocation(), null, Sound.ENTITY_SLIME_SQUISH, 1f, 0.7f, 1f);
             log("짜냄 " + t.getName() + " 도운 사람 " + p.getName());
         }
@@ -1398,7 +1465,7 @@ public final class Players implements Listener {
         if (did) {
             Props.sound(victim.getLocation(), null, Sound.ENTITY_SLIME_SQUISH, 0.9f, 1f, 1f);
             log("떼어 냄 " + victim.getName() + " 도운 사람 " + (helper == null ? "-" : helper.getName()));
-            wallet.helped(helper);
+            wallet.helped(helper, victim);
         }
         return did;
     }
@@ -1445,16 +1512,27 @@ public final class Players implements Listener {
 
     /**
      * 재화 벌이(음수면 빼기). 양수면 돈 배율 {@link #moneyMul} 을 곱해(반올림, 줄지 않음) earned 에 쌓고 Hud.money 로 +n 을 띄운다
-     * (부르는 쪽이 Hud.money 를 따로 부르지 말 것). 사람이 버는 돈은 모두 여기로 온다.
+     * (부르는 쪽이 Hud.money 를 따로 부르지 말 것). 사람이 버는 돈은 모두 여기로 온다. 증강 '빚'이 남은 동안 절반(Wallet.earnMul, 남는 쪽 올림:
+     * 원본 규칙). 증강이 주는 돈은 {@link #addBonus}, 옮기기는 {@link #addMoneyRaw} 라 빚에 안 걸린다.
      */
     public void addMoney(Player p, int amount) {
-        if (amount > 0) amount = (int) Math.max(amount, Math.min(Integer.MAX_VALUE / 4, Math.round(amount * moneyMul)));
+        if (amount > 0) {
+            amount = (int) Math.max(amount, Math.min(Integer.MAX_VALUE / 4, Math.round(amount * moneyMul)));
+            double k = wallet.earnMul(p.getUniqueId());
+            if (k < 1) amount = (int) Math.ceil(amount * k - 1e-9);
+        }
         credit(p, get(p), amount);
     }
 
+    /** 증강이 주는 돈(이자, 단골, 내기, 장물, 빚의 큰돈: AugRules.grant, 지갑의 물주 덤): 돈 배율은 곱하고 빚의 반값에는 안 걸린다(원본 규칙). */
+    public void addBonus(Player p, int amount) {
+        if (amount <= 0) return;
+        credit(p, get(p), (int) Math.max(amount, Math.min(Integer.MAX_VALUE / 4, Math.round(amount * moneyMul))));
+    }
+
     /**
-     * 옮기기(돌려받기, 합류 몫, 시험): 돈 배율 없이 더함(음수면 빼기). 양수면 earned 에 쌓고 +n 을 띄운다. 벌이가 아니라서 증강에 알린다
-     * (Augments.moved: 빚의 '반값 벌이'가 돌려받은 돈까지 깎지 않게).
+     * 옮기기(돌려받기, 합류 몫, 시험): 돈 배율 없이 더함(음수면 빼기), 빚의 반값에도 안 걸림. 양수면 earned 에 쌓고 +n 을 띄운다. 벌이가 아니라서
+     * 증강에 알린다(Augments.moved: 같은 틱에 쓴 돈이 '상점에서 씀' 셈에서 덜 잡히지 않게).
      */
     public void addMoneyRaw(Player p, int amount) {
         PState s = get(p);

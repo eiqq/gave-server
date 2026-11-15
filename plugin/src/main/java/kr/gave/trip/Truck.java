@@ -455,7 +455,10 @@ public final class Truck implements TripPart {
     /** 수리 칸을 누름(돈은 Shop 이 뺌): 가득이거나 터지는 중이면 false. 누른 사람의 증강(정비공)이 차는 양에 곱해진다. */
     public boolean repairPress(Player payer) {
         if (!alive() || hp >= maxHp - 1e-6) return false;
-        repair(repairAmount() * game.augments.repairAmountMul(payer));
+        double want = repairAmount() * game.augments.repairAmountMul(payer);
+        double got = repair(want);
+        // 지갑은 이 누름의 값 가운데 실제로 찬 몫만 갚는다(거의 찬 트럭에 눌러 팀 몫을 쓰지 않게)
+        if (payer != null) game.players.wallet.repairFill(payer.getUniqueId(), want > 0 ? got / want : 1);
         repairs++;
         Props.soundAround(at(0, 1, 0), "trip.truck_repair", Sound.BLOCK_ANVIL_USE, 0.6f, 1f, 1.5f, 24, -1);
         trip.log("수리 " + (payer == null ? "-" : payer.getName()) + " → " + (int) hp + "/" + (int) maxHp);
