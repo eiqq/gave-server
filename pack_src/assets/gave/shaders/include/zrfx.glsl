@@ -90,7 +90,7 @@ vec4 zr_fx(sampler2D atlas, vec2 uv, vec4 tint, out float lit) {
         float k = clamp(age / 16.0, 0.0, 1.0);
         float n = zr_fbm(c * 2.4 + seed * 0.37 + vec2(0.0, age * 0.06));
         float grow = 0.55 + 0.45 * sqrt(k);
-        float body = smoothstep(1.0, 0.2, r / grow + (n - 0.5) * 0.8);
+        float body = 1.0 - smoothstep(0.2, 1.0, r / grow + (n - 0.5) * 0.8);
         vec3 base = variant == 1 ? vec3(0.68, 0.46, 0.37) : variant == 2 ? vec3(0.6, 0.46, 0.3) : variant == 3 ? vec3(0.88, 0.86, 0.82)
             : vec3(0.66, 0.64, 0.6);
         col = base * (0.85 + 0.35 * n);
@@ -109,7 +109,7 @@ vec4 zr_fx(sampler2D atlas, vec2 uv, vec4 tint, out float lit) {
             float across = abs(dot(c, vec2(-dir.y, dir.x)));
             float head = li * clamp(0.35 + age * 0.3, 0.0, 1.0);
             float tail = head - 0.35 * li;
-            float seg = smoothstep(tail, tail + 0.08, along) * smoothstep(head + 0.04, head - 0.04, along);
+            float seg = smoothstep(tail, tail + 0.08, along) * (1.0 - smoothstep(head - 0.04, head + 0.04, along));
             s += seg * exp(-across * across * 900.0);
         }
         col = vec3(1.0, 0.85, 0.5);
@@ -120,28 +120,28 @@ vec4 zr_fx(sampler2D atlas, vec2 uv, vec4 tint, out float lit) {
         if (variant == 0) {
             // 탄흔: 검은 구멍 + 그을린 둘레 + 가는 금, 8초 뒤 2초에 걸쳐 사라짐
             float n = zr_noise(c * 5.0 + seed);
-            float hole = smoothstep(0.26, 0.14, r + (n - 0.5) * 0.1);
-            float ring = smoothstep(0.9, 0.25, r + (n - 0.5) * 0.35) * 0.55;
+            float hole = 1.0 - smoothstep(0.14, 0.26, r + (n - 0.5) * 0.1);
+            float ring = (1.0 - smoothstep(0.25, 0.9, r + (n - 0.5) * 0.35)) * 0.55;
             float ang = atan(c.y, c.x);
-            float cracks = pow(abs(sin(ang * 3.0 + seed)), 30.0) * smoothstep(0.75, 0.2, r) * 0.6;
+            float cracks = pow(abs(sin(ang * 3.0 + seed)), 30.0) * (1.0 - smoothstep(0.2, 0.75, r)) * 0.6;
             a = clamp(hole + ring + cracks, 0.0, 0.95) * zr_fade(age, 160.0, 40.0);
             col = mix(vec3(0.2, 0.18, 0.16), vec3(0.02), hole);
         } else if (variant == 1) {
             // 폭발 그을음: 큰 검은 얼룩, 13초 뒤 2초
             float n = zr_fbm(c * 2.0 + seed * 0.3);
-            float body = smoothstep(1.0, 0.25, r + (n - 0.5) * 0.6);
+            float body = 1.0 - smoothstep(0.25, 1.0, r + (n - 0.5) * 0.6);
             a = body * 0.85 * zr_fade(age, 260.0, 40.0);
-            col = mix(vec3(0.13, 0.11, 0.1), vec3(0.02), smoothstep(0.6, 0.0, r)) * (0.8 + 0.4 * n);
+            col = mix(vec3(0.13, 0.11, 0.1), vec3(0.02), 1.0 - smoothstep(0.0, 0.6, r)) * (0.8 + 0.4 * n);
         } else {
             // 피(2), 담즙(3): 덩이 + 둘레 방울
             float n = zr_fbm(c * 3.0 + seed * 0.5);
-            float body = smoothstep(0.75, 0.45, r + (n - 0.5) * 0.7);
+            float body = 1.0 - smoothstep(0.45, 0.75, r + (n - 0.5) * 0.7);
             float drops = 0.0;
             for (int i = 0; i < 6; i++) {
                 float fi = float(i);
                 vec2 o = (vec2(zr_hash(vec2(seed, fi + 1.0)), zr_hash(vec2(fi + 5.0, seed))) * 2.0 - 1.0) * 0.82;
                 float rad = 0.04 + 0.06 * zr_hash(vec2(seed + fi, 7.0));
-                drops += smoothstep(rad, rad * 0.6, length(c - o));
+                drops += 1.0 - smoothstep(rad * 0.6, rad, length(c - o));
             }
             a = clamp(body + drops, 0.0, 0.92) * (variant == 2 ? zr_fade(age, 160.0, 40.0) : zr_fade(age, 120.0, 40.0));
             col = variant == 2 ? vec3(0.34, 0.02, 0.015) * (0.75 + 0.4 * n) : mix(vec3(0.33, 0.43, 0.07), vec3(0.62, 0.72, 0.16), n);
@@ -151,7 +151,7 @@ vec4 zr_fx(sampler2D atlas, vec2 uv, vec4 tint, out float lit) {
         float k = clamp(age / 20.0, 0.0, 1.0);
         float n = zr_fbm(c * 2.0 + seed * 0.21 - vec2(0.0, age * 0.09));
         float edge = r + (n - 0.5) * 0.6;
-        float body = smoothstep(1.0, 0.5, edge);
+        float body = 1.0 - smoothstep(0.5, 1.0, edge);
         float heat = clamp((1.0 - edge) * 1.7 - k * 1.5 + n * 0.45, 0.0, 1.0);
         vec3 hot = mix(vec3(0.9, 0.22, 0.04), vec3(1.0, 0.92, 0.6), heat);
         vec3 soot = vec3(0.1, 0.09, 0.085) * (0.7 + 0.5 * n);
@@ -161,8 +161,9 @@ vec4 zr_fx(sampler2D atlas, vec2 uv, vec4 tint, out float lit) {
         // 충격파 고리(바닥 판)
         float k = clamp(age / 9.0, 0.0, 1.0);
         float n = zr_noise(vec2(atan(c.y, c.x) * 4.0, seed));
-        float ring = exp(-pow((r - 0.8) * 12.0, 2.0)) * (0.7 + 0.3 * n);
-        float inner = smoothstep(0.85, 0.0, r) * 0.25 * (1.0 - k);
+        float q = (r - 0.8) * 12.0;
+        float ring = exp(-q * q) * (0.7 + 0.3 * n);
+        float inner = (1.0 - smoothstep(0.0, 0.85, r)) * 0.25 * (1.0 - k);
         col = variant == 1 ? vec3(0.6, 0.75, 0.2) : vec3(1.0, 0.82, 0.58);
         a = (ring + inner) * (1.0 - k) * 0.8;
         lit = variant == 1 ? 1.0 : 0.0;
@@ -171,7 +172,7 @@ vec4 zr_fx(sampler2D atlas, vec2 uv, vec4 tint, out float lit) {
         float life = variant == 2 ? 60.0 : 70.0;
         float k = clamp(age / life, 0.0, 1.0);
         float n = zr_fbm(c * 1.7 + seed * 0.13 + vec2(age * 0.012, -age * 0.02));
-        float body = smoothstep(1.0, 0.15, r + (n - 0.5) * 0.85);
+        float body = 1.0 - smoothstep(0.15, 1.0, r + (n - 0.5) * 0.85);
         vec3 base = variant == 1 ? vec3(0.13, 0.12, 0.115) : variant == 2 ? vec3(0.38, 0.48, 0.14) : vec3(0.24, 0.23, 0.22);
         col = base * (0.75 + 0.45 * n);
         a = body * smoothstep(0.0, 0.08, k) * (1.0 - smoothstep(0.45, 1.0, k)) * (variant == 2 ? 0.55 : 0.8);
@@ -180,7 +181,7 @@ vec4 zr_fx(sampler2D atlas, vec2 uv, vec4 tint, out float lit) {
         // 담즙 덩이(부풀이 터짐)
         float k = clamp(age / 22.0, 0.0, 1.0);
         float n = zr_fbm(c * 2.6 + seed * 0.37 + vec2(0.0, age * 0.05));
-        float body = smoothstep(1.0, 0.3, r + (n - 0.5) * 0.75);
+        float body = 1.0 - smoothstep(0.3, 1.0, r + (n - 0.5) * 0.75);
         float clumps = smoothstep(0.55, 0.75, n) * 0.4;
         a = (body + clumps * body) * pow(1.0 - k, 1.2) * 0.95;
         col = mix(vec3(0.42, 0.55, 0.08), vec3(0.8, 0.88, 0.3), n);
@@ -191,7 +192,7 @@ vec4 zr_fx(sampler2D atlas, vec2 uv, vec4 tint, out float lit) {
         float n = zr_fbm(c * 3.0 + seed * 0.37 + vec2(0.0, age * 0.05));
         float ang = atan(c.y, c.x);
         float spikes = pow(abs(sin(ang * 3.5 + seed)), 6.0) * 0.35;
-        float body = smoothstep(1.0, 0.3, r - spikes + (n - 0.5) * 0.6);
+        float body = 1.0 - smoothstep(0.3, 1.0, r - spikes + (n - 0.5) * 0.6);
         a = body * pow(1.0 - k, 1.4) * 0.95;
         // 변형 1 = 게이브 피(분홍빛 빨강, ShotFx.BLOOD_PINK), 0 = 빨강
         col = (variant == 1 ? vec3(0.85, 0.30, 0.40) : vec3(0.62, 0.04, 0.03)) * (0.75 + 0.45 * n);
@@ -222,7 +223,7 @@ vec4 zr_fx(sampler2D atlas, vec2 uv, vec4 tint, out float lit) {
         float body = 1.0 - smoothstep(w * 0.45, w, across);
         float heat = exp(-along * 3.2) * (1.0 - across / max(w, 0.001));
         col = mix(vec3(1.0, 0.45, 0.1), vec3(1.0, 0.96, 0.82), clamp(heat * 1.7, 0.0, 1.0));
-        a = clamp(body * smoothstep(1.0, 0.72, along) * (0.75 + 0.5 * heat), 0.0, 1.0) * life;
+        a = clamp(body * (1.0 - smoothstep(0.72, 1.0, along)) * (0.75 + 0.5 * heat), 0.0, 1.0) * life;
     } else if (kind == 14) {
         // 쓰러짐 고리(바닥 판, 늘 보임): 남은 출혈만큼 호가 남음(판 +y 쪽에서 시계 방향으로 줄어듦), 나머지 호는 어둡게.
         // 변형 0 = 가득 찬 빨강(ShotFx.fx 로 찍은 것), 1 = 빨강 + 씨앗 아래 6비트 남은 몫(0..63), 2 = 초록(일으키는 중) + 남은 몫
@@ -255,7 +256,7 @@ vec4 zr_fx(sampler2D atlas, vec2 uv, vec4 tint, out float lit) {
             float k = clamp(age / 9.0, 0.0, 1.0);
             float n = zr_fbm(c * 2.3 + vec2(seed * 0.19, -age * 0.35));
             float edge = r + (n - 0.5) * 0.75;
-            float body = smoothstep(1.0, 0.45, edge);
+            float body = 1.0 - smoothstep(0.45, 1.0, edge);
             float heat = clamp((1.0 - edge) * 1.6 - k * 0.9 + n * 0.35, 0.0, 1.0);
             col = mix(vec3(0.85, 0.18, 0.03), vec3(1.0, 0.9, 0.45), heat);
             a = body * (1.0 - smoothstep(0.55, 1.0, k)) * 0.95;
@@ -263,8 +264,8 @@ vec4 zr_fx(sampler2D atlas, vec2 uv, vec4 tint, out float lit) {
             // 서리 덩이: 하얀 청록 안개 + 반짝이는 얼음 알갱이
             float k = clamp(age / 10.0, 0.0, 1.0);
             float n = zr_fbm(c * 2.0 + vec2(seed * 0.23, age * 0.08));
-            float body = smoothstep(1.0, 0.3, r + (n - 0.5) * 0.7);
-            float sp = step(0.93, zr_hash(floor((c + 1.0) * 9.0) + seed + floor(age * 0.5))) * smoothstep(1.0, 0.5, r);
+            float body = 1.0 - smoothstep(0.3, 1.0, r + (n - 0.5) * 0.7);
+            float sp = step(0.93, zr_hash(floor((c + 1.0) * 9.0) + seed + floor(age * 0.5))) * (1.0 - smoothstep(0.5, 1.0, r));
             col = mix(vec3(0.55, 0.85, 0.95), vec3(0.95, 1.0, 1.0), clamp(n * 0.8 + sp, 0.0, 1.0));
             a = clamp(body * 0.6 + sp * 0.9, 0.0, 1.0) * (1.0 - smoothstep(0.5, 1.0, k));
             lit = 0.3;
