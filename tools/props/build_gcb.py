@@ -39,7 +39,7 @@ CREDIT = ("GCB 서버 리소스팩", "", "Minecraft 26.3", "없음(권리 미확
 
 # 키: 종류(Guns.Kind), 이름, 모델 id(ref/gcb/extracted), rot(모델을 x 로 돌릴 각도), G(손잡이, 원본 좌표를 돌린 뒤 픽셀),
 # len(손에 든 길이 블록), grip(1인칭 자리 종류), fp(1인칭 배율 / 3인칭 배율), 성능 배율(arms_table.py 와 같은 뜻, 제안값).
-# dmg 는 표의 다른 줄처럼 적어만 둔다: 한 발 피해는 Java(Models.balance)가 연사, 탄창, 재장전 배율을 보고 지속 화력이 종류 바탕 값과 같아지게 정한다
+# dmg(한 발 피해 배율)도 다른 배율처럼 그대로 걸린다(모델마다 화력이 다름). 탄창, 재장전 반올림 몫만 Java(Guns.effective)가 한 발 피해로 갚는다
 GUNS = {
     # 레버 액션 산탄총: 펌프 산탄총보다 조금 빨리 쏘고 탄이 적다(그쪽 값: 0.7초에 한 방, 6발, 한 발 넣기 8틱)
     "gcb_mastiff": dict(kind="SHOTGUN", name="마스티프", model="gcb:item/weapon/apexweapons/mastif/base", G=(8.0, 3.0, 19.8), len=1.15,

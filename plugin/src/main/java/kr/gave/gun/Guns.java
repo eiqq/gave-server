@@ -203,6 +203,20 @@ public final class Guns implements Listener {
         return m == null ? 1 : Math.max(0.2, Math.min(5, m.reload()));
     }
 
+    /**
+     * 물량을 막기에 맞지 않는 총의 단발 배율(2026-11-15 사용자 '단발 화력 1.5~4 배'): {@link #add} 가 SPECS 의 바탕 한 발 피해에 곱한다.
+     * 배율은 떼 막기 효율(tools/balance_sim.py --horde, 30명 15, 25웨이브 초당 없앤 단위)이 물량 총 가운데 값의 몇 분의 1 인지의 역수
+     * (1.5 아래는 1.5). 복합궁, 지정사수는 떼를 저격소총보다 잘 막아 없음. 총 값을 빌려 사람을 쏘는 크리처(G52)는 {@link #singleShot} 로
+     * 나눠 예전 피해를 지킨다(크리처는 그대로라는 방침). 이 줄은 tools/balance_sim.py 가 읽는다
+     */
+    private static final Map<Kind, Double> SINGLE_SHOT = Map.of(Kind.SNIPER, 1.5, Kind.RAILGUN, 1.5, Kind.REVOLVER, 1.5, Kind.BOLTACTION, 1.5,
+        Kind.ANTIMATERIEL, 1.8, Kind.MUSKET, 2.9);
+
+    /** 그 종류의 단발 배율(없으면 1) */
+    public static double singleShot(Kind k) {
+        return k == null ? 1 : SINGLE_SHOT.getOrDefault(k, 1.0);
+    }
+
     public static final Map<Kind, Spec> SPECS = new EnumMap<>(Kind.class);
 
     static {
@@ -214,6 +228,7 @@ public final class Guns implements Listener {
             Sound.ENTITY_GENERIC_EXPLODE, 1.8f, 10, 80, new Recoil(0, 1, 7.0, 0, 0, 0.2, 0.95), 8));
         add(new Spec(Kind.RIFLE, "rifle", "소총", 30, 180, 10, 1.0, 0.3, 3.0, 1.6, 0.6, 0.35, 44, 1, 120, 0, false, "crossbow",
             Sound.ENTITY_FIREWORK_ROCKET_LARGE_BLAST, 1.4f, 10, 96, new Recoil(0.06, 10, 5.0, 0.6, 0.4, 0.24, 0.98), 14));
+        // 저격소총: 10 발, 한 발 70(단발 배율 x1.5 = 105, SINGLE_SHOT), 관통 4, 웅크리면 조준경
         add(new Spec(Kind.SNIPER, "sniper", "저격소총", 10, 50, 1.6, 0.1, 1.5, 3.0, 4.0, 3.0, 0.8, 52, 1, 160, 4, false, "spyglass",
             Sound.ENTITY_FIREWORK_ROCKET_LARGE_BLAST, 0.7f, 12, 128, new Recoil(0, 1, 6.0, 0, 0, 0.2, 0.94), 70));
         // ---- 2026-11-12 무기 랜덤 상자: 쏘는 방식은 MODES. 피해는 한 번 맞힘(불길, 냉기는 한 번 쏠 때 원뿔 안 모두, 폭발은 가운데) 기준.
@@ -234,7 +249,7 @@ public final class Guns implements Listener {
         // 경기관총: 100 발 탄통, 관통 1
         add(new Spec(Kind.LMG, "lmg", "경기관총", 100, 300, 12, 1.5, 0.22, 3.2, 1.6, 0.42, 0.3, 90, 1, 100, 1, false, "crossbow",
             Sound.ENTITY_FIREWORK_ROCKET_LARGE_BLAST, 1.3f, 14, 96, new Recoil(0.06, 10, 5.5, 0.6, 0.9, 0.2, 0.982), 13));
-        // 리볼버: 6 발, 한 발 62, 관통 2
+        // 리볼버: 6 발, 한 발 62(x1.5 = 93), 관통 2
         add(new Spec(Kind.REVOLVER, "revolver", "리볼버", 6, 48, 2.6, 0.5, 1.2, 3.0, 1.4, 2.4, 0.7, 44, 1, 90, 2, false, "flint_and_steel",
             Sound.ENTITY_FIREWORK_ROCKET_LARGE_BLAST, 1.2f, 9, 80, new Recoil(0, 1, 5.5, 0.3, 0, 0.26, 0.965), 62));
         // 점사 소총: 3 점사(점사 안 초당 14 발, 점사 뒤 7 틱 쉼), 곧음
@@ -243,7 +258,7 @@ public final class Guns implements Listener {
         // 지정사수 소총: 15 발, 한 발 42, 관통 2, 웅크리면 조준경
         add(new Spec(Kind.DMR, "dmr", "지정사수 소총", 15, 90, 3.5, 0.25, 0.9, 2.5, 2.4, 1.6, 0.5, 50, 1, 140, 2, false, "spyglass",
             Sound.ENTITY_FIREWORK_ROCKET_LARGE_BLAST, 1.0f, 11, 112, new Recoil(0, 1, 5.0, 0.3, 0, 0.26, 0.96), 42));
-        // 레일건: 0.8초 모아 블록 앞까지 모두 꿰뚫는 광선 200(꿰뚫을 때마다 0.9 배). 쏜 뒤 쉼과 모으기가 겹쳐 실제로 초당 0.9 발
+        // 레일건: 0.8초 모아 블록 앞까지 모두 꿰뚫는 광선 200(x1.5 = 300, 꿰뚫을 때마다 0.9 배). 쏜 뒤 쉼과 모으기가 겹쳐 실제로 초당 0.9 발
         add(new Spec(Kind.RAILGUN, "railgun", "레일건", 4, 24, 0.9, 0, 0, 0, 3.0, 3.6, 0.8, 70, 1, 160, 99, false, "spyglass",
             Sound.ENTITY_GUARDIAN_ATTACK, 1.8f, 14, 128, new Recoil(0, 1, 6.0, 0, 0, 0.18, 0.93), 200));
         // 전기총: 24 블록 안 첫 대상 22 + 6.5 블록 안으로 네 번 번짐(번질 때마다 0.7 배)
@@ -262,7 +277,7 @@ public final class Guns implements Listener {
         // 쌍발 산탄총: 두 발이 한 번에(BURST 2, 연속 초당 16), 쏜 뒤 두 발을 다시 채워야 함(탄창 2, 36 틱), 한 방 9 알 x 7.5
         add(new Spec(Kind.DOUBLE, "doublebarrel", "쌍발 산탄총", 2, 24, 16, 5.2, 0, 0, 1.2, 3.5, 1.0, 36, 9, 25, 0, false, "iron_shovel",
             Sound.ENTITY_GENERIC_EXPLODE, 1.5f, 11, 80, new Recoil(0, 1, 8.0, 0, 0, 0.18, 0.95), 7.5));
-        // 볼트액션 소총: 5 발, 한 발 120, 관통 5, 쏘면 노리쇠 당김, 웅크리면 조준경, 치명 +10%
+        // 볼트액션 소총: 5 발, 한 발 120(x1.5 = 180), 관통 5, 쏘면 노리쇠 당김, 웅크리면 조준경, 치명 +10%
         add(new Spec(Kind.BOLTACTION, "boltaction", "볼트액션 소총", 5, 40, 1.2, 0.05, 1.5, 3.0, 4.0, 3.2, 0.6, 60, 1, 180, 5, false, "spyglass",
             Sound.ENTITY_FIREWORK_ROCKET_LARGE_BLAST, 0.6f, 14, 112, new Recoil(0, 1, 6.0, 0, 0, 0.2, 0.93), 120));
         // 기관권총: 30 발, 초당 17 발, 한 발 8.5: 가까이서 빠름
@@ -271,13 +286,13 @@ public final class Guns implements Listener {
         // 쌍권총: 한 번에 두 발(양손 한 발씩, 서로 다른 퍼짐), 초당 8 번, 36 발
         add(new Spec(Kind.DUAL, "dualpistol", "쌍권총", 36, 216, 8, 2.0, 0.3, 3.5, 1.5, 0.7, 0.5, 40, 2, 55, 0, false, "flint_and_steel",
             Sound.ENTITY_FIREWORK_ROCKET_BLAST, 1.7f, 9, 64, new Recoil(0.04, 6, 3.5, 0.5, 0.0, 0.3, 0.98), 8));
-        // 대물 저격총: 5 발, 한 발 215, 줄 선 열두 마리까지 꿰뚫고 크게 밀침, 웅크리면 조준경
+        // 대물 저격총: 5 발, 한 발 215(x1.8 = 387), 줄 선 열두 마리까지 꿰뚫고 크게 밀침, 웅크리면 조준경
         add(new Spec(Kind.ANTIMATERIEL, "antimateriel", "대물 저격총", 5, 30, 0.9, 0.1, 2.0, 3.5, 5.0, 4.5, 1.0, 90, 1, 200, 12, false, "spyglass",
             Sound.ENTITY_GENERIC_EXPLODE, 0.9f, 16, 144, new Recoil(0, 1, 7.0, 0, 0, 0.14, 0.92), 215));
         // 소음기 총: 32 발, 초당 12 발 10.5, 총소리가 20 블록 안에만 들리고 총구 불꽃 없음, 치명 +10%
         add(new Spec(Kind.SILENCED, "silenced", "소음기 총", 32, 224, 12, 1.2, 0.25, 3.0, 1.2, 0.32, 0.25, 36, 1, 70, 0, false, "iron_hoe",
             Sound.ENTITY_ARROW_SHOOT, 1.6f, 9, 20, new Recoil(0.04, 8, 2.6, 0.4, 0.9, 0.3, 0.99), 10.5));
-        // 머스킷: 한 발 200, 줄 선 넷을 꿰뚫고 밀침, 한 발마다 장전(44 틱)
+        // 머스킷: 한 발 200(x2.9 = 580), 줄 선 넷을 꿰뚫고 밀침, 한 발마다 장전(44 틱)
         add(new Spec(Kind.MUSKET, "musket", "머스킷", 1, 30, 1.0, 0.3, 0, 0, 3.0, 4.0, 1.0, 44, 1, 100, 3, false, "crossbow",
             Sound.ENTITY_GENERIC_EXPLODE, 1.5f, 14, 96, new Recoil(0, 1, 6.0, 0, 0, 0.16, 0.94), 200));
         // 광선총: 50 발, 초당 9 번 13, 관통 3, 반동 거의 없는 빛줄기
@@ -302,8 +317,9 @@ public final class Guns implements Listener {
         };
     }
 
+    /** 종류 바탕 값 하나: 단발 배율({@link #SINGLE_SHOT})을 한 발 피해에 곱해 넣는다 */
     private static void add(Spec s) {
-        SPECS.put(s.kind(), s);
+        SPECS.put(s.kind(), s.with(GunMods.NONE.mulDamage(singleShot(s.kind()))));
     }
 
     /** 이 총이 주는 피해 종류(흉내, 배우는 게이브가 읽음) */
@@ -364,9 +380,12 @@ public final class Guns implements Listener {
      * 건드리지 않음) 이어 쏘는 동안은 다 돈 빠르기다
      */
     static double cycleTicks(Spec s) {
-        Mode md = mode(s.kind());
-        double gap = 20.0 / s.rps(), reload = reloadTicks(s);
-        int mag = s.mag();
+        return cycle(s.kind(), 20.0 / s.rps(), reloadTicks(s), s.mag());
+    }
+
+    /** 한 바퀴(틱): 발 사이 gap 틱, 빈 총을 다 채우는 reload 틱, 탄창 mag 발 */
+    private static double cycle(Kind k, double gap, double reload, int mag) {
+        Mode md = mode(k);
         return switch (md.fire()) {
             case BURST -> {
                 int n = Math.max(1, md.count()), bursts = (mag + n - 1) / n;
@@ -379,11 +398,28 @@ public final class Guns implements Listener {
 
     /**
      * 한 대상에 계속 쏠 때의 초당 피해: 한 바퀴({@link #cycleTicks}) 동안 탄창을 다 맞힘(치명, 거리 감쇠, 범위 덤은 안 셈). 불길은 불붙음 피해를
-     * 더한다. 피해에 비례하므로 모델 사이 화력 맞춤(effective)이 피해 배율 하나로 맞출 수 있다. 상점 '화력' 줄, 밸런스 표(tools/balance_sim.py 도 같은 식)
+     * 더한다. 피해에 비례하므로 반올림 갚기(effective)가 피해 배율 하나로 맞출 수 있다. 상점 '화력' 줄, 밸런스 표(tools/balance_sim.py 도 같은 식)
      */
     public static double sustained(Spec s) {
         double dps = s.mag() * s.damage() * s.pellets() / cycleTicks(s) * 20;
         return mode(s.kind()).fire() == Fire.FLAME ? dps + s.damage() * mode(s.kind()).effect() : dps;
+    }
+
+    /**
+     * 반올림 전 지속 화력: base 에 배율 m 을 곱한 탄창과 재장전 틱을 소수 그대로 둔 {@link #sustained}. 탄창은 이웃한 두 정수의 한 바퀴를 곧게
+     * 잇는다(점사의 한 바퀴는 정수 탄창에서만 뜻이 있어서). {@link #effective} 가 반올림한 총의 한 발 피해를 이 값에 맞춘다
+     */
+    static double smoothSustained(Spec base, GunMods m) {
+        double mag = Math.max(1, base.mag() * m.mag()), mul = reloadMul(m), rl = base.reload() * mul, gap = 20.0 / Math.max(0.1, base.rps() * m.rate());
+        double dmg = base.damage() * Math.max(0, m.damage());
+        int lo = (int) mag;
+        double f = mag - lo, cyc = 0;
+        for (int n = lo; n <= lo + 1; n++) {
+            double w = n == lo ? 1 - f : f;
+            if (w > 0) cyc += w * cycle(base.kind(), gap, base.shells() ? SHELL_START * mul + n * rl + SHELL_PUMP * mul : rl, n);
+        }
+        double dps = mag * dmg * Math.max(1, base.pellets() + m.pellets()) / cyc * 20;
+        return mode(base.kind()).fire() == Fire.FLAME ? dps + dmg * mode(base.kind()).effect() : dps;
     }
 
     /** 쏘는 방식 한 줄(상점 줄 맨 위, 보통 총은 null): 값은 Mode 에서 읽어 숫자가 바뀌면 글도 따라온다 */
@@ -1016,23 +1052,23 @@ public final class Guns implements Listener {
 
     /**
      * 유효 총 = 바탕 Spec x 모델 배율 x 총 배율(등급, 강화) x 사람 배율. 배율을 먼저 다 곱한 뒤 한 번만 반올림한다. 산탄 알 더하기는
-     * 산탄총(바탕 알 2 이상)에만 건다(소총이 세 알 쏘지 않게).
-     * 모델이 있으면 한 발 피해를 다시 맞춰, 같은 종류면 어느 모델이든 한 대상 지속 화력({@link #sustained})이 모델 배율만 뺀 같은 총(같은 등급,
-     * 강화, 증강)과 같다. 탄창, 재장전 반올림이 든 뒤의 값으로 맞추므로 탄창 1~2 모델이 등급이나 증강으로 한 발이 늘어도 화력은 같고,
-     * 모델의 차이는 '한 발이 센 대신 탄창이 작다' 같은 나눔과 퍼짐, 사거리, 관통, 소리, 모습뿐이다
+     * 산탄총(바탕 알 2 이상)에만 건다(소총이 세 알 쏘지 않게). 모델마다 표의 배율(피해, 연사, 탄창, 재장전 ...)이 그대로 걸려 화력이 다르고,
+     * 같은 모델 같은 등급 같은 증강이면 누구 손에서나 같다.
+     * 반올림 갚기: 한 발 피해를 그 총 자신의 반올림 전 지속 화력({@link #smoothSustained})에 맞춘다. 탄창 1~2 총은 등급, 증강의 탄창 배율이
+     * 반올림으로 한 발을 통째로 늘리거나 없애는데(쌍발 블런더버스 2 x 0.66 = 1.32 는 한 발, 영웅 x 1.2 = 1.58 은 두 발), 화력은 배율만큼만 움직인다
      */
     public static Spec effective(Kind k, Gun g, GunMods m) {
         Spec base = SPECS.get(k);
         Models.Model md = g == null ? null : Models.of(g.model);
         GunMods all = m == null ? GunMods.NONE : m;
         if (g != null) all = g.mods().times(all);
+        if (md != null) all = md.mods().times(all);
         // 산탄 알 더하기는 산탄류(바탕 알 2 이상)에만: 쌍권총의 두 발은 알이 아니라 양손이라 더하지 않음
         if ((base.pellets() <= 1 || k == Kind.DUAL) && all.pellets() != 0) all = all.withPellets(0);
-        if (md == null) return base.with(all);
-        Spec s = base.with(md.mods().times(all));
-        double want = sustained(base.with(all)), got = sustained(s);
-        if (want > 0 && got > 0) s = s.with(GunMods.NONE.mulDamage(want / got));
-        return s.named(md.key(), md.sound());
+        Spec s = base.with(all);
+        double want = smoothSustained(base, all), got = sustained(s);
+        if (want > 0 && got > 0 && Math.abs(want - got) > 1e-9 * got) s = s.with(GunMods.NONE.mulDamage(want / got));
+        return md == null ? s : s.named(md.key(), md.sound());
     }
 
     /** 이 사람이 그 총으로 쏠 때 치명 확률(Gun 특성 + 사람 배율) */
