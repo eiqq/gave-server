@@ -2,8 +2,8 @@
 
 `Gave-pack.zip` 은 게이브 서버 리소스팩이다. 모습(모델, 텍스처, 셰이더, 글꼴, 언어)과 소리, 음악이 한 파일에 들어 있다.
 
-- 빌드한 커밋: `c771daa`(브랜치 `overhaul`). 이 폴더는 그다음 커밋으로 들어간다. 2026-11-16 볼트 피스톨 탄착 폭발음(`gun.gcb_boltpistol.boom`, `boom_block`, 파일 11개)을 같은 팩에 더했다(`tools/props/build_gcb.py` 층에서 그 파일과 사건, 자막, `CREDITS-GCB.txt` 만 옮김).
-- 크기 95,435,975 바이트, sha1 `d194428b947ae6ad7da1c9ce6aa5a86524bb0bb6`
+- 빌드한 커밋: `c771daa`(브랜치 `overhaul`). 이 폴더는 그다음 커밋으로 들어간다. 2026-11-16 볼트 피스톨 소리 전부(사격, 1인칭 사격, 탄창, 탄착 폭발, 파일 25개)를 GCB 원본 파일로 바꿨다(`tools/props/build_gcb.py` 층에서 볼트 피스톨 소리 파일과 사건, 자막, `CREDITS-GCB.txt` 만 옮김).
+- 크기 95,535,906 바이트, sha1 `aac4cc71706a509713cd728310d7c1bc09ef68ad`
 
 ## 쓰는 법
 

@@ -2,7 +2,7 @@
 바이트 그대로 복사하고 sha256 을 남긴다(변환은 tools/props/build_gcb.py 몫). 그 팩은 읽기만 한다.
 
 python -I -X utf8 tools/props/gcb_import.py <GCB 리소스팩 폴더(맨 위에 assets/)>
-총소리는 꺼내지 않는다(tools/props/gcb_sounds.py 가 숫자 표로 새로 만든다). 볼트 탄착 폭발음만 그 팩의 파일을 그대로 꺼낸다
+마스티프, 렘페이지 총소리는 꺼내지 않는다(tools/props/gcb_sounds.py 가 숫자 표로 새로 만든다). 볼트 피스톨 소리(사격, 탄창, 탄착 폭발)는 그 팩의 파일을 그대로 꺼낸다
 (2026-11-16 서버 운영자 "볼트피스톨 폭발음은 gcb 프로젝트에서 그대로 가져오기"). ref/ 는 저장소에 올리지 않는다.
 """
 import hashlib
@@ -22,9 +22,11 @@ FILES = [
     "assets/modelengine/models/spacemarine/bolter.json",
     "assets/modelengine/textures/entity/models/spacemarine_boltpistol.png",
 ]
-# 볼트 탄착 폭발음(그쪽 사건 char.spacemarine.bolter.hit.entity 와 .hit.block.rock)
-BOOM = "assets/minecraft/sounds/char/spacemarine/bolter/hit/"
-FILES += [f"{BOOM}entity/{i}.ogg" for i in range(1, 7)] + [f"{BOOM}block/rock/{i}.ogg" for i in range(1, 6)]
+# 볼트 피스톨 소리(그쪽 사건 char.spacemarine.boltpistol.fire.3p, .fire.1p, .reload.out, .reload.in, char.spacemarine.bolter.hit.entity, .hit.block.rock)
+SND = "assets/minecraft/sounds/char/spacemarine/"
+FILES += [f"{SND}boltpistol/fire/{v}/{i}.ogg" for v in ("3p", "1p") for i in range(1, 7)]
+FILES += [f"{SND}boltpistol/reload/{v}/1.ogg" for v in ("out", "in")]
+FILES += [f"{SND}bolter/hit/entity/{i}.ogg" for i in range(1, 7)] + [f"{SND}bolter/hit/block/rock/{i}.ogg" for i in range(1, 6)]
 
 
 def main():
@@ -53,7 +55,7 @@ def main():
             "gcb_boltpistol": "assets/modelengine/models/spacemarine/bolter.json (요소 56, 텍스처 128x128. ModelEngine 이 캐릭터 모델의 "
                               "왼손 권총 뼈를 구운 것, 총구가 아래를 봄)",
         },
-        "sounds": "총소리는 꺼내지 않음(tools/props/gcb_sounds.py 가 새로 합성). 볼트 탄착 폭발음(char/spacemarine/bolter/hit/entity 6개, hit/block/rock 5개)만 파일 그대로. 녹음 소리이고 출처는 그 팩의 기록에 없다(볼트 피스톨 캐릭터 소리 묶음, Warhammer 40,000 게임에서 온 것으로 보임)",
+        "sounds": "마스티프, 렘페이지 총소리는 꺼내지 않음(tools/props/gcb_sounds.py 가 새로 합성). 볼트 피스톨 소리(char/spacemarine/boltpistol/fire/3p, 1p 6개씩, reload/out, in, bolter/hit/entity 6개, hit/block/rock 5개)는 파일 그대로. 녹음 소리이고 출처는 그 팩의 기록에 없다(Warhammer 40,000 게임에서 온 것으로 보임)",
         "files": files,
     }
     (OUT / "_info.json").write_text(json.dumps(info, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")

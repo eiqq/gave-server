@@ -2154,6 +2154,8 @@ public final class Guns implements Listener {
         double r2 = s.soundRange() * s.soundRange();
         Location at = eye.clone();
         boolean bolt = BOLT_MODEL.equals(s.model());
+        // 쏜 사람은 1인칭 사격음(그쪽 GCB 처럼 fire_1p, 팩에 있을 때만. 같은 씨앗이라 같은 변형 차례)
+        String selfEv = mod && Props.hasSound(ev + "_1p") ? ev + "_1p" : ev;
         List<Player> to = new ArrayList<>();
         for (Player o : at.getWorld().getPlayers())
             if (o == shooter || o.getLocation().distanceSquared(at) <= r2 && rnd.nextDouble() < othersHear) to.add(o);
@@ -2166,7 +2168,7 @@ public final class Guns implements Listener {
                 int copies = self || bolt ? 2 : 1;
                 float vol = self ? 1f : bolt ? 0.75f : 1f;
                 for (int c = 0; c < copies; c++) {
-                    if (mod) o.playSound(at, Props.NS + ":" + ev, SoundCategory.PLAYERS, vol, jitter, seed);
+                    if (mod) o.playSound(at, Props.NS + ":" + (self ? selfEv : ev), SoundCategory.PLAYERS, vol, jitter, seed);
                     else o.playSound(at, s.fire(), SoundCategory.PLAYERS, Math.max(vol, (float) (s.soundRange() / 16.0)), s.pitch() * jitter, seed);
                 }
             }
