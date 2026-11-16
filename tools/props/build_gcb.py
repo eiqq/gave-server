@@ -56,16 +56,19 @@ GUNS = {
 # 모델마다 다른 재장전 부품 소리(gun.<모델 키>.mag_out 같은 사건)를 팩에 넣을까. Java(Guns.partEvent)가 모델 키 사건을 먼저 찾고
 # 없으면 종류 키 사건으로 물러나므로 켜 둔다(끄면 그 종류의 부품 소리가 난다)
 PART_EVENTS = True
-# 그 팩 파일을 그대로 옮기는 소리(볼트 피스톨 전부): 사건, 자막, ref/gcb/extracted 안 폴더(GCB_SND 아래), 개수, 들리는 거리.
-# 거리 None 은 게이브 총 표의 값(_1p 는 사격과 같게). 탄착은 그쪽 sounds.json 의 256 그대로. 이 사건은 합성하지 않는다
+# 그 팩 파일을 그대로 옮기는 소리(볼트 피스톨 전부): 사건, 자막, ref/gcb/extracted 안 폴더(GCB_SND 아래), 개수, 들리는 거리, 음량.
+# 거리 None 은 게이브 총 표의 값(_1p 는 사격과 같게). 탄착은 그쪽 sounds.json 의 256 그대로. 이 사건은 합성하지 않는다.
+# 음량(sounds.json volume, 파일은 그대로): 원본이 게이브 다른 소리보다 커서 줄인다. 첫 250 ms 평균 크기를 재면 사격 3p -15.9, 1p -15.1 dBFS 로
+# 다른 권총류(-22 ~ -24)와 전에 쓰던 합성음(-19, PACK)보다 커서 -19 에 맞춤. 블록 탄착 -10.5 는 로켓 폭발(-11)만큼이라 탄착(-15.4)에 맞춤.
+# 탄창(-16 ~ -17)과 탄착(다른 탄착음 -13 ~ -16)은 그대로
 GCB_SND = "assets/minecraft/sounds/char/spacemarine/"
 ORIGINAL = {
-    "gun.gcb_boltpistol.fire": ("볼트 피스톨 사격", "boltpistol/fire/3p", 6, None),
-    "gun.gcb_boltpistol.fire_1p": ("볼트 피스톨 사격", "boltpistol/fire/1p", 6, None),
-    "gun.gcb_boltpistol.mag_out": ("탄창 빠짐", "boltpistol/reload/out", 1, None),
-    "gun.gcb_boltpistol.mag_in": ("탄창 꽂음", "boltpistol/reload/in", 1, None),
-    "gun.gcb_boltpistol.boom": ("볼트 탄 폭발", "bolter/hit/entity", 6, 256),
-    "gun.gcb_boltpistol.boom_block": ("볼트 탄 폭발(블록)", "bolter/hit/block/rock", 5, 256),
+    "gun.gcb_boltpistol.fire": ("볼트 피스톨 사격", "boltpistol/fire/3p", 6, None, 0.7),
+    "gun.gcb_boltpistol.fire_1p": ("볼트 피스톨 사격", "boltpistol/fire/1p", 6, None, 0.64),
+    "gun.gcb_boltpistol.mag_out": ("탄창 빠짐", "boltpistol/reload/out", 1, None, 1),
+    "gun.gcb_boltpistol.mag_in": ("탄창 꽂음", "boltpistol/reload/in", 1, None, 1),
+    "gun.gcb_boltpistol.boom": ("볼트 탄 폭발", "bolter/hit/entity", 6, 256, 1),
+    "gun.gcb_boltpistol.boom_block": ("볼트 탄 폭발(블록)", "bolter/hit/block/rock", 5, 256, 0.57),
 }
 PART_KO = {"shell": "산탄 넣음", "reload_end": "산탄총 재장전 끝", "mag_out": "탄창 빠짐", "mag_in": "탄창 꽂음", "charge": "장전 손잡이 당김"}
 # 층 맨 위 출처 파일(팩 맨 위로 들어간다: 이 층이 있을 때만 팩에 실림). 문구는 공개 전에 서버 운영자와 맞출 것
@@ -182,7 +185,7 @@ def build_sounds():
             for part, x in gcb_sounds.parts(key).items():
                 if f"gun.{key}.{part}" not in ORIGINAL:
                     event(f"gun.{key}.{part}", PART_KO[part], [(f"gun/gcb/{key[4:]}_{part}", x)])
-    for ev, (sub, folder, n, att) in ORIGINAL.items():
+    for ev, (sub, folder, n, att, vol) in ORIGINAL.items():
         att = att or BM.attenuation(ev.removesuffix("_1p"))
         entries, names = [], []
         for i in range(1, n + 1):
@@ -190,7 +193,7 @@ def build_sounds():
             dst = P.A / "sounds" / f"{name}.ogg"
             dst.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(SRC / GCB_SND / folder / f"{i}.ogg", dst)
-            entries.append({"name": f"{NS}:{name}"} | ({"attenuation_distance": att} if att else {}))
+            entries.append({"name": f"{NS}:{name}"} | ({"volume": vol} if vol != 1 else {}) | ({"attenuation_distance": att} if att else {}))
             names.append(f"{name}.ogg")
             files.append({"file": f"{name}.ogg", "from": "tools/props/gcb_import.py", "source": "GCB 서버 리소스팩(권리 미확인)",
                           "process": f"{GCB_SND}{folder}/{i}.ogg 바이트 그대로"})
