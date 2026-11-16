@@ -764,7 +764,7 @@ public final class Truck implements TripPart {
         return key.equals("p_plate") ? 3 : key.equals("p_crane") ? 2 : 1;
     }
 
-    /** 효과를 낼 쪽이 아직 없는 부품(범퍼: 추격전이 증강의 ramMul 을 부르기 전까지)은 안 뜬다. */
+    /** 효과를 낼 쪽이 아직 없는 부품은 안 뜬다. 지금은 없다(범퍼도 2026-11-16 부터 늘 트럭 피해 -10%, 증강 표의 needs 도 뺌) */
     private boolean partReady(String key) {
         return true; // 범퍼도 이제 늘 효과가 있다(트럭 피해 -10%)
     }

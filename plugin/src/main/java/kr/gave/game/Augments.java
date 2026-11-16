@@ -931,9 +931,11 @@ public final class Augments implements GunHooks {
                 if (inv.getItem(s2) == null) inv.setItem(s2, ShopUi.bar(Cat.RISK.pane, d < 0));
             }
         }
-        // 셋 다 마음에 안 들면 안 고르고 넘김(2026-11-16 사용자)
-        inv.setItem(SKIP_SLOT, skipItem());
-        v.actions.put(SKIP_SLOT, () -> skip(p));
+        // 셋 다 마음에 안 들면 안 고르고 넘김(2026-11-16 사용자). 트럭 부품 묶음(팀 보상)은 한 사람이 버리지 못하게 뺀다
+        if (!front(p).team()) {
+            inv.setItem(SKIP_SLOT, skipItem());
+            v.actions.put(SKIP_SLOT, () -> skip(p));
+        }
         game.shop.show(p, v);
         return true;
     }
@@ -951,7 +953,7 @@ public final class Augments implements GunHooks {
     /** 맨 앞 뽑기를 고르지 않고 버림. 그다음 뽑기가 있으면 그 카드, 아니면 상점(왔던 곳)으로 */
     public boolean skip(Player p) {
         Build b = build(p);
-        if (b.pending.peek() == null) return false;
+        if (front(p) == null || front(p).team()) return false;
         Shop.View cur = game.shop.view(p);
         boolean back = cur != null && cur.back;
         b.pending.poll();

@@ -329,10 +329,6 @@ public final class Gave extends JavaPlugin implements Listener {
         return "게이브 피해 배율 x" + mul(now) + " 에서 x" + mul(v) + " 로";
     }
 
-    /**
-     * /gave 공격력 [배율]: 사람이 게이브(보스 포함)에게 주는 모든 피해(총, 폭발, 불, 냉동, 번개, 증강, 트럭 장치)에 곱하는 배율. 인자 없으면 지금 값.
-     * 바로 먹고 설정 playerDamageMul 에 저장해 다시 켜도 남는다. 곱하는 자리는 Mobs.damage.
-     */
     /** /gave 최대인원 [수]: 서버 최대 인원을 바로 바꾸고 server.properties 의 max-players 줄도 고쳐 다시 켜도 남게(2026-11-15 사용자) */
     private String maxPlayersCmd(String[] a) {
         int now = getServer().getMaxPlayers();
@@ -362,6 +358,10 @@ public final class Gave extends JavaPlugin implements Listener {
         }
     }
 
+    /**
+     * /gave 공격력 [배율]: 사람이 게이브(보스 포함)에게 주는 모든 피해(총, 폭발, 불, 냉동, 번개, 증강, 트럭 장치)에 곱하는 배율. 인자 없으면 지금 값.
+     * 바로 먹고 설정 playerDamageMul 에 저장해 다시 켜도 남는다. 곱하는 자리는 Mobs.damage.
+     */
     private String powerCmd(String[] a) {
         double now = game.mobs.pdmg();
         String range = mul(kr.gave.mob.Mobs.PDMG_MIN) + "~" + mul(kr.gave.mob.Mobs.PDMG_MAX);

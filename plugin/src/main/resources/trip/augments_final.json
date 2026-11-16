@@ -79,7 +79,7 @@
   {"key": "p_tank", "name": "보조 연료통", "line": "길을 떠날 때마다 트럭 +12%", "tier": "common", "cat": "part", "bind": "", "icon": "shop:molotov", "max": 1, "needs": "truck", "n": {"frac": 0.12}},
   {"key": "p_speaker", "name": "확성기", "line": "라운드 첫 10초 트럭 곁 피해 +20%", "tier": "common", "cat": "part", "bind": "", "icon": "aug:rate", "max": 1, "n": {"r": 12, "ticks": 200, "dmg": 1.2}},
   {"key": "p_crane", "name": "인양기", "line": "꺼내는 값 -20%", "tier": "rare", "cat": "part", "bind": "", "icon": "aug:revive", "max": 2, "needs": "revive", "n": {"mul": 0.8}},
-  {"key": "p_bumper", "name": "범퍼", "line": "트럭이 10% 덜 깎이고, 들이받고 받히는 피해 절반", "tier": "common", "cat": "part", "bind": "", "icon": "aug:grip", "max": 1, "needs": "ramMul", "n": {"mul": 0.5}},
+  {"key": "p_bumper", "name": "범퍼", "line": "트럭이 10% 덜 깎이고, 들이받고 받히는 피해 절반", "tier": "common", "cat": "part", "bind": "", "icon": "aug:grip", "max": 1, "n": {"mul": 0.5}},
   {"key": "p_cooler", "name": "냉각기", "line": "트럭이 25% 아래면 30% 덜 깎인다", "tier": "rare", "cat": "part", "bind": "", "icon": "aug:ground", "max": 1, "needs": "truck", "n": {"below": 0.25, "mul": 0.7}},
   {"key": "m_medic", "name": "위생병", "line": "내가 일으킨 사람은 멀쩡하고 5초 안 다친다", "tier": "rare", "cat": "team", "bind": "", "icon": "shop:bandage", "max": 1, "n": {"hp": 1.0, "ticks": 100}},
   {"key": "m_share", "name": "나눠 쓰기", "line": "탄약을 사면 곁의 둘도 채운다", "tier": "common", "cat": "team", "bind": "", "icon": "shop:ammo", "max": 1, "n": {"r": 6, "count": 2}},
