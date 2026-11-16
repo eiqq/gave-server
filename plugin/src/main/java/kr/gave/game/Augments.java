@@ -281,7 +281,8 @@ public final class Augments implements GunHooks {
     public static final String AUTO_AMMO = "autoammo";
 
     /** 고를 카드 한 묶음(team = 트럭 부품: 고르면 팀 것이 됨) */
-    private record Offer(List<Aug> cards, boolean team) {
+    /** 뽑기 묶음 하나. bought = 상점에서 산 뽑기(고를 때만 산 횟수가 늘어 다음 값이 오름: 안 고르고 버리면 값이 그대로, 2026-11-16 사용자) */
+    private record Offer(List<Aug> cards, boolean team, boolean bought) {
     }
 
     private static final class Build {
@@ -464,7 +465,9 @@ public final class Augments implements GunHooks {
 
     /** 이번 판 상점에서 산 증강 뽑기 수 */
     public int rolls(Player p) {
-        return build(p).rolls;
+        // 산 뒤 아직 고르지 않은 뽑기도 센다(쌓아 두고 같은 값에 여러 번 사지 못하게). 안 고르고 버리면 빠져서 값이 돌아간다
+        Build b = build(p);
+        return b.rolls + (int) b.pending.stream().filter(Offer::bought).count();
     }
 
     // ------------------------------------------------------------------ 트럭 부품(팀 공용)
@@ -516,7 +519,7 @@ public final class Augments implements GunHooks {
         Collections.shuffle(pool, rnd);
         List<Aug> cards = new ArrayList<>(pool.subList(0, Math.min(3, pool.size())));
         partRewards--;
-        build(p).pending.addFirst(new Offer(cards, true));
+        build(p).pending.addFirst(new Offer(cards, true, false));
         lastLog = "부품 카드 " + p.getName() + " " + cards;
         return openCards(p, true);
     }
@@ -843,18 +846,21 @@ public final class Augments implements GunHooks {
      * HUD 는 {@link #pending} 으로 '증강 n장 대기' 를 그린다
      */
     public void offer(Player p, int count) {
+        offer(p, count, false);
+    }
+
+    private void offer(Player p, int count, boolean bought) {
         if (p == null) return;
         List<Aug> cards = roll(p, Math.max(1, Math.min(3, count)));
         if (cards.isEmpty()) return;
-        build(p).pending.add(new Offer(cards, false));
+        build(p).pending.add(new Offer(cards, false, bought));
         Props.sound(p, null, Sound.BLOCK_AMETHYST_BLOCK_CHIME, 0.8f, 1f, 1.4f);
         lastLog = "뽑기 대기 " + p.getName() + " " + cards;
     }
 
     /** 상점에서 산 뽑기(값 올림 셈 + 바로 카드 화면) */
     public void bought(Player p) {
-        build(p).rolls++;
-        offer(p, 3);
+        offer(p, 3, true);
         openCards(p, true);
     }
 
@@ -968,6 +974,7 @@ public final class Augments implements GunHooks {
         boolean took = !full(p, o.cards().get(index));
         if (took) {
             b.pending.poll();
+            if (o.bought()) b.rolls++;
             give(p, o.cards().get(index));
             Props.sound(p, null, Sound.UI_CARTOGRAPHY_TABLE_TAKE_RESULT, 1f, 1f, 1f);
         }
@@ -1270,7 +1277,7 @@ public final class Augments implements GunHooks {
                     cards.add(g);
                     team &= g.cat == Cat.PART;
                 }
-                build(p).pending.addFirst(new Offer(cards, team));
+                build(p).pending.addFirst(new Offer(cards, team, false));
                 game.shop.force(p);
                 return "cards=" + cards + " opened=" + openCards(p, false);
             }

@@ -184,8 +184,6 @@ public final class Players implements Listener {
      * 처치, 보스, 라운드, 증강, 팀, 스테이지 보상)에 곱한다. 옮기기(돌려받기, 합류 몫, 시험)는 {@link #addMoneyRaw} 로 곱하지 않는다.
      */
     public double moneyMul = 1.0;
-    /** 모든 벌이에 곱하는 바탕 배율(2026-11-16 사용자 "돈 수급량 좀 더 보정해주고(증가)": +25%). 운영자 행사용 moneyMul 과 따로 곱한다 */
-    public static final double INCOME = 1.25;
 
     /** 처치 보상 나누기와 정산(팀 몫, 때린 몫, 팀 일 수당, 따라잡기 몫). */
     public final Wallet wallet;
@@ -1519,7 +1517,7 @@ public final class Players implements Listener {
      */
     public void addMoney(Player p, int amount) {
         if (amount > 0) {
-            amount = (int) Math.max(amount, Math.min(Integer.MAX_VALUE / 4, Math.round(amount * moneyMul * INCOME)));
+            amount = (int) Math.max(amount, Math.min(Integer.MAX_VALUE / 4, Math.round(amount * moneyMul)));
             double k = wallet.earnMul(p.getUniqueId());
             if (k < 1) amount = (int) Math.ceil(amount * k - 1e-9);
         }
@@ -1529,7 +1527,7 @@ public final class Players implements Listener {
     /** 증강이 주는 돈(이자, 단골, 내기, 장물, 빚의 큰돈: AugRules.grant, 지갑의 물주 덤): 돈 배율은 곱하고 빚의 반값에는 안 걸린다(원본 규칙). */
     public void addBonus(Player p, int amount) {
         if (amount <= 0) return;
-        credit(p, get(p), (int) Math.max(amount, Math.min(Integer.MAX_VALUE / 4, Math.round(amount * moneyMul * INCOME))));
+        credit(p, get(p), (int) Math.max(amount, Math.min(Integer.MAX_VALUE / 4, Math.round(amount * moneyMul))));
     }
 
     /**
