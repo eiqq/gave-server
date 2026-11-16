@@ -1870,6 +1870,8 @@ public final class Guns implements Listener {
                 credit(p, h.target(), amount, died, gun, true);
                 critNow = false;
                 hitIndex = 0;
+                // 볼트 피스톨의 탄착 폭발이 먼저(폭발탄 특성이 붙어도 한 번만 터짐: shot.boom)
+                if (BOLT_MODEL.equals(s.model())) boltBoom(p, gun, s, shot, at, h.target(), d);
                 if (gun != null && !gun.traits.isEmpty()) traits(p, a, gun, s, shot, h.target(), pos, d, amount, died, hit);
                 // 복합궁 화살: 꿰뚫은 개체마다 뒤로 밀침
                 if (!died && h.target() instanceof Gabe hg && mode(s.kind()).fire() == Fire.BOLT) push(w, hg, d, mode(s.kind()).effect());
@@ -1890,7 +1892,31 @@ public final class Guns implements Listener {
             Material mat = b == null ? Material.STONE : b.getType();
             fx().gunHit(at, rb.getHitBlockFace(), mat, d, pellet < 3 && rnd.nextDouble() * shotRate < 1);
             if (sound) impactSound(p, at, mat);
+            if (BOLT_MODEL.equals(s.model())) boltBoom(p, gun, s, shot, at, null, d);
             return at;
+        }
+    }
+
+    /** 볼트 피스톨(옮긴 총, 2026-11-16 사용자 "탄착지점에 기본 폭발피해 ... 피해량의 50%"): 탄이 멈춘 자리에서 터진다(직접 맞은 것은 빼고) */
+    static final String BOLT_MODEL = "gcb_boltpistol";
+
+    private void boltBoom(Player p, Gun gun, Spec s, Shot shot, Location at, Object direct, Vector d) {
+        if (shot.boom) return;
+        shot.boom = true;
+        HitTargets t = host.targets();
+        long now = host.now();
+        Long last = popAt.get(p.getUniqueId());
+        if (last == null || now - last >= 3) {
+            popAt.put(p.getUniqueId(), now);
+            fx().pop(at);
+            Props.soundAround(at, null, Sound.ENTITY_GENERIC_EXPLODE, 0.6f, 1f, 1.5f, 24, -1);
+        }
+        if (t == null) return;
+        double dmg = s.damage() * 0.5;
+        for (Object o : t.inRadius(at, 2.0)) {
+            if (o == direct) continue;
+            boolean k = t.damage(o, new Damage(dmg, DamageType.EXPLOSION, p, t.center(o), d.clone(), "explosive", 0));
+            credit(p, o, dmg, k, gun, false);
         }
     }
 
@@ -2125,14 +2151,22 @@ public final class Guns implements Listener {
         long seed = Props.seedFor(mod ? ev : null, -1);
         double r2 = s.soundRange() * s.soundRange();
         Location at = eye.clone();
+        boolean bolt = BOLT_MODEL.equals(s.model());
         List<Player> to = new ArrayList<>();
         for (Player o : at.getWorld().getPlayers())
             if (o == shooter || o.getLocation().distanceSquared(at) <= r2 && rnd.nextDouble() < othersHear) to.add(o);
         Runnable send = () -> {
             soundLog[soundLogAt++ & 15] = System.nanoTime();
             for (Player o : to) {
-                if (mod) o.playSound(at, Props.NS + ":" + ev, SoundCategory.PLAYERS, 1f, jitter, seed);
-                else o.playSound(at, s.fire(), SoundCategory.PLAYERS, Math.max(1f, (float) (s.soundRange() / 16.0)), s.pitch() * jitter, seed);
+                // 클라는 한 소리의 음량을 1 에서 자르므로 같은 소리(같은 씨앗, 높이, 자리)를 같은 틱에 두 번 보내 겹친다: 쏜 사람 2배,
+                // 볼트 피스톨은 남에게도 0.75 두 번(1.5배). 나머지 남은 예전 그대로 한 번
+                boolean self = o == shooter;
+                int copies = self || bolt ? 2 : 1;
+                float vol = self ? 1f : bolt ? 0.75f : 1f;
+                for (int c = 0; c < copies; c++) {
+                    if (mod) o.playSound(at, Props.NS + ":" + ev, SoundCategory.PLAYERS, vol, jitter, seed);
+                    else o.playSound(at, s.fire(), SoundCategory.PLAYERS, Math.max(vol, (float) (s.soundRange() / 16.0)), s.pitch() * jitter, seed);
+                }
             }
         };
         // 소리 패킷은 다른 스레드에서 보내도 된다(CraftPlayer.playSound 는 패킷을 만들어 connection.send 만 함). 듣는 사람은 지금 틱에 골라 둠

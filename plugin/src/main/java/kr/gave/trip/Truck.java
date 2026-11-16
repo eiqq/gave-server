@@ -379,6 +379,7 @@ public final class Truck implements TripPart {
         if (!alive() || !running() || amount <= 0 || Double.isNaN(amount)) return 0;
         double k = trip.mul("truckDmg") * Math.pow(0.85, Math.min(3, part("p_plate")));
         if (part("p_cooler") > 0 && frac() < 0.25) k *= 0.7;
+        if (part("p_bumper") > 0) k *= 0.9; // 범퍼(2026-11-16 손질): 들이받힘 말고도 늘 10% 덜 깎인다
         // 증강(먹이: 서 있는 사람마다 x1.1)
         k *= game.augments.truckDamageMul(frac());
         amount *= k;
@@ -765,7 +766,7 @@ public final class Truck implements TripPart {
 
     /** 효과를 낼 쪽이 아직 없는 부품(범퍼: 추격전이 증강의 ramMul 을 부르기 전까지)은 안 뜬다. */
     private boolean partReady(String key) {
-        return !key.equals("p_bumper") || game.augments.ready("ramMul");
+        return true; // 범퍼도 이제 늘 효과가 있다(트럭 피해 -10%)
     }
 
     /** 고를 부품 n 개(한도가 안 찬 것, 효과가 달린 것 가운데 무작위). */

@@ -925,7 +925,35 @@ public final class Augments implements GunHooks {
                 if (inv.getItem(s2) == null) inv.setItem(s2, ShopUi.bar(Cat.RISK.pane, d < 0));
             }
         }
+        // 셋 다 마음에 안 들면 안 고르고 넘김(2026-11-16 사용자)
+        inv.setItem(SKIP_SLOT, skipItem());
+        v.actions.put(SKIP_SLOT, () -> skip(p));
         game.shop.show(p, v);
+        return true;
+    }
+
+    /** 카드 화면에서 '안 고르기' 칸(오른쪽 아래, 카드와 테두리 판에 안 겹침) */
+    public static final int SKIP_SLOT = 26;
+
+    private static ItemStack skipItem() {
+        ItemStack it = ItemStack.of(Material.BARRIER);
+        it.setData(DataComponentTypes.ITEM_NAME, Component.text("안 고르기", TextColor.color(0xD8D8D8)).decoration(TextDecoration.ITALIC, false));
+        it.setData(DataComponentTypes.LORE, ItemLore.lore(List.of(Component.text("이 세 장을 버리고 넘긴다", TextColor.color(0x9A9A9A)).decoration(TextDecoration.ITALIC, false))));
+        return it;
+    }
+
+    /** 맨 앞 뽑기를 고르지 않고 버림. 그다음 뽑기가 있으면 그 카드, 아니면 상점(왔던 곳)으로 */
+    public boolean skip(Player p) {
+        Build b = build(p);
+        if (b.pending.peek() == null) return false;
+        Shop.View cur = game.shop.view(p);
+        boolean back = cur != null && cur.back;
+        b.pending.poll();
+        lastLog = "안 고름 " + p.getName();
+        Props.sound(p, null, Sound.UI_BUTTON_CLICK, 0.6f, 1f, 0.8f);
+        if (openCards(p, back)) return true;
+        if (back) game.shop.open(p);
+        else game.shop.close(p);
         return true;
     }
 
