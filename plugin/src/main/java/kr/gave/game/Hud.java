@@ -213,7 +213,7 @@ public final class Hud {
         edges();
         if (overPending && game.state == Game.State.OVER && game.stateTicks() >= game.director.endTicks()) {
             overPending = false;
-            int left = (int) Math.max(40, game.overSeconds * 20L - game.stateTicks());
+            int left = (int) Math.max(40, game.overTicks() - game.stateTicks());
             // 원정: 판 끝 연출(떼가 원을 메움) 뒤에는 맵 전환과 같은 검은 화면 + 가운데 한 줄('모두 게이브가 되었다')로 대기실까지
             if (game.trip.enabled && hasCover("black") && hasPhrase(overKey())) story(List.of(overKey()), left, 0);
             else pushAll(nt(overKey(), null, -1, 0, N_OVER, left));
