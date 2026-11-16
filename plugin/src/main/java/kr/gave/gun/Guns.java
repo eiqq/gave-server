@@ -1909,7 +1909,9 @@ public final class Guns implements Listener {
         if (last == null || now - last >= 3) {
             popAt.put(p.getUniqueId(), now);
             fx().pop(at);
-            Props.soundAround(at, null, Sound.ENTITY_GENERIC_EXPLODE, 0.6f, 1f, 1.5f, 24, -1);
+            // GCB 볼트 피스톨 탄착음 그대로(맞힌 곳마다 boom, 블록이면 boom_block 을 더함, 그쪽 음량 0.75, 32블록)
+            Props.soundAround(at, "gun.gcb_boltpistol.boom", Sound.ENTITY_GENERIC_EXPLODE, 0.75f, 1f, 1.5f, 32, -1);
+            if (direct == null) Props.soundAround(at, "gun.gcb_boltpistol.boom_block", null, 0.75f, 1f, 1f, 32, -1);
         }
         if (t == null) return;
         double dmg = s.damage() * 0.5;
