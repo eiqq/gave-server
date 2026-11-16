@@ -1174,6 +1174,16 @@ public final class Hud {
         blackUntil = -1;
     }
 
+    /** 다시 하기(Game.retry): 판 끝 검은 화면 글과 '판 끝' 알림을 거둔다. */
+    public void retry() {
+        storyStop();
+        overPending = false;
+        for (View v : views.values()) {
+            v.queue.removeIf(n -> n.style() == N_OVER);
+            if (v.cur != null && v.cur.style() == N_OVER) v.cur = null;
+        }
+    }
+
     /** 검은 화면 글 차례가 도는 중인가. */
     public boolean storyActive() {
         return storyAt >= 0 && game.now() - storyAt < (long) storyKeys.size() * storyEach + storyHold;

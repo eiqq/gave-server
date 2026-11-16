@@ -136,6 +136,8 @@ public final class Truck implements TripPart {
     private final Map<String, Integer> parts = new LinkedHashMap<>();
     private int pendingParts;
     private double hornMark = 1;
+    /** 이번 라운드를 열 때의 체력 비율(다시 하기가 터진 트럭을 이 체력으로 되살림). */
+    private double startFrac = 1;
     private final TruckWard ward = new TruckWard();
 
     public Truck(Game game, Trip trip) {
@@ -950,6 +952,7 @@ public final class Truck implements TripPart {
         hp = maxHp;
         hurtFrom = 1;
         hornMark = 1;
+        startFrac = 1;
         dyingAt = -1;
         boomed = false;
         deathCause = null;
@@ -965,6 +968,32 @@ public final class Truck implements TripPart {
     @Override
     public void beginRound(int n) {
         dealtThisRound = 0;
+        startFrac = frac();
+    }
+
+    /** 다시 하기: 무는 표시를 지우고, 터진 트럭은 그 라운드를 열 때의 체력으로 되살린다(부품, 수리 횟수는 그대로). 안 터졌으면 그 체력보다 낮을 때만 채운다. */
+    @Override
+    public void retry() {
+        marks.clear();
+        lampCovers.clear();
+        lampOffs.clear();
+        seekers = biters = 0;
+        double back = Math.max(1, maxHp * startFrac);
+        if (dyingAt < 0) {
+            hp = Math.max(hp, back);
+            return;
+        }
+        dyingAt = -1;
+        boomed = false;
+        deathCause = null;
+        hp = back;
+        hurtFrom = hornMark = frac();
+        if (built) {
+            restoreLights();
+            light(true);
+            spawnDisplays(false);
+        }
+        trip.log("트럭 되살림(다시 하기) 체력 " + (int) hp + "/" + (int) maxHp);
     }
 
     @Override

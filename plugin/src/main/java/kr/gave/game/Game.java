@@ -1,5 +1,6 @@
 package kr.gave.game;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -8,6 +9,12 @@ import java.util.Map;
 import java.util.Random;
 import java.util.logging.Level;
 
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.event.ClickCallback;
+import net.kyori.adventure.text.event.ClickEvent;
+import net.kyori.adventure.text.event.HoverEvent;
+import net.kyori.adventure.text.format.NamedTextColor;
+import net.kyori.adventure.text.format.TextDecoration;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.World;
@@ -32,6 +39,7 @@ import kr.gave.world.Roam;
  * 판 하나(상태 기계와 시계). 모든 모듈을 들고 있고 매 틱 순서대로 부른다.
  *
  * <p>LOBBY → PREP(10초) → WAVE n → BREAK(25초) → WAVE n+1 ... → OVER(서 있는 사람 0, 쓰러진 사람도 일으킬 사람이 없으면) → 기록 → LOBBY.
+ * 진 판의 OVER 동안 채팅의 다시 하기를 누르면 OVER → PREP(20초) → 진 WAVE 로 되감는다({@link #retry}).
  * 웨이브 안의 내용(몇 마리, 어떤 종, 사건)은 Director, 쉬는 시간 상점은 Shop.
  */
 public final class Game implements GunHost {
@@ -75,6 +83,16 @@ public final class Game implements GunHost {
     public boolean autoStart;
     public int minPlayers = 1;
     private long lobbyCountdownAt = -1;
+    /**
+     * 다시 하기(2026-11-16 사용자 "탈락 이후 모두에게 채팅보내서 ... 누르면 탈락한 라운드부터 다시 그때 가진 총기/증강/업그레이드 전부 그대로"):
+     * 진 판(전멸, 트럭 폭발)의 판 끝(OVER) 동안 물을 라운드. 0 이면 묻지 않음. 판 끝은 아무것도 지우지 않으므로(지우는 것은 reset) 되감으면 총, 증강,
+     * 강화, 돈, 트럭 부품, 길과 막이 그대로다. 플레이어에게 알리는 것은 HUD 로만 한다는 규칙의 예외: 누를 칸은 채팅에만 있다(사용자 지시).
+     */
+    private int retryWave;
+    /** 판 끝마다 하나씩 오름(지난 판 끝의 채팅을 눌러도 안 먹게). */
+    private int overSeq;
+    /** 다시 하기 뒤 그 라운드가 열리기까지 준비 시간(초): 상점, 증강을 고를 틈. */
+    public int retrySeconds = 20;
 
     public Game(Gave plugin, World world) {
         this.plugin = plugin;
@@ -149,7 +167,8 @@ public final class Game implements GunHost {
             case LOBBY -> lobbyTick();
             case PREP -> {
                 runModules(false);
-                if (stateTicks() >= prepSeconds * 20L) beginWave(1);
+                // 판 시작이면 1, 다시 하기면 진 라운드(retry 가 wave 를 그 앞으로 둠)
+                if (stateTicks() >= prepSeconds * 20L) beginWave(wave + 1);
             }
             case WAVE -> {
                 runModules(true);
@@ -279,11 +298,76 @@ public final class Game implements GunHost {
     }
 
     public void gameOver() {
+        State was = state;
         set(State.OVER);
         recorded = false;
         run("guns.settle", guns::settle);
         run("director.gameOver", director::gameOver);
         run("trip.over", trip::gameOver);
+        // 진 판이면 다시 하기를 묻는다(발사로 끝난 판은 아님). 웨이브 중에 졌으면 그 웨이브, 쉬는 시간이나 준비 중에 트럭이 터졌으면 다음 웨이브부터
+        overSeq++;
+        retryWave = kr.gave.trip.Trip.END_LAUNCH.equals(trip.endCause()) ? 0 : was == State.WAVE ? Math.max(1, wave) : wave + 1;
+        if (retryWave > 0) run("retry.offer", this::offerRetry);
+    }
+
+    /** 진 판 끝: 접속한 모두에게 채팅으로 다시 하기를 묻는다(누르면 {@link #retry}. 판 끝이 지나 대기실로 가면 늦음). */
+    private void offerRetry() {
+        int seq = overSeq, n = retryWave;
+        Component button = Component.text("[여기를 누르기]", NamedTextColor.GOLD, TextDecoration.BOLD)
+            .hoverEvent(HoverEvent.showText(Component.text(n + "라운드부터, 지금 가진 총, 증강, 강화, 돈 그대로", NamedTextColor.GRAY)))
+            .clickEvent(ClickEvent.callback(a -> {
+                if (!(a instanceof Player p)) return;
+                String no = retry(p.getName(), seq);
+                if (no != null) p.sendMessage(Component.text(no, NamedTextColor.GRAY));
+            }, o -> o.uses(ClickCallback.UNLIMITED_USES).lifetime(Duration.ofMinutes(5))));
+        Component line = Component.text("다시 하시겠습니까? ", NamedTextColor.WHITE).append(button);
+        for (Player p : Bukkit.getOnlinePlayers()) p.sendMessage(line);
+        plugin.getLogger().info("[판] 다시 하기 물음 " + n + "라운드");
+    }
+
+    /**
+     * 다시 하기 누름(채팅 콜백, 메인 스레드, 누구든 먼저 누른 한 사람). 그 판 끝이 아직 도는 중이면 판 끝 연출을 거두고(감독, 보스, 트럭, HUD) 판에 든 모두를
+     * 상점 앞에 체력 가득으로 세운 뒤, 진 라운드 앞 준비 시간({@link #retrySeconds})으로 되감는다. 처음 시도의 기록은 남기고(아직 안 냈으면 지금)
+     * 다시 한 판은 최고 기록에 넣지 않는다(웨이브 건너뛴 판과 같게: Records.skipped). 돌려주는 값: 되감았으면 null, 아니면 누른 사람에게 보일 까닭.
+     */
+    private String retry(String who, int seq) {
+        if (state != State.OVER || seq != overSeq || retryWave <= 0) {
+            boolean going = seq == overSeq && state != State.OVER && state != State.LOBBY;
+            return going ? "벌써 다시 하는 중이다" : "늦었다: 판이 이미 끝났다";
+        }
+        int n = retryWave;
+        retryWave = 0;
+        if (!recorded) finishRecord();
+        records.skipped = true;
+        run("director.retry", director::retry);
+        run("trip.retry", trip::retry);
+        run("mobs.clear", mobs::clear);
+        run("grenades.clear", grenades::clear);
+        run("shotFx.clear", shotFx::clear);
+        run("crates.clear", crates::clear);
+        run("horizon.clear", horizon::clear);
+        run("hud.retry", hud::retry);
+        wave = n - 1;
+        set(State.PREP);
+        stateAt += (retrySeconds - prepSeconds) * 20L;
+        for (Player p : players.inPlay()) {
+            // 죽은, 갇힌, 쓰러진 사람은 쉬는 시간 부활처럼. 서 있던 사람(트럭이 터져 진 판)은 체력만 채워 상점 앞으로
+            run("retry.stand", () -> {
+                if (players.reviveFree(p)) return;
+                players.heal(p, players.get(p).maxHp);
+                p.teleport(players.shopSpot());
+            });
+        }
+        Component line = Component.text(who + " 님이 눌렀다: " + n + "라운드부터 다시", NamedTextColor.GRAY);
+        for (Player p : Bukkit.getOnlinePlayers()) p.sendMessage(line);
+        plugin.getLogger().info("[판] 다시 하기 " + who + " → " + n + "라운드(준비 " + retrySeconds + "초)");
+        return null;
+    }
+
+    /** 운영자 명령 '/gave 다시하기': 지금 판 끝에서 채팅을 누른 것과 같다(누르기가 안 되는 클라, 시험). */
+    public String retry(String who) {
+        String no = retry(who, overSeq);
+        return no != null ? no : "다시 하기: " + (wave + 1) + "라운드 앞 준비 " + retrySeconds + "초";
     }
 
     private void finishRecord() {

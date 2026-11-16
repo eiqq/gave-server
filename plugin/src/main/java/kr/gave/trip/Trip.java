@@ -458,6 +458,12 @@ public final class Trip {
         each("gameOver", TripPart::gameOver);
     }
 
+    /** 다시 하기(Game.retry): 부품마다 판 끝에 한 것을 되돌리고(트럭 되살림, 어두워진 하늘) 판 끝 까닭을 지운다. */
+    public void retry() {
+        each("retry", TripPart::retry);
+        endCause = null;
+    }
+
     public void reset() {
         each("reset", TripPart::reset);
         endCause = null;

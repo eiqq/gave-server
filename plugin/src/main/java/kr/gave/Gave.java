@@ -174,7 +174,7 @@ public final class Gave extends JavaPlugin implements Listener {
 
     /** /gave 웨이브 로 건너뛸 수 있는 가장 큰 웨이브. */
     private static final int WAVE_MAX = 999;
-    private static final List<String> SUBS = List.of("시작", "중지", "상태", "팩", "자동", "원정", "웨이브", "데미지", "공격력", "최대인원", "소환", "시험");
+    private static final List<String> SUBS = List.of("시작", "중지", "상태", "팩", "자동", "원정", "웨이브", "다시하기", "데미지", "공격력", "최대인원", "소환", "시험");
 
     /**
      * /gave 탭 완성: 첫 칸은 하위 명령, 자동과 원정은 on off, 팩은 강제, 소환은 구현된 종. 사람 이름이 오는 칸(시험의 셋째, 소환의 다섯째)만 바닐라 이름 목록(null),
@@ -200,7 +200,7 @@ public final class Gave extends JavaPlugin implements Listener {
             return true;
         }
         if (a.length == 0) {
-            s.sendMessage("/gave 시작 | 중지 | 상태 | 팩 [강제] | 자동 [on|off] | 원정 [on|off] | 웨이브 <n> | 데미지 [배율] | 공격력 [배율] | 소환 <종> [수] [거리] [이름] | 시험 <행동> <이름> ...");
+            s.sendMessage("/gave 시작 | 중지 | 상태 | 팩 [강제] | 자동 [on|off] | 원정 [on|off] | 웨이브 <n> | 다시하기 | 데미지 [배율] | 공격력 [배율] | 최대인원 [수] | 소환 <종> [수] [거리] [이름] | 시험 <행동> <이름> ...");
             return true;
         }
         switch (a[0]) {
@@ -262,6 +262,7 @@ public final class Gave extends JavaPlugin implements Listener {
                 game.beginWave(n);
                 s.sendMessage(game.status());
             }
+            case "다시하기", "retry" -> s.sendMessage(game.retry(s.getName()));
             case "데미지", "damage" -> s.sendMessage(damageCmd(a));
             case "공격력", "power" -> s.sendMessage(powerCmd(a));
             case "최대인원", "maxplayer", "maxplayers" -> s.sendMessage(maxPlayersCmd(a));

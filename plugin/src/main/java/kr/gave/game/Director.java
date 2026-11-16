@@ -960,6 +960,20 @@ public final class Director {
         log("판 끝 연출: 남은 " + n + "마리 중앙 원으로");
     }
 
+    /** 다시 하기(Game.retry): 판 끝 연출을 거두고 보스 고리를 되돌린다. 모여든 게이브는 Game 이 치우고, 판 단위 기록(덱, 나온 종, 변이)과 묶음은 그대로. */
+    public void retry() {
+        ending = false;
+        endLured.clear();
+        waveRunning = false;
+        if (boss != null) {
+            try {
+                boss.retry();
+            } catch (RuntimeException e) {
+                game.plugin.getLogger().log(java.util.logging.Level.WARNING, "[감독] 보스 고리 retry 예외", e);
+            }
+        }
+    }
+
     /** 판 끝에서 기록을 보여 주기까지 틱(모여드는 시간). */
     public int endTicks() {
         return Tune.END_TICKS;
@@ -1433,6 +1447,10 @@ public final class Director {
 
         /** 전멸(판 끝 연출 시작). */
         default void gameOver() {
+        }
+
+        /** 다시 하기(Game.retry, 판 끝 연출 중): 보스와 그 땅, 하늘을 거둠. 판 단위 기록(엔딩을 봤나)은 그대로. */
+        default void retry() {
         }
 
         /** 판 시작, 판 끝. */
